@@ -1834,117 +1834,180 @@ footer {
 .pot-conditions.dark-text { color: #94a3b8; }
 .pot-result { font-size: 14px; font-weight: 700; margin-top: 12px; padding: 8px 14px; border-radius: 10px; display: inline-block; transition: all 0.3s; }
 
-/* ===== Starch test 10.2 — Lab Setup ===== */
+/* ===== Starch test 10.2 — Single Scene ===== */
 .starch-interactive { text-align: center; margin: 16px 0; }
-.starch-lab {
-  display: flex; align-items: flex-end; justify-content: center;
-  gap: 16px; min-height: 180px; flex-wrap: wrap;
-  padding: 10px 0;
+.starch-scene {
+  position: relative; width: 100%; max-width: 320px;
+  height: 280px; margin: 0 auto;
+  border-radius: 18px; transition: all 0.8s ease;
+  background: linear-gradient(180deg, #f0fdf4 0%, #e2e8f0 100%);
+  overflow: visible;
 }
-.lab-beaker {
-  width: 70px; height: 80px;
-  border: 3px solid #94a3b8; border-top: none;
-  border-radius: 0 0 12px 12px;
-  position: relative; overflow: hidden;
+.starch-scene.dark-mode {
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+}
+/* Leaf that moves */
+.s-leaf {
+  position: absolute; left: 50%; top: 20px;
+  transform: translateX(-50%);
+  width: 56px; height: 70px;
+  z-index: 10; transition: all 0.8s ease;
+  opacity: 0;
+}
+.s-leaf.visible { opacity: 1; }
+.s-leaf.in-beaker { top: 120px; transform: translateX(-50%) rotate(-15deg) scale(0.75); }
+.s-leaf.on-table { top: 30px; transform: translateX(-50%) rotate(0deg) scale(1); }
+.s-leaf-blade {
+  width: 50px; height: 55px;
+  border-radius: 6px 60% 50% 6px;
+  background: #e5e7eb; border: 2px solid #94a3b8;
+  transition: all 0.8s ease; position: relative;
+}
+.s-leaf-vein {
+  position: absolute; top: 14px; left: 10px;
+  width: 30px; height: 2px;
+  background: rgba(0,0,0,0.12);
+  pointer-events: none;
+}
+.s-leaf-vein::before, .s-leaf-vein::after {
+  content: ''; position: absolute; width: 2px; height: 16px;
+  background: rgba(0,0,0,0.08);
+}
+.s-leaf-vein::before { left: 8px; top: -6px; transform: rotate(30deg); }
+.s-leaf-vein::after { left: 20px; top: -6px; transform: rotate(-30deg); }
+.s-leaf-stem {
+  width: 3px; height: 12px;
+  background: #94a3b8; margin: 0 auto;
+  border-radius: 2px; transition: all 0.8s;
+}
+.s-leaf-blade.green-l { background: linear-gradient(135deg, #16a34a, #4ade80); border-color: #15803d; }
+.s-leaf-stem.green-l { background: #15803d; }
+.s-leaf-blade.soft-l { background: linear-gradient(135deg, #6ee7b7, #a7f3d0); border-color: #34d399; }
+.s-leaf-blade.white-l { background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border-color: #cbd5e1; }
+.s-leaf-stem.white-l { background: #cbd5e1; }
+.s-leaf-blade.blueblack-l { background: linear-gradient(135deg, #1e1b4b, #312e81); border-color: #1e1b4b; }
+.s-leaf-blade.brown-l { background: linear-gradient(135deg, #78350f, #92400e); border-color: #78350f; }
+/* Beaker */
+.s-beaker {
+  position: absolute; bottom: 60px; left: 50%;
+  transform: translateX(-50%);
+  width: 90px; height: 100px;
+  border: 4px solid #94a3b8; border-top: none;
+  border-radius: 0 0 16px 16px;
+  overflow: hidden; opacity: 0;
   transition: all 0.5s;
 }
-.lab-beaker-liquid {
+.s-beaker.visible { opacity: 1; }
+.s-beaker-liquid {
   position: absolute; bottom: 0; left: 0; right: 0;
-  height: 55px; border-radius: 0 0 9px 9px;
-  transition: all 0.8s ease;
+  height: 65px; border-radius: 0 0 12px 12px;
+  transition: all 0.6s;
 }
-.lab-beaker-liquid.water-liq { background: linear-gradient(to top, #93c5fd, #dbeafe); }
-.lab-beaker-liquid.alcohol-liq { background: linear-gradient(to top, #fde68a, #fef9c3); }
-.lab-burner {
-  width: 40px; height: 30px; margin: 4px auto 0;
-  position: relative;
+.s-beaker-liquid.water { background: linear-gradient(to top, #60a5fa, #bfdbfe); }
+.s-beaker-liquid.alcohol { background: linear-gradient(to top, #fbbf24, #fef3c7); }
+.s-beaker-label {
+  position: absolute; bottom: 4px; left: 0; right: 0;
+  font-size: 10px; font-weight: 800; color: rgba(0,0,0,0.4);
+  text-align: center;
 }
-.lab-flame {
-  width: 16px; height: 24px;
-  background: linear-gradient(to top, #f97316, #fbbf24, #fef08a);
+.s-bubbles { position: absolute; bottom: 20px; left: 0; right: 0; pointer-events: none; }
+.s-bub {
+  position: absolute; width: 6px; height: 6px;
+  background: rgba(255,255,255,0.7); border-radius: 50%;
+  animation: starchBub 1.2s ease-out infinite;
+}
+@keyframes starchBub { 0%{bottom:0;opacity:1} 100%{bottom:60px;opacity:0} }
+/* Burner */
+.s-burner {
+  position: absolute; bottom: 10px; left: 50%;
+  transform: translateX(-50%);
+  text-align: center; opacity: 0;
+  transition: all 0.5s;
+}
+.s-burner.visible { opacity: 1; }
+.s-flame {
+  width: 20px; height: 30px;
+  background: linear-gradient(to top, #ea580c, #f97316, #fbbf24, #fef08a);
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
   margin: 0 auto;
-  animation: flameFlicker 0.3s ease-in-out infinite alternate;
-  opacity: 0; transition: opacity 0.5s;
+  animation: sFlameFlicker 0.25s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 8px rgba(249,115,22,0.6));
 }
-.lab-flame.on { opacity: 1; }
-@keyframes flameFlicker { 0%{transform:scaleX(1) scaleY(1)} 100%{transform:scaleX(0.85) scaleY(1.08)} }
-.lab-burner-base {
-  width: 36px; height: 8px;
-  background: #64748b; border-radius: 3px;
-  margin: 0 auto;
+@keyframes sFlameFlicker { 0%{transform:scaleX(1) scaleY(1)} 100%{transform:scaleX(0.8) scaleY(1.1)} }
+.s-burner-neck { width: 6px; height: 10px; background: #475569; margin: 0 auto; }
+.s-burner-base { width: 44px; height: 8px; background: #64748b; border-radius: 4px; margin: 0 auto; }
+/* Iodine dropper */
+.s-dropper {
+  position: absolute; top: 10px; left: 50%;
+  transform: translateX(-50%);
+  text-align: center; opacity: 0;
+  transition: all 0.5s; z-index: 12;
 }
-.lab-burner-stand {
-  width: 4px; height: 14px;
-  background: #94a3b8;
-  margin: 0 auto;
+.s-dropper.visible { opacity: 1; }
+.s-dropper-bulb {
+  width: 24px; height: 24px;
+  background: radial-gradient(circle, #fca5a5, #ef4444);
+  border-radius: 50%; margin: 0 auto;
+  border: 2px solid #dc2626;
 }
-.starch-leaf-realistic {
-  width: 50px; height: 65px;
-  position: relative; transition: all 0.8s ease;
-  margin: 0 auto;
+.s-dropper-tube {
+  width: 6px; height: 20px;
+  background: #94a3b8; margin: 0 auto;
+  border-radius: 0 0 3px 3px;
 }
-.starch-leaf-blade {
-  width: 50px; height: 55px;
-  border-radius: 5px 50% 50% 5px;
-  background: #e5e7eb;
-  position: relative;
-  transition: all 0.8s ease;
-  border: 2px solid #94a3b8;
-}
-.starch-leaf-blade::after {
-  content: ''; position: absolute;
-  top: 50%; left: 5px; right: 10px;
-  height: 2px; background: rgba(0,0,0,0.15);
-  transform: translateY(-50%);
-}
-.starch-leaf-blade::before {
-  content: ''; position: absolute;
-  top: 10px; bottom: 10px; left: 12px;
-  width: 2px; background: rgba(0,0,0,0.1);
-  transform: rotate(20deg);
-}
-.starch-leaf-petiole {
-  width: 3px; height: 14px;
-  background: #94a3b8;
-  margin: 0 auto;
-  transition: all 0.8s;
-}
-.starch-leaf-blade.green-l { background: linear-gradient(135deg, #22c55e, #4ade80); border-color: #16a34a; }
-.starch-leaf-petiole.green-l { background: #16a34a; }
-.starch-leaf-blade.boiled-l { background: linear-gradient(135deg, #86efac, #bbf7d0); border-color: #4ade80; }
-.starch-leaf-blade.white-l { background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border-color: #cbd5e1; }
-.starch-leaf-petiole.white-l { background: #cbd5e1; }
-.starch-leaf-blade.blueblack-l { background: linear-gradient(135deg, #1e1b4b, #312e81); border-color: #1e1b4b; }
-.starch-leaf-blade.brown-l { background: linear-gradient(135deg, #78350f, #92400e); border-color: #78350f; }
-.starch-leaf-in-beaker {
-  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%) rotate(-20deg);
-  z-index: 2;
-}
-.starch-iodine-drop {
-  width: 10px; height: 14px;
-  background: linear-gradient(to bottom, #92400e, #451a03);
+.s-drop {
+  width: 8px; height: 12px;
+  background: linear-gradient(to bottom, #78350f, #451a03);
   border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
-  position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
-  opacity: 0; transition: opacity 0.5s;
+  margin: 2px auto 0; opacity: 0;
+  transition: opacity 0.3s;
 }
-.starch-iodine-drop.show { opacity: 1; animation: iodineDrip 1s ease-in forwards; }
-@keyframes iodineDrip { 0%{top:-18px} 100%{top:5px;opacity:0} }
-.lab-label {
-  font-size: 11px; font-weight: 800;
-  margin-top: 4px; color: #64748b;
+.s-drop.dripping {
+  opacity: 1;
+  animation: sDropFall 1s ease-in infinite;
+}
+@keyframes sDropFall { 0%{transform:translateY(0);opacity:1} 100%{transform:translateY(40px);opacity:0} }
+/* Dark scene stars for 10.2 */
+.starch-scene.dark-mode .s-star {
+  position: absolute; width: 2px; height: 2px;
+  background: white; border-radius: 50%;
+  animation: twinkle 2s ease-in-out infinite;
 }
 .starch-status {
   font-size: 15px; font-weight: 700;
   padding: 10px 14px; border-radius: 10px;
   margin-top: 14px; transition: all 0.3s;
 }
-
-.dark-toggle {
-  text-align: center; margin-top: 10px;
+.dark-toggle { text-align: center; margin-top: 12px; }
+.dark-toggle-label {
+  display: inline-flex; align-items: center; gap: 8px;
   font-size: 14px; font-weight: 700; color: #475569;
+  cursor: pointer; user-select: none;
+  padding: 8px 16px; border-radius: 12px;
+  border: 2px solid #e5e7eb; background: #f8fafc;
+  transition: all 0.3s;
 }
-.dark-toggle input { margin-right: 6px; transform: scale(1.2); }
+.dark-toggle-label:hover { border-color: #6366f1; background: #eef2ff; }
+.dark-toggle input { display: none; }
+.dark-toggle-switch {
+  width: 40px; height: 22px;
+  background: #cbd5e1; border-radius: 11px;
+  position: relative; transition: all 0.3s;
+  display: inline-block;
+}
+.dark-toggle-switch::after {
+  content: ''; position: absolute;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: white; top: 2px; left: 2px;
+  transition: all 0.3s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.dark-toggle input:checked ~ .dark-toggle-switch {
+  background: #6366f1;
+}
+.dark-toggle input:checked ~ .dark-toggle-switch::after {
+  left: 20px;
+}
 
 /* ===== Variegated leaf 10.3 — Realistic ===== */
 .variegated-int { text-align: center; margin: 16px 0; }
@@ -3376,64 +3439,50 @@ footer {
       <div class="ncert-tag">Activity 10.2</div>
       <div class="subtitle">Starch Test in Leaves (Iodine Test)</div>
       <div class="activity-visual interactive" id="act102">
-        <p class="interact-hint">&#128070; Follow the steps — watch the leaf go through the lab test!</p>
+        <p class="interact-hint">&#128070; Follow the steps — watch the leaf go into beakers!</p>
         <div class="starch-interactive">
-          <div class="starch-lab">
-            <!-- Leaf display area -->
-            <div id="starchLeafArea">
-              <div class="starch-leaf-realistic" id="starchLeafR">
-                <div class="starch-leaf-blade" id="starchBlade"></div>
-                <div class="starch-leaf-petiole" id="starchPetiole"></div>
-              </div>
-              <div class="lab-label" id="leafLabel">Leaf</div>
+          <!-- Single scene: beaker + leaf that moves -->
+          <div class="starch-scene" id="starchScene">
+            <!-- The leaf (moves via JS) -->
+            <div class="s-leaf" id="sLeaf">
+              <div class="s-leaf-blade" id="sLeafBlade"></div>
+              <div class="s-leaf-stem" id="sLeafStem"></div>
+              <div class="s-leaf-vein"></div>
             </div>
-            <!-- Beaker 1: Water -->
-            <div id="beaker1Area" style="opacity:0.3;transition:opacity 0.5s;">
-              <div class="lab-beaker" id="beaker1">
-                <div class="lab-beaker-liquid water-liq"></div>
-              </div>
-              <div class="lab-burner">
-                <div class="lab-flame" id="flame1"></div>
-                <div class="lab-burner-stand"></div>
-                <div class="lab-burner-base"></div>
-              </div>
-              <div class="lab-label">Water</div>
+            <!-- Beaker -->
+            <div class="s-beaker" id="sBeaker">
+              <div class="s-beaker-liquid" id="sLiquid"></div>
+              <div class="s-beaker-label" id="sBeakerLabel"></div>
+              <div class="s-bubbles" id="sBubbles"></div>
             </div>
-            <!-- Beaker 2: Alcohol -->
-            <div id="beaker2Area" style="opacity:0.3;transition:opacity 0.5s;">
-              <div class="lab-beaker" id="beaker2">
-                <div class="lab-beaker-liquid alcohol-liq"></div>
-              </div>
-              <div class="lab-burner">
-                <div class="lab-flame" id="flame2"></div>
-                <div class="lab-burner-stand"></div>
-                <div class="lab-burner-base"></div>
-              </div>
-              <div class="lab-label">Alcohol</div>
+            <!-- Burner under beaker -->
+            <div class="s-burner" id="sBurner">
+              <div class="s-flame" id="sFlame"></div>
+              <div class="s-burner-neck"></div>
+              <div class="s-burner-base"></div>
             </div>
             <!-- Iodine dropper -->
-            <div id="iodineArea" style="opacity:0.3;transition:opacity 0.5s;">
-              <div style="position:relative;width:50px;height:65px;">
-                <div class="starch-leaf-realistic" style="transform:scale(0.8);">
-                  <div class="starch-leaf-blade" id="iodineLeafBlade"></div>
-                  <div class="starch-leaf-petiole" id="iodineLeafPetiole"></div>
-                </div>
-                <div class="starch-iodine-drop" id="iodineDrop"></div>
-              </div>
-              <div class="lab-label">+ Iodine</div>
+            <div class="s-dropper" id="sDropper">
+              <div class="s-dropper-bulb"></div>
+              <div class="s-dropper-tube"></div>
+              <div class="s-drop" id="sDrop"></div>
             </div>
           </div>
           <div class="starch-status" id="starchStatus">Click Step 1 to begin the experiment</div>
         </div>
         <div class="act-controls">
           <button class="act-btn step-btn" id="s102_1" onclick="starchStep(1)">1. Pluck Leaf &#127811;</button>
-          <button class="act-btn step-btn" id="s102_2" onclick="starchStep(2)" disabled>2. Boil in Water &#129531;</button>
+          <button class="act-btn step-btn" id="s102_2" onclick="starchStep(2)" disabled>2. Boil in Water &#128293;</button>
           <button class="act-btn step-btn" id="s102_3" onclick="starchStep(3)" disabled>3. Boil in Alcohol &#129514;</button>
           <button class="act-btn step-btn" id="s102_4" onclick="starchStep(4)" disabled>4. Add Iodine &#128167;</button>
           <button class="act-btn reset" onclick="starchReset()">&#128260; Reset</button>
         </div>
         <div class="dark-toggle">
-          <label><input type="checkbox" id="darkCheck" onchange="starchReset()"> &#127769; What if the leaf was kept in dark?</label>
+          <label class="dark-toggle-label" id="darkToggleLabel">
+            <input type="checkbox" id="darkCheck" onchange="starchReset()">
+            <span class="dark-toggle-switch"></span>
+            &#127769; Leaf was kept in DARK (no sunlight)
+          </label>
         </div>
       </div>
       <div class="activity-details">
@@ -4305,15 +4354,22 @@ function setPot(condition) {
   }
 }
 
-// ===== Activity 10.2: Starch Test =====
+// ===== Activity 10.2: Starch Test (Single Scene) =====
 var starchCurrentStep = 0;
 function starchStep(step) {
   if (step !== starchCurrentStep + 1) return;
   starchCurrentStep = step;
-  var blade = document.getElementById('starchBlade');
-  var petiole = document.getElementById('starchPetiole');
-  var iodBlade = document.getElementById('iodineLeafBlade');
-  var iodPetiole = document.getElementById('iodineLeafPetiole');
+  var scene = document.getElementById('starchScene');
+  var leaf = document.getElementById('sLeaf');
+  var blade = document.getElementById('sLeafBlade');
+  var stem = document.getElementById('sLeafStem');
+  var beaker = document.getElementById('sBeaker');
+  var liquid = document.getElementById('sLiquid');
+  var bLabel = document.getElementById('sBeakerLabel');
+  var burner = document.getElementById('sBurner');
+  var bubbles = document.getElementById('sBubbles');
+  var dropper = document.getElementById('sDropper');
+  var drop = document.getElementById('sDrop');
   var status = document.getElementById('starchStatus');
   var isDark = document.getElementById('darkCheck').checked;
 
@@ -4326,62 +4382,115 @@ function starchStep(step) {
 
   switch(step) {
     case 1:
-      blade.className = 'starch-leaf-blade green-l';
-      petiole.className = 'starch-leaf-petiole green-l';
-      document.getElementById('leafLabel').textContent = isDark ? 'Leaf (from dark)' : 'Leaf (from sun)';
-      status.innerHTML = isDark ? '🌙 Leaf plucked from plant kept in <strong>DARK</strong> for 3 days' : '☀️ Leaf plucked from plant in <strong>SUNLIGHT</strong>';
-      status.style.background = isDark ? '#f1f5f9' : '#dcfce7';
+      if (isDark) {
+        scene.classList.add('dark-mode');
+        for (var s = 0; s < 15; s++) {
+          var star = document.createElement('div');
+          star.className = 's-star';
+          star.style.top = Math.random() * 40 + '%';
+          star.style.left = Math.random() * 100 + '%';
+          star.style.animationDelay = Math.random() * 2 + 's';
+          scene.appendChild(star);
+        }
+      }
+      leaf.classList.add('visible');
+      blade.className = 's-leaf-blade green-l';
+      stem.className = 's-leaf-stem green-l';
+      leaf.classList.add('on-table');
+      status.innerHTML = isDark
+        ? '🌙 Leaf plucked from plant kept in <strong>DARK</strong> for 3 days (no photosynthesis)'
+        : '☀️ Fresh green leaf plucked from plant in <strong>SUNLIGHT</strong>';
+      status.style.background = isDark ? '#1e293b' : '#dcfce7';
+      status.style.color = isDark ? '#94a3b8' : '#166534';
       break;
     case 2:
-      blade.className = 'starch-leaf-blade boiled-l';
-      document.getElementById('beaker1Area').style.opacity = '1';
-      document.getElementById('flame1').classList.add('on');
-      status.innerHTML = '🔥 Leaf boiled in <strong>water</strong> — softened! (Burner ON)';
+      scene.classList.remove('dark-mode');
+      scene.querySelectorAll('.s-star').forEach(function(s) { s.remove(); });
+      status.style.color = '';
+      beaker.classList.add('visible');
+      burner.classList.add('visible');
+      liquid.className = 's-beaker-liquid water';
+      bLabel.textContent = 'WATER';
+      leaf.classList.remove('on-table');
+      leaf.classList.add('in-beaker');
+      blade.className = 's-leaf-blade soft-l';
+      bubbles.innerHTML = '';
+      for (var b = 0; b < 4; b++) {
+        var bub = document.createElement('div');
+        bub.className = 's-bub';
+        bub.style.left = (20 + Math.random() * 40) + 'px';
+        bub.style.animationDelay = (Math.random() * 1) + 's';
+        bubbles.appendChild(bub);
+      }
+      status.innerHTML = '🔥 Leaf <strong>dipped in boiling water</strong> — softening! Flame is ON.';
       status.style.background = '#dbeafe';
       break;
     case 3:
-      blade.className = 'starch-leaf-blade white-l';
-      petiole.className = 'starch-leaf-petiole white-l';
-      document.getElementById('flame1').classList.remove('on');
-      document.getElementById('beaker2Area').style.opacity = '1';
-      document.getElementById('flame2').classList.add('on');
-      status.innerHTML = '🧪 Boiled in <strong>alcohol</strong> (water bath) — chlorophyll removed! Leaf is now <strong>white/pale</strong>';
-      status.style.background = '#f8fafc';
+      leaf.classList.remove('in-beaker');
+      leaf.classList.add('on-table');
+      blade.className = 's-leaf-blade white-l';
+      stem.className = 's-leaf-stem white-l';
+      setTimeout(function() {
+        liquid.className = 's-beaker-liquid alcohol';
+        bLabel.textContent = 'ALCOHOL';
+        leaf.classList.remove('on-table');
+        leaf.classList.add('in-beaker');
+        bubbles.innerHTML = '';
+        for (var b = 0; b < 3; b++) {
+          var bub = document.createElement('div');
+          bub.className = 's-bub';
+          bub.style.left = (25 + Math.random() * 30) + 'px';
+          bub.style.animationDelay = (Math.random() * 1) + 's';
+          bubbles.appendChild(bub);
+        }
+      }, 600);
+      status.innerHTML = '🧪 Leaf taken out, then <strong>dipped in alcohol</strong> — chlorophyll dissolves! Leaf turning <strong>white</strong>.';
+      status.style.background = '#fef9c3';
       break;
     case 4:
-      document.getElementById('flame2').classList.remove('on');
-      document.getElementById('iodineArea').style.opacity = '1';
-      document.getElementById('iodineDrop').classList.add('show');
-      if (isDark) {
-        iodBlade.className = 'starch-leaf-blade brown-l';
-        iodPetiole.className = 'starch-leaf-petiole';
-        status.innerHTML = '❌ No blue-black colour! Leaf stays <strong>brown</strong>. No starch = <strong>No photosynthesis in dark!</strong>';
-        status.style.background = '#fee2e2';
-      } else {
-        iodBlade.className = 'starch-leaf-blade blueblack-l';
-        iodPetiole.className = 'starch-leaf-petiole';
-        status.innerHTML = '✅ Leaf turns <strong>BLUE-BLACK!</strong> Starch is present = <strong>Photosynthesis happened!</strong>';
-        status.style.background = '#dcfce7';
-      }
+      leaf.classList.remove('in-beaker');
+      leaf.classList.add('on-table');
+      beaker.classList.remove('visible');
+      burner.classList.remove('visible');
+      bubbles.innerHTML = '';
+      dropper.classList.add('visible');
+      drop.classList.add('dripping');
+      setTimeout(function() {
+        if (isDark) {
+          blade.className = 's-leaf-blade brown-l';
+          stem.className = 's-leaf-stem';
+          status.innerHTML = '❌ Leaf stays <strong>BROWN</strong>! No starch. No photosynthesis happened in dark!';
+          status.style.background = '#fee2e2';
+        } else {
+          blade.className = 's-leaf-blade blueblack-l';
+          stem.className = 's-leaf-stem';
+          status.innerHTML = '✅ Leaf turns <strong>BLUE-BLACK!</strong> Starch IS present = <strong>Photosynthesis happened!</strong>';
+          status.style.background = '#dcfce7';
+        }
+        drop.classList.remove('dripping');
+      }, 1200);
       break;
   }
 }
 
 function starchReset() {
   starchCurrentStep = 0;
-  document.getElementById('starchBlade').className = 'starch-leaf-blade';
-  document.getElementById('starchPetiole').className = 'starch-leaf-petiole';
-  document.getElementById('iodineLeafBlade').className = 'starch-leaf-blade';
-  document.getElementById('iodineLeafPetiole').className = 'starch-leaf-petiole';
-  document.getElementById('leafLabel').textContent = 'Leaf';
-  document.getElementById('starchStatus').textContent = 'Click Step 1 to begin the experiment';
-  document.getElementById('starchStatus').style.background = 'transparent';
-  document.getElementById('beaker1Area').style.opacity = '0.3';
-  document.getElementById('beaker2Area').style.opacity = '0.3';
-  document.getElementById('iodineArea').style.opacity = '0.3';
-  document.getElementById('flame1').classList.remove('on');
-  document.getElementById('flame2').classList.remove('on');
-  document.getElementById('iodineDrop').classList.remove('show');
+  var scene = document.getElementById('starchScene');
+  scene.classList.remove('dark-mode');
+  scene.querySelectorAll('.s-star').forEach(function(s) { s.remove(); });
+  var leaf = document.getElementById('sLeaf');
+  leaf.className = 's-leaf';
+  document.getElementById('sLeafBlade').className = 's-leaf-blade';
+  document.getElementById('sLeafStem').className = 's-leaf-stem';
+  document.getElementById('sBeaker').classList.remove('visible');
+  document.getElementById('sBurner').classList.remove('visible');
+  document.getElementById('sDropper').classList.remove('visible');
+  document.getElementById('sDrop').classList.remove('dripping');
+  document.getElementById('sBubbles').innerHTML = '';
+  var status = document.getElementById('starchStatus');
+  status.textContent = 'Click Step 1 to begin the experiment';
+  status.style.background = 'transparent';
+  status.style.color = '';
   for (var i = 1; i <= 4; i++) {
     var btn = document.getElementById('s102_' + i);
     btn.classList.remove('done'); btn.disabled = i !== 1;
