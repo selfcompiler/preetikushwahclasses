@@ -1,0 +1,3454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch 3: Electricity - Circuits and their Components — NCERT Curiosity | Class 7 Science</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --elec-dark: #92400e;
+  --elec-mid: #f59e0b;
+  --elec-light: #fbbf24;
+  --elec-pale: #fef3c7;
+  --elec-bg: #fffbeb;
+  --wire-blue: #3b82f6;
+  --metal: #64748b;
+  --text: #1c1917;
+  --card: #ffffff;
+  --green: #22c55e;
+  --green-dark: #166534;
+  --red: #ef4444;
+  --purple: #8b5cf6;
+  --teal: #14b8a6;
+  --pink: #ec4899;
+  --orange: #fb923c;
+  --blue-pale: #dbeafe;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--elec-bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ============= TOP NAV ============= */
+.top-nav {
+  background: white;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 110;
+}
+.nav-link {
+  display: inline-block;
+  background: var(--elec-bg);
+  color: var(--elec-dark);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1.5px solid var(--elec-pale);
+  transition: all 0.2s;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+}
+.nav-link:hover { background: var(--elec-pale); transform: translateY(-1px); }
+.nav-prev { }
+.nav-next-disabled { opacity: 0.4; pointer-events: none; }
+.nav-spacer { flex: 1; }
+.share-btn { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+.share-btn:hover { background: #dbeafe; }
+
+/* ============= NAV TOC ============= */
+.toc-bar {
+  background: linear-gradient(135deg, #92400e, #f59e0b);
+  padding: 12px 16px;
+  position: sticky;
+  top: 44px;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.toc-bar a {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-right: 6px;
+  transition: all 0.2s;
+}
+.toc-bar a:hover {
+  background: rgba(255,255,255,0.35);
+  transform: translateY(-2px);
+}
+
+/* ============= HERO ============= */
+.hero {
+  background: linear-gradient(180deg, #78350f 0%, #b45309 25%, #f59e0b 55%, #fef3c7 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 460px;
+  padding-bottom: 30px;
+}
+
+/* Lightning bolts */
+.lightning {
+  position: absolute;
+  width: 4px;
+  opacity: 0;
+  z-index: 3;
+  animation: lightningFlash 4s ease-in-out infinite;
+}
+.lightning::before, .lightning::after {
+  content: '';
+  position: absolute;
+  background: #fef08a;
+}
+.lightning-1 {
+  left: 12%;
+  top: 30px;
+  height: 80px;
+  background: linear-gradient(to bottom, #fef08a, #fbbf24);
+  transform: rotate(15deg);
+  animation-delay: 0s;
+}
+.lightning-2 {
+  right: 15%;
+  top: 50px;
+  height: 60px;
+  background: linear-gradient(to bottom, #fef08a, #fbbf24);
+  transform: rotate(-10deg);
+  animation-delay: 2s;
+}
+.lightning-3 {
+  left: 40%;
+  top: 20px;
+  height: 70px;
+  background: linear-gradient(to bottom, #fef08a, #fbbf24);
+  transform: rotate(5deg);
+  animation-delay: 1s;
+}
+@keyframes lightningFlash {
+  0%, 85%, 100% { opacity: 0; }
+  87% { opacity: 1; }
+  89% { opacity: 0.2; }
+  91% { opacity: 1; }
+  95% { opacity: 0; }
+}
+
+/* Spark particles */
+.spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fef08a;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px rgba(254,240,138,0.8);
+  animation: sparkFloat 3s ease-in-out infinite;
+}
+.spark:nth-child(1) { left: 20%; top: 80px; animation-delay: 0s; }
+.spark:nth-child(2) { left: 50%; top: 60px; animation-delay: 0.5s; }
+.spark:nth-child(3) { left: 75%; top: 90px; animation-delay: 1s; }
+.spark:nth-child(4) { left: 35%; top: 40px; animation-delay: 1.5s; }
+.spark:nth-child(5) { right: 25%; top: 50px; animation-delay: 2s; }
+.spark:nth-child(6) { left: 60%; top: 100px; animation-delay: 2.5s; }
+@keyframes sparkFloat {
+  0%,100% { opacity: 0; transform: translate(0,0) scale(0.5); }
+  25% { opacity: 1; transform: translate(10px,-15px) scale(1.2); }
+  50% { opacity: 0.6; transform: translate(-5px,-30px) scale(0.8); }
+  75% { opacity: 0.3; transform: translate(15px,-45px) scale(0.4); }
+}
+
+.hero-content { position: relative; z-index: 10; text-align: center; padding: 36px 16px 0; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.4);
+  border: 2px solid rgba(255,255,255,0.7);
+  border-radius: 30px;
+  padding: 5px 18px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #78350f;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(28px, 6vw, 54px);
+  color: #fffbeb;
+  text-shadow: 0 2px 8px rgba(120,53,15,0.5);
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+.hero p { color: #fffbeb; font-size: 15px; font-weight: 700; opacity: 0.9; margin-bottom: 16px; }
+
+/* Hero Circuit Scene */
+.hero-scene {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  height: 220px;
+}
+
+/* Battery in hero */
+.hero-battery {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 70px;
+  height: 100px;
+  background: linear-gradient(to bottom, #94a3b8, #64748b);
+  border-radius: 6px;
+  border: 3px solid #475569;
+  z-index: 5;
+}
+.hero-battery::before {
+  content: '+';
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 18px;
+  background: #ef4444;
+  border-radius: 4px 4px 0 0;
+  color: white;
+  font-weight: 900;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.hero-battery::after {
+  content: '-';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #1e293b;
+  font-weight: 900;
+  font-size: 18px;
+}
+.batt-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 9px;
+  font-weight: 800;
+  color: white;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Wire path in hero */
+.hero-wire {
+  position: absolute;
+  background: var(--wire-blue);
+  z-index: 3;
+}
+.wire-top {
+  top: 28px;
+  left: calc(10% + 35px);
+  width: calc(80% - 35px);
+  height: 4px;
+  border-radius: 2px;
+}
+.wire-right {
+  right: 10%;
+  top: 28px;
+  width: 4px;
+  height: calc(50% - 28px + 20px);
+  border-radius: 2px;
+}
+.wire-bottom {
+  bottom: 50px;
+  left: calc(10% + 35px);
+  width: calc(80% - 35px);
+  height: 4px;
+  border-radius: 2px;
+}
+.wire-left {
+  left: calc(10% + 33px);
+  top: calc(50% + 20px);
+  width: 4px;
+  height: calc(50% - 70px);
+  border-radius: 2px;
+}
+
+/* Current flow dots in hero */
+.current-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #fef08a;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 3px rgba(254,240,138,0.9);
+  z-index: 6;
+}
+.cd-1 { top: 24px; animation: flowRight 3s linear infinite; left: calc(10% + 35px); }
+.cd-2 { top: 24px; animation: flowRight 3s linear infinite 1s; left: calc(10% + 35px); }
+.cd-3 { top: 24px; animation: flowRight 3s linear infinite 2s; left: calc(10% + 35px); }
+@keyframes flowRight {
+  0% { left: calc(10% + 35px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: calc(90% - 10px); opacity: 0; }
+}
+.cd-down1 { right: calc(10% - 2px); animation: flowDown1 2s linear infinite; }
+.cd-down2 { right: calc(10% - 2px); animation: flowDown1 2s linear infinite 1s; }
+@keyframes flowDown1 {
+  0% { top: 28px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: calc(50% + 16px); opacity: 0; }
+}
+.cd-bot1 { bottom: 46px; animation: flowLeft 3s linear infinite; }
+.cd-bot2 { bottom: 46px; animation: flowLeft 3s linear infinite 1.5s; }
+@keyframes flowLeft {
+  0% { left: calc(90% - 10px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: calc(10% + 35px); opacity: 0; }
+}
+
+/* Hero bulb */
+.hero-bulb {
+  position: absolute;
+  right: calc(10% - 22px);
+  top: 50%;
+  transform: translateY(-60%);
+  z-index: 5;
+}
+.bulb-glass {
+  width: 48px;
+  height: 56px;
+  border-radius: 50% 50% 30% 30%;
+  background: radial-gradient(circle at 40% 40%, #fefce8, #fde68a);
+  border: 2px solid #d97706;
+  position: relative;
+  animation: bulbGlow 2s ease-in-out infinite;
+}
+@keyframes bulbGlow {
+  0%,100% { box-shadow: 0 0 20px 8px rgba(251,191,36,0.4); }
+  50% { box-shadow: 0 0 40px 16px rgba(251,191,36,0.8); }
+}
+.bulb-filament {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 20px;
+  border: 2px solid #f59e0b;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  animation: filamentGlow 1.5s ease-in-out infinite alternate;
+}
+.bulb-filament::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  right: 2px;
+  height: 2px;
+  background: #f59e0b;
+  box-shadow: 0 5px 0 #f59e0b, 0 10px 0 #f59e0b;
+}
+@keyframes filamentGlow {
+  0% { border-color: #f59e0b; }
+  100% { border-color: #fef08a; }
+}
+.bulb-base {
+  width: 30px;
+  height: 16px;
+  background: linear-gradient(to bottom, #94a3b8, #64748b);
+  border-radius: 0 0 6px 6px;
+  margin: 0 auto;
+  border: 1px solid #475569;
+}
+
+/* ============= CONTAINER ============= */
+.container { max-width: 1000px; margin: 0 auto; padding: 36px 16px 60px; }
+
+/* ============= SECTION BLOCKS ============= */
+.section-block {
+  background: white;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  margin-bottom: 36px;
+  overflow: hidden;
+  scroll-margin-top: 80px;
+}
+.section-hd {
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: white;
+  font-family: 'Fredoka One', cursive;
+  font-size: 24px;
+  line-height: 1.2;
+}
+.section-hd .icon { font-size: 32px; }
+.section-bd { padding: 28px; }
+.section-bd > p { margin-bottom: 14px; }
+
+.g-amber  { background: linear-gradient(135deg, #92400e, #f59e0b); }
+.g-blue   { background: linear-gradient(135deg, #1e40af, #38bdf8); }
+.g-orange { background: linear-gradient(135deg, #9a3412, #fb923c); }
+.g-teal   { background: linear-gradient(135deg, #134e4a, #2dd4bf); }
+.g-rose   { background: linear-gradient(135deg, #881337, #fb7185); }
+.g-purple { background: linear-gradient(135deg, #5b21b6, #a78bfa); }
+.g-brown  { background: linear-gradient(135deg, #78350f, #d97706); }
+.g-pink   { background: linear-gradient(135deg, #9d174d, #ec4899); }
+.g-sky    { background: linear-gradient(135deg, #0c4a6e, #38bdf8); }
+.g-green  { background: linear-gradient(135deg, #166534, #22c55e); }
+.g-red    { background: linear-gradient(135deg, #991b1b, #f87171); }
+.g-slate  { background: linear-gradient(135deg, #334155, #94a3b8); }
+
+.subtitle {
+  font-family: 'Fredoka One', cursive;
+  color: var(--elec-dark);
+  font-size: 20px;
+  margin: 22px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============= KEY TERM PILL ============= */
+.kt {
+  display: inline-block;
+  background: #fde047;
+  color: #713f12;
+  border-radius: 7px;
+  padding: 1px 9px;
+  font-weight: 800;
+  font-size: 13px;
+  margin: 0 2px;
+}
+
+/* ============= INFO CARDS GRID ============= */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.info-card {
+  border-radius: 14px;
+  padding: 16px 18px;
+  font-size: 14px;
+}
+.info-card h4 { font-weight: 800; margin-bottom: 6px; font-size: 15px; }
+.info-card ul { padding-left: 18px; margin-top: 4px; }
+.info-card li { margin-bottom: 3px; }
+.ic-green  { background: #f0fdf4; border-left: 5px solid #22c55e; }
+.ic-blue   { background: #eff6ff; border-left: 5px solid #3b82f6; }
+.ic-orange { background: #fff7ed; border-left: 5px solid #fb923c; }
+.ic-purple { background: #faf5ff; border-left: 5px solid #a78bfa; }
+.ic-red    { background: #fef2f2; border-left: 5px solid #f87171; }
+.ic-yellow { background: #fefce8; border-left: 5px solid #facc15; }
+.ic-pink   { background: #fdf2f8; border-left: 5px solid #ec4899; }
+.ic-teal   { background: #f0fdfa; border-left: 5px solid #14b8a6; }
+.ic-amber  { background: #fffbeb; border-left: 5px solid #f59e0b; }
+.ic-slate  { background: #f8fafc; border-left: 5px solid #64748b; }
+
+/* ============= TABLES ============= */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 14px 0; min-width: 480px; }
+th { background: #92400e; color: white; padding: 12px 14px; text-align: left; font-weight: 800; font-size: 13px; }
+td { padding: 11px 14px; border-bottom: 1px solid #fef3c7; font-size: 13.5px; }
+tr:nth-child(even) td { background: #fffbeb; }
+
+/* ============= EQUATIONS ============= */
+.eq-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--elec-bg);
+  border: 2px dashed var(--elec-mid);
+  border-radius: 16px;
+  padding: 18px;
+  margin: 16px 0;
+}
+.eq-box { background: white; border-radius: 12px; padding: 10px 14px; text-align: center; font-weight: 800; font-size: 13px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); min-width: 85px; }
+.eq-op { font-size: 22px; font-weight: 900; color: var(--elec-mid); }
+
+/* ============= TRICK / NOTE ============= */
+.trick {
+  background: linear-gradient(135deg, #fef9c3, #fde68a);
+  border: 2px solid #f59e0b;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.trick strong { color: #78350f; }
+
+.note-box {
+  background: #eff6ff;
+  border-left: 5px solid #3b82f6;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 14px 0;
+  font-size: 14px;
+}
+
+/* ============= SECTION CONNECTOR ============= */
+.section-connector {
+  text-align: center;
+  margin: -10px 0;
+  position: relative;
+  z-index: 5;
+}
+.connector-arrow {
+  display: inline-block;
+  font-size: 24px;
+  color: var(--elec-mid);
+  animation: connectorBounce 2s ease-in-out infinite;
+}
+@keyframes connectorBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+/* ============= CELL ANATOMY VISUAL ============= */
+.cell-anatomy-wrap {
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+  border-radius: 18px;
+  padding: 24px;
+  margin: 16px 0;
+  text-align: center;
+}
+.cell-outer {
+  display: inline-block;
+  width: 100px;
+  height: 180px;
+  background: linear-gradient(to bottom, #94a3b8, #64748b);
+  border-radius: 8px;
+  position: relative;
+  border: 3px solid #475569;
+}
+.cell-pos-terminal {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 16px;
+  background: #ef4444;
+  border-radius: 4px 4px 0 0;
+  font-size: 14px;
+  font-weight: 900;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cell-neg-terminal {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 10px;
+  background: #1e293b;
+  border-radius: 0 0 4px 4px;
+}
+.cell-paste {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  right: 10px;
+  bottom: 20px;
+  background: linear-gradient(to bottom, #fbbf24, #d97706);
+  border-radius: 4px;
+}
+.cell-rod {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 100%;
+  background: #1c1917;
+  border-radius: 4px;
+}
+.cell-label {
+  position: absolute;
+  font-size: 10px;
+  font-weight: 800;
+  background: rgba(255,255,255,0.9);
+  padding: 2px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  border: 1px solid #94a3b8;
+}
+.cl-pos { top: -24px; left: calc(50% + 22px); color: #dc2626; }
+.cl-neg { bottom: -20px; left: calc(50% + 30px); color: #1e293b; }
+.cl-paste { top: 50%; right: -80px; color: #92400e; }
+.cl-rod { top: 30%; left: -80px; color: #1c1917; }
+.cl-casing { top: 10px; right: -70px; color: #475569; }
+
+/* ============= BULB ANATOMY ============= */
+.bulb-anatomy-wrap {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  border-radius: 18px;
+  padding: 24px;
+  margin: 16px 0;
+  text-align: center;
+}
+.big-bulb {
+  display: inline-block;
+  position: relative;
+  width: 140px;
+  height: 200px;
+}
+.bb-glass {
+  width: 120px;
+  height: 130px;
+  border-radius: 50% 50% 30% 30%;
+  background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.9), rgba(254,243,199,0.6));
+  border: 3px solid #d97706;
+  position: absolute;
+  top: 0;
+  left: 10px;
+}
+.bb-filament {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 40px;
+}
+.bb-zig {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.bb-zig::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(135deg, transparent 48%, #f59e0b 48%, #f59e0b 52%, transparent 52%) 0 0 / 10px 10px,
+    linear-gradient(-135deg, transparent 48%, #f59e0b 48%, #f59e0b 52%, transparent 52%) 0 0 / 10px 10px;
+  animation: zigGlow 1.5s ease-in-out infinite alternate;
+}
+@keyframes zigGlow {
+  0% { opacity: 0.6; filter: brightness(1); }
+  100% { opacity: 1; filter: brightness(1.5); }
+}
+.bb-support-l, .bb-support-r {
+  position: absolute;
+  width: 2px;
+  height: 30px;
+  background: #94a3b8;
+  bottom: 0;
+}
+.bb-support-l { left: 35px; }
+.bb-support-r { right: 35px; }
+.bb-base {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  width: 100px;
+  height: 50px;
+  background: linear-gradient(to bottom, #94a3b8, #64748b);
+  border-radius: 8px 8px 4px 4px;
+  border: 2px solid #475569;
+}
+.bb-base-thread {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  width: 100px;
+  height: 4px;
+  background: #475569;
+  box-shadow: 0 -8px 0 #475569, 0 -16px 0 #475569;
+}
+.bb-label {
+  position: absolute;
+  font-size: 10px;
+  font-weight: 800;
+  background: rgba(255,255,255,0.9);
+  padding: 2px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  border: 1px solid #d97706;
+}
+.bbl-glass { top: 10px; left: -70px; color: #92400e; }
+.bbl-filament { top: 55px; right: -80px; color: #b45309; }
+.bbl-gas { top: 30px; right: -90px; color: #6b7280; }
+.bbl-support { top: 100px; left: -85px; color: #64748b; }
+.bbl-base { bottom: 20px; right: -75px; color: #475569; }
+.bbl-terminal { bottom: -5px; left: -80px; color: #1e293b; }
+
+/* ============= CIRCUIT DIAGRAM ANIMATION ============= */
+.circuit-wrap {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  border-radius: 18px;
+  padding: 24px;
+  margin: 16px 0;
+  text-align: center;
+  position: relative;
+  min-height: 260px;
+}
+.circuit-svg {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 220px;
+  margin: 0 auto;
+}
+/* Wires */
+.cw {
+  position: absolute;
+  background: var(--wire-blue);
+  border-radius: 2px;
+}
+.cw-top { top: 20px; left: 60px; width: 280px; height: 4px; }
+.cw-right { top: 20px; right: 60px; width: 4px; height: 180px; }
+.cw-bottom { bottom: 20px; left: 60px; width: 280px; height: 4px; }
+.cw-left { top: 20px; left: 60px; width: 4px; height: 180px; }
+
+/* Circuit cell symbol */
+.circuit-cell {
+  position: absolute;
+  left: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+.cc-long {
+  width: 4px;
+  height: 44px;
+  background: #ef4444;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.cc-short {
+  width: 4px;
+  height: 26px;
+  background: #1e293b;
+  position: absolute;
+  left: 14px;
+  top: 9px;
+}
+.cc-plus {
+  position: absolute;
+  top: -14px;
+  left: -6px;
+  color: #ef4444;
+  font-weight: 900;
+  font-size: 14px;
+}
+.cc-minus {
+  position: absolute;
+  top: -14px;
+  left: 10px;
+  color: #94a3b8;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+/* Circuit bulb symbol */
+.circuit-bulb {
+  position: absolute;
+  right: 38px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+.cb-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #fbbf24;
+  position: relative;
+  animation: cbGlow 2s ease-in-out infinite;
+}
+@keyframes cbGlow {
+  0%,100% { box-shadow: 0 0 10px rgba(251,191,36,0.3); }
+  50% { box-shadow: 0 0 25px rgba(251,191,36,0.8); }
+}
+.cb-x {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 24px;
+  height: 24px;
+}
+.cb-x::before, .cb-x::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 24px;
+  background: #fbbf24;
+  left: 50%;
+  top: 0;
+}
+.cb-x::before { transform: translateX(-50%) rotate(45deg); }
+.cb-x::after  { transform: translateX(-50%) rotate(-45deg); }
+
+/* Circuit switch symbol */
+.circuit-switch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+.cs-dot-l, .cs-dot-r {
+  width: 10px;
+  height: 10px;
+  background: #94a3b8;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+}
+.cs-dot-l { left: 0; }
+.cs-dot-r { right: 0; }
+.cs-bar {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 40px;
+  height: 3px;
+  background: #22c55e;
+  transform-origin: left center;
+  animation: switchToggle 4s ease-in-out infinite;
+}
+@keyframes switchToggle {
+  0%, 40% { transform: rotate(0deg); }
+  50%, 90% { transform: rotate(-30deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Circuit current dots */
+.c-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fef08a;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px rgba(254,240,138,0.8);
+  z-index: 6;
+}
+.c-dot-top { top: 18px; animation: cDotRight 3s linear infinite; }
+@keyframes cDotRight {
+  0% { left: 60px; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { left: 336px; opacity: 0; }
+}
+.c-dot-right { right: 58px; animation: cDotDown 2.5s linear infinite; }
+@keyframes cDotDown {
+  0% { top: 20px; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 196px; opacity: 0; }
+}
+.c-dot-bottom { bottom: 18px; animation: cDotLeft 3s linear infinite; }
+@keyframes cDotLeft {
+  0% { left: 336px; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { left: 60px; opacity: 0; }
+}
+.c-dot-up { left: 58px; animation: cDotUp 2.5s linear infinite; }
+@keyframes cDotUp {
+  0% { top: 196px; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 20px; opacity: 0; }
+}
+.circuit-label-text {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 12px;
+  display: block;
+}
+
+/* ============= CONDUCTOR / INSULATOR VISUAL ============= */
+.cond-ins-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+.ci-col {
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.ci-conductor {
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  border: 3px solid #22c55e;
+}
+.ci-insulator {
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+  border: 3px solid #ef4444;
+}
+.ci-icon { font-size: 48px; display: block; margin-bottom: 10px; }
+.ci-col h4 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.ci-conductor h4 { color: #166534; }
+.ci-insulator h4 { color: #991b1b; }
+.ci-col ul { text-align: left; padding-left: 18px; font-size: 13px; }
+.ci-col li { margin-bottom: 4px; }
+.ci-flow {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+}
+.ci-conductor .ci-flow {
+  background: #22c55e;
+  color: white;
+  animation: ciPulseGreen 2s ease-in-out infinite;
+}
+@keyframes ciPulseGreen {
+  0%,100% { box-shadow: 0 0 8px rgba(34,197,94,0.4); }
+  50% { box-shadow: 0 0 20px rgba(34,197,94,0.8); }
+}
+.ci-insulator .ci-flow {
+  background: #ef4444;
+  color: white;
+}
+.ci-block {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  opacity: 0.5;
+}
+
+/* ============= SERIES & PARALLEL VISUAL ============= */
+.sp-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+.sp-card {
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  min-height: 280px;
+}
+.sp-series {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  border: 2px solid #64748b;
+}
+.sp-parallel {
+  background: linear-gradient(135deg, #1e1b4b, #312e81);
+  border: 2px solid #6366f1;
+}
+.sp-card h4 {
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+/* Series circuit visual */
+.series-circuit {
+  position: relative;
+  width: 100%;
+  height: 160px;
+}
+.ser-wire {
+  position: absolute;
+  background: var(--wire-blue);
+  border-radius: 2px;
+}
+.ser-w-top { top: 10px; left: 20px; width: calc(100% - 40px); height: 3px; }
+.ser-w-bot { bottom: 10px; left: 20px; width: calc(100% - 40px); height: 3px; }
+.ser-w-l { left: 20px; top: 10px; width: 3px; height: calc(100% - 20px); }
+.ser-w-r { right: 20px; top: 10px; width: 3px; height: calc(100% - 20px); }
+
+.ser-bulb {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #fbbf24;
+  top: -2px;
+  background: rgba(251,191,36,0.15);
+  animation: serBulbDim 2s ease-in-out infinite;
+}
+@keyframes serBulbDim {
+  0%,100% { box-shadow: 0 0 6px rgba(251,191,36,0.3); }
+  50% { box-shadow: 0 0 12px rgba(251,191,36,0.5); }
+}
+.ser-bulb-1 { left: calc(33% - 14px); }
+.ser-bulb-2 { left: calc(66% - 14px); }
+.ser-dot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #fef08a;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(254,240,138,0.8);
+  top: 8px;
+  animation: serDotFlow 3s linear infinite;
+}
+@keyframes serDotFlow {
+  0% { left: 20px; }
+  100% { left: calc(100% - 25px); }
+}
+.ser-cell {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+}
+.ser-cell-long {
+  width: 3px;
+  height: 24px;
+  background: #ef4444;
+  display: inline-block;
+}
+.ser-cell-short {
+  width: 3px;
+  height: 14px;
+  background: #64748b;
+  display: inline-block;
+  margin-left: 6px;
+  vertical-align: bottom;
+  margin-bottom: 5px;
+}
+.sp-info {
+  color: rgba(255,255,255,0.9);
+  font-size: 12px;
+  text-align: left;
+  margin-top: 12px;
+}
+.sp-info li { margin-bottom: 4px; }
+
+/* Parallel circuit visual */
+.parallel-circuit {
+  position: relative;
+  width: 100%;
+  height: 160px;
+}
+.par-wire {
+  position: absolute;
+  background: #818cf8;
+  border-radius: 2px;
+}
+.par-w-top { top: 10px; left: 20px; width: calc(100% - 40px); height: 3px; }
+.par-w-bot { bottom: 10px; left: 20px; width: calc(100% - 40px); height: 3px; }
+.par-w-l { left: 20px; top: 10px; width: 3px; height: calc(100% - 20px); }
+.par-w-r { right: 20px; top: 10px; width: 3px; height: calc(100% - 20px); }
+.par-w-mid { left: 50%; top: 10px; width: 3px; height: calc(100% - 20px); transform: translateX(-50%); display: none; }
+/* Branch wires */
+.par-branch-top { top: 40%; left: 20px; width: calc(100% - 40px); height: 3px; }
+.par-branch-bot { top: 65%; left: 20px; width: calc(100% - 40px); height: 3px; }
+.par-vl { left: calc(50% - 1px); top: 10px; width: 3px; height: 30%; }
+.par-vr { left: calc(50% - 1px); top: 65%; width: 3px; height: calc(35% - 10px); }
+
+.par-bulb {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #fbbf24;
+  background: rgba(251,191,36,0.2);
+  animation: parBulbBright 2s ease-in-out infinite;
+}
+@keyframes parBulbBright {
+  0%,100% { box-shadow: 0 0 10px rgba(251,191,36,0.4); }
+  50% { box-shadow: 0 0 22px rgba(251,191,36,0.9); }
+}
+.par-bulb-1 { right: 30px; top: calc(40% - 14px); }
+.par-bulb-2 { right: 30px; top: calc(65% - 14px); }
+.par-dot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #c4b5fd;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(196,181,253,0.8);
+  animation: parDotFlow 2s linear infinite;
+}
+.par-dot-1 { top: calc(40% - 1px); animation: parDotRight 2s linear infinite; }
+.par-dot-2 { top: calc(65% - 1px); animation: parDotRight 2s linear infinite 1s; }
+@keyframes parDotRight {
+  0% { left: 20px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: calc(100% - 25px); opacity: 0; }
+}
+
+/* ============= CIRCUIT SYMBOLS CHART ============= */
+.symbols-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.sym-card {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.sym-card:hover { transform: translateY(-3px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.sym-visual {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.sym-name { font-weight: 800; font-size: 13px; color: #334155; }
+
+/* Cell symbol */
+.sym-cell-long {
+  width: 3px;
+  height: 32px;
+  background: #ef4444;
+  display: inline-block;
+}
+.sym-cell-short {
+  width: 3px;
+  height: 18px;
+  background: #1e293b;
+  display: inline-block;
+  margin-left: 8px;
+}
+/* Battery symbol */
+.sym-batt {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.sym-bl { width: 2px; height: 28px; background: #ef4444; }
+.sym-bs { width: 2px; height: 16px; background: #1e293b; }
+/* Bulb symbol */
+.sym-bulb-c {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #f59e0b;
+  position: relative;
+}
+.sym-bulb-c::before, .sym-bulb-c::after {
+  content: '';
+  position: absolute;
+  background: #f59e0b;
+  width: 2px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+}
+.sym-bulb-c::before { transform: translate(-50%,-50%) rotate(45deg); }
+.sym-bulb-c::after  { transform: translate(-50%,-50%) rotate(-45deg); }
+/* Wire symbol */
+.sym-wire-line { width: 50px; height: 3px; background: var(--wire-blue); border-radius: 2px; }
+/* Switch open */
+.sym-switch-open {
+  position: relative;
+  width: 50px;
+  height: 20px;
+}
+.sym-so-dot1, .sym-so-dot2 {
+  width: 8px;
+  height: 8px;
+  background: #475569;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sym-so-dot1 { left: 0; }
+.sym-so-dot2 { right: 0; }
+.sym-so-bar {
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  width: 42px;
+  height: 2px;
+  background: #22c55e;
+  transform-origin: left center;
+  transform: translateY(-50%) rotate(-25deg);
+}
+/* Switch closed */
+.sym-switch-closed {
+  position: relative;
+  width: 50px;
+  height: 20px;
+}
+.sym-sc-dot1, .sym-sc-dot2 {
+  width: 8px;
+  height: 8px;
+  background: #475569;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sym-sc-dot1 { left: 0; }
+.sym-sc-dot2 { right: 0; }
+.sym-sc-bar {
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  width: 42px;
+  height: 2px;
+  background: #22c55e;
+  transform: translateY(-50%);
+}
+
+/* ============= SAFETY BOX ============= */
+.safety-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.safety-card {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border-top: 4px solid;
+  text-align: center;
+  transition: transform 0.2s;
+}
+.safety-card:hover { transform: translateY(-3px); }
+.safety-icon { font-size: 32px; display: block; margin-bottom: 8px; }
+.safety-title { font-weight: 800; font-size: 14px; margin-bottom: 6px; }
+.safety-text { font-size: 12.5px; color: #374151; }
+.saf-red { border-color: #ef4444; }
+.saf-yellow { border-color: #f59e0b; }
+.saf-blue { border-color: #3b82f6; }
+.saf-green { border-color: #22c55e; }
+
+/* ============= QUICK FACTS ============= */
+.quick-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+.qf-card {
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.2s;
+}
+.qf-card:hover { transform: translateY(-3px); }
+.qf-num { font-family: 'Fredoka One', cursive; font-size: 28px; color: var(--elec-mid); }
+.qf-text { font-size: 12px; font-weight: 700; color: #374151; margin-top: 4px; }
+
+/* ============= NCERT ACTIVITIES ============= */
+.ncert-tag {
+  display: inline-block;
+  background: #fef3c7;
+  color: #92400e;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.activity-visual {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  border: 2px dashed #f59e0b;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 16px 0;
+  text-align: center;
+  min-height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+.activity-visual .label {
+  font-size: 13px;
+  font-weight: 800;
+  margin-top: 10px;
+  color: #92400e;
+}
+.activity-details {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 18px;
+  margin: 14px 0 28px;
+}
+.activity-details p { margin-bottom: 8px; font-size: 14px; }
+.observation-box {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-top: 14px;
+  font-size: 14px;
+}
+.exp-steps {
+  padding-left: 20px;
+  font-size: 14px;
+}
+.exp-steps li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+/* ============= ACTIVITY: SIMPLE CIRCUIT ============= */
+.act-circuit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  position: relative;
+  min-height: 120px;
+}
+.act-cell {
+  width: 50px;
+  height: 80px;
+  background: linear-gradient(to bottom, #94a3b8, #64748b);
+  border-radius: 4px;
+  border: 2px solid #475569;
+  position: relative;
+}
+.act-cell::before {
+  content: '+';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 12px;
+  background: #ef4444;
+  border-radius: 3px 3px 0 0;
+  color: white;
+  font-size: 10px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 12px;
+}
+.act-wire-h {
+  width: 60px;
+  height: 4px;
+  background: var(--wire-blue);
+  border-radius: 2px;
+  position: relative;
+}
+.act-wire-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fef08a;
+  border-radius: 50%;
+  top: -1px;
+  box-shadow: 0 0 8px rgba(254,240,138,0.8);
+  animation: actDotMove 1.5s linear infinite;
+}
+@keyframes actDotMove {
+  0% { left: 0; }
+  100% { left: calc(100% - 6px); }
+}
+.act-bulb-mini {
+  width: 36px;
+  height: 36px;
+  border-radius: 50% 50% 30% 30%;
+  background: radial-gradient(circle, #fef9c3, #fde68a);
+  border: 2px solid #d97706;
+  animation: actBulbOn 2s ease-in-out infinite;
+}
+@keyframes actBulbOn {
+  0%,100% { box-shadow: 0 0 12px rgba(251,191,36,0.4); }
+  50% { box-shadow: 0 0 30px rgba(251,191,36,0.9); }
+}
+
+/* ============= ACTIVITY: SWITCH ============= */
+.act-switch-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.act-cardboard {
+  width: 120px;
+  height: 60px;
+  background: #d4a96a;
+  border-radius: 6px;
+  position: relative;
+  border: 2px solid #92400e;
+}
+.act-pin {
+  width: 8px;
+  height: 8px;
+  background: #94a3b8;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 15px;
+  border: 1px solid #475569;
+}
+.act-pin-l { left: 20px; }
+.act-pin-r { right: 20px; }
+.act-paperclip {
+  position: absolute;
+  bottom: 17px;
+  left: 24px;
+  width: 68px;
+  height: 3px;
+  background: #94a3b8;
+  border-radius: 2px;
+  transform-origin: left center;
+  animation: clipToggle 4s ease-in-out infinite;
+}
+@keyframes clipToggle {
+  0%, 40% { transform: rotate(0deg); background: #22c55e; }
+  50%, 90% { transform: rotate(-20deg); background: #94a3b8; }
+}
+
+/* ============= ACTIVITY: CONDUCTOR TEST ============= */
+.act-test-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.act-gap {
+  width: 40px;
+  height: 40px;
+  border: 3px dashed #f59e0b;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: #92400e;
+  animation: gapPulse 2s ease-in-out infinite;
+}
+@keyframes gapPulse {
+  0%,100% { border-color: #f59e0b; }
+  50% { border-color: #fbbf24; background: rgba(251,191,36,0.1); }
+}
+.test-objects {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.test-obj {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  animation: objSlide 8s ease-in-out infinite;
+}
+.test-obj.cond { background: #dcfce7; color: #166534; border: 1.5px solid #22c55e; }
+.test-obj.ins  { background: #fee2e2; color: #991b1b; border: 1.5px solid #ef4444; }
+@keyframes objSlide {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* ============= ACTIVITY: TORCH ============= */
+.torch-wrap {
+  display: inline-block;
+  position: relative;
+}
+.torch-tube {
+  width: 140px;
+  height: 50px;
+  background: linear-gradient(to right, #64748b, #94a3b8);
+  border-radius: 8px;
+  position: relative;
+  border: 2px solid #475569;
+}
+.torch-lens {
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 40px;
+  background: rgba(254,240,138,0.5);
+  border-radius: 0 8px 8px 0;
+  border: 2px solid #d97706;
+}
+.torch-beam {
+  position: absolute;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 90px;
+  height: 10px;
+  background: linear-gradient(to right, #fbbf24, transparent);
+  border-radius: 0 50% 50% 0;
+  opacity: 0;
+  animation: torchOn 4s ease-in-out infinite;
+}
+@keyframes torchOn {
+  0%, 40% { opacity: 0; height: 10px; }
+  50%, 90% { opacity: 1; height: 40px; }
+  100% { opacity: 0; }
+}
+.torch-cells {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 4px;
+}
+.torch-cell-mini {
+  width: 30px;
+  height: 20px;
+  background: linear-gradient(to right, #94a3b8, #64748b);
+  border-radius: 2px;
+  border: 1px solid #475569;
+}
+.torch-switch-btn {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 10px;
+  background: #22c55e;
+  border-radius: 4px 4px 0 0;
+  animation: torchSw 4s ease-in-out infinite;
+}
+@keyframes torchSw {
+  0%,40% { background: #94a3b8; }
+  50%,90% { background: #22c55e; }
+}
+
+/* ============= MCQ ============= */
+.mcq-list { list-style: none; padding: 0; }
+.mcq-item {
+  background: white;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid var(--elec-mid);
+}
+.mcq-q { font-weight: 700; font-size: 14.5px; margin-bottom: 10px; color: #92400e; }
+.mcq-options { list-style: none; padding-left: 0; }
+.mcq-options li {
+  background: #fffbeb;
+  border-radius: 8px;
+  padding: 7px 12px;
+  margin-bottom: 5px;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1.5px solid transparent;
+}
+.mcq-options li:hover { background: #fef3c7; border-color: #fbbf24; }
+.mcq-options li.correct { background: #fef3c7 !important; border-color: #f59e0b; font-weight: 700; color: #78350f; }
+.mcq-ans { font-size: 12.5px; color: #b45309; font-weight: 700; margin-top: 6px; display: none; }
+.mcq-item.show-ans .mcq-ans { display: block; }
+.mcq-item.show-ans .mcq-options li.correct { background: #fde68a !important; border-color: #f59e0b; }
+
+.short-q-list { list-style: none; padding: 0; }
+.short-q-item {
+  background: white;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #3b82f6;
+}
+.short-q { font-weight: 700; font-size: 14px; color: #1e40af; margin-bottom: 6px; }
+.short-a { font-size: 13.5px; color: #374151; }
+.short-a strong { color: #92400e; }
+
+/* ============= SCROLL REVEAL ============= */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============= FAB SHARE ============= */
+.fab-share {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #92400e, #f59e0b);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  cursor: pointer;
+  z-index: 200;
+  transition: transform 0.2s;
+}
+.fab-share:hover { transform: scale(1.1); }
+
+/* ============= SHARE OVERLAY ============= */
+.share-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+}
+.share-overlay.active { display: flex; }
+.share-box {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  width: 90%;
+  max-width: 340px;
+  text-align: center;
+}
+.share-box h3 { font-family: 'Fredoka One', cursive; color: #92400e; margin-bottom: 18px; }
+.share-opt {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-family: 'Nunito', sans-serif;
+  transition: transform 0.2s;
+}
+.share-opt:hover { transform: scale(1.02); }
+.share-opt.wa { background: #25d366; color: white; }
+.share-opt.copy { background: #eff6ff; color: #1e40af; }
+.share-opt.native { background: #faf5ff; color: #7c3aed; }
+.share-close { background: none; border: 1px solid #e5e7eb; width: 100%; padding: 10px; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; color: #6b7280; }
+.copy-feedback { display: none; color: #b45309; font-weight: 700; margin-top: 10px; font-size: 14px; }
+
+/* ============= BOTTOM NAV ============= */
+.bottom-nav {
+  max-width: 1000px;
+  margin: 0 auto 30px;
+  padding: 0 16px;
+}
+.bnav-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.bnav-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.bnav-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.bnav-card.disabled { opacity: 0.4; pointer-events: none; }
+.bnav-dir { font-size: 13px; font-weight: 700; color: #b45309; }
+.bnav-title { font-size: 16px; font-weight: 800; color: var(--text); }
+.bnav-bottom {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.bnav-home, .bnav-wa {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.bnav-home { background: var(--elec-bg); color: var(--elec-dark); border: 2px solid var(--elec-pale); }
+.bnav-wa { background: #25d366; color: white; }
+.bnav-home:hover, .bnav-wa:hover { transform: translateY(-2px); }
+
+/* ============= FOOTER ============= */
+footer {
+  text-align: center;
+  padding: 30px 16px;
+  background: linear-gradient(135deg, #92400e, #f59e0b);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ============= PROCESS STEPS ============= */
+.process-steps {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+.process-step {
+  flex: 1;
+  min-width: 120px;
+  padding: 14px;
+  text-align: center;
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  margin: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.ps-num {
+  width: 28px;
+  height: 28px;
+  background: var(--elec-mid);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+  margin: 0 auto 8px;
+}
+.ps-title { font-weight: 800; font-size: 13px; color: #92400e; margin-bottom: 4px; }
+.ps-desc { font-size: 12px; color: #374151; }
+
+/* ============= VS BOX ============= */
+.vs-box {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  margin: 16px 0;
+  align-items: center;
+}
+.vs-side {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+.vs-side h4 { font-family: 'Fredoka One', cursive; font-size: 16px; margin-bottom: 8px; }
+.vs-side ul { padding-left: 18px; font-size: 13px; }
+.vs-side li { margin-bottom: 4px; }
+.vs-center {
+  font-family: 'Fredoka One', cursive;
+  font-size: 24px;
+  color: var(--elec-mid);
+  text-align: center;
+}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width: 600px) {
+  .section-bd { padding: 18px; }
+  .section-hd { padding: 16px 20px; font-size: 19px; }
+  .bnav-cards { grid-template-columns: 1fr; }
+  .cond-ins-wrap { grid-template-columns: 1fr; }
+  .sp-compare { grid-template-columns: 1fr; }
+  .vs-box { grid-template-columns: 1fr; }
+  .vs-center { transform: rotate(90deg); }
+  .process-steps { flex-direction: column; }
+  .quick-facts { grid-template-columns: repeat(2, 1fr); }
+  .safety-grid { grid-template-columns: 1fr; }
+  .symbols-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-scene { height: 180px; }
+  .hero-battery { width: 50px; height: 70px; }
+  .bulb-glass { width: 36px; height: 42px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TEACHER BRANDING BAR ===== -->
+<div style="background:linear-gradient(135deg,#7c3aed,#ec4899);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;color:white;">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:white;">
+    <div style="width:36px;height:36px;background:rgba(255,255,255,0.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Fredoka One',cursive;font-size:18px;border:1.5px solid rgba(255,255,255,0.4);">P</div>
+    <div style="line-height:1.1">
+      <div style="font-family:'Fredoka One',cursive;font-size:14px">Preeti Kushwah Classes</div>
+      <div style="font-size:10px;opacity:0.85;letter-spacing:0.5px">Class 7 Science - Notes Portal</div>
+    </div>
+  </a>
+  <a href="index.html" style="background:rgba(255,255,255,0.2);color:white;text-decoration:none;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;border:1.5px solid rgba(255,255,255,0.4)">All Classes</a>
+</div>
+
+<!-- ===== TOP NAV ===== -->
+<div class="top-nav">
+  <a href="../../index.html" class="nav-link">Home</a>
+  <a href="acids-bases-salts.html" class="nav-link nav-prev">Acids, Bases &amp; Salts</a>
+  <div class="nav-spacer"></div>
+  <span class="nav-link nav-next-disabled">Next: Coming Soon</span>
+  <button class="nav-link share-btn" onclick="openShare()">Share</button>
+</div>
+
+<!-- ===== TOC NAV ===== -->
+<div class="toc-bar">
+  <a href="#sec1">Introduction</a>
+  <a href="#sec2">Electric Cell</a>
+  <a href="#sec3">Bulb</a>
+  <a href="#sec4">Circuit</a>
+  <a href="#sec5">Switch</a>
+  <a href="#sec6">Conductors</a>
+  <a href="#sec7">Series &amp; Parallel</a>
+  <a href="#sec8">Safety</a>
+  <a href="#activities">Activities</a>
+  <a href="#mcq">MCQs</a>
+  <a href="#short">Q&amp;A</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <!-- Lightning bolts -->
+  <div class="lightning lightning-1"></div>
+  <div class="lightning lightning-2"></div>
+  <div class="lightning lightning-3"></div>
+
+  <!-- Spark particles -->
+  <div class="spark"></div>
+  <div class="spark"></div>
+  <div class="spark"></div>
+  <div class="spark"></div>
+  <div class="spark"></div>
+  <div class="spark"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">NCERT Curiosity - Class 7 Science - Chapter 3</div>
+    <h1>Electricity: Circuits &amp; Components</h1>
+    <p>Electric Cell - Bulb - Circuit - Switch - Conductors &amp; Insulators - Series &amp; Parallel</p>
+  </div>
+
+  <div class="hero-scene">
+    <!-- Battery -->
+    <div class="hero-battery">
+      <span class="batt-label">1.5V<br>CELL</span>
+    </div>
+
+    <!-- Wires -->
+    <div class="hero-wire wire-top"></div>
+    <div class="hero-wire wire-right"></div>
+    <div class="hero-wire wire-bottom"></div>
+    <div class="hero-wire wire-left"></div>
+
+    <!-- Current flow dots -->
+    <div class="current-dot cd-1"></div>
+    <div class="current-dot cd-2"></div>
+    <div class="current-dot cd-3"></div>
+    <div class="current-dot cd-down1"></div>
+    <div class="current-dot cd-down2"></div>
+    <div class="current-dot cd-bot1"></div>
+    <div class="current-dot cd-bot2"></div>
+
+    <!-- Glowing bulb -->
+    <div class="hero-bulb">
+      <div class="bulb-glass">
+        <div class="bulb-filament"></div>
+      </div>
+      <div class="bulb-base"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
+
+  <!-- ======================================== -->
+  <!-- SECTION 1: INTRODUCTION TO ELECTRICITY   -->
+  <!-- ======================================== -->
+  <div class="section-block reveal" id="sec1">
+    <div class="section-hd g-amber">
+      <span class="icon">1</span> Introduction to Electricity
+    </div>
+    <div class="section-bd">
+      <p>Imagine your life without electricity -- no lights, no fans, no television, no mobile charging, no refrigerator. Hard to imagine, right? <span class="kt">Electricity</span> is one of the most important forms of energy we use every day.</p>
+
+      <p>But what exactly is electricity? How does it reach your devices? Let us find out!</p>
+
+      <div class="subtitle">What is Electric Current?</div>
+      <p>When tiny particles called <span class="kt">electric charges</span> flow through a material (like a wire), we call it <span class="kt">electric current</span>. Think of it like water flowing through a pipe -- just as water flows, electric charges flow through wires.</p>
+
+      <div class="eq-flow">
+        <div class="eq-box">Electric Charges<br><small>flow through a conductor</small></div>
+        <div class="eq-op">=</div>
+        <div class="eq-box">Electric Current<br><small>(flow of charges)</small></div>
+      </div>
+
+      <div class="subtitle">Sources of Electricity</div>
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>Electric Cell (Battery)</h4>
+          <p>A device that converts <strong>chemical energy</strong> into electrical energy. Used in torches, remote controls, toys, etc.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Power Supply (Mains)</h4>
+          <p>Electricity from <strong>power plants</strong> (thermal, hydro, solar) reaches our homes through wires. This is <strong>220V AC</strong> in India.</p>
+        </div>
+        <div class="info-card ic-green">
+          <h4>Solar Cell</h4>
+          <p>Converts <strong>sunlight</strong> directly into electricity. Used in calculators, street lights, and rooftop panels in India.</p>
+        </div>
+      </div>
+
+      <div class="subtitle">Conductors and Insulators (Quick Intro)</div>
+      <p>Some materials allow electricity to pass through them easily -- these are called <span class="kt">conductors</span> (e.g., metals like copper, iron). Other materials do NOT allow electricity to pass -- these are called <span class="kt">insulators</span> (e.g., rubber, plastic, wood). We will study them in detail later in this chapter.</p>
+
+      <div class="quick-facts">
+        <div class="qf-card">
+          <div class="qf-num">220V</div>
+          <div class="qf-text">Voltage in Indian homes (AC)</div>
+        </div>
+        <div class="qf-card">
+          <div class="qf-num">1.5V</div>
+          <div class="qf-text">Voltage of a single dry cell</div>
+        </div>
+        <div class="qf-card">
+          <div class="qf-num">1879</div>
+          <div class="qf-text">Year Thomas Edison made the practical bulb</div>
+        </div>
+        <div class="qf-card">
+          <div class="qf-num">Cu</div>
+          <div class="qf-text">Copper -- most common conductor for wires</div>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Think About It:</strong> When you press a light switch, the bulb turns on <strong>instantly</strong> -- but the charges (electrons) inside the wire actually move very slowly! The electric <em>signal</em> (energy) travels at nearly the speed of light, which is why the bulb lights up so fast.
+      </div>
+
+      <div class="trick">
+        <strong>Indian Context:</strong> India's electricity generation has grown massively. With programs like the Saubhagya Scheme, almost every household in India now has an electricity connection. India produces electricity from coal (thermal), water (hydro), nuclear, solar, and wind sources.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-connector"><span class="connector-arrow">&#9660;</span></div>
+
+  <!-- ================================= -->
+  <!-- SECTION 2: ELECTRIC CELL (BATTERY) -->
+  <!-- ================================= -->
+  <div class="section-block reveal" id="sec2">
+    <div class="section-hd g-slate">
+      <span class="icon">2</span> Electric Cell (Battery)
+    </div>
+    <div class="section-bd">
+      <p>An <span class="kt">electric cell</span> is a device that provides electricity by converting <strong>chemical energy</strong> into <strong>electrical energy</strong>. It is the simplest source of electricity.</p>
+
+      <div class="subtitle">Parts of a Dry Cell</div>
+      <p>Let us look at the inside of a common dry cell (like the ones used in torches):</p>
+
+      <div class="cell-anatomy-wrap">
+        <div style="display:inline-block;position:relative;">
+          <div class="cell-outer">
+            <div class="cell-pos-terminal">+</div>
+            <div class="cell-paste">
+              <div class="cell-rod"></div>
+            </div>
+            <div class="cell-neg-terminal"></div>
+          </div>
+          <span class="cell-label cl-pos">Positive terminal (+)</span>
+          <span class="cell-label cl-neg">Negative terminal (-)</span>
+          <span class="cell-label cl-paste">Chemical paste</span>
+          <span class="cell-label cl-rod">Carbon rod</span>
+          <span class="cell-label cl-casing">Metal casing</span>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-red">
+          <h4>Positive Terminal (+)</h4>
+          <p>A <strong>metal cap</strong> on top of the cell. It is marked with a <strong>+</strong> sign. Current flows OUT from here (conventional current).</p>
+        </div>
+        <div class="info-card ic-slate">
+          <h4>Negative Terminal (-)</h4>
+          <p>The <strong>flat metal base</strong> at the bottom. It is marked with a <strong>-</strong> sign. Current flows INTO here.</p>
+        </div>
+        <div class="info-card ic-amber">
+          <h4>Chemical Paste</h4>
+          <p>A moist chemical paste inside the cell. The <strong>chemical reaction</strong> between the paste and the carbon rod produces electricity.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Carbon Rod</h4>
+          <p>A thin rod in the center, connected to the positive terminal. It is surrounded by a mixture of manganese dioxide and carbon powder.</p>
+        </div>
+      </div>
+
+      <div class="subtitle">Single Cell vs Battery</div>
+      <div class="vs-box">
+        <div class="vs-side" style="border-left: 4px solid #64748b;">
+          <h4 style="color:#475569;">Single Cell</h4>
+          <ul>
+            <li>ONE unit that produces electricity</li>
+            <li>Typically 1.5V (dry cell)</li>
+            <li>Examples: AA cell, AAA cell, button cell</li>
+          </ul>
+        </div>
+        <div class="vs-center">vs</div>
+        <div class="vs-side" style="border-left: 4px solid #f59e0b;">
+          <h4 style="color:#92400e;">Battery</h4>
+          <ul>
+            <li>TWO or more cells connected together</li>
+            <li>Provides higher voltage</li>
+            <li>Example: 9V battery = 6 cells of 1.5V each</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="subtitle">How a Cell Produces Electricity</div>
+      <div class="eq-flow">
+        <div class="eq-box">Chemical Energy<br><small>(inside the cell)</small></div>
+        <div class="eq-op">&#8594;</div>
+        <div class="eq-box">Electrical Energy<br><small>(electric current)</small></div>
+      </div>
+      <p>Inside the cell, a <strong>chemical reaction</strong> takes place between the chemicals. This reaction pushes electric charges from the negative terminal to the positive terminal through the external circuit, creating an electric current. When all the chemicals are used up, the cell is "dead" and stops working.</p>
+
+      <div class="subtitle">Circuit Symbols</div>
+      <div class="symbols-grid">
+        <div class="sym-card">
+          <div class="sym-visual">
+            <span class="sym-cell-long"></span>
+            <span class="sym-cell-short"></span>
+          </div>
+          <div class="sym-name">Cell</div>
+        </div>
+        <div class="sym-card">
+          <div class="sym-visual">
+            <div class="sym-batt">
+              <span class="sym-bl"></span><span class="sym-bs"></span>
+              <span class="sym-bl"></span><span class="sym-bs"></span>
+              <span class="sym-bl"></span><span class="sym-bs"></span>
+            </div>
+          </div>
+          <div class="sym-name">Battery (3 cells)</div>
+        </div>
+      </div>
+
+      <div class="subtitle">Common Types of Cells</div>
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>Dry Cell (Torch Cell)</h4>
+          <p>Most common. 1.5V. Used in torches, wall clocks, remote controls. Brands: Eveready, Duracell, Nippo.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>AA and AAA Cells</h4>
+          <p>Both are 1.5V. AA is bigger (thicker). AAA is thinner. Used in remotes, toys, wireless mouse.</p>
+        </div>
+        <div class="info-card ic-purple">
+          <h4>Button Cell</h4>
+          <p>Very small, coin-shaped. Used in watches, calculators, hearing aids. Voltage: 1.5V or 3V.</p>
+        </div>
+        <div class="info-card ic-green">
+          <h4>Rechargeable Cell</h4>
+          <p>Can be charged again and again. Used in mobile phones, laptops, electric vehicles. Li-ion type is most common.</p>
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>Remember:</strong> A single cell gives 1.5V. A "battery" of 2 cells in series gives 3V. A "battery" of 4 cells gives 6V. The more cells in series, the higher the voltage!
+      </div>
+
+      <div class="note-box">
+        <strong>Did You Know?</strong> The word "battery" was first used by Benjamin Franklin in 1749. He compared a group of connected Leyden jars (early capacitors) to a battery of cannons!
+      </div>
+    </div>
+  </div>
+
+  <div class="section-connector"><span class="connector-arrow">&#9660;</span></div>
+
+  <!-- ========================= -->
+  <!-- SECTION 3: ELECTRIC BULB -->
+  <!-- ========================= -->
+  <div class="section-block reveal" id="sec3">
+    <div class="section-hd g-brown">
+      <span class="icon">3</span> Electric Bulb
+    </div>
+    <div class="section-bd">
+      <p>An <span class="kt">electric bulb</span> is a device that converts electrical energy into <strong>light</strong> and <strong>heat</strong>. When electric current passes through the thin filament inside the bulb, the filament gets very hot and starts glowing, giving us light.</p>
+
+      <div class="subtitle">Parts of an Electric Bulb</div>
+
+      <div class="bulb-anatomy-wrap">
+        <div class="big-bulb">
+          <div class="bb-glass"></div>
+          <div class="bb-filament">
+            <div class="bb-zig"></div>
+          </div>
+          <div class="bb-support-l"></div>
+          <div class="bb-support-r"></div>
+          <div class="bb-base"></div>
+          <span class="bb-label bbl-glass">Glass envelope</span>
+          <span class="bb-label bbl-filament">Filament (tungsten)</span>
+          <span class="bb-label bbl-gas">Inert gas (argon)</span>
+          <span class="bb-label bbl-support">Support wires</span>
+          <span class="bb-label bbl-base">Metal base</span>
+          <span class="bb-label bbl-terminal">Terminals</span>
+        </div>
+        <div class="bb-base-thread"></div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>Filament</h4>
+          <p>A very thin, coiled wire made of <span class="kt">tungsten</span>. It has a very high melting point (3422 degrees C), so it glows white-hot without melting!</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Glass Envelope</h4>
+          <p>A transparent/frosted glass cover that protects the filament and contains an inert gas (like argon or nitrogen) to prevent the filament from burning.</p>
+        </div>
+        <div class="info-card ic-slate">
+          <h4>Metal Base</h4>
+          <p>The threaded metallic part that screws into a socket. It has two terminals (contact points) for electricity to enter and exit.</p>
+        </div>
+        <div class="info-card ic-green">
+          <h4>Support Wires</h4>
+          <p>Thin wires that hold the filament in place inside the bulb. They also conduct electricity to the filament.</p>
+        </div>
+      </div>
+
+      <div class="subtitle">How Does a Bulb Work?</div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="ps-num" style="background:#3b82f6;">1</div>
+          <div class="ps-title">Current Enters</div>
+          <div class="ps-desc">Electric current enters through one terminal of the base</div>
+        </div>
+        <div class="process-step">
+          <div class="ps-num" style="background:#f59e0b;">2</div>
+          <div class="ps-title">Flows Through Filament</div>
+          <div class="ps-desc">Current passes through the thin tungsten filament</div>
+        </div>
+        <div class="process-step">
+          <div class="ps-num" style="background:#ef4444;">3</div>
+          <div class="ps-title">Filament Heats Up</div>
+          <div class="ps-desc">The filament resists current flow and gets extremely hot</div>
+        </div>
+        <div class="process-step">
+          <div class="ps-num" style="background:#fbbf24;">4</div>
+          <div class="ps-title">Filament Glows!</div>
+          <div class="ps-desc">At very high temperature, the filament emits light</div>
+        </div>
+      </div>
+
+      <div class="subtitle">Filament Bulb vs LED Bulb</div>
+      <div class="vs-box">
+        <div class="vs-side" style="border-left: 4px solid #f59e0b;">
+          <h4 style="color:#92400e;">Filament Bulb</h4>
+          <ul>
+            <li>Uses tungsten filament</li>
+            <li>Gets very hot (wastes energy as heat)</li>
+            <li>Less efficient</li>
+            <li>Shorter lifespan (~1000 hours)</li>
+            <li>Cheaper to buy</li>
+          </ul>
+        </div>
+        <div class="vs-center">vs</div>
+        <div class="vs-side" style="border-left: 4px solid #22c55e;">
+          <h4 style="color:#166534;">LED Bulb</h4>
+          <ul>
+            <li>Uses a semiconductor (LED chip)</li>
+            <li>Stays cool (very little heat)</li>
+            <li>Very efficient (saves electricity)</li>
+            <li>Very long lifespan (~25,000 hours)</li>
+            <li>Costlier but saves money long-term</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>Why Tungsten?</strong> Tungsten has the <strong>highest melting point</strong> (3422 degrees C) of any metal. This means the filament can get white-hot (about 2500 degrees C) without melting. No other common metal can survive this temperature!
+      </div>
+
+      <div class="note-box">
+        <strong>Indian Context:</strong> The Government of India's <strong>UJALA scheme</strong> distributed millions of LED bulbs at subsidized prices. LED bulbs use about 80% less electricity than filament bulbs, saving Indian households lakhs of rupees in electricity bills collectively.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-connector"><span class="connector-arrow">&#9660;</span></div>
+
+  <!-- =========================== -->
+  <!-- SECTION 4: ELECTRIC CIRCUIT -->
+  <!-- =========================== -->
+  <div class="section-block reveal" id="sec4">
+    <div class="section-hd g-blue">
+      <span class="icon">4</span> Electric Circuit
+    </div>
+    <div class="section-bd">
+      <p>An <span class="kt">electric circuit</span> is a <strong>closed path</strong> (loop) through which electric current can flow. For any electrical device to work, it must be connected in a complete circuit.</p>
+
+      <div class="subtitle">Components of a Circuit</div>
+      <div class="info-grid">
+        <div class="info-card ic-slate">
+          <h4>Cell / Battery</h4>
+          <p>Provides the electrical energy (the "push" that makes charges flow).</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Connecting Wires</h4>
+          <p>Copper wires that carry the current from one component to another.</p>
+        </div>
+        <div class="info-card ic-amber">
+          <h4>Bulb / Device</h4>
+          <p>The device that uses the electrical energy (bulb, motor, buzzer, etc.).</p>
+        </div>
+        <div class="info-card ic-green">
+          <h4>Switch</h4>
+          <p>A device to open or close the circuit (turn devices ON or OFF).</p>
+        </div>
+      </div>
+
+      <div class="subtitle">Closed Circuit vs Open Circuit</div>
+      <div class="vs-box">
+        <div class="vs-side" style="border-left: 4px solid #22c55e;">
+          <h4 style="color:#166534;">Closed Circuit</h4>
+          <ul>
+            <li>Complete, unbroken path</li>
+            <li>Current flows through the circuit</li>
+            <li>Bulb glows / device works</li>
+            <li>Switch is in ON position</li>
+          </ul>
+        </div>
+        <div class="vs-center">vs</div>
+        <div class="vs-side" style="border-left: 4px solid #ef4444;">
+          <h4 style="color:#dc2626;">Open Circuit</h4>
+          <ul>
+            <li>Broken or incomplete path</li>
+            <li>No current flows</li>
+            <li>Bulb does not glow / device off</li>
+            <li>Switch is in OFF position</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="subtitle">Animated Circuit Diagram</div>
+      <div class="circuit-wrap">
+        <!-- Wires -->
+        <div class="circuit-svg">
+          <div class="cw cw-top"></div>
+          <div class="cw cw-right"></div>
+          <div class="cw cw-bottom"></div>
+          <div class="cw cw-left"></div>
+
+          <!-- Cell symbol -->
+          <div class="circuit-cell">
+            <div class="cc-long"></div>
+            <div class="cc-short"></div>
+            <div class="cc-plus">+</div>
+            <div class="cc-minus">-</div>
+          </div>
+
+          <!-- Bulb symbol -->
+          <div class="circuit-bulb">
+            <div class="cb-circle">
+              <div class="cb-x"></div>
+            </div>
+          </div>
+
+          <!-- Switch -->
+          <div class="circuit-switch" style="width:50px;">
+            <div class="cs-dot-l"></div>
+            <div class="cs-dot-r" style="right:0;"></div>
+            <div class="cs-bar"></div>
+          </div>
+
+          <!-- Current flow dots -->
+          <div class="c-dot c-dot-top" style="animation-delay:0s;"></div>
+          <div class="c-dot c-dot-top" style="animation-delay:1s;"></div>
+          <div class="c-dot c-dot-right" style="animation-delay:0.5s;"></div>
+          <div class="c-dot c-dot-bottom" style="animation-delay:0s;"></div>
+          <div class="c-dot c-dot-bottom" style="animation-delay:1.5s;"></div>
+          <div class="c-dot c-dot-up" style="animation-delay:0.8s;"></div>
+        </div>
+        <span class="circuit-label-text">Complete circuit with cell, switch, and bulb -- current flows as yellow dots</span>
+      </div>
+
+      <div class="subtitle">Circuit Symbols</div>
+      <p>Scientists use standard <strong>symbols</strong> to draw circuit diagrams instead of drawing realistic pictures. This makes diagrams simple and universal.</p>
+
+      <div class="symbols-grid">
+        <div class="sym-card">
+          <div class="sym-visual">
+            <span class="sym-cell-long"></span>
+            <span class="sym-cell-short"></span>
+          </div>
+          <div class="sym-name">Cell</div>
+        </div>
+        <div class="sym-card">
+          <div class="sym-visual">
+            <div class="sym-batt">
+              <span class="sym-bl"></span><span class="sym-bs"></span>
+              <span class="sym-bl"></span><span class="sym-bs"></span>
+            </div>
+          </div>
+          <div class="sym-name">Battery (2 cells)</div>
+        </div>
+        <div class="sym-card">
+          <div class="sym-visual">
+            <div class="sym-bulb-c"></div>
+          </div>
+          <div class="sym-name">Bulb</div>
+        </div>
+        <div class="sym-card">
+          <div class="sym-visual">
+            <div class="sym-wire-line"></div>
+          </div>
+          <div class="sym-name">Wire</div>
+        </div>
+        <div class="sym-card">
+          <div class="sym-visual">
+            <div class="sym-switch-open">
+              <div class="sym-so-dot1"></div>
+              <div class="sym-so-dot2"></div>
+              <div class="sym-so-bar"></div>
+            </div>
+          </div>
+          <div class="sym-name">Switch (Open)</div>
+        </div>
+        <div class="sym-card">
+          <div class="sym-visual">
+            <div class="sym-switch-closed">
+              <div class="sym-sc-dot1"></div>
+              <div class="sym-sc-dot2"></div>
+              <div class="sym-sc-bar"></div>
+            </div>
+          </div>
+          <div class="sym-name">Switch (Closed)</div>
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>Memory Tip:</strong> In a cell symbol, the <strong>longer line = positive (+)</strong> terminal and the <strong>shorter, thicker line = negative (-)</strong> terminal. Remember: "Long = positive, short = negative."
+      </div>
+
+      <div class="note-box">
+        <strong>Important Rule:</strong> For current to flow, the circuit must be <strong>complete (closed)</strong>. Even a single break anywhere in the circuit will stop the current entirely. This is the fundamental principle behind switches!
+      </div>
+    </div>
+  </div>
+
+  <div class="section-connector"><span class="connector-arrow">&#9660;</span></div>
+
+  <!-- =========================== -->
+  <!-- SECTION 5: ELECTRIC SWITCH -->
+  <!-- =========================== -->
+  <div class="section-block reveal" id="sec5">
+    <div class="section-hd g-green">
+      <span class="icon">5</span> Electric Switch
+    </div>
+    <div class="section-bd">
+      <p>A <span class="kt">switch</span> is a simple device used to <strong>open</strong> or <strong>close</strong> an electric circuit. It controls whether current flows or not.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>Switch ON = Closed Circuit</h4>
+          <p>When the switch is ON, the circuit is <strong>complete</strong>. Current flows through the circuit and the device works (bulb glows, fan spins, etc.).</p>
+        </div>
+        <div class="info-card ic-red">
+          <h4>Switch OFF = Open Circuit</h4>
+          <p>When the switch is OFF, the circuit is <strong>broken</strong>. No current flows and the device stops working.</p>
+        </div>
+      </div>
+
+      <div class="subtitle">Types of Switches</div>
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>Toggle Switch</h4>
+          <p>The most common type in homes. Flip up or down to turn ON/OFF. Used for lights, fans, etc.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Push Button Switch</h4>
+          <p>Press to turn ON, release to turn OFF (or press once ON, press again OFF). Used in doorbells, keyboards.</p>
+        </div>
+        <div class="info-card ic-purple">
+          <h4>Slide Switch</h4>
+          <p>Slide to ON or OFF position. Often found in small electronics and toys.</p>
+        </div>
+      </div>
+
+      <div class="subtitle">How a Simple Switch Works</div>
+      <p>A simple switch has two metal contact points. When the switch is ON, the contacts touch each other, completing the circuit. When the switch is OFF, the contacts separate, breaking the circuit.</p>
+
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="ps-num" style="background:#22c55e;">1</div>
+          <div class="ps-title">Switch ON</div>
+          <div class="ps-desc">Metal contacts touch -- circuit complete -- current flows</div>
+        </div>
+        <div class="process-step">
+          <div class="ps-num" style="background:#ef4444;">2</div>
+          <div class="ps-title">Switch OFF</div>
+          <div class="ps-desc">Metal contacts separate -- circuit broken -- no current</div>
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>Safety First:</strong> Always switch OFF electrical devices before cleaning, repairing, or touching any exposed parts. Never put your fingers inside a switch board. In India, the main switch (MCB) in the electrical panel can cut off all power to the house in case of emergency.
+      </div>
+
+      <div class="note-box">
+        <strong>Did You Know?</strong> The switches in your home work at 220V AC. This is extremely dangerous! That is why switches are covered with plastic (an insulator) and should never be operated with wet hands.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-connector"><span class="connector-arrow">&#9660;</span></div>
+
+  <!-- ====================================== -->
+  <!-- SECTION 6: CONDUCTORS AND INSULATORS  -->
+  <!-- ====================================== -->
+  <div class="section-block reveal" id="sec6">
+    <div class="section-hd g-teal">
+      <span class="icon">6</span> Conductors and Insulators
+    </div>
+    <div class="section-bd">
+      <p>All materials can be classified based on whether they allow electricity to pass through them or not.</p>
+
+      <div class="subtitle">Conductors vs Insulators</div>
+      <div class="cond-ins-wrap">
+        <div class="ci-col ci-conductor">
+          <span class="ci-icon">&#9889;</span>
+          <h4>Conductors</h4>
+          <p style="font-size:13px;margin-bottom:10px;">Materials that allow electric current to pass through them easily.</p>
+          <ul>
+            <li><strong>Copper</strong> -- used in wires</li>
+            <li><strong>Iron</strong> -- nails, keys</li>
+            <li><strong>Aluminium</strong> -- foil, pans</li>
+            <li><strong>Silver</strong> -- best conductor!</li>
+            <li><strong>Gold</strong> -- used in electronics</li>
+            <li><strong>Human body</strong> -- (contains water/salts)</li>
+            <li><strong>Impure water</strong> -- (has dissolved salts)</li>
+            <li><strong>Graphite</strong> -- pencil lead</li>
+          </ul>
+          <span class="ci-flow">Current FLOWS</span>
+        </div>
+        <div class="ci-col ci-insulator">
+          <span class="ci-icon">&#128683;</span>
+          <h4>Insulators</h4>
+          <p style="font-size:13px;margin-bottom:10px;">Materials that do NOT allow electric current to pass through them.</p>
+          <ul>
+            <li><strong>Rubber</strong> -- shoe soles, gloves</li>
+            <li><strong>Plastic</strong> -- wire covering</li>
+            <li><strong>Wood</strong> -- dry wood</li>
+            <li><strong>Glass</strong> -- windows, rods</li>
+            <li><strong>Air</strong> -- gap in open circuit</li>
+            <li><strong>Thermocol</strong> -- packaging</li>
+            <li><strong>Cloth/Paper</strong> -- dry</li>
+            <li><strong>Pure/distilled water</strong></li>
+          </ul>
+          <span class="ci-flow">Current BLOCKED</span>
+        </div>
+      </div>
+
+      <div class="subtitle">Why is Copper Used for Wires?</div>
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>Excellent Conductor</h4>
+          <p>Copper is one of the best conductors of electricity (second only to silver). Current flows through it very easily.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Flexible (Ductile)</h4>
+          <p>Copper can be drawn into very thin wires without breaking. This makes it perfect for electrical wiring.</p>
+        </div>
+        <div class="info-card ic-green">
+          <h4>Affordable</h4>
+          <p>Silver is a better conductor but extremely expensive. Copper provides the best balance of conductivity and cost.</p>
+        </div>
+      </div>
+
+      <div class="subtitle">Why Are Wires Covered with Plastic?</div>
+      <p>Electrical wires are covered with <strong>plastic or rubber</strong> (insulators) to prevent <strong>electric shock</strong>. If bare copper wires touch each other or if we touch them, it can cause a <strong>short circuit</strong> or an electric shock. The plastic coating keeps us safe!</p>
+
+      <div class="subtitle">Testing Conductors and Insulators</div>
+      <p>We can test whether a material is a conductor or an insulator using a simple circuit with a cell, bulb, and wires:</p>
+      <ol class="exp-steps">
+        <li>Make a simple circuit with a cell, bulb, and wires, but leave a <strong>gap</strong> between two wire ends.</li>
+        <li>Place the material to be tested in the gap, touching both wire ends.</li>
+        <li>If the bulb <strong>glows</strong> -- the material is a <strong>conductor</strong>.</li>
+        <li>If the bulb does <strong>NOT glow</strong> -- the material is an <strong>insulator</strong>.</li>
+      </ol>
+
+      <div class="table-wrap">
+        <table>
+          <tr><th>Material</th><th>Conductor or Insulator?</th><th>Bulb Glows?</th></tr>
+          <tr><td>Iron nail</td><td><strong>Conductor</strong></td><td>Yes</td></tr>
+          <tr><td>Metal key</td><td><strong>Conductor</strong></td><td>Yes</td></tr>
+          <tr><td>Coin (metal)</td><td><strong>Conductor</strong></td><td>Yes</td></tr>
+          <tr><td>Aluminium foil</td><td><strong>Conductor</strong></td><td>Yes</td></tr>
+          <tr><td>Pencil graphite (lead)</td><td><strong>Conductor</strong></td><td>Yes (dim)</td></tr>
+          <tr><td>Rubber eraser</td><td><strong>Insulator</strong></td><td>No</td></tr>
+          <tr><td>Plastic scale</td><td><strong>Insulator</strong></td><td>No</td></tr>
+          <tr><td>Wooden stick</td><td><strong>Insulator</strong></td><td>No</td></tr>
+          <tr><td>Glass rod</td><td><strong>Insulator</strong></td><td>No</td></tr>
+          <tr><td>Cloth piece</td><td><strong>Insulator</strong></td><td>No</td></tr>
+        </table>
+      </div>
+
+      <div class="trick">
+        <strong>Interesting Fact:</strong> Pure (distilled) water is an <strong>insulator</strong>, but the water we use daily (tap water, river water) is a <strong>conductor</strong> because it contains dissolved salts and minerals. This is why you must NEVER touch electrical appliances with wet hands!
+      </div>
+
+      <div class="note-box">
+        <strong>Silver vs Copper:</strong> Silver is the BEST conductor of electricity, but it is very expensive. That is why copper is used for most electrical wires -- it is almost as good as silver but much cheaper. Aluminium is used for high-tension power lines because it is lighter than copper.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-connector"><span class="connector-arrow">&#9660;</span></div>
+
+  <!-- ======================================= -->
+  <!-- SECTION 7: SERIES AND PARALLEL CIRCUITS -->
+  <!-- ======================================= -->
+  <div class="section-block reveal" id="sec7">
+    <div class="section-hd g-purple">
+      <span class="icon">7</span> Series and Parallel Circuits
+    </div>
+    <div class="section-bd">
+      <p>When we connect more than one device (like bulbs) in a circuit, there are two ways to connect them: <span class="kt">series</span> and <span class="kt">parallel</span>.</p>
+
+      <div class="subtitle">Series Circuit</div>
+      <p>In a <strong>series circuit</strong>, all components are connected <strong>one after another</strong> in a single path. There is only <strong>one path</strong> for current to flow.</p>
+
+      <div class="subtitle">Parallel Circuit</div>
+      <p>In a <strong>parallel circuit</strong>, components are connected in <strong>separate branches</strong>. There are <strong>multiple paths</strong> for current to flow.</p>
+
+      <div class="subtitle">Series vs Parallel -- Visual Comparison</div>
+      <div class="sp-compare">
+        <div class="sp-card sp-series">
+          <h4>Series Circuit</h4>
+          <div class="series-circuit">
+            <div class="ser-wire ser-w-top"></div>
+            <div class="ser-wire ser-w-bot"></div>
+            <div class="ser-wire ser-w-l"></div>
+            <div class="ser-wire ser-w-r"></div>
+            <div class="ser-bulb ser-bulb-1"></div>
+            <div class="ser-bulb ser-bulb-2"></div>
+            <div class="ser-dot" style="animation-delay:0s;"></div>
+            <div class="ser-dot" style="animation-delay:1.5s;"></div>
+            <div class="ser-cell">
+              <span class="ser-cell-long"></span>
+              <span class="ser-cell-short"></span>
+            </div>
+          </div>
+          <ul class="sp-info">
+            <li>Single path for current</li>
+            <li>Bulbs glow <strong>dimmer</strong></li>
+            <li>One fails = ALL go off</li>
+          </ul>
+        </div>
+        <div class="sp-card sp-parallel">
+          <h4>Parallel Circuit</h4>
+          <div class="parallel-circuit">
+            <div class="par-wire par-w-l"></div>
+            <div class="par-wire par-w-r"></div>
+            <div class="par-wire par-branch-top"></div>
+            <div class="par-wire par-branch-bot"></div>
+            <div class="par-wire par-vl"></div>
+            <div class="par-wire par-vr"></div>
+            <div class="par-bulb par-bulb-1"></div>
+            <div class="par-bulb par-bulb-2"></div>
+            <div class="par-dot par-dot-1"></div>
+            <div class="par-dot par-dot-2"></div>
+          </div>
+          <ul class="sp-info">
+            <li>Multiple paths for current</li>
+            <li>Bulbs glow at <strong>full brightness</strong></li>
+            <li>One fails = others STILL work</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="subtitle">Comparison Table</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Feature</th><th>Series Circuit</th><th>Parallel Circuit</th></tr>
+          <tr><td><strong>Connection</strong></td><td>Components in a single line</td><td>Components in separate branches</td></tr>
+          <tr><td><strong>Current path</strong></td><td>Only ONE path</td><td>Multiple paths</td></tr>
+          <tr><td><strong>Bulb brightness</strong></td><td>Dim (shared voltage)</td><td>Full brightness (full voltage)</td></tr>
+          <tr><td><strong>If one bulb fails</strong></td><td>ALL bulbs go off</td><td>Other bulbs still work</td></tr>
+          <tr><td><strong>Adding more bulbs</strong></td><td>All get dimmer</td><td>Brightness stays the same</td></tr>
+          <tr><td><strong>Used in</strong></td><td>Fairy lights (old type), torch</td><td>Home wiring, street lights</td></tr>
+        </table>
+      </div>
+
+      <div class="trick">
+        <strong>Real Life Example:</strong> In older string fairy lights (serial), if one bulb fused, the entire string went dark because the circuit was broken. Modern fairy lights and all home wiring use <strong>parallel circuits</strong> -- so if one bulb fuses, the rest keep working!
+      </div>
+
+      <div class="note-box">
+        <strong>Indian Context:</strong> All electrical wiring in Indian homes uses <strong>parallel circuits</strong>. Each socket, light, and fan is on a separate branch. This way, switching off one appliance does not affect others. The main switch (MCB) controls the entire house supply.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-connector"><span class="connector-arrow">&#9660;</span></div>
+
+  <!-- ================================= -->
+  <!-- SECTION 8: SAFETY WITH ELECTRICITY -->
+  <!-- ================================= -->
+  <div class="section-block reveal" id="sec8">
+    <div class="section-hd g-red">
+      <span class="icon">8</span> Safety with Electricity
+    </div>
+    <div class="section-bd">
+      <p>Electricity is extremely useful, but it can be <strong>very dangerous</strong> if not handled properly. Electric shocks can cause burns, injuries, or even death. Here are important safety rules everyone must follow.</p>
+
+      <div class="subtitle">Safety Rules</div>
+      <div class="safety-grid">
+        <div class="safety-card saf-red">
+          <span class="safety-icon">&#9888;&#65039;</span>
+          <div class="safety-title">Never Touch Bare Wires</div>
+          <div class="safety-text">Exposed wires carry current and can give fatal electric shocks. Report any damaged wires immediately.</div>
+        </div>
+        <div class="safety-card saf-yellow">
+          <span class="safety-icon">&#128167;</span>
+          <div class="safety-title">No Wet Hands</div>
+          <div class="safety-text">Never touch electrical switches, plugs, or appliances with wet hands. Water is a conductor and increases shock risk.</div>
+        </div>
+        <div class="safety-card saf-blue">
+          <span class="safety-icon">&#128268;</span>
+          <div class="safety-title">Don't Overload Sockets</div>
+          <div class="safety-text">Connecting too many devices to one socket can cause overheating and fire. Use separate sockets for heavy appliances.</div>
+        </div>
+        <div class="safety-card saf-green">
+          <span class="safety-icon">&#128274;</span>
+          <div class="safety-title">Switch Off First</div>
+          <div class="safety-text">Always switch off the main supply before repairing or changing any electrical fitting. Safety first!</div>
+        </div>
+      </div>
+
+      <div class="subtitle">Safety Devices</div>
+      <div class="info-grid">
+        <div class="info-card ic-red">
+          <h4>Fuse</h4>
+          <p>A thin wire that <strong>melts and breaks</strong> the circuit if too much current flows (overload). This prevents fire and damage to appliances. It is a safety device that "sacrifices itself" to protect the circuit.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>MCB (Miniature Circuit Breaker)</h4>
+          <p>A modern replacement for fuses. It <strong>automatically switches off</strong> when it detects too much current. Unlike a fuse, it can be reset (switched back on) after fixing the problem. Found in every Indian household's electrical panel.</p>
+        </div>
+        <div class="info-card ic-green">
+          <h4>Earthing (Grounding)</h4>
+          <p>A thick copper wire connects the metal body of appliances to the ground (earth). If a live wire accidentally touches the metal body, the current flows safely into the earth instead of through your body. Essential for safety!</p>
+        </div>
+        <div class="info-card ic-amber">
+          <h4>Three-Pin Plug</h4>
+          <p>The third pin (thicker, longer) is the <strong>earth pin</strong>. It connects to earthing. The other two pins carry live and neutral wires. The earth pin enters the socket first and leaves last for maximum safety.</p>
+        </div>
+      </div>
+
+      <div class="subtitle">Indian Safety Standards</div>
+      <div class="info-grid">
+        <div class="info-card ic-teal">
+          <h4>ISI Mark</h4>
+          <p>The <strong>ISI (Indian Standards Institution)</strong> mark on electrical appliances means the product meets Indian safety standards set by <strong>BIS (Bureau of Indian Standards)</strong>. Always buy ISI-marked electrical goods!</p>
+        </div>
+        <div class="info-card ic-purple">
+          <h4>BIS Standards</h4>
+          <p><strong>Bureau of Indian Standards</strong> sets quality and safety standards for all electrical products sold in India. Products with BIS certification are tested for safety.</p>
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>Emergency Tip:</strong> If someone gets an electric shock, do NOT touch them directly -- you will also get a shock! First, switch off the main power. If you cannot reach the switch, use a dry wooden stick or rubber object to push the person away from the electrical source. Then call for medical help immediately.
+      </div>
+
+      <div class="note-box">
+        <strong>Why Three Wires?</strong> Indian home wiring has THREE wires: <strong>Live (red/brown)</strong> -- carries the current; <strong>Neutral (black/blue)</strong> -- return path for current; <strong>Earth (green/yellow-green)</strong> -- safety wire connected to the ground. The earth wire protects you from electric shock.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-connector"><span class="connector-arrow">&#9660;</span></div>
+
+  <!-- ===================== -->
+  <!-- NCERT ACTIVITIES       -->
+  <!-- ===================== -->
+  <div class="section-block reveal" id="activities">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128300;</span> NCERT Activities
+    </div>
+    <div class="section-bd">
+
+      <!-- ===== Activity 3.1 ===== -->
+      <div class="ncert-tag">Activity 3.1</div>
+      <div class="subtitle">Making a Simple Electric Circuit</div>
+      <div class="activity-visual">
+        <div class="act-circuit">
+          <div class="act-cell"></div>
+          <div class="act-wire-h">
+            <div class="act-wire-dot"></div>
+          </div>
+          <div class="act-bulb-mini"></div>
+          <div class="act-wire-h">
+            <div class="act-wire-dot" style="animation-direction:reverse;"></div>
+          </div>
+        </div>
+        <p class="label">Simple circuit: Cell + Wires + Bulb = Bulb glows!</p>
+      </div>
+      <div class="activity-details">
+        <p><strong>Aim:</strong> To make a simple electric circuit using a cell, wire, and bulb.</p>
+        <p><strong>Materials:</strong> Dry cell (1.5V), thin copper/connecting wire, small torch bulb, rubber band.</p>
+        <ol class="exp-steps">
+          <li>Take a dry cell and connect one end of a wire to the <strong>positive terminal (+)</strong> using a rubber band.</li>
+          <li>Touch the other end of the wire to one terminal of the torch bulb.</li>
+          <li>Connect a second wire from the other terminal of the bulb to the <strong>negative terminal (-)</strong> of the cell.</li>
+          <li>Observe -- the <strong>bulb glows</strong>! This is a <strong>closed circuit</strong>.</li>
+          <li>Now disconnect one wire. The bulb <strong>stops glowing</strong>. This is an <strong>open circuit</strong>.</li>
+        </ol>
+        <div class="observation-box">
+          <strong>Observation &amp; Conclusion:</strong> The bulb glows only when the circuit is <strong>complete (closed)</strong>. When any wire is disconnected, the circuit is <strong>open</strong> and no current flows. This shows that electric current needs a <strong>complete, unbroken path</strong> to flow.
+        </div>
+      </div>
+
+      <!-- ===== Activity 3.2 ===== -->
+      <div class="ncert-tag">Activity 3.2</div>
+      <div class="subtitle">Making a Switch</div>
+      <div class="activity-visual">
+        <div class="act-switch-wrap">
+          <div class="act-cardboard">
+            <div class="act-pin act-pin-l"></div>
+            <div class="act-pin act-pin-r"></div>
+            <div class="act-paperclip"></div>
+          </div>
+          <div style="text-align:center;">
+            <div class="act-bulb-mini" style="width:28px;height:28px;"></div>
+            <div style="font-size:11px;font-weight:800;color:#92400e;margin-top:6px;">Bulb ON/OFF</div>
+          </div>
+        </div>
+        <p class="label">Paper clip switch: touching both pins = ON, lifted away = OFF</p>
+      </div>
+      <div class="activity-details">
+        <p><strong>Aim:</strong> To make a simple switch using a safety pin or paper clip.</p>
+        <p><strong>Materials:</strong> Drawing pins (2), paper clip/safety pin, small piece of cardboard/thermocol, wires, cell, bulb.</p>
+        <ol class="exp-steps">
+          <li>Fix two drawing pins on a piece of cardboard, about 3 cm apart.</li>
+          <li>Connect a wire from one drawing pin to the positive terminal of the cell.</li>
+          <li>Connect a wire from the other drawing pin to one terminal of the bulb.</li>
+          <li>Complete the circuit by connecting the bulb to the cell's negative terminal.</li>
+          <li>Place a paper clip so it touches <strong>both</strong> drawing pins. The bulb should <strong>glow</strong> (switch ON).</li>
+          <li>Rotate the paper clip so it touches only <strong>one</strong> pin. The bulb goes <strong>off</strong> (switch OFF).</li>
+        </ol>
+        <div class="observation-box">
+          <strong>Observation &amp; Conclusion:</strong> When the paper clip connects both pins, the circuit is <strong>closed</strong> and the bulb glows. When moved away, the circuit is <strong>open</strong> and the bulb goes off. The paper clip acts as a <strong>simple switch</strong>. This is the same principle used in all electrical switches -- a conductor connects or disconnects the circuit.
+        </div>
+      </div>
+
+      <!-- ===== Activity 3.3 ===== -->
+      <div class="ncert-tag">Activity 3.3</div>
+      <div class="subtitle">Testing Conductors and Insulators</div>
+      <div class="activity-visual">
+        <div class="act-test-wrap">
+          <div class="act-cell" style="width:36px;height:56px;"></div>
+          <div class="act-wire-h" style="width:30px;">
+            <div class="act-wire-dot" style="width:4px;height:4px;"></div>
+          </div>
+          <div class="act-gap">?</div>
+          <div class="act-wire-h" style="width:30px;">
+            <div class="act-wire-dot" style="width:4px;height:4px;animation-direction:reverse;"></div>
+          </div>
+          <div class="act-bulb-mini" style="width:28px;height:28px;"></div>
+        </div>
+        <div class="test-objects">
+          <span class="test-obj cond">Key</span>
+          <span class="test-obj ins">Eraser</span>
+          <span class="test-obj cond">Coin</span>
+          <span class="test-obj ins">Plastic</span>
+          <span class="test-obj cond">Foil</span>
+          <span class="test-obj ins">Wood</span>
+          <span class="test-obj cond">Nail</span>
+          <span class="test-obj ins">Glass</span>
+          <span class="test-obj cond">Graphite</span>
+        </div>
+        <p class="label">Place each object in the gap -- if bulb glows, it is a conductor!</p>
+      </div>
+      <div class="activity-details">
+        <p><strong>Aim:</strong> To test whether materials are conductors or insulators.</p>
+        <p><strong>Materials:</strong> Simple circuit (cell + bulb + wires), various objects: iron nail, key, rubber eraser, plastic scale, wooden stick, coin, aluminium foil, glass rod, pencil graphite (lead).</p>
+        <ol class="exp-steps">
+          <li>Make a circuit with a cell, bulb, and wires, but leave a <strong>gap</strong> between two wire ends.</li>
+          <li>Place each object in the gap one by one, touching both wire ends.</li>
+          <li>If the bulb <strong>glows</strong> -- the material is a <strong>conductor</strong>.</li>
+          <li>If the bulb does <strong>NOT glow</strong> -- the material is an <strong>insulator</strong>.</li>
+          <li>Record your observations in a table.</li>
+        </ol>
+        <div class="observation-box">
+          <strong>Observation &amp; Conclusion:</strong> Metals (key, nail, coin, foil) make the bulb glow -- they are <strong>conductors</strong>. Rubber, plastic, wood, and glass do NOT make the bulb glow -- they are <strong>insulators</strong>. Pencil graphite makes the bulb glow dimly -- it is a <strong>conductor</strong> (but not as good as metals). This confirms that metals are generally good conductors, while non-metals are generally insulators.
+        </div>
+      </div>
+
+      <!-- ===== Activity 3.4 ===== -->
+      <div class="ncert-tag">Activity 3.4</div>
+      <div class="subtitle">Series Circuit -- Two Bulbs in Series</div>
+      <div class="activity-visual">
+        <div class="act-circuit">
+          <div class="act-cell"></div>
+          <div class="act-wire-h" style="width:30px;">
+            <div class="act-wire-dot" style="width:4px;height:4px;"></div>
+          </div>
+          <div class="act-bulb-mini" style="width:28px;height:28px;animation: serBulbDim 2s ease-in-out infinite;box-shadow:none;"></div>
+          <div class="act-wire-h" style="width:30px;">
+            <div class="act-wire-dot" style="width:4px;height:4px;"></div>
+          </div>
+          <div class="act-bulb-mini" style="width:28px;height:28px;animation: serBulbDim 2s ease-in-out infinite;box-shadow:none;"></div>
+          <div class="act-wire-h" style="width:30px;">
+            <div class="act-wire-dot" style="width:4px;height:4px;animation-direction:reverse;"></div>
+          </div>
+        </div>
+        <p class="label">Two bulbs in series -- both glow dimly. Remove one and the other goes dark.</p>
+      </div>
+      <div class="activity-details">
+        <p><strong>Aim:</strong> To connect two bulbs in series and observe.</p>
+        <p><strong>Materials:</strong> 2 torch bulbs, cell, connecting wires.</p>
+        <ol class="exp-steps">
+          <li>Connect the cell, first bulb, second bulb, and wires in a <strong>single loop</strong> (one after another).</li>
+          <li>Observe: Both bulbs glow, but they are <strong>dimmer</strong> than when a single bulb was connected.</li>
+          <li>Now remove one bulb. The other bulb <strong>also goes off</strong>.</li>
+        </ol>
+        <div class="observation-box">
+          <strong>Observation &amp; Conclusion:</strong> In a series circuit, bulbs glow <strong>dimmer</strong> because the voltage is shared among them. When one bulb is removed, the circuit <strong>breaks</strong> (open circuit), so the other bulb also goes off. This is the main <strong>disadvantage</strong> of series circuits.
+        </div>
+      </div>
+
+      <!-- ===== Activity 3.5 ===== -->
+      <div class="ncert-tag">Activity 3.5</div>
+      <div class="subtitle">Parallel Circuit -- Two Bulbs in Parallel</div>
+      <div class="activity-visual">
+        <div style="display:flex;justify-content:center;gap:20px;align-items:center;flex-wrap:wrap;">
+          <div class="act-cell"></div>
+          <div style="display:flex;flex-direction:column;gap:10px;align-items:center;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div class="act-wire-h" style="width:30px;"><div class="act-wire-dot" style="width:4px;height:4px;"></div></div>
+              <div class="act-bulb-mini" style="width:30px;height:30px;"></div>
+              <div class="act-wire-h" style="width:30px;"><div class="act-wire-dot" style="width:4px;height:4px;animation-direction:reverse;"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div class="act-wire-h" style="width:30px;"><div class="act-wire-dot" style="width:4px;height:4px;"></div></div>
+              <div class="act-bulb-mini" style="width:30px;height:30px;"></div>
+              <div class="act-wire-h" style="width:30px;"><div class="act-wire-dot" style="width:4px;height:4px;animation-direction:reverse;"></div></div>
+            </div>
+          </div>
+        </div>
+        <p class="label">Two bulbs in parallel -- both glow at full brightness! Remove one and the other still works.</p>
+      </div>
+      <div class="activity-details">
+        <p><strong>Aim:</strong> To connect two bulbs in parallel and observe.</p>
+        <p><strong>Materials:</strong> 2 torch bulbs, cell, connecting wires.</p>
+        <ol class="exp-steps">
+          <li>Connect the cell to two separate branches, each containing one bulb.</li>
+          <li>Observe: Both bulbs glow at <strong>full brightness</strong> (same as a single bulb).</li>
+          <li>Now remove one bulb. The other bulb <strong>stays on</strong> and continues to glow!</li>
+        </ol>
+        <div class="observation-box">
+          <strong>Observation &amp; Conclusion:</strong> In a parallel circuit, each bulb gets the <strong>full voltage</strong> of the cell, so both glow at full brightness. When one bulb is removed, the other branch still has a complete circuit, so the other bulb <strong>keeps working</strong>. This is why <strong>parallel circuits are used in homes</strong>.
+        </div>
+      </div>
+
+      <!-- ===== Activity 3.6 ===== -->
+      <div class="ncert-tag">Activity 3.6</div>
+      <div class="subtitle">Making a Simple Torch</div>
+      <div class="activity-visual">
+        <div class="torch-wrap">
+          <div class="torch-tube">
+            <div class="torch-cells">
+              <div class="torch-cell-mini"></div>
+              <div class="torch-cell-mini"></div>
+            </div>
+            <div class="torch-switch-btn"></div>
+            <div class="torch-lens"></div>
+            <div class="torch-beam"></div>
+          </div>
+        </div>
+        <p class="label">Homemade torch: 2 cells + bulb + switch inside a cardboard tube</p>
+      </div>
+      <div class="activity-details">
+        <p><strong>Aim:</strong> To make a simple torch using cells, bulb, and a cardboard tube.</p>
+        <p><strong>Materials:</strong> 2 dry cells (1.5V each), small torch bulb, connecting wires, cardboard tube (from a paper roll), tape, small switch or paper clip switch.</p>
+        <ol class="exp-steps">
+          <li>Place 2 cells inside the cardboard tube in <strong>series</strong> (positive of one touching negative of the other).</li>
+          <li>Connect a wire from the positive terminal of the first cell to one terminal of the bulb.</li>
+          <li>Fix the bulb at one end of the tube.</li>
+          <li>Connect the other terminal of the bulb through a switch to the negative terminal of the last cell.</li>
+          <li>Secure everything with tape.</li>
+          <li>Press the switch -- the bulb lights up like a <strong>torch</strong>!</li>
+        </ol>
+        <div class="observation-box">
+          <strong>Observation &amp; Conclusion:</strong> Two cells in series provide <strong>3V</strong> (1.5V + 1.5V), making the bulb glow brighter than with one cell. The switch allows us to turn the torch ON and OFF. This is exactly how a real torch works! The reflector behind the bulb in commercial torches focuses the light into a beam.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-connector"><span class="connector-arrow">&#9660;</span></div>
+
+  <!-- ============================= -->
+  <!-- CHAPTER SUMMARY                -->
+  <!-- ============================= -->
+  <div class="section-block reveal" id="summary">
+    <div class="section-hd g-teal">
+      <span class="icon">&#128218;</span> Chapter Summary
+    </div>
+    <div class="section-bd">
+      <div class="subtitle">Key Concepts at a Glance</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Concept</th><th>Key Points</th></tr>
+          <tr><td><strong>Electric Current</strong></td><td>Flow of electric charges through a conductor.</td></tr>
+          <tr><td><strong>Electric Cell</strong></td><td>Converts chemical energy to electrical energy. Has + and - terminals.</td></tr>
+          <tr><td><strong>Battery</strong></td><td>Two or more cells connected together for higher voltage.</td></tr>
+          <tr><td><strong>Electric Bulb</strong></td><td>Filament (tungsten) glows white-hot when current passes through it.</td></tr>
+          <tr><td><strong>Electric Circuit</strong></td><td>A closed path through which current flows. Must be complete.</td></tr>
+          <tr><td><strong>Switch</strong></td><td>Opens (OFF) or closes (ON) the circuit.</td></tr>
+          <tr><td><strong>Conductor</strong></td><td>Allows current to flow. Examples: copper, iron, aluminium.</td></tr>
+          <tr><td><strong>Insulator</strong></td><td>Does NOT allow current to flow. Examples: rubber, plastic, wood.</td></tr>
+          <tr><td><strong>Series Circuit</strong></td><td>Single path. Dimmer bulbs. One fails = all fail.</td></tr>
+          <tr><td><strong>Parallel Circuit</strong></td><td>Multiple paths. Full brightness. One fails = others work.</td></tr>
+          <tr><td><strong>Fuse / MCB</strong></td><td>Safety devices that break the circuit during overload.</td></tr>
+          <tr><td><strong>Earthing</strong></td><td>Safety wire connecting appliance body to ground.</td></tr>
+        </table>
+      </div>
+
+      <div class="subtitle">All 6 NCERT Activities at a Glance</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Activity</th><th>What It Demonstrates</th><th>Key Observation</th></tr>
+          <tr><td><strong>3.1</strong> Simple Circuit</td><td>Closed vs open circuit</td><td>Complete circuit = bulb glows; broken = bulb off</td></tr>
+          <tr><td><strong>3.2</strong> Making a Switch</td><td>Switch controls circuit</td><td>Paper clip connecting pins = ON; separated = OFF</td></tr>
+          <tr><td><strong>3.3</strong> Conductor Test</td><td>Conductors vs insulators</td><td>Metals = bulb glows; rubber/plastic/wood = no glow</td></tr>
+          <tr><td><strong>3.4</strong> Series Circuit</td><td>Series connection</td><td>Bulbs dim; remove one = both off</td></tr>
+          <tr><td><strong>3.5</strong> Parallel Circuit</td><td>Parallel connection</td><td>Bulbs bright; remove one = other stays on</td></tr>
+          <tr><td><strong>3.6</strong> Making a Torch</td><td>Practical application</td><td>2 cells in series + switch + bulb = working torch</td></tr>
+        </table>
+      </div>
+
+      <div class="subtitle">Circuit Symbols Recap</div>
+      <div class="symbols-grid">
+        <div class="sym-card">
+          <div class="sym-visual"><span class="sym-cell-long"></span><span class="sym-cell-short"></span></div>
+          <div class="sym-name">Cell</div>
+        </div>
+        <div class="sym-card">
+          <div class="sym-visual"><div class="sym-batt"><span class="sym-bl"></span><span class="sym-bs"></span><span class="sym-bl"></span><span class="sym-bs"></span></div></div>
+          <div class="sym-name">Battery</div>
+        </div>
+        <div class="sym-card">
+          <div class="sym-visual"><div class="sym-bulb-c"></div></div>
+          <div class="sym-name">Bulb</div>
+        </div>
+        <div class="sym-card">
+          <div class="sym-visual"><div class="sym-wire-line"></div></div>
+          <div class="sym-name">Wire</div>
+        </div>
+        <div class="sym-card">
+          <div class="sym-visual"><div class="sym-switch-open"><div class="sym-so-dot1"></div><div class="sym-so-dot2"></div><div class="sym-so-bar"></div></div></div>
+          <div class="sym-name">Switch (Open)</div>
+        </div>
+        <div class="sym-card">
+          <div class="sym-visual"><div class="sym-switch-closed"><div class="sym-sc-dot1"></div><div class="sym-sc-dot2"></div><div class="sym-sc-bar"></div></div></div>
+          <div class="sym-name">Switch (Closed)</div>
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>Final Revision Checklist -- Before Your Exam:</strong><br>
+        1. Can you name the parts of a dry cell and an electric bulb?<br>
+        2. Can you explain the difference between closed and open circuits?<br>
+        3. Can you draw circuit symbols for cell, battery, bulb, wire, and switch?<br>
+        4. Can you name 5 conductors and 5 insulators?<br>
+        5. Can you explain the difference between series and parallel circuits?<br>
+        6. Do you know what a fuse, MCB, and earthing do?<br>
+        If you answered YES to all, you are well prepared!
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FILL IN THE BLANKS ===== -->
+  <div class="section-block reveal" id="blanks">
+    <div class="section-hd g-orange">
+      <span class="icon">&#9997;&#65039;</span> Fill in the Blanks
+    </div>
+    <div class="section-bd">
+      <p style="font-size:13.5px;color:#9a3412;margin-bottom:14px"><em>Try to fill these blanks without looking at the notes above!</em></p>
+
+      <ul class="short-q-list">
+        <li class="short-q-item" style="border-left-color:#fb923c;">
+          <div class="short-q">1. A device that converts chemical energy into electrical energy is called an ____________.</div>
+          <div class="short-a"><strong>Ans:</strong> <strong>Electric cell</strong></div>
+        </li>
+        <li class="short-q-item" style="border-left-color:#fb923c;">
+          <div class="short-q">2. The thin wire inside a bulb that glows is called the ____________ and is made of ____________.</div>
+          <div class="short-a"><strong>Ans:</strong> <strong>Filament</strong>; <strong>Tungsten</strong></div>
+        </li>
+        <li class="short-q-item" style="border-left-color:#fb923c;">
+          <div class="short-q">3. A complete, unbroken path through which current flows is called a ____________ circuit.</div>
+          <div class="short-a"><strong>Ans:</strong> <strong>Closed</strong> circuit</div>
+        </li>
+        <li class="short-q-item" style="border-left-color:#fb923c;">
+          <div class="short-q">4. Materials that allow electricity to pass through them are called ____________, while those that do not are called ____________.</div>
+          <div class="short-a"><strong>Ans:</strong> <strong>Conductors</strong>; <strong>Insulators</strong></div>
+        </li>
+        <li class="short-q-item" style="border-left-color:#fb923c;">
+          <div class="short-q">5. In a ____________ circuit, all components are connected in a single path, while in a ____________ circuit, they are in separate branches.</div>
+          <div class="short-a"><strong>Ans:</strong> <strong>Series</strong>; <strong>Parallel</strong></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== TRUE / FALSE ===== -->
+  <div class="section-block reveal" id="truefalse">
+    <div class="section-hd g-rose">
+      <span class="icon">&#10004;&#65039;</span> True or False
+    </div>
+    <div class="section-bd">
+      <p style="font-size:13.5px;color:#881337;margin-bottom:14px"><em>Decide whether each statement is True or False.</em></p>
+
+      <ul class="short-q-list">
+        <li class="short-q-item" style="border-left-color:#fb7185;">
+          <div class="short-q">1. A battery is made up of two or more cells.</div>
+          <div class="short-a"><strong>Ans:</strong> <strong>True.</strong> A battery is a combination of two or more electric cells connected together.</div>
+        </li>
+        <li class="short-q-item" style="border-left-color:#fb7185;">
+          <div class="short-q">2. Rubber is a good conductor of electricity.</div>
+          <div class="short-a"><strong>Ans:</strong> <strong>False.</strong> Rubber is an <strong>insulator</strong>. It does not allow electricity to pass through it. That is why rubber gloves protect electricians from shocks.</div>
+        </li>
+        <li class="short-q-item" style="border-left-color:#fb7185;">
+          <div class="short-q">3. In a parallel circuit, if one bulb fuses, the other bulbs also stop working.</div>
+          <div class="short-a"><strong>Ans:</strong> <strong>False.</strong> In a parallel circuit, each bulb is on a separate branch. If one fuses, the others continue to work. This happens in <strong>series</strong> circuits, not parallel.</div>
+        </li>
+        <li class="short-q-item" style="border-left-color:#fb7185;">
+          <div class="short-q">4. The filament of a bulb is made of tungsten because it has a very high melting point.</div>
+          <div class="short-a"><strong>Ans:</strong> <strong>True.</strong> Tungsten has the highest melting point (3422 degrees C) of any metal, allowing it to glow white-hot without melting.</div>
+        </li>
+        <li class="short-q-item" style="border-left-color:#fb7185;">
+          <div class="short-q">5. A switch in the OFF position means the circuit is closed.</div>
+          <div class="short-a"><strong>Ans:</strong> <strong>False.</strong> A switch in the OFF position means the circuit is <strong>open</strong> (broken). A switch in the <strong>ON</strong> position means the circuit is closed (complete).</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== MCQs ===== -->
+  <div class="section-block reveal" id="mcq">
+    <div class="section-hd g-purple">
+      <span class="icon">&#129504;</span> Multiple Choice Questions (MCQs)
+    </div>
+    <div class="section-bd">
+      <p style="font-size:13.5px;color:#6b21a8;margin-bottom:14px"><em>Click on any option -- the correct one will be highlighted with the answer explanation.</em></p>
+
+      <ul class="mcq-list">
+        <li class="mcq-item">
+          <div class="mcq-q">1. An electric cell converts:</div>
+          <ul class="mcq-options">
+            <li>(a) Electrical energy to chemical energy</li>
+            <li class="correct">(b) Chemical energy to electrical energy</li>
+            <li>(c) Light energy to electrical energy</li>
+            <li>(d) Heat energy to electrical energy</li>
+          </ul>
+          <div class="mcq-ans">Answer: (b) An electric cell converts chemical energy (from chemicals inside it) into electrical energy (electric current).</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">2. The positive terminal of a dry cell is:</div>
+          <ul class="mcq-options">
+            <li>(a) The flat metal base</li>
+            <li class="correct">(b) The metal cap on top</li>
+            <li>(c) The chemical paste inside</li>
+            <li>(d) The carbon rod</li>
+          </ul>
+          <div class="mcq-ans">Answer: (b) The metal cap on top is the positive terminal (+). The flat metal base at the bottom is the negative terminal (-).</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">3. Which of the following is a conductor of electricity?</div>
+          <ul class="mcq-options">
+            <li>(a) Rubber</li>
+            <li>(b) Plastic</li>
+            <li class="correct">(c) Copper</li>
+            <li>(d) Wood</li>
+          </ul>
+          <div class="mcq-ans">Answer: (c) Copper is an excellent conductor of electricity. Rubber, plastic, and wood are all insulators.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">4. A circuit in which the path is broken is called:</div>
+          <ul class="mcq-options">
+            <li>(a) A closed circuit</li>
+            <li class="correct">(b) An open circuit</li>
+            <li>(c) A series circuit</li>
+            <li>(d) A parallel circuit</li>
+          </ul>
+          <div class="mcq-ans">Answer: (b) An open circuit has a broken/incomplete path. No current flows through an open circuit.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">5. The filament of an electric bulb is made of:</div>
+          <ul class="mcq-options">
+            <li>(a) Copper</li>
+            <li>(b) Iron</li>
+            <li class="correct">(c) Tungsten</li>
+            <li>(d) Aluminium</li>
+          </ul>
+          <div class="mcq-ans">Answer: (c) Tungsten is used because it has the highest melting point (3422 degrees C) of any metal. It can glow white-hot without melting.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">6. In a circuit diagram, the symbol for a cell has:</div>
+          <ul class="mcq-options">
+            <li>(a) Two lines of equal length</li>
+            <li class="correct">(b) A long line (positive) and a short line (negative)</li>
+            <li>(c) A circle with a cross</li>
+            <li>(d) A zigzag line</li>
+          </ul>
+          <div class="mcq-ans">Answer: (b) A cell symbol has a longer line representing the positive terminal and a shorter, thicker line representing the negative terminal.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">7. When a switch is in the ON position:</div>
+          <ul class="mcq-options">
+            <li class="correct">(a) The circuit is closed and current flows</li>
+            <li>(b) The circuit is open and no current flows</li>
+            <li>(c) The bulb fuses</li>
+            <li>(d) The battery dies</li>
+          </ul>
+          <div class="mcq-ans">Answer: (a) Switch ON means the circuit is closed (complete), allowing electric current to flow through the circuit.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">8. Which of the following is an insulator?</div>
+          <ul class="mcq-options">
+            <li>(a) Iron</li>
+            <li>(b) Aluminium</li>
+            <li>(c) Graphite</li>
+            <li class="correct">(d) Rubber</li>
+          </ul>
+          <div class="mcq-ans">Answer: (d) Rubber is an insulator. It does not allow electricity to pass through. Iron, aluminium, and graphite are all conductors.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">9. In a series circuit with two bulbs, if one bulb is removed:</div>
+          <ul class="mcq-options">
+            <li>(a) The other bulb glows brighter</li>
+            <li class="correct">(b) The other bulb also goes off</li>
+            <li>(c) The other bulb remains the same</li>
+            <li>(d) Both bulbs glow</li>
+          </ul>
+          <div class="mcq-ans">Answer: (b) In a series circuit, there is only ONE path. Removing one bulb breaks the circuit, so the other bulb also goes off.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">10. In a parallel circuit with two bulbs, if one bulb fuses:</div>
+          <ul class="mcq-options">
+            <li>(a) Both bulbs go off</li>
+            <li>(b) The other bulb gets dimmer</li>
+            <li class="correct">(c) The other bulb continues to glow</li>
+            <li>(d) The cell stops working</li>
+          </ul>
+          <div class="mcq-ans">Answer: (c) In a parallel circuit, each bulb is in a separate branch. If one fuses, the other branch still has a complete circuit and works normally.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">11. The best conductor of electricity among these is:</div>
+          <ul class="mcq-options">
+            <li>(a) Iron</li>
+            <li>(b) Copper</li>
+            <li class="correct">(c) Silver</li>
+            <li>(d) Aluminium</li>
+          </ul>
+          <div class="mcq-ans">Answer: (c) Silver is the best conductor of electricity. However, copper is used for most wires because silver is too expensive.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">12. A fuse works by:</div>
+          <ul class="mcq-options">
+            <li>(a) Increasing the current</li>
+            <li class="correct">(b) Melting and breaking the circuit when excess current flows</li>
+            <li>(c) Storing extra electricity</li>
+            <li>(d) Converting AC to DC</li>
+          </ul>
+          <div class="mcq-ans">Answer: (b) A fuse has a thin wire that melts when too much current flows, breaking the circuit and preventing damage to appliances and wiring.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">13. Why are electrical wires covered with plastic?</div>
+          <ul class="mcq-options">
+            <li>(a) To make them look colorful</li>
+            <li>(b) To make them stronger</li>
+            <li class="correct">(c) To prevent electric shock (plastic is an insulator)</li>
+            <li>(d) To increase conductivity</li>
+          </ul>
+          <div class="mcq-ans">Answer: (c) Plastic is an insulator. Covering wires with plastic prevents the current from leaking and protects people from electric shocks.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">14. The wiring in Indian homes uses:</div>
+          <ul class="mcq-options">
+            <li>(a) Series circuits</li>
+            <li class="correct">(b) Parallel circuits</li>
+            <li>(c) Neither series nor parallel</li>
+            <li>(d) Only battery circuits</li>
+          </ul>
+          <div class="mcq-ans">Answer: (b) Indian homes use parallel circuits so that each appliance gets full voltage and if one device is switched off, others are not affected.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">15. MCB stands for:</div>
+          <ul class="mcq-options">
+            <li>(a) Main Current Board</li>
+            <li>(b) Mega Circuit Breaker</li>
+            <li class="correct">(c) Miniature Circuit Breaker</li>
+            <li>(d) Magnetic Current Blocker</li>
+          </ul>
+          <div class="mcq-ans">Answer: (c) MCB stands for Miniature Circuit Breaker. It automatically switches off the supply when excess current flows, protecting the circuit.</div>
+        </li>
+      </ul>
+      <p style="text-align:center;margin-top:14px"><button onclick="document.querySelectorAll('.mcq-item').forEach(i=>i.classList.add('show-ans'))" style="background:#f59e0b;color:white;border:none;padding:10px 20px;border-radius:10px;font-weight:800;cursor:pointer;font-family:'Nunito';font-size:14px">Show All Answers</button></p>
+    </div>
+  </div>
+
+  <!-- ===== SHORT QUESTIONS ===== -->
+  <div class="section-block reveal" id="short">
+    <div class="section-hd g-blue">
+      <span class="icon">&#9997;&#65039;</span> Short Answer Questions
+    </div>
+    <div class="section-bd">
+
+      <ul class="short-q-list">
+        <li class="short-q-item">
+          <div class="short-q">Q1. What is an electric circuit?</div>
+          <div class="short-a"><strong>Ans:</strong> An electric circuit is a <strong>closed path</strong> (complete loop) through which electric current can flow. It consists of a source of electricity (cell/battery), connecting wires, a device (bulb/motor), and usually a switch. For current to flow, the circuit must be complete (closed). If the path is broken at any point, it becomes an open circuit and no current flows.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q2. Name the parts of a dry cell.</div>
+          <div class="short-a"><strong>Ans:</strong> A dry cell has the following parts: (i) <strong>Positive terminal (+)</strong> -- metal cap on top, (ii) <strong>Negative terminal (-)</strong> -- flat metal base at the bottom, (iii) <strong>Carbon rod</strong> -- a thin rod in the center connected to the positive terminal, (iv) <strong>Chemical paste</strong> -- a moist paste of chemicals (ammonium chloride, zinc chloride) that reacts to produce electricity, (v) <strong>Metal casing</strong> -- zinc cylinder that acts as the outer shell and negative electrode.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q3. What is the difference between a conductor and an insulator?</div>
+          <div class="short-a"><strong>Ans:</strong> A <strong>conductor</strong> is a material that allows electric current to pass through it easily. Examples: copper, iron, aluminium, silver, human body. An <strong>insulator</strong> is a material that does not allow electric current to pass through it. Examples: rubber, plastic, wood, glass, air. Metals are generally conductors, while non-metals are generally insulators.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q4. Why is copper used for making electrical wires?</div>
+          <div class="short-a"><strong>Ans:</strong> Copper is used for making electrical wires because: (i) It is an <strong>excellent conductor</strong> of electricity (second only to silver). (ii) It is <strong>ductile</strong> -- can be drawn into thin wires without breaking. (iii) It is relatively <strong>affordable</strong> compared to silver. (iv) It is <strong>flexible</strong> and does not corrode easily. These properties make copper the ideal metal for electrical wiring.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q5. What happens when a switch is turned off?</div>
+          <div class="short-a"><strong>Ans:</strong> When a switch is turned <strong>OFF</strong>, the metal contacts inside the switch <strong>separate</strong>, creating a <strong>gap</strong> in the circuit. This makes the circuit <strong>open</strong> (incomplete). Since the path is broken, <strong>no current flows</strong> through the circuit. The electrical device (bulb, fan, etc.) stops working. The switch essentially breaks the circuit to stop the flow of electricity.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q6. Draw the circuit symbol for a cell, battery, bulb, and switch.</div>
+          <div class="short-a"><strong>Ans:</strong> <strong>Cell:</strong> One long line (+ terminal) and one short thick line (- terminal), parallel to each other. <strong>Battery:</strong> Multiple cell symbols connected in series (alternating long and short lines). <strong>Bulb:</strong> A circle with a cross (X) inside it. <strong>Switch (open):</strong> Two dots with a tilted line touching one dot. <strong>Switch (closed):</strong> Two dots connected by a horizontal line. (Students should practice drawing these symbols neatly.)</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q7. What is the difference between series and parallel circuits?</div>
+          <div class="short-a"><strong>Ans:</strong> In a <strong>series circuit</strong>, components are connected one after another in a single path. There is only one path for current. If one component fails, the entire circuit breaks and all devices stop. Bulbs glow dimmer. In a <strong>parallel circuit</strong>, components are connected in separate branches with multiple paths for current. If one component fails, others continue to work. Each device gets full voltage and bulbs glow at full brightness. Home wiring uses parallel circuits.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q8. Why are electrical wires covered with plastic?</div>
+          <div class="short-a"><strong>Ans:</strong> Electrical wires are covered with <strong>plastic</strong> (or rubber) because plastic is an <strong>insulator</strong> -- it does not allow electricity to pass through. The plastic covering serves two purposes: (i) It <strong>prevents electric shock</strong> to anyone who touches the wire. (ii) It <strong>prevents short circuits</strong> that could happen if two bare wires touch each other. Without insulation, exposed wires would be extremely dangerous.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q9. Name the metal used for bulb filaments. Why is it used?</div>
+          <div class="short-a"><strong>Ans:</strong> The metal used for bulb filaments is <strong>tungsten</strong>. It is used because: (i) It has the <strong>highest melting point</strong> of any metal (3422 degrees C). (ii) The filament needs to be heated to about 2500 degrees C to glow white-hot, and tungsten can withstand this extreme temperature without melting. (iii) No other commonly available metal can survive such high temperatures, making tungsten the ideal choice for filaments.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q10. What is a fuse? How does it work?</div>
+          <div class="short-a"><strong>Ans:</strong> A <strong>fuse</strong> is a safety device used in electric circuits to prevent damage from excess current (overload). It consists of a <strong>thin wire</strong> (usually of tin or tin-lead alloy) that has a low melting point. When more current than the safe limit flows through the circuit, the fuse wire <strong>gets hot, melts, and breaks</strong>, thus opening the circuit and stopping the current flow. This protects appliances and wiring from damage and prevents fires.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q11. Why should you not touch electrical appliances with wet hands?</div>
+          <div class="short-a"><strong>Ans:</strong> We should never touch electrical appliances with wet hands because <strong>water is a conductor</strong> of electricity (tap water contains dissolved salts). When our hands are wet, water on our skin provides an easy path for electric current to flow from the appliance <strong>through our body to the ground</strong>, causing an <strong>electric shock</strong>. This shock can cause burns, muscle spasms, heart failure, or even death. Always dry your hands before touching switches or appliances.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q12. What happens if one bulb is removed from a series circuit?</div>
+          <div class="short-a"><strong>Ans:</strong> If one bulb is removed from a series circuit, the <strong>circuit breaks</strong> (becomes open) because there is only one path for the current. When the bulb is removed, a gap is created in this single path. Since the circuit is no longer complete, <strong>no current flows</strong> and <strong>all other bulbs also stop glowing</strong>. This is the main disadvantage of series circuits.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q13. Name 5 conductors and 5 insulators.</div>
+          <div class="short-a"><strong>Ans:</strong> <strong>5 Conductors:</strong> (i) Copper, (ii) Iron, (iii) Aluminium, (iv) Silver, (v) Graphite (pencil lead). <strong>5 Insulators:</strong> (i) Rubber, (ii) Plastic, (iii) Wood (dry), (iv) Glass, (v) Air. Remember: Most metals are conductors. Most non-metals (except graphite) are insulators.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q14. What is the purpose of a switch in a circuit?</div>
+          <div class="short-a"><strong>Ans:</strong> The purpose of a switch in a circuit is to <strong>control the flow of electric current</strong>. A switch can: (i) <strong>Close the circuit</strong> (switch ON) -- completing the path so current flows and devices work. (ii) <strong>Open the circuit</strong> (switch OFF) -- breaking the path so current stops and devices turn off. Without a switch, we would have to physically disconnect wires every time we want to stop a device, which would be inconvenient and unsafe.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q15. Draw a simple circuit with a cell, switch, and bulb.</div>
+          <div class="short-a"><strong>Ans:</strong> To draw a simple circuit: Draw a rectangle. On the left side, draw the <strong>cell symbol</strong> (long line for +, short thick line for -). On the top side, draw the <strong>switch symbol</strong> (two dots with a line connecting them for closed switch). On the right side, draw the <strong>bulb symbol</strong> (circle with X inside). Connect all components with straight lines representing <strong>wires</strong>. The circuit should form a complete loop for current to flow from the positive terminal of the cell, through the switch, through the bulb, and back to the negative terminal.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- end container -->
+
+<!-- ===== BOTTOM NAV ===== -->
+<div class="bottom-nav">
+  <div class="bnav-cards">
+    <a href="acids-bases-salts.html" class="bnav-card">
+      <span class="bnav-dir">Previous</span>
+      <span class="bnav-title">Acids, Bases &amp; Salts</span>
+    </a>
+    <div class="bnav-card disabled">
+      <span class="bnav-dir">Next</span>
+      <span class="bnav-title">Coming Soon</span>
+    </div>
+  </div>
+  <div class="bnav-bottom">
+    <a href="../../index.html" class="bnav-home">Back to Home</a>
+    <a href="https://chat.whatsapp.com/YOUR_GROUP_LINK" class="bnav-wa">Join WhatsApp Study Group</a>
+  </div>
+</div>
+
+<footer>
+  Class 7 Science - Chapter 3: Electricity - Circuits and their Components - NCERT Curiosity - Complete Animated Notes<br>
+  <small style="opacity:0.85;font-weight:500">Electric Cell - Bulb - Circuit - Switch - Conductors &amp; Insulators - Series &amp; Parallel - Safety - 6 Activities - 15 MCQs - 15 Short Q&amp;A</small>
+  <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.25);font-size:13px;">
+    <strong>Made by Preeti Kushwah Ma'am</strong><br>
+    <small style="opacity:0.85">&copy; 2026 Preeti Kushwah Classes</small>
+    <div style="margin-top:12px">
+      <a href="https://wa.me/919045958581?text=Hi%20Ma'am%2C%20I%20have%20a%20doubt%20about%20Electricity%20Circuits%20(Ch%203)" style="background:#25d366;color:white;text-decoration:none;padding:8px 18px;border-radius:20px;font-weight:800;font-size:13px;display:inline-block;">Doubt? WhatsApp Ma'am</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Reveal animation on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+// MCQ click to show answer
+document.querySelectorAll('.mcq-item').forEach(item => {
+  item.querySelectorAll('.mcq-options li').forEach(opt => {
+    opt.addEventListener('click', () => {
+      item.classList.add('show-ans');
+    });
+  });
+});
+
+// Smooth scroll for TOC links
+document.querySelectorAll('.toc-bar a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Share functions
+function openShare() {
+  document.getElementById('shareOverlay').classList.add('active');
+}
+function closeShare() {
+  document.getElementById('shareOverlay').classList.remove('active');
+}
+function shareWhatsApp() {
+  const url = window.location.href;
+  const text = encodeURIComponent('Check out these Class 7 Science notes on Electricity - Circuits & Components (Ch 3 NCERT) from Preeti Kushwah Classes! ' + url);
+  window.open('https://wa.me/?text=' + text, '_blank');
+  closeShare();
+}
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const fb = document.getElementById('copyFeedback');
+    fb.style.display = 'block';
+    setTimeout(() => fb.style.display = 'none', 2000);
+  });
+}
+function nativeShare() {
+  if (navigator.share) {
+    navigator.share({ title: 'Electricity: Circuits & Components - Class 7 Notes (NCERT Ch 3)', text: 'Complete animated notes from Preeti Kushwah Classes', url: window.location.href });
+  } else {
+    copyLink();
+  }
+  closeShare();
+}
+</script>
+
+<!-- ===== FLOATING SHARE BUTTON ===== -->
+<div class="fab-share" onclick="openShare()">&#128279;</div>
+
+<!-- ===== SHARE OVERLAY ===== -->
+<div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeShare()">
+  <div class="share-box">
+    <h3>Share These Notes</h3>
+    <button class="share-opt wa" onclick="shareWhatsApp()">WhatsApp</button>
+    <button class="share-opt copy" onclick="copyLink()">Copy Link</button>
+    <button class="share-opt native" onclick="nativeShare()">Share...</button>
+    <button class="share-close" onclick="closeShare()">Close</button>
+    <div class="copy-feedback" id="copyFeedback">Link Copied!</div>
+  </div>
+</div>
+
+</body>
+</html>

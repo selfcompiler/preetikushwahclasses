@@ -12,7 +12,7 @@
 ## 📞 Contact
 
 - 👩‍🏫 Teacher: Preeti Kushwah
-- 📱 WhatsApp: [+91 90459 58581](https://wa.me/919045958581)
+- 💬 WhatsApp Group: [Join Here](https://chat.whatsapp.com/YOUR_GROUP_LINK)
 
 ---
 
