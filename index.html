@@ -516,6 +516,54 @@ footer .copyright {
   color: #7c3aed;
   margin-bottom: 4px;
 }
+.cls-chip {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  border: 2px solid #e5e7eb;
+  background: #f9fafb;
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cls-chip:hover { border-color: #a78bfa; background: #faf5ff; color: #7c3aed; }
+.cls-chip.picked {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  color: white;
+  border-color: #7c3aed;
+  box-shadow: 0 4px 12px rgba(124,58,237,0.3);
+  transform: scale(1.08);
+}
+.subj-chip, .mode-chip {
+  display: inline-block;
+  cursor: pointer;
+}
+.subj-chip span, .mode-chip span {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  background: #f9fafb;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6b7280;
+  transition: all 0.2s;
+  user-select: none;
+}
+.subj-chip span:hover, .mode-chip span:hover { border-color: #a78bfa; background: #faf5ff; }
+.subj-chip input:checked + span {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  color: white;
+  border-color: #7c3aed;
+  box-shadow: 0 2px 8px rgba(124,58,237,0.25);
+}
+.mode-chip input:checked + span {
+  background: linear-gradient(135deg, #16a34a, #4ade80);
+  color: white;
+  border-color: #16a34a;
+  box-shadow: 0 2px 8px rgba(22,163,74,0.25);
+}
 </style>
 </head>
 <body>
@@ -887,26 +935,33 @@ footer .copyright {
       <input type="text" name="entry.43085631" placeholder="Student's Full Name *" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:'Nunito',sans-serif;">
       <input type="tel" name="entry.1854993535" placeholder="Phone Number *" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:'Nunito',sans-serif;">
       <input type="email" name="entry.248400848" placeholder="Email Address (optional)" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:'Nunito',sans-serif;">
-      <select name="entry.2008437083" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:'Nunito',sans-serif;color:#374151;">
-        <option value="">Select Class *</option>
-        <option value="Class 6">Class 6</option>
-        <option value="Class 7">Class 7</option>
-        <option value="Class 8">Class 8</option>
-        <option value="Class 9">Class 9</option>
-        <option value="Class 10">Class 10</option>
-      </select>
-      <div style="text-align:left;margin-bottom:8px;">
-        <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:4px;">Subjects of Interest *</p>
-        <label style="display:block;font-size:13px;margin-bottom:3px;"><input type="checkbox" name="entry.126377704" value="Science"> Science</label>
-        <label style="display:block;font-size:13px;margin-bottom:3px;"><input type="checkbox" name="entry.126377704" value="Mathematics"> Mathematics</label>
-        <label style="display:block;font-size:13px;margin-bottom:3px;"><input type="checkbox" name="entry.126377704" value="Social Science"> Social Science</label>
-        <label style="display:block;font-size:13px;margin-bottom:3px;"><input type="checkbox" name="entry.126377704" value="English"> English</label>
+      <input type="hidden" name="entry.2008437083" id="classInput" required>
+      <div style="text-align:left;margin-bottom:12px;">
+        <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:6px;">Select Class *</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 6')">6</button>
+          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 7')">7</button>
+          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 8')">8</button>
+          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 9')">9</button>
+          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 10')">10</button>
+        </div>
       </div>
-      <div style="text-align:left;margin-bottom:8px;">
-        <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:4px;">Preferred Mode (optional)</p>
-        <label style="display:block;font-size:13px;margin-bottom:3px;"><input type="radio" name="entry.750677418" value="Online (Live or Recorded)"> Online</label>
-        <label style="display:block;font-size:13px;margin-bottom:3px;"><input type="radio" name="entry.750677418" value="Offline (In-person / Home Tuition)"> Offline</label>
-        <label style="display:block;font-size:13px;margin-bottom:3px;"><input type="radio" name="entry.750677418" value="Both are okay"> Both</label>
+      <div style="text-align:left;margin-bottom:12px;">
+        <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:6px;">Subjects of Interest *</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <label class="subj-chip"><input type="checkbox" name="entry.126377704" value="Science" hidden><span>🔬 Science</span></label>
+          <label class="subj-chip"><input type="checkbox" name="entry.126377704" value="Mathematics" hidden><span>🔢 Maths</span></label>
+          <label class="subj-chip"><input type="checkbox" name="entry.126377704" value="Social Science" hidden><span>🌍 SST</span></label>
+          <label class="subj-chip"><input type="checkbox" name="entry.126377704" value="English" hidden><span>📖 English</span></label>
+        </div>
+      </div>
+      <div style="text-align:left;margin-bottom:12px;">
+        <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:6px;">Preferred Mode</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <label class="mode-chip"><input type="radio" name="entry.750677418" value="Online (Live or Recorded)" hidden><span>💻 Online</span></label>
+          <label class="mode-chip"><input type="radio" name="entry.750677418" value="Offline (In-person / Home Tuition)" hidden><span>🏠 Offline</span></label>
+          <label class="mode-chip"><input type="radio" name="entry.750677418" value="Both are okay" hidden><span>✅ Both</span></label>
+        </div>
       </div>
       <textarea name="entry.2062493229" placeholder="Any message or query? (optional)" rows="2" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:12px;font-family:'Nunito',sans-serif;resize:vertical;"></textarea>
       <button type="submit" id="interestSubmitBtn" style="width:100%;padding:12px;background:linear-gradient(135deg,#7c3aed,#a78bfa);color:white;border:none;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;">Submit</button>
@@ -921,6 +976,11 @@ footer .copyright {
 </div>
 
 <script>
+function pickClass(btn, val) {
+  document.querySelectorAll('.cls-chip').forEach(function(c) { c.classList.remove('picked'); });
+  btn.classList.add('picked');
+  document.getElementById('classInput').value = val;
+}
 function openInterestForm() {
   document.getElementById('interestModal').classList.add('active');
 }
