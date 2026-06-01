@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plant Life Processes — Complete Animated Notes | Class 7</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-darkest: #0f3a1f;
+  --green-dark: #166534;
+  --green-mid: #16a34a;
+  --green-light: #4ade80;
+  --green-pale: #dcfce7;
+  --green-bg: #f0fdf4;
+  --soil: #6b3e1f;
+  --soil-light: #a0602a;
+  --sun: #fbbf24;
+  --sky: #7dd3fc;
+  --yellow: #fde047;
+  --orange: #fb923c;
+  --blue: #3b82f6;
+  --blue-pale: #dbeafe;
+  --purple: #8b5cf6;
+  --purple-pale: #ede9fe;
+  --red: #ef4444;
+  --red-pale: #fee2e2;
+  --pink: #ec4899;
+  --teal: #14b8a6;
+  --bg: #f0fdf4;
+  --text: #1c3a28;
+  --card: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ============= NAV TOC ============= */
+.toc-bar {
+  background: linear-gradient(135deg, #166534, #22c55e);
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.toc-bar a {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-right: 6px;
+  transition: all 0.2s;
+}
+.toc-bar a:hover {
+  background: rgba(255,255,255,0.35);
+  transform: translateY(-2px);
+}
+
+/* ============= HERO ============= */
+.hero {
+  background: linear-gradient(180deg, #0ea5e9 0%, #38bdf8 30%, #7dd3fc 60%, #bbf7d0 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 460px;
+  padding-bottom: 30px;
+}
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 50px;
+  opacity: 0.85;
+}
+.cloud::before, .cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+.cloud1 { width:120px;height:40px;top:40px;left:5%;animation:floatCloud 18s linear infinite; }
+.cloud1::before { width:60px;height:60px;top:-30px;left:20px; }
+.cloud1::after  { width:40px;height:40px;top:-18px;left:60px; }
+.cloud2 { width:90px;height:30px;top:70px;left:60%;animation:floatCloud 24s linear infinite; }
+.cloud2::before { width:45px;height:45px;top:-22px;left:15px; }
+.cloud2::after  { width:30px;height:30px;top:-14px;left:48px; }
+.cloud3 { width:70px;height:24px;top:30px;right:10%;animation:floatCloud 20s linear infinite reverse; }
+.cloud3::before { width:36px;height:36px;top:-18px;left:10px; }
+.cloud3::after  { width:24px;height:24px;top:-10px;left:38px; }
+@keyframes floatCloud { 0%,100%{transform:translateX(0)} 50%{transform:translateX(40px)} }
+
+.sun-wrap { position: absolute; top: 24px; right: 60px; animation: sunPulse 3s ease-in-out infinite; }
+.sun-circle { width: 72px; height: 72px; background: radial-gradient(circle, #fef08a, #fcd34d); border-radius: 50%; box-shadow: 0 0 40px 10px rgba(253,211,77,0.5); }
+.sun-rays { position: absolute; inset: -16px; }
+.sun-ray { position: absolute; width: 8px; height: 18px; background: #fcd34d; border-radius: 4px; left: 50%; top: 0; transform-origin: 4px 52px; }
+@keyframes sunPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
+
+.hero-content { position: relative; z-index: 10; text-align: center; padding: 36px 16px 0; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.4);
+  border: 2px solid rgba(255,255,255,0.7);
+  border-radius: 30px;
+  padding: 5px 18px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #0c4a6e;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(28px, 6vw, 54px);
+  color: #0c4a6e;
+  text-shadow: 0 2px 0 rgba(255,255,255,0.5);
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+.hero p { color: #0c4a6e; font-size: 15px; font-weight: 700; opacity: 0.8; margin-bottom: 16px; }
+
+.scene { position: relative; width: 100%; max-width: 700px; margin: 0 auto; height: 280px; }
+.soil-layer { position: absolute; bottom: 0; left: 0; right: 0; height: 90px; background: linear-gradient(180deg, #8B5E3C 0%, #6b3e1f 100%); }
+.soil-surface { position: absolute; bottom: 88px; left: 0; right: 0; height: 18px; background: linear-gradient(180deg, #a0602a, #8B5E3C); border-radius: 40% 40% 0 0; }
+
+.grass-row { position: absolute; bottom: 100px; left: 0; right: 0; display: flex; justify-content: space-around; z-index: 4; }
+.grass-blade { width: 8px; background: linear-gradient(to top, #16a34a, #4ade80); border-radius: 4px 4px 0 0; transform-origin: bottom center; animation: sway 2.5s ease-in-out infinite; }
+.grass-blade:nth-child(even) { animation-direction: reverse; }
+@keyframes sway { 0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg)} }
+
+.seed { position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%); width: 28px; height: 20px; background: radial-gradient(ellipse, #c7a040, #8B6000); border-radius: 50%; z-index: 5; animation: seedAppear 1s ease forwards; }
+@keyframes seedAppear { 0%{opacity:0;transform:translateX(-50%) scale(0.5)} 100%{opacity:1;transform:translateX(-50%) scale(1)} }
+
+.radicle { position: absolute; bottom: 50px; left: calc(50% - 3px); width: 6px; height: 0; background: linear-gradient(to bottom, #d4a96a, #a0602a); border-radius: 0 0 4px 4px; z-index: 4; animation: radicleGrow 1.5s 1s ease forwards; }
+@keyframes radicleGrow { to { height: 40px; } }
+
+.plumule { position: absolute; left: calc(50% - 4px); bottom: 71px; width: 8px; height: 0; background: linear-gradient(to top, #166534, #4ade80); border-radius: 4px 4px 0 0; z-index: 6; animation: plumuleGrow 2s 2s ease forwards; }
+@keyframes plumuleGrow { to { height: 90px; } }
+
+.cotyledon { position: absolute; width: 0; height: 0; z-index: 7; animation: cotyledonOpen 1s 4.2s ease forwards; }
+.cotyledon.left { bottom: 138px; left: calc(50% - 30px); transform-origin: right center; background: radial-gradient(ellipse, #86efac, #22c55e); border-radius: 50% 0 50% 50%; }
+.cotyledon.right { bottom: 138px; left: calc(50% + 4px); transform-origin: left center; background: radial-gradient(ellipse, #86efac, #22c55e); border-radius: 0 50% 50% 50%; }
+@keyframes cotyledonOpen { to { width: 26px; height: 18px; } }
+
+.mature-stem { position: absolute; left: calc(50% - 5px); bottom: 100px; width: 10px; height: 0; background: linear-gradient(to top, #166534, #22c55e); border-radius: 5px; z-index: 6; animation: matureStemGrow 2s 5s ease forwards; }
+@keyframes matureStemGrow { to { height: 130px; } }
+
+.top-leaf { position: absolute; z-index: 9; opacity: 0; animation: topLeafAppear 1s 7s ease forwards; }
+.top-leaf.left { bottom: 220px; left: calc(50% - 48px); width: 42px; height: 32px; background: radial-gradient(ellipse, #4ade80, #16a34a); border-radius: 0 50% 50% 50%; transform: rotate(-30deg); }
+.top-leaf.right { bottom: 220px; left: calc(50% + 8px); width: 42px; height: 32px; background: radial-gradient(ellipse, #4ade80, #16a34a); border-radius: 50% 0 50% 50%; transform: rotate(30deg); animation-delay: 7.3s; }
+@keyframes topLeafAppear { 0%{opacity:0;transform:scale(0)} 100%{opacity:1} }
+
+.flower { position: absolute; bottom: 242px; left: calc(50% - 18px); width: 36px; height: 36px; z-index: 10; opacity: 0; animation: flowerBloom 1.5s 8s ease forwards; }
+.petal { position: absolute; width: 14px; height: 22px; background: radial-gradient(ellipse, #fde68a, #f59e0b); border-radius: 50%; left: 11px; top: 0; transform-origin: 7px 20px; }
+.flower-center { position: absolute; width: 14px; height: 14px; background: radial-gradient(circle, #fef08a, #d97706); border-radius: 50%; left: 11px; top: 11px; z-index: 2; }
+@keyframes flowerBloom { 0%{opacity:0;transform:scale(0)} 60%{transform:scale(1.2)} 100%{opacity:1;transform:scale(1)} }
+
+.water-drop { position: absolute; width: 10px; height: 14px; background: radial-gradient(ellipse, #7dd3fc, #0ea5e9); border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%; opacity: 0; animation: dropFall 3s 1s ease-in infinite; }
+.water-drop:nth-child(1) { left: 15%; top: 50px; animation-delay: 1s; }
+.water-drop:nth-child(2) { left: 30%; top: 30px; animation-delay: 2s; }
+.water-drop:nth-child(3) { left: 70%; top: 45px; animation-delay: 1.5s; }
+.water-drop:nth-child(4) { left: 82%; top: 25px; animation-delay: 3s; }
+@keyframes dropFall { 0%{opacity:0;transform:translateY(0)} 20%{opacity:0.8} 80%{opacity:0.6} 100%{opacity:0;transform:translateY(200px)} }
+
+.ray { position: absolute; width: 3px; background: linear-gradient(to bottom, rgba(253,211,77,0.7), transparent); border-radius: 2px; top: 96px; transform-origin: top center; animation: rayShine 2s ease-in-out infinite alternate; }
+@keyframes rayShine { 0%{opacity:0.4} 100%{opacity:0.9} }
+
+/* ============= CONTAINER ============= */
+.container { max-width: 1000px; margin: 0 auto; padding: 36px 16px 60px; }
+
+/* ============= SECTION BLOCKS ============= */
+.section-block {
+  background: white;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  margin-bottom: 36px;
+  overflow: hidden;
+  scroll-margin-top: 80px;
+}
+.section-hd {
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: white;
+  font-family: 'Fredoka One', cursive;
+  font-size: 24px;
+  line-height: 1.2;
+}
+.section-hd .icon { font-size: 32px; }
+.section-bd { padding: 28px; }
+.section-bd > p { margin-bottom: 14px; }
+
+.g-green { background: linear-gradient(135deg, #166534, #22c55e); }
+.g-blue  { background: linear-gradient(135deg, #1e40af, #38bdf8); }
+.g-orange{ background: linear-gradient(135deg, #9a3412, #fb923c); }
+.g-teal  { background: linear-gradient(135deg, #134e4a, #2dd4bf); }
+.g-rose  { background: linear-gradient(135deg, #881337, #fb7185); }
+.g-purple{ background: linear-gradient(135deg, #5b21b6, #a78bfa); }
+.g-brown { background: linear-gradient(135deg, #78350f, #d97706); }
+.g-pink  { background: linear-gradient(135deg, #9d174d, #ec4899); }
+
+.subtitle {
+  font-family: 'Fredoka One', cursive;
+  color: var(--green-dark);
+  font-size: 20px;
+  margin: 22px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============= KEY TERM PILL ============= */
+.kt {
+  display: inline-block;
+  background: #fde047;
+  color: #713f12;
+  border-radius: 7px;
+  padding: 1px 9px;
+  font-weight: 800;
+  font-size: 13px;
+  margin: 0 2px;
+}
+
+/* ============= INFO CARDS GRID ============= */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.info-card {
+  border-radius: 14px;
+  padding: 16px 18px;
+  font-size: 14px;
+}
+.info-card h4 { font-weight: 800; margin-bottom: 6px; font-size: 15px; }
+.info-card ul { padding-left: 18px; margin-top: 4px; }
+.info-card li { margin-bottom: 3px; }
+.ic-green  { background: #f0fdf4; border-left: 5px solid #22c55e; }
+.ic-blue   { background: #eff6ff; border-left: 5px solid #3b82f6; }
+.ic-orange { background: #fff7ed; border-left: 5px solid #fb923c; }
+.ic-purple { background: #faf5ff; border-left: 5px solid #a78bfa; }
+.ic-red    { background: #fef2f2; border-left: 5px solid #f87171; }
+.ic-yellow { background: #fefce8; border-left: 5px solid #facc15; }
+.ic-pink   { background: #fdf2f8; border-left: 5px solid #ec4899; }
+.ic-teal   { background: #f0fdfa; border-left: 5px solid #14b8a6; }
+
+/* ============= TABLES ============= */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 14px 0; min-width: 480px; }
+th { background: #166534; color: white; padding: 12px 14px; text-align: left; font-weight: 800; font-size: 13px; }
+td { padding: 11px 14px; border-bottom: 1px solid #d1fae5; font-size: 13.5px; }
+tr:nth-child(even) td { background: #f0fdf4; }
+
+/* ============= EQUATIONS ============= */
+.eq-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #f0fdf4;
+  border: 2px dashed #22c55e;
+  border-radius: 16px;
+  padding: 18px;
+  margin: 16px 0;
+}
+.eq-box { background: white; border-radius: 12px; padding: 10px 14px; text-align: center; font-weight: 800; font-size: 13px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); min-width: 85px; }
+.eq-op { font-size: 22px; font-weight: 900; color: #22c55e; }
+
+.chem-eq {
+  background: linear-gradient(135deg, #ecfccb, #d9f99d);
+  border: 2px solid #84cc16;
+  border-radius: 12px;
+  padding: 14px 18px;
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
+  font-size: 16px;
+  color: #365314;
+  margin: 12px 0;
+  letter-spacing: 0.5px;
+}
+
+/* ============= TRICK / NOTE ============= */
+.trick {
+  background: linear-gradient(135deg, #fef9c3, #fde68a);
+  border: 2px solid #f59e0b;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.trick strong { color: #78350f; }
+
+.note-box {
+  background: #eff6ff;
+  border-left: 5px solid #3b82f6;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 14px 0;
+  font-size: 14px;
+}
+
+/* ============= LEAF MORPHOLOGY DIAGRAM ============= */
+.leaf-morph-wrap {
+  background: linear-gradient(135deg, #f0fdf4, #d1fae5);
+  border-radius: 18px;
+  padding: 20px;
+  margin: 16px 0;
+  text-align: center;
+}
+
+/* ============= PLANT CELL ============= */
+.plant-cell-wrap {
+  background: radial-gradient(circle at center, #ecfeff 0%, #cffafe 100%);
+  border-radius: 18px;
+  padding: 20px;
+  margin: 16px 0;
+  text-align: center;
+}
+
+/* ============= CHLOROPLAST ============= */
+.chloro-wrap {
+  background: linear-gradient(135deg, #064e3b, #065f46);
+  border-radius: 18px;
+  padding: 26px 20px;
+  margin: 16px 0;
+  text-align: center;
+  color: white;
+}
+.chloro-wrap h3 { font-family: 'Fredoka One', cursive; color: #bbf7d0; margin-bottom: 14px; }
+
+/* ============= PLASTID CARDS ============= */
+.plastid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin: 20px 0;
+}
+.plastid-card {
+  border-radius: 18px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  background: white;
+}
+.plastid-top {
+  padding: 16px 18px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.plastid-top h3 { font-family: 'Fredoka One', cursive; font-size: 17px; }
+.plastid-vis {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.plastid-body { padding: 14px 18px; }
+.plastid-body p { font-size: 13.5px; line-height: 1.55; }
+.plastid-body strong { color: #166534; }
+
+.chloroplast-bg { background: linear-gradient(135deg, #065f46, #10b981); }
+.chromoplast-bg { background: linear-gradient(135deg, #c2410c, #f97316); }
+.leucoplast-bg  { background: linear-gradient(135deg, #f1f5f9, #cbd5e1); color: #334155 !important; }
+
+/* Chloroplast mini-animation */
+.mini-chloro {
+  width: 80px; height: 50px;
+  background: radial-gradient(ellipse, #4ade80, #166534);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+  animation: chloroPulse 2s ease-in-out infinite;
+}
+@keyframes chloroPulse { 0%,100%{transform:scale(1);box-shadow:0 0 20px rgba(34, 197, 94, 0.5)} 50%{transform:scale(1.08);box-shadow:0 0 30px rgba(34, 197, 94, 0.8)} }
+.thylakoid-stack {
+  position: absolute;
+  width: 14px;
+  height: 6px;
+  background: #14532d;
+  border-radius: 2px;
+  box-shadow: 0 2px 0 #166534, 0 4px 0 #14532d, 0 6px 0 #166534;
+}
+.thylakoid-stack.t1 { top: 14px; left: 18px; }
+.thylakoid-stack.t2 { top: 14px; left: 48px; }
+
+/* Chromoplast — colored particles */
+.mini-chromo {
+  width: 80px; height: 50px;
+  background: radial-gradient(ellipse, #fde047, #f97316);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 20px rgba(251, 146, 60, 0.6);
+  animation: chromoBlink 2s ease-in-out infinite;
+}
+@keyframes chromoBlink { 0%,100%{background:radial-gradient(ellipse, #fde047, #f97316)} 50%{background:radial-gradient(ellipse, #fb7185, #dc2626)} }
+.mini-chromo::before, .mini-chromo::after {
+  content: ''; position: absolute;
+  width: 8px; height: 8px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.4;
+}
+.mini-chromo::before { top: 12px; left: 22px; }
+.mini-chromo::after { bottom: 12px; right: 22px; }
+
+/* Leucoplast — white storage */
+.mini-leuco {
+  width: 80px; height: 50px;
+  background: radial-gradient(ellipse, #ffffff, #cbd5e1);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 20px rgba(203, 213, 225, 0.6);
+  border: 2px solid #94a3b8;
+}
+.starch-grain {
+  position: absolute;
+  width: 10px; height: 10px;
+  background: radial-gradient(circle, #f8fafc, #94a3b8);
+  border-radius: 50%;
+  border: 1.5px solid #64748b;
+  animation: starchFloat 3s ease-in-out infinite;
+}
+.starch-grain.g1 { top: 12px; left: 18px; animation-delay: 0s; }
+.starch-grain.g2 { top: 18px; left: 38px; animation-delay: 0.5s; }
+.starch-grain.g3 { top: 25px; left: 55px; animation-delay: 1s; }
+@keyframes starchFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+
+/* ============= PHOTOSYNTHESIS REACTIONS ============= */
+.reaction-flow {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  border: 2px solid #22c55e;
+  border-radius: 16px;
+  padding: 22px;
+  margin: 16px 0;
+}
+.reaction-step {
+  background: white;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.reaction-step-num {
+  width: 32px; height: 32px;
+  background: #22c55e;
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.reaction-step-text h5 { font-weight: 800; font-size: 14px; color: #166534; margin-bottom: 3px; }
+.reaction-step-text p { font-size: 13px; }
+
+.light-reaction { background: linear-gradient(135deg, #fef9c3, #fde68a); border-color: #f59e0b; }
+.light-reaction .reaction-step-num { background: #f59e0b; }
+.light-reaction .reaction-step-text h5 { color: #92400e; }
+
+.dark-reaction { background: linear-gradient(135deg, #ede9fe, #ddd6fe); border-color: #8b5cf6; }
+.dark-reaction .reaction-step-num { background: #8b5cf6; }
+.dark-reaction .reaction-step-text h5 { color: #5b21b6; }
+
+/* ============= MCQ ============= */
+.mcq-list { list-style: none; padding: 0; }
+.mcq-item {
+  background: white;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #22c55e;
+}
+.mcq-q { font-weight: 700; font-size: 14.5px; margin-bottom: 10px; color: #166534; }
+.mcq-options { list-style: none; padding-left: 0; }
+.mcq-options li {
+  background: #f0fdf4;
+  border-radius: 8px;
+  padding: 7px 12px;
+  margin-bottom: 5px;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1.5px solid transparent;
+}
+.mcq-options li:hover { background: #dcfce7; border-color: #4ade80; }
+.mcq-options li.correct { background: #bbf7d0 !important; border-color: #16a34a; font-weight: 700; color: #14532d; }
+.mcq-ans { font-size: 12.5px; color: #16a34a; font-weight: 700; margin-top: 6px; display: none; }
+.mcq-item.show-ans .mcq-ans { display: block; }
+.mcq-item.show-ans .mcq-options li.correct::before { content: "✅ "; }
+
+.short-q-list { list-style: none; padding: 0; }
+.short-q-item {
+  background: white;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #3b82f6;
+}
+.short-q { font-weight: 700; font-size: 14px; color: #1e40af; margin-bottom: 6px; }
+.short-a { font-size: 13.5px; color: #374151; }
+.short-a strong { color: #166534; }
+
+/* ============= SCROLL REVEAL ============= */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============= FOOTER ============= */
+footer {
+  text-align: center;
+  padding: 30px 16px;
+  background: linear-gradient(135deg, #166534, #22c55e);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ============= TRANSPORT VISUAL ============= */
+.transport-vis {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+.transport-col {
+  flex: 1;
+  min-width: 220px;
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+}
+.tc-xylem  { background:#eff6ff; border:2px solid #3b82f6; }
+.tc-phloem { background:#fef9c3; border:2px solid #f59e0b; }
+.transport-col h4 { font-weight:800; margin-bottom:8px; font-size:16px; }
+.tc-xylem h4 { color:#1d4ed8; }
+.tc-phloem h4 { color:#b45309; }
+.arrow-big { font-size:36px; margin:8px 0; display:block; animation: arrowMove 1.5s ease-in-out infinite; }
+.tc-xylem .arrow-big { color: #3b82f6; }
+.tc-phloem .arrow-big { color: #f59e0b; }
+@keyframes arrowMove { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+/* ============= STOMATA ============= */
+.stomata-wrap {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin: 18px 0;
+  flex-wrap: wrap;
+}
+.stomata-box {
+  background: #f0fdf4;
+  border: 2px solid #22c55e;
+  border-radius: 14px;
+  padding: 16px 20px;
+  text-align: center;
+  min-width: 180px;
+}
+.stomata-box h4 { font-size:13px; font-weight:800; margin-bottom:8px; }
+
+@media (max-width: 600px) {
+  .section-bd { padding: 18px; }
+  .section-hd { padding: 16px 20px; font-size: 19px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOC NAV ===== -->
+<div class="toc-bar">
+  <a href="#intro">📋 Intro</a>
+  <a href="#leaf">🍃 Leaf Morphology</a>
+  <a href="#cell">🔬 Plant Cell</a>
+  <a href="#plastids">🎨 Plastids</a>
+  <a href="#chloroplast">⚙️ Chloroplast</a>
+  <a href="#physiology">☀️ Photosynthesis</a>
+  <a href="#respiration">💨 Respiration</a>
+  <a href="#transport">🚛 Transport</a>
+  <a href="#excretion">🗑️ Excretion</a>
+  <a href="#nutrition">🍽️ Nutrition Types</a>
+  <a href="#mcq">🧠 MCQs</a>
+  <a href="#short">✍️ Short Q&A</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
+  <div class="sun-wrap">
+    <div class="sun-circle"></div>
+    <div class="sun-rays">
+      <div class="sun-ray" style="transform:rotate(0deg)"></div>
+      <div class="sun-ray" style="transform:rotate(45deg)"></div>
+      <div class="sun-ray" style="transform:rotate(90deg)"></div>
+      <div class="sun-ray" style="transform:rotate(135deg)"></div>
+      <div class="sun-ray" style="transform:rotate(180deg)"></div>
+      <div class="sun-ray" style="transform:rotate(225deg)"></div>
+      <div class="sun-ray" style="transform:rotate(270deg)"></div>
+      <div class="sun-ray" style="transform:rotate(315deg)"></div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">🌿 Class 7 · Science · Complete Notes</div>
+    <h1>🌱 Life Processes in Plants</h1>
+    <p>Leaf Morphology · Plant Cell · Plastids · Photosynthesis Physiology · MCQs</p>
+  </div>
+
+  <div class="scene">
+    <div class="ray" style="height:90px;left:51%;transform:rotate(-10deg);"></div>
+    <div class="ray" style="height:80px;left:54%;transform:rotate(5deg);opacity:0.5;"></div>
+    <div class="ray" style="height:95px;left:48%;transform:rotate(-20deg);opacity:0.4;"></div>
+    <div class="water-drop"></div>
+    <div class="water-drop"></div>
+    <div class="water-drop"></div>
+    <div class="water-drop"></div>
+    <div class="radicle"></div>
+    <div class="seed"></div>
+    <div class="plumule"></div>
+    <div class="cotyledon left"></div>
+    <div class="cotyledon right"></div>
+    <div class="mature-stem"></div>
+    <div class="top-leaf left"></div>
+    <div class="top-leaf right"></div>
+    <div class="flower">
+      <div class="petal" style="transform:rotate(0deg)"></div>
+      <div class="petal" style="transform:rotate(60deg)"></div>
+      <div class="petal" style="transform:rotate(120deg)"></div>
+      <div class="petal" style="transform:rotate(180deg)"></div>
+      <div class="petal" style="transform:rotate(240deg)"></div>
+      <div class="petal" style="transform:rotate(300deg)"></div>
+      <div class="flower-center"></div>
+    </div>
+    <div class="grass-row">
+      <div class="grass-blade" style="height:18px;"></div>
+      <div class="grass-blade" style="height:24px;"></div>
+      <div class="grass-blade" style="height:16px;"></div>
+      <div class="grass-blade" style="height:22px;"></div>
+      <div class="grass-blade" style="height:20px;"></div>
+      <div class="grass-blade" style="height:28px;"></div>
+      <div class="grass-blade" style="height:17px;"></div>
+      <div class="grass-blade" style="height:25px;"></div>
+      <div class="grass-blade" style="height:19px;"></div>
+      <div class="grass-blade" style="height:22px;"></div>
+      <div class="grass-blade" style="height:27px;"></div>
+      <div class="grass-blade" style="height:21px;"></div>
+    </div>
+    <div class="soil-surface"></div>
+    <div class="soil-layer"></div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTAINER ===== -->
+<div class="container">
+
+  <!-- ===== INTRO ===== -->
+  <div class="section-block reveal" id="intro">
+    <div class="section-hd g-green">
+      <span class="icon">📋</span> What Are Life Processes?
+    </div>
+    <div class="section-bd">
+      <p>All living organisms — including plants — perform certain essential activities to stay alive, grow, and reproduce. These are called <span class="kt">life processes</span>.</p>
+      <div class="info-grid">
+        <div class="info-card ic-green"><h4>🌿 Nutrition</h4><p>Making and using food for energy & growth</p></div>
+        <div class="info-card ic-blue"><h4>💨 Respiration</h4><p>Breaking food to release energy (ATP)</p></div>
+        <div class="info-card ic-orange"><h4>🚛 Transportation</h4><p>Moving water, minerals & food in plant body</p></div>
+        <div class="info-card ic-purple"><h4>🗑️ Excretion</h4><p>Removing waste products</p></div>
+        <div class="info-card ic-pink"><h4>🌸 Reproduction</h4><p>Producing new plants (seeds, spores)</p></div>
+        <div class="info-card ic-teal"><h4>📏 Growth</h4><p>Cell division & enlargement</p></div>
+      </div>
+      <div class="trick">
+        <strong>💡 Key Idea:</strong> Plants are <strong>autotrophs</strong> — they make their own food using sunlight! Animals are <strong>heterotrophs</strong> — they depend on plants/other animals.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== LEAF MORPHOLOGY ===== -->
+  <div class="section-block reveal" id="leaf">
+    <div class="section-hd g-green">
+      <span class="icon">🍃</span> Leaf Morphology (External Structure)
+    </div>
+    <div class="section-bd">
+      <p>The <strong>leaf</strong> is the most important plant organ for photosynthesis — often called the <span class="kt">food factory</span>. Let's look at its external structure.</p>
+
+      <!-- ANIMATED LEAF DIAGRAM -->
+      <div class="leaf-morph-wrap">
+        <svg viewBox="0 0 600 400" width="100%" style="max-width:600px" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background -->
+          <rect width="600" height="400" fill="#f0fdf4" rx="14"/>
+
+          <!-- Title -->
+          <text x="300" y="28" text-anchor="middle" font-family="Fredoka One" font-size="18" fill="#166534">External Structure of a Leaf</text>
+
+          <!-- Stem (where leaf attaches) -->
+          <rect x="50" y="170" width="14" height="100" fill="#86a164" stroke="#166534" stroke-width="1.5" rx="3"/>
+          <text x="35" y="280" font-family="Nunito" font-size="11" fill="#166534" font-weight="700">Stem</text>
+
+          <!-- Petiole -->
+          <path d="M 64 195 Q 100 195 130 200" stroke="#65a30d" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <line x1="135" y1="245" x2="115" y2="225" stroke="#374151" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="98" y="262" font-family="Nunito" font-size="11" fill="#365314" font-weight="700">Petiole</text>
+          <text x="98" y="275" font-family="Nunito" font-size="9" fill="#4d7c0f">(leaf stalk)</text>
+
+          <!-- LEAF BLADE (Lamina) -->
+          <path d="M 130 200 
+                   Q 200 100, 350 130 
+                   Q 500 160, 550 200 
+                   Q 500 240, 350 270 
+                   Q 200 300, 130 200 Z" 
+                fill="url(#leafGrad)" stroke="#166534" stroke-width="2">
+            <animate attributeName="stroke-width" values="2;3;2" dur="3s" repeatCount="indefinite"/>
+          </path>
+
+          <!-- Gradient for leaf -->
+          <defs>
+            <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#86efac"/>
+              <stop offset="50%" stop-color="#4ade80"/>
+              <stop offset="100%" stop-color="#16a34a"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Midrib (main vein) -->
+          <path d="M 130 200 Q 340 215 550 200" stroke="#365314" stroke-width="3.5" fill="none"/>
+          <text x="320" y="195" text-anchor="middle" font-family="Nunito" font-size="11" font-weight="700" fill="#365314">Midrib</text>
+
+          <!-- Secondary veins -->
+          <path d="M 180 197 Q 200 160, 230 130" stroke="#4d7c0f" stroke-width="1.5" fill="none"/>
+          <path d="M 220 200 Q 240 165, 270 140" stroke="#4d7c0f" stroke-width="1.5" fill="none"/>
+          <path d="M 270 207 Q 290 175, 320 150" stroke="#4d7c0f" stroke-width="1.5" fill="none"/>
+          <path d="M 320 210 Q 340 180, 370 155" stroke="#4d7c0f" stroke-width="1.5" fill="none"/>
+          <path d="M 380 212 Q 400 180, 430 160" stroke="#4d7c0f" stroke-width="1.5" fill="none"/>
+          <path d="M 440 210 Q 460 180, 490 165" stroke="#4d7c0f" stroke-width="1.5" fill="none"/>
+
+          <path d="M 180 210 Q 200 245, 230 270" stroke="#4d7c0f" stroke-width="1.5" fill="none"/>
+          <path d="M 220 213 Q 240 245, 270 265" stroke="#4d7c0f" stroke-width="1.5" fill="none"/>
+          <path d="M 270 215 Q 290 245, 320 260" stroke="#4d7c0f" stroke-width="1.5" fill="none"/>
+          <path d="M 320 215 Q 340 245, 370 255" stroke="#4d7c0f" stroke-width="1.5" fill="none"/>
+          <path d="M 380 215 Q 400 240, 430 248" stroke="#4d7c0f" stroke-width="1.5" fill="none"/>
+          <path d="M 440 213 Q 460 235, 490 240" stroke="#4d7c0f" stroke-width="1.5" fill="none"/>
+
+          <!-- Apex / Tip -->
+          <line x1="540" y1="200" x2="575" y2="180" stroke="#374151" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="555" y="170" font-family="Nunito" font-size="11" fill="#365314" font-weight="700">Apex</text>
+          <text x="555" y="160" font-family="Nunito" font-size="9" fill="#4d7c0f">(tip)</text>
+
+          <!-- Margin (edge) -->
+          <line x1="350" y1="115" x2="380" y2="80" stroke="#374151" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="345" y="72" font-family="Nunito" font-size="11" fill="#365314" font-weight="700">Margin</text>
+          <text x="345" y="62" font-family="Nunito" font-size="9" fill="#4d7c0f">(edge)</text>
+
+          <!-- Lamina label -->
+          <line x1="380" y1="170" x2="400" y2="40" stroke="#374151" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="395" y="32" font-family="Nunito" font-size="11" fill="#365314" font-weight="700">Lamina (blade)</text>
+
+          <!-- Veins label -->
+          <line x1="240" y1="160" x2="270" y2="320" stroke="#374151" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="270" y="338" font-family="Nunito" font-size="11" fill="#365314" font-weight="700">Veins</text>
+          <text x="265" y="350" font-family="Nunito" font-size="9" fill="#4d7c0f">(branches)</text>
+
+          <!-- Leaf base -->
+          <text x="120" y="335" font-family="Nunito" font-size="11" fill="#365314" font-weight="700">Leaf Base</text>
+          <line x1="120" y1="225" x2="120" y2="325" stroke="#374151" stroke-width="1" stroke-dasharray="3,2"/>
+
+          <!-- Tiny photosynthesis particles (animated) -->
+          <circle cx="280" cy="190" r="3" fill="#fde047" opacity="0.7">
+            <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="380" cy="200" r="3" fill="#fde047" opacity="0.7">
+            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="450" cy="195" r="3" fill="#fde047" opacity="0.7">
+            <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+        <p style="margin-top:10px;font-size:13px;color:#365314;font-style:italic">Fig. 1 — External structure of a typical leaf</p>
+      </div>
+
+      <h3 class="subtitle">🔹 Parts of a Leaf</h3>
+      <div class="info-grid">
+        <div class="info-card ic-green"><h4>1️⃣ Leaf Base</h4><p>Where leaf attaches to the stem. May have stipules.</p></div>
+        <div class="info-card ic-green"><h4>2️⃣ Petiole</h4><p>The leaf stalk. Holds the leaf away from the stem so it gets <strong>maximum sunlight</strong>.</p></div>
+        <div class="info-card ic-green"><h4>3️⃣ Lamina (Blade)</h4><p>The <strong>flat green part</strong> — the main photosynthesis area. Broad to capture sunlight.</p></div>
+        <div class="info-card ic-green"><h4>4️⃣ Apex</h4><p>The pointed tip of the leaf.</p></div>
+        <div class="info-card ic-green"><h4>5️⃣ Margin</h4><p>The edge of the leaf — can be smooth (entire), wavy, or toothed (serrated).</p></div>
+        <div class="info-card ic-green"><h4>6️⃣ Veins & Midrib</h4><p>Transport tubes! <strong>Midrib</strong> = main central vein. Veins carry water in and food out.</p></div>
+      </div>
+
+      <h3 class="subtitle">🔹 Types of Venation</h3>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Type</th><th>Description</th><th>Examples</th></tr>
+        <tr>
+          <td><strong>🕸️ Reticulate</strong></td>
+          <td>Veins form a <strong>net-like</strong> pattern. Seen in <strong>dicots</strong>.</td>
+          <td>Mango, Rose, Hibiscus, Peepal</td>
+        </tr>
+        <tr>
+          <td><strong>📏 Parallel</strong></td>
+          <td>Veins run <strong>parallel</strong> to each other. Seen in <strong>monocots</strong>.</td>
+          <td>Grass, Banana, Maize, Wheat</td>
+        </tr>
+      </table>
+      </div>
+
+      <h3 class="subtitle">🔹 Types of Leaves</h3>
+      <div class="info-grid">
+        <div class="info-card ic-blue">
+          <h4>🍃 Simple Leaf</h4>
+          <p>Lamina is in <strong>one single piece</strong> (undivided or only partly cut).</p>
+          <p><strong>Examples:</strong> Mango, Banyan, Peepal, Guava</p>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>🍀 Compound Leaf</h4>
+          <p>Lamina is <strong>divided into many leaflets</strong>, each looking like a small leaf.</p>
+          <p><strong>Examples:</strong> Neem, Rose, Tamarind, Coconut</p>
+        </div>
+      </div>
+
+      <h3 class="subtitle">🔹 Functions of the Leaf</h3>
+      <div class="info-grid">
+        <div class="info-card ic-yellow"><h4>☀️ Photosynthesis</h4><p>Makes food using sunlight, CO₂ & water</p></div>
+        <div class="info-card ic-blue"><h4>💧 Transpiration</h4><p>Releases water vapour to cool the plant</p></div>
+        <div class="info-card ic-green"><h4>🫧 Gas Exchange</h4><p>Takes in CO₂, releases O₂ via stomata</p></div>
+        <div class="info-card ic-purple"><h4>🗄️ Storage</h4><p>Some leaves store food (onion) or water (cactus)</p></div>
+      </div>
+
+      <div class="trick">
+        <strong>💡 Special Modifications:</strong> Cactus leaves become <strong>spines</strong> (reduce water loss). Pitcher plant leaf becomes a <strong>trap</strong> (catches insects). Onion leaves store <strong>food</strong> (bulb).
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PLANT CELL ===== -->
+  <div class="section-block reveal" id="cell">
+    <div class="section-hd g-teal">
+      <span class="icon">🔬</span> Plant Cell — The Living Unit
+    </div>
+    <div class="section-bd">
+      <p>A <strong>cell</strong> is the basic structural and functional unit of life. Plant cells have unique features that animal cells do not have. Let's explore!</p>
+
+      <!-- ANIMATED PLANT CELL DIAGRAM -->
+      <div class="plant-cell-wrap">
+        <svg viewBox="0 0 650 440" width="100%" style="max-width:650px" xmlns="http://www.w3.org/2000/svg">
+          <rect width="650" height="440" fill="#ecfeff" rx="14"/>
+          <text x="325" y="26" text-anchor="middle" font-family="Fredoka One" font-size="17" fill="#0e7490">Structure of a Plant Cell</text>
+
+          <!-- Cell wall (outer rectangle with rounded corners) -->
+          <rect x="60" y="55" width="530" height="350" rx="32" fill="#a16207" stroke="#78350f" stroke-width="4"/>
+          <text x="36" y="80" font-family="Nunito" font-size="11" font-weight="800" fill="#78350f">Cell Wall</text>
+          <line x1="65" y1="78" x2="60" y2="75" stroke="#78350f" stroke-width="1"/>
+
+          <!-- Cell membrane (inner) -->
+          <rect x="74" y="69" width="502" height="322" rx="26" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+          <text x="500" y="78" font-family="Nunito" font-size="10" fill="#92400e" font-weight="700">Cell Membrane</text>
+
+          <!-- Cytoplasm (background fill) -->
+          <rect x="86" y="81" width="478" height="298" rx="20" fill="#fef9c3" opacity="0.5"/>
+          <text x="465" y="370" font-family="Nunito" font-size="10" font-style="italic" fill="#a16207">cytoplasm</text>
+
+          <!-- NUCLEUS -->
+          <circle cx="200" cy="180" r="55" fill="#fbcfe8" stroke="#be185d" stroke-width="2.5"/>
+          <circle cx="200" cy="180" r="20" fill="#be185d"/>
+          <text x="200" y="184" text-anchor="middle" font-family="Nunito" font-size="10" font-weight="700" fill="white">Nucleolus</text>
+          <text x="170" y="260" font-family="Nunito" font-size="11" font-weight="800" fill="#9d174d">NUCLEUS</text>
+          <line x1="190" y1="246" x2="195" y2="237" stroke="#9d174d" stroke-width="1.5"/>
+          <!-- Chromosomes -->
+          <path d="M 178 165 Q 175 175 180 185" stroke="#9d174d" stroke-width="2" fill="none"/>
+          <path d="M 215 168 Q 222 175 220 188" stroke="#9d174d" stroke-width="2" fill="none"/>
+
+          <!-- LARGE CENTRAL VACUOLE -->
+          <ellipse cx="380" cy="230" rx="135" ry="100" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="2.5" opacity="0.7"/>
+          <text x="380" y="232" text-anchor="middle" font-family="Fredoka One" font-size="14" fill="#1e3a8a">VACUOLE</text>
+          <text x="380" y="250" text-anchor="middle" font-family="Nunito" font-size="9" fill="#1e40af" font-style="italic">(stores water, sap, waste)</text>
+          <!-- Animated water particles inside -->
+          <circle cx="330" cy="200" r="4" fill="#3b82f6" opacity="0.6">
+            <animate attributeName="cy" values="200;220;200" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="420" cy="250" r="3" fill="#3b82f6" opacity="0.6">
+            <animate attributeName="cy" values="250;230;250" dur="2.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="380" cy="185" r="3.5" fill="#3b82f6" opacity="0.6">
+            <animate attributeName="cy" values="185;205;185" dur="3.5s" repeatCount="indefinite"/>
+          </circle>
+
+          <!-- CHLOROPLASTS (multiple, green) -->
+          <ellipse cx="135" cy="305" rx="22" ry="14" fill="#22c55e" stroke="#166534" stroke-width="2"/>
+          <rect x="125" y="301" width="6" height="3" fill="#14532d"/>
+          <rect x="138" y="301" width="6" height="3" fill="#14532d"/>
+          <rect x="125" y="307" width="6" height="3" fill="#14532d"/>
+          <rect x="138" y="307" width="6" height="3" fill="#14532d"/>
+
+          <ellipse cx="220" cy="340" rx="22" ry="14" fill="#22c55e" stroke="#166534" stroke-width="2"/>
+          <rect x="210" y="336" width="6" height="3" fill="#14532d"/>
+          <rect x="223" y="336" width="6" height="3" fill="#14532d"/>
+          <rect x="210" y="342" width="6" height="3" fill="#14532d"/>
+          <rect x="223" y="342" width="6" height="3" fill="#14532d"/>
+
+          <ellipse cx="540" cy="120" rx="22" ry="14" fill="#22c55e" stroke="#166534" stroke-width="2"/>
+          <rect x="530" y="116" width="6" height="3" fill="#14532d"/>
+          <rect x="543" y="116" width="6" height="3" fill="#14532d"/>
+          <rect x="530" y="122" width="6" height="3" fill="#14532d"/>
+          <rect x="543" y="122" width="6" height="3" fill="#14532d"/>
+
+          <text x="95" y="365" font-family="Nunito" font-size="11" font-weight="800" fill="#166534">Chloroplasts</text>
+          <line x1="115" y1="358" x2="125" y2="320" stroke="#166534" stroke-width="1"/>
+
+          <!-- MITOCHONDRIA -->
+          <ellipse cx="500" cy="305" rx="25" ry="12" fill="#fca5a5" stroke="#dc2626" stroke-width="2"/>
+          <path d="M 478 305 Q 488 295, 500 305 Q 512 315, 522 305" stroke="#7f1d1d" stroke-width="1.5" fill="none"/>
+          <text x="465" y="330" font-family="Nunito" font-size="11" font-weight="800" fill="#991b1b">Mitochondria</text>
+          <text x="470" y="343" font-family="Nunito" font-size="9" fill="#dc2626">(energy)</text>
+
+          <!-- GOLGI BODY -->
+          <g transform="translate(540,200)">
+            <path d="M 0 0 Q 15 -3, 30 0" stroke="#7c3aed" stroke-width="2.5" fill="none"/>
+            <path d="M 0 8 Q 15 5, 30 8" stroke="#7c3aed" stroke-width="2.5" fill="none"/>
+            <path d="M 0 16 Q 15 13, 30 16" stroke="#7c3aed" stroke-width="2.5" fill="none"/>
+            <path d="M 0 24 Q 15 21, 30 24" stroke="#7c3aed" stroke-width="2.5" fill="none"/>
+          </g>
+          <text x="535" y="252" font-family="Nunito" font-size="11" font-weight="800" fill="#5b21b6">Golgi Body</text>
+
+          <!-- ENDOPLASMIC RETICULUM (squiggly lines) -->
+          <path d="M 105 140 Q 130 130, 150 145 Q 170 160, 145 175 Q 120 185, 105 165 Z" 
+                fill="none" stroke="#0891b2" stroke-width="2"/>
+          <circle cx="115" cy="138" r="2" fill="#155e75"/>
+          <circle cx="135" cy="135" r="2" fill="#155e75"/>
+          <circle cx="148" cy="155" r="2" fill="#155e75"/>
+          <circle cx="125" cy="180" r="2" fill="#155e75"/>
+          <text x="100" y="116" font-family="Nunito" font-size="11" font-weight="800" fill="#155e75">ER + Ribosomes</text>
+
+          <!-- RIBOSOMES (small dots) -->
+          <circle cx="270" cy="105" r="3" fill="#9333ea"/>
+          <circle cx="285" cy="115" r="3" fill="#9333ea"/>
+          <circle cx="298" cy="100" r="3" fill="#9333ea"/>
+          <text x="265" y="92" font-family="Nunito" font-size="10" font-weight="700" fill="#7e22ce">Ribosomes</text>
+
+          <!-- Cell wall label arrow (already done above) -->
+        </svg>
+        <p style="margin-top:10px;font-size:13px;color:#0e7490;font-style:italic">Fig. 2 — Detailed structure of a plant cell with organelles</p>
+      </div>
+
+      <h3 class="subtitle">🔹 Parts of a Plant Cell</h3>
+      <div class="info-grid">
+        <div class="info-card ic-orange">
+          <h4>🧱 Cell Wall</h4>
+          <p>Outermost rigid layer made of <strong>cellulose</strong>. Gives shape & support. <em>Only in plants!</em></p>
+        </div>
+        <div class="info-card ic-yellow">
+          <h4>🛡️ Cell Membrane</h4>
+          <p>Thin, selectively permeable layer below cell wall. Controls what enters/exits.</p>
+        </div>
+        <div class="info-card ic-pink">
+          <h4>🧬 Nucleus</h4>
+          <p>"Brain" of the cell. Contains DNA (genetic info) & controls all activities.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>💧 Vacuole</h4>
+          <p>Large central sac filled with <strong>cell sap</strong>. Stores water, food, waste. <em>Very large in plant cells!</em></p>
+        </div>
+        <div class="info-card ic-green">
+          <h4>🟢 Chloroplasts</h4>
+          <p>Green plastids — site of <strong>photosynthesis</strong>. Contain chlorophyll. <em>Only in plants!</em></p>
+        </div>
+        <div class="info-card ic-red">
+          <h4>⚡ Mitochondria</h4>
+          <p>"Powerhouse" — site of <strong>respiration</strong>. Releases ATP (energy).</p>
+        </div>
+        <div class="info-card ic-purple">
+          <h4>📦 Golgi Body</h4>
+          <p>Packages & transports proteins and other materials.</p>
+        </div>
+        <div class="info-card ic-teal">
+          <h4>🕸️ Endoplasmic Reticulum</h4>
+          <p>Network of tubes — transports materials inside cell. Has ribosomes on it.</p>
+        </div>
+        <div class="info-card ic-purple">
+          <h4>🔵 Ribosomes</h4>
+          <p>Tiny dots that make <strong>proteins</strong>.</p>
+        </div>
+        <div class="info-card ic-yellow">
+          <h4>🌀 Cytoplasm</h4>
+          <p>Jelly-like fluid where all organelles float. Most chemical reactions happen here.</p>
+        </div>
+      </div>
+
+      <h3 class="subtitle">🔹 Plant Cell vs Animal Cell</h3>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Feature</th><th>🌿 Plant Cell</th><th>🐾 Animal Cell</th></tr>
+        <tr><td>Cell Wall</td><td>✅ Present (cellulose)</td><td>❌ Absent</td></tr>
+        <tr><td>Chloroplasts</td><td>✅ Present</td><td>❌ Absent</td></tr>
+        <tr><td>Vacuole</td><td>Large, central</td><td>Small, many</td></tr>
+        <tr><td>Shape</td><td>Fixed, rectangular</td><td>Irregular, round</td></tr>
+        <tr><td>Centrioles</td><td>❌ Absent</td><td>✅ Present</td></tr>
+        <tr><td>Food</td><td>Stored as starch</td><td>Stored as glycogen</td></tr>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PLASTIDS ===== -->
+  <div class="section-block reveal" id="plastids">
+    <div class="section-hd g-orange">
+      <span class="icon">🎨</span> Plastids — The Colourful Organelles
+    </div>
+    <div class="section-bd">
+      <p><span class="kt">Plastids</span> are double-membrane organelles found <strong>only in plant cells</strong>. They make and store food, give colour to flowers/fruits, and contain their own DNA!</p>
+
+      <div class="note-box">
+        <strong>📝 Definition:</strong> Plastids are membrane-bound organelles that synthesize and store food materials and pigments. The term was coined by <strong>Haeckel (1865)</strong>.
+      </div>
+
+      <h3 class="subtitle">🔹 Three Main Types of Plastids</h3>
+
+      <div class="plastid-grid">
+        <!-- CHLOROPLAST -->
+        <div class="plastid-card">
+          <div class="plastid-top chloroplast-bg">
+            <span style="font-size:28px">🟢</span>
+            <h3>1. Chloroplast</h3>
+          </div>
+          <div class="plastid-vis" style="background:#dcfce7">
+            <div class="mini-chloro">
+              <div class="thylakoid-stack t1"></div>
+              <div class="thylakoid-stack t2"></div>
+            </div>
+          </div>
+          <div class="plastid-body">
+            <p><strong>Colour:</strong> Green (contains chlorophyll)</p>
+            <p><strong>Function:</strong> <strong>Photosynthesis</strong> — make food using sunlight, CO₂ & water.</p>
+            <p><strong>Found in:</strong> Leaves, green stems, unripe fruits</p>
+            <p><strong>Pigments:</strong> Chlorophyll a, Chlorophyll b, Carotenoids</p>
+          </div>
+        </div>
+
+        <!-- CHROMOPLAST -->
+        <div class="plastid-card">
+          <div class="plastid-top chromoplast-bg">
+            <span style="font-size:28px">🌸</span>
+            <h3>2. Chromoplast</h3>
+          </div>
+          <div class="plastid-vis" style="background:#fed7aa">
+            <div class="mini-chromo"></div>
+          </div>
+          <div class="plastid-body">
+            <p><strong>Colour:</strong> Yellow, orange, red (no chlorophyll)</p>
+            <p><strong>Function:</strong> Give <strong>colour</strong> to flowers, fruits, autumn leaves. Attract insects for pollination & seed dispersal.</p>
+            <p><strong>Found in:</strong> Petals of flowers, ripe fruits (tomato, mango), carrot roots</p>
+            <p><strong>Pigments:</strong> Carotene (orange), Xanthophyll (yellow), Lycopene (red)</p>
+          </div>
+        </div>
+
+        <!-- LEUCOPLAST -->
+        <div class="plastid-card">
+          <div class="plastid-top leucoplast-bg">
+            <span style="font-size:28px">⚪</span>
+            <h3>3. Leucoplast</h3>
+          </div>
+          <div class="plastid-vis" style="background:#e2e8f0">
+            <div class="mini-leuco">
+              <div class="starch-grain g1"></div>
+              <div class="starch-grain g2"></div>
+              <div class="starch-grain g3"></div>
+            </div>
+          </div>
+          <div class="plastid-body">
+            <p><strong>Colour:</strong> Colourless / white</p>
+            <p><strong>Function:</strong> <strong>Storage</strong> of starch, oils, and proteins. Found where light doesn't reach.</p>
+            <p><strong>Found in:</strong> Underground roots (potato, carrot), seeds, tubers</p>
+            <p><strong>Sub-types:</strong> Amyloplast (starch), Elaioplast (oil), Proteinoplast (protein)</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subtitle">🔹 Sub-types of Leucoplast (Storage Plastids)</h3>
+      <div class="info-grid">
+        <div class="info-card ic-yellow">
+          <h4>🥔 Amyloplast</h4>
+          <p>Stores <strong>starch</strong> (carbohydrate). Found in potatoes, rice, wheat grains.</p>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>🌻 Elaioplast (Oleoplast)</h4>
+          <p>Stores <strong>oils & fats</strong>. Found in oily seeds like groundnut, mustard, sunflower.</p>
+        </div>
+        <div class="info-card ic-purple">
+          <h4>🌰 Proteinoplast (Aleuroplast)</h4>
+          <p>Stores <strong>proteins</strong>. Found in pulses, nuts, beans.</p>
+        </div>
+      </div>
+
+      <h3 class="subtitle">🔹 Comparison of Plastids</h3>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Feature</th><th>🟢 Chloroplast</th><th>🌸 Chromoplast</th><th>⚪ Leucoplast</th></tr>
+        <tr><td>Colour</td><td>Green</td><td>Yellow/Orange/Red</td><td>Colourless</td></tr>
+        <tr><td>Pigment</td><td>Chlorophyll</td><td>Carotene, Xanthophyll</td><td>None</td></tr>
+        <tr><td>Function</td><td>Photosynthesis</td><td>Attracts pollinators</td><td>Storage of food</td></tr>
+        <tr><td>Found in</td><td>Leaves, green parts</td><td>Flowers, fruits</td><td>Roots, seeds, tubers</td></tr>
+        <tr><td>Example</td><td>Spinach, grass</td><td>Tomato, rose petal</td><td>Potato, onion</td></tr>
+      </table>
+      </div>
+
+      <div class="trick">
+        <strong>💡 Interesting Fact:</strong> Plastids can convert into each other! When a green tomato ripens, the <strong>chloroplasts change into chromoplasts</strong> — that's why it turns red! 🍅
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CHLOROPLAST STRUCTURE ===== -->
+  <div class="section-block reveal" id="chloroplast">
+    <div class="section-hd g-green">
+      <span class="icon">⚙️</span> Inside the Chloroplast — The Food Factory
+    </div>
+    <div class="section-bd">
+      <p>The chloroplast is where <strong>all photosynthesis happens</strong>. It has a fascinating internal structure!</p>
+
+      <!-- DETAILED CHLOROPLAST DIAGRAM -->
+      <div class="chloro-wrap">
+        <h3>🔬 Detailed Structure of Chloroplast</h3>
+        <svg viewBox="0 0 600 380" width="100%" style="max-width:600px" xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="380" fill="#064e3b" rx="14"/>
+
+          <!-- Outer membrane -->
+          <ellipse cx="300" cy="190" rx="240" ry="140" fill="none" stroke="#bef264" stroke-width="3"/>
+          <!-- Inner membrane -->
+          <ellipse cx="300" cy="190" rx="225" ry="125" fill="#166534" stroke="#84cc16" stroke-width="2"/>
+          <!-- Stroma -->
+          <ellipse cx="300" cy="190" rx="225" ry="125" fill="#22c55e" opacity="0.3"/>
+
+          <!-- Outer membrane label -->
+          <line x1="540" y1="100" x2="555" y2="60" stroke="#bef264" stroke-width="1.5"/>
+          <text x="425" y="56" font-family="Nunito" font-size="11" font-weight="800" fill="#bef264">Outer Membrane</text>
+
+          <!-- Inner membrane label -->
+          <line x1="510" y1="130" x2="555" y2="100" stroke="#84cc16" stroke-width="1.5"/>
+          <text x="430" y="96" font-family="Nunito" font-size="11" font-weight="800" fill="#84cc16">Inner Membrane</text>
+
+          <!-- GRANA (stacks of thylakoids) - GROUP 1 -->
+          <g transform="translate(140,130)">
+            <ellipse cx="0" cy="0" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="10" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="20" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="30" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="40" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="50" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+          </g>
+
+          <!-- GRANA - GROUP 2 -->
+          <g transform="translate(220,200)">
+            <ellipse cx="0" cy="0" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="10" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="20" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="30" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="40" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+          </g>
+
+          <!-- GRANA - GROUP 3 -->
+          <g transform="translate(340,150)">
+            <ellipse cx="0" cy="0" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="10" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="20" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="30" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="40" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="50" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+          </g>
+
+          <!-- GRANA - GROUP 4 -->
+          <g transform="translate(440,220)">
+            <ellipse cx="0" cy="0" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="10" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="20" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="30" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+            <ellipse cx="0" cy="40" rx="22" ry="6" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+          </g>
+
+          <!-- Stroma lamella (tube connecting grana) -->
+          <path d="M 140 180 Q 200 240, 245 220" stroke="#84cc16" stroke-width="3" fill="none" opacity="0.7"/>
+          <path d="M 340 175 Q 390 220, 440 235" stroke="#84cc16" stroke-width="3" fill="none" opacity="0.7"/>
+
+          <!-- Granum label -->
+          <line x1="140" y1="125" x2="100" y2="65" stroke="#bef264" stroke-width="1.5"/>
+          <text x="50" y="55" font-family="Nunito" font-size="11" font-weight="800" fill="#bef264">Granum</text>
+          <text x="40" y="68" font-family="Nunito" font-size="9" fill="#a3e635">(stack of thylakoids)</text>
+
+          <!-- Thylakoid label -->
+          <line x1="362" y1="160" x2="400" y2="80" stroke="#bef264" stroke-width="1.5"/>
+          <text x="380" y="70" font-family="Nunito" font-size="11" font-weight="800" fill="#bef264">Thylakoid</text>
+          <text x="370" y="83" font-family="Nunito" font-size="9" fill="#a3e635">(coin-shaped disc)</text>
+
+          <!-- Stroma lamella label -->
+          <line x1="370" y1="210" x2="420" y2="280" stroke="#bef264" stroke-width="1.5"/>
+          <text x="395" y="297" font-family="Nunito" font-size="11" font-weight="800" fill="#bef264">Stroma Lamella</text>
+          <text x="405" y="310" font-family="Nunito" font-size="9" fill="#a3e635">(connecting tube)</text>
+
+          <!-- Stroma -->
+          <text x="280" y="285" font-family="Nunito" font-size="13" font-weight="800" fill="#bef264">STROMA</text>
+          <text x="260" y="300" font-family="Nunito" font-size="10" fill="#a3e635" font-style="italic">(jelly-like fluid - dark reaction)</text>
+
+          <!-- DNA loops -->
+          <ellipse cx="120" cy="240" rx="8" ry="4" fill="none" stroke="#fde047" stroke-width="2"/>
+          <ellipse cx="500" cy="160" rx="8" ry="4" fill="none" stroke="#fde047" stroke-width="2"/>
+          <text x="80" y="240" font-family="Nunito" font-size="10" font-weight="700" fill="#fde047">DNA</text>
+
+          <!-- Ribosomes -->
+          <circle cx="180" cy="270" r="3" fill="#facc15"/>
+          <circle cx="290" cy="240" r="3" fill="#facc15"/>
+          <circle cx="400" cy="280" r="3" fill="#facc15"/>
+
+          <!-- Sunlight ray hitting -->
+          <line x1="50" y1="20" x2="200" y2="125" stroke="#fde047" stroke-width="2" stroke-dasharray="5,3" opacity="0.8">
+            <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+          </line>
+          <text x="20" y="20" font-size="20">☀️</text>
+        </svg>
+      </div>
+
+      <h3 class="subtitle">🔹 Parts of a Chloroplast</h3>
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>📦 Outer Membrane</h4>
+          <p>Smooth, freely permeable. Controls movement of materials in/out.</p>
+        </div>
+        <div class="info-card ic-green">
+          <h4>🛡️ Inner Membrane</h4>
+          <p>Selectively permeable. Controls what passes into the stroma.</p>
+        </div>
+        <div class="info-card ic-yellow">
+          <h4>🌊 Stroma</h4>
+          <p>Jelly-like fluid filling the chloroplast. Contains enzymes, DNA, ribosomes. <strong>Site of the Dark Reaction (Calvin Cycle).</strong></p>
+        </div>
+        <div class="info-card ic-green">
+          <h4>💚 Thylakoid</h4>
+          <p>Flat, coin-shaped sacs containing <strong>chlorophyll</strong>. <strong>Site of the Light Reaction.</strong></p>
+        </div>
+        <div class="info-card ic-green">
+          <h4>📚 Granum (plural: Grana)</h4>
+          <p>Stacks of thylakoids (like a stack of coins). Each chloroplast has 40–80 grana.</p>
+        </div>
+        <div class="info-card ic-teal">
+          <h4>🔗 Stroma Lamella</h4>
+          <p>Tubes that connect different grana together.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PHYSIOLOGY OF PHOTOSYNTHESIS ===== -->
+  <div class="section-block reveal" id="physiology">
+    <div class="section-hd g-green">
+      <span class="icon">☀️</span> Physiology of Photosynthesis
+    </div>
+    <div class="section-bd">
+      <p>Photosynthesis is the process by which green plants make <strong>their own food</strong> using sunlight, water, and carbon dioxide. The word means "<em>photo</em>" = light + "<em>synthesis</em>" = building.</p>
+
+      <h3 class="subtitle">🔹 Overall Equation</h3>
+      <div class="chem-eq">
+        6 CO₂ + 12 H₂O —[ Sunlight + Chlorophyll ]→ C₆H₁₂O₆ + 6 O₂ + 6 H₂O
+      </div>
+
+      <div class="eq-flow">
+        <div class="eq-box" style="border:2px solid #3b82f6;color:#1d4ed8">💧 Water<br><small>H₂O</small></div>
+        <div class="eq-op">+</div>
+        <div class="eq-box" style="border:2px solid #6b7280;color:#374151">💨 CO₂</div>
+        <div class="eq-op">+</div>
+        <div class="eq-box" style="border:2px solid #f59e0b;color:#92400e">☀️ Light</div>
+        <div class="eq-op" style="color:#22c55e">→</div>
+        <div class="eq-box" style="border:2px solid #22c55e;color:#166534">🍬 Glucose</div>
+        <div class="eq-op">+</div>
+        <div class="eq-box" style="border:2px solid #0ea5e9;color:#0c4a6e">🫧 O₂</div>
+      </div>
+
+      <h3 class="subtitle">🔹 Raw Materials & Their Sources</h3>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Raw Material</th><th>Source</th><th>How it Reaches the Leaf</th></tr>
+        <tr><td>💧 <strong>Water (H₂O)</strong></td><td>Soil</td><td>Absorbed by roots → carried up by <strong>xylem</strong></td></tr>
+        <tr><td>💨 <strong>CO₂</strong></td><td>Atmosphere</td><td>Enters through <strong>stomata</strong> on leaf surface</td></tr>
+        <tr><td>☀️ <strong>Sunlight</strong></td><td>Sun</td><td>Falls directly on leaf and absorbed by <strong>chlorophyll</strong></td></tr>
+        <tr><td>💚 <strong>Chlorophyll</strong></td><td>Chloroplasts in leaf cells</td><td>Already present (the catalyst!)</td></tr>
+      </table>
+      </div>
+
+      <h3 class="subtitle">🔹 Two Phases of Photosynthesis</h3>
+      <p>Photosynthesis happens in <strong>two stages</strong>:</p>
+
+      <div class="reaction-flow light-reaction">
+        <h4 style="font-family:'Fredoka One',cursive;color:#92400e;font-size:18px;margin-bottom:14px;">☀️ Phase 1: Light Reaction (Photochemical Phase)</h4>
+        <p style="font-size:13px;margin-bottom:14px"><strong>Where?</strong> In the <strong>thylakoids (grana)</strong> of the chloroplast. <strong>Needs sunlight!</strong></p>
+
+        <div class="reaction-step">
+          <div class="reaction-step-num">1</div>
+          <div class="reaction-step-text">
+            <h5>Light Absorption</h5>
+            <p>Chlorophyll absorbs sunlight energy (mainly red and blue light).</p>
+          </div>
+        </div>
+        <div class="reaction-step">
+          <div class="reaction-step-num">2</div>
+          <div class="reaction-step-text">
+            <h5>Photolysis of Water</h5>
+            <p>Water is split into Hydrogen (H⁺) + Oxygen (O₂). The O₂ is released into air!</p>
+            <p style="font-family:monospace;color:#92400e;margin-top:4px">2 H₂O → 4 H⁺ + O₂ + 4 e⁻</p>
+          </div>
+        </div>
+        <div class="reaction-step">
+          <div class="reaction-step-num">3</div>
+          <div class="reaction-step-text">
+            <h5>Energy Storage</h5>
+            <p>Light energy is converted into chemical energy stored as <strong>ATP</strong> and <strong>NADPH</strong>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reaction-flow dark-reaction">
+        <h4 style="font-family:'Fredoka One',cursive;color:#5b21b6;font-size:18px;margin-bottom:14px;">🌑 Phase 2: Dark Reaction (Calvin Cycle / Biosynthetic Phase)</h4>
+        <p style="font-size:13px;margin-bottom:14px"><strong>Where?</strong> In the <strong>stroma</strong> of the chloroplast. <strong>Does NOT need sunlight</strong> directly!</p>
+
+        <div class="reaction-step">
+          <div class="reaction-step-num">1</div>
+          <div class="reaction-step-text">
+            <h5>CO₂ Fixation</h5>
+            <p>CO₂ from air is combined with a 5-carbon molecule (RuBP) using enzyme RuBisCO.</p>
+          </div>
+        </div>
+        <div class="reaction-step">
+          <div class="reaction-step-num">2</div>
+          <div class="reaction-step-text">
+            <h5>Reduction</h5>
+            <p>ATP and NADPH from Light Reaction are used to convert CO₂ into glucose (sugar).</p>
+          </div>
+        </div>
+        <div class="reaction-step">
+          <div class="reaction-step-num">3</div>
+          <div class="reaction-step-text">
+            <h5>Glucose Formation</h5>
+            <p>The final product — <strong>glucose (C₆H₁₂O₆)</strong> — is stored as starch in leaves.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subtitle">🔹 Light vs Dark Reaction Comparison</h3>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Feature</th><th>☀️ Light Reaction</th><th>🌑 Dark Reaction</th></tr>
+        <tr><td>Needs sunlight?</td><td>✅ Yes</td><td>❌ No (uses products from light reaction)</td></tr>
+        <tr><td>Location</td><td>Thylakoid membrane (grana)</td><td>Stroma</td></tr>
+        <tr><td>Discovered by</td><td>Robert Hill (1937)</td><td>Melvin Calvin (1950s)</td></tr>
+        <tr><td>Also called</td><td>Hill Reaction / Photochemical</td><td>Calvin Cycle / Biosynthetic</td></tr>
+        <tr><td>Inputs</td><td>Light + H₂O</td><td>CO₂ + ATP + NADPH</td></tr>
+        <tr><td>Outputs</td><td>O₂ + ATP + NADPH</td><td>Glucose (C₆H₁₂O₆)</td></tr>
+      </table>
+      </div>
+
+      <h3 class="subtitle">🔹 Factors Affecting Photosynthesis</h3>
+      <div class="info-grid">
+        <div class="info-card ic-yellow">
+          <h4>☀️ Light Intensity</h4>
+          <p>More light = faster photosynthesis (up to a limit). Too much light damages chlorophyll.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>💨 CO₂ Concentration</h4>
+          <p>More CO₂ generally speeds up photosynthesis. Normal air has 0.03% CO₂.</p>
+        </div>
+        <div class="info-card ic-red">
+          <h4>🌡️ Temperature</h4>
+          <p>Optimum range: <strong>25–35°C</strong>. Below 0°C or above 45°C, enzymes stop working.</p>
+        </div>
+        <div class="info-card ic-teal">
+          <h4>💧 Water</h4>
+          <p>Lack of water closes stomata, reducing CO₂ uptake. Photosynthesis slows down.</p>
+        </div>
+        <div class="info-card ic-green">
+          <h4>🟢 Chlorophyll</h4>
+          <p>Yellow or damaged leaves can't make food. Healthy green leaves work best.</p>
+        </div>
+        <div class="info-card ic-purple">
+          <h4>🫧 Oxygen</h4>
+          <p>High O₂ levels can <em>slow down</em> photosynthesis (this is called photorespiration).</p>
+        </div>
+      </div>
+
+      <h3 class="subtitle">🔹 Stomata — Tiny Doors of the Leaf</h3>
+      <div class="stomata-wrap">
+        <div class="stomata-box">
+          <h4 style="color:#16a34a">🌞 OPEN — During Day</h4>
+          <svg viewBox="0 0 100 70" width="100" height="70">
+            <ellipse cx="50" cy="35" rx="38" ry="18" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+            <path d="M18,30 Q50,15 82,30" fill="#4ade80" stroke="#16a34a" stroke-width="2"/>
+            <path d="M18,40 Q50,55 82,40" fill="#4ade80" stroke="#16a34a" stroke-width="2"/>
+            <ellipse cx="50" cy="35" rx="18" ry="7" fill="#166534" opacity="0.6"/>
+            <text x="3" y="38" font-size="9" fill="#3b82f6" font-weight="bold">CO₂→</text>
+            <text x="65" y="33" font-size="9" fill="#16a34a" font-weight="bold">O₂→</text>
+            <ellipse cx="50" cy="35" rx="18" ry="7" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.5">
+              <animate attributeName="rx" values="18;22;18" dur="1.5s" repeatCount="indefinite"/>
+              <animate attributeName="ry" values="7;9;7" dur="1.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.5;0;0.5" dur="1.5s" repeatCount="indefinite"/>
+            </ellipse>
+          </svg>
+          <p style="font-size:12px;color:#555;margin-top:6px">Guard cells <strong>swell</strong> → pore opens<br>CO₂ in, O₂ out</p>
+        </div>
+
+        <div class="stomata-box" style="border-color:#f87171;background:#fef2f2">
+          <h4 style="color:#dc2626">🌙 CLOSED — At Night</h4>
+          <svg viewBox="0 0 100 70" width="100" height="70">
+            <ellipse cx="50" cy="35" rx="38" ry="18" fill="#fef2f2" stroke="#f87171" stroke-width="2"/>
+            <path d="M18,33 Q50,26 82,33" fill="#fca5a5" stroke="#f87171" stroke-width="2"/>
+            <path d="M18,37 Q50,44 82,37" fill="#fca5a5" stroke="#f87171" stroke-width="2"/>
+            <ellipse cx="50" cy="35" rx="4" ry="2" fill="#991b1b" opacity="0.8"/>
+            <text x="8" y="62" font-size="9" fill="#dc2626" font-weight="bold">Closed = saves water!</text>
+          </svg>
+          <p style="font-size:12px;color:#555;margin-top:6px">Guard cells <strong>shrink</strong> → pore closes<br>Prevents water loss</p>
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>💡 Important:</strong> The first product of photosynthesis is <strong>glucose</strong>, which is converted to <strong>starch</strong> for storage. We test for photosynthesis using the <strong>iodine test</strong> — starch turns iodine blue-black!
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== RESPIRATION ===== -->
+  <div class="section-block reveal" id="respiration">
+    <div class="section-hd g-blue">
+      <span class="icon">💨</span> Respiration in Plants
+    </div>
+    <div class="section-bd">
+      <p>Plants need <strong>energy</strong> to grow, reproduce, and stay alive. They get this energy by breaking down glucose in a process called <span class="kt">cellular respiration</span>.</p>
+
+      <div class="chem-eq" style="background:linear-gradient(135deg, #dbeafe, #bfdbfe);color:#1e3a8a;border-color:#3b82f6">
+        C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + Energy (ATP)
+      </div>
+
+      <h3 class="subtitle">🔹 Types of Respiration</h3>
+      <div class="info-grid">
+        <div class="info-card ic-blue">
+          <h4>🫧 Aerobic Respiration</h4>
+          <p>Uses <strong>oxygen</strong>. Releases <strong>maximum energy</strong> (38 ATP). Most plants use this.</p>
+          <p style="font-family:monospace;font-size:12px;margin-top:6px">Glucose + O₂ → CO₂ + H₂O + Energy</p>
+        </div>
+        <div class="info-card ic-red">
+          <h4>🚫 Anaerobic Respiration</h4>
+          <p>Without oxygen. Releases <strong>less energy</strong> (2 ATP). Happens in waterlogged roots, yeast.</p>
+          <p style="font-family:monospace;font-size:12px;margin-top:6px">Glucose → Ethanol + CO₂ + Energy</p>
+        </div>
+      </div>
+
+      <h3 class="subtitle">🔹 Photosynthesis vs Respiration</h3>
+      <div class="table-wrap">
+      <table>
+        <tr><th>Feature</th><th>☀️ Photosynthesis</th><th>💨 Respiration</th></tr>
+        <tr><td>Time</td><td>Only in daytime</td><td>Day AND Night (always!)</td></tr>
+        <tr><td>Site</td><td>Chloroplasts (green parts only)</td><td>Mitochondria (all cells)</td></tr>
+        <tr><td>Raw Materials</td><td>CO₂, H₂O, Sunlight</td><td>Glucose, O₂</td></tr>
+        <tr><td>Products</td><td>Glucose + O₂</td><td>CO₂ + H₂O + Energy</td></tr>
+        <tr><td>Energy</td><td>Stores energy (anabolic)</td><td>Releases energy (catabolic)</td></tr>
+        <tr><td>Gas exchange</td><td>O₂ released, CO₂ taken in</td><td>CO₂ released, O₂ taken in</td></tr>
+      </table>
+      </div>
+
+      <div class="trick">
+        <strong>💡 Should we sleep under a tree at night?</strong> Sleeping under a tree at night is generally not harmful — trees release very little CO₂ compared to a small room. But during the day, trees release lots of O₂ — so daytime under a tree is wonderfully refreshing! 🌳
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TRANSPORT ===== -->
+  <div class="section-block reveal" id="transport">
+    <div class="section-hd g-orange">
+      <span class="icon">🚛</span> Transportation in Plants
+    </div>
+    <div class="section-bd">
+      <p>Plants have a special network of tubes called the <span class="kt">vascular system</span> to move water, minerals, and food throughout the plant body.</p>
+
+      <div class="transport-vis">
+        <div class="transport-col tc-xylem">
+          <h4>🔵 XYLEM</h4>
+          <span class="arrow-big">↑</span>
+          <p style="font-size:13.5px"><strong>Carries:</strong> Water + Minerals</p>
+          <p style="font-size:13.5px"><strong>Direction:</strong> Roots → Leaves<br>(UPWARD only)</p>
+          <p style="font-size:13px;margin-top:8px">Made of <strong>dead cells</strong> — like hollow pipes!</p>
+          <p style="font-size:13px;margin-top:4px">Powered by <span class="kt">Transpiration Pull</span></p>
+        </div>
+        <div class="transport-col tc-phloem">
+          <h4>🟡 PHLOEM</h4>
+          <span class="arrow-big">↕</span>
+          <p style="font-size:13.5px"><strong>Carries:</strong> Food (Sucrose)</p>
+          <p style="font-size:13.5px"><strong>Direction:</strong> Leaves → All parts<br>(BOTH UP and DOWN)</p>
+          <p style="font-size:13px;margin-top:8px">Made of <strong>living cells</strong> (sieve tubes)</p>
+          <p style="font-size:13px;margin-top:4px">Process called <span class="kt">Translocation</span></p>
+        </div>
+      </div>
+
+      <h3 class="subtitle">🔹 Three Key Processes</h3>
+      <div class="info-grid">
+        <div class="info-card ic-teal">
+          <h4>🌊 Osmosis</h4>
+          <p>Water enters root hairs from soil by moving from high concentration (soil) to low concentration (root cell sap) through a semi-permeable membrane.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>💧 Transpiration</h4>
+          <p>Loss of water vapour through stomata. Creates a <strong>suction force</strong> that pulls water up from roots through xylem — like sipping juice from a straw!</p>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>📡 Translocation</h4>
+          <p>Movement of food (made in leaves) through phloem to all parts of the plant — roots, fruits, seeds, growing tips.</p>
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>💡 Easy Memory Trick:</strong><br>
+        🔵 <strong>X</strong>ylem = e<strong>X</strong>clusively Water (UP only) 💧<br>
+        🟡 <strong>Ph</strong>loem = <strong>Ph</strong>ood (food, both ways) 🍬
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXCRETION ===== -->
+  <div class="section-block reveal" id="excretion">
+    <div class="section-hd g-teal">
+      <span class="icon">🗑️</span> Excretion in Plants
+    </div>
+    <div class="section-bd">
+      <p>Plants produce waste products too! Their excretion is much simpler than in animals.</p>
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>💨 Gaseous Waste</h4>
+          <p>CO₂ (from respiration), O₂ (from photosynthesis), and water vapour are released through <strong>stomata</strong> and lenticels.</p>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>🍂 Leaf Fall (Abscission)</h4>
+          <p>In autumn, plants store solid waste in older leaves, then shed them — like throwing out the trash!</p>
+        </div>
+        <div class="info-card ic-purple">
+          <h4>🌿 Stored Substances</h4>
+          <p><strong>Resins</strong> (in pine), <strong>gums</strong> (acacia), <strong>tannins</strong> (in bark), <strong>latex</strong> (rubber) — all stored waste materials.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>🌱 Through Roots</h4>
+          <p>Some plants excrete waste compounds directly into the surrounding soil through roots.</p>
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>💡 Did you know?</strong> Many useful products come from plant waste! <strong>Rubber</strong> from latex, <strong>resin</strong> for varnish, <strong>opium</strong> from poppy, and many medicines like quinine!
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TYPES OF NUTRITION ===== -->
+  <div class="section-block reveal" id="nutrition">
+    <div class="section-hd g-rose">
+      <span class="icon">🍽️</span> Types of Nutrition in Plants
+    </div>
+    <div class="section-bd">
+      <p>Not all plants make their own food! Plants are classified by how they get their nutrition.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>🌿 Autotrophic</h4>
+          <p>Make own food by photosynthesis. <strong>All green plants.</strong></p>
+          <p><strong>Examples:</strong> Mango, Rose, Grass, Wheat, Banyan</p>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>🌾 Parasitic</h4>
+          <p>Steal food from <strong>host plants</strong> using special structures called <strong>haustoria</strong>. No chlorophyll!</p>
+          <p><strong>Examples:</strong> Cuscuta (Amarbel), Rafflesia, Mistletoe</p>
+        </div>
+        <div class="info-card ic-purple">
+          <h4>🍄 Saprophytic</h4>
+          <p>Feed on <strong>dead and decaying matter</strong>. Important <strong>decomposers</strong> in nature!</p>
+          <p><strong>Examples:</strong> Mushroom, Bread mould (Rhizopus), Yeast</p>
+        </div>
+        <div class="info-card ic-red">
+          <h4>🪲 Insectivorous (Carnivorous)</h4>
+          <p>Trap and digest insects for <strong>nitrogen</strong>. Grow in nitrogen-poor swampy soil.</p>
+          <p><strong>Examples:</strong> Venus Flytrap, Pitcher Plant, Sundew, Bladderwort</p>
+        </div>
+        <div class="info-card ic-teal">
+          <h4>🌳 Symbiotic</h4>
+          <p>Two organisms live together, both benefit. Like <strong>lichen</strong> = alga + fungus living together!</p>
+          <p><strong>Examples:</strong> Lichen, Mycorrhiza (fungi + roots)</p>
+        </div>
+        <div class="info-card ic-yellow">
+          <h4>🐝 Mutualistic</h4>
+          <p>Rhizobium bacteria live in root nodules of legumes (like peas), fixing nitrogen for the plant in exchange for sugars.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MCQs ===== -->
+  <div class="section-block reveal" id="mcq">
+    <div class="section-hd g-purple">
+      <span class="icon">🧠</span> Multiple Choice Questions (MCQs)
+    </div>
+    <div class="section-bd">
+      <p style="font-size:13.5px;color:#6b21a8;margin-bottom:14px"><em>Click on any option — the correct one will be highlighted. Click "Show Answer" for explanation.</em></p>
+
+      <ul class="mcq-list">
+        <li class="mcq-item">
+          <div class="mcq-q">1. Which organelle is the site of photosynthesis?</div>
+          <ul class="mcq-options">
+            <li>(a) Mitochondria</li>
+            <li class="correct">(b) Chloroplast</li>
+            <li>(c) Nucleus</li>
+            <li>(d) Ribosome</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (b) Chloroplast — contains chlorophyll & does photosynthesis.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">2. The green pigment present in leaves is called:</div>
+          <ul class="mcq-options">
+            <li>(a) Carotene</li>
+            <li>(b) Xanthophyll</li>
+            <li class="correct">(c) Chlorophyll</li>
+            <li>(d) Anthocyanin</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (c) Chlorophyll — absorbs sunlight for photosynthesis.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">3. Stomata are mainly present on the:</div>
+          <ul class="mcq-options">
+            <li>(a) Upper surface of leaf</li>
+            <li class="correct">(b) Lower surface of leaf</li>
+            <li>(c) Both surfaces equally</li>
+            <li>(d) Stem only</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (b) Lower surface — to reduce water loss from direct sun.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">4. Which type of plastid gives the red colour to a tomato?</div>
+          <ul class="mcq-options">
+            <li>(a) Chloroplast</li>
+            <li>(b) Leucoplast</li>
+            <li class="correct">(c) Chromoplast</li>
+            <li>(d) Amyloplast</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (c) Chromoplast — contains lycopene (red pigment).</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">5. The light reaction of photosynthesis occurs in:</div>
+          <ul class="mcq-options">
+            <li class="correct">(a) Thylakoid (grana)</li>
+            <li>(b) Stroma</li>
+            <li>(c) Cytoplasm</li>
+            <li>(d) Outer membrane</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (a) Thylakoid — chlorophyll absorbs sunlight here.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">6. Xylem transports:</div>
+          <ul class="mcq-options">
+            <li>(a) Food only</li>
+            <li class="correct">(b) Water and minerals</li>
+            <li>(c) Hormones</li>
+            <li>(d) Oxygen</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (b) Water and minerals — from roots upward to leaves.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">7. Which leaf shows parallel venation?</div>
+          <ul class="mcq-options">
+            <li>(a) Mango</li>
+            <li>(b) Rose</li>
+            <li class="correct">(c) Banana</li>
+            <li>(d) Peepal</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (c) Banana — monocots have parallel venation.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">8. The "powerhouse" of the cell is:</div>
+          <ul class="mcq-options">
+            <li>(a) Nucleus</li>
+            <li>(b) Chloroplast</li>
+            <li class="correct">(c) Mitochondria</li>
+            <li>(d) Vacuole</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (c) Mitochondria — site of respiration & ATP production.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">9. Cuscuta is an example of:</div>
+          <ul class="mcq-options">
+            <li>(a) Autotroph</li>
+            <li class="correct">(b) Parasite</li>
+            <li>(c) Saprophyte</li>
+            <li>(d) Insectivorous</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (b) Parasite — climbs on other plants and sucks nutrients.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">10. The cell wall in plants is made up of:</div>
+          <ul class="mcq-options">
+            <li>(a) Chitin</li>
+            <li>(b) Protein</li>
+            <li class="correct">(c) Cellulose</li>
+            <li>(d) Lipid</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (c) Cellulose — gives strength & rigid shape.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">11. The process of water loss from leaves is called:</div>
+          <ul class="mcq-options">
+            <li>(a) Respiration</li>
+            <li class="correct">(b) Transpiration</li>
+            <li>(c) Photosynthesis</li>
+            <li>(d) Translocation</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (b) Transpiration — water vapour exits through stomata.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">12. Which plastid stores starch?</div>
+          <ul class="mcq-options">
+            <li>(a) Chromoplast</li>
+            <li>(b) Elaioplast</li>
+            <li class="correct">(c) Amyloplast</li>
+            <li>(d) Proteinoplast</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (c) Amyloplast — type of leucoplast storing starch.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">13. The dark reaction of photosynthesis is also called:</div>
+          <ul class="mcq-options">
+            <li>(a) Hill reaction</li>
+            <li class="correct">(b) Calvin cycle</li>
+            <li>(c) Krebs cycle</li>
+            <li>(d) Glycolysis</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (b) Calvin cycle — discovered by Melvin Calvin.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">14. Stack of thylakoids is called:</div>
+          <ul class="mcq-options">
+            <li class="correct">(a) Granum</li>
+            <li>(b) Stroma</li>
+            <li>(c) Cristae</li>
+            <li>(d) Matrix</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (a) Granum (plural: grana) — stacks of thylakoid discs.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">15. Which gas is released during photosynthesis?</div>
+          <ul class="mcq-options">
+            <li>(a) CO₂</li>
+            <li>(b) Nitrogen</li>
+            <li class="correct">(c) Oxygen</li>
+            <li>(d) Hydrogen</li>
+          </ul>
+          <div class="mcq-ans">✅ Answer: (c) Oxygen — released from splitting of water.</div>
+        </li>
+      </ul>
+      <p style="text-align:center;margin-top:14px"><button onclick="document.querySelectorAll('.mcq-item').forEach(i=>i.classList.add('show-ans'))" style="background:#22c55e;color:white;border:none;padding:10px 20px;border-radius:10px;font-weight:800;cursor:pointer;font-family:'Nunito';font-size:14px">Show All Answers</button></p>
+    </div>
+  </div>
+
+  <!-- ===== SHORT QUESTIONS ===== -->
+  <div class="section-block reveal" id="short">
+    <div class="section-hd g-blue">
+      <span class="icon">✍️</span> Short Answer Questions
+    </div>
+    <div class="section-bd">
+
+      <ul class="short-q-list">
+        <li class="short-q-item">
+          <div class="short-q">Q1. Define photosynthesis.</div>
+          <div class="short-a"><strong>Ans:</strong> Photosynthesis is the process by which green plants make their own food (glucose) using carbon dioxide, water, and sunlight in the presence of chlorophyll, releasing oxygen as a by-product.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q2. Name the three types of plastids and their colours.</div>
+          <div class="short-a"><strong>Ans:</strong> (i) <strong>Chloroplast</strong> — green, (ii) <strong>Chromoplast</strong> — yellow/orange/red, (iii) <strong>Leucoplast</strong> — colourless (white).</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q3. Why are leaves called "food factories" of plants?</div>
+          <div class="short-a"><strong>Ans:</strong> Leaves are called food factories because they contain chlorophyll in their chloroplasts, which carries out photosynthesis to make food (glucose) for the entire plant.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q4. What is the function of stomata?</div>
+          <div class="short-a"><strong>Ans:</strong> Stomata are tiny pores on the lower surface of leaves. They (i) allow exchange of gases (CO₂ in, O₂ out), and (ii) release water vapour through transpiration.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q5. Differentiate between xylem and phloem.</div>
+          <div class="short-a"><strong>Ans:</strong> <strong>Xylem</strong> transports water and minerals from roots to leaves (upward only) and is made of dead cells. <strong>Phloem</strong> transports food from leaves to all plant parts (both up and down) and is made of living cells.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q6. What is the difference between light reaction and dark reaction?</div>
+          <div class="short-a"><strong>Ans:</strong> <strong>Light reaction</strong> occurs in thylakoids, needs sunlight, splits water, and produces ATP, NADPH, and O₂. <strong>Dark reaction</strong> occurs in stroma, doesn't need sunlight, uses CO₂ + ATP + NADPH to make glucose.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q7. Why is a Venus Flytrap called an insectivorous plant?</div>
+          <div class="short-a"><strong>Ans:</strong> Because it traps and digests insects to get nitrogen, which is lacking in the marshy soil where it grows. It still photosynthesises like other green plants — the insects are just a nitrogen supplement.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q8. Name the parts of a chloroplast.</div>
+          <div class="short-a"><strong>Ans:</strong> Outer membrane, inner membrane, stroma (fluid), thylakoid (coin-shaped sacs), granum (stack of thylakoids), and stroma lamella (tubes connecting grana).</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q9. What is reticulate venation? Give example.</div>
+          <div class="short-a"><strong>Ans:</strong> When veins of a leaf form a net-like pattern, it is called reticulate venation. Found in dicot plants. Examples: Mango, Rose, Peepal.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q10. Why is the central vacuole large in plant cells?</div>
+          <div class="short-a"><strong>Ans:</strong> The large vacuole stores water, cell sap, nutrients, and waste products. It also maintains <strong>turgor pressure</strong>, which keeps the plant firm and upright. Without it, plants would wilt.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q11. Write the chemical equation of photosynthesis.</div>
+          <div class="short-a"><strong>Ans:</strong> <span style="font-family:monospace;color:#166534">6 CO₂ + 12 H₂O → C₆H₁₂O₆ + 6 O₂ + 6 H₂O</span> (in the presence of sunlight and chlorophyll).</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q12. What is the role of root hairs?</div>
+          <div class="short-a"><strong>Ans:</strong> Root hairs are tiny thread-like extensions of root cells. They greatly increase the surface area of the root and absorb water and minerals from soil by the process of osmosis.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q13. List four factors affecting photosynthesis.</div>
+          <div class="short-a"><strong>Ans:</strong> (i) Light intensity, (ii) Concentration of CO₂, (iii) Temperature (optimum 25–35°C), and (iv) Availability of water.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q14. Why does a green tomato become red when ripe?</div>
+          <div class="short-a"><strong>Ans:</strong> When the tomato ripens, the green chloroplasts inside its cells convert into red chromoplasts containing the pigment lycopene. This change of plastid type causes the colour change.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q15. What is transpiration pull?</div>
+          <div class="short-a"><strong>Ans:</strong> The suction force created in xylem when water evaporates from leaves through stomata. This pull draws water upward from the roots through the entire plant — much like sipping juice through a straw.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- end container -->
+
+<footer>
+  🌿 Class 7 Science · Life Processes in Plants · Complete Animated Notes 🌸<br>
+  <small style="opacity:0.85;font-weight:500">Leaf Morphology · Plant Cell · Plastids · Photosynthesis Physiology · 15 MCQs · 15 Short Q&amp;A</small>
+</footer>
+
+<script>
+// Reveal animation on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+// MCQ click → show answer
+document.querySelectorAll('.mcq-item').forEach(item => {
+  item.querySelectorAll('.mcq-options li').forEach(opt => {
+    opt.addEventListener('click', () => {
+      item.classList.add('show-ans');
+    });
+  });
+});
+
+// Smooth scroll for TOC links
+document.querySelectorAll('.toc-bar a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
