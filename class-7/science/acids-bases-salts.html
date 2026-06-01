@@ -3055,7 +3055,7 @@ footer {
     </a>
     <div class="bottom-nav-full">
       <a href="../../index.html" class="bottom-btn home-btn">&#127968; Back to Home</a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScZ4dJwfNKUtVuRhh3mk8WsdeuaJlat1NQBEuqF6Ri46WeZAw/viewform" target="_blank" class="bottom-btn wa-btn" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">📝 Interested? Fill the Form</a>
+      <a href="#" onclick="openInterestForm();return false;" class="bottom-btn wa-btn" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">📝 Interested? Fill the Form</a>
     </div>
   </div>
 
@@ -3141,24 +3141,34 @@ function shareWhatsApp() {
 }
 
 function copyLink() {
-  const url = window.location.href;
+  var url = window.location.href;
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(url).then(() => {
-      const btn = document.getElementById('copyLinkBtn');
-      btn.textContent = '✅ Copied!';
-      setTimeout(() => { btn.textContent = '📋 Copy Link'; }, 2000);
+    navigator.clipboard.writeText(url).then(function() {
+      showCopyFeedback();
+    }).catch(function() {
+      fallbackCopy(url);
     });
   } else {
-    // Fallback
-    const ta = document.createElement('textarea');
-    ta.value = url;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    const btn = document.getElementById('copyLinkBtn');
+    fallbackCopy(url);
+  }
+}
+
+function fallbackCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.left = '-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); showCopyFeedback(); } catch(e) { alert('Copy this link: ' + text); }
+  document.body.removeChild(ta);
+}
+
+function showCopyFeedback() {
+  var btn = document.getElementById('copyLinkBtn');
+  if (btn) {
     btn.textContent = '✅ Copied!';
-    setTimeout(() => { btn.textContent = '📋 Copy Link'; }, 2000);
+    setTimeout(function() { btn.textContent = '📋 Copy Link'; }, 2000);
   }
 }
 
@@ -3168,10 +3178,85 @@ function nativeShare() {
       title: shareTitle,
       text: shareText,
       url: window.location.href
-    }).catch(() => {});
+    }).catch(function() {});
   }
 }
+
+function openInterestForm() {
+  document.getElementById('interestModal').classList.add('active');
+}
+function closeInterestForm() {
+  document.getElementById('interestModal').classList.remove('active');
+}
+function submitInterestForm(e) {
+  e.preventDefault();
+  var form = document.getElementById('interestForm');
+  var formData = new FormData(form);
+
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLScZ4dJwfNKUtVuRhh3mk8WsdeuaJlat1NQBEuqF6Ri46WeZAw/formResponse', {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors'
+  }).then(function() {
+    document.getElementById('interestForm').style.display = 'none';
+    document.getElementById('interestSuccess').style.display = 'block';
+    setTimeout(function() {
+      document.getElementById('interestForm').style.display = 'block';
+      document.getElementById('interestSuccess').style.display = 'none';
+      form.reset();
+      closeInterestForm();
+    }, 3000);
+  }).catch(function() {
+    document.getElementById('interestForm').style.display = 'none';
+    document.getElementById('interestSuccess').style.display = 'block';
+    setTimeout(function() {
+      document.getElementById('interestForm').style.display = 'block';
+      document.getElementById('interestSuccess').style.display = 'none';
+      form.reset();
+      closeInterestForm();
+    }, 3000);
+  });
+}
 </script>
+
+<style>
+.interest-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+}
+.interest-modal-overlay.active { display: flex; }
+</style>
+<div class="interest-modal-overlay" id="interestModal" onclick="if(event.target===this)closeInterestForm()">
+  <div style="background:white;border-radius:20px;padding:28px;width:90%;max-width:380px;max-height:90vh;overflow-y:auto;">
+    <h3 style="font-family:'Fredoka One',cursive;color:#7c3aed;margin-bottom:4px;">📝 Show Interest</h3>
+    <p style="font-size:13px;color:#6b7280;margin-bottom:16px;">Fill your details and Preeti Ma'am will contact you!</p>
+    <form id="interestForm" onsubmit="submitInterestForm(event)">
+      <input type="text" name="entry.43085631" placeholder="Student's Full Name *" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:inherit;">
+      <input type="tel" name="entry.1854993535" placeholder="Phone Number *" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:inherit;">
+      <select name="entry.2008437083" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:inherit;color:#374151;">
+        <option value="">Select Class *</option>
+        <option value="Class 6">Class 6</option>
+        <option value="Class 7">Class 7</option>
+        <option value="Class 8">Class 8</option>
+        <option value="Class 9">Class 9</option>
+        <option value="Class 10">Class 10</option>
+      </select>
+      <textarea name="entry.2062493229" placeholder="Any message? (optional)" rows="2" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:12px;font-family:inherit;resize:vertical;"></textarea>
+      <button type="submit" style="width:100%;padding:12px;background:linear-gradient(135deg,#7c3aed,#a78bfa);color:white;border:none;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;font-family:inherit;">Submit</button>
+    </form>
+    <div id="interestSuccess" style="display:none;text-align:center;padding:20px;">
+      <div style="font-size:48px;margin-bottom:12px;">✅</div>
+      <h4 style="color:#16a34a;font-size:18px;">Thank You!</h4>
+      <p style="font-size:14px;color:#6b7280;">Preeti Ma'am will contact you soon.</p>
+    </div>
+    <button onclick="closeInterestForm()" style="width:100%;padding:10px;background:none;border:1px solid #e5e7eb;border-radius:10px;font-size:14px;cursor:pointer;margin-top:10px;font-family:inherit;color:#6b7280;">✕ Close</button>
+  </div>
+</div>
 
 </body>
 </html>

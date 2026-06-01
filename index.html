@@ -531,7 +531,7 @@ footer .copyright {
   </div>
   <div class="nav-cta">
     <a href="#classes">📖 <span>Classes</span></a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScZ4dJwfNKUtVuRhh3mk8WsdeuaJlat1NQBEuqF6Ri46WeZAw/viewform" target="_blank" class="whatsapp">📝 <span>Show Interest</span></a>
+    <a href="#" onclick="openInterestForm();return false;" class="whatsapp" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">📝 <span>Show Interest</span></a>
   </div>
 </nav>
 
@@ -866,7 +866,7 @@ footer .copyright {
   <h2>📞 Need Help or Have Questions?</h2>
   <p>Want to join my tuition classes or have doubts? Reach out to me anytime — I'm always happy to help my students!</p>
   <div class="cta-buttons">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScZ4dJwfNKUtVuRhh3mk8WsdeuaJlat1NQBEuqF6Ri46WeZAw/viewform" target="_blank" class="btn whatsapp" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">
+    <a href="#" onclick="openInterestForm();return false;" class="btn whatsapp" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">
       📝 Show Interest — We'll Contact You!
     </a>
   </div>
@@ -879,54 +879,82 @@ footer .copyright {
   <div class="copyright">© 2026 Preeti Kushwah Classes · All rights reserved · For educational use only</div>
 </footer>
 
-<div class="modal-overlay" id="contactModal" onclick="if(event.target===this)this.classList.remove('active')">
+<div class="modal-overlay" id="interestModal" onclick="if(event.target===this)closeInterestForm()">
   <div class="modal-box">
-    <h3>📞 Request a Callback</h3>
-    <p style="font-size:14px;color:#6b7280;margin-bottom:16px;">Share your details and Preeti Ma'am will reach out to you!</p>
-    <form id="contactForm" onsubmit="submitContact(event)">
-      <input type="text" id="cName" placeholder="Your Name" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:15px;margin-bottom:10px;font-family:'Nunito',sans-serif;">
-      <input type="tel" id="cPhone" placeholder="WhatsApp Number" required pattern="[0-9]{10}" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:15px;margin-bottom:10px;font-family:'Nunito',sans-serif;">
-      <select id="cClass" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:15px;margin-bottom:10px;font-family:'Nunito',sans-serif;color:#374151;">
-        <option value="">Select Class</option>
-        <option value="6">Class 6</option>
-        <option value="7">Class 7</option>
-        <option value="8">Class 8</option>
-        <option value="9">Class 9</option>
-        <option value="10">Class 10</option>
+    <h3>📝 Show Interest</h3>
+    <p style="font-size:13px;color:#6b7280;margin-bottom:16px;">Fill your details and Preeti Ma'am will contact you!</p>
+    <form id="interestForm" onsubmit="submitInterestForm(event)">
+      <input type="text" name="entry.43085631" placeholder="Student's Full Name *" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:'Nunito',sans-serif;">
+      <input type="tel" name="entry.1854993535" placeholder="Phone Number *" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:'Nunito',sans-serif;">
+      <input type="email" name="entry.248400848" placeholder="Email Address (optional)" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:'Nunito',sans-serif;">
+      <select name="entry.2008437083" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:'Nunito',sans-serif;color:#374151;">
+        <option value="">Select Class *</option>
+        <option value="Class 6">Class 6</option>
+        <option value="Class 7">Class 7</option>
+        <option value="Class 8">Class 8</option>
+        <option value="Class 9">Class 9</option>
+        <option value="Class 10">Class 10</option>
       </select>
-      <textarea id="cMessage" placeholder="Your message (optional)" rows="3" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:15px;margin-bottom:14px;font-family:'Nunito',sans-serif;resize:vertical;"></textarea>
-      <button type="submit" style="width:100%;padding:12px;background:linear-gradient(135deg,#7c3aed,#a78bfa);color:white;border:none;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;">✅ Submit</button>
+      <div style="text-align:left;margin-bottom:8px;">
+        <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:4px;">Subjects of Interest *</p>
+        <label style="display:block;font-size:13px;margin-bottom:3px;"><input type="checkbox" name="entry.126377704" value="Science"> Science</label>
+        <label style="display:block;font-size:13px;margin-bottom:3px;"><input type="checkbox" name="entry.126377704" value="Mathematics"> Mathematics</label>
+        <label style="display:block;font-size:13px;margin-bottom:3px;"><input type="checkbox" name="entry.126377704" value="Social Science"> Social Science</label>
+        <label style="display:block;font-size:13px;margin-bottom:3px;"><input type="checkbox" name="entry.126377704" value="English"> English</label>
+      </div>
+      <div style="text-align:left;margin-bottom:8px;">
+        <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:4px;">Preferred Mode (optional)</p>
+        <label style="display:block;font-size:13px;margin-bottom:3px;"><input type="radio" name="entry.750677418" value="Online (Live or Recorded)"> Online</label>
+        <label style="display:block;font-size:13px;margin-bottom:3px;"><input type="radio" name="entry.750677418" value="Offline (In-person / Home Tuition)"> Offline</label>
+        <label style="display:block;font-size:13px;margin-bottom:3px;"><input type="radio" name="entry.750677418" value="Both are okay"> Both</label>
+      </div>
+      <textarea name="entry.2062493229" placeholder="Any message or query? (optional)" rows="2" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:12px;font-family:'Nunito',sans-serif;resize:vertical;"></textarea>
+      <button type="submit" id="interestSubmitBtn" style="width:100%;padding:12px;background:linear-gradient(135deg,#7c3aed,#a78bfa);color:white;border:none;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;">Submit</button>
     </form>
-    <div id="contactSuccess" style="display:none;text-align:center;padding:20px;">
+    <div id="interestSuccess" style="display:none;text-align:center;padding:20px;">
       <div style="font-size:48px;margin-bottom:12px;">✅</div>
       <h4 style="color:#16a34a;font-size:18px;">Thank You!</h4>
-      <p style="font-size:14px;color:#6b7280;">Preeti Ma'am will contact you soon on WhatsApp.</p>
+      <p style="font-size:14px;color:#6b7280;">Preeti Ma'am will contact you soon.</p>
     </div>
-    <button onclick="document.getElementById('contactModal').classList.remove('active')" style="width:100%;padding:10px;background:none;border:1px solid #e5e7eb;border-radius:10px;font-size:14px;cursor:pointer;margin-top:10px;font-family:'Nunito',sans-serif;color:#6b7280;">✕ Close</button>
+    <button onclick="closeInterestForm()" style="width:100%;padding:10px;background:none;border:1px solid #e5e7eb;border-radius:10px;font-size:14px;cursor:pointer;margin-top:10px;font-family:'Nunito',sans-serif;color:#6b7280;">✕ Close</button>
   </div>
 </div>
 
 <script>
-function submitContact(e) {
+function openInterestForm() {
+  document.getElementById('interestModal').classList.add('active');
+}
+function closeInterestForm() {
+  document.getElementById('interestModal').classList.remove('active');
+}
+function submitInterestForm(e) {
   e.preventDefault();
-  var name = document.getElementById('cName').value;
-  var phone = document.getElementById('cPhone').value;
-  var cls = document.getElementById('cClass').value;
-  var msg = document.getElementById('cMessage').value;
-  // Store in localStorage as backup
-  var contacts = JSON.parse(localStorage.getItem('pkc_contacts') || '[]');
-  contacts.push({name: name, phone: phone, class: cls, message: msg, date: new Date().toISOString()});
-  localStorage.setItem('pkc_contacts', JSON.stringify(contacts));
-  // Show success
-  document.getElementById('contactForm').style.display = 'none';
-  document.getElementById('contactSuccess').style.display = 'block';
-  // Reset after 3 seconds
-  setTimeout(function() {
-    document.getElementById('contactForm').style.display = 'block';
-    document.getElementById('contactSuccess').style.display = 'none';
-    document.getElementById('contactForm').reset();
-    document.getElementById('contactModal').classList.remove('active');
-  }, 3000);
+  var form = document.getElementById('interestForm');
+  var formData = new FormData(form);
+
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLScZ4dJwfNKUtVuRhh3mk8WsdeuaJlat1NQBEuqF6Ri46WeZAw/formResponse', {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors'
+  }).then(function() {
+    document.getElementById('interestForm').style.display = 'none';
+    document.getElementById('interestSuccess').style.display = 'block';
+    setTimeout(function() {
+      document.getElementById('interestForm').style.display = 'block';
+      document.getElementById('interestSuccess').style.display = 'none';
+      form.reset();
+      closeInterestForm();
+    }, 3000);
+  }).catch(function() {
+    document.getElementById('interestForm').style.display = 'none';
+    document.getElementById('interestSuccess').style.display = 'block';
+    setTimeout(function() {
+      document.getElementById('interestForm').style.display = 'block';
+      document.getElementById('interestSuccess').style.display = 'none';
+      form.reset();
+      closeInterestForm();
+    }, 3000);
+  });
 }
 </script>
 
