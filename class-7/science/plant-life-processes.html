@@ -1722,117 +1722,294 @@ footer {
 
 /* Pot scene for 10.1 */
 .pot-interactive { text-align: center; margin: 16px 0; }
-.pot-scene { min-height: 200px; }
-.pot-visual-wrap { position: relative; width: 120px; margin: 0 auto; }
+.pot-scene { min-height: 260px; position: relative; padding: 20px; border-radius: 16px; transition: all 0.8s ease; }
+.pot-scene.dark-scene { background: #1a1a2e; }
+.pot-visual-wrap { position: relative; width: 140px; margin: 0 auto; }
 .pot-base-int {
-  width: 80px;
-  height: 60px;
-  background: linear-gradient(to bottom, #a0522d, #6b3e1f);
-  border-radius: 0 0 10px 10px;
+  width: 90px; height: 65px;
+  background: linear-gradient(to bottom, #c0784a, #8B5E3C 40%, #6b3e1f);
+  border-radius: 4px 4px 14px 14px;
   margin: 0 auto;
-  border-top: 8px solid #8B4513;
+  position: relative;
+  box-shadow: 2px 4px 8px rgba(0,0,0,0.2);
 }
+.pot-base-int::before {
+  content: ''; position: absolute; top: -10px; left: -6px;
+  width: 102px; height: 14px;
+  background: linear-gradient(to bottom, #a0602a, #8B4513);
+  border-radius: 4px;
+}
+.pot-soil {
+  position: absolute; top: 8px; left: 6px; right: 6px; height: 20px;
+  background: linear-gradient(to bottom, #5c3317, #3e2213);
+  border-radius: 2px;
+}
+.pot-water-drops {
+  position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+  display: none;
+}
+.pot-water-drops.show { display: block; }
+.pot-water-drop {
+  width: 8px; height: 12px;
+  background: linear-gradient(to bottom, #93c5fd, #3b82f6);
+  border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+  position: absolute;
+  animation: potDropFall 1.5s ease-in infinite;
+}
+.pot-water-drop:nth-child(1) { left: -8px; animation-delay: 0s; }
+.pot-water-drop:nth-child(2) { left: 4px; animation-delay: 0.5s; }
+.pot-water-drop:nth-child(3) { left: 16px; animation-delay: 1s; }
+@keyframes potDropFall { 0%{top:0;opacity:1} 100%{top:30px;opacity:0} }
 .pot-plant-int {
-  width: 8px;
-  height: 0;
+  width: 8px; height: 0;
   background: #22c55e;
   margin: 0 auto;
   border-radius: 4px 4px 0 0;
-  transition: all 1s ease;
+  transition: all 1.2s ease;
   position: relative;
 }
-.pot-plant-int.healthy {
-  height: 80px;
-  background: #22c55e;
-}
+.pot-plant-int.healthy { height: 90px; background: linear-gradient(to top, #166534, #22c55e); }
 .pot-plant-int.healthy::before, .pot-plant-int.healthy::after {
-  content: '';
-  position: absolute;
-  width: 28px;
-  height: 18px;
-  background: #4ade80;
-  border-radius: 50%;
-  top: 5px;
+  content: ''; position: absolute;
+  width: 32px; height: 20px;
+  border-radius: 0 50% 50% 0;
+  transition: all 0.8s ease 0.6s;
 }
-.pot-plant-int.healthy::before { left: -24px; transform: rotate(-20deg); }
-.pot-plant-int.healthy::after { right: -24px; transform: rotate(20deg); }
-.pot-plant-int.wilted {
-  height: 40px;
-  background: #92400e;
+.pot-plant-int.healthy::before {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  top: 5px; left: -28px; transform: rotate(-15deg);
+  border-radius: 50% 0 50% 50%;
 }
+.pot-plant-int.healthy::after {
+  background: linear-gradient(135deg, #86efac, #4ade80);
+  top: 25px; right: -28px; transform: rotate(15deg);
+  border-radius: 0 50% 50% 50%;
+}
+.pot-plant-int.wilted { height: 45px; background: linear-gradient(to top, #78350f, #a16207); }
 .pot-plant-int.wilted::before {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 14px;
-  background: #b45309;
-  border-radius: 50%;
-  top: 0;
-  left: -16px;
-  transform: rotate(30deg);
+  content: ''; position: absolute;
+  width: 22px; height: 14px;
+  background: #b45309; border-radius: 50%;
+  top: 0; left: -16px; transform: rotate(40deg);
 }
-.pot-plant-int.etiolated {
-  height: 90px;
-  background: #fde047;
-  width: 4px;
+.pot-plant-int.wilted::after {
+  content: ''; position: absolute;
+  width: 18px; height: 10px;
+  background: #92400e; border-radius: 50%;
+  top: 12px; right: -14px; transform: rotate(-50deg);
 }
+.pot-plant-int.etiolated { height: 100px; background: #fde047; width: 4px; }
 .pot-plant-int.etiolated::before {
-  content: '';
-  position: absolute;
-  width: 16px;
-  height: 10px;
-  background: #fef08a;
-  border-radius: 50%;
-  top: 0;
-  left: -7px;
+  content: ''; position: absolute;
+  width: 18px; height: 12px;
+  background: #fef08a; border-radius: 50%;
+  top: -2px; left: -8px;
 }
+.pot-plant-int.etiolated::after {
+  content: ''; position: absolute;
+  width: 14px; height: 8px;
+  background: #fef9c3; border-radius: 50%;
+  top: 20px; right: -10px;
+}
+.pot-sun-icon {
+  position: absolute; top: 10px; right: 10px;
+  font-size: 48px; transition: all 0.5s;
+  filter: drop-shadow(0 0 12px rgba(251,191,36,0.7));
+  animation: sunPulse101 2s ease-in-out infinite;
+}
+@keyframes sunPulse101 { 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
+.pot-moon-icon {
+  position: absolute; top: 10px; right: 10px;
+  font-size: 40px; opacity: 0.7;
+}
+.pot-stars { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; }
+.pot-star {
+  position: absolute; width: 3px; height: 3px;
+  background: white; border-radius: 50%;
+  animation: twinkle 2s ease-in-out infinite;
+}
+@keyframes twinkle { 0%,100%{opacity:0.3} 50%{opacity:1} }
+.pot-env { font-size: 36px; height: 50px; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 6px; }
+.pot-conditions { font-size: 15px; font-weight: 800; color: #166534; margin-bottom: 10px; transition: color 0.5s; }
+.pot-conditions.dark-text { color: #94a3b8; }
+.pot-result { font-size: 14px; font-weight: 700; margin-top: 12px; padding: 8px 14px; border-radius: 10px; display: inline-block; transition: all 0.3s; }
 
-.pot-env {
-  font-size: 36px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 6px;
-}
-.pot-conditions {
-  font-size: 15px;
-  font-weight: 800;
-  color: #166534;
-  margin-bottom: 10px;
-}
-.pot-result {
-  font-size: 14px;
-  font-weight: 700;
-  margin-top: 12px;
-  padding: 8px 14px;
-  border-radius: 10px;
-  display: inline-block;
-  transition: all 0.3s;
-}
-
-/* Starch test 10.2 */
+/* ===== Starch test 10.2 — Lab Setup ===== */
 .starch-interactive { text-align: center; margin: 16px 0; }
-.starch-leaf-display {
-  width: 80px;
-  height: 100px;
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  margin: 0 auto 12px;
-  transition: all 0.8s ease;
-  border: 3px solid #94a3b8;
-  background: #e5e7eb;
+.starch-lab {
+  display: flex; align-items: flex-end; justify-content: center;
+  gap: 16px; min-height: 180px; flex-wrap: wrap;
+  padding: 10px 0;
 }
-.starch-leaf-display.green { background: #22c55e; border-color: #16a34a; }
-.starch-leaf-display.boiled { background: #86efac; border-color: #4ade80; }
-.starch-leaf-display.white { background: #f8fafc; border-color: #cbd5e1; }
-.starch-leaf-display.blueblack { background: #1e1b4b; border-color: #312e81; }
-.starch-leaf-display.brown { background: #92400e; border-color: #78350f; }
+.lab-beaker {
+  width: 70px; height: 80px;
+  border: 3px solid #94a3b8; border-top: none;
+  border-radius: 0 0 12px 12px;
+  position: relative; overflow: hidden;
+  transition: all 0.5s;
+}
+.lab-beaker-liquid {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 55px; border-radius: 0 0 9px 9px;
+  transition: all 0.8s ease;
+}
+.lab-beaker-liquid.water-liq { background: linear-gradient(to top, #93c5fd, #dbeafe); }
+.lab-beaker-liquid.alcohol-liq { background: linear-gradient(to top, #fde68a, #fef9c3); }
+.lab-burner {
+  width: 40px; height: 30px; margin: 4px auto 0;
+  position: relative;
+}
+.lab-flame {
+  width: 16px; height: 24px;
+  background: linear-gradient(to top, #f97316, #fbbf24, #fef08a);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  margin: 0 auto;
+  animation: flameFlicker 0.3s ease-in-out infinite alternate;
+  opacity: 0; transition: opacity 0.5s;
+}
+.lab-flame.on { opacity: 1; }
+@keyframes flameFlicker { 0%{transform:scaleX(1) scaleY(1)} 100%{transform:scaleX(0.85) scaleY(1.08)} }
+.lab-burner-base {
+  width: 36px; height: 8px;
+  background: #64748b; border-radius: 3px;
+  margin: 0 auto;
+}
+.lab-burner-stand {
+  width: 4px; height: 14px;
+  background: #94a3b8;
+  margin: 0 auto;
+}
+.starch-leaf-realistic {
+  width: 50px; height: 65px;
+  position: relative; transition: all 0.8s ease;
+  margin: 0 auto;
+}
+.starch-leaf-blade {
+  width: 50px; height: 55px;
+  border-radius: 5px 50% 50% 5px;
+  background: #e5e7eb;
+  position: relative;
+  transition: all 0.8s ease;
+  border: 2px solid #94a3b8;
+}
+.starch-leaf-blade::after {
+  content: ''; position: absolute;
+  top: 50%; left: 5px; right: 10px;
+  height: 2px; background: rgba(0,0,0,0.15);
+  transform: translateY(-50%);
+}
+.starch-leaf-blade::before {
+  content: ''; position: absolute;
+  top: 10px; bottom: 10px; left: 12px;
+  width: 2px; background: rgba(0,0,0,0.1);
+  transform: rotate(20deg);
+}
+.starch-leaf-petiole {
+  width: 3px; height: 14px;
+  background: #94a3b8;
+  margin: 0 auto;
+  transition: all 0.8s;
+}
+.starch-leaf-blade.green-l { background: linear-gradient(135deg, #22c55e, #4ade80); border-color: #16a34a; }
+.starch-leaf-petiole.green-l { background: #16a34a; }
+.starch-leaf-blade.boiled-l { background: linear-gradient(135deg, #86efac, #bbf7d0); border-color: #4ade80; }
+.starch-leaf-blade.white-l { background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border-color: #cbd5e1; }
+.starch-leaf-petiole.white-l { background: #cbd5e1; }
+.starch-leaf-blade.blueblack-l { background: linear-gradient(135deg, #1e1b4b, #312e81); border-color: #1e1b4b; }
+.starch-leaf-blade.brown-l { background: linear-gradient(135deg, #78350f, #92400e); border-color: #78350f; }
+.starch-leaf-in-beaker {
+  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%) rotate(-20deg);
+  z-index: 2;
+}
+.starch-iodine-drop {
+  width: 10px; height: 14px;
+  background: linear-gradient(to bottom, #92400e, #451a03);
+  border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+  position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
+  opacity: 0; transition: opacity 0.5s;
+}
+.starch-iodine-drop.show { opacity: 1; animation: iodineDrip 1s ease-in forwards; }
+@keyframes iodineDrip { 0%{top:-18px} 100%{top:5px;opacity:0} }
+.lab-label {
+  font-size: 11px; font-weight: 800;
+  margin-top: 4px; color: #64748b;
+}
 .starch-status {
-  font-size: 15px;
-  font-weight: 700;
-  padding: 8px;
-  border-radius: 10px;
+  font-size: 15px; font-weight: 700;
+  padding: 10px 14px; border-radius: 10px;
+  margin-top: 14px; transition: all 0.3s;
+}
+
+.dark-toggle {
+  text-align: center; margin-top: 10px;
+  font-size: 14px; font-weight: 700; color: #475569;
+}
+.dark-toggle input { margin-right: 6px; transform: scale(1.2); }
+
+/* ===== Variegated leaf 10.3 — Realistic ===== */
+.variegated-int { text-align: center; margin: 16px 0; }
+.var-leaf-int {
+  width: 160px; height: 200px;
+  margin: 0 auto; position: relative;
+  overflow: hidden;
+}
+.var-leaf-shape {
+  width: 160px; height: 180px;
+  border-radius: 8px 80% 50% 8px;
+  overflow: hidden; display: flex;
+  border: 3px solid #64748b;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.var-leaf-shape::after {
+  content: ''; position: absolute;
+  top: 0; bottom: 0; left: 50%;
+  width: 3px; background: #64748b; z-index: 5;
+}
+.var-vein-main {
+  position: absolute; top: 50%; left: 10px; right: 20px;
+  height: 2px; background: rgba(0,0,0,0.12);
+  transform: translateY(-50%); z-index: 3;
+}
+.var-vein-side {
+  position: absolute; width: 2px; background: rgba(0,0,0,0.08);
+  height: 40px; z-index: 3;
+}
+.var-vein-side:nth-child(3) { top: 20px; left: 40px; transform: rotate(30deg); }
+.var-vein-side:nth-child(4) { top: 20px; right: 40px; transform: rotate(-30deg); }
+.var-vein-side:nth-child(5) { bottom: 30px; left: 50px; transform: rotate(25deg); }
+.var-vein-side:nth-child(6) { bottom: 30px; right: 50px; transform: rotate(-25deg); }
+.var-half-int {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  transition: all 0.8s ease;
+  font-size: 11px; font-weight: 800; text-align: center; padding: 8px;
+  position: relative;
+}
+.var-half-int.left {
+  background: linear-gradient(135deg, #16a34a, #22c55e, #4ade80);
+  color: white;
+}
+.var-half-int.right {
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0, #f8fafc);
+  color: #64748b;
+}
+.var-half-int.left.tested {
+  background: linear-gradient(135deg, #1e1b4b, #312e81, #3730a3);
+  color: #c7d2fe;
+}
+.var-half-int.right.tested {
+  background: linear-gradient(135deg, #78350f, #92400e, #a16207);
+  color: #fde68a;
+}
+.var-petiole {
+  width: 4px; height: 16px;
+  background: linear-gradient(to bottom, #16a34a, #6b7280);
+  margin: 0 auto; border-radius: 2px;
+}
+.var-status {
+  font-size: 14px; font-weight: 700;
+  margin-top: 12px; padding: 8px 14px;
+  border-radius: 10px; transition: all 0.3s;
 }
 
 .dark-toggle {
@@ -3162,16 +3339,21 @@ footer {
         <div class="act-controls">
           <button class="act-btn" onclick="setPot('both')">&#9728;&#65039;&#128167; Sunlight + Water</button>
           <button class="act-btn" onclick="setPot('sun')">&#9728;&#65039; Only Sunlight</button>
-          <button class="act-btn" onclick="setPot('water')">&#128167; Only Water</button>
+          <button class="act-btn" onclick="setPot('water')">&#128167; Only Water (Dark)</button>
           <button class="act-btn reset" onclick="setPot('none')">&#128260; Reset</button>
         </div>
         <div class="pot-interactive">
           <div class="pot-scene" id="potScene">
+            <div class="pot-stars" id="potStars"></div>
             <div class="pot-conditions" id="potConditions">Select a condition above</div>
             <div class="pot-visual-wrap">
-              <div class="pot-env" id="potEnv"></div>
+              <div class="pot-water-drops" id="potWater">
+                <div class="pot-water-drop"></div>
+                <div class="pot-water-drop"></div>
+                <div class="pot-water-drop"></div>
+              </div>
               <div class="pot-plant-int" id="potPlant"></div>
-              <div class="pot-base-int"></div>
+              <div class="pot-base-int"><div class="pot-soil"></div></div>
             </div>
             <div class="pot-result" id="potResult"></div>
           </div>
@@ -3194,10 +3376,54 @@ footer {
       <div class="ncert-tag">Activity 10.2</div>
       <div class="subtitle">Starch Test in Leaves (Iodine Test)</div>
       <div class="activity-visual interactive" id="act102">
-        <p class="interact-hint">&#128070; Follow the steps to test for starch!</p>
+        <p class="interact-hint">&#128070; Follow the steps — watch the leaf go through the lab test!</p>
         <div class="starch-interactive">
-          <div class="starch-leaf-display" id="starchLeaf"></div>
-          <div class="starch-status" id="starchStatus">Click Step 1 to begin</div>
+          <div class="starch-lab">
+            <!-- Leaf display area -->
+            <div id="starchLeafArea">
+              <div class="starch-leaf-realistic" id="starchLeafR">
+                <div class="starch-leaf-blade" id="starchBlade"></div>
+                <div class="starch-leaf-petiole" id="starchPetiole"></div>
+              </div>
+              <div class="lab-label" id="leafLabel">Leaf</div>
+            </div>
+            <!-- Beaker 1: Water -->
+            <div id="beaker1Area" style="opacity:0.3;transition:opacity 0.5s;">
+              <div class="lab-beaker" id="beaker1">
+                <div class="lab-beaker-liquid water-liq"></div>
+              </div>
+              <div class="lab-burner">
+                <div class="lab-flame" id="flame1"></div>
+                <div class="lab-burner-stand"></div>
+                <div class="lab-burner-base"></div>
+              </div>
+              <div class="lab-label">Water</div>
+            </div>
+            <!-- Beaker 2: Alcohol -->
+            <div id="beaker2Area" style="opacity:0.3;transition:opacity 0.5s;">
+              <div class="lab-beaker" id="beaker2">
+                <div class="lab-beaker-liquid alcohol-liq"></div>
+              </div>
+              <div class="lab-burner">
+                <div class="lab-flame" id="flame2"></div>
+                <div class="lab-burner-stand"></div>
+                <div class="lab-burner-base"></div>
+              </div>
+              <div class="lab-label">Alcohol</div>
+            </div>
+            <!-- Iodine dropper -->
+            <div id="iodineArea" style="opacity:0.3;transition:opacity 0.5s;">
+              <div style="position:relative;width:50px;height:65px;">
+                <div class="starch-leaf-realistic" style="transform:scale(0.8);">
+                  <div class="starch-leaf-blade" id="iodineLeafBlade"></div>
+                  <div class="starch-leaf-petiole" id="iodineLeafPetiole"></div>
+                </div>
+                <div class="starch-iodine-drop" id="iodineDrop"></div>
+              </div>
+              <div class="lab-label">+ Iodine</div>
+            </div>
+          </div>
+          <div class="starch-status" id="starchStatus">Click Step 1 to begin the experiment</div>
         </div>
         <div class="act-controls">
           <button class="act-btn step-btn" id="s102_1" onclick="starchStep(1)">1. Pluck Leaf &#127811;</button>
@@ -3232,15 +3458,22 @@ footer {
         <p class="interact-hint">&#128070; Click to apply iodine test on the variegated leaf!</p>
         <div class="variegated-int">
           <div class="var-leaf-int" id="varLeaf">
-            <div class="var-half-int left" id="varLeft">
-              <span>Green<br>(has chlorophyll)</span>
+            <div class="var-leaf-shape">
+              <div class="var-half-int left" id="varLeft">
+                <span>Green<br>(chlorophyll &#10004;)</span>
+              </div>
+              <div class="var-half-int right" id="varRight">
+                <span>White<br>(no chlorophyll)</span>
+              </div>
+              <div class="var-vein-main"></div>
+              <div class="var-vein-side"></div>
+              <div class="var-vein-side"></div>
+              <div class="var-vein-side"></div>
+              <div class="var-vein-side"></div>
             </div>
-            <div class="var-half-int right" id="varRight">
-              <span>White<br>(no chlorophyll)</span>
-            </div>
-            <div class="var-midline"></div>
+            <div class="var-petiole"></div>
           </div>
-          <div class="var-status" id="varStatus">Variegated leaf (e.g., Croton) &mdash; has green and white parts</div>
+          <div class="var-status" id="varStatus">Variegated leaf (e.g., Croton) &mdash; green part has chlorophyll, white part does not</div>
         </div>
         <div class="act-controls">
           <button class="act-btn" id="varBtn" onclick="applyIodine103()">&#129514; Apply Iodine Test</button>
@@ -4011,43 +4244,64 @@ document.querySelectorAll('.toc-bar a').forEach(link => {
 // ===== Activity 10.1: Three Pots =====
 function setPot(condition) {
   var plant = document.getElementById('potPlant');
-  var env = document.getElementById('potEnv');
+  var scene = document.getElementById('potScene');
   var conditions = document.getElementById('potConditions');
   var result = document.getElementById('potResult');
+  var waterDrops = document.getElementById('potWater');
+  var stars = document.getElementById('potStars');
 
-  // Reset
   plant.className = 'pot-plant-int';
+  scene.className = 'pot-scene';
+  stars.innerHTML = '';
+  document.querySelectorAll('#act101 .pot-sun-icon, #act101 .pot-moon-icon').forEach(function(e) { e.remove(); });
 
-  // Highlight active button
   document.querySelectorAll('#act101 .act-btn').forEach(function(b) { b.classList.remove('active'); });
   if (event && event.target) event.target.classList.add('active');
 
   if (condition === 'both') {
-    env.innerHTML = '&#9728;&#65039; + &#128167;';
+    var sun = document.createElement('div');
+    sun.className = 'pot-sun-icon'; sun.textContent = '☀️';
+    scene.appendChild(sun);
+    waterDrops.classList.add('show');
     conditions.textContent = 'Sunlight ✅ + Water ✅';
+    conditions.className = 'pot-conditions';
     plant.classList.add('healthy');
     result.textContent = '🌿 Healthy green plant! Both conditions met.';
-    result.style.background = '#dcfce7';
-    result.style.color = '#166534';
+    result.style.background = '#dcfce7'; result.style.color = '#166534';
   } else if (condition === 'sun') {
-    env.innerHTML = '&#9728;&#65039;';
+    var sun2 = document.createElement('div');
+    sun2.className = 'pot-sun-icon'; sun2.textContent = '☀️';
+    scene.appendChild(sun2);
+    waterDrops.classList.remove('show');
     conditions.textContent = 'Sunlight ✅ + Water ❌';
+    conditions.className = 'pot-conditions';
     plant.classList.add('wilted');
     result.textContent = '🥀 Plant wilts and dies! No water.';
-    result.style.background = '#fee2e2';
-    result.style.color = '#991b1b';
+    result.style.background = '#fee2e2'; result.style.color = '#991b1b';
   } else if (condition === 'water') {
-    env.innerHTML = '&#127769; + &#128167;';
-    conditions.textContent = 'Sunlight ❌ + Water ✅';
+    scene.classList.add('dark-scene');
+    var moon = document.createElement('div');
+    moon.className = 'pot-moon-icon'; moon.textContent = '🌙';
+    scene.appendChild(moon);
+    for (var s = 0; s < 12; s++) {
+      var star = document.createElement('div');
+      star.className = 'pot-star';
+      star.style.top = Math.random() * 60 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 2 + 's';
+      stars.appendChild(star);
+    }
+    waterDrops.classList.add('show');
+    conditions.textContent = 'Sunlight ❌ + Water ✅ (Kept in Dark)';
+    conditions.className = 'pot-conditions dark-text';
     plant.classList.add('etiolated');
     result.textContent = '💛 Weak, pale yellow (etiolated)! No sunlight = no chlorophyll.';
-    result.style.background = '#fef3c7';
-    result.style.color = '#92400e';
+    result.style.background = '#fef3c7'; result.style.color = '#92400e';
   } else {
-    env.innerHTML = '';
+    waterDrops.classList.remove('show');
     conditions.textContent = 'Select a condition above';
-    result.textContent = '';
-    result.style.background = 'transparent';
+    conditions.className = 'pot-conditions';
+    result.textContent = ''; result.style.background = 'transparent';
   }
 }
 
@@ -4056,44 +4310,57 @@ var starchCurrentStep = 0;
 function starchStep(step) {
   if (step !== starchCurrentStep + 1) return;
   starchCurrentStep = step;
-  var leaf = document.getElementById('starchLeaf');
+  var blade = document.getElementById('starchBlade');
+  var petiole = document.getElementById('starchPetiole');
+  var iodBlade = document.getElementById('iodineLeafBlade');
+  var iodPetiole = document.getElementById('iodineLeafPetiole');
   var status = document.getElementById('starchStatus');
   var isDark = document.getElementById('darkCheck').checked;
 
-  // Mark previous steps done
   for (var i = 1; i <= step; i++) {
     var btn = document.getElementById('s102_' + i);
-    btn.classList.add('done');
-    btn.disabled = true;
+    btn.classList.add('done'); btn.disabled = true;
   }
-  // Enable next step
   var next = document.getElementById('s102_' + (step + 1));
   if (next) next.disabled = false;
 
   switch(step) {
     case 1:
-      leaf.className = 'starch-leaf-display green';
-      status.textContent = isDark ? '🌙 Leaf plucked from plant kept in DARK for 3 days' : '☀️ Leaf plucked from plant in SUNLIGHT';
+      blade.className = 'starch-leaf-blade green-l';
+      petiole.className = 'starch-leaf-petiole green-l';
+      document.getElementById('leafLabel').textContent = isDark ? 'Leaf (from dark)' : 'Leaf (from sun)';
+      status.innerHTML = isDark ? '🌙 Leaf plucked from plant kept in <strong>DARK</strong> for 3 days' : '☀️ Leaf plucked from plant in <strong>SUNLIGHT</strong>';
       status.style.background = isDark ? '#f1f5f9' : '#dcfce7';
       break;
     case 2:
-      leaf.className = 'starch-leaf-display boiled';
-      status.textContent = '🪹 Leaf boiled in water — softened!';
+      blade.className = 'starch-leaf-blade boiled-l';
+      document.getElementById('beaker1Area').style.opacity = '1';
+      document.getElementById('flame1').classList.add('on');
+      status.innerHTML = '🔥 Leaf boiled in <strong>water</strong> — softened! (Burner ON)';
       status.style.background = '#dbeafe';
       break;
     case 3:
-      leaf.className = 'starch-leaf-display white';
-      status.textContent = '🧪 Boiled in alcohol — chlorophyll removed, leaf is now white/pale';
+      blade.className = 'starch-leaf-blade white-l';
+      petiole.className = 'starch-leaf-petiole white-l';
+      document.getElementById('flame1').classList.remove('on');
+      document.getElementById('beaker2Area').style.opacity = '1';
+      document.getElementById('flame2').classList.add('on');
+      status.innerHTML = '🧪 Boiled in <strong>alcohol</strong> (water bath) — chlorophyll removed! Leaf is now <strong>white/pale</strong>';
       status.style.background = '#f8fafc';
       break;
     case 4:
+      document.getElementById('flame2').classList.remove('on');
+      document.getElementById('iodineArea').style.opacity = '1';
+      document.getElementById('iodineDrop').classList.add('show');
       if (isDark) {
-        leaf.className = 'starch-leaf-display brown';
-        status.textContent = '❌ No blue-black colour! No starch = No photosynthesis happened in dark!';
+        iodBlade.className = 'starch-leaf-blade brown-l';
+        iodPetiole.className = 'starch-leaf-petiole';
+        status.innerHTML = '❌ No blue-black colour! Leaf stays <strong>brown</strong>. No starch = <strong>No photosynthesis in dark!</strong>';
         status.style.background = '#fee2e2';
       } else {
-        leaf.className = 'starch-leaf-display blueblack';
-        status.textContent = '✅ Blue-black colour! Starch is present = Photosynthesis happened!';
+        iodBlade.className = 'starch-leaf-blade blueblack-l';
+        iodPetiole.className = 'starch-leaf-petiole';
+        status.innerHTML = '✅ Leaf turns <strong>BLUE-BLACK!</strong> Starch is present = <strong>Photosynthesis happened!</strong>';
         status.style.background = '#dcfce7';
       }
       break;
@@ -4102,15 +4369,23 @@ function starchStep(step) {
 
 function starchReset() {
   starchCurrentStep = 0;
-  document.getElementById('starchLeaf').className = 'starch-leaf-display';
-  document.getElementById('starchStatus').textContent = 'Click Step 1 to begin';
+  document.getElementById('starchBlade').className = 'starch-leaf-blade';
+  document.getElementById('starchPetiole').className = 'starch-leaf-petiole';
+  document.getElementById('iodineLeafBlade').className = 'starch-leaf-blade';
+  document.getElementById('iodineLeafPetiole').className = 'starch-leaf-petiole';
+  document.getElementById('leafLabel').textContent = 'Leaf';
+  document.getElementById('starchStatus').textContent = 'Click Step 1 to begin the experiment';
   document.getElementById('starchStatus').style.background = 'transparent';
+  document.getElementById('beaker1Area').style.opacity = '0.3';
+  document.getElementById('beaker2Area').style.opacity = '0.3';
+  document.getElementById('iodineArea').style.opacity = '0.3';
+  document.getElementById('flame1').classList.remove('on');
+  document.getElementById('flame2').classList.remove('on');
+  document.getElementById('iodineDrop').classList.remove('show');
   for (var i = 1; i <= 4; i++) {
     var btn = document.getElementById('s102_' + i);
-    btn.classList.remove('done');
-    btn.disabled = i !== 1;
+    btn.classList.remove('done'); btn.disabled = i !== 1;
   }
-  document.querySelectorAll('#act102 .act-btn').forEach(function(b) { b.classList.remove('active'); });
 }
 
 // ===== Activity 10.3: Variegated Leaf =====
@@ -4124,18 +4399,17 @@ function applyIodine103() {
   right.classList.add('tested');
   left.innerHTML = '<span>BLUE-BLACK<br>✅ Starch!</span>';
   right.innerHTML = '<span>BROWN<br>❌ No starch</span>';
-  status.textContent = '✅ Only green parts (with chlorophyll) make starch! Chlorophyll is essential.';
+  status.innerHTML = '✅ Only <strong>green parts</strong> (with chlorophyll) turn blue-black = starch present. <strong>Chlorophyll is essential!</strong>';
   status.style.background = '#dcfce7';
-  btn.disabled = true;
-  btn.classList.add('done');
+  btn.disabled = true; btn.classList.add('done');
 }
 
 function resetVar103() {
   document.getElementById('varLeft').classList.remove('tested');
   document.getElementById('varRight').classList.remove('tested');
-  document.getElementById('varLeft').innerHTML = '<span>Green<br>(has chlorophyll)</span>';
+  document.getElementById('varLeft').innerHTML = '<span>Green<br>(chlorophyll ✔)</span>';
   document.getElementById('varRight').innerHTML = '<span>White<br>(no chlorophyll)</span>';
-  document.getElementById('varStatus').textContent = 'Variegated leaf (e.g., Croton) — has green and white parts';
+  document.getElementById('varStatus').textContent = 'Variegated leaf (e.g., Croton) — green part has chlorophyll, white part does not';
   document.getElementById('varStatus').style.background = 'transparent';
   document.getElementById('varBtn').disabled = false;
   document.getElementById('varBtn').classList.remove('done');
