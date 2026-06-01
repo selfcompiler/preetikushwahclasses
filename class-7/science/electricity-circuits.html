@@ -1809,6 +1809,443 @@ footer {
   .hero-battery { width: 50px; height: 70px; }
   .bulb-glass { width: 36px; height: 42px; }
 }
+
+/* ============= INTERACTIVE ACTIVITIES ============= */
+
+/* Interact hint */
+.interact-hint {
+  font-size: 13px;
+  font-weight: 700;
+  color: #7c3aed;
+  background: #faf5ff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 12px;
+  animation: hintPulse 2s ease-in-out infinite;
+}
+@keyframes hintPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Interactive Circuit Base */
+.interactive-circuit {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  border: 3px solid #f59e0b;
+  border-radius: 20px;
+  padding: 30px 20px;
+  margin: 20px 0;
+  text-align: center;
+  position: relative;
+}
+
+/* Cell */
+.ic-cell {
+  width: 50px;
+  height: 80px;
+  background: linear-gradient(to bottom, #ef4444 50%, #1f2937 50%);
+  border-radius: 6px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  color: white;
+  font-weight: 900;
+  font-size: 18px;
+  margin: 0 auto;
+  border: 3px solid #64748b;
+}
+
+/* Wire with current dots */
+.ic-wire {
+  height: 4px;
+  background: #64748b;
+  position: relative;
+  margin: 0 auto;
+  flex: 1;
+}
+.ic-dot {
+  width: 8px;
+  height: 8px;
+  background: #fbbf24;
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  box-shadow: 0 0 6px #fbbf24;
+}
+.ic-dot.flowing {
+  animation: flowDot 1.5s linear infinite;
+}
+@keyframes flowDot {
+  0% { left: 0; }
+  100% { left: calc(100% - 8px); }
+}
+
+/* Bulb */
+.ic-bulb {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  border: 3px solid #9ca3af;
+  margin: 10px auto;
+  transition: all 0.5s ease;
+  position: relative;
+}
+.ic-bulb.on {
+  background: radial-gradient(circle, #fef08a, #fbbf24);
+  box-shadow: 0 0 30px 10px rgba(251,191,36,0.6);
+  border-color: #f59e0b;
+}
+.ic-bulb.dim {
+  background: radial-gradient(circle, #fef9c3, #fde68a);
+  box-shadow: 0 0 15px 5px rgba(251,191,36,0.3);
+  border-color: #f59e0b;
+}
+
+/* Filament inside bulb */
+.ic-bulb::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid #9ca3af;
+  border-radius: 2px;
+  background: none;
+  transition: all 0.5s;
+}
+.ic-bulb.on::after {
+  border-color: #f59e0b;
+  box-shadow: 0 0 8px #fbbf24;
+}
+.ic-bulb.dim::after {
+  border-color: #f59e0b;
+  box-shadow: 0 0 4px #fde68a;
+}
+
+/* Switch button */
+.ic-switch {
+  display: inline-block;
+  padding: 10px 28px;
+  border-radius: 30px;
+  border: 3px solid #9ca3af;
+  background: #f1f5f9;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 10px auto;
+  color: #64748b;
+}
+.ic-switch.on {
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  border-color: #16a34a;
+  color: white;
+  box-shadow: 0 0 20px rgba(34,197,94,0.4);
+}
+
+/* Status label */
+.ic-status {
+  font-size: 15px;
+  font-weight: 800;
+  margin-top: 12px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  display: inline-block;
+}
+.ic-status.on {
+  background: #dcfce7;
+  color: #166534;
+}
+.ic-status.off {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Paper clip switch */
+.clip-switch-area {
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 60px;
+  background: #d4a96a;
+  border-radius: 6px;
+  border: 2px solid #92400e;
+  cursor: pointer;
+  margin: 10px auto;
+}
+.clip-pin {
+  width: 10px;
+  height: 10px;
+  background: #94a3b8;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 15px;
+  border: 2px solid #475569;
+}
+.clip-pin-l { left: 20px; }
+.clip-pin-r { right: 20px; }
+.clip-bar {
+  position: absolute;
+  bottom: 18px;
+  left: 25px;
+  width: 70px;
+  height: 4px;
+  background: #94a3b8;
+  border-radius: 2px;
+  transform-origin: left center;
+  transition: all 0.4s ease;
+}
+.clip-bar.connected {
+  transform: rotate(0deg);
+  background: #22c55e;
+}
+.clip-bar.disconnected {
+  transform: rotate(-20deg);
+  background: #94a3b8;
+}
+
+/* Test objects buttons */
+.test-objects-interactive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 16px 0;
+}
+.test-btn {
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.test-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.test-btn.tested-conductor {
+  background: #dcfce7;
+  border-color: #22c55e;
+  color: #166534;
+}
+.test-btn.tested-insulator {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+.test-btn.tested-weak {
+  background: #fef3c7;
+  border-color: #f59e0b;
+  color: #92400e;
+}
+.test-btn.reset-btn {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #475569;
+}
+
+.test-result {
+  font-size: 16px;
+  font-weight: 800;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin: 12px 0;
+  text-align: center;
+  background: #f8fafc;
+  color: #64748b;
+  transition: all 0.3s;
+}
+.test-result.conductor {
+  background: #dcfce7;
+  color: #166534;
+}
+.test-result.insulator {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.test-result.weak {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* Test circuit layout */
+.test-circuit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+.test-circuit .ic-wire {
+  width: 40px;
+  height: 4px;
+  display: inline-block;
+}
+.ic-gap {
+  width: 50px;
+  height: 50px;
+  border: 3px dashed #f59e0b;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 900;
+  color: #92400e;
+  background: rgba(251,191,36,0.1);
+  transition: all 0.3s;
+}
+
+/* Test results table */
+.test-table-wrap {
+  margin: 14px 0;
+}
+.test-results-table {
+  min-width: 280px;
+}
+
+/* Series/Parallel remove buttons */
+.bulb-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px;
+}
+.bulb-remove-btn {
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.2s;
+}
+.bulb-remove-btn:hover { background: #fee2e2; border-color: #ef4444; }
+.bulb-remove-btn.removed { background: #dcfce7; border-color: #22c55e; }
+
+/* Brightness meter */
+.brightness-meter {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  margin-top: 8px;
+}
+
+/* Series/Parallel bulb layout */
+.sp-interactive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+.sp-bulb-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Torch assembly */
+.torch-assembly {
+  min-height: 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin: 10px 0;
+}
+.torch-step-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 14px 0;
+}
+.torch-step-btn {
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.torch-step-btn:hover { background: #fef3c7; border-color: #f59e0b; }
+.torch-step-btn.done { background: #dcfce7; border-color: #22c55e; pointer-events: none; }
+.torch-step-btn.active { background: #fef3c7; border-color: #f59e0b; animation: pulse 1s infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+
+/* Torch components */
+.torch-comp {
+  transition: all 0.5s;
+}
+.torch-comp-cell {
+  width: 36px;
+  height: 24px;
+  background: linear-gradient(to right, #94a3b8, #64748b);
+  border-radius: 3px;
+  border: 2px solid #475569;
+  display: inline-block;
+}
+.torch-comp-bulb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50% 50% 30% 30%;
+  background: #e5e7eb;
+  border: 2px solid #9ca3af;
+  display: inline-block;
+  transition: all 0.5s;
+}
+.torch-comp-bulb.lit {
+  background: radial-gradient(circle, #fef08a, #fbbf24);
+  box-shadow: 0 0 20px 8px rgba(251,191,36,0.6);
+  border-color: #f59e0b;
+}
+.torch-comp-switch {
+  width: 20px;
+  height: 12px;
+  background: #94a3b8;
+  border-radius: 3px 3px 0 0;
+  display: inline-block;
+  transition: all 0.3s;
+}
+.torch-comp-switch.active {
+  background: #22c55e;
+}
+.torch-comp-beam {
+  width: 0;
+  height: 20px;
+  background: linear-gradient(to right, #fbbf24, transparent);
+  border-radius: 0 50% 50% 0;
+  display: inline-block;
+  transition: all 0.8s;
+  opacity: 0;
+}
+.torch-comp-beam.active {
+  width: 80px;
+  opacity: 1;
+}
 </style>
 </head>
 <body>
@@ -2719,21 +3156,27 @@ footer {
     </div>
     <div class="section-bd">
 
+      <div class="note-box" style="background:#faf5ff;border-left-color:#7c3aed;margin-bottom:20px;">
+        <strong style="color:#7c3aed;">These activities are interactive!</strong> Click buttons and switches to see what happens. Each activity lets you control the circuit yourself.
+      </div>
+
       <!-- ===== Activity 3.1 ===== -->
       <div class="ncert-tag">Activity 3.1</div>
       <div class="subtitle">Making a Simple Electric Circuit</div>
-      <div class="activity-visual">
-        <div class="act-circuit">
-          <div class="act-cell"></div>
-          <div class="act-wire-h">
-            <div class="act-wire-dot"></div>
+      <div class="activity-visual interactive">
+        <p class="interact-hint">Tap the switch to turn the circuit ON/OFF!</p>
+        <div class="interactive-circuit" id="circuit1">
+          <div class="ic-cell"><span>+</span><span>-</span></div>
+          <div class="ic-wire" style="width:80%;max-width:200px;margin:8px auto;"><div class="ic-dot" id="dot1a"></div></div>
+          <div class="ic-bulb" id="bulb1"></div>
+          <div class="ic-wire" style="width:80%;max-width:200px;margin:8px auto;"><div class="ic-dot" id="dot1b"></div></div>
+          <div style="margin-top:10px;">
+            <button class="ic-switch" id="switch1" onclick="toggleCircuit1()">
+              <span class="ic-switch-label">OFF</span>
+            </button>
           </div>
-          <div class="act-bulb-mini"></div>
-          <div class="act-wire-h">
-            <div class="act-wire-dot" style="animation-direction:reverse;"></div>
-          </div>
+          <div class="ic-status off" id="status1">Circuit OPEN -- Tap the switch!</div>
         </div>
-        <p class="label">Simple circuit: Cell + Wires + Bulb = Bulb glows!</p>
       </div>
       <div class="activity-details">
         <p><strong>Aim:</strong> To make a simple electric circuit using a cell, wire, and bulb.</p>
@@ -2753,19 +3196,23 @@ footer {
       <!-- ===== Activity 3.2 ===== -->
       <div class="ncert-tag">Activity 3.2</div>
       <div class="subtitle">Making a Switch</div>
-      <div class="activity-visual">
-        <div class="act-switch-wrap">
-          <div class="act-cardboard">
-            <div class="act-pin act-pin-l"></div>
-            <div class="act-pin act-pin-r"></div>
-            <div class="act-paperclip"></div>
+      <div class="activity-visual interactive">
+        <p class="interact-hint">Click the paper clip to toggle the switch!</p>
+        <div class="interactive-circuit" id="circuit2">
+          <div class="ic-cell"><span>+</span><span>-</span></div>
+          <div class="ic-wire" style="width:60%;max-width:150px;margin:8px auto;"><div class="ic-dot" id="dot2a"></div></div>
+          <div style="margin:10px auto;text-align:center;">
+            <div class="clip-switch-area" id="paperClip" onclick="toggleClipSwitch()">
+              <div class="clip-pin clip-pin-l"></div>
+              <div class="clip-pin clip-pin-r"></div>
+              <div class="clip-bar disconnected" id="clipBar"></div>
+            </div>
+            <div style="font-size:11px;font-weight:700;color:#92400e;margin-top:4px;">Click the cardboard to toggle</div>
           </div>
-          <div style="text-align:center;">
-            <div class="act-bulb-mini" style="width:28px;height:28px;"></div>
-            <div style="font-size:11px;font-weight:800;color:#92400e;margin-top:6px;">Bulb ON/OFF</div>
-          </div>
+          <div class="ic-wire" style="width:60%;max-width:150px;margin:8px auto;"><div class="ic-dot" id="dot2b"></div></div>
+          <div class="ic-bulb" id="clipBulb"></div>
+          <div class="ic-status off" id="clipStatus">Switch OFF -- Paper clip lifted</div>
         </div>
-        <p class="label">Paper clip switch: touching both pins = ON, lifted away = OFF</p>
       </div>
       <div class="activity-details">
         <p><strong>Aim:</strong> To make a simple switch using a safety pin or paper clip.</p>
@@ -2786,30 +3233,36 @@ footer {
       <!-- ===== Activity 3.3 ===== -->
       <div class="ncert-tag">Activity 3.3</div>
       <div class="subtitle">Testing Conductors and Insulators</div>
-      <div class="activity-visual">
-        <div class="act-test-wrap">
-          <div class="act-cell" style="width:36px;height:56px;"></div>
-          <div class="act-wire-h" style="width:30px;">
-            <div class="act-wire-dot" style="width:4px;height:4px;"></div>
+      <div class="activity-visual interactive">
+        <p class="interact-hint">Click an object below to test if it is a conductor or insulator!</p>
+        <div class="test-circuit" id="testCircuit">
+          <div class="ic-cell" style="width:40px;height:60px;font-size:14px;"><span>+</span><span>-</span></div>
+          <div class="ic-wire" style="width:40px;display:inline-block;"><div class="ic-dot" id="testDot1"></div></div>
+          <div class="ic-gap" id="gapArea">
+            <span id="gapLabel">?</span>
           </div>
-          <div class="act-gap">?</div>
-          <div class="act-wire-h" style="width:30px;">
-            <div class="act-wire-dot" style="width:4px;height:4px;animation-direction:reverse;"></div>
-          </div>
-          <div class="act-bulb-mini" style="width:28px;height:28px;"></div>
+          <div class="ic-wire" style="width:40px;display:inline-block;"><div class="ic-dot" id="testDot2"></div></div>
+          <div class="ic-bulb" id="testBulb" style="width:40px;height:40px;"></div>
         </div>
-        <div class="test-objects">
-          <span class="test-obj cond">Key</span>
-          <span class="test-obj ins">Eraser</span>
-          <span class="test-obj cond">Coin</span>
-          <span class="test-obj ins">Plastic</span>
-          <span class="test-obj cond">Foil</span>
-          <span class="test-obj ins">Wood</span>
-          <span class="test-obj cond">Nail</span>
-          <span class="test-obj ins">Glass</span>
-          <span class="test-obj cond">Graphite</span>
+        <div class="test-objects-interactive">
+          <button class="test-btn" data-type="conductor" onclick="testObject(this, 'Key', 'conductor')">Key</button>
+          <button class="test-btn" data-type="insulator" onclick="testObject(this, 'Eraser', 'insulator')">Eraser</button>
+          <button class="test-btn" data-type="conductor" onclick="testObject(this, 'Coin', 'conductor')">Coin</button>
+          <button class="test-btn" data-type="insulator" onclick="testObject(this, 'Plastic Scale', 'insulator')">Plastic</button>
+          <button class="test-btn" data-type="conductor" onclick="testObject(this, 'Aluminium Foil', 'conductor')">Foil</button>
+          <button class="test-btn" data-type="insulator" onclick="testObject(this, 'Wood', 'insulator')">Wood</button>
+          <button class="test-btn" data-type="conductor" onclick="testObject(this, 'Iron Nail', 'conductor')">Nail</button>
+          <button class="test-btn" data-type="insulator" onclick="testObject(this, 'Glass Rod', 'insulator')">Glass</button>
+          <button class="test-btn" data-type="weak" onclick="testObject(this, 'Graphite', 'weak')">Graphite</button>
+          <button class="test-btn reset-btn" onclick="resetTest()">Reset</button>
         </div>
-        <p class="label">Place each object in the gap -- if bulb glows, it is a conductor!</p>
+        <div class="test-result" id="testResult">Click an object to test it!</div>
+        <div class="test-table-wrap" id="testTableWrap" style="display:none;">
+          <table class="test-results-table">
+            <thead><tr><th>Object</th><th>Bulb</th><th>Type</th></tr></thead>
+            <tbody id="testTableBody"></tbody>
+          </table>
+        </div>
       </div>
       <div class="activity-details">
         <p><strong>Aim:</strong> To test whether materials are conductors or insulators.</p>
@@ -2829,22 +3282,29 @@ footer {
       <!-- ===== Activity 3.4 ===== -->
       <div class="ncert-tag">Activity 3.4</div>
       <div class="subtitle">Series Circuit -- Two Bulbs in Series</div>
-      <div class="activity-visual">
-        <div class="act-circuit">
-          <div class="act-cell"></div>
-          <div class="act-wire-h" style="width:30px;">
-            <div class="act-wire-dot" style="width:4px;height:4px;"></div>
+      <div class="activity-visual interactive">
+        <p class="interact-hint">Click "Remove" to take out a bulb and see what happens!</p>
+        <div class="interactive-circuit" id="circuit4">
+          <div class="ic-cell"><span>+</span><span>-</span></div>
+          <div class="sp-interactive">
+            <div class="ic-wire" style="width:40px;display:inline-block;"></div>
+            <div class="sp-bulb-wrap">
+              <div class="ic-bulb dim" id="serBulb0" style="width:44px;height:44px;"></div>
+              <span style="font-size:11px;font-weight:700;color:#92400e;">Bulb A</span>
+              <button class="bulb-remove-btn" id="serBtn0" onclick="toggleSeriesBulb(0)">Remove</button>
+            </div>
+            <div class="ic-wire" style="width:30px;display:inline-block;"></div>
+            <div class="sp-bulb-wrap">
+              <div class="ic-bulb dim" id="serBulb1" style="width:44px;height:44px;"></div>
+              <span style="font-size:11px;font-weight:700;color:#92400e;">Bulb B</span>
+              <button class="bulb-remove-btn" id="serBtn1" onclick="toggleSeriesBulb(1)">Remove</button>
+            </div>
+            <div class="ic-wire" style="width:40px;display:inline-block;"></div>
           </div>
-          <div class="act-bulb-mini" style="width:28px;height:28px;animation: serBulbDim 2s ease-in-out infinite;box-shadow:none;"></div>
-          <div class="act-wire-h" style="width:30px;">
-            <div class="act-wire-dot" style="width:4px;height:4px;"></div>
-          </div>
-          <div class="act-bulb-mini" style="width:28px;height:28px;animation: serBulbDim 2s ease-in-out infinite;box-shadow:none;"></div>
-          <div class="act-wire-h" style="width:30px;">
-            <div class="act-wire-dot" style="width:4px;height:4px;animation-direction:reverse;"></div>
-          </div>
+          <div class="brightness-meter" id="serMeter" style="background:#fef3c7;color:#92400e;">Brightness: 50%</div>
+          <br>
+          <div class="ic-status on" id="serStatus">Both bulbs ON (dim) -- voltage shared!</div>
         </div>
-        <p class="label">Two bulbs in series -- both glow dimly. Remove one and the other goes dark.</p>
       </div>
       <div class="activity-details">
         <p><strong>Aim:</strong> To connect two bulbs in series and observe.</p>
@@ -2862,23 +3322,26 @@ footer {
       <!-- ===== Activity 3.5 ===== -->
       <div class="ncert-tag">Activity 3.5</div>
       <div class="subtitle">Parallel Circuit -- Two Bulbs in Parallel</div>
-      <div class="activity-visual">
-        <div style="display:flex;justify-content:center;gap:20px;align-items:center;flex-wrap:wrap;">
-          <div class="act-cell"></div>
-          <div style="display:flex;flex-direction:column;gap:10px;align-items:center;">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <div class="act-wire-h" style="width:30px;"><div class="act-wire-dot" style="width:4px;height:4px;"></div></div>
-              <div class="act-bulb-mini" style="width:30px;height:30px;"></div>
-              <div class="act-wire-h" style="width:30px;"><div class="act-wire-dot" style="width:4px;height:4px;animation-direction:reverse;"></div></div>
+      <div class="activity-visual interactive">
+        <p class="interact-hint">Click "Remove" on a bulb -- the other one STILL works!</p>
+        <div class="interactive-circuit" id="circuit5">
+          <div class="ic-cell"><span>+</span><span>-</span></div>
+          <div style="display:flex;justify-content:center;gap:20px;margin:14px 0;flex-wrap:wrap;">
+            <div class="sp-bulb-wrap" style="padding:10px;background:rgba(255,255,255,0.5);border-radius:14px;">
+              <span style="font-size:11px;font-weight:700;color:#1e40af;">Branch A</span>
+              <div class="ic-bulb on" id="parBulb0" style="width:44px;height:44px;"></div>
+              <span class="brightness-meter" style="background:#dcfce7;color:#166534;font-size:12px;padding:3px 10px;" id="parMeter0">100%</span>
+              <button class="bulb-remove-btn" id="parBtn0" onclick="toggleParBulb(0)">Remove</button>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;">
-              <div class="act-wire-h" style="width:30px;"><div class="act-wire-dot" style="width:4px;height:4px;"></div></div>
-              <div class="act-bulb-mini" style="width:30px;height:30px;"></div>
-              <div class="act-wire-h" style="width:30px;"><div class="act-wire-dot" style="width:4px;height:4px;animation-direction:reverse;"></div></div>
+            <div class="sp-bulb-wrap" style="padding:10px;background:rgba(255,255,255,0.5);border-radius:14px;">
+              <span style="font-size:11px;font-weight:700;color:#1e40af;">Branch B</span>
+              <div class="ic-bulb on" id="parBulb1" style="width:44px;height:44px;"></div>
+              <span class="brightness-meter" style="background:#dcfce7;color:#166534;font-size:12px;padding:3px 10px;" id="parMeter1">100%</span>
+              <button class="bulb-remove-btn" id="parBtn1" onclick="toggleParBulb(1)">Remove</button>
             </div>
           </div>
+          <div class="ic-status on" id="parStatus">Both bulbs ON at FULL brightness!</div>
         </div>
-        <p class="label">Two bulbs in parallel -- both glow at full brightness! Remove one and the other still works.</p>
       </div>
       <div class="activity-details">
         <p><strong>Aim:</strong> To connect two bulbs in parallel and observe.</p>
@@ -2896,19 +3359,27 @@ footer {
       <!-- ===== Activity 3.6 ===== -->
       <div class="ncert-tag">Activity 3.6</div>
       <div class="subtitle">Making a Simple Torch</div>
-      <div class="activity-visual">
-        <div class="torch-wrap">
-          <div class="torch-tube">
-            <div class="torch-cells">
-              <div class="torch-cell-mini"></div>
-              <div class="torch-cell-mini"></div>
-            </div>
-            <div class="torch-switch-btn"></div>
-            <div class="torch-lens"></div>
-            <div class="torch-beam"></div>
+      <div class="activity-visual interactive">
+        <p class="interact-hint">Build the torch step by step! Click each button in order.</p>
+        <div class="interactive-circuit" id="circuit6">
+          <div class="torch-assembly" id="torchAssembly">
+            <div class="torch-comp torch-comp-cell" id="torch-cell1" style="opacity:0.15;">1.5V</div>
+            <div class="torch-comp torch-comp-cell" id="torch-cell2" style="opacity:0.15;">1.5V</div>
+            <div class="torch-comp torch-comp-switch" id="torch-switchPart" style="opacity:0.15;"></div>
+            <div class="torch-comp torch-comp-bulb" id="torch-bulbEnd" style="opacity:0.15;"></div>
+            <div class="torch-comp torch-comp-beam" id="torch-beam"></div>
           </div>
+          <div class="torch-step-btns">
+            <button class="torch-step-btn active" id="torchBtn0" onclick="nextTorchStep()">Add Cell 1</button>
+            <button class="torch-step-btn" id="torchBtn1" onclick="nextTorchStep()">Add Cell 2</button>
+            <button class="torch-step-btn" id="torchBtn2" onclick="nextTorchStep()">Add Bulb</button>
+            <button class="torch-step-btn" id="torchBtn3" onclick="nextTorchStep()">Add Switch</button>
+            <button class="torch-step-btn" id="torchBtn4" onclick="nextTorchStep()">Turn ON!</button>
+            <button class="torch-step-btn reset-btn" onclick="resetTorch()" style="background:#f1f5f9;border-color:#94a3b8;">Reset</button>
+          </div>
+          <div style="font-size:13px;font-weight:700;color:#64748b;" id="torchProgress">Step 0 of 5</div>
+          <div class="ic-status off" id="torchStatus">Build your torch step by step!</div>
         </div>
-        <p class="label">Homemade torch: 2 cells + bulb + switch inside a cardboard tube</p>
       </div>
       <div class="activity-details">
         <p><strong>Aim:</strong> To make a simple torch using cells, bulb, and a cardboard tube.</p>
@@ -3404,6 +3875,269 @@ document.querySelectorAll('.toc-bar a').forEach(link => {
     }
   });
 });
+
+// ===== Activity 3.1: Simple Circuit =====
+function toggleCircuit1() {
+  var sw = document.getElementById('switch1');
+  var bulb = document.getElementById('bulb1');
+  var status = document.getElementById('status1');
+  var dots = document.querySelectorAll('#circuit1 .ic-dot');
+  var isOn = sw.classList.toggle('on');
+
+  if (isOn) {
+    bulb.classList.add('on');
+    sw.querySelector('.ic-switch-label').textContent = 'ON';
+    status.textContent = 'Circuit CLOSED -- Bulb is ON!';
+    status.className = 'ic-status on';
+    dots.forEach(function(d) { d.classList.add('flowing'); });
+  } else {
+    bulb.classList.remove('on');
+    sw.querySelector('.ic-switch-label').textContent = 'OFF';
+    status.textContent = 'Circuit OPEN -- Tap the switch!';
+    status.className = 'ic-status off';
+    dots.forEach(function(d) { d.classList.remove('flowing'); });
+  }
+}
+
+// ===== Activity 3.2: Paper Clip Switch =====
+var clipIsOn = false;
+function toggleClipSwitch() {
+  clipIsOn = !clipIsOn;
+  var bar = document.getElementById('clipBar');
+  var bulb = document.getElementById('clipBulb');
+  var status = document.getElementById('clipStatus');
+  var dots = document.querySelectorAll('#circuit2 .ic-dot');
+
+  if (clipIsOn) {
+    bar.className = 'clip-bar connected';
+    bulb.classList.add('on');
+    status.textContent = 'Switch ON -- Paper clip connects both pins!';
+    status.className = 'ic-status on';
+    dots.forEach(function(d) { d.classList.add('flowing'); });
+  } else {
+    bar.className = 'clip-bar disconnected';
+    bulb.classList.remove('on');
+    status.textContent = 'Switch OFF -- Paper clip lifted';
+    status.className = 'ic-status off';
+    dots.forEach(function(d) { d.classList.remove('flowing'); });
+  }
+}
+
+// ===== Activity 3.3: Conductor/Insulator =====
+var testedObjects = [];
+function testObject(btn, name, type) {
+  var bulb = document.getElementById('testBulb');
+  var result = document.getElementById('testResult');
+  var gap = document.getElementById('gapLabel');
+  var dots = document.querySelectorAll('#testCircuit .ic-dot');
+  var tableWrap = document.getElementById('testTableWrap');
+  var tbody = document.getElementById('testTableBody');
+
+  gap.textContent = name;
+
+  if (type === 'conductor') {
+    bulb.className = 'ic-bulb on';
+    bulb.style.width = '40px';
+    bulb.style.height = '40px';
+    result.textContent = name + ' -- CONDUCTOR! Bulb glows!';
+    result.className = 'test-result conductor';
+    btn.className = 'test-btn tested-conductor';
+    dots.forEach(function(d) { d.classList.add('flowing'); });
+  } else if (type === 'insulator') {
+    bulb.className = 'ic-bulb';
+    bulb.style.width = '40px';
+    bulb.style.height = '40px';
+    result.textContent = name + ' -- INSULATOR! Bulb does not glow!';
+    result.className = 'test-result insulator';
+    btn.className = 'test-btn tested-insulator';
+    dots.forEach(function(d) { d.classList.remove('flowing'); });
+  } else {
+    bulb.className = 'ic-bulb dim';
+    bulb.style.width = '40px';
+    bulb.style.height = '40px';
+    result.textContent = name + ' -- WEAK CONDUCTOR! Bulb glows dimly!';
+    result.className = 'test-result weak';
+    btn.className = 'test-btn tested-weak';
+    dots.forEach(function(d) { d.classList.add('flowing'); });
+  }
+
+  if (testedObjects.indexOf(name) === -1) {
+    testedObjects.push(name);
+    var row = document.createElement('tr');
+    var bulbText = type === 'conductor' ? 'Glows' : type === 'weak' ? 'Dim glow' : 'No glow';
+    var typeText = type === 'conductor' ? 'Conductor' : type === 'weak' ? 'Weak Conductor' : 'Insulator';
+    var typeColor = type === 'insulator' ? '#dc2626' : '#16a34a';
+    row.innerHTML = '<td>' + name + '</td><td>' + bulbText + '</td><td style="color:' + typeColor + ';font-weight:800;">' + typeText + '</td>';
+    tbody.appendChild(row);
+    tableWrap.style.display = 'block';
+  }
+}
+
+function resetTest() {
+  var bulb = document.getElementById('testBulb');
+  bulb.className = 'ic-bulb';
+  bulb.style.width = '40px';
+  bulb.style.height = '40px';
+  document.getElementById('testResult').textContent = 'Click an object to test it!';
+  document.getElementById('testResult').className = 'test-result';
+  document.getElementById('gapLabel').textContent = '?';
+  document.getElementById('testTableBody').innerHTML = '';
+  document.getElementById('testTableWrap').style.display = 'none';
+  document.querySelectorAll('#testCircuit .ic-dot').forEach(function(d) { d.classList.remove('flowing'); });
+  document.querySelectorAll('.test-btn').forEach(function(b) {
+    if (!b.classList.contains('reset-btn')) b.className = 'test-btn';
+  });
+  testedObjects = [];
+}
+
+// ===== Activity 3.4: Series Circuit =====
+var seriesBulbs = [true, true];
+function toggleSeriesBulb(index) {
+  seriesBulbs[index] = !seriesBulbs[index];
+  var btn = document.getElementById('serBtn' + index);
+  btn.textContent = seriesBulbs[index] ? 'Remove' : 'Add Back';
+  btn.className = seriesBulbs[index] ? 'bulb-remove-btn' : 'bulb-remove-btn removed';
+  updateSeries();
+}
+
+function updateSeries() {
+  var allConnected = seriesBulbs[0] && seriesBulbs[1];
+  var b0 = document.getElementById('serBulb0');
+  var b1 = document.getElementById('serBulb1');
+  var status = document.getElementById('serStatus');
+  var meter = document.getElementById('serMeter');
+
+  if (allConnected) {
+    b0.className = 'ic-bulb dim';
+    b1.className = 'ic-bulb dim';
+    status.textContent = 'Both bulbs ON (dim) -- voltage shared!';
+    status.className = 'ic-status on';
+    meter.textContent = 'Brightness: 50%';
+    meter.style.background = '#fef3c7';
+    meter.style.color = '#92400e';
+  } else {
+    b0.className = 'ic-bulb';
+    b1.className = 'ic-bulb';
+    status.textContent = 'Circuit BROKEN -- Both bulbs OFF!';
+    status.className = 'ic-status off';
+    meter.textContent = 'Brightness: 0%';
+    meter.style.background = '#fee2e2';
+    meter.style.color = '#991b1b';
+  }
+
+  b0.style.opacity = seriesBulbs[0] ? '1' : '0.3';
+  b1.style.opacity = seriesBulbs[1] ? '1' : '0.3';
+}
+
+// ===== Activity 3.5: Parallel Circuit =====
+var parBulbs = [true, true];
+function toggleParBulb(index) {
+  parBulbs[index] = !parBulbs[index];
+  var btn = document.getElementById('parBtn' + index);
+  btn.textContent = parBulbs[index] ? 'Remove' : 'Add Back';
+  btn.className = parBulbs[index] ? 'bulb-remove-btn' : 'bulb-remove-btn removed';
+  updateParallel();
+}
+
+function updateParallel() {
+  var b0 = document.getElementById('parBulb0');
+  var b1 = document.getElementById('parBulb1');
+  var status = document.getElementById('parStatus');
+  var m0 = document.getElementById('parMeter0');
+  var m1 = document.getElementById('parMeter1');
+
+  b0.className = parBulbs[0] ? 'ic-bulb on' : 'ic-bulb';
+  b1.className = parBulbs[1] ? 'ic-bulb on' : 'ic-bulb';
+  b0.style.opacity = parBulbs[0] ? '1' : '0.3';
+  b1.style.opacity = parBulbs[1] ? '1' : '0.3';
+
+  m0.textContent = parBulbs[0] ? '100%' : '0%';
+  m0.style.background = parBulbs[0] ? '#dcfce7' : '#fee2e2';
+  m0.style.color = parBulbs[0] ? '#166534' : '#991b1b';
+  m1.textContent = parBulbs[1] ? '100%' : '0%';
+  m1.style.background = parBulbs[1] ? '#dcfce7' : '#fee2e2';
+  m1.style.color = parBulbs[1] ? '#166534' : '#991b1b';
+
+  var count = (parBulbs[0] ? 1 : 0) + (parBulbs[1] ? 1 : 0);
+  if (count === 2) {
+    status.textContent = 'Both bulbs ON at FULL brightness!';
+    status.className = 'ic-status on';
+  } else if (count === 1) {
+    status.textContent = 'One bulb removed -- other STILL works!';
+    status.className = 'ic-status on';
+  } else {
+    status.textContent = 'Both bulbs removed -- no light!';
+    status.className = 'ic-status off';
+  }
+}
+
+// ===== Activity 3.6: Torch Assembly =====
+var torchStep = 0;
+var torchParts = ['cell1', 'cell2', 'bulbEnd', 'switchPart', 'beam'];
+function nextTorchStep() {
+  if (torchStep >= 5) return;
+
+  var partId = torchParts[torchStep];
+  var el = document.getElementById('torch-' + partId);
+
+  // Mark current button as done
+  var btn = document.getElementById('torchBtn' + torchStep);
+  if (btn) { btn.classList.add('done'); btn.classList.remove('active'); }
+
+  torchStep++;
+
+  // Show the component
+  if (torchStep <= 4 && el) {
+    el.style.opacity = '1';
+  }
+
+  // Activate next button
+  if (torchStep < 5) {
+    var nextBtn = document.getElementById('torchBtn' + torchStep);
+    if (nextBtn) nextBtn.classList.add('active');
+  }
+
+  // Step 4 = switch part visible
+  if (torchStep === 4) {
+    var swPart = document.getElementById('torch-switchPart');
+    if (swPart) swPart.classList.add('active');
+  }
+
+  // Step 5 = turn on!
+  if (torchStep >= 5) {
+    var lastBtn = document.getElementById('torchBtn4');
+    if (lastBtn) { lastBtn.classList.add('done'); lastBtn.classList.remove('active'); }
+    var bulbEnd = document.getElementById('torch-bulbEnd');
+    if (bulbEnd) bulbEnd.classList.add('lit');
+    var beam = document.getElementById('torch-beam');
+    if (beam) beam.classList.add('active');
+    document.getElementById('torchStatus').textContent = 'Torch is ON! Light shines!';
+    document.getElementById('torchStatus').className = 'ic-status on';
+  }
+
+  document.getElementById('torchProgress').textContent = 'Step ' + Math.min(torchStep, 5) + ' of 5';
+}
+
+function resetTorch() {
+  torchStep = 0;
+  torchParts.forEach(function(id) {
+    var el = document.getElementById('torch-' + id);
+    if (el) {
+      el.style.opacity = '0.15';
+      el.classList.remove('lit', 'active');
+    }
+  });
+  var beam = document.getElementById('torch-beam');
+  if (beam) { beam.classList.remove('active'); beam.style.opacity = '0.15'; }
+  for (var i = 0; i < 5; i++) {
+    var btn = document.getElementById('torchBtn' + i);
+    if (btn) { btn.classList.remove('done', 'active'); }
+  }
+  document.getElementById('torchBtn0').classList.add('active');
+  document.getElementById('torchStatus').textContent = 'Build your torch step by step!';
+  document.getElementById('torchStatus').className = 'ic-status off';
+  document.getElementById('torchProgress').textContent = 'Step 0 of 5';
+}
 
 // Share functions
 function openShare() {
