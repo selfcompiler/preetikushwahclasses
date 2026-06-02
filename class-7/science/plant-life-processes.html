@@ -2051,70 +2051,88 @@ footer {
 }
 
 /* ===== Variegated leaf 10.3 — Realistic ===== */
-.variegated-int { text-align: center; margin: 16px 0; }
-.var-leaf-int {
-  width: 160px; height: 200px;
-  margin: 0 auto; position: relative;
-  overflow: hidden;
+/* ===== Activity 10.3: Croton/Variegated Leaf (multi-step) ===== */
+.var-scene {
+  position: relative; min-height: 260px;
+  text-align: center; padding: 20px;
+  transition: all 0.5s;
 }
-.var-leaf-shape {
-  width: 160px; height: 180px;
-  border-radius: 8px 80% 50% 8px;
-  overflow: hidden; display: flex;
-  border: 3px solid #64748b;
-  position: relative;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+.croton-leaf {
+  position: relative; width: 140px; height: 180px;
+  margin: 0 auto; transition: all 0.5s;
 }
-.var-leaf-shape::after {
-  content: ''; position: absolute;
-  top: 0; bottom: 0; left: 50%;
-  width: 3px; background: #64748b; z-index: 5;
+.croton-base {
+  width: 140px; height: 170px;
+  border-radius: 8px 70% 50% 8px;
+  background: linear-gradient(135deg, #22c55e 0%, #4ade80 18%, #f1f5f9 32%, #22c55e 46%, #e2e8f0 58%, #4ade80 72%, #f1f5f9 85%, #22c55e 100%);
+  border: 2px solid #16a34a;
+  position: relative; overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-.var-vein-main {
-  position: absolute; top: 50%; left: 10px; right: 20px;
-  height: 2px; background: rgba(0,0,0,0.12);
-  transform: translateY(-50%); z-index: 3;
-}
-.var-vein-side {
-  position: absolute; width: 2px; background: rgba(0,0,0,0.08);
-  height: 40px; z-index: 3;
-}
-.var-vein-side:nth-child(3) { top: 20px; left: 40px; transform: rotate(30deg); }
-.var-vein-side:nth-child(4) { top: 20px; right: 40px; transform: rotate(-30deg); }
-.var-vein-side:nth-child(5) { bottom: 30px; left: 50px; transform: rotate(25deg); }
-.var-vein-side:nth-child(6) { bottom: 30px; right: 50px; transform: rotate(-25deg); }
-.var-half-int {
-  flex: 1; display: flex; align-items: center; justify-content: center;
+.croton-patch {
+  position: absolute; border-radius: 50%;
   transition: all 0.8s ease;
-  font-size: 11px; font-weight: 800; text-align: center; padding: 8px;
-  position: relative;
 }
-.var-half-int.left {
-  background: linear-gradient(135deg, #16a34a, #22c55e, #4ade80);
-  color: white;
+.croton-patch.green-p { background: linear-gradient(135deg, #16a34a, #4ade80); }
+.croton-patch.white-p { background: linear-gradient(135deg, #f1f5f9, #e2e8f0); }
+.croton-patch.p1 { width: 44px; height: 50px; top: 14px; left: 10px; }
+.croton-patch.p2 { width: 38px; height: 42px; top: 70px; left: 60px; }
+.croton-patch.p3 { width: 48px; height: 38px; bottom: 20px; left: 8px; }
+.croton-patch.p4 { width: 36px; height: 44px; top: 20px; right: 10px; }
+.croton-patch.p5 { width: 30px; height: 32px; bottom: 30px; right: 16px; }
+.croton-patch.p6 { width: 32px; height: 36px; top: 66px; left: 16px; }
+.croton-patch.green-p.tested { background: linear-gradient(135deg, #1e1b4b, #312e81) !important; }
+.croton-patch.white-p.tested { background: linear-gradient(135deg, #78350f, #92400e) !important; }
+.croton-base.tested {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 18%, #92400e 32%, #1e1b4b 46%, #78350f 58%, #312e81 72%, #92400e 85%, #1e1b4b 100%) !important;
+  border-color: #1e1b4b;
 }
-.var-half-int.right {
-  background: linear-gradient(135deg, #f1f5f9, #e2e8f0, #f8fafc);
-  color: #64748b;
+.croton-base.white-stage {
+  background: linear-gradient(135deg, #e2e8f0, #f1f5f9, #cbd5e1, #f1f5f9, #e2e8f0, #cbd5e1) !important;
+  border-color: #94a3b8;
 }
-.var-half-int.left.tested {
-  background: linear-gradient(135deg, #1e1b4b, #312e81, #3730a3);
-  color: #c7d2fe;
+.croton-vein {
+  position: absolute; top: 0; bottom: 0;
+  left: 50%; width: 2px;
+  background: rgba(0,0,0,0.15);
 }
-.var-half-int.right.tested {
-  background: linear-gradient(135deg, #78350f, #92400e, #a16207);
-  color: #fde68a;
-}
-.var-petiole {
+.croton-stem-int {
   width: 4px; height: 16px;
-  background: linear-gradient(to bottom, #16a34a, #6b7280);
-  margin: 0 auto; border-radius: 2px;
+  background: #65a30d; margin: 0 auto;
+  border-radius: 2px;
 }
-.var-status {
+.var-key {
+  display: flex; gap: 16px; justify-content: center;
+  flex-wrap: wrap; margin-top: 12px;
+  font-size: 13px; font-weight: 700;
+}
+.var-key-dot {
+  display: inline-block; width: 14px; height: 14px;
+  border-radius: 50%; vertical-align: middle;
+  margin-right: 4px;
+}
+.var-key-dot.green-dot { background: #22c55e; border: 2px solid #16a34a; }
+.var-key-dot.white-dot { background: #f1f5f9; border: 2px solid #94a3b8; }
+.var-key-dot.blueblack-dot { background: #1e1b4b; border: 2px solid #312e81; }
+.var-key-dot.brown-dot { background: #92400e; border: 2px solid #78350f; }
+.var-step-info {
   font-size: 14px; font-weight: 700;
-  margin-top: 12px; padding: 8px 14px;
-  border-radius: 10px; transition: all 0.3s;
+  padding: 10px 14px; border-radius: 10px;
+  margin-top: 14px; transition: all 0.3s;
 }
+.var-iodine-drops {
+  position: absolute; top: 0; left: 50%;
+  transform: translateX(-50%); display: none;
+}
+.var-iodine-drops.show { display: block; }
+.var-iod {
+  width: 6px; height: 9px;
+  background: linear-gradient(to bottom, #78350f, #451a03);
+  border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+  position: absolute;
+  animation: varIodFall 1s ease-in infinite;
+}
+@keyframes varIodFall { 0%{top:-10px;opacity:1} 100%{top:30px;opacity:0} }
 
 .dark-toggle {
   text-align: center;
@@ -2125,95 +2143,90 @@ footer {
 }
 .dark-toggle input { margin-right: 6px; transform: scale(1.2); }
 
-/* Variegated leaf 10.3 */
-.variegated-int { text-align: center; margin: 16px 0; }
-.var-leaf-int {
-  width: 140px;
-  height: 180px;
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  margin: 0 auto;
-  display: flex;
-  overflow: hidden;
+/* ===== Activity 10.4: NaOH / CO2 Flask Setup ===== */
+.naoh-scene {
+  position: relative; min-height: 280px;
+  text-align: center; padding: 20px;
+}
+.naoh-plant { position: relative; width: 260px; margin: 0 auto; }
+.naoh-plant-stem {
+  width: 6px; height: 80px;
+  background: linear-gradient(to top, #65a30d, #a3e635);
+  margin: 0 auto; border-radius: 3px;
+}
+.naoh-leaf-assembly {
+  position: relative; width: 260px; height: 100px;
+  margin: -10px auto 0;
+}
+.naoh-leaf-full {
+  width: 180px; height: 80px;
+  border-radius: 8px 60% 50% 8px;
+  display: flex; overflow: hidden;
+  border: 2px solid #16a34a;
+  margin: 0 auto; position: relative; z-index: 3;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.naoh-lh {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; text-align: center; padding: 6px;
+  transition: all 0.8s;
+}
+.naoh-lh.enclosed { background: linear-gradient(135deg, #22c55e, #4ade80); color: white; }
+.naoh-lh.exposed { background: linear-gradient(135deg, #16a34a, #22c55e); color: white; }
+.naoh-lh.enclosed.no-starch { background: linear-gradient(135deg, #92400e, #b45309); color: #fde68a; }
+.naoh-lh.exposed.has-starch { background: linear-gradient(135deg, #1e1b4b, #312e81); color: #c7d2fe; }
+.naoh-leaf-vein-m {
+  position: absolute; top: 0; bottom: 0; left: 50%;
+  width: 2px; background: rgba(255,255,255,0.3); z-index: 4;
+}
+.naoh-flask {
+  position: absolute; left: 10px; top: -20px;
+  width: 110px; height: 120px; z-index: 2;
+  opacity: 0; transition: all 0.5s;
+}
+.naoh-flask.visible { opacity: 1; }
+.naoh-flask-body {
+  width: 100px; height: 90px;
   border: 3px solid #94a3b8;
-  position: relative;
+  border-radius: 0 0 20px 20px;
+  position: absolute; bottom: 0; left: 5px;
+  overflow: hidden; background: rgba(255,255,255,0.2);
 }
-.var-half-int {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.8s ease;
-  font-size: 12px;
-  font-weight: 700;
+.naoh-flask-liquid {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 30px; background: linear-gradient(to top, rgba(147,197,253,0.5), rgba(191,219,254,0.3));
+  border-radius: 0 0 17px 17px;
+}
+.naoh-flask-label-t {
+  position: absolute; bottom: 6px; left: 0; right: 0;
+  font-size: 10px; font-weight: 800; color: #475569;
   text-align: center;
-  padding: 8px;
 }
-.var-half-int.left { background: #22c55e; color: white; }
-.var-half-int.right { background: #f1f5f9; color: #475569; }
-.var-half-int.left.tested { background: #1e1b4b; color: #c7d2fe; }
-.var-half-int.right.tested { background: #92400e; color: #fde68a; }
-.var-midline {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: #64748b;
+.naoh-cork {
+  width: 60px; height: 12px;
+  background: linear-gradient(to bottom, #d2b48c, #a0522d);
+  border-radius: 4px; position: absolute;
+  top: 18px; left: 25px; z-index: 5;
 }
-.var-status {
-  font-size: 14px;
-  font-weight: 700;
-  margin-top: 12px;
-  padding: 8px;
-  border-radius: 10px;
+.naoh-sun-icon {
+  position: absolute; top: 8px; right: 20px;
+  font-size: 44px; transition: all 0.5s;
+  filter: drop-shadow(0 0 10px rgba(251,191,36,0.6));
+  animation: sunPulse101 2s ease-in-out infinite;
 }
-
-/* NaOH 10.4 */
-.naoh-interactive { text-align: center; margin: 16px 0; }
-.naoh-leaf-int {
-  width: 140px;
-  height: 90px;
-  border-radius: 50%;
-  margin: 0 auto;
-  display: flex;
-  overflow: hidden;
-  border: 3px solid #94a3b8;
-  position: relative;
+.naoh-step-info {
+  font-size: 14px; font-weight: 700;
+  padding: 10px 14px; border-radius: 10px;
+  margin-top: 14px; transition: all 0.3s;
 }
-.naoh-half-int {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.8s ease;
-  font-size: 11px;
-  font-weight: 700;
-  text-align: center;
-  padding: 6px;
-  color: white;
-}
-.naoh-half-int.left { background: #4ade80; }
-.naoh-half-int.right { background: #4ade80; }
-.naoh-half-int.left.no-starch { background: #92400e; }
-.naoh-half-int.right.has-starch { background: #1e1b4b; }
-.naoh-bottle-int {
-  font-size: 28px;
-  opacity: 0.2;
-  transition: opacity 0.5s;
-  margin-bottom: 8px;
-}
-.naoh-sun-int {
-  font-size: 32px;
-  display: none;
-  margin-bottom: 8px;
-  animation: sunPulse 2s ease-in-out infinite;
-}
-.naoh-status {
-  font-size: 14px;
-  font-weight: 700;
-  margin-top: 12px;
-  padding: 8px;
-  border-radius: 10px;
+@media (max-width: 400px) {
+  .naoh-plant { width: 220px; }
+  .naoh-leaf-assembly { width: 220px; }
+  .naoh-leaf-full { width: 150px; height: 70px; }
+  .naoh-flask { left: 0; width: 95px; height: 110px; }
+  .naoh-flask-body { width: 85px; height: 80px; }
+  .croton-leaf { width: 120px; height: 155px; }
+  .croton-base { width: 120px; height: 145px; }
 }
 
 /* Hydrilla 10.5 */
@@ -3555,29 +3568,35 @@ footer {
       <div class="ncert-tag">Activity 10.3</div>
       <div class="subtitle">Variegated Leaf Test -- Chlorophyll is Needed</div>
       <div class="activity-visual interactive" id="act103">
-        <p class="interact-hint">&#128070; Click to apply iodine test on the variegated leaf!</p>
-        <div class="variegated-int">
-          <div class="var-leaf-int" id="varLeaf">
-            <div class="var-leaf-shape">
-              <div class="var-half-int left" id="varLeft">
-                <span>Green<br>(chlorophyll &#10004;)</span>
-              </div>
-              <div class="var-half-int right" id="varRight">
-                <span>White<br>(no chlorophyll)</span>
-              </div>
-              <div class="var-vein-main"></div>
-              <div class="var-vein-side"></div>
-              <div class="var-vein-side"></div>
-              <div class="var-vein-side"></div>
-              <div class="var-vein-side"></div>
+        <p class="interact-hint">&#128070; Step through the variegated leaf experiment!</p>
+        <div class="var-scene" id="varScene">
+          <!-- Croton-style leaf with irregular patches -->
+          <div class="croton-leaf" id="crotonLeaf">
+            <div class="croton-base">
+              <div class="croton-patch green-p p1"></div>
+              <div class="croton-patch green-p p2"></div>
+              <div class="croton-patch green-p p3"></div>
+              <div class="croton-patch white-p p4"></div>
+              <div class="croton-patch white-p p5"></div>
+              <div class="croton-patch green-p p6"></div>
+              <div class="croton-vein"></div>
             </div>
-            <div class="var-petiole"></div>
+            <div class="croton-stem-int"></div>
           </div>
-          <div class="var-status" id="varStatus">Variegated leaf (e.g., Croton) &mdash; green part has chlorophyll, white part does not</div>
+          <div class="var-label-card" id="varLabelCard">
+            <div class="var-key">
+              <span class="var-key-dot green-dot"></span> Green = has chlorophyll
+              <span class="var-key-dot white-dot"></span> White = NO chlorophyll
+            </div>
+          </div>
+          <div class="var-step-info" id="varStepInfo">This is a Croton (variegated) leaf &mdash; notice the green and white patches</div>
         </div>
         <div class="act-controls">
-          <button class="act-btn" id="varBtn" onclick="applyIodine103()">&#129514; Apply Iodine Test</button>
-          <button class="act-btn reset" onclick="resetVar103()">&#128260; Reset</button>
+          <button class="act-btn step-btn" id="v103_1" onclick="varStep(1)">1. See the Leaf &#127807;</button>
+          <button class="act-btn step-btn" id="v103_2" onclick="varStep(2)" disabled>2. Starch Test Process &#129514;</button>
+          <button class="act-btn step-btn" id="v103_3" onclick="varStep(3)" disabled>3. Add Iodine &#128167;</button>
+          <button class="act-btn step-btn" id="v103_4" onclick="varStep(4)" disabled>4. See Result &#9989;</button>
+          <button class="act-btn reset" onclick="varReset()">&#128260; Reset</button>
         </div>
       </div>
       <div class="activity-details">
@@ -3596,20 +3615,40 @@ footer {
       <div class="ncert-tag">Activity 10.4</div>
       <div class="subtitle">Role of CO<sub>2</sub> -- Caustic Soda (NaOH) Test</div>
       <div class="activity-visual interactive" id="act104">
-        <p class="interact-hint">&#128070; Follow the steps to test if CO&#8322; is needed!</p>
-        <div class="naoh-interactive">
-          <div class="naoh-sun-int" id="naohSun">&#9728;&#65039;</div>
-          <div class="naoh-bottle-int" id="naohBottle">&#129514; NaOH</div>
-          <div class="naoh-leaf-int" id="naohLeaf">
-            <div class="naoh-half-int left" id="naohLeft"><span>Enclosed<br>(no CO&#8322;)</span></div>
-            <div class="naoh-half-int right" id="naohRight"><span>Exposed<br>(has CO&#8322;)</span></div>
+        <p class="interact-hint">&#128070; Step through to see how we test if CO&#8322; is needed!</p>
+        <div class="naoh-scene" id="naohScene">
+          <!-- Plant with leaf going through bottle -->
+          <div class="naoh-plant">
+            <div class="naoh-plant-stem"></div>
+            <div class="naoh-leaf-assembly" id="naohLeafAsm">
+              <!-- Leaf with left half inside bottle, right half outside -->
+              <div class="naoh-leaf-full" id="naohLeafFull">
+                <div class="naoh-lh enclosed" id="naohLH">
+                  <span id="naohLHText">Inside bottle<br>(no CO&#8322;)</span>
+                </div>
+                <div class="naoh-lh exposed" id="naohRH">
+                  <span id="naohRHText">Outside<br>(normal air)</span>
+                </div>
+                <div class="naoh-leaf-vein-m"></div>
+              </div>
+              <!-- The bottle around left half -->
+              <div class="naoh-flask" id="naohFlask">
+                <div class="naoh-flask-body">
+                  <div class="naoh-flask-liquid"></div>
+                  <div class="naoh-flask-label-t">NaOH<br>(absorbs CO&#8322;)</div>
+                </div>
+                <div class="naoh-cork"></div>
+              </div>
+            </div>
           </div>
-          <div class="naoh-status" id="naohStatus">Click Step 1 to begin</div>
+          <!-- Sun -->
+          <div class="naoh-sun-icon" id="naohSunIcon" style="opacity:0;">&#9728;&#65039;</div>
+          <div class="naoh-step-info" id="naohStepInfo">Click Step 1 to start</div>
         </div>
         <div class="act-controls">
-          <button class="act-btn step-btn" id="n104_1" onclick="naohNextStep()">1. Enclose half with NaOH &#129514;</button>
-          <button class="act-btn step-btn" id="n104_2" onclick="naohNextStep()" disabled>2. Keep in Sunlight &#9728;&#65039;</button>
-          <button class="act-btn step-btn" id="n104_3" onclick="naohNextStep()" disabled>3. Apply Iodine Test &#128167;</button>
+          <button class="act-btn step-btn" id="n104_1" onclick="naohNextStep()">1. Setup Bottle &#129514;</button>
+          <button class="act-btn step-btn" id="n104_2" onclick="naohNextStep()" disabled>2. Keep in Sun &#9728;&#65039;</button>
+          <button class="act-btn step-btn" id="n104_3" onclick="naohNextStep()" disabled>3. Iodine Test &#128167;</button>
           <button class="act-btn reset" onclick="resetNaoh()">&#128260; Reset</button>
         </div>
       </div>
@@ -4560,40 +4599,78 @@ function starchReset() {
   }
 }
 
-// ===== Activity 10.3: Variegated Leaf =====
-function applyIodine103() {
-  var left = document.getElementById('varLeft');
-  var right = document.getElementById('varRight');
-  var status = document.getElementById('varStatus');
-  var btn = document.getElementById('varBtn');
+// ===== Activity 10.3: Variegated Leaf (multi-step) =====
+var varCurrentStep = 0;
+function varStep(step) {
+  if (step !== varCurrentStep + 1) return;
+  varCurrentStep = step;
+  var leaf = document.getElementById('crotonLeaf');
+  var base = leaf.querySelector('.croton-base');
+  var patches = leaf.querySelectorAll('.croton-patch');
+  var info = document.getElementById('varStepInfo');
+  var key = document.querySelector('.var-key');
 
-  left.classList.add('tested');
-  right.classList.add('tested');
-  left.innerHTML = '<span>BLUE-BLACK<br>✅ Starch!</span>';
-  right.innerHTML = '<span>BROWN<br>❌ No starch</span>';
-  status.innerHTML = '✅ Only <strong>green parts</strong> (with chlorophyll) turn blue-black = starch present. <strong>Chlorophyll is essential!</strong>';
-  status.style.background = '#dcfce7';
-  btn.disabled = true; btn.classList.add('done');
+  for (var i = 1; i <= step; i++) {
+    var btn = document.getElementById('v103_' + i);
+    btn.classList.add('done'); btn.disabled = true;
+  }
+  var next = document.getElementById('v103_' + (step + 1));
+  if (next) next.disabled = false;
+
+  switch(step) {
+    case 1:
+      info.innerHTML = '🌿 <strong>Variegated leaf</strong> (Croton plant). Notice: some parts are <strong>green</strong> (have chlorophyll) and some are <strong>white/cream</strong> (no chlorophyll).';
+      info.style.background = '#dcfce7';
+      break;
+    case 2:
+      base.classList.add('white-stage');
+      patches.forEach(function(p) { p.style.opacity = '0.3'; });
+      info.innerHTML = '🧪 Leaf boiled in water → then in <strong>alcohol (water bath)</strong> → chlorophyll removed. Leaf is now <strong>pale/white</strong>. But the starch pattern is still inside!';
+      info.style.background = '#f8fafc';
+      break;
+    case 3:
+      base.classList.remove('white-stage');
+      base.classList.add('tested');
+      patches.forEach(function(p) {
+        p.style.opacity = '1';
+        p.classList.add('tested');
+      });
+      key.innerHTML = '<span class="var-key-dot blueblack-dot"></span> Was green → BLUE-BLACK (starch!)   <span class="var-key-dot brown-dot"></span> Was white → BROWN (no starch)';
+      info.innerHTML = '💧 <strong>Iodine added!</strong> Areas that were <strong>green</strong> → turned <strong>BLUE-BLACK</strong> (starch present). Areas that were <strong>white</strong> → stayed <strong>BROWN</strong> (no starch).';
+      info.style.background = '#dbeafe';
+      break;
+    case 4:
+      info.innerHTML = '✅ <strong>CONCLUSION:</strong> Only the <strong>green parts</strong> (with chlorophyll) could make starch through photosynthesis. White parts had NO chlorophyll, so NO photosynthesis, NO starch. <strong>Chlorophyll is essential!</strong>';
+      info.style.background = '#dcfce7';
+      break;
+  }
 }
 
-function resetVar103() {
-  document.getElementById('varLeft').classList.remove('tested');
-  document.getElementById('varRight').classList.remove('tested');
-  document.getElementById('varLeft').innerHTML = '<span>Green<br>(chlorophyll ✔)</span>';
-  document.getElementById('varRight').innerHTML = '<span>White<br>(no chlorophyll)</span>';
-  document.getElementById('varStatus').textContent = 'Variegated leaf (e.g., Croton) — green part has chlorophyll, white part does not';
-  document.getElementById('varStatus').style.background = 'transparent';
-  document.getElementById('varBtn').disabled = false;
-  document.getElementById('varBtn').classList.remove('done');
+function varReset() {
+  varCurrentStep = 0;
+  var leaf = document.getElementById('crotonLeaf');
+  var base = leaf.querySelector('.croton-base');
+  var patches = leaf.querySelectorAll('.croton-patch');
+  base.classList.remove('white-stage', 'tested');
+  patches.forEach(function(p) { p.classList.remove('tested'); p.style.opacity = '1'; });
+  document.querySelector('.var-key').innerHTML = '<span class="var-key-dot green-dot"></span> Green = has chlorophyll <span class="var-key-dot white-dot"></span> White = NO chlorophyll';
+  document.getElementById('varStepInfo').textContent = 'This is a Croton (variegated) leaf — notice the green and white patches';
+  document.getElementById('varStepInfo').style.background = 'transparent';
+  for (var i = 1; i <= 4; i++) {
+    var btn = document.getElementById('v103_' + i);
+    btn.classList.remove('done'); btn.disabled = i !== 1;
+  }
 }
 
-// ===== Activity 10.4: CO2 NaOH Test =====
+// ===== Activity 10.4: CO2 NaOH Test (flask setup) =====
 var naohStep = 0;
 function naohNextStep() {
   naohStep++;
-  var bottle = document.getElementById('naohBottle');
-  var status = document.getElementById('naohStatus');
-  var sun = document.getElementById('naohSun');
+  var flask = document.getElementById('naohFlask');
+  var sun = document.getElementById('naohSunIcon');
+  var info = document.getElementById('naohStepInfo');
+  var lh = document.getElementById('naohLH');
+  var rh = document.getElementById('naohRH');
 
   var btn = document.getElementById('n104_' + naohStep);
   if (btn) { btn.classList.add('done'); btn.disabled = true; }
@@ -4602,39 +4679,40 @@ function naohNextStep() {
 
   switch(naohStep) {
     case 1:
-      bottle.style.opacity = '1';
-      status.textContent = '🧪 Half the leaf is enclosed with NaOH (absorbs CO₂)';
-      status.style.background = '#fef3c7';
+      flask.classList.add('visible');
+      info.innerHTML = '🧪 <strong>Setup:</strong> Half the leaf is inserted through the cork of a bottle containing <strong>NaOH (caustic soda)</strong>. NaOH absorbs all CO₂ inside the bottle. The other half stays in <strong>normal air</strong> (which has CO₂).';
+      info.style.background = '#fef3c7';
       break;
     case 2:
-      sun.style.display = 'block';
-      status.textContent = '☀️ Plant kept in sunlight for several hours...';
-      status.style.background = '#fef9c3';
+      sun.style.opacity = '1';
+      info.innerHTML = '☀️ <strong>Plant kept in sunlight</strong> for several hours. The exposed half receives sunlight + CO₂ → can photosynthesise. The enclosed half gets sunlight but NO CO₂ → cannot make starch!';
+      info.style.background = '#fef9c3';
       break;
     case 3:
-      document.getElementById('naohLeft').classList.add('no-starch');
-      document.getElementById('naohRight').classList.add('has-starch');
-      document.getElementById('naohLeft').innerHTML = '<span>BROWN<br>❌ No starch</span>';
-      document.getElementById('naohRight').innerHTML = '<span>BLUE-BLACK<br>✅ Starch!</span>';
-      status.textContent = '✅ Exposed half = blue-black (starch). Enclosed half = brown (no starch). CO₂ is essential!';
-      status.style.background = '#dcfce7';
+      flask.classList.remove('visible');
+      lh.classList.add('no-starch');
+      rh.classList.add('has-starch');
+      document.getElementById('naohLHText').innerHTML = 'BROWN ❌<br>No starch!';
+      document.getElementById('naohRHText').innerHTML = 'BLUE-BLACK ✅<br>Starch present!';
+      info.innerHTML = '✅ <strong>Iodine test result:</strong> The enclosed half (no CO₂) stays <strong>BROWN</strong> — no starch formed! The exposed half (had CO₂) turns <strong>BLUE-BLACK</strong> — starch present! This proves <strong>CO₂ is essential for photosynthesis</strong>.';
+      info.style.background = '#dcfce7';
       break;
   }
 }
+
 function resetNaoh() {
   naohStep = 0;
-  document.getElementById('naohBottle').style.opacity = '0.2';
-  document.getElementById('naohSun').style.display = 'none';
-  document.getElementById('naohLeft').classList.remove('no-starch');
-  document.getElementById('naohRight').classList.remove('has-starch');
-  document.getElementById('naohLeft').innerHTML = '<span>Enclosed<br>(no CO₂)</span>';
-  document.getElementById('naohRight').innerHTML = '<span>Exposed<br>(has CO₂)</span>';
-  document.getElementById('naohStatus').textContent = 'Click Step 1 to begin';
-  document.getElementById('naohStatus').style.background = 'transparent';
+  document.getElementById('naohFlask').classList.remove('visible');
+  document.getElementById('naohSunIcon').style.opacity = '0';
+  document.getElementById('naohLH').classList.remove('no-starch');
+  document.getElementById('naohRH').classList.remove('has-starch');
+  document.getElementById('naohLHText').innerHTML = 'Inside bottle<br>(no CO₂)';
+  document.getElementById('naohRHText').innerHTML = 'Outside<br>(normal air)';
+  document.getElementById('naohStepInfo').textContent = 'Click Step 1 to start';
+  document.getElementById('naohStepInfo').style.background = 'transparent';
   for (var i = 1; i <= 3; i++) {
     var b = document.getElementById('n104_' + i);
-    b.classList.remove('done');
-    b.disabled = i !== 1;
+    if (b) { b.classList.remove('done'); b.disabled = i !== 1; }
   }
 }
 
