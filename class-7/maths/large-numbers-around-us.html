@@ -1,0 +1,3605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch 1: Large Numbers Around Us — NCERT Ganita Prakash | Class 7 Maths</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple-darkest: #3b0764;
+  --purple-dark: #5b21b6;
+  --purple-mid: #7c3aed;
+  --purple-light: #a78bfa;
+  --purple-pale: #ede9fe;
+  --purple-bg: #faf5ff;
+  --pink: #ec4899;
+  --pink-pale: #fdf2f8;
+  --orange: #f97316;
+  --orange-pale: #fff7ed;
+  --yellow: #fbbf24;
+  --yellow-pale: #fefce8;
+  --green: #16a34a;
+  --green-pale: #f0fdf4;
+  --blue: #3b82f6;
+  --blue-pale: #eff6ff;
+  --red: #ef4444;
+  --red-pale: #fef2f2;
+  --teal: #14b8a6;
+  --teal-pale: #f0fdfa;
+  --bg: linear-gradient(180deg, #faf5ff 0%, #fff7ed 100%);
+  --text: #1e1b4b;
+  --card: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #faf5ff;
+  background-image: linear-gradient(180deg, #faf5ff 0%, #fff7ed 50%, #faf5ff 100%);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ============= TOP NAV ============= */
+.top-nav {
+  background: white;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 110;
+}
+.nav-link {
+  display: inline-block;
+  background: var(--purple-pale);
+  color: var(--purple-dark);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1.5px solid #c4b5fd;
+  transition: all 0.2s;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+}
+.nav-link:hover { background: #ddd6fe; transform: translateY(-1px); }
+.nav-prev { opacity: 0.4; pointer-events: none; }
+.nav-next { opacity: 0.4; pointer-events: none; }
+.nav-spacer { flex: 1; }
+.share-btn { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+.share-btn:hover { background: #dbeafe; }
+
+/* ============= NAV TOC ============= */
+.toc-bar {
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
+  padding: 12px 16px;
+  position: sticky;
+  top: 44px;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(124,58,237,0.3);
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.toc-bar a {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-right: 6px;
+  transition: all 0.2s;
+}
+.toc-bar a:hover {
+  background: rgba(255,255,255,0.35);
+  transform: translateY(-2px);
+}
+
+/* ============= HERO ============= */
+.hero {
+  background: linear-gradient(180deg, #7c3aed 0%, #a78bfa 30%, #c4b5fd 55%, #fde68a 85%, #fff7ed 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  padding-bottom: 30px;
+}
+.hero-star {
+  position: absolute;
+  color: rgba(255,255,255,0.6);
+  animation: twinkle 2s ease-in-out infinite;
+}
+@keyframes twinkle { 0%,100%{opacity:0.3;transform:scale(0.8)} 50%{opacity:1;transform:scale(1.2)} }
+
+.hero-content { position: relative; z-index: 10; text-align: center; padding: 36px 16px 0; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.3);
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: 30px;
+  padding: 5px 18px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(28px, 6vw, 54px);
+  color: white;
+  text-shadow: 0 3px 12px rgba(91,33,182,0.4);
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+.hero p { color: white; font-size: 15px; font-weight: 700; opacity: 0.9; margin-bottom: 16px; }
+
+/* Number rain animation */
+.number-rain {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.rain-num {
+  position: absolute;
+  font-family: 'Fredoka One', cursive;
+  color: rgba(255,255,255,0.15);
+  font-size: 24px;
+  animation: numFall linear infinite;
+}
+@keyframes numFall {
+  0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(500px) rotate(360deg); opacity: 0; }
+}
+
+/* Big number counter in hero */
+.hero-counter {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px 28px;
+  display: inline-block;
+  margin: 20px auto;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.hero-counter-num {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(32px, 8vw, 60px);
+  color: #fde047;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  letter-spacing: 3px;
+}
+.hero-counter-label {
+  font-size: 14px;
+  color: white;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+/* Characters intro */
+.char-intro {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.char-card {
+  background: rgba(255,255,255,0.25);
+  border-radius: 16px;
+  padding: 14px 22px;
+  text-align: center;
+  border: 2px solid rgba(255,255,255,0.4);
+  min-width: 120px;
+}
+.char-emoji { font-size: 40px; display: block; margin-bottom: 4px; }
+.char-label { color: white; font-weight: 800; font-size: 14px; }
+
+/* ============= CONTAINER ============= */
+.container { max-width: 1000px; margin: 0 auto; padding: 36px 16px 60px; }
+
+/* ============= SECTION BLOCKS ============= */
+.section-block {
+  background: white;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  margin-bottom: 36px;
+  overflow: hidden;
+  scroll-margin-top: 100px;
+}
+.section-hd {
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: white;
+  font-family: 'Fredoka One', cursive;
+  font-size: 24px;
+  line-height: 1.2;
+}
+.section-hd .icon { font-size: 32px; }
+.section-bd { padding: 28px; }
+.section-bd > p { margin-bottom: 14px; }
+
+.g-purple { background: linear-gradient(135deg, #5b21b6, #a78bfa); }
+.g-pink   { background: linear-gradient(135deg, #9d174d, #ec4899); }
+.g-orange { background: linear-gradient(135deg, #9a3412, #fb923c); }
+.g-teal   { background: linear-gradient(135deg, #134e4a, #2dd4bf); }
+.g-blue   { background: linear-gradient(135deg, #1e40af, #38bdf8); }
+.g-green  { background: linear-gradient(135deg, #166534, #22c55e); }
+.g-rose   { background: linear-gradient(135deg, #881337, #fb7185); }
+.g-amber  { background: linear-gradient(135deg, #78350f, #fbbf24); }
+.g-indigo { background: linear-gradient(135deg, #312e81, #818cf8); }
+.g-sky    { background: linear-gradient(135deg, #0c4a6e, #38bdf8); }
+
+.subtitle {
+  font-family: 'Fredoka One', cursive;
+  color: var(--purple-dark);
+  font-size: 20px;
+  margin: 22px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============= CHARACTER SPEECH BUBBLES ============= */
+.speech-bubble {
+  position: relative;
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+}
+.roxie-bubble {
+  background: #fdf2f8;
+  border: 2px solid #f9a8d4;
+  color: #831843;
+}
+.roxie-bubble::after { left: 20px; background: #fdf2f8; border-right: 2px solid #f9a8d4; border-bottom: 2px solid #f9a8d4; }
+.estu-bubble {
+  background: #eff6ff;
+  border: 2px solid #93c5fd;
+  color: #1e3a5f;
+}
+.estu-bubble::after { right: 20px; background: #eff6ff; border-right: 2px solid #93c5fd; border-bottom: 2px solid #93c5fd; }
+.char-name { font-weight: 800; font-size: 13px; margin-bottom: 2px; }
+
+/* ============= KEY TERM PILL ============= */
+.kt {
+  display: inline-block;
+  background: #fde047;
+  color: #713f12;
+  border-radius: 7px;
+  padding: 1px 9px;
+  font-weight: 800;
+  font-size: 13px;
+  margin: 0 2px;
+}
+
+/* ============= INFO CARDS GRID ============= */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.info-card {
+  border-radius: 14px;
+  padding: 16px 18px;
+  font-size: 14px;
+}
+.info-card h4 { font-weight: 800; margin-bottom: 6px; font-size: 15px; }
+.info-card ul { padding-left: 18px; margin-top: 4px; }
+.info-card li { margin-bottom: 3px; }
+.ic-purple { background: #faf5ff; border-left: 5px solid #a78bfa; }
+.ic-pink   { background: #fdf2f8; border-left: 5px solid #ec4899; }
+.ic-orange { background: #fff7ed; border-left: 5px solid #fb923c; }
+.ic-green  { background: #f0fdf4; border-left: 5px solid #22c55e; }
+.ic-blue   { background: #eff6ff; border-left: 5px solid #3b82f6; }
+.ic-yellow { background: #fefce8; border-left: 5px solid #facc15; }
+.ic-red    { background: #fef2f2; border-left: 5px solid #f87171; }
+.ic-teal   { background: #f0fdfa; border-left: 5px solid #14b8a6; }
+
+/* ============= TABLES ============= */
+.table-wrap { overflow-x: auto; margin: 14px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 480px; }
+th { background: linear-gradient(135deg, #7c3aed, #a78bfa); color: white; padding: 12px 14px; text-align: left; font-weight: 800; font-size: 13px; }
+td { padding: 11px 14px; border-bottom: 1px solid #ede9fe; font-size: 13.5px; }
+tr:nth-child(even) td { background: #faf5ff; }
+
+/* ============= LAND JOURNEY CARDS ============= */
+.land-card {
+  border-radius: 18px;
+  padding: 24px;
+  margin: 18px 0;
+  position: relative;
+  overflow: hidden;
+}
+.land-card h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 22px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.land-card p, .land-card li { font-size: 14px; margin-bottom: 6px; }
+.land-card ul { padding-left: 20px; }
+.land-thousands { background: linear-gradient(135deg, #ecfccb, #d9f99d); border: 3px solid #84cc16; }
+.land-thousands h3 { color: #365314; }
+.land-lakhs { background: linear-gradient(135deg, #fef3c7, #fde68a); border: 3px solid #f59e0b; }
+.land-lakhs h3 { color: #78350f; }
+.land-crores { background: linear-gradient(135deg, #ede9fe, #c4b5fd); border: 3px solid #7c3aed; }
+.land-crores h3 { color: #3b0764; }
+
+/* ============= TRICK / NOTE ============= */
+.trick {
+  background: linear-gradient(135deg, #fef9c3, #fde68a);
+  border: 2px solid #f59e0b;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.trick strong { color: #78350f; }
+
+.note-box {
+  background: #eff6ff;
+  border-left: 5px solid #3b82f6;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 14px 0;
+  font-size: 14px;
+}
+
+.fun-fact {
+  background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+  border: 2px solid #f9a8d4;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.fun-fact strong { color: #9d174d; }
+
+/* ============= INTERACTIVE WIDGET STYLES ============= */
+.widget-box {
+  background: linear-gradient(135deg, #faf5ff, #ede9fe);
+  border: 3px solid #c4b5fd;
+  border-radius: 18px;
+  padding: 24px;
+  margin: 20px 0;
+}
+.widget-box h3 {
+  font-family: 'Fredoka One', cursive;
+  color: var(--purple-dark);
+  font-size: 20px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.game-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.2s;
+  margin: 4px;
+}
+.game-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.game-btn:active { transform: translateY(0); }
+.btn-purple { background: linear-gradient(135deg, #7c3aed, #a78bfa); color: white; }
+.btn-pink { background: linear-gradient(135deg, #ec4899, #f9a8d4); color: white; }
+.btn-orange { background: linear-gradient(135deg, #f97316, #fdba74); color: white; }
+.btn-green { background: linear-gradient(135deg, #16a34a, #4ade80); color: white; }
+.btn-blue { background: linear-gradient(135deg, #3b82f6, #93c5fd); color: white; }
+.btn-sm { padding: 6px 14px; font-size: 12px; border-radius: 10px; }
+
+/* Number reader */
+.number-reader-widget input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 3px solid #c4b5fd;
+  border-radius: 14px;
+  font-size: 24px;
+  font-family: 'Fredoka One', cursive;
+  color: var(--purple-dark);
+  text-align: center;
+  letter-spacing: 3px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.number-reader-widget input:focus { border-color: #7c3aed; }
+.format-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 14px 0;
+}
+.format-card {
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.format-card h4 { font-size: 12px; font-weight: 800; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.format-card .fmt-num { font-family: 'Fredoka One', cursive; font-size: 20px; color: var(--purple-dark); word-break: break-all; }
+.num-words {
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--purple-mid);
+  margin: 10px 0;
+  min-height: 48px;
+}
+.quick-btns { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 10px; }
+
+/* Dot visualizer */
+.dot-container {
+  width: 100%;
+  height: 200px;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  margin: 14px 0;
+  border: 2px solid #e5e7eb;
+}
+.dot-container .dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  position: absolute;
+}
+.dot-counter {
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
+  font-size: 28px;
+  color: var(--purple-dark);
+  margin: 10px 0;
+}
+.dot-btns { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+
+/* Number battle */
+.battle-area {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 14px;
+  align-items: center;
+  margin: 14px 0;
+}
+.battle-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 3px solid #e5e7eb;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.battle-card:hover { border-color: #7c3aed; transform: scale(1.02); box-shadow: 0 4px 16px rgba(124,58,237,0.2); }
+.battle-card .b-num { font-family: 'Fredoka One', cursive; font-size: clamp(18px, 4vw, 28px); color: var(--purple-dark); word-break: break-all; }
+.battle-vs { font-family: 'Fredoka One', cursive; font-size: 24px; color: var(--orange); }
+.battle-card.correct { border-color: #16a34a; background: #f0fdf4; }
+.battle-card.wrong { border-color: #ef4444; background: #fef2f2; }
+.score-bar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-weight: 800;
+  font-size: 16px;
+  margin: 10px 0;
+}
+.score-bar span { padding: 6px 16px; border-radius: 10px; }
+.score-correct { background: #f0fdf4; color: #16a34a; }
+.score-wrong { background: #fef2f2; color: #ef4444; }
+.score-streak { background: #fefce8; color: #b45309; }
+
+/* Estimation */
+.est-grid {
+  width: 100%;
+  height: 250px;
+  background: white;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #e5e7eb;
+  margin: 14px 0;
+}
+.est-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--purple-mid);
+  border-radius: 50%;
+  position: absolute;
+}
+.est-input-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 14px 0;
+}
+.est-input-row input {
+  width: 120px;
+  padding: 10px;
+  border: 2px solid #c4b5fd;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Newspaper */
+.newspaper {
+  background: #fffbeb;
+  border: 2px solid #d4a76a;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 14px 0;
+  font-family: Georgia, serif;
+}
+.newspaper h4 {
+  font-family: 'Fredoka One', cursive;
+  text-align: center;
+  font-size: 20px;
+  border-bottom: 3px double #1e293b;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+  color: #1e293b;
+}
+.news-headline {
+  padding: 10px 0;
+  border-bottom: 1px solid #d4a76a;
+  font-size: 14px;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+}
+.news-headline:hover { background: #fef3c7; }
+.news-headline:last-child { border-bottom: none; }
+.news-num {
+  background: transparent;
+  font-weight: 900;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 4px;
+  padding: 0 2px;
+}
+.news-num.highlighted {
+  background: #fde047;
+  color: #713f12;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+.news-info {
+  display: none;
+  background: #ecfdf5;
+  border: 2px solid #34d399;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-top: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  color: #166534;
+  font-weight: 700;
+}
+.news-info.show { display: block; }
+
+/* Body calculator */
+.body-calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin: 14px 0;
+}
+.body-stat {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  border: 2px solid #ede9fe;
+}
+.body-stat .stat-icon { font-size: 32px; display: block; margin-bottom: 6px; }
+.body-stat .stat-label { font-size: 12px; font-weight: 800; color: #6b7280; text-transform: uppercase; }
+.body-stat .stat-num { font-family: 'Fredoka One', cursive; font-size: 22px; color: var(--purple-dark); margin: 4px 0; }
+.body-stat .stat-words { font-size: 11px; color: #7c3aed; font-weight: 700; }
+
+/* Distance cards */
+.dist-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.dist-card {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 2px solid transparent;
+}
+.dist-card:hover { border-color: #7c3aed; transform: translateY(-2px); }
+.dist-card.selected { border-color: #7c3aed; background: #faf5ff; box-shadow: 0 4px 12px rgba(124,58,237,0.2); }
+.dist-card .d-icon { font-size: 28px; display: block; margin-bottom: 4px; }
+.dist-card .d-name { font-weight: 800; font-size: 13px; color: #374151; }
+.dist-card .d-km { font-family: 'Fredoka One', cursive; font-size: 16px; color: var(--purple-dark); }
+
+.dist-compare-bar {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  margin: 14px 0;
+  min-height: 80px;
+}
+.dist-bar-row {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dist-bar-label { font-size: 12px; font-weight: 800; min-width: 100px; color: #374151; }
+.dist-bar-track { flex: 1; height: 24px; background: #f3f4f6; border-radius: 12px; overflow: hidden; }
+.dist-bar-fill { height: 100%; border-radius: 12px; transition: width 0.8s ease; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-size: 10px; font-weight: 800; color: white; }
+
+/* State quiz */
+.match-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 14px 0;
+}
+.match-col h4 { font-size: 14px; font-weight: 800; text-align: center; margin-bottom: 10px; color: var(--purple-dark); }
+.match-item {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+}
+.match-item:hover { border-color: #a78bfa; background: #faf5ff; }
+.match-item.selected { border-color: #7c3aed; background: #ede9fe; color: #5b21b6; }
+.match-item.correct { border-color: #16a34a; background: #dcfce7; color: #166534; pointer-events: none; }
+.match-item.wrong { border-color: #ef4444; background: #fee2e2; color: #991b1b; animation: shake 0.3s; }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+/* Rounding game */
+.round-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 14px 0;
+}
+.round-opt {
+  padding: 14px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  font-family: 'Fredoka One', cursive;
+  font-size: 18px;
+  color: var(--purple-dark);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.round-opt:hover { border-color: #a78bfa; background: #faf5ff; }
+.round-opt.correct { border-color: #16a34a; background: #dcfce7; color: #166534; }
+.round-opt.wrong { border-color: #ef4444; background: #fee2e2; color: #991b1b; }
+
+/* Place value game */
+.pv-display {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(24px, 5vw, 36px);
+  text-align: center;
+  color: var(--purple-dark);
+  letter-spacing: 4px;
+  margin: 14px 0;
+}
+.pv-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 4px;
+  margin: 14px 0;
+}
+.pv-cell {
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.pv-header {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  color: white;
+  padding: 6px 4px;
+  font-size: 10px;
+  font-weight: 800;
+}
+.pv-digit {
+  background: white;
+  border: 2px solid #e5e7eb;
+  padding: 10px 4px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  color: var(--purple-dark);
+  min-height: 44px;
+  transition: all 0.3s;
+}
+.pv-digit.filled { border-color: #7c3aed; background: #faf5ff; animation: popIn 0.3s ease; }
+@keyframes popIn { 0%{transform:scale(0)} 60%{transform:scale(1.2)} 100%{transform:scale(1)} }
+.pv-quiz-opts { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 10px 0; }
+.pv-quiz-opt {
+  padding: 8px 18px;
+  border-radius: 10px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Nunito', sans-serif;
+}
+.pv-quiz-opt:hover { border-color: #a78bfa; }
+.pv-quiz-opt.correct { border-color: #16a34a; background: #dcfce7; color: #166534; }
+.pv-quiz-opt.wrong { border-color: #ef4444; background: #fee2e2; }
+
+/* ============= MCQ ============= */
+.mcq-list { list-style: none; padding: 0; }
+.mcq-item {
+  background: white;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #7c3aed;
+}
+.mcq-q { font-weight: 700; font-size: 14.5px; margin-bottom: 10px; color: #5b21b6; }
+.mcq-options { list-style: none; padding-left: 0; }
+.mcq-options li {
+  background: #faf5ff;
+  border-radius: 8px;
+  padding: 7px 12px;
+  margin-bottom: 5px;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1.5px solid transparent;
+}
+.mcq-options li:hover { background: #ede9fe; border-color: #a78bfa; }
+.mcq-options li.correct { background: #dcfce7 !important; border-color: #16a34a; font-weight: 700; color: #14532d; }
+.mcq-options li.wrong-pick { background: #fee2e2 !important; border-color: #ef4444; }
+.mcq-ans { font-size: 12.5px; color: #16a34a; font-weight: 700; margin-top: 6px; display: none; }
+.mcq-item.show-ans .mcq-ans { display: block; }
+
+/* Short Q&A */
+.short-q-list { list-style: none; padding: 0; }
+.short-q-item {
+  background: white;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #3b82f6;
+}
+.short-q { font-weight: 700; font-size: 14px; color: #1e40af; margin-bottom: 6px; }
+.short-a { font-size: 13.5px; color: #374151; display: none; }
+.short-a strong { color: #5b21b6; }
+.short-q-item.show-ans .short-a { display: block; }
+.toggle-ans-btn {
+  background: none;
+  border: 1.5px solid #c4b5fd;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #7c3aed;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.2s;
+}
+.toggle-ans-btn:hover { background: #ede9fe; }
+
+/* Fill blanks */
+.fib-item {
+  background: white;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #f97316;
+}
+.fib-q { font-weight: 700; font-size: 14px; color: #9a3412; margin-bottom: 4px; }
+.fib-a { font-size: 13px; color: #16a34a; font-weight: 700; display: none; }
+.fib-item.show-ans .fib-a { display: block; }
+
+/* True/False */
+.tf-item {
+  background: white;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #14b8a6;
+}
+.tf-q { font-weight: 700; font-size: 14px; color: #134e4a; margin-bottom: 4px; }
+.tf-a { font-size: 13px; color: #7c3aed; font-weight: 700; display: none; }
+.tf-item.show-ans .tf-a { display: block; }
+
+/* Word problem */
+.wp-item {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #ec4899;
+}
+.wp-q { font-weight: 700; font-size: 14px; color: #9d174d; margin-bottom: 8px; }
+.wp-sol { font-size: 13px; color: #374151; display: none; padding: 10px; background: #faf5ff; border-radius: 10px; margin-top: 8px; }
+.wp-sol strong { color: #5b21b6; }
+.wp-item.show-ans .wp-sol { display: block; }
+
+/* Long answer */
+.la-item {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #5b21b6;
+}
+.la-q { font-weight: 700; font-size: 14px; color: #5b21b6; margin-bottom: 8px; }
+.la-a { font-size: 13px; color: #374151; display: none; padding: 10px; background: #faf5ff; border-radius: 10px; margin-top: 8px; line-height: 1.7; }
+.la-item.show-ans .la-a { display: block; }
+
+/* HOTS */
+.hots-item {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #ef4444;
+  border-right: 5px solid #f97316;
+}
+.hots-q { font-weight: 700; font-size: 14px; color: #991b1b; margin-bottom: 8px; }
+.hots-a { font-size: 13px; color: #374151; display: none; padding: 10px; background: #fef2f2; border-radius: 10px; margin-top: 8px; line-height: 1.7; }
+.hots-item.show-ans .hots-a { display: block; }
+
+/* Powers table */
+.powers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+.power-card {
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  border: 2px solid #ede9fe;
+  transition: all 0.3s;
+}
+.power-card:hover { border-color: #a78bfa; transform: translateY(-2px); }
+.power-card .p-exp { font-family: 'Fredoka One', cursive; font-size: 20px; color: var(--purple-dark); }
+.power-card .p-val { font-size: 13px; font-weight: 700; color: #6b7280; margin-top: 4px; word-break: break-all; }
+.power-card .p-name { font-size: 11px; color: #a78bfa; font-weight: 800; }
+
+/* ============= SCROLL REVEAL ============= */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============= FAB SHARE ============= */
+.fab-share {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 16px rgba(124,58,237,0.4);
+  cursor: pointer;
+  z-index: 200;
+  transition: transform 0.2s;
+}
+.fab-share:hover { transform: scale(1.1); }
+
+/* ============= SHARE OVERLAY ============= */
+.share-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+}
+.share-overlay.active { display: flex; }
+.share-box {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  width: 90%;
+  max-width: 340px;
+  text-align: center;
+}
+.share-box h3 { font-family: 'Fredoka One', cursive; color: #7c3aed; margin-bottom: 18px; }
+.share-opt {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-family: 'Nunito', sans-serif;
+  transition: transform 0.2s;
+}
+.share-opt:hover { transform: scale(1.02); }
+.share-opt.wa { background: #25d366; color: white; }
+.share-opt.copy { background: #eff6ff; color: #1e40af; }
+.share-opt.native { background: #faf5ff; color: #7c3aed; }
+.share-close { background: none; border: 1px solid #e5e7eb; width: 100%; padding: 10px; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; color: #6b7280; }
+.copy-feedback { display: none; color: #16a34a; font-weight: 700; margin-top: 10px; font-size: 14px; }
+
+/* ============= BOTTOM NAV ============= */
+.bottom-nav {
+  max-width: 1000px;
+  margin: 0 auto 30px;
+  padding: 0 16px;
+}
+.bnav-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.bnav-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.bnav-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.bnav-card.disabled { opacity: 0.4; pointer-events: none; }
+.bnav-dir { font-size: 13px; font-weight: 700; color: #7c3aed; }
+.bnav-title { font-size: 16px; font-weight: 800; color: var(--text); }
+.bnav-bottom {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.bnav-home, .bnav-wa {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.bnav-home { background: #faf5ff; color: #7c3aed; border: 2px solid #c4b5fd; }
+.bnav-wa { background: #25d366; color: white; }
+.bnav-home:hover, .bnav-wa:hover { transform: translateY(-2px); }
+
+/* ============= FOOTER ============= */
+footer {
+  text-align: center;
+  padding: 30px 16px;
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+footer .footer-interest {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 24px;
+  background: rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 20px;
+  color: white;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+footer .footer-interest:hover { background: rgba(255,255,255,0.35); }
+
+/* ============= CONFETTI ============= */
+.confetti-piece {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  z-index: 999;
+  pointer-events: none;
+  animation: confettiFall 3s ease-out forwards;
+}
+@keyframes confettiFall {
+  0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width: 600px) {
+  .section-hd { font-size: 18px; padding: 16px 18px; }
+  .section-bd { padding: 18px; }
+  .format-row { grid-template-columns: 1fr; }
+  .battle-area { grid-template-columns: 1fr; }
+  .battle-vs { display: none; }
+  .match-grid { grid-template-columns: 1fr; }
+  .round-options { grid-template-columns: 1fr; }
+  .bnav-cards { grid-template-columns: 1fr; }
+  .pv-table { grid-template-columns: repeat(4, 1fr); }
+  .powers-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-counter-num { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<nav class="top-nav">
+  <a href="../../index.html" class="nav-link">Home</a>
+  <span class="nav-link nav-prev">Previous</span>
+  <span class="nav-link nav-next">Next</span>
+  <span class="nav-spacer"></span>
+  <span class="nav-link share-btn" onclick="openShare()">Share</span>
+</nav>
+
+<!-- ===== TOC BAR ===== -->
+<div class="toc-bar">
+  <a href="#sec1">A Lakh Varieties!</a>
+  <a href="#sec2">Land of Tens</a>
+  <a href="#sec3">Reading Numbers</a>
+  <a href="#sec4">Crores & Crores</a>
+  <a href="#sec5">Exact vs Approx</a>
+  <a href="#sec6">Rounding</a>
+  <a href="#sec7">Powers of 10</a>
+  <a href="#sec8">Body Numbers</a>
+  <a href="#sec9">Distances</a>
+  <a href="#sec10">Word Problems</a>
+  <a href="#interactive">Games</a>
+  <a href="#practice">Practice</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="number-rain" id="numberRain"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Class 7 Maths - NCERT Ganita Prakash 2024</div>
+    <h1>Large Numbers Around Us</h1>
+    <p>Chapter 1 - Exploring Lakhs, Crores & Beyond!</p>
+    <div class="hero-counter">
+      <div class="hero-counter-num" id="heroCounter">0</div>
+      <div class="hero-counter-label">India's Population (approx.)</div>
+    </div>
+    <div class="char-intro">
+      <div class="char-card">
+        <span class="char-emoji">&#128103;</span>
+        <span class="char-label">Roxie</span>
+      </div>
+      <div class="char-card">
+        <span class="char-emoji">&#128102;</span>
+        <span class="char-label">Estu</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ===== SECTION 1: A Lakh Varieties! ===== -->
+<div class="section-block reveal" id="sec1">
+  <div class="section-hd g-purple">
+    <span class="icon">&#127834;</span>
+    <span>1. A Lakh Varieties!</span>
+  </div>
+  <div class="section-bd">
+    <div class="speech-bubble roxie-bubble">
+      <div class="char-name">&#128103; Roxie asks:</div>
+      Did you know that India has over <span class="kt">1 Lakh</span> varieties of rice? That's right - more than 1,00,000 different types! Can you even imagine counting that many?
+    </div>
+
+    <p>Large numbers are everywhere around us - from the grains of sand on a beach to the stars in the sky, from the population of our country to the money in a national budget. But how well do we really understand these numbers?</p>
+
+    <div class="speech-bubble estu-bubble">
+      <div class="char-name">&#128102; Estu wonders:</div>
+      How big IS a lakh, really? I mean, I know it's 1,00,000... but what does that actually FEEL like? Can you visualize it?
+    </div>
+
+    <div class="subtitle">&#128161; Making Sense of a Lakh</div>
+
+    <div class="info-grid">
+      <div class="info-card ic-purple">
+        <h4>&#9201; 1 Lakh Seconds</h4>
+        <p>= 1,00,000 seconds</p>
+        <p>= 1,666 minutes</p>
+        <p>= <strong>~28 hours!</strong></p>
+        <p>That's more than a full day!</p>
+      </div>
+      <div class="info-card ic-pink">
+        <h4>&#128694; 1 Lakh Steps</h4>
+        <p>= 1,00,000 steps</p>
+        <p>= roughly <strong>80 km</strong></p>
+        <p>That's Delhi to Agra on foot!</p>
+      </div>
+      <div class="info-card ic-orange">
+        <h4>&#128218; 1 Lakh Pages</h4>
+        <p>= 1,00,000 pages</p>
+        <p>= about <strong>400 textbooks</strong></p>
+        <p>A whole library section!</p>
+      </div>
+      <div class="info-card ic-green">
+        <h4>&#127838; 1 Lakh Rotis</h4>
+        <p>If you eat 4 rotis/day...</p>
+        <p>= <strong>~68 years</strong> of rotis!</p>
+        <p>An entire lifetime of meals!</p>
+      </div>
+    </div>
+
+    <div class="fun-fact">
+      <strong>&#127775; Fun Fact:</strong> India grows 1,00,000+ varieties of rice because of its diverse climate zones - from the cold Himalayan valleys to the tropical coast of Kerala. Farmers have been developing new varieties for thousands of years!
+    </div>
+
+    <div class="speech-bubble roxie-bubble">
+      <div class="char-name">&#128103; Roxie:</div>
+      Ready for an adventure? Let's travel through the Land of Tens and discover how numbers grow from hundreds to thousands to lakhs to crores! &#128640;
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 2: Land of Tens ===== -->
+<div class="section-block reveal" id="sec2">
+  <div class="section-hd g-pink">
+    <span class="icon">&#127759;</span>
+    <span>2. Land of Tens</span>
+  </div>
+  <div class="section-bd">
+    <p>Join Roxie and Estu as they travel through the magical <strong>Land of Tens</strong> - where every new land is <span class="kt">10 times</span> bigger than the last!</p>
+
+    <!-- Thousands -->
+    <div class="land-card land-thousands">
+      <h3>&#127969; The Thoughtful Thousands (1,000s)</h3>
+      <div class="speech-bubble estu-bubble" style="margin-bottom:14px;">
+        <div class="char-name">&#128102; Estu:</div>
+        Welcome to Thousand-land! Here, everything comes in groups of 1,000. A thousand = 10 hundreds!
+      </div>
+      <ul>
+        <li><strong>1 Thousand = 10 Hundreds = 1,000</strong></li>
+        <li>A typical school has about <strong>1,000 students</strong></li>
+        <li>The highest denomination coin: <strong>Rs 1,000 note</strong> (discontinued, but we remember!)</li>
+        <li>A small Indian village has about <strong>1,000 to 5,000</strong> people</li>
+        <li>The Ramayana has about <strong>24,000</strong> verses (24 thousand)</li>
+        <li>There are about <strong>28,000</strong> railway stations in India</li>
+      </ul>
+      <div class="trick">
+        <strong>&#129300; Think:</strong> 1 Thousand seconds = only about 16.7 minutes. You can count to a thousand in under 17 minutes!
+      </div>
+    </div>
+
+    <!-- Lakhs -->
+    <div class="land-card land-lakhs">
+      <h3>&#127942; The All-Powerful Lakhs (1,00,000s)</h3>
+      <div class="speech-bubble roxie-bubble" style="margin-bottom:14px;">
+        <div class="char-name">&#128103; Roxie:</div>
+        Welcome to Lakh-land! This is where numbers get REALLY interesting. 1 Lakh = 100 Thousands = 1,00,000!
+      </div>
+      <ul>
+        <li><strong>1 Lakh = 100 Thousands = 1,00,000</strong></li>
+        <li>Cost of a good motorcycle: <strong>~1 lakh rupees</strong></li>
+        <li>Population of a small town: <strong>~1-5 lakh</strong></li>
+        <li>Shimla population: <strong>~1.7 lakh</strong></li>
+        <li>Hairs on your head: <strong>~1 lakh!</strong></li>
+        <li>There are about <strong>6.38 lakh</strong> villages in India</li>
+      </ul>
+      <div class="fun-fact">
+        <strong>&#128561; How long to count to 1 lakh?</strong> If you count 1 number per second without stopping: 1,00,000 seconds = <strong>~28 hours non-stop!</strong> That's more than a full day of continuous counting!
+      </div>
+    </div>
+
+    <!-- Crores -->
+    <div class="land-card land-crores">
+      <h3>&#128081; The Crore Commander (1,00,00,000s)</h3>
+      <div class="speech-bubble estu-bubble" style="margin-bottom:14px;">
+        <div class="char-name">&#128102; Estu:</div>
+        Whoa, Crore-land! This is the BIG league! 1 Crore = 100 Lakhs = 1,00,00,000. These are the numbers that run countries!
+      </div>
+      <ul>
+        <li><strong>1 Crore = 100 Lakhs = 1,00,00,000</strong></li>
+        <li>Population of Goa: <strong>~15 lakh</strong> (a bit more than 1 crore... wait, less!)</li>
+        <li>Population of Delhi NCR: <strong>~3 crore</strong></li>
+        <li>A Bollywood blockbuster earns: <strong>100-500 crore</strong></li>
+        <li>India's population: <strong>~144 crore!</strong></li>
+        <li>If you earn Rs 1/second: 1 crore = <strong>~3.8 months non-stop!</strong></li>
+      </ul>
+      <div class="trick">
+        <strong>&#128293; Scale ladder:</strong><br>
+        10 Ones = 1 Ten<br>
+        10 Tens = 1 Hundred<br>
+        10 Hundreds = 1 Thousand<br>
+        10 Thousands = 1 Ten Thousand<br>
+        10 Ten Thousands = 1 Lakh<br>
+        10 Lakhs = 1 Ten Lakh<br>
+        10 Ten Lakhs = 1 Crore
+      </div>
+    </div>
+
+    <div class="speech-bubble roxie-bubble">
+      <div class="char-name">&#128103; Roxie:</div>
+      So from Ones to Crore, we multiply by 10 exactly <strong>7 times!</strong> 10 x 10 x 10 x 10 x 10 x 10 x 10 = 1,00,00,000. That's the beauty of our number system!
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 3: Reading Large Numbers ===== -->
+<div class="section-block reveal" id="sec3">
+  <div class="section-hd g-orange">
+    <span class="icon">&#128209;</span>
+    <span>3. Reading Large Numbers</span>
+  </div>
+  <div class="section-bd">
+    <p>Reading large numbers correctly is super important. India and many Western countries use <strong>different systems</strong> to organize digits. Let's master both!</p>
+
+    <div class="subtitle">&#127470;&#127475; Indian Place Value System</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Place</th><th>Crores</th><th>Ten Lakhs</th><th>Lakhs</th><th>Ten Thousands</th><th>Thousands</th><th>Hundreds</th><th>Tens</th><th>Ones</th>
+        </tr>
+        <tr>
+          <td><strong>Value</strong></td><td>1,00,00,000</td><td>10,00,000</td><td>1,00,000</td><td>10,000</td><td>1,000</td><td>100</td><td>10</td><td>1</td>
+        </tr>
+        <tr>
+          <td><strong>Zeros</strong></td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="subtitle">&#9999; Indian Comma Rules</div>
+    <div class="note-box">
+      <strong>Step 1:</strong> Start from the right. Place the <strong>first comma after 3 digits</strong> (separates hundreds from thousands).<br>
+      <strong>Step 2:</strong> After that, place a <strong>comma every 2 digits</strong>.<br><br>
+      <strong>Example:</strong> 98345612 becomes <span class="kt">9,83,45,612</span><br>
+      Read as: Nine crore eighty-three lakh forty-five thousand six hundred twelve
+    </div>
+
+    <div class="subtitle">&#127758; International Place Value System</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Place</th><th>Hundred Millions</th><th>Ten Millions</th><th>Millions</th><th>Hundred Thousands</th><th>Ten Thousands</th><th>Thousands</th><th>Hundreds</th><th>Tens</th><th>Ones</th>
+        </tr>
+        <tr>
+          <td><strong>Value</strong></td><td>100,000,000</td><td>10,000,000</td><td>1,000,000</td><td>100,000</td><td>10,000</td><td>1,000</td><td>100</td><td>10</td><td>1</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="note-box">
+      <strong>International commas:</strong> Place a comma every <strong>3 digits</strong> from the right.<br>
+      <strong>Example:</strong> 98345612 becomes <span class="kt">98,345,612</span><br>
+      Read as: Ninety-eight million three hundred forty-five thousand six hundred twelve
+    </div>
+
+    <div class="subtitle">&#128260; Indian vs International Comparison</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Indian System</th><th>= International System</th><th>Number</th></tr>
+        <tr><td>1 Thousand</td><td>1 Thousand</td><td>1,000</td></tr>
+        <tr><td>1 Lakh</td><td>100 Thousand</td><td>1,00,000</td></tr>
+        <tr><td>10 Lakh</td><td>1 Million</td><td>10,00,000</td></tr>
+        <tr><td>1 Crore</td><td>10 Million</td><td>1,00,00,000</td></tr>
+        <tr><td>10 Crore</td><td>100 Million</td><td>10,00,00,000</td></tr>
+        <tr><td>100 Crore</td><td>1 Billion</td><td>1,00,00,00,000</td></tr>
+      </table>
+    </div>
+
+    <div class="speech-bubble roxie-bubble">
+      <div class="char-name">&#128103; Roxie:</div>
+      Remember: <span class="kt">1 Million = 10 Lakh</span> and <span class="kt">1 Billion = 100 Crore</span>. These are the two most important conversions!
+    </div>
+
+    <div class="subtitle">&#128221; Worked Example</div>
+    <p>Let's read <strong>9,83,45,612</strong> in both systems:</p>
+    <div class="info-grid">
+      <div class="info-card ic-purple">
+        <h4>&#127470;&#127475; Indian System</h4>
+        <p>9,83,45,612</p>
+        <p><strong>Nine crore eighty-three lakh forty-five thousand six hundred twelve</strong></p>
+      </div>
+      <div class="info-card ic-blue">
+        <h4>&#127758; International System</h4>
+        <p>98,345,612</p>
+        <p><strong>Ninety-eight million three hundred forty-five thousand six hundred twelve</strong></p>
+      </div>
+    </div>
+
+    <div class="trick">
+      <strong>&#128173; Memory Trick:</strong> Indian system: "3-2-2-2" pattern (3 digits, then groups of 2). International system: "3-3-3-3" pattern (always groups of 3).
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 4: Of Crores and Crores! ===== -->
+<div class="section-block reveal" id="sec4">
+  <div class="section-hd g-teal">
+    <span class="icon">&#127470;&#127475;</span>
+    <span>4. Of Crores and Crores!</span>
+  </div>
+  <div class="section-bd">
+    <p>Let's explore some mind-boggling real-world numbers from India and the world!</p>
+
+    <div class="info-grid">
+      <div class="info-card ic-purple">
+        <h4>&#127470;&#127475; India's Population</h4>
+        <p>~1,44,00,00,000</p>
+        <p><strong>144 Crore</strong></p>
+        <p>= 1.44 Billion</p>
+      </div>
+      <div class="info-card ic-blue">
+        <h4>&#127758; World Population</h4>
+        <p>~8,00,00,00,000</p>
+        <p><strong>800 Crore</strong></p>
+        <p>= 8 Billion</p>
+      </div>
+      <div class="info-card ic-orange">
+        <h4>&#127963; Uttar Pradesh</h4>
+        <p>~24,00,00,000</p>
+        <p><strong>24 Crore</strong></p>
+        <p>Most populous state!</p>
+      </div>
+      <div class="info-card ic-pink">
+        <h4>&#127963; Maharashtra</h4>
+        <p>~13,00,00,000</p>
+        <p><strong>13 Crore</strong></p>
+        <p>2nd most populous</p>
+      </div>
+      <div class="info-card ic-green">
+        <h4>&#127965; Goa</h4>
+        <p>~15,00,000</p>
+        <p><strong>15 Lakh</strong></p>
+        <p>Smallest state by population!</p>
+      </div>
+      <div class="info-card ic-yellow">
+        <h4>&#128176; India's GDP</h4>
+        <p>~Rs 272,00,00,00,00,000</p>
+        <p><strong>~Rs 272 Lakh Crore</strong></p>
+        <p>= ~$3.5 Trillion</p>
+      </div>
+      <div class="info-card ic-red">
+        <h4>&#128181; RBI Currency Notes</h4>
+        <p>Total currency in circulation:</p>
+        <p><strong>~Rs 34 Lakh Crore</strong></p>
+        <p>That's a LOT of paper money!</p>
+      </div>
+      <div class="info-card ic-teal">
+        <h4>&#128651; Indian Railways</h4>
+        <p>Passengers per day:</p>
+        <p><strong>~2.3 Crore</strong></p>
+        <p>= 23 Million daily!</p>
+      </div>
+    </div>
+
+    <div class="speech-bubble estu-bubble">
+      <div class="char-name">&#128102; Estu:</div>
+      India's population of 144 crore means if you counted 1 person per second, it would take you over <strong>456 years</strong> to count everyone! &#128562;
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 5: Exact and Approximate Values ===== -->
+<div class="section-block reveal" id="sec5">
+  <div class="section-hd g-blue">
+    <span class="icon">&#127919;</span>
+    <span>5. Exact and Approximate Values</span>
+  </div>
+  <div class="section-bd">
+    <p>Not all numbers we use are exact. Sometimes we use <span class="kt">exact values</span> and sometimes <span class="kt">approximate values</span>. Let's understand when to use each!</p>
+
+    <div class="info-grid">
+      <div class="info-card ic-green">
+        <h4>&#9989; Exact Values</h4>
+        <ul>
+          <li>Your marks in an exam: <strong>87</strong></li>
+          <li>Students in your class: <strong>42</strong></li>
+          <li>Pages in your textbook: <strong>168</strong></li>
+          <li>Your bank balance: <strong>Rs 12,543</strong></li>
+          <li>Days in a year: <strong>365</strong></li>
+          <li>Players in a cricket team: <strong>11</strong></li>
+        </ul>
+      </div>
+      <div class="info-card ic-orange">
+        <h4>&#126760; Approximate Values</h4>
+        <ul>
+          <li>India's population: <strong>~144 crore</strong></li>
+          <li>Stars in the sky: <strong>thousands of crores</strong></li>
+          <li>Crowd at a rally: <strong>~5 lakh</strong></li>
+          <li>Grains of sand on a beach: <strong>crores</strong></li>
+          <li>Distance to Sun: <strong>~15 crore km</strong></li>
+          <li>Cells in your body: <strong>~37 lakh crore</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subtitle">&#128200; When to Use What?</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Situation</th><th>Type</th><th>Why?</th></tr>
+        <tr><td>Your exam score</td><td><strong>Exact</strong></td><td>Every mark matters!</td></tr>
+        <tr><td>Crowd at a cricket match</td><td><strong>Approximate</strong></td><td>Impossible to count exactly</td></tr>
+        <tr><td>Money in your piggy bank</td><td><strong>Exact</strong></td><td>You can count every coin</td></tr>
+        <tr><td>Number of fish in the ocean</td><td><strong>Approximate</strong></td><td>Can't count them all!</td></tr>
+        <tr><td>Students in your school</td><td><strong>Exact</strong></td><td>School records are precise</td></tr>
+        <tr><td>Population of a city</td><td><strong>Approximate</strong></td><td>People are born/die every minute</td></tr>
+      </table>
+    </div>
+
+    <div class="speech-bubble roxie-bubble">
+      <div class="char-name">&#128103; Roxie:</div>
+      <strong>Key insight:</strong> When numbers are very large or constantly changing, we use approximate values. When we need precision (like money or scores), we use exact values!
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 6: Nearest Neighbours (Rounding) ===== -->
+<div class="section-block reveal" id="sec6">
+  <div class="section-hd g-green">
+    <span class="icon">&#128202;</span>
+    <span>6. Nearest Neighbours (Rounding)</span>
+  </div>
+  <div class="section-bd">
+    <p>Rounding helps us simplify numbers. It's like finding the nearest "friendly" number!</p>
+
+    <div class="trick">
+      <strong>&#127775; The Golden Rule of Rounding:</strong><br>
+      Look at the digit to the RIGHT of the place you're rounding to:<br>
+      &#128994; <strong>5 or more</strong> - Round UP! ("5 or more, raise the score!")<br>
+      &#128308; <strong>Less than 5</strong> - Round DOWN! ("4 or less, let it rest!")
+    </div>
+
+    <div class="subtitle">&#127919; Round to Nearest 10</div>
+    <div class="info-grid">
+      <div class="info-card ic-green">
+        <h4>23 &#8594; 20</h4>
+        <p>3 < 5, so round down</p>
+      </div>
+      <div class="info-card ic-purple">
+        <h4>87 &#8594; 90</h4>
+        <p>7 >= 5, so round up</p>
+      </div>
+      <div class="info-card ic-orange">
+        <h4>155 &#8594; 160</h4>
+        <p>5 >= 5, so round up</p>
+      </div>
+      <div class="info-card ic-pink">
+        <h4>44 &#8594; 40</h4>
+        <p>4 < 5, so round down</p>
+      </div>
+    </div>
+
+    <div class="subtitle">&#127919; Round to Nearest 100</div>
+    <div class="info-grid">
+      <div class="info-card ic-blue">
+        <h4>823 &#8594; 800</h4>
+        <p>Tens digit is 2 (< 5), round down</p>
+      </div>
+      <div class="info-card ic-yellow">
+        <h4>2,567 &#8594; 2,600</h4>
+        <p>Tens digit is 6 (>= 5), round up</p>
+      </div>
+      <div class="info-card ic-teal">
+        <h4>1,450 &#8594; 1,500</h4>
+        <p>Tens digit is 5 (>= 5), round up</p>
+      </div>
+      <div class="info-card ic-red">
+        <h4>9,349 &#8594; 9,300</h4>
+        <p>Tens digit is 4 (< 5), round down</p>
+      </div>
+    </div>
+
+    <div class="subtitle">&#127919; Round to Nearest 1,000</div>
+    <div class="info-grid">
+      <div class="info-card ic-purple">
+        <h4>4,325 &#8594; 4,000</h4>
+        <p>Hundreds digit is 3 (< 5)</p>
+      </div>
+      <div class="info-card ic-orange">
+        <h4>7,891 &#8594; 8,000</h4>
+        <p>Hundreds digit is 8 (>= 5)</p>
+      </div>
+    </div>
+
+    <div class="subtitle">&#127919; Round to Nearest Lakh</div>
+    <div class="info-grid">
+      <div class="info-card ic-green">
+        <h4>3,45,678 &#8594; 3,00,000</h4>
+        <p>Ten thousands digit is 4 (< 5)</p>
+      </div>
+      <div class="info-card ic-pink">
+        <h4>3,65,678 &#8594; 4,00,000</h4>
+        <p>Ten thousands digit is 6 (>= 5)</p>
+      </div>
+    </div>
+
+    <div class="subtitle">&#127919; Round to Nearest Crore</div>
+    <div class="info-grid">
+      <div class="info-card ic-blue">
+        <h4>4,56,78,123 &#8594; 5,00,00,000</h4>
+        <p>Ten lakhs digit is 5 (>= 5), round up!</p>
+      </div>
+      <div class="info-card ic-yellow">
+        <h4>2,34,56,789 &#8594; 2,00,00,000</h4>
+        <p>Ten lakhs digit is 3 (< 5), round down</p>
+      </div>
+    </div>
+
+    <div class="trick">
+      <strong>&#128173; Memory Rhyme:</strong><br>
+      "5 or more, raise the score. 4 or less, let it rest!"
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 7: Patterns in Products (Powers of 10) ===== -->
+<div class="section-block reveal" id="sec7">
+  <div class="section-hd g-amber">
+    <span class="icon">&#128290;</span>
+    <span>7. Patterns in Products (Powers of 10)</span>
+  </div>
+  <div class="section-bd">
+    <p>When we multiply 10 by itself, a beautiful pattern emerges!</p>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th>Expression</th><th>Calculation</th><th>Result</th><th>Number of Zeros</th></tr>
+        <tr><td>10<sup>1</sup></td><td>10</td><td>10</td><td>1</td></tr>
+        <tr><td>10<sup>2</sup></td><td>10 x 10</td><td>100</td><td>2</td></tr>
+        <tr><td>10<sup>3</sup></td><td>10 x 10 x 10</td><td>1,000</td><td>3</td></tr>
+        <tr><td>10<sup>4</sup></td><td>10 x 10 x 10 x 10</td><td>10,000</td><td>4</td></tr>
+        <tr><td>10<sup>5</sup></td><td>10 x 10 x 10 x 10 x 10</td><td>1,00,000 (1 Lakh)</td><td>5</td></tr>
+        <tr><td>10<sup>6</sup></td><td>10 x ... (6 times)</td><td>10,00,000 (10 Lakh)</td><td>6</td></tr>
+        <tr><td>10<sup>7</sup></td><td>10 x ... (7 times)</td><td>1,00,00,000 (1 Crore)</td><td>7</td></tr>
+        <tr><td>10<sup>8</sup></td><td>10 x ... (8 times)</td><td>10,00,00,000</td><td>8</td></tr>
+        <tr><td>10<sup>9</sup></td><td>10 x ... (9 times)</td><td>1,00,00,00,000 (100 Crore)</td><td>9</td></tr>
+        <tr><td>10<sup>12</sup></td><td>10 x ... (12 times)</td><td>1,00,00,00,00,00,000</td><td>12</td></tr>
+      </table>
+    </div>
+
+    <div class="speech-bubble roxie-bubble">
+      <div class="char-name">&#128103; Roxie:</div>
+      See the pattern? <strong>The power tells you the number of zeros!</strong><br>
+      10<sup>5</sup> = 1 followed by 5 zeros = 1,00,000
+    </div>
+
+    <div class="subtitle">&#128161; Multiplying by Powers of 10</div>
+    <p>When you multiply any number by a power of 10, just <strong>add that many zeros</strong>!</p>
+
+    <div class="info-grid">
+      <div class="info-card ic-purple">
+        <h4>5 x 10<sup>3</sup></h4>
+        <p>= 5 x 1,000</p>
+        <p>= <strong>5,000</strong></p>
+        <p>(Add 3 zeros to 5)</p>
+      </div>
+      <div class="info-card ic-orange">
+        <h4>7 x 10<sup>5</sup></h4>
+        <p>= 7 x 1,00,000</p>
+        <p>= <strong>7,00,000</strong></p>
+        <p>(Add 5 zeros to 7)</p>
+      </div>
+      <div class="info-card ic-green">
+        <h4>23 x 10<sup>4</sup></h4>
+        <p>= 23 x 10,000</p>
+        <p>= <strong>2,30,000</strong></p>
+        <p>(Add 4 zeros to 23)</p>
+      </div>
+      <div class="info-card ic-pink">
+        <h4>15 x 10<sup>7</sup></h4>
+        <p>= 15 x 1,00,00,000</p>
+        <p>= <strong>15,00,00,000</strong></p>
+        <p>(Add 7 zeros to 15)</p>
+      </div>
+    </div>
+
+    <div class="powers-grid">
+      <div class="power-card"><div class="p-exp">10<sup>1</sup></div><div class="p-val">10</div><div class="p-name">Ten</div></div>
+      <div class="power-card"><div class="p-exp">10<sup>2</sup></div><div class="p-val">100</div><div class="p-name">Hundred</div></div>
+      <div class="power-card"><div class="p-exp">10<sup>3</sup></div><div class="p-val">1,000</div><div class="p-name">Thousand</div></div>
+      <div class="power-card"><div class="p-exp">10<sup>4</sup></div><div class="p-val">10,000</div><div class="p-name">Ten Thousand</div></div>
+      <div class="power-card"><div class="p-exp">10<sup>5</sup></div><div class="p-val">1,00,000</div><div class="p-name">Lakh</div></div>
+      <div class="power-card"><div class="p-exp">10<sup>6</sup></div><div class="p-val">10,00,000</div><div class="p-name">Ten Lakh / Million</div></div>
+      <div class="power-card"><div class="p-exp">10<sup>7</sup></div><div class="p-val">1,00,00,000</div><div class="p-name">Crore</div></div>
+      <div class="power-card"><div class="p-exp">10<sup>9</sup></div><div class="p-val">1,00,00,00,000</div><div class="p-name">100 Crore / Billion</div></div>
+      <div class="power-card"><div class="p-exp">10<sup>12</sup></div><div class="p-val">1,00,00,00,00,00,000</div><div class="p-name">Lakh Crore / Trillion</div></div>
+    </div>
+
+    <div class="trick">
+      <strong>&#128173; Memory:</strong> "The power = number of zeros." Simple!
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 8: Did You Ever Wonder? (Body Numbers) ===== -->
+<div class="section-block reveal" id="sec8">
+  <div class="section-hd g-rose">
+    <span class="icon">&#129728;</span>
+    <span>8. Did You Ever Wonder? (Body Numbers)</span>
+  </div>
+  <div class="section-bd">
+    <p>Your body is a number factory! Let's calculate some amazing numbers about the human body.</p>
+
+    <div class="info-grid">
+      <div class="info-card ic-red">
+        <h4>&#10084; Heartbeats</h4>
+        <p>~72 beats/minute</p>
+        <p>Per day: 72 x 60 x 24 = <strong>1,03,680</strong></p>
+        <p>Per year: 1,03,680 x 365 = <strong>3,78,43,200</strong></p>
+        <p>In 75 years: <strong>~283 crore</strong> (nearly 3 billion!)</p>
+      </div>
+      <div class="info-card ic-blue">
+        <h4>&#128065; Eye Blinks</h4>
+        <p>~15 blinks/minute</p>
+        <p>Per day: 15 x 60 x 16 = <strong>14,400</strong></p>
+        <p>(Assuming 16 waking hours)</p>
+        <p>Per year: <strong>52,56,000</strong></p>
+      </div>
+      <div class="info-card ic-green">
+        <h4>&#127749; Breaths</h4>
+        <p>~15 breaths/minute</p>
+        <p>Per day: 15 x 60 x 24 = <strong>21,600</strong></p>
+        <p>Per year: <strong>78,84,000</strong></p>
+        <p>In lifetime: <strong>~59 crore!</strong></p>
+      </div>
+      <div class="info-card ic-purple">
+        <h4>&#128135; Hair on Head</h4>
+        <p>Average: <strong>~1,00,000</strong></p>
+        <p>That's <strong>1 Lakh</strong> hairs!</p>
+        <p>You lose ~50-100 per day</p>
+      </div>
+      <div class="info-card ic-orange">
+        <h4>&#129516; Cells in Body</h4>
+        <p>~37,00,00,00,00,00,000</p>
+        <p>= <strong>37 Lakh Crore</strong></p>
+        <p>= 37 Trillion cells!</p>
+      </div>
+      <div class="info-card ic-pink">
+        <h4>&#129656; Blood</h4>
+        <p>Total blood: ~5 litres</p>
+        <p>Heart pumps: <strong>~7,500 litres/day!</strong></p>
+        <p>That's 1,500 times your total blood volume daily</p>
+      </div>
+    </div>
+
+    <div class="speech-bubble estu-bubble">
+      <div class="char-name">&#128102; Estu:</div>
+      My heart will beat about <strong>283 crore times</strong> in my life! That's almost 3 billion beats - and I don't even have to think about it!
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 9: Distance Around Us ===== -->
+<div class="section-block reveal" id="sec9">
+  <div class="section-hd g-sky">
+    <span class="icon">&#128752;</span>
+    <span>9. Distances Around Us</span>
+  </div>
+  <div class="section-bd">
+    <p>From city to city to planet to star - distances keep getting larger and larger!</p>
+
+    <div class="info-grid">
+      <div class="info-card ic-green">
+        <h4>&#128652; Mumbai to Delhi</h4>
+        <p><strong>~1,400 km</strong></p>
+        <p>By road: ~24 hours drive</p>
+      </div>
+      <div class="info-card ic-blue">
+        <h4>&#128652; Delhi to Chennai</h4>
+        <p><strong>~2,180 km</strong></p>
+        <p>Almost across India!</p>
+      </div>
+      <div class="info-card ic-purple">
+        <h4>&#127758; Earth's Diameter</h4>
+        <p><strong>12,742 km</strong></p>
+        <p>Distance through Earth's center</p>
+      </div>
+      <div class="info-card ic-orange">
+        <h4>&#127758; Earth's Circumference</h4>
+        <p><strong>40,075 km</strong></p>
+        <p>Distance around the Earth</p>
+      </div>
+      <div class="info-card ic-yellow">
+        <h4>&#127764; Earth to Moon</h4>
+        <p><strong>3,84,400 km</strong></p>
+        <p>~3.84 Lakh km</p>
+        <p>Chandrayaan-3 covered this!</p>
+      </div>
+      <div class="info-card ic-red">
+        <h4>&#9728; Earth to Sun</h4>
+        <p><strong>15,00,00,000 km</strong></p>
+        <p>= 15 Crore km!</p>
+        <p>Light takes 8 min 20 sec</p>
+      </div>
+      <div class="info-card ic-pink">
+        <h4>&#9889; Speed of Light</h4>
+        <p><strong>3,00,000 km/sec</strong></p>
+        <p>= 3 Lakh km per second!</p>
+        <p>Fastest speed possible</p>
+      </div>
+      <div class="info-card ic-teal">
+        <h4>&#11088; Nearest Star</h4>
+        <p>(Proxima Centauri)</p>
+        <p><strong>~4.24 light years</strong></p>
+        <p>= ~40,00,00,00,00,000 km</p>
+        <p>= ~40 Lakh Crore km!</p>
+      </div>
+    </div>
+
+    <div class="speech-bubble roxie-bubble">
+      <div class="char-name">&#128103; Roxie:</div>
+      The nearest star is 40 lakh crore km away! Even light, which travels at 3 lakh km per second, takes <strong>4.24 years</strong> to get there. Space is UNIMAGINABLY vast!
+    </div>
+
+    <div class="note-box">
+      <strong>&#128161; What is a Light Year?</strong> It's the distance light travels in 1 year. Speed of light = 3,00,000 km/s. So 1 light year = 3,00,000 x 60 x 60 x 24 x 365 = <strong>~9.46 x 10<sup>12</sup> km</strong> (about 9.46 lakh crore km!)
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 10: Cooking Up Problems ===== -->
+<div class="section-block reveal" id="sec10">
+  <div class="section-hd g-indigo">
+    <span class="icon">&#128221;</span>
+    <span>10. Cooking Up Problems</span>
+  </div>
+  <div class="section-bd">
+    <p>Let's solve some real-world word problems using large numbers!</p>
+
+    <div class="wp-item">
+      <div class="wp-q">Q1. A factory makes 8,750 toys per day. How many toys in 1 year (365 days)?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol">
+        <strong>Solution:</strong><br>
+        Toys per day = 8,750<br>
+        Toys in 1 year = 8,750 x 365<br>
+        = <strong>31,93,750</strong><br>
+        = Thirty-one lakh ninety-three thousand seven hundred fifty toys!
+      </div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">Q2. If you save Rs 15 per day, how much do you save in 1 year? In 20 years?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol">
+        <strong>Solution:</strong><br>
+        Per year: 15 x 365 = <strong>Rs 5,475</strong><br>
+        In 20 years: 5,475 x 20 = <strong>Rs 1,09,500</strong> (over 1 lakh!)<br>
+        Just Rs 15/day makes you a lakhpati in 20 years!
+      </div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">Q3. A cricket stadium seats 1,32,000 people. If each ticket costs Rs 500, what is the total collection?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol">
+        <strong>Solution:</strong><br>
+        Total collection = 1,32,000 x 500<br>
+        = <strong>6,60,00,000</strong><br>
+        = <strong>Rs 6.6 Crore!</strong>
+      </div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">Q4. India has ~6,38,000 villages. If each village has ~1,000 people, what is the total rural population?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol">
+        <strong>Solution:</strong><br>
+        Total = 6,38,000 x 1,000<br>
+        = <strong>63,80,00,000</strong><br>
+        = <strong>63.8 Crore</strong> people living in villages!
+      </div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">Q5. An IPL match has 50 lakh viewers online. If there are 3 matches/week for 8 weeks, what are total views?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol">
+        <strong>Solution:</strong><br>
+        Total matches = 3 x 8 = 24 matches<br>
+        Total views = 50,00,000 x 24<br>
+        = <strong>12,00,00,000</strong><br>
+        = <strong>12 Crore views!</strong>
+      </div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">Q6. A school library has 12,500 books. If the school plans to add 750 books every year, how many books will there be after 10 years?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol">
+        <strong>Solution:</strong><br>
+        Books added in 10 years = 750 x 10 = 7,500<br>
+        Total = 12,500 + 7,500 = <strong>20,000 books</strong> (Twenty thousand)
+      </div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">Q7. Mumbai local trains carry 75,00,000 passengers daily. How many passengers in a month (30 days)?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol">
+        <strong>Solution:</strong><br>
+        Monthly passengers = 75,00,000 x 30<br>
+        = <strong>22,50,00,000</strong><br>
+        = <strong>22.5 Crore passengers!</strong>
+      </div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">Q8. A farmer harvests 2,400 kg of wheat from 1 hectare. If he has 35 hectares, how much total wheat?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol">
+        <strong>Solution:</strong><br>
+        Total wheat = 2,400 x 35<br>
+        = <strong>84,000 kg</strong> = 84 tonnes of wheat!
+      </div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">Q9. Earth to Moon is 3,84,400 km. If a spacecraft travels at 1,000 km/hour, how many hours to reach the Moon?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol">
+        <strong>Solution:</strong><br>
+        Time = Distance / Speed = 3,84,400 / 1,000<br>
+        = <strong>384.4 hours</strong><br>
+        = approximately <strong>16 days!</strong>
+      </div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">Q10. India produces about 3,10,00,000 tonnes of food grains per year. If equally distributed among 144 crore people, how much does each person get per year?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol">
+        <strong>Solution:</strong><br>
+        3,10,00,000 tonnes = 31,00,00,00,00,000 grams (31 lakh crore grams)<br>
+        Per person = 31,00,00,00,00,000 / 1,44,00,00,000<br>
+        = approximately <strong>215 kg per person per year</strong><br>
+        = about 590 grams per day
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- ===== INTERACTIVE ELEMENTS SECTION ===== -->
+<!-- ========================================== -->
+<div class="section-block reveal" id="interactive">
+  <div class="section-hd g-purple">
+    <span class="icon">&#127918;</span>
+    <span>Interactive Games & Tools</span>
+  </div>
+  <div class="section-bd">
+
+    <!-- ===== WIDGET 1: Live Number Reader ===== -->
+    <div class="widget-box" id="widget-reader">
+      <h3>&#128290; Live Number Reader</h3>
+      <p style="text-align:center;font-size:13px;color:#6b7280;margin-bottom:14px;">Type any number up to 12 digits and see it formatted + spoken in words!</p>
+      <div class="number-reader-widget">
+        <input type="text" id="numInput" maxlength="12" placeholder="Type a number..." oninput="updateNumberReader()">
+        <div class="format-row">
+          <div class="format-card">
+            <h4>Indian Format</h4>
+            <div class="fmt-num" id="indianFormat">&mdash;</div>
+          </div>
+          <div class="format-card">
+            <h4>International Format</h4>
+            <div class="fmt-num" id="intlFormat">&mdash;</div>
+          </div>
+        </div>
+        <div class="num-words" id="numWords">Type a number above</div>
+        <div class="quick-btns">
+          <button class="game-btn btn-purple btn-sm" onclick="setNum('100000')">1 Lakh</button>
+          <button class="game-btn btn-pink btn-sm" onclick="setNum('1000000')">10 Lakh</button>
+          <button class="game-btn btn-orange btn-sm" onclick="setNum('10000000')">1 Crore</button>
+          <button class="game-btn btn-green btn-sm" onclick="setNum('100000000')">10 Crore</button>
+          <button class="game-btn btn-blue btn-sm" onclick="setNum('1000000000')">100 Crore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== WIDGET 2: Lakh Dot Visualizer ===== -->
+    <div class="widget-box" id="widget-dots">
+      <h3>&#128308; Lakh Dot Visualizer</h3>
+      <p style="text-align:center;font-size:13px;color:#6b7280;margin-bottom:14px;">See how big 1 Lakh really is! Add dots and try to reach 1,00,000!</p>
+      <div class="dot-counter">Dots: <span id="dotCount">0</span></div>
+      <div class="dot-container" id="dotContainer"></div>
+      <div class="dot-btns">
+        <button class="game-btn btn-green btn-sm" onclick="addDots(100)">+100</button>
+        <button class="game-btn btn-blue btn-sm" onclick="addDots(1000)">+1,000</button>
+        <button class="game-btn btn-purple btn-sm" onclick="addDots(10000)">+10,000</button>
+        <button class="game-btn btn-pink btn-sm" onclick="addDots(50000)">+50,000</button>
+        <button class="game-btn btn-orange btn-sm" onclick="resetDots()">Reset</button>
+      </div>
+    </div>
+
+    <!-- ===== WIDGET 3: Place Value Game ===== -->
+    <div class="widget-box" id="widget-placevalue">
+      <h3>&#127922; Place Value Explorer</h3>
+      <p style="text-align:center;font-size:13px;color:#6b7280;margin-bottom:14px;">A random number appears. Watch digits fill the chart, then answer the quiz!</p>
+      <div class="pv-display" id="pvNumber">--</div>
+      <div class="pv-table" id="pvTable">
+        <div class="pv-cell"><div class="pv-header">Crores</div><div class="pv-digit" id="pvCr">-</div></div>
+        <div class="pv-cell"><div class="pv-header">Ten Lakhs</div><div class="pv-digit" id="pvTL">-</div></div>
+        <div class="pv-cell"><div class="pv-header">Lakhs</div><div class="pv-digit" id="pvL">-</div></div>
+        <div class="pv-cell"><div class="pv-header">Ten Th.</div><div class="pv-digit" id="pvTT">-</div></div>
+        <div class="pv-cell"><div class="pv-header">Thousands</div><div class="pv-digit" id="pvTh">-</div></div>
+        <div class="pv-cell"><div class="pv-header">Hundreds</div><div class="pv-digit" id="pvH">-</div></div>
+        <div class="pv-cell"><div class="pv-header">Tens</div><div class="pv-digit" id="pvT">-</div></div>
+        <div class="pv-cell"><div class="pv-header">Ones</div><div class="pv-digit" id="pvO">-</div></div>
+      </div>
+      <div id="pvQuiz" style="text-align:center;margin:14px 0;font-weight:700;color:#5b21b6;"></div>
+      <div class="pv-quiz-opts" id="pvOpts"></div>
+      <div id="pvFeedback" style="text-align:center;font-weight:700;margin:8px 0;"></div>
+      <div style="text-align:center;">
+        <button class="game-btn btn-purple" onclick="newPlaceValue()">New Number</button>
+      </div>
+    </div>
+
+    <!-- ===== WIDGET 4: Number Battle Game ===== -->
+    <div class="widget-box" id="widget-battle">
+      <h3>&#9876; Number Battle</h3>
+      <p style="text-align:center;font-size:13px;color:#6b7280;margin-bottom:14px;">Two numbers appear - click the BIGGER one! How many can you get right?</p>
+      <div class="score-bar">
+        <span class="score-correct">&#9989; <span id="battleCorrect">0</span></span>
+        <span class="score-wrong">&#10060; <span id="battleWrong">0</span></span>
+        <span class="score-streak">&#128293; Streak: <span id="battleStreak">0</span></span>
+      </div>
+      <div class="battle-area">
+        <div class="battle-card" id="battleA" onclick="battlePick('A')"><div class="b-num" id="battleNumA">?</div></div>
+        <div class="battle-vs">VS</div>
+        <div class="battle-card" id="battleB" onclick="battlePick('B')"><div class="b-num" id="battleNumB">?</div></div>
+      </div>
+      <div id="battleFeedback" style="text-align:center;font-weight:700;margin:10px 0;font-size:15px;"></div>
+      <div style="text-align:center;">
+        <button class="game-btn btn-purple" onclick="newBattle()">New Battle</button>
+      </div>
+    </div>
+
+    <!-- ===== WIDGET 5: Estimation Challenge ===== -->
+    <div class="widget-box" id="widget-estimate">
+      <h3>&#129300; Estimation Challenge</h3>
+      <p style="text-align:center;font-size:13px;color:#6b7280;margin-bottom:14px;">Guess how many dots are on the grid. How close can you get?</p>
+      <div class="est-grid" id="estGrid"></div>
+      <div class="est-input-row">
+        <span style="font-weight:700;">Your guess:</span>
+        <input type="number" id="estGuess" placeholder="?">
+        <button class="game-btn btn-purple btn-sm" onclick="checkEstimate()">Check</button>
+      </div>
+      <div id="estFeedback" style="text-align:center;font-weight:700;margin:10px 0;font-size:15px;"></div>
+      <div style="text-align:center;">
+        <button class="game-btn btn-pink" onclick="newEstimate()">New Challenge</button>
+      </div>
+    </div>
+
+    <!-- ===== WIDGET 6: Newspaper Hunt ===== -->
+    <div class="widget-box" id="widget-newspaper">
+      <h3>&#128240; Newspaper Number Hunt</h3>
+      <p style="text-align:center;font-size:13px;color:#6b7280;margin-bottom:14px;">Click on the numbers in these headlines to see them explained!</p>
+      <div class="newspaper">
+        <h4>The Daily Numbers</h4>
+
+        <div class="news-headline" onclick="toggleNewsNum(this)">
+          Sensex Crosses <span class="news-num" data-num="78500" data-words="Seventy-Eight Thousand Five Hundred" data-indian="78,500">78,500</span> Mark -- Investors Gain Rs <span class="news-num" data-num="450000000000" data-words="Four Lakh Fifty Thousand Crore" data-indian="4,50,00,00,00,000">4.5 Lakh Crore</span>
+          <div class="news-info"></div>
+        </div>
+
+        <div class="news-headline" onclick="toggleNewsNum(this)">
+          IPL 2024 Final Watched by <span class="news-num" data-num="32000000" data-words="Three Crore Twenty Lakh" data-indian="3,20,00,000">3,20,00,000</span> Viewers Online
+          <div class="news-info"></div>
+        </div>
+
+        <div class="news-headline" onclick="toggleNewsNum(this)">
+          India's Population Reaches <span class="news-num" data-num="1441724000" data-words="One Hundred Forty-Four Crore Seventeen Lakh Twenty-Four Thousand" data-indian="1,44,17,24,000">1,44,17,24,000</span>
+          <div class="news-info"></div>
+        </div>
+
+        <div class="news-headline" onclick="toggleNewsNum(this)">
+          Chandrayaan-3 Travelled <span class="news-num" data-num="384400" data-words="Three Lakh Eighty-Four Thousand Four Hundred" data-indian="3,84,400">3,84,400</span> km to Reach Moon
+          <div class="news-info"></div>
+        </div>
+
+        <div class="news-headline" onclick="toggleNewsNum(this)">
+          Mumbai Local Carries <span class="news-num" data-num="7500000" data-words="Seventy-Five Lakh" data-indian="75,00,000">75,00,000</span> Passengers Daily
+          <div class="news-info"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== WIDGET 7: Body Numbers Calculator ===== -->
+    <div class="widget-box" id="widget-body">
+      <h3>&#129728; Body Numbers Calculator</h3>
+      <p style="text-align:center;font-size:13px;color:#6b7280;margin-bottom:14px;">Enter your heartbeat rate and see how many times your heart beats!</p>
+      <div style="text-align:center;margin:14px 0;">
+        <label style="font-weight:700;">Heart beats per minute:</label>
+        <input type="number" id="bpmInput" value="72" min="40" max="200" style="width:80px;padding:8px;border:2px solid #c4b5fd;border-radius:8px;font-size:16px;font-weight:700;text-align:center;font-family:inherit;">
+        <button class="game-btn btn-purple btn-sm" onclick="calcBody()">Calculate</button>
+      </div>
+      <div class="body-calc-grid" id="bodyGrid">
+        <div class="body-stat"><span class="stat-icon">&#10084;</span><span class="stat-label">Per Hour</span><div class="stat-num" id="bHour">4,320</div></div>
+        <div class="body-stat"><span class="stat-icon">&#127747;</span><span class="stat-label">Per Day</span><div class="stat-num" id="bDay">1,03,680</div></div>
+        <div class="body-stat"><span class="stat-icon">&#128197;</span><span class="stat-label">Per Year</span><div class="stat-num" id="bYear">3,78,43,200</div></div>
+        <div class="body-stat"><span class="stat-icon">&#127775;</span><span class="stat-label">In 75 Years</span><div class="stat-num" id="bLife">2,83,82,40,000</div><div class="stat-words" id="bLifeWords">~284 Crore</div></div>
+      </div>
+    </div>
+
+    <!-- ===== WIDGET 8: Distance Comparison Tool ===== -->
+    <div class="widget-box" id="widget-distance">
+      <h3>&#128752; Distance Comparison Tool</h3>
+      <p style="text-align:center;font-size:13px;color:#6b7280;margin-bottom:14px;">Click any two distances to compare them visually!</p>
+      <div class="dist-cards" id="distCards">
+        <div class="dist-card" onclick="selectDist(this,0)" data-km="1400"><span class="d-icon">&#128652;</span><span class="d-name">Mumbai-Delhi</span><span class="d-km">1,400 km</span></div>
+        <div class="dist-card" onclick="selectDist(this,1)" data-km="2180"><span class="d-icon">&#128652;</span><span class="d-name">Delhi-Chennai</span><span class="d-km">2,180 km</span></div>
+        <div class="dist-card" onclick="selectDist(this,2)" data-km="12742"><span class="d-icon">&#127758;</span><span class="d-name">Earth Diameter</span><span class="d-km">12,742 km</span></div>
+        <div class="dist-card" onclick="selectDist(this,3)" data-km="40075"><span class="d-icon">&#127758;</span><span class="d-name">Earth Circumf.</span><span class="d-km">40,075 km</span></div>
+        <div class="dist-card" onclick="selectDist(this,4)" data-km="384400"><span class="d-icon">&#127764;</span><span class="d-name">Earth-Moon</span><span class="d-km">3,84,400 km</span></div>
+        <div class="dist-card" onclick="selectDist(this,5)" data-km="150000000"><span class="d-icon">&#9728;</span><span class="d-name">Earth-Sun</span><span class="d-km">15 Crore km</span></div>
+      </div>
+      <div class="dist-compare-bar" id="distCompare">
+        <p style="text-align:center;color:#6b7280;font-weight:700;">Select two distances to compare</p>
+      </div>
+    </div>
+
+    <!-- ===== WIDGET 9: State Population Quiz ===== -->
+    <div class="widget-box" id="widget-states">
+      <h3>&#127470;&#127475; State Population Match</h3>
+      <p style="text-align:center;font-size:13px;color:#6b7280;margin-bottom:14px;">Match each state with its population! Click a state, then click its population.</p>
+      <div class="score-bar">
+        <span class="score-correct">Matched: <span id="matchScore">0</span>/8</span>
+      </div>
+      <div class="match-grid">
+        <div class="match-col" id="stateCol">
+          <h4>States</h4>
+        </div>
+        <div class="match-col" id="popCol">
+          <h4>Population</h4>
+        </div>
+      </div>
+      <div id="matchFeedback" style="text-align:center;font-weight:700;margin:10px 0;"></div>
+      <div style="text-align:center;">
+        <button class="game-btn btn-purple" onclick="initStateMatch()">Reset Game</button>
+      </div>
+    </div>
+
+    <!-- ===== WIDGET 10: Rounding Practice Game ===== -->
+    <div class="widget-box" id="widget-rounding">
+      <h3>&#127919; Rounding Practice Game</h3>
+      <p style="text-align:center;font-size:13px;color:#6b7280;margin-bottom:14px;">Round the number to the given place. Pick the correct answer!</p>
+      <div class="score-bar">
+        <span class="score-correct">&#9989; <span id="roundCorrect">0</span></span>
+        <span class="score-wrong">&#10060; <span id="roundWrong">0</span></span>
+      </div>
+      <div style="text-align:center;margin:14px 0;">
+        <div style="font-size:13px;font-weight:700;color:#6b7280;margin-bottom:4px;" id="roundInstruction">Round to nearest...</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:32px;color:#5b21b6;" id="roundNumber">--</div>
+      </div>
+      <div class="round-options" id="roundOptions"></div>
+      <div id="roundFeedback" style="text-align:center;font-weight:700;margin:10px 0;font-size:15px;"></div>
+      <div style="text-align:center;">
+        <button class="game-btn btn-purple" onclick="newRound()">Next Question</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- ===== PRACTICE QUESTIONS SECTION ===== -->
+<!-- ========================================== -->
+<div class="section-block reveal" id="practice">
+  <div class="section-hd g-pink">
+    <span class="icon">&#128218;</span>
+    <span>Practice Questions</span>
+  </div>
+  <div class="section-bd">
+
+    <!-- ===== 20 MCQs ===== -->
+    <div class="subtitle">&#127919; Multiple Choice Questions (20 MCQs)</div>
+    <ul class="mcq-list">
+
+      <li class="mcq-item" onclick="showMCQ(this,'b')">
+        <div class="mcq-q">1. How many zeros are there in 1 Crore?</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 5</li>
+          <li data-key="b">b) 7</li>
+          <li data-key="c">c) 6</li>
+          <li data-key="d">d) 8</li>
+        </ul>
+        <div class="mcq-ans">Answer: b) 7. 1 Crore = 1,00,00,000 (seven zeros).</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'c')">
+        <div class="mcq-q">2. 1 Lakh = ___ Thousands</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 10</li>
+          <li data-key="b">b) 1,000</li>
+          <li data-key="c">c) 100</li>
+          <li data-key="d">d) 10,000</li>
+        </ul>
+        <div class="mcq-ans">Answer: c) 100. 1 Lakh = 1,00,000 = 100 x 1,000.</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'b')">
+        <div class="mcq-q">3. 10 Lakh is equal to:</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 1 Billion</li>
+          <li data-key="b">b) 1 Million</li>
+          <li data-key="c">c) 10 Million</li>
+          <li data-key="d">d) 100 Thousand</li>
+        </ul>
+        <div class="mcq-ans">Answer: b) 1 Million. 10,00,000 = 1,000,000.</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'a')">
+        <div class="mcq-q">4. In the Indian system, commas are placed after every ___ digits from the right (after the first three).</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 2</li>
+          <li data-key="b">b) 3</li>
+          <li data-key="c">c) 4</li>
+          <li data-key="d">d) 1</li>
+        </ul>
+        <div class="mcq-ans">Answer: a) 2. Indian system: first comma after 3 digits, then every 2 digits.</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'d')">
+        <div class="mcq-q">5. 1 Billion = ___ Crore</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 1</li>
+          <li data-key="b">b) 10</li>
+          <li data-key="c">c) 1,000</li>
+          <li data-key="d">d) 100</li>
+        </ul>
+        <div class="mcq-ans">Answer: d) 100. 1 Billion = 1,00,00,00,000 = 100 Crore.</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'c')">
+        <div class="mcq-q">6. 78 rounded to the nearest 10 is:</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 70</li>
+          <li data-key="b">b) 75</li>
+          <li data-key="c">c) 80</li>
+          <li data-key="d">d) 90</li>
+        </ul>
+        <div class="mcq-ans">Answer: c) 80. The ones digit is 8 (>= 5), so we round up.</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'a')">
+        <div class="mcq-q">7. 10<sup>5</sup> is equal to:</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 1,00,000</li>
+          <li data-key="b">b) 10,000</li>
+          <li data-key="c">c) 10,00,000</li>
+          <li data-key="d">d) 50</li>
+        </ul>
+        <div class="mcq-ans">Answer: a) 1,00,000. 10^5 = 1 followed by 5 zeros.</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'b')">
+        <div class="mcq-q">8. The place value of 6 in 4,56,78,123 is:</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 6 Lakh</li>
+          <li data-key="b">b) 6 Ten Lakh</li>
+          <li data-key="c">c) 6 Thousand</li>
+          <li data-key="d">d) 6 Crore</li>
+        </ul>
+        <div class="mcq-ans">Answer: b) 6 Ten Lakh (= 60,00,000). The 6 is in the ten lakhs place.</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'c')">
+        <div class="mcq-q">9. Which number is closest to 5,00,000?</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 4,32,000</li>
+          <li data-key="b">b) 5,65,000</li>
+          <li data-key="c">c) 4,89,000</li>
+          <li data-key="d">d) 5,78,000</li>
+        </ul>
+        <div class="mcq-ans">Answer: c) 4,89,000. Difference from 5 lakh = 11,000 (smallest difference).</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'d')">
+        <div class="mcq-q">10. India's population is approximately:</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 144 Lakh</li>
+          <li data-key="b">b) 14.4 Crore</li>
+          <li data-key="c">c) 1,440 Crore</li>
+          <li data-key="d">d) 144 Crore</li>
+        </ul>
+        <div class="mcq-ans">Answer: d) 144 Crore = 1,44,00,00,000.</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'a')">
+        <div class="mcq-q">11. 3,45,678 rounded to the nearest lakh is:</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 3,00,000</li>
+          <li data-key="b">b) 4,00,000</li>
+          <li data-key="c">c) 3,50,000</li>
+          <li data-key="d">d) 3,46,000</li>
+        </ul>
+        <div class="mcq-ans">Answer: a) 3,00,000. Ten thousands digit is 4 (< 5), so round down.</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'b')">
+        <div class="mcq-q">12. 7 x 10<sup>4</sup> = ?</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 7,000</li>
+          <li data-key="b">b) 70,000</li>
+          <li data-key="c">c) 7,00,000</li>
+          <li data-key="d">d) 28</li>
+        </ul>
+        <div class="mcq-ans">Answer: b) 70,000. 7 x 10,000 = 70,000 (add 4 zeros to 7).</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'c')">
+        <div class="mcq-q">13. The international format of 5,34,21,678 is:</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 534,21,678</li>
+          <li data-key="b">b) 5,342,1678</li>
+          <li data-key="c">c) 53,421,678</li>
+          <li data-key="d">d) 534,216,78</li>
+        </ul>
+        <div class="mcq-ans">Answer: c) 53,421,678. International system uses groups of 3 from the right.</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'a')">
+        <div class="mcq-q">14. How many lakhs make 1 crore?</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 100</li>
+          <li data-key="b">b) 10</li>
+          <li data-key="c">c) 1,000</li>
+          <li data-key="d">d) 50</li>
+        </ul>
+        <div class="mcq-ans">Answer: a) 100. 1 Crore = 100 Lakhs.</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'b')">
+        <div class="mcq-q">15. Which is an approximate value?</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) Your age in years</li>
+          <li data-key="b">b) Number of stars in the sky</li>
+          <li data-key="c">c) Number of students in your class</li>
+          <li data-key="d">d) Pages in your notebook</li>
+        </ul>
+        <div class="mcq-ans">Answer: b) Stars in the sky - impossible to count exactly!</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'d')">
+        <div class="mcq-q">16. 8,45,672 rounded to nearest thousand is:</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 8,45,000</li>
+          <li data-key="b">b) 8,46,000</li>
+          <li data-key="c">c) 8,50,000</li>
+          <li data-key="d">d) 8,46,000</li>
+        </ul>
+        <div class="mcq-ans">Answer: d) 8,46,000. Hundreds digit is 6 (>= 5), round up.</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'c')">
+        <div class="mcq-q">17. The distance from Earth to Moon is approximately:</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 3,844 km</li>
+          <li data-key="b">b) 38,44,000 km</li>
+          <li data-key="c">c) 3,84,400 km</li>
+          <li data-key="d">d) 3,84,40,000 km</li>
+        </ul>
+        <div class="mcq-ans">Answer: c) 3,84,400 km (~3.84 Lakh km).</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'a')">
+        <div class="mcq-q">18. 10<sup>7</sup> in the Indian system is called:</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 1 Crore</li>
+          <li data-key="b">b) 10 Lakh</li>
+          <li data-key="c">c) 1 Lakh</li>
+          <li data-key="d">d) 10 Crore</li>
+        </ul>
+        <div class="mcq-ans">Answer: a) 1 Crore. 10^7 = 1,00,00,000 = 1 Crore.</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'b')">
+        <div class="mcq-q">19. Your heart beats about ___ times in a day.</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 10,368</li>
+          <li data-key="b">b) 1,03,680</li>
+          <li data-key="c">c) 10,36,800</li>
+          <li data-key="d">d) 1,036</li>
+        </ul>
+        <div class="mcq-ans">Answer: b) 1,03,680. 72 beats/min x 60 min x 24 hr = 1,03,680.</div>
+      </li>
+
+      <li class="mcq-item" onclick="showMCQ(this,'d')">
+        <div class="mcq-q">20. Speed of light is approximately:</div>
+        <ul class="mcq-options">
+          <li data-key="a">a) 3,000 km/s</li>
+          <li data-key="b">b) 30,000 km/s</li>
+          <li data-key="c">c) 30,00,000 km/s</li>
+          <li data-key="d">d) 3,00,000 km/s</li>
+        </ul>
+        <div class="mcq-ans">Answer: d) 3,00,000 km/s (3 lakh km per second).</div>
+      </li>
+
+    </ul>
+
+    <!-- ===== 15 Word Problems ===== -->
+    <div class="subtitle">&#128221; Word Problems (15 Questions)</div>
+
+    <div class="wp-item">
+      <div class="wp-q">1. A city library has 2,45,000 books. If 1,800 new books are added each month, how many books will the library have after 2 years?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> Books added in 2 years = 1,800 x 24 = 43,200. Total = 2,45,000 + 43,200 = <strong>2,88,200</strong></div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">2. An ant walks 15 cm per minute. How far (in km) will it walk in a day (24 hours)?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> Per day = 15 x 60 x 24 = 21,600 cm = 216 m = <strong>0.216 km</strong></div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">3. India has 28 states. If the average population per state is 5 crore, estimate the total population.</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> Total = 28 x 5 = <strong>140 crore</strong> (close to actual ~144 crore!)</div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">4. A printing press prints 45,000 pages per hour. How many pages in 8 hours? Express in lakhs.</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> 45,000 x 8 = 3,60,000 = <strong>3.6 lakh pages</strong></div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">5. A dam holds 85,00,00,000 litres of water. If 12,00,000 litres are released daily, how many days to empty it?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> Days = 85,00,00,000 / 12,00,000 = <strong>708.33 ~ 709 days</strong> (almost 2 years!)</div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">6. A mobile phone company sells 3,25,000 phones per month. How many phones in 1 year?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> 3,25,000 x 12 = <strong>39,00,000 = 39 lakh phones!</strong></div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">7. A car travels 12 km per litre of petrol. Petrol costs Rs 105/litre. What is the fuel cost for a 1,260 km trip?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> Petrol needed = 1,260 / 12 = 105 litres. Cost = 105 x 105 = <strong>Rs 11,025</strong></div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">8. Round 47,83,56,921 to the nearest crore.</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> Ten lakhs digit = 8 (>= 5), round up. <strong>48,00,00,000</strong> (48 Crore)</div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">9. Express 5 x 10<sup>6</sup> + 3 x 10<sup>4</sup> + 7 x 10<sup>2</sup> + 2 as a single number.</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> 50,00,000 + 30,000 + 700 + 2 = <strong>50,30,702</strong></div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">10. Goa (15 lakh) and UP (24 crore). How many times is UP's population more than Goa's?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> 24 crore / 15 lakh = 24,00,00,000 / 15,00,000 = <strong>160 times!</strong></div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">11. A school collects Rs 250 from each of its 1,200 students for an annual trip. What is the total amount?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> Total = 1,200 x 250 = <strong>Rs 3,00,000 = Rs 3 Lakh</strong></div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">12. Light travels at 3,00,000 km/s. How far does it travel in 1 minute?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> Distance = 3,00,000 x 60 = <strong>1,80,00,000 km = 1.8 Crore km!</strong></div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">13. A tree produces about 1,18,000 leaves. If there are 450 trees in a park, total leaves?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> Total = 1,18,000 x 450 = <strong>5,31,00,000 = 5.31 Crore leaves!</strong></div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">14. A YouTuber gets 45,000 views per video. If she uploads 3 videos/week for a year, total views?</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> Videos per year = 3 x 52 = 156. Total views = 156 x 45,000 = <strong>70,20,000 = 70.2 Lakh</strong></div>
+    </div>
+
+    <div class="wp-item">
+      <div class="wp-q">15. Write 45 Crore 23 Lakh 67 Thousand 890 in numeral form.</div>
+      <button class="toggle-ans-btn" onclick="toggleWP(this)">Show Solution</button>
+      <div class="wp-sol"><strong>Solution:</strong> 45 Crore = 45,00,00,000; 23 Lakh = 23,00,000; 67 Thousand = 67,000; 890. Total = <strong>45,23,67,890</strong></div>
+    </div>
+
+    <!-- ===== 15 Fill in the Blanks ===== -->
+    <div class="subtitle">&#9999; Fill in the Blanks (15 Questions)</div>
+
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">1. 1 Crore = _____ Lakhs</div>
+      <div class="fib-a">Answer: 100</div>
+    </div>
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">2. 1 Million = _____ Lakh</div>
+      <div class="fib-a">Answer: 10</div>
+    </div>
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">3. 1 Billion = _____ Crore</div>
+      <div class="fib-a">Answer: 100</div>
+    </div>
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">4. 10<sup>6</sup> = _____</div>
+      <div class="fib-a">Answer: 10,00,000 (Ten Lakh or One Million)</div>
+    </div>
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">5. In the Indian system, the first comma is placed after _____ digits from the right.</div>
+      <div class="fib-a">Answer: 3</div>
+    </div>
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">6. The distance from Earth to Sun is approximately _____ crore km.</div>
+      <div class="fib-a">Answer: 15</div>
+    </div>
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">7. 4,56,789 rounded to the nearest lakh = _____</div>
+      <div class="fib-a">Answer: 5,00,000 (ten-thousands digit is 5, so round up)</div>
+    </div>
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">8. Speed of light = _____ km/sec</div>
+      <div class="fib-a">Answer: 3,00,000 (3 lakh)</div>
+    </div>
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">9. The number of cells in the human body is approximately _____ lakh crore.</div>
+      <div class="fib-a">Answer: 37</div>
+    </div>
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">10. 5 x 10<sup>3</sup> = _____</div>
+      <div class="fib-a">Answer: 5,000</div>
+    </div>
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">11. 1,00,000 seconds is approximately _____ hours.</div>
+      <div class="fib-a">Answer: 28 (27.78 to be exact)</div>
+    </div>
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">12. In the number 7,89,23,456, the digit 9 is in the _____ place.</div>
+      <div class="fib-a">Answer: Ten Lakhs</div>
+    </div>
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">13. The most populous state in India is _____ with about 24 crore people.</div>
+      <div class="fib-a">Answer: Uttar Pradesh</div>
+    </div>
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">14. Earth to Moon distance is approximately _____ lakh km.</div>
+      <div class="fib-a">Answer: 3.84</div>
+    </div>
+    <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+      <div class="fib-q">15. In the International system, commas are placed after every _____ digits from the right.</div>
+      <div class="fib-a">Answer: 3</div>
+    </div>
+
+    <!-- ===== 15 True/False ===== -->
+    <div class="subtitle">&#9989;&#10060; True or False (15 Questions)</div>
+
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">1. 1 Crore = 1,000 Thousands</div>
+      <div class="tf-a">FALSE. 1 Crore = 10,000 Thousands (1,00,00,000 / 1,000 = 10,000).</div>
+    </div>
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">2. 10 Lakh = 1 Million</div>
+      <div class="tf-a">TRUE. 10,00,000 = 1,000,000 = 1 Million.</div>
+    </div>
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">3. In the International system, commas are placed after every 2 digits.</div>
+      <div class="tf-a">FALSE. International system uses commas every 3 digits from the right.</div>
+    </div>
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">4. The population of India is an approximate value, not an exact value.</div>
+      <div class="tf-a">TRUE. Population changes every second (births, deaths), so we use approximate values.</div>
+    </div>
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">5. 10<sup>5</sup> has 5 zeros after the 1.</div>
+      <div class="tf-a">TRUE. 10^5 = 1,00,000 (1 followed by 5 zeros).</div>
+    </div>
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">6. 7,456 rounded to nearest 100 is 7,500.</div>
+      <div class="tf-a">TRUE. Tens digit is 5 (>= 5), so we round up from 7,400 to 7,500.</div>
+    </div>
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">7. The nearest star to Earth (after Sun) is about 40 lakh crore km away.</div>
+      <div class="tf-a">TRUE. Proxima Centauri is ~4.24 light years away = ~40 lakh crore km.</div>
+    </div>
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">8. Your heart beats about 1 lakh times per day.</div>
+      <div class="tf-a">TRUE (approximately). 72 x 60 x 24 = 1,03,680 ~ just over 1 lakh.</div>
+    </div>
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">9. 100 Crore = 1 Billion</div>
+      <div class="tf-a">TRUE. 100 x 1,00,00,000 = 1,00,00,00,000 = 1,000,000,000.</div>
+    </div>
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">10. A lakh has 6 zeros.</div>
+      <div class="tf-a">FALSE. 1 Lakh = 1,00,000 has only 5 zeros.</div>
+    </div>
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">11. 3 x 10<sup>4</sup> = 3,00,000</div>
+      <div class="tf-a">FALSE. 3 x 10^4 = 3 x 10,000 = 30,000 (not 3,00,000).</div>
+    </div>
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">12. The number of students in your class is an approximate value.</div>
+      <div class="tf-a">FALSE. This is an exact value - you can count every student precisely.</div>
+    </div>
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">13. Goa is the smallest Indian state by population with about 15 lakh people.</div>
+      <div class="tf-a">TRUE. Goa has approximately 15,00,000 people, the smallest state population.</div>
+    </div>
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">14. 87,654 rounded to the nearest ten thousand is 90,000.</div>
+      <div class="tf-a">TRUE. Thousands digit is 7 (>= 5), round up from 80,000 to 90,000.</div>
+    </div>
+    <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+      <div class="tf-q">15. Light from the Sun takes about 8 minutes to reach Earth.</div>
+      <div class="tf-a">TRUE. More precisely, about 8 minutes 20 seconds.</div>
+    </div>
+
+    <!-- ===== 10 Long Answer Questions ===== -->
+    <div class="subtitle">&#128214; Long Answer Questions (10 Questions)</div>
+
+    <div class="la-item">
+      <div class="la-q">1. Explain the Indian place value system. How does it differ from the International system?</div>
+      <button class="toggle-ans-btn" onclick="toggleLA(this)">Show Answer</button>
+      <div class="la-a">
+        The <strong>Indian Place Value System</strong> groups digits as: Ones, Tens, Hundreds, Thousands, Ten Thousands, Lakhs, Ten Lakhs, Crores, Ten Crores, and so on. Commas are placed after the first 3 digits from the right, then every 2 digits (pattern: 3-2-2-2...).<br><br>
+        The <strong>International System</strong> groups digits as: Ones, Tens, Hundreds, Thousands, Ten Thousands, Hundred Thousands, Millions, etc. Commas are placed every 3 digits from the right (pattern: 3-3-3-3...).<br><br>
+        <strong>Key differences:</strong> The Indian system uses Lakh (1,00,000) and Crore (1,00,00,000), while the International system uses Million (1,000,000) and Billion (1,000,000,000). 1 Million = 10 Lakh, and 1 Billion = 100 Crore.
+      </div>
+    </div>
+
+    <div class="la-item">
+      <div class="la-q">2. What are powers of 10? Explain the pattern with examples from 10<sup>1</sup> to 10<sup>7</sup>.</div>
+      <button class="toggle-ans-btn" onclick="toggleLA(this)">Show Answer</button>
+      <div class="la-a">
+        <strong>Powers of 10</strong> represent repeated multiplication of 10 by itself.<br><br>
+        10<sup>1</sup> = 10 (one zero)<br>
+        10<sup>2</sup> = 100 (two zeros)<br>
+        10<sup>3</sup> = 1,000 (three zeros) = 1 Thousand<br>
+        10<sup>4</sup> = 10,000 (four zeros) = 10 Thousand<br>
+        10<sup>5</sup> = 1,00,000 (five zeros) = 1 Lakh<br>
+        10<sup>6</sup> = 10,00,000 (six zeros) = 10 Lakh = 1 Million<br>
+        10<sup>7</sup> = 1,00,00,000 (seven zeros) = 1 Crore<br><br>
+        <strong>Pattern:</strong> The exponent (power) tells the number of zeros. To multiply any number by a power of 10, just add that many zeros to the number. E.g., 5 x 10<sup>3</sup> = 5,000.
+      </div>
+    </div>
+
+    <div class="la-item">
+      <div class="la-q">3. Explain the rules of rounding with examples for rounding to nearest 10, 100, 1000, and lakh.</div>
+      <button class="toggle-ans-btn" onclick="toggleLA(this)">Show Answer</button>
+      <div class="la-a">
+        <strong>Rounding Rule:</strong> Look at the digit immediately to the right of the place you're rounding to. If it's 5 or more, round up. If it's less than 5, round down.<br><br>
+        <strong>Nearest 10:</strong> 67 rounds to 70 (7 >= 5), 23 rounds to 20 (3 < 5)<br>
+        <strong>Nearest 100:</strong> 2,567 rounds to 2,600 (6 >= 5), 823 rounds to 800 (2 < 5)<br>
+        <strong>Nearest 1,000:</strong> 7,891 rounds to 8,000 (8 >= 5), 4,325 rounds to 4,000 (3 < 5)<br>
+        <strong>Nearest Lakh:</strong> 3,65,000 rounds to 4,00,000 (6 >= 5), 3,45,000 rounds to 3,00,000 (4 < 5)<br><br>
+        Memory: "5 or more, raise the score. 4 or less, let it rest!"
+      </div>
+    </div>
+
+    <div class="la-item">
+      <div class="la-q">4. How do you convert between Indian and International number systems? Give 3 examples.</div>
+      <button class="toggle-ans-btn" onclick="toggleLA(this)">Show Answer</button>
+      <div class="la-a">
+        The number value stays the same - only the way we group and name digits changes.<br><br>
+        <strong>Key conversions:</strong> 1 Lakh = 100 Thousand, 10 Lakh = 1 Million, 1 Crore = 10 Million, 100 Crore = 1 Billion.<br><br>
+        <strong>Example 1:</strong> 25,00,000 (Indian: Twenty-five lakh) = 2,500,000 (International: Two million five hundred thousand)<br>
+        <strong>Example 2:</strong> 3,50,00,000 (Indian: Three crore fifty lakh) = 35,000,000 (International: Thirty-five million)<br>
+        <strong>Example 3:</strong> 1,20,00,00,000 (Indian: One hundred twenty crore) = 1,200,000,000 (International: One billion two hundred million)
+      </div>
+    </div>
+
+    <div class="la-item">
+      <div class="la-q">5. Write 5 real-world examples each of exact values and approximate values. Why is this distinction important?</div>
+      <button class="toggle-ans-btn" onclick="toggleLA(this)">Show Answer</button>
+      <div class="la-a">
+        <strong>Exact values:</strong> (1) Score in an exam - 87/100, (2) Students in class - 42, (3) Money in wallet - Rs 450, (4) Chapters in textbook - 15, (5) Players in a cricket team - 11.<br><br>
+        <strong>Approximate values:</strong> (1) India's population - ~144 crore, (2) Stars visible at night - ~3,000, (3) Crowd at a concert - ~50,000, (4) Trees in a forest - ~lakhs, (5) Grains of sand on a beach - ~crores.<br><br>
+        <strong>Why important:</strong> For banking, exams, and measurements, we need exact numbers. For very large quantities that change constantly or are hard to count, approximate values are practical and sufficient. Using the wrong type can lead to confusion or errors.
+      </div>
+    </div>
+
+    <div class="la-item">
+      <div class="la-q">6. Calculate how many times your heart beats in your lifetime (assume 75 years, 72 beats/min). Express in crore.</div>
+      <button class="toggle-ans-btn" onclick="toggleLA(this)">Show Answer</button>
+      <div class="la-a">
+        Beats per minute = 72<br>
+        Beats per hour = 72 x 60 = 4,320<br>
+        Beats per day = 4,320 x 24 = 1,03,680<br>
+        Beats per year = 1,03,680 x 365 = 3,78,43,200<br>
+        Beats in 75 years = 3,78,43,200 x 75 = <strong>2,83,82,40,000</strong><br>
+        = approximately <strong>284 crore heartbeats</strong> or about 2.84 billion beats!<br><br>
+        This is almost 3 arab (billion) beats in a lifetime - all happening automatically without us even thinking about it!
+      </div>
+    </div>
+
+    <div class="la-item">
+      <div class="la-q">7. If light travels at 3,00,000 km/s, how long does it take to reach Earth from the Sun (15 crore km away)?</div>
+      <button class="toggle-ans-btn" onclick="toggleLA(this)">Show Answer</button>
+      <div class="la-a">
+        Distance = 15,00,00,000 km (15 crore km)<br>
+        Speed of light = 3,00,000 km/s<br>
+        Time = Distance / Speed = 15,00,00,000 / 3,00,000 = 500 seconds<br>
+        500 seconds = 8 minutes 20 seconds<br><br>
+        So when you see the Sun, you're actually seeing it as it was <strong>8 minutes and 20 seconds ago!</strong> If the Sun suddenly went dark, we wouldn't know for over 8 minutes.
+      </div>
+    </div>
+
+    <div class="la-item">
+      <div class="la-q">8. Compare the populations of Goa (15 lakh) and Uttar Pradesh (24 crore). Express UP's population in terms of Goa's.</div>
+      <button class="toggle-ans-btn" onclick="toggleLA(this)">Show Answer</button>
+      <div class="la-a">
+        Goa = 15,00,000 (15 lakh)<br>
+        UP = 24,00,00,000 (24 crore)<br>
+        Ratio = 24,00,00,000 / 15,00,000 = 160<br><br>
+        <strong>UP's population is 160 times that of Goa!</strong> You would need 160 Goas to match UP's population. This shows the incredible diversity in state sizes within India.
+      </div>
+    </div>
+
+    <div class="la-item">
+      <div class="la-q">9. A school wants to collect Rs 10,00,000 (10 lakh) for charity. If each of 1,250 students collects equal amount, how much should each collect?</div>
+      <button class="toggle-ans-btn" onclick="toggleLA(this)">Show Answer</button>
+      <div class="la-a">
+        Total to collect = Rs 10,00,000<br>
+        Number of students = 1,250<br>
+        Amount per student = 10,00,000 / 1,250 = <strong>Rs 800</strong><br><br>
+        Each student needs to collect Rs 800. If this is done over 4 months, that's Rs 200/month or about Rs 7/day per student - very achievable!
+      </div>
+    </div>
+
+    <div class="la-item">
+      <div class="la-q">10. Why do we need such large numbers? Give examples from daily life, science, and economics.</div>
+      <button class="toggle-ans-btn" onclick="toggleLA(this)">Show Answer</button>
+      <div class="la-a">
+        Large numbers are essential because the world operates at massive scales:<br><br>
+        <strong>Daily Life:</strong> Population counts (144 crore Indians), railway passengers (2.3 crore/day), mobile users (120 crore+).<br>
+        <strong>Science:</strong> Distance to Sun (15 crore km), cells in body (37 lakh crore), speed of light (3 lakh km/s), age of Earth (450 crore years).<br>
+        <strong>Economics:</strong> India's GDP (Rs 272 lakh crore), national budget (Rs 48 lakh crore), currency in circulation (Rs 34 lakh crore).<br>
+        <strong>Technology:</strong> Internet users worldwide (500 crore+), data generated daily (250 crore GB), WhatsApp messages per day (10,000 crore).<br><br>
+        Without large numbers and systems to read them, we couldn't measure, compare, or manage the world around us!
+      </div>
+    </div>
+
+    <!-- ===== 5 HOTS Questions ===== -->
+    <div class="subtitle">&#128293; HOTS (Higher Order Thinking Skills) - 5 Questions</div>
+
+    <div class="hots-item">
+      <div class="hots-q">1. A billionaire has Rs 100 crore. If he gives away Rs 1 lakh every day, how many years will it take to give away all his money? Can he give it all away in his lifetime?</div>
+      <button class="toggle-ans-btn" onclick="toggleHOTS(this)">Show Answer</button>
+      <div class="hots-a">
+        Rs 100 crore = 1,00,00,00,000<br>
+        Rs 1 lakh per day = 1,00,000<br>
+        Days needed = 1,00,00,00,000 / 1,00,000 = 1,00,000 days<br>
+        Years = 1,00,000 / 365 = <strong>~274 years!</strong><br><br>
+        No, he CANNOT give it all away in his lifetime! Even at Rs 1 lakh per day, it would take 274 years. This shows just how massive 100 crore really is.
+      </div>
+    </div>
+
+    <div class="hots-item">
+      <div class="hots-q">2. If you stack 1 crore one-rupee coins (thickness: 1.5 mm each), how tall would the stack be? Compare with Mt. Everest (8,849 m).</div>
+      <button class="toggle-ans-btn" onclick="toggleHOTS(this)">Show Answer</button>
+      <div class="hots-a">
+        1 crore coins = 1,00,00,000 coins<br>
+        Thickness per coin = 1.5 mm<br>
+        Total height = 1,00,00,000 x 1.5 mm = 1,50,00,000 mm<br>
+        = 15,000 m = <strong>15 km!</strong><br><br>
+        Mt. Everest = 8.849 km<br>
+        The stack would be <strong>15/8.849 = ~1.7 times taller than Mt. Everest!</strong><br>
+        It would even be higher than where commercial planes fly (~10-12 km)!
+      </div>
+    </div>
+
+    <div class="hots-item">
+      <div class="hots-q">3. India's population grows by about 1 crore per year. At this rate, estimate India's population in the year 2050. What challenges might this create?</div>
+      <button class="toggle-ans-btn" onclick="toggleHOTS(this)">Show Answer</button>
+      <div class="hots-a">
+        Current population (2024) = ~144 crore<br>
+        Growth rate = ~1 crore/year<br>
+        Years to 2050 = 26 years<br>
+        Additional population = 26 crore<br>
+        Estimated 2050 population = 144 + 26 = <strong>~170 crore</strong><br><br>
+        <strong>Challenges:</strong> More food needed (we need to grow 18% more food), more houses, more schools and hospitals, more jobs, more water (India already faces water stress), more energy, and greater strain on natural resources. This is why population awareness and sustainable development are crucial!
+      </div>
+    </div>
+
+    <div class="hots-item">
+      <div class="hots-q">4. Why can't we express the exact number of grains of sand on a beach or stars in the sky? What does this tell us about the difference between mathematics and the real world?</div>
+      <button class="toggle-ans-btn" onclick="toggleHOTS(this)">Show Answer</button>
+      <div class="hots-a">
+        <strong>We can't count them exactly because:</strong><br>
+        (1) The numbers are astronomically large (estimated 7.5 x 10<sup>18</sup> grains of sand on Earth)<br>
+        (2) They keep changing (waves move sand, stars are born and die)<br>
+        (3) We can't access all of them (ocean floor sand, distant galaxies)<br>
+        (4) Counting each one would take longer than a human lifetime<br><br>
+        <strong>What this tells us:</strong> Mathematics gives us perfect, exact tools - we CAN write any number, no matter how large. But the real world is messy and constantly changing. This is why estimation and approximation are just as important as exact counting. Scientists use mathematical models and sampling to estimate these quantities. The beauty of math is that it can handle numbers bigger than anything in the physical universe!
+      </div>
+    </div>
+
+    <div class="hots-item">
+      <div class="hots-q">5. A number N when rounded to the nearest lakh gives 7,00,000. What is the smallest and largest possible value of N?</div>
+      <button class="toggle-ans-btn" onclick="toggleHOTS(this)">Show Answer</button>
+      <div class="hots-a">
+        For a number to round to 7,00,000 (nearest lakh):<br><br>
+        <strong>Smallest value:</strong> The number must be at least 6,50,000 (because 6,49,999 would round down to 6,00,000). So smallest N = <strong>6,50,000</strong>.<br><br>
+        <strong>Largest value:</strong> The number must be less than 7,50,000 (because 7,50,000 would round up to 8,00,000). So largest N = <strong>7,49,999</strong>.<br><br>
+        Range: 6,50,000 &le; N &le; 7,49,999<br>
+        That's a range of exactly 1,00,000 (1 lakh) possible values!
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<!-- ===== BOTTOM NAV ===== -->
+<div class="bottom-nav">
+  <div class="bnav-cards">
+    <div class="bnav-card disabled">
+      <span class="bnav-dir">&#8592; Previous</span>
+      <span class="bnav-title">No previous chapter</span>
+    </div>
+    <div class="bnav-card disabled">
+      <span class="bnav-dir">Next &#8594;</span>
+      <span class="bnav-title">No next chapter</span>
+    </div>
+  </div>
+  <div class="bnav-bottom">
+    <a href="../../index.html" class="bnav-home">Home</a>
+    <a href="#" class="bnav-wa" onclick="shareWhatsApp();return false;">Share on WhatsApp</a>
+    <a href="#" class="footer-interest" onclick="openInterestForm();return false;">Show Interest</a>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div>&#128290; Class 7 Maths &middot; Large Numbers Around Us &middot; Complete Interactive Notes</div>
+  <div style="margin-top:6px;">&#128105;&#8205;&#127979; Made by Preeti Kushwah Ma'am</div>
+  <div style="margin-top:4px;opacity:0.8;">&copy; 2026 Preeti Kushwah Classes</div>
+  <a href="#" class="footer-interest" onclick="openInterestForm();return false;">Show Interest</a>
+</footer>
+
+<!-- ===== ALL JAVASCRIPT ===== -->
+<script>
+// ===== Hero Animation =====
+(function() {
+  var rain = document.getElementById('numberRain');
+  if (!rain) return;
+  var nums = ['1','0','0','0','0','0','1','2','3','4','5','6','7','8','9','0','10','100','1000'];
+  for (var i = 0; i < 30; i++) {
+    var span = document.createElement('span');
+    span.className = 'rain-num';
+    span.textContent = nums[Math.floor(Math.random() * nums.length)];
+    span.style.left = Math.random() * 100 + '%';
+    span.style.fontSize = (14 + Math.random() * 24) + 'px';
+    span.style.animationDuration = (4 + Math.random() * 8) + 's';
+    span.style.animationDelay = (Math.random() * 10) + 's';
+    rain.appendChild(span);
+  }
+})();
+
+// Hero counter animation
+(function() {
+  var target = 1440000000;
+  var el = document.getElementById('heroCounter');
+  if (!el) return;
+  var dur = 2500;
+  var start = null;
+  function step(ts) {
+    if (!start) start = ts;
+    var pct = Math.min((ts - start) / dur, 1);
+    var val = Math.floor(pct * target);
+    el.textContent = formatIndian(val);
+    if (pct < 1) requestAnimationFrame(step);
+  }
+  setTimeout(function() { requestAnimationFrame(step); }, 500);
+})();
+
+// ===== Scroll Reveal =====
+(function() {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+})();
+
+// ===== Number Formatting Functions =====
+function formatIndian(n) {
+  n = parseInt(n);
+  if (isNaN(n)) return '0';
+  var s = n.toString();
+  if (s.length <= 3) return s;
+  var last3 = s.slice(-3);
+  var rest = s.slice(0, -3);
+  var parts = [];
+  while (rest.length > 2) {
+    parts.unshift(rest.slice(-2));
+    rest = rest.slice(0, -2);
+  }
+  if (rest.length > 0) parts.unshift(rest);
+  return parts.join(',') + ',' + last3;
+}
+
+function formatIntl(n) {
+  n = parseInt(n);
+  if (isNaN(n)) return '0';
+  return n.toLocaleString('en-US');
+}
+
+function numToWordsIndian(n) {
+  n = parseInt(n);
+  if (isNaN(n) || n === 0) return 'Zero';
+  var ones = ['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten',
+    'Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
+  var tens = ['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+
+  function twoDigit(x) {
+    if (x < 20) return ones[x];
+    return tens[Math.floor(x/10)] + (x%10 ? ' ' + ones[x%10] : '');
+  }
+  function threeDigit(x) {
+    if (x < 100) return twoDigit(x);
+    return ones[Math.floor(x/100)] + ' Hundred' + (x%100 ? ' ' + twoDigit(x%100) : '');
+  }
+
+  if (n < 0) return 'Negative ' + numToWordsIndian(-n);
+  if (n < 1000) return threeDigit(n);
+
+  var parts = [];
+  var crore = Math.floor(n / 10000000);
+  n = n % 10000000;
+  var lakh = Math.floor(n / 100000);
+  n = n % 100000;
+  var thou = Math.floor(n / 1000);
+  n = n % 1000;
+  var rem = n;
+
+  if (crore > 0) parts.push(threeDigit(crore) + ' Crore');
+  if (lakh > 0) parts.push(twoDigit(lakh) + ' Lakh');
+  if (thou > 0) parts.push(twoDigit(thou) + ' Thousand');
+  if (rem > 0) parts.push(threeDigit(rem));
+
+  return parts.join(' ');
+}
+
+// ===== Widget 1: Number Reader =====
+function updateNumberReader() {
+  var raw = document.getElementById('numInput').value.replace(/[^0-9]/g, '');
+  if (raw.length > 12) raw = raw.slice(0, 12);
+  document.getElementById('numInput').value = raw;
+  if (!raw) {
+    document.getElementById('indianFormat').textContent = '—';
+    document.getElementById('intlFormat').textContent = '—';
+    document.getElementById('numWords').textContent = 'Type a number above';
+    return;
+  }
+  var num = parseInt(raw);
+  document.getElementById('indianFormat').textContent = formatIndian(num);
+  document.getElementById('intlFormat').textContent = formatIntl(num);
+  document.getElementById('numWords').textContent = numToWordsIndian(num);
+}
+function setNum(val) {
+  document.getElementById('numInput').value = val;
+  updateNumberReader();
+}
+
+// ===== Widget 2: Dot Visualizer =====
+var totalDots = 0;
+function addDots(count) {
+  var container = document.getElementById('dotContainer');
+  var w = container.offsetWidth;
+  var h = container.offsetHeight;
+  var colors = ['#7c3aed','#ec4899','#f97316','#3b82f6','#16a34a','#fbbf24','#ef4444','#14b8a6'];
+  // Use canvas-like approach for performance
+  for (var i = 0; i < Math.min(count, 2000); i++) {
+    var d = document.createElement('div');
+    d.className = 'dot';
+    d.style.left = Math.random() * (w - 3) + 'px';
+    d.style.top = Math.random() * (h - 3) + 'px';
+    d.style.background = colors[Math.floor(Math.random() * colors.length)];
+    container.appendChild(d);
+  }
+  totalDots += count;
+  document.getElementById('dotCount').textContent = formatIndian(totalDots);
+  if (totalDots >= 100000) {
+    document.getElementById('dotCount').textContent = formatIndian(totalDots) + ' - 1 LAKH REACHED!';
+    fireConfetti();
+  }
+}
+function resetDots() {
+  document.getElementById('dotContainer').innerHTML = '';
+  totalDots = 0;
+  document.getElementById('dotCount').textContent = '0';
+}
+
+function fireConfetti() {
+  var colors = ['#7c3aed','#ec4899','#f97316','#fbbf24','#16a34a','#3b82f6','#ef4444'];
+  for (var i = 0; i < 60; i++) {
+    var c = document.createElement('div');
+    c.className = 'confetti-piece';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.top = '-20px';
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.style.width = (6 + Math.random() * 10) + 'px';
+    c.style.height = (6 + Math.random() * 10) + 'px';
+    c.style.animationDelay = (Math.random() * 1.5) + 's';
+    c.style.animationDuration = (2 + Math.random() * 2) + 's';
+    document.body.appendChild(c);
+    (function(el) { setTimeout(function() { el.remove(); }, 5000); })(c);
+  }
+}
+
+// ===== Widget 3: Place Value Game =====
+var pvNum, pvDigits, pvPlaces;
+function newPlaceValue() {
+  pvNum = 10000000 + Math.floor(Math.random() * 89999999); // 8-digit number
+  var s = pvNum.toString();
+  pvDigits = s.split('');
+  pvPlaces = ['pvCr','pvTL','pvL','pvTT','pvTh','pvH','pvT','pvO'];
+  var placeNames = ['Crores','Ten Lakhs','Lakhs','Ten Thousands','Thousands','Hundreds','Tens','Ones'];
+
+  document.getElementById('pvNumber').textContent = formatIndian(pvNum);
+  document.getElementById('pvQuiz').textContent = '';
+  document.getElementById('pvOpts').innerHTML = '';
+  document.getElementById('pvFeedback').textContent = '';
+
+  // Clear all cells
+  pvPlaces.forEach(function(id) {
+    var el = document.getElementById(id);
+    el.textContent = '-';
+    el.classList.remove('filled');
+  });
+
+  // Animate filling
+  var delay = 0;
+  pvDigits.forEach(function(d, i) {
+    (function(idx, digit) {
+      setTimeout(function() {
+        var el = document.getElementById(pvPlaces[idx]);
+        el.textContent = digit;
+        el.classList.add('filled');
+        // After all filled, show quiz
+        if (idx === pvDigits.length - 1) {
+          setTimeout(showPVQuiz, 500);
+        }
+      }, delay);
+    })(i, d);
+    delay += 300;
+  });
+}
+
+function showPVQuiz() {
+  var placeNames = ['Crores','Ten Lakhs','Lakhs','Ten Thousands','Thousands','Hundreds','Tens','Ones'];
+  var qIdx = Math.floor(Math.random() * 8);
+  var correctDigit = pvDigits[qIdx];
+  document.getElementById('pvQuiz').textContent = 'What is the digit in the ' + placeNames[qIdx] + ' place?';
+
+  var opts = [correctDigit];
+  while (opts.length < 4) {
+    var r = Math.floor(Math.random() * 10).toString();
+    if (opts.indexOf(r) === -1) opts.push(r);
+  }
+  // Shuffle
+  opts.sort(function() { return Math.random() - 0.5; });
+
+  var container = document.getElementById('pvOpts');
+  container.innerHTML = '';
+  opts.forEach(function(o) {
+    var btn = document.createElement('button');
+    btn.className = 'pv-quiz-opt';
+    btn.textContent = o;
+    btn.onclick = function() {
+      var allBtns = container.querySelectorAll('.pv-quiz-opt');
+      allBtns.forEach(function(b) { b.style.pointerEvents = 'none'; });
+      if (o === correctDigit) {
+        btn.classList.add('correct');
+        document.getElementById('pvFeedback').textContent = 'Correct!';
+        document.getElementById('pvFeedback').style.color = '#16a34a';
+      } else {
+        btn.classList.add('wrong');
+        allBtns.forEach(function(b) { if (b.textContent === correctDigit) b.classList.add('correct'); });
+        document.getElementById('pvFeedback').textContent = 'Oops! The correct answer is ' + correctDigit;
+        document.getElementById('pvFeedback').style.color = '#ef4444';
+      }
+    };
+    container.appendChild(btn);
+  });
+}
+
+// ===== Widget 4: Number Battle =====
+var battleA, battleB, battleScore = 0, battleWrongScore = 0, battleStreakCount = 0, battleActive = false;
+function newBattle() {
+  battleActive = true;
+  var digits = 5 + Math.floor(Math.random() * 5);
+  var min = Math.pow(10, digits - 1);
+  var max = Math.pow(10, digits) - 1;
+  battleA = min + Math.floor(Math.random() * (max - min));
+  battleB = min + Math.floor(Math.random() * (max - min));
+  while (battleA === battleB) battleB = min + Math.floor(Math.random() * (max - min));
+
+  document.getElementById('battleNumA').textContent = formatIndian(battleA);
+  document.getElementById('battleNumB').textContent = formatIndian(battleB);
+  document.getElementById('battleA').className = 'battle-card';
+  document.getElementById('battleB').className = 'battle-card';
+  document.getElementById('battleFeedback').textContent = 'Click the BIGGER number!';
+  document.getElementById('battleFeedback').style.color = '#6b7280';
+}
+
+function battlePick(choice) {
+  if (!battleActive) return;
+  battleActive = false;
+  var picked = choice === 'A' ? battleA : battleB;
+  var other = choice === 'A' ? battleB : battleA;
+  var pickedEl = document.getElementById('battle' + choice);
+  var otherEl = document.getElementById('battle' + (choice === 'A' ? 'B' : 'A'));
+
+  if (picked > other) {
+    pickedEl.classList.add('correct');
+    battleScore++;
+    battleStreakCount++;
+    document.getElementById('battleFeedback').textContent = 'Correct! ' + formatIndian(picked) + ' > ' + formatIndian(other);
+    document.getElementById('battleFeedback').style.color = '#16a34a';
+  } else {
+    pickedEl.classList.add('wrong');
+    otherEl.classList.add('correct');
+    battleWrongScore++;
+    battleStreakCount = 0;
+    document.getElementById('battleFeedback').textContent = 'Wrong! ' + formatIndian(other) + ' > ' + formatIndian(picked);
+    document.getElementById('battleFeedback').style.color = '#ef4444';
+  }
+  document.getElementById('battleCorrect').textContent = battleScore;
+  document.getElementById('battleWrong').textContent = battleWrongScore;
+  document.getElementById('battleStreak').textContent = battleStreakCount;
+}
+
+// ===== Widget 5: Estimation Challenge =====
+var estActual = 0;
+function newEstimate() {
+  var grid = document.getElementById('estGrid');
+  grid.innerHTML = '';
+  estActual = 50 + Math.floor(Math.random() * 451); // 50 to 500
+  var w = grid.offsetWidth || 300;
+  var h = grid.offsetHeight || 250;
+  for (var i = 0; i < estActual; i++) {
+    var d = document.createElement('div');
+    d.className = 'est-dot';
+    d.style.left = (4 + Math.random() * (w - 16)) + 'px';
+    d.style.top = (4 + Math.random() * (h - 16)) + 'px';
+    grid.appendChild(d);
+  }
+  document.getElementById('estGuess').value = '';
+  document.getElementById('estFeedback').textContent = '';
+}
+
+function checkEstimate() {
+  var guess = parseInt(document.getElementById('estGuess').value);
+  if (isNaN(guess)) {
+    document.getElementById('estFeedback').textContent = 'Please enter a number!';
+    document.getElementById('estFeedback').style.color = '#ef4444';
+    return;
+  }
+  var diff = Math.abs(guess - estActual);
+  var pct = Math.round((1 - diff / estActual) * 100);
+  if (pct < 0) pct = 0;
+  var msg = 'Actual: ' + estActual + ' dots. Your guess: ' + guess + '. ';
+  if (pct >= 90) { msg += 'AMAZING! ' + pct + '% accurate!'; document.getElementById('estFeedback').style.color = '#16a34a'; }
+  else if (pct >= 70) { msg += 'Good job! ' + pct + '% accurate!'; document.getElementById('estFeedback').style.color = '#f97316'; }
+  else { msg += pct + '% accurate. Keep practicing!'; document.getElementById('estFeedback').style.color = '#ef4444'; }
+  document.getElementById('estFeedback').textContent = msg;
+}
+
+// ===== Widget 6: Newspaper Hunt =====
+function toggleNewsNum(headline) {
+  var nums = headline.querySelectorAll('.news-num');
+  var info = headline.querySelector('.news-info');
+  var anyHighlighted = false;
+
+  nums.forEach(function(n) {
+    if (n.classList.contains('highlighted')) {
+      n.classList.remove('highlighted');
+      info.classList.remove('show');
+      info.textContent = '';
+    } else {
+      n.classList.add('highlighted');
+      anyHighlighted = true;
+    }
+  });
+
+  if (anyHighlighted && nums.length > 0) {
+    var parts = [];
+    nums.forEach(function(n) {
+      parts.push(n.getAttribute('data-indian') + ' = ' + n.getAttribute('data-words'));
+    });
+    info.textContent = parts.join(' | ');
+    info.classList.add('show');
+  }
+}
+
+// ===== Widget 7: Body Calculator =====
+function calcBody() {
+  var bpm = parseInt(document.getElementById('bpmInput').value) || 72;
+  if (bpm < 40) bpm = 40;
+  if (bpm > 200) bpm = 200;
+  var perHour = bpm * 60;
+  var perDay = perHour * 24;
+  var perYear = perDay * 365;
+  var perLife = perYear * 75;
+
+  document.getElementById('bHour').textContent = formatIndian(perHour);
+  document.getElementById('bDay').textContent = formatIndian(perDay);
+  document.getElementById('bYear').textContent = formatIndian(perYear);
+  document.getElementById('bLife').textContent = formatIndian(perLife);
+  var croreVal = Math.round(perLife / 10000000);
+  document.getElementById('bLifeWords').textContent = '~' + croreVal + ' Crore';
+}
+
+// ===== Widget 8: Distance Comparison =====
+var distData = [
+  {name:'Mumbai-Delhi',km:1400},
+  {name:'Delhi-Chennai',km:2180},
+  {name:'Earth Diameter',km:12742},
+  {name:'Earth Circumf.',km:40075},
+  {name:'Earth-Moon',km:384400},
+  {name:'Earth-Sun',km:150000000}
+];
+var distSelected = [];
+
+function selectDist(el, idx) {
+  if (distSelected.length >= 2) {
+    // Reset
+    document.querySelectorAll('.dist-card').forEach(function(c) { c.classList.remove('selected'); });
+    distSelected = [];
+  }
+  el.classList.add('selected');
+  distSelected.push(idx);
+  if (distSelected.length === 2) {
+    showDistCompare();
+  }
+}
+
+function showDistCompare() {
+  var a = distData[distSelected[0]];
+  var b = distData[distSelected[1]];
+  var maxKm = Math.max(a.km, b.km);
+  var box = document.getElementById('distCompare');
+  var pctA = Math.max((a.km / maxKm) * 100, 2);
+  var pctB = Math.max((b.km / maxKm) * 100, 2);
+  box.innerHTML = '<div class="dist-bar-row"><span class="dist-bar-label">' + a.name + '</span><div class="dist-bar-track"><div class="dist-bar-fill" style="width:' + pctA + '%;background:linear-gradient(90deg,#7c3aed,#a78bfa);">' + formatIndian(a.km) + ' km</div></div></div>' +
+    '<div class="dist-bar-row"><span class="dist-bar-label">' + b.name + '</span><div class="dist-bar-track"><div class="dist-bar-fill" style="width:' + pctB + '%;background:linear-gradient(90deg,#ec4899,#f9a8d4);">' + formatIndian(b.km) + ' km</div></div></div>' +
+    '<p style="text-align:center;font-weight:700;margin-top:10px;font-size:13px;color:#5b21b6;">' + (a.km > b.km ? a.name : b.name) + ' is ' + formatIndian(Math.round(Math.max(a.km,b.km) / Math.min(a.km,b.km))) + 'x farther!</p>';
+}
+
+// ===== Widget 9: State Population Match =====
+var stateData = [
+  {state:'Uttar Pradesh',pop:'24 Crore'},
+  {state:'Maharashtra',pop:'13 Crore'},
+  {state:'Bihar',pop:'13 Crore'},
+  {state:'Rajasthan',pop:'8 Crore'},
+  {state:'Tamil Nadu',pop:'8 Crore'},
+  {state:'Gujarat',pop:'7 Crore'},
+  {state:'Karnataka',pop:'7 Crore'},
+  {state:'Goa',pop:'15 Lakh'}
+];
+var matchSelected = null;
+var matchedCount = 0;
+var matchMap = {};
+
+function initStateMatch() {
+  matchSelected = null;
+  matchedCount = 0;
+  matchMap = {};
+  document.getElementById('matchScore').textContent = '0';
+  document.getElementById('matchFeedback').textContent = '';
+
+  var shuffledStates = stateData.slice().sort(function() { return Math.random() - 0.5; });
+  var shuffledPops = stateData.slice().sort(function() { return Math.random() - 0.5; });
+
+  var stateCol = document.getElementById('stateCol');
+  stateCol.innerHTML = '<h4>States</h4>';
+  shuffledStates.forEach(function(d, i) {
+    var btn = document.createElement('button');
+    btn.className = 'match-item';
+    btn.textContent = d.state;
+    btn.setAttribute('data-state', d.state);
+    btn.onclick = function() { pickState(this); };
+    stateCol.appendChild(btn);
+  });
+
+  var popCol = document.getElementById('popCol');
+  popCol.innerHTML = '<h4>Population</h4>';
+  shuffledPops.forEach(function(d, i) {
+    var btn = document.createElement('button');
+    btn.className = 'match-item';
+    btn.textContent = d.pop;
+    btn.setAttribute('data-state', d.state);
+    btn.onclick = function() { pickPop(this); };
+    popCol.appendChild(btn);
+  });
+}
+
+function pickState(btn) {
+  if (btn.classList.contains('correct')) return;
+  document.querySelectorAll('#stateCol .match-item').forEach(function(b) { b.classList.remove('selected'); });
+  btn.classList.add('selected');
+  matchSelected = btn.getAttribute('data-state');
+}
+
+function pickPop(btn) {
+  if (!matchSelected || btn.classList.contains('correct')) return;
+  var popState = btn.getAttribute('data-state');
+  if (popState === matchSelected) {
+    btn.classList.add('correct');
+    var stateBtn = document.querySelector('#stateCol .match-item[data-state="' + matchSelected + '"]');
+    if (stateBtn) stateBtn.classList.add('correct');
+    matchedCount++;
+    document.getElementById('matchScore').textContent = matchedCount;
+    document.getElementById('matchFeedback').textContent = 'Correct! ' + matchSelected + ' = ' + btn.textContent;
+    document.getElementById('matchFeedback').style.color = '#16a34a';
+    if (matchedCount === 8) {
+      document.getElementById('matchFeedback').textContent = 'ALL MATCHED! You are a geography expert!';
+      fireConfetti();
+    }
+  } else {
+    btn.classList.add('wrong');
+    setTimeout(function() { btn.classList.remove('wrong'); }, 600);
+    document.getElementById('matchFeedback').textContent = 'Try again!';
+    document.getElementById('matchFeedback').style.color = '#ef4444';
+  }
+  matchSelected = null;
+  document.querySelectorAll('#stateCol .match-item').forEach(function(b) { b.classList.remove('selected'); });
+}
+
+// ===== Widget 10: Rounding Practice =====
+var roundScore = 0, roundWrongScore = 0, roundActive = false;
+function newRound() {
+  roundActive = true;
+  var types = [
+    {name:'10', factor:10},
+    {name:'100', factor:100},
+    {name:'1,000', factor:1000},
+    {name:'Lakh (1,00,000)', factor:100000}
+  ];
+  var type = types[Math.floor(Math.random() * types.length)];
+  var maxN = type.factor === 100000 ? 9999999 : (type.factor * 100);
+  var minN = type.factor;
+  var num = minN + Math.floor(Math.random() * (maxN - minN));
+
+  document.getElementById('roundInstruction').textContent = 'Round to the nearest ' + type.name + ':';
+  document.getElementById('roundNumber').textContent = formatIndian(num);
+  document.getElementById('roundFeedback').textContent = '';
+
+  var correct = Math.round(num / type.factor) * type.factor;
+  var opts = [correct];
+
+  // Generate wrong options
+  var wrongs = [correct + type.factor, correct - type.factor, correct + 2 * type.factor, correct - 2 * type.factor];
+  wrongs = wrongs.filter(function(w) { return w >= 0 && w !== correct; });
+  while (opts.length < 4 && wrongs.length > 0) {
+    var idx = Math.floor(Math.random() * wrongs.length);
+    opts.push(wrongs[idx]);
+    wrongs.splice(idx, 1);
+  }
+  // Fill remaining with random if needed
+  while (opts.length < 4) {
+    var r = (Math.floor(Math.random() * 10) + 1) * type.factor;
+    if (opts.indexOf(r) === -1) opts.push(r);
+  }
+
+  opts.sort(function() { return Math.random() - 0.5; });
+
+  var container = document.getElementById('roundOptions');
+  container.innerHTML = '';
+  opts.forEach(function(o) {
+    var btn = document.createElement('button');
+    btn.className = 'round-opt';
+    btn.textContent = formatIndian(o);
+    btn.onclick = function() {
+      if (!roundActive) return;
+      roundActive = false;
+      var allBtns = container.querySelectorAll('.round-opt');
+      allBtns.forEach(function(b) { b.style.pointerEvents = 'none'; });
+      if (o === correct) {
+        btn.classList.add('correct');
+        roundScore++;
+        document.getElementById('roundFeedback').textContent = 'Correct!';
+        document.getElementById('roundFeedback').style.color = '#16a34a';
+      } else {
+        btn.classList.add('wrong');
+        allBtns.forEach(function(b) { if (parseInt(b.textContent.replace(/,/g,'')) === correct) b.classList.add('correct'); });
+        roundWrongScore++;
+        document.getElementById('roundFeedback').textContent = 'Wrong! Answer: ' + formatIndian(correct);
+        document.getElementById('roundFeedback').style.color = '#ef4444';
+      }
+      document.getElementById('roundCorrect').textContent = roundScore;
+      document.getElementById('roundWrong').textContent = roundWrongScore;
+    };
+    container.appendChild(btn);
+  });
+}
+
+// ===== MCQ Handler =====
+function showMCQ(item, correctKey) {
+  if (item.classList.contains('show-ans')) return;
+  item.classList.add('show-ans');
+  var opts = item.querySelectorAll('.mcq-options li');
+  opts.forEach(function(li) {
+    if (li.getAttribute('data-key') === correctKey) {
+      li.classList.add('correct');
+    }
+  });
+}
+
+// ===== Toggle Answer for Word Problems =====
+function toggleWP(btn) {
+  var item = btn.parentElement;
+  item.classList.toggle('show-ans');
+  btn.textContent = item.classList.contains('show-ans') ? 'Hide Solution' : 'Show Solution';
+}
+
+function toggleLA(btn) {
+  var item = btn.parentElement;
+  item.classList.toggle('show-ans');
+  btn.textContent = item.classList.contains('show-ans') ? 'Hide Answer' : 'Show Answer';
+}
+
+function toggleHOTS(btn) {
+  var item = btn.parentElement;
+  item.classList.toggle('show-ans');
+  btn.textContent = item.classList.contains('show-ans') ? 'Hide Answer' : 'Show Answer';
+}
+
+// ===== Initialize Games on Load =====
+window.addEventListener('load', function() {
+  newBattle();
+  newEstimate();
+  newPlaceValue();
+  newRound();
+  initStateMatch();
+  calcBody();
+});
+
+// ===== Share Functions =====
+function openShare() {
+  document.getElementById('shareOverlay').classList.add('active');
+}
+function closeShare() {
+  document.getElementById('shareOverlay').classList.remove('active');
+}
+function shareWhatsApp() {
+  var url = window.location.href;
+  var text = encodeURIComponent('Check out these Class 7 Maths notes on Large Numbers Around Us (Ch 1 NCERT Ganita Prakash) from Preeti Kushwah Classes! ' + url);
+  window.open('https://wa.me/?text=' + text, '_blank');
+  closeShare();
+}
+function copyLink() {
+  var url = window.location.href;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function() {
+      showCopyFeedback();
+    }).catch(function() {
+      fallbackCopy(url);
+    });
+  } else {
+    fallbackCopy(url);
+  }
+}
+function fallbackCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.left = '-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); showCopyFeedback(); } catch(e) { alert('Copy this link: ' + text); }
+  document.body.removeChild(ta);
+}
+function showCopyFeedback() {
+  var fb = document.getElementById('copyFeedback');
+  if (fb) { fb.style.display = 'block'; setTimeout(function() { fb.style.display = 'none'; }, 2000); }
+}
+function nativeShare() {
+  if (navigator.share) {
+    navigator.share({ title: 'Large Numbers Around Us - Class 7 Maths (NCERT Ch 1)', text: 'Complete interactive notes from Preeti Kushwah Classes', url: window.location.href });
+  } else {
+    copyLink();
+  }
+  closeShare();
+}
+
+// ===== Interest Form =====
+function pickClass(btn, val) {
+  document.querySelectorAll('.cls-chip').forEach(function(c) { c.classList.remove('picked'); });
+  btn.classList.add('picked');
+  document.getElementById('classInput').value = val;
+}
+function openInterestForm() {
+  document.getElementById('interestModal').classList.add('active');
+}
+function closeInterestForm() {
+  document.getElementById('interestModal').classList.remove('active');
+}
+function submitInterestForm(e) {
+  e.preventDefault();
+  var form = document.getElementById('interestForm');
+  var formData = new FormData(form);
+
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLScZ4dJwfNKUtVuRhh3mk8WsdeuaJlat1NQBEuqF6Ri46WeZAw/formResponse', {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors'
+  }).then(function() {
+    document.getElementById('interestForm').style.display = 'none';
+    document.getElementById('interestSuccess').style.display = 'block';
+    setTimeout(function() {
+      document.getElementById('interestForm').style.display = 'block';
+      document.getElementById('interestSuccess').style.display = 'none';
+      form.reset();
+      closeInterestForm();
+    }, 3000);
+  }).catch(function() {
+    document.getElementById('interestForm').style.display = 'none';
+    document.getElementById('interestSuccess').style.display = 'block';
+    setTimeout(function() {
+      document.getElementById('interestForm').style.display = 'block';
+      document.getElementById('interestSuccess').style.display = 'none';
+      form.reset();
+      closeInterestForm();
+    }, 3000);
+  });
+}
+</script>
+
+<!-- ===== FLOATING SHARE BUTTON ===== -->
+<div class="fab-share" onclick="openShare()">&#128279;</div>
+
+<!-- ===== SHARE OVERLAY ===== -->
+<div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeShare()">
+  <div class="share-box">
+    <h3>Share These Notes</h3>
+    <button class="share-opt wa" onclick="shareWhatsApp()">WhatsApp</button>
+    <button class="share-opt copy" onclick="copyLink()">Copy Link</button>
+    <button class="share-opt native" onclick="nativeShare()">Share...</button>
+    <button class="share-close" onclick="closeShare()">Close</button>
+    <div class="copy-feedback" id="copyFeedback">Link Copied!</div>
+  </div>
+</div>
+
+<!-- ===== INTEREST MODAL ===== -->
+<style>
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.active { display: flex; }
+.cls-chip {
+  width: 48px; height: 48px; border-radius: 14px; border: 2px solid #e5e7eb;
+  background: #f9fafb; font-family: 'Fredoka One', cursive; font-size: 20px;
+  color: #6b7280; cursor: pointer; transition: all 0.2s;
+}
+.cls-chip:hover { border-color: #a78bfa; background: #faf5ff; color: #7c3aed; }
+.cls-chip.picked {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa); color: white;
+  border-color: #7c3aed; box-shadow: 0 4px 12px rgba(124,58,237,0.3); transform: scale(1.08);
+}
+</style>
+<div class="modal-overlay" id="interestModal" onclick="if(event.target===this)closeInterestForm()">
+  <div class="modal-box" style="background:white;border-radius:20px;padding:28px;width:90%;max-width:380px;max-height:90vh;overflow-y:auto;">
+    <h3 style="font-family:'Fredoka One',cursive;color:#7c3aed;margin-bottom:4px;">&#128221; Show Interest</h3>
+    <p style="font-size:13px;color:#6b7280;margin-bottom:16px;">Fill your details and Preeti Ma'am will contact you!</p>
+    <form id="interestForm" onsubmit="submitInterestForm(event)">
+      <input type="text" name="entry.43085631" placeholder="Student's Full Name *" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:inherit;">
+      <input type="tel" name="entry.1854993535" placeholder="Phone Number *" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:inherit;">
+      <input type="hidden" name="entry.2008437083" id="classInput" required>
+      <div style="text-align:left;margin-bottom:12px;">
+        <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:6px;">Select Class *</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 6')">6</button>
+          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 7')">7</button>
+          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 8')">8</button>
+          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 9')">9</button>
+          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 10')">10</button>
+        </div>
+      </div>
+      <textarea name="entry.2062493229" placeholder="Any message? (optional)" rows="2" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:12px;font-family:inherit;resize:vertical;"></textarea>
+      <button type="submit" style="width:100%;padding:12px;background:linear-gradient(135deg,#7c3aed,#a78bfa);color:white;border:none;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;font-family:inherit;">Submit</button>
+    </form>
+    <div id="interestSuccess" style="display:none;text-align:center;padding:20px;">
+      <div style="font-size:48px;margin-bottom:12px;">&#9989;</div>
+      <h4 style="color:#16a34a;font-size:18px;">Thank You!</h4>
+      <p style="font-size:14px;color:#6b7280;">Preeti Ma'am will contact you soon.</p>
+    </div>
+    <button onclick="closeInterestForm()" style="width:100%;padding:10px;background:none;border:1px solid #e5e7eb;border-radius:10px;font-size:14px;cursor:pointer;margin-top:10px;font-family:inherit;color:#6b7280;">&#10005; Close</button>
+  </div>
+</div>
+
+</body>
+</html>
