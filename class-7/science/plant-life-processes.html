@@ -1967,6 +1967,47 @@ footer {
   animation: sDropFall 1s ease-in infinite;
 }
 @keyframes sDropFall { 0%{transform:translateY(0);opacity:1} 100%{transform:translateY(40px);opacity:0} }
+/* Test tube for water bath */
+.s-testtube {
+  position: absolute; bottom: 72px; left: 50%;
+  transform: translateX(-50%);
+  width: 32px; height: 80px;
+  border: 3px solid #94a3b8; border-top: 3px solid #94a3b8;
+  border-radius: 0 0 16px 16px;
+  overflow: hidden; z-index: 8;
+  opacity: 0; transition: all 0.5s;
+  background: rgba(255,255,255,0.3);
+}
+.s-testtube.visible { opacity: 1; }
+.s-tt-liquid {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 50px; border-radius: 0 0 13px 13px;
+  background: linear-gradient(to top, #fbbf24, #fef3c7);
+  transition: all 0.5s;
+}
+.s-tt-label {
+  position: absolute; top: -18px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px; font-weight: 800;
+  color: #92400e; white-space: nowrap;
+}
+.s-tt-leaf {
+  position: absolute; bottom: 12px; left: 50%;
+  transform: translateX(-50%) rotate(-10deg) scale(0.5);
+  z-index: 2;
+}
+.s-tt-blade {
+  width: 30px !important; height: 34px !important;
+}
+/* Step label */
+.s-step-label {
+  position: absolute; top: 6px; left: 10px;
+  font-size: 11px; font-weight: 800;
+  color: #7c3aed; background: rgba(250,245,255,0.9);
+  padding: 3px 10px; border-radius: 8px;
+  opacity: 0; transition: all 0.5s;
+}
+.s-step-label.visible { opacity: 1; }
 /* Dark scene stars for 10.2 */
 .starch-scene.dark-mode .s-star {
   position: absolute; width: 2px; height: 2px;
@@ -3455,6 +3496,14 @@ footer {
               <div class="s-beaker-label" id="sBeakerLabel"></div>
               <div class="s-bubbles" id="sBubbles"></div>
             </div>
+            <!-- Test tube (for water bath — sits inside beaker) -->
+            <div class="s-testtube" id="sTestTube">
+              <div class="s-tt-liquid" id="sTTLiquid"></div>
+              <div class="s-tt-label">Alcohol</div>
+              <div class="s-tt-leaf" id="sTTLeaf">
+                <div class="s-leaf-blade s-tt-blade" id="sTTBlade"></div>
+              </div>
+            </div>
             <!-- Burner under beaker -->
             <div class="s-burner" id="sBurner">
               <div class="s-flame" id="sFlame"></div>
@@ -3467,13 +3516,15 @@ footer {
               <div class="s-dropper-tube"></div>
               <div class="s-drop" id="sDrop"></div>
             </div>
+            <!-- Step label floating -->
+            <div class="s-step-label" id="sStepLabel"></div>
           </div>
           <div class="starch-status" id="starchStatus">Click Step 1 to begin the experiment</div>
         </div>
         <div class="act-controls">
           <button class="act-btn step-btn" id="s102_1" onclick="starchStep(1)">1. Pluck Leaf &#127811;</button>
           <button class="act-btn step-btn" id="s102_2" onclick="starchStep(2)" disabled>2. Boil in Water &#128293;</button>
-          <button class="act-btn step-btn" id="s102_3" onclick="starchStep(3)" disabled>3. Boil in Alcohol &#129514;</button>
+          <button class="act-btn step-btn" id="s102_3" onclick="starchStep(3)" disabled>3. Alcohol Water Bath &#129514;</button>
           <button class="act-btn step-btn" id="s102_4" onclick="starchStep(4)" disabled>4. Add Iodine &#128167;</button>
           <button class="act-btn reset" onclick="starchReset()">&#128260; Reset</button>
         </div>
@@ -4370,6 +4421,7 @@ function starchStep(step) {
   var bubbles = document.getElementById('sBubbles');
   var dropper = document.getElementById('sDropper');
   var drop = document.getElementById('sDrop');
+  var stepLabel = document.getElementById('sStepLabel');
   var status = document.getElementById('starchStatus');
   var isDark = document.getElementById('darkCheck').checked;
 
@@ -4382,6 +4434,8 @@ function starchStep(step) {
 
   switch(step) {
     case 1:
+      stepLabel.textContent = isDark ? 'Step 1: Leaf from Dark' : 'Step 1: Pluck Leaf';
+      stepLabel.classList.add('visible');
       if (isDark) {
         scene.classList.add('dark-mode');
         for (var s = 0; s < 15; s++) {
@@ -4407,6 +4461,8 @@ function starchStep(step) {
       scene.classList.remove('dark-mode');
       scene.querySelectorAll('.s-star').forEach(function(s) { s.remove(); });
       status.style.color = '';
+      stepLabel.textContent = 'Step 2: Boil in Water';
+      stepLabel.classList.add('visible');
       beaker.classList.add('visible');
       burner.classList.add('visible');
       liquid.className = 's-beaker-liquid water';
@@ -4422,49 +4478,53 @@ function starchStep(step) {
         bub.style.animationDelay = (Math.random() * 1) + 's';
         bubbles.appendChild(bub);
       }
-      status.innerHTML = '🔥 Leaf <strong>dipped in boiling water</strong> — softening! Flame is ON.';
+      status.innerHTML = '🔥 Leaf <strong>dipped in boiling water</strong> to soften it. Burner flame ON underneath.';
       status.style.background = '#dbeafe';
       break;
     case 3:
+      stepLabel.textContent = 'Step 3: Water Bath Method';
       leaf.classList.remove('in-beaker');
-      leaf.classList.add('on-table');
-      blade.className = 's-leaf-blade white-l';
-      stem.className = 's-leaf-stem white-l';
-      setTimeout(function() {
-        liquid.className = 's-beaker-liquid alcohol';
-        bLabel.textContent = 'ALCOHOL';
-        leaf.classList.remove('on-table');
-        leaf.classList.add('in-beaker');
-        bubbles.innerHTML = '';
-        for (var b = 0; b < 3; b++) {
-          var bub = document.createElement('div');
-          bub.className = 's-bub';
-          bub.style.left = (25 + Math.random() * 30) + 'px';
-          bub.style.animationDelay = (Math.random() * 1) + 's';
-          bubbles.appendChild(bub);
-        }
-      }, 600);
-      status.innerHTML = '🧪 Leaf taken out, then <strong>dipped in alcohol</strong> — chlorophyll dissolves! Leaf turning <strong>white</strong>.';
+      leaf.className = 's-leaf'; // hide main leaf
+      liquid.className = 's-beaker-liquid water'; // beaker still has HOT WATER
+      bLabel.textContent = 'HOT WATER';
+      var testTube = document.getElementById('sTestTube');
+      var ttBlade = document.getElementById('sTTBlade');
+      ttBlade.className = 's-leaf-blade s-tt-blade white-l'; // leaf turns white in alcohol
+      testTube.classList.add('visible');
+      bubbles.innerHTML = '';
+      for (var b = 0; b < 3; b++) {
+        var bub = document.createElement('div');
+        bub.className = 's-bub';
+        bub.style.left = (25 + Math.random() * 30) + 'px';
+        bub.style.animationDelay = (Math.random() * 1) + 's';
+        bubbles.appendChild(bub);
+      }
+      status.innerHTML = '🧪 <strong>Water Bath Method:</strong> Leaf is in a <strong>test tube with alcohol</strong>. The test tube sits <strong>inside the beaker of hot water</strong>. We NEVER heat alcohol directly (it is flammable!). Chlorophyll dissolves → leaf turns <strong>white</strong>.';
       status.style.background = '#fef9c3';
       break;
     case 4:
-      leaf.classList.remove('in-beaker');
-      leaf.classList.add('on-table');
+      stepLabel.textContent = 'Step 4: Iodine Test';
+      document.getElementById('sTestTube').classList.remove('visible');
       beaker.classList.remove('visible');
       burner.classList.remove('visible');
       bubbles.innerHTML = '';
+      // Show leaf again (white from alcohol step)
+      leaf.classList.add('visible');
+      leaf.classList.add('on-table');
+      blade.className = 's-leaf-blade white-l';
+      stem.className = 's-leaf-stem white-l';
       dropper.classList.add('visible');
       drop.classList.add('dripping');
       setTimeout(function() {
         if (isDark) {
           blade.className = 's-leaf-blade brown-l';
           stem.className = 's-leaf-stem';
-          status.innerHTML = '❌ Leaf stays <strong>BROWN</strong>! No starch. No photosynthesis happened in dark!';
+          status.innerHTML = '❌ Leaf stays <strong>BROWN</strong>! No starch = No photosynthesis in dark!';
           status.style.background = '#fee2e2';
         } else {
           blade.className = 's-leaf-blade blueblack-l';
           stem.className = 's-leaf-stem';
-          status.innerHTML = '✅ Leaf turns <strong>BLUE-BLACK!</strong> Starch IS present = <strong>Photosynthesis happened!</strong>';
+          status.innerHTML = '✅ Leaf turns <strong>BLUE-BLACK!</strong> Starch IS present = <strong>Photosynthesis confirmed!</strong>';
           status.style.background = '#dcfce7';
         }
         drop.classList.remove('dripping');
@@ -4487,6 +4547,9 @@ function starchReset() {
   document.getElementById('sDropper').classList.remove('visible');
   document.getElementById('sDrop').classList.remove('dripping');
   document.getElementById('sBubbles').innerHTML = '';
+  document.getElementById('sTestTube').classList.remove('visible');
+  document.getElementById('sTTBlade').className = 's-leaf-blade s-tt-blade';
+  document.getElementById('sStepLabel').classList.remove('visible');
   var status = document.getElementById('starchStatus');
   status.textContent = 'Click Step 1 to begin the experiment';
   status.style.background = 'transparent';
