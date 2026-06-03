@@ -5,9 +5,13 @@
     '.dw-fab{position:fixed;bottom:90px;right:24px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a78bfa);color:#fff;border:none;cursor:pointer;z-index:9999;box-shadow:0 4px 16px rgba(124,58,237,0.4);display:flex;align-items:center;justify-content:center;font-size:24px;transition:all 0.3s;font-family:sans-serif;}',
     '.dw-fab:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(124,58,237,0.5);}',
     '.dw-fab.open{background:linear-gradient(135deg,#dc2626,#f87171);border-radius:14px;width:44px;height:44px;font-size:20px;}',
-    '.dw-panel{position:fixed;bottom:0;right:0;width:420px;height:70vh;max-height:600px;background:#fff;border-radius:18px 0 0 0;box-shadow:-4px -4px 30px rgba(0,0,0,0.18);z-index:9998;display:none;flex-direction:column;overflow:hidden;transition:all 0.3s;}',
+    '.dw-panel{position:fixed;bottom:0;right:0;width:420px;height:70vh;min-width:280px;min-height:250px;max-width:95vw;max-height:95vh;background:#fff;border-radius:18px 0 0 0;box-shadow:-4px -4px 30px rgba(0,0,0,0.18);z-index:9998;display:none;flex-direction:column;overflow:hidden;}',
     '.dw-panel.visible{display:flex;animation:dwSlideIn 0.3s ease;}',
-    '.dw-panel.minimized{height:48px;min-height:48px;max-height:48px;border-radius:18px 0 0 0;}',
+    '.dw-panel.minimized{height:48px!important;min-height:48px!important;max-height:48px!important;border-radius:18px 0 0 0;}',
+    '.dw-panel.resizing{transition:none!important;user-select:none!important;}',
+    '.dw-resize{position:absolute;top:0;left:0;width:18px;height:18px;cursor:nw-resize;z-index:10;display:flex;align-items:center;justify-content:center;}',
+    '.dw-resize::before{content:"";width:10px;height:10px;border-top:2.5px solid rgba(255,255,255,0.6);border-left:2.5px solid rgba(255,255,255,0.6);border-radius:2px 0 0 0;}',
+    '.dw-resize:hover::before{border-color:rgba(255,255,255,0.95);}',
     '@keyframes dwSlideIn{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}',
     '.dw-header{display:flex;align-items:center;gap:8px;padding:10px 14px;background:linear-gradient(135deg,#7c3aed,#a78bfa);color:#fff;flex-shrink:0;cursor:default;user-select:none;}',
     '.dw-header-title{flex:1;font-size:14px;font-weight:800;font-family:"Nunito",sans-serif;}',
@@ -38,6 +42,7 @@
   var panel = document.createElement('div');
   panel.className = 'dw-panel';
   panel.innerHTML = [
+    '<div class="dw-resize" id="dwResize" title="Drag to resize"></div>',
     '<div class="dw-header">',
     '  <span class="dw-header-title">✏️ Drawing Board</span>',
     '  <button class="dw-hbtn" id="dwMinBtn" title="Minimize">—</button>',
@@ -258,4 +263,43 @@
   });
 
   window.addEventListener('resize', function() { if (isOpen && !isMin) resizeCanvas(); });
+
+  // Resize handle drag
+  var resizeHandle = document.getElementById('dwResize');
+  var resizing = false, rStartX, rStartY, rStartW, rStartH;
+  function onResizeStart(e) {
+    if (isMin) return;
+    e.preventDefault();
+    e.stopPropagation();
+    resizing = true;
+    var t = e.touches ? e.touches[0] : e;
+    rStartX = t.clientX;
+    rStartY = t.clientY;
+    rStartW = panel.offsetWidth;
+    rStartH = panel.offsetHeight;
+    panel.classList.add('resizing');
+  }
+  function onResizeMove(e) {
+    if (!resizing) return;
+    e.preventDefault();
+    var t = e.touches ? e.touches[0] : e;
+    var dx = rStartX - t.clientX;
+    var dy = rStartY - t.clientY;
+    var newW = Math.max(280, Math.min(window.innerWidth * 0.95, rStartW + dx));
+    var newH = Math.max(250, Math.min(window.innerHeight * 0.95, rStartH + dy));
+    panel.style.width = newW + 'px';
+    panel.style.height = newH + 'px';
+  }
+  function onResizeEnd() {
+    if (!resizing) return;
+    resizing = false;
+    panel.classList.remove('resizing');
+    setTimeout(resizeCanvas, 30);
+  }
+  resizeHandle.addEventListener('mousedown', onResizeStart);
+  document.addEventListener('mousemove', onResizeMove);
+  document.addEventListener('mouseup', onResizeEnd);
+  resizeHandle.addEventListener('touchstart', onResizeStart, { passive: false });
+  document.addEventListener('touchmove', onResizeMove, { passive: false });
+  document.addEventListener('touchend', onResizeEnd);
 })();
