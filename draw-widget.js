@@ -73,7 +73,16 @@
   var wrap = document.getElementById('dwCanvasWrap');
   var isOpen = false, isMin = false, drawing = false;
   var tool = 'pen', color = '#1f2937', size = 3;
-  var history = [], currentPath = [];
+  var STORAGE_KEY = 'dw_strokes';
+  var history = loadHistory(), currentPath = [];
+
+  function loadHistory() {
+    try { var d = localStorage.getItem(STORAGE_KEY); return d ? JSON.parse(d) : []; }
+    catch(e) { return []; }
+  }
+  function saveHistory() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(history)); } catch(e) {}
+  }
 
   function resizeCanvas() {
     var r = wrap.getBoundingClientRect();
@@ -151,6 +160,7 @@
     drawing = false;
     if (currentPath.length > 1) {
       history.push({ tool: tool, color: color, size: size, points: currentPath.slice() });
+      saveHistory();
     }
     currentPath = [];
   }
@@ -172,6 +182,7 @@
       fab.title = 'Close Drawing Board';
       isOpen = true;
       isMin = false;
+      history = loadHistory();
       setTimeout(resizeCanvas, 50);
     } else {
       panel.classList.remove('visible');
@@ -227,12 +238,14 @@
 
   document.getElementById('dwUndo').addEventListener('click', function() {
     history.pop();
+    saveHistory();
     redraw();
   });
 
   document.getElementById('dwClear').addEventListener('click', function() {
     if (history.length === 0 || confirm('Clear the entire drawing?')) {
       history = [];
+      saveHistory();
       redraw();
     }
   });
