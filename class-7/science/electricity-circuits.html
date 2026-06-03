@@ -1792,6 +1792,52 @@ footer {
   text-align: center;
 }
 
+/* ============= NCERT ACTIVITY SIDE-BY-SIDE ============= */
+.ncert-activity-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+  margin: 16px 0;
+}
+.ncert-diagram-panel {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 14px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.ncert-diagram-panel .ncert-book-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #92400e;
+  padding: 3px 12px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  border: 1.5px solid #f59e0b;
+}
+.ncert-diagram-panel .ncert-fig-caption {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7280;
+  margin-top: 10px;
+  font-style: italic;
+}
+.ncert-diagram-panel svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.ncert-interactive-panel {
+  min-width: 0;
+}
+
 /* ============= RESPONSIVE ============= */
 @media (max-width: 600px) {
   .section-bd { padding: 18px; }
@@ -1808,6 +1854,7 @@ footer {
   .hero-scene { height: 180px; }
   .hero-battery { width: 50px; height: 70px; }
   .bulb-glass { width: 36px; height: 42px; }
+  .ncert-activity-pair { grid-template-columns: 1fr; }
 }
 
 /* ============= INTERACTIVE ACTIVITIES ============= */
@@ -1882,6 +1929,22 @@ footer {
   0% { left: 0; }
   100% { left: calc(100% - 8px); }
 }
+/* SVG circuit dot animation */
+@keyframes flowDotSVG {
+  0%,100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+.svg-dot { transition: opacity 0.4s; }
+.svg-dot.flowing { animation: flowDotSVG 1.2s ease-in-out infinite; }
+.svg-dot.stopped { opacity: 0.15 !important; animation: none !important; }
+.ic-dot.flowing-svg {
+  animation: flowDotSVG 1.2s ease-in-out infinite;
+  opacity: 1 !important;
+}
+/* SVG bulb glow helpers */
+.bulb-glow-dim  { filter: drop-shadow(0 0 6px rgba(254,240,138,0.6)); }
+.bulb-glow-on   { filter: drop-shadow(0 0 12px rgba(251,191,36,0.9)); }
+.bulb-glow-off  { filter: none; }
 
 /* Bulb */
 .ic-bulb {
@@ -2050,9 +2113,17 @@ footer {
   color: #92400e;
 }
 .test-btn.reset-btn {
-  background: #f1f5f9;
-  border-color: #94a3b8;
-  color: #475569;
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+  border: 2px solid #fca5a5;
+  color: #dc2626;
+  font-weight: 800;
+  box-shadow: 0 2px 6px rgba(239,68,68,0.1);
+}
+.test-btn.reset-btn:hover {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  border-color: #f87171;
+  box-shadow: 0 4px 12px rgba(239,68,68,0.2);
+  transform: translateY(-2px);
 }
 
 .test-result {
@@ -2267,7 +2338,7 @@ footer {
   <a href="../../index.html" class="nav-link">Home</a>
   <a href="acids-bases-salts.html" class="nav-link nav-prev">Acids, Bases &amp; Salts</a>
   <div class="nav-spacer"></div>
-  <span class="nav-link nav-next-disabled">Next: Coming Soon</span>
+  <a href="heat-transfer.html" class="nav-link">Ch 4: Heat →</a>
   <button class="nav-link share-btn" onclick="openShare()">Share</button>
 </div>
 
@@ -2556,22 +2627,91 @@ footer {
       <div class="subtitle">Parts of an Electric Bulb</div>
 
       <div class="bulb-anatomy-wrap">
-        <div class="big-bulb">
-          <div class="bb-glass"></div>
-          <div class="bb-filament">
-            <div class="bb-zig"></div>
-          </div>
-          <div class="bb-support-l"></div>
-          <div class="bb-support-r"></div>
-          <div class="bb-base"></div>
-          <span class="bb-label bbl-glass">Glass envelope</span>
-          <span class="bb-label bbl-filament">Filament (tungsten)</span>
-          <span class="bb-label bbl-gas">Inert gas (argon)</span>
-          <span class="bb-label bbl-support">Support wires</span>
-          <span class="bb-label bbl-base">Metal base</span>
-          <span class="bb-label bbl-terminal">Terminals</span>
-        </div>
-        <div class="bb-base-thread"></div>
+        <svg viewBox="0 0 360 320" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" style="max-width:420px;display:block;margin:0 auto;">
+          <defs>
+            <radialGradient id="glassGrad" cx="35%" cy="35%"><stop offset="0%" stop-color="rgba(255,255,255,0.95)"/><stop offset="60%" stop-color="rgba(254,249,195,0.3)"/><stop offset="100%" stop-color="rgba(254,243,199,0.15)"/></radialGradient>
+            <linearGradient id="baseGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a8a29e"/><stop offset="40%" stop-color="#78716c"/><stop offset="100%" stop-color="#57534e"/></linearGradient>
+            <filter id="bulbGlow"><feGaussianBlur stdDeviation="6" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <!-- Soft glow behind bulb -->
+          <ellipse cx="180" cy="110" rx="85" ry="90" fill="#fef9c3" opacity="0.3"/>
+          <!-- Glass envelope -->
+          <path d="M130,160 C130,80 130,40 180,25 C230,40 230,80 230,160" fill="url(#glassGrad)" stroke="#d4a06a" stroke-width="2"/>
+          <path d="M130,160 L130,170 C130,172 135,175 140,175 L220,175 C225,175 230,172 230,170 L230,160" fill="url(#glassGrad)" stroke="#d4a06a" stroke-width="2"/>
+          <!-- Glass shine highlight -->
+          <path d="M148,55 C152,40 165,32 178,30" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M145,70 C148,58 155,50 160,47" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Inert gas dots -->
+          <circle cx="155" cy="70" r="1.5" fill="#94a3b8" opacity="0.3"/><circle cx="200" cy="55" r="1.2" fill="#94a3b8" opacity="0.25"/>
+          <circle cx="170" cy="50" r="1" fill="#94a3b8" opacity="0.3"/><circle cx="210" cy="75" r="1.3" fill="#94a3b8" opacity="0.2"/>
+          <circle cx="145" cy="100" r="1.5" fill="#94a3b8" opacity="0.25"/><circle cx="220" cy="95" r="1" fill="#94a3b8" opacity="0.2"/>
+          <!-- Support wires (from base up to filament) -->
+          <line x1="165" y1="175" x2="165" y2="120" stroke="#94a3b8" stroke-width="1.8"/>
+          <line x1="195" y1="175" x2="195" y2="120" stroke="#94a3b8" stroke-width="1.8"/>
+          <!-- Filament (coiled tungsten wire) - realistic zigzag -->
+          <g filter="url(#bulbGlow)">
+            <path d="M165,120 L168,112 L172,120 L176,108 L180,120 L184,108 L188,120 L192,112 L195,120" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <animate attributeName="stroke" values="#f59e0b;#fbbf24;#f59e0b" dur="1.5s" repeatCount="indefinite"/>
+            </path>
+            <!-- Coil detail (smaller zigzag on top) -->
+            <path d="M170,115 L173,108 L176,115 L179,105 L182,115 L185,108 L188,115" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" opacity="0.7">
+              <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" repeatCount="indefinite"/>
+            </path>
+          </g>
+          <!-- Metal base (screw type) -->
+          <rect x="140" y="175" width="80" height="55" rx="4" fill="url(#baseGrad)" stroke="#475569" stroke-width="2"/>
+          <!-- Thread grooves on base -->
+          <line x1="140" y1="188" x2="220" y2="188" stroke="#57534e" stroke-width="1.5"/>
+          <line x1="140" y1="198" x2="220" y2="198" stroke="#57534e" stroke-width="1.5"/>
+          <line x1="140" y1="208" x2="220" y2="208" stroke="#57534e" stroke-width="1.5"/>
+          <line x1="140" y1="218" x2="220" y2="218" stroke="#57534e" stroke-width="1.5"/>
+          <!-- Base highlight -->
+          <rect x="142" y="176" width="12" height="53" rx="2" fill="rgba(255,255,255,0.12)"/>
+          <!-- Bottom terminal (contact point) -->
+          <rect x="165" y="230" width="30" height="8" rx="3" fill="#475569" stroke="#334155" stroke-width="1.5"/>
+          <!-- Insulation ring -->
+          <rect x="155" y="227" width="50" height="5" rx="2" fill="#1f2937"/>
+          <!-- Foot contact -->
+          <circle cx="180" cy="242" r="6" fill="#64748b" stroke="#475569" stroke-width="1.5"/>
+
+          <!-- ===== LABELS with leader lines ===== -->
+          <!-- Glass envelope -->
+          <line x1="128" y1="80" x2="70" y2="60" stroke="#92400e" stroke-width="1" stroke-dasharray="3,2"/>
+          <rect x="2" y="48" width="72" height="24" rx="5" fill="white" stroke="#d97706" stroke-width="1.2"/>
+          <text x="38" y="58" text-anchor="middle" font-size="8" font-weight="800" fill="#92400e">Glass</text>
+          <text x="38" y="68" text-anchor="middle" font-size="7" fill="#b45309">Envelope</text>
+          <!-- Inert gas -->
+          <line x1="215" y1="65" x2="280" y2="48" stroke="#6b7280" stroke-width="1" stroke-dasharray="3,2"/>
+          <rect x="278" y="36" width="78" height="24" rx="5" fill="white" stroke="#94a3b8" stroke-width="1.2"/>
+          <text x="317" y="46" text-anchor="middle" font-size="8" font-weight="800" fill="#475569">Inert Gas</text>
+          <text x="317" y="56" text-anchor="middle" font-size="7" fill="#6b7280">(Argon/N₂)</text>
+          <!-- Filament -->
+          <line x1="193" y1="112" x2="280" y2="108" stroke="#b45309" stroke-width="1" stroke-dasharray="3,2"/>
+          <rect x="278" y="96" width="78" height="24" rx="5" fill="white" stroke="#f59e0b" stroke-width="1.2"/>
+          <text x="317" y="106" text-anchor="middle" font-size="8" font-weight="800" fill="#b45309">Filament</text>
+          <text x="317" y="116" text-anchor="middle" font-size="7" fill="#d97706">(Tungsten coil)</text>
+          <!-- Support wires -->
+          <line x1="162" y1="145" x2="60" y2="145" stroke="#64748b" stroke-width="1" stroke-dasharray="3,2"/>
+          <rect x="2" y="133" width="62" height="24" rx="5" fill="white" stroke="#94a3b8" stroke-width="1.2"/>
+          <text x="33" y="143" text-anchor="middle" font-size="8" font-weight="800" fill="#475569">Support</text>
+          <text x="33" y="153" text-anchor="middle" font-size="7" fill="#6b7280">Wires</text>
+          <!-- Metal base -->
+          <line x1="222" y1="200" x2="280" y2="195" stroke="#475569" stroke-width="1" stroke-dasharray="3,2"/>
+          <rect x="278" y="183" width="78" height="24" rx="5" fill="white" stroke="#64748b" stroke-width="1.2"/>
+          <text x="317" y="193" text-anchor="middle" font-size="8" font-weight="800" fill="#334155">Metal Base</text>
+          <text x="317" y="203" text-anchor="middle" font-size="7" fill="#475569">(Screw type)</text>
+          <!-- Terminals -->
+          <line x1="160" y1="238" x2="60" y2="245" stroke="#1e293b" stroke-width="1" stroke-dasharray="3,2"/>
+          <rect x="2" y="233" width="62" height="24" rx="5" fill="white" stroke="#475569" stroke-width="1.2"/>
+          <text x="33" y="243" text-anchor="middle" font-size="8" font-weight="800" fill="#1e293b">Terminals</text>
+          <text x="33" y="253" text-anchor="middle" font-size="7" fill="#475569">(Contact pts)</text>
+
+          <!-- How current flows - arrows -->
+          <text x="180" y="280" text-anchor="middle" font-size="9" font-weight="800" fill="#dc2626">Current Flow:</text>
+          <text x="180" y="293" text-anchor="middle" font-size="8" fill="#64748b">Terminal → Support Wire → Filament (glows!) → Support Wire → Terminal</text>
+          <path d="M155,300 L165,296 L165,304 Z" fill="#dc2626" opacity="0.6"/>
+          <path d="M205,300 L195,296 L195,304 Z" fill="#dc2626" opacity="0.6"/>
+        </svg>
       </div>
 
       <div class="info-grid">
@@ -3163,19 +3303,147 @@ footer {
       <!-- ===== Activity 3.1 ===== -->
       <div class="ncert-tag">Activity 3.1</div>
       <div class="subtitle">Making a Simple Electric Circuit</div>
+      <div class="ncert-activity-pair">
+        <div class="ncert-diagram-panel">
+          <div class="ncert-book-badge">&#128214; NCERT Textbook Figure</div>
+          <svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+            <rect x="0" y="0" width="340" height="260" fill="#fefce8" rx="8"/>
+            <text x="170" y="18" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">Figure 3.1: Simple Electric Circuit</text>
+            <!-- Closed Circuit (Left) -->
+            <text x="85" y="35" text-anchor="middle" font-size="9" font-weight="bold" fill="#166534">Closed Circuit (Bulb ON)</text>
+            <!-- Cell -->
+            <line x1="30" y1="55" x2="30" y2="85" stroke="#1e3a5f" stroke-width="3.5"/>
+            <line x1="42" y1="62" x2="42" y2="78" stroke="#1e3a5f" stroke-width="1.5"/>
+            <text x="22" y="50" font-size="8" fill="#dc2626" font-weight="bold">+</text>
+            <text x="42" y="50" font-size="8" fill="#1e3a5f" font-weight="bold">-</text>
+            <text x="36" y="100" text-anchor="middle" font-size="7" fill="#555">Cell (Battery)</text>
+            <!-- Top wire -->
+            <line x1="30" y1="55" x2="30" y2="45" stroke="#1e40af" stroke-width="2"/>
+            <line x1="30" y1="45" x2="120" y2="45" stroke="#1e40af" stroke-width="2"/>
+            <polygon points="70,42 78,45 70,48" fill="#dc2626"/>
+            <text x="75" y="39" font-size="6" fill="#dc2626">current</text>
+            <!-- Bulb (on) -->
+            <circle cx="120" cy="60" r="14" fill="#fef08a" stroke="#b45309" stroke-width="1.8"/>
+            <line x1="112" y1="52" x2="128" y2="68" stroke="#b45309" stroke-width="1.2"/>
+            <line x1="128" y1="52" x2="112" y2="68" stroke="#b45309" stroke-width="1.2"/>
+            <circle cx="120" cy="60" r="18" fill="none" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+            <line x1="120" y1="45" x2="120" y2="46" stroke="#1e40af" stroke-width="2"/>
+            <text x="120" y="86" text-anchor="middle" font-size="7" fill="#555">Bulb (ON)</text>
+            <!-- Right wire down -->
+            <line x1="120" y1="74" x2="120" y2="110" stroke="#1e40af" stroke-width="2"/>
+            <polygon points="117,92 120,100 123,92" fill="#dc2626"/>
+            <!-- Switch closed -->
+            <circle cx="90" cy="110" r="3" fill="#1e3a5f"/>
+            <circle cx="120" cy="110" r="3" fill="#1e3a5f"/>
+            <line x1="90" y1="110" x2="120" y2="110" stroke="#1e3a5f" stroke-width="2.5"/>
+            <text x="105" y="125" text-anchor="middle" font-size="7" fill="#555">Switch (ON)</text>
+            <!-- Bottom wire -->
+            <line x1="90" y1="110" x2="42" y2="110" stroke="#1e40af" stroke-width="2"/>
+            <line x1="42" y1="110" x2="42" y2="78" stroke="#1e40af" stroke-width="2"/>
+            <polygon points="68,107 60,110 68,113" fill="#dc2626"/>
+            <text x="60" y="55" font-size="6" fill="#666">Connecting wire</text>
+            <!-- Open Circuit (Right) -->
+            <text x="255" y="35" text-anchor="middle" font-size="9" font-weight="bold" fill="#dc2626">Open Circuit (Bulb OFF)</text>
+            <!-- Cell -->
+            <line x1="200" y1="55" x2="200" y2="85" stroke="#1e3a5f" stroke-width="3.5"/>
+            <line x1="212" y1="62" x2="212" y2="78" stroke="#1e3a5f" stroke-width="1.5"/>
+            <text x="192" y="50" font-size="8" fill="#dc2626" font-weight="bold">+</text>
+            <text x="212" y="50" font-size="8" fill="#1e3a5f" font-weight="bold">-</text>
+            <text x="206" y="100" text-anchor="middle" font-size="7" fill="#555">Cell</text>
+            <!-- Top wire -->
+            <line x1="200" y1="55" x2="200" y2="45" stroke="#1e40af" stroke-width="2"/>
+            <line x1="200" y1="45" x2="290" y2="45" stroke="#1e40af" stroke-width="2"/>
+            <!-- Bulb (off) -->
+            <circle cx="290" cy="60" r="14" fill="#f5f5f4" stroke="#78716c" stroke-width="1.8"/>
+            <line x1="282" y1="52" x2="298" y2="68" stroke="#78716c" stroke-width="1.2"/>
+            <line x1="298" y1="52" x2="282" y2="68" stroke="#78716c" stroke-width="1.2"/>
+            <line x1="290" y1="45" x2="290" y2="46" stroke="#1e40af" stroke-width="2"/>
+            <text x="290" y="86" text-anchor="middle" font-size="7" fill="#555">Bulb (OFF)</text>
+            <!-- Right wire down -->
+            <line x1="290" y1="74" x2="290" y2="110" stroke="#1e40af" stroke-width="2"/>
+            <!-- Switch open -->
+            <circle cx="260" cy="110" r="3" fill="#1e3a5f"/>
+            <circle cx="290" cy="110" r="3" fill="#1e3a5f"/>
+            <line x1="260" y1="110" x2="280" y2="96" stroke="#1e3a5f" stroke-width="2.5"/>
+            <text x="275" y="125" text-anchor="middle" font-size="7" fill="#555">Switch (OFF)</text>
+            <text x="282" y="103" font-size="7" fill="#dc2626" font-style="italic">gap</text>
+            <!-- Bottom wire -->
+            <line x1="260" y1="110" x2="212" y2="110" stroke="#1e40af" stroke-width="2"/>
+            <line x1="212" y1="110" x2="212" y2="78" stroke="#1e40af" stroke-width="2"/>
+            <text x="255" y="140" text-anchor="middle" font-size="7" fill="#dc2626" font-style="italic">No current flows</text>
+            <!-- Legend -->
+            <rect x="10" y="150" width="320" height="100" fill="#fef9c3" rx="6" stroke="#d97706" stroke-width="0.5"/>
+            <text x="170" y="165" text-anchor="middle" font-size="9" font-weight="bold" fill="#92400e">Circuit Symbols</text>
+            <line x1="30" y1="178" x2="30" y2="195" stroke="#1e3a5f" stroke-width="3.5"/>
+            <line x1="38" y1="182" x2="38" y2="191" stroke="#1e3a5f" stroke-width="1.5"/>
+            <text x="50" y="190" font-size="8" fill="#333">= Cell (Battery)</text>
+            <circle cx="30" cy="215" r="9" fill="none" stroke="#b45309" stroke-width="1.5"/>
+            <line x1="23" y1="208" x2="37" y2="222" stroke="#b45309" stroke-width="1"/>
+            <line x1="37" y1="208" x2="23" y2="222" stroke="#b45309" stroke-width="1"/>
+            <text x="50" y="218" font-size="8" fill="#333">= Bulb</text>
+            <circle cx="160" cy="185" r="2.5" fill="#1e3a5f"/>
+            <circle cx="180" cy="185" r="2.5" fill="#1e3a5f"/>
+            <line x1="160" y1="185" x2="180" y2="185" stroke="#1e3a5f" stroke-width="2"/>
+            <text x="190" y="188" font-size="8" fill="#333">= Switch (closed)</text>
+            <circle cx="160" cy="210" r="2.5" fill="#1e3a5f"/>
+            <circle cx="180" cy="210" r="2.5" fill="#1e3a5f"/>
+            <line x1="160" y1="210" x2="175" y2="198" stroke="#1e3a5f" stroke-width="2"/>
+            <text x="190" y="213" font-size="8" fill="#333">= Switch (open)</text>
+            <line x1="280" y1="185" x2="310" y2="185" stroke="#1e40af" stroke-width="2"/>
+            <text x="280" y="213" font-size="8" fill="#333">= Wire</text>
+            <polygon points="296,208 302,212 296,216" fill="#dc2626"/>
+            <text x="306" y="214" font-size="7" fill="#dc2626">Current</text>
+          </svg>
+          <div class="ncert-fig-caption">Figure 3.1: A simple electric circuit showing closed (ON) and open (OFF) states</div>
+        </div>
+        <div class="ncert-interactive-panel">
       <div class="activity-visual interactive">
         <p class="interact-hint">Tap the switch to turn the circuit ON/OFF!</p>
         <div class="interactive-circuit" id="circuit1">
-          <div class="ic-cell"><span>+</span><span>-</span></div>
-          <div class="ic-wire" style="width:80%;max-width:200px;margin:8px auto;"><div class="ic-dot" id="dot1a"></div></div>
-          <div class="ic-bulb" id="bulb1"></div>
-          <div class="ic-wire" style="width:80%;max-width:200px;margin:8px auto;"><div class="ic-dot" id="dot1b"></div></div>
-          <div style="margin-top:10px;">
+          <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" style="max-width:100%;display:block;margin:0 auto;">
+            <!-- Circuit loop wires -->
+            <rect x="40" y="40" width="240" height="140" rx="8" fill="none" stroke="#475569" stroke-width="3"/>
+            <!-- Battery (left side) -->
+            <rect x="36" y="85" width="8" height="50" fill="#fffbeb" stroke="#fffbeb" stroke-width="2"/>
+            <line x1="30" y1="96" x2="50" y2="96" stroke="#1f2937" stroke-width="5"/>
+            <line x1="34" y1="108" x2="46" y2="108" stroke="#1f2937" stroke-width="2.5"/>
+            <line x1="30" y1="120" x2="50" y2="120" stroke="#1f2937" stroke-width="5"/>
+            <line x1="34" y1="132" x2="46" y2="132" stroke="#1f2937" stroke-width="2.5"/>
+            <text x="18" y="116" text-anchor="middle" font-size="9" font-weight="700" fill="#dc2626">+</text>
+            <text x="18" y="140" text-anchor="middle" font-size="9" font-weight="700" fill="#1f2937">-</text>
+            <text x="40" y="160" text-anchor="middle" font-size="8" fill="#64748b">Cell</text>
+            <!-- Bulb (top center) -->
+            <g id="bulb1SVG" transform="translate(160,22)">
+              <rect x="-6" y="26" width="12" height="10" rx="2" fill="#78716c" stroke="#57534e" stroke-width="1"/>
+              <ellipse cx="0" cy="16" rx="16" ry="18" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.8" id="bulb1Glass"/>
+              <line x1="-6" y1="16" x2="6" y2="16" stroke="#94a3b8" stroke-width="1.2" id="bulb1Fil1"/>
+              <line x1="0" y1="8" x2="0" y2="24" stroke="#94a3b8" stroke-width="1.2" id="bulb1Fil2"/>
+              <circle cx="0" cy="16" r="20" fill="none" stroke="transparent" stroke-width="0" id="bulb1Glow"/>
+            </g>
+            <text x="160" y="62" text-anchor="middle" font-size="8" fill="#64748b">Bulb</text>
+            <!-- Switch (bottom center) -->
+            <g transform="translate(160,180)">
+              <circle cx="-20" cy="0" r="4" fill="#78716c" stroke="#475569" stroke-width="1.5"/>
+              <circle cx="20" cy="0" r="4" fill="#78716c" stroke="#475569" stroke-width="1.5"/>
+              <line x1="-20" y1="0" x2="20" y2="-16" stroke="#78716c" stroke-width="2.5" stroke-linecap="round" id="switchLever1"/>
+            </g>
+            <text x="160" y="208" text-anchor="middle" font-size="8" fill="#64748b">Switch</text>
+            <!-- Current dots -->
+            <circle class="ic-dot" id="dot1a" cx="100" cy="40" r="4" fill="#fbbf24" opacity="0"/>
+            <circle class="ic-dot" id="dot1b" cx="220" cy="40" r="4" fill="#fbbf24" opacity="0"/>
+            <circle class="ic-dot" id="dot1c" cx="280" cy="110" r="4" fill="#fbbf24" opacity="0"/>
+            <circle class="ic-dot" id="dot1d" cx="100" cy="180" r="4" fill="#fbbf24" opacity="0"/>
+            <!-- Wire label -->
+            <text x="280" y="80" font-size="7" fill="#94a3b8" transform="rotate(90,280,80)">Wire</text>
+          </svg>
+          <div style="margin-top:12px;">
             <button class="ic-switch" id="switch1" onclick="toggleCircuit1()">
               <span class="ic-switch-label">OFF</span>
             </button>
           </div>
           <div class="ic-status off" id="status1">Circuit OPEN -- Tap the switch!</div>
+        </div>
+      </div>
         </div>
       </div>
       <div class="activity-details">
@@ -3196,22 +3464,143 @@ footer {
       <!-- ===== Activity 3.2 ===== -->
       <div class="ncert-tag">Activity 3.2</div>
       <div class="subtitle">Making a Switch</div>
+      <div class="ncert-activity-pair">
+        <div class="ncert-diagram-panel">
+          <div class="ncert-book-badge">&#128214; NCERT Textbook Figure</div>
+          <svg viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+            <rect x="0" y="0" width="340" height="280" fill="#fefce8" rx="8"/>
+            <text x="170" y="18" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">Figure 3.2: Making a Switch</text>
+            <!-- Switch ON (Left) -->
+            <text x="90" y="38" text-anchor="middle" font-size="9" font-weight="bold" fill="#166534">Switch ON</text>
+            <!-- Cardboard base -->
+            <rect x="30" y="50" width="120" height="50" fill="#d2b48c" stroke="#8b7355" stroke-width="1.5" rx="3"/>
+            <text x="90" y="115" text-anchor="middle" font-size="7" fill="#555">Cardboard</text>
+            <!-- Drawing pins -->
+            <circle cx="55" cy="75" r="6" fill="#c0c0c0" stroke="#666" stroke-width="1.2"/>
+            <circle cx="55" cy="75" r="2" fill="#666"/>
+            <circle cx="125" cy="75" r="6" fill="#c0c0c0" stroke="#666" stroke-width="1.2"/>
+            <circle cx="125" cy="75" r="2" fill="#666"/>
+            <text x="55" y="47" text-anchor="middle" font-size="6" fill="#555">Drawing pin</text>
+            <text x="125" y="47" text-anchor="middle" font-size="6" fill="#555">Drawing pin</text>
+            <!-- Paper clip bridging both pins (ON) -->
+            <rect x="48" y="71" width="84" height="8" fill="#a0a0a0" stroke="#555" stroke-width="1" rx="4"/>
+            <text x="90" y="67" text-anchor="middle" font-size="7" fill="#166534" font-weight="bold">Paper clip (touching both)</text>
+            <!-- Wires from pins -->
+            <line x1="55" y1="81" x2="55" y2="130" stroke="#1e40af" stroke-width="2"/>
+            <line x1="125" y1="81" x2="125" y2="130" stroke="#1e40af" stroke-width="2"/>
+            <!-- Cell -->
+            <line x1="55" y1="130" x2="55" y2="140" stroke="#1e40af" stroke-width="2"/>
+            <line x1="40" y1="140" x2="40" y2="158" stroke="#1e3a5f" stroke-width="3.5"/>
+            <line x1="52" y1="144" x2="52" y2="154" stroke="#1e3a5f" stroke-width="1.5"/>
+            <line x1="55" y1="130" x2="40" y2="130" stroke="#1e40af" stroke-width="2"/>
+            <line x1="40" y1="130" x2="40" y2="140" stroke="#1e40af" stroke-width="2"/>
+            <line x1="52" y1="158" x2="52" y2="165" stroke="#1e40af" stroke-width="2"/>
+            <text x="32" y="137" font-size="7" fill="#555">Cell</text>
+            <!-- Bulb (on) -->
+            <line x1="125" y1="130" x2="125" y2="145" stroke="#1e40af" stroke-width="2"/>
+            <circle cx="125" cy="158" r="12" fill="#fef08a" stroke="#b45309" stroke-width="1.5"/>
+            <line x1="118" y1="151" x2="132" y2="165" stroke="#b45309" stroke-width="1"/>
+            <line x1="132" y1="151" x2="118" y2="165" stroke="#b45309" stroke-width="1"/>
+            <circle cx="125" cy="158" r="15" fill="none" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+            <text x="125" y="180" text-anchor="middle" font-size="7" fill="#555">Bulb (ON)</text>
+            <!-- Bottom wire connecting cell to bulb -->
+            <line x1="52" y1="165" x2="125" y2="170" stroke="#1e40af" stroke-width="2"/>
+
+            <!-- Switch OFF (Right) -->
+            <text x="255" y="38" text-anchor="middle" font-size="9" font-weight="bold" fill="#dc2626">Switch OFF</text>
+            <!-- Cardboard base -->
+            <rect x="195" y="50" width="120" height="50" fill="#d2b48c" stroke="#8b7355" stroke-width="1.5" rx="3"/>
+            <text x="255" y="115" text-anchor="middle" font-size="7" fill="#555">Cardboard</text>
+            <!-- Drawing pins -->
+            <circle cx="220" cy="75" r="6" fill="#c0c0c0" stroke="#666" stroke-width="1.2"/>
+            <circle cx="220" cy="75" r="2" fill="#666"/>
+            <circle cx="290" cy="75" r="6" fill="#c0c0c0" stroke="#666" stroke-width="1.2"/>
+            <circle cx="290" cy="75" r="2" fill="#666"/>
+            <text x="220" y="47" text-anchor="middle" font-size="6" fill="#555">Drawing pin</text>
+            <text x="290" y="47" text-anchor="middle" font-size="6" fill="#555">Drawing pin</text>
+            <!-- Paper clip rotated away (OFF) -->
+            <rect x="213" y="71" width="40" height="8" fill="#a0a0a0" stroke="#555" stroke-width="1" rx="4"/>
+            <line x1="253" y1="75" x2="253" y2="55" stroke="#a0a0a0" stroke-width="4" stroke-linecap="round"/>
+            <text x="255" y="67" text-anchor="middle" font-size="7" fill="#dc2626" font-weight="bold">Paper clip (lifted)</text>
+            <!-- Gap indication -->
+            <text x="272" y="72" font-size="8" fill="#dc2626" font-style="italic">gap!</text>
+            <!-- Wires from pins -->
+            <line x1="220" y1="81" x2="220" y2="130" stroke="#1e40af" stroke-width="2"/>
+            <line x1="290" y1="81" x2="290" y2="130" stroke="#1e40af" stroke-width="2"/>
+            <!-- Cell -->
+            <line x1="220" y1="130" x2="205" y2="130" stroke="#1e40af" stroke-width="2"/>
+            <line x1="205" y1="130" x2="205" y2="140" stroke="#1e40af" stroke-width="2"/>
+            <line x1="205" y1="140" x2="205" y2="158" stroke="#1e3a5f" stroke-width="3.5"/>
+            <line x1="217" y1="144" x2="217" y2="154" stroke="#1e3a5f" stroke-width="1.5"/>
+            <line x1="217" y1="158" x2="217" y2="165" stroke="#1e40af" stroke-width="2"/>
+            <text x="197" y="137" font-size="7" fill="#555">Cell</text>
+            <!-- Bulb (off) -->
+            <line x1="290" y1="130" x2="290" y2="145" stroke="#1e40af" stroke-width="2"/>
+            <circle cx="290" cy="158" r="12" fill="#f5f5f4" stroke="#78716c" stroke-width="1.5"/>
+            <line x1="283" y1="151" x2="297" y2="165" stroke="#78716c" stroke-width="1"/>
+            <line x1="297" y1="151" x2="283" y2="165" stroke="#78716c" stroke-width="1"/>
+            <text x="290" y="180" text-anchor="middle" font-size="7" fill="#555">Bulb (OFF)</text>
+            <!-- Bottom wire -->
+            <line x1="217" y1="165" x2="290" y2="170" stroke="#1e40af" stroke-width="2"/>
+            <text x="255" y="195" text-anchor="middle" font-size="7" fill="#dc2626" font-style="italic">No current flows</text>
+
+            <!-- Explanation box -->
+            <rect x="10" y="205" width="320" height="65" fill="#fef9c3" rx="6" stroke="#d97706" stroke-width="0.5"/>
+            <text x="170" y="220" text-anchor="middle" font-size="9" font-weight="bold" fill="#92400e">How the Switch Works</text>
+            <text x="170" y="235" text-anchor="middle" font-size="7.5" fill="#333">When the paper clip touches BOTH drawing pins, the circuit is closed.</text>
+            <text x="170" y="248" text-anchor="middle" font-size="7.5" fill="#333">Current flows and the bulb glows (ON).</text>
+            <text x="170" y="261" text-anchor="middle" font-size="7.5" fill="#333">When lifted away, the circuit breaks and the bulb turns OFF.</text>
+          </svg>
+          <div class="ncert-fig-caption">Figure 3.2: A paper clip switch using drawing pins on cardboard</div>
+        </div>
+        <div class="ncert-interactive-panel">
       <div class="activity-visual interactive">
         <p class="interact-hint">Click the paper clip to toggle the switch!</p>
         <div class="interactive-circuit" id="circuit2">
-          <div class="ic-cell"><span>+</span><span>-</span></div>
-          <div class="ic-wire" style="width:60%;max-width:150px;margin:8px auto;"><div class="ic-dot" id="dot2a"></div></div>
-          <div style="margin:10px auto;text-align:center;">
-            <div class="clip-switch-area" id="paperClip" onclick="toggleClipSwitch()">
-              <div class="clip-pin clip-pin-l"></div>
-              <div class="clip-pin clip-pin-r"></div>
-              <div class="clip-bar disconnected" id="clipBar"></div>
-            </div>
-            <div style="font-size:11px;font-weight:700;color:#92400e;margin-top:4px;">Click the cardboard to toggle</div>
-          </div>
-          <div class="ic-wire" style="width:60%;max-width:150px;margin:8px auto;"><div class="ic-dot" id="dot2b"></div></div>
-          <div class="ic-bulb" id="clipBulb"></div>
+          <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" style="max-width:100%;display:block;margin:0 auto;cursor:pointer;" onclick="toggleClipSwitch()">
+            <!-- Circuit loop wires -->
+            <rect x="40" y="40" width="240" height="140" rx="8" fill="none" stroke="#475569" stroke-width="3"/>
+            <!-- Cell (left side) -->
+            <rect x="36" y="85" width="8" height="50" fill="#fffbeb" stroke="#fffbeb" stroke-width="2"/>
+            <line x1="30" y1="96" x2="50" y2="96" stroke="#1f2937" stroke-width="5"/>
+            <line x1="34" y1="108" x2="46" y2="108" stroke="#1f2937" stroke-width="2.5"/>
+            <line x1="30" y1="120" x2="50" y2="120" stroke="#1f2937" stroke-width="5"/>
+            <line x1="34" y1="132" x2="46" y2="132" stroke="#1f2937" stroke-width="2.5"/>
+            <text x="18" y="116" text-anchor="middle" font-size="9" font-weight="700" fill="#dc2626">+</text>
+            <text x="18" y="140" text-anchor="middle" font-size="9" font-weight="700" fill="#1f2937">-</text>
+            <text x="40" y="160" text-anchor="middle" font-size="8" fill="#64748b">Cell</text>
+            <!-- Bulb (right side) -->
+            <g id="clipBulbSVG" transform="translate(280,88)">
+              <rect x="-6" y="26" width="12" height="10" rx="2" fill="#78716c" stroke="#57534e" stroke-width="1"/>
+              <ellipse cx="0" cy="16" rx="16" ry="18" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.8" id="clipBulbGlass"/>
+              <line x1="-6" y1="16" x2="6" y2="16" stroke="#94a3b8" stroke-width="1.2" id="clipBulbFil1"/>
+              <line x1="0" y1="8" x2="0" y2="24" stroke="#94a3b8" stroke-width="1.2" id="clipBulbFil2"/>
+              <circle cx="0" cy="16" r="20" fill="none" stroke="transparent" stroke-width="0" id="clipBulbGlow"/>
+            </g>
+            <text x="280" y="138" text-anchor="middle" font-size="8" fill="#64748b">Bulb</text>
+            <!-- Paper clip switch (top center) -->
+            <g transform="translate(120,18)">
+              <!-- Cardboard base -->
+              <rect x="0" y="8" width="80" height="34" rx="4" fill="#d4a96a" stroke="#92400e" stroke-width="1.5"/>
+              <text x="40" y="52" text-anchor="middle" font-size="7" fill="#92400e">Cardboard</text>
+              <!-- Drawing pins -->
+              <circle cx="16" cy="25" r="5" fill="#c0c0c0" stroke="#475569" stroke-width="1.2"/>
+              <circle cx="16" cy="25" r="2" fill="#475569"/>
+              <circle cx="64" cy="25" r="5" fill="#c0c0c0" stroke="#475569" stroke-width="1.2"/>
+              <circle cx="64" cy="25" r="2" fill="#475569"/>
+              <!-- Paper clip bar that rotates -->
+              <line x1="16" y1="25" x2="64" y2="10" stroke="#94a3b8" stroke-width="3.5" stroke-linecap="round" id="clipBar"/>
+            </g>
+            <text x="160" y="8" text-anchor="middle" font-size="8" fill="#7c3aed" font-weight="700">Click to toggle switch</text>
+            <!-- Current dots -->
+            <circle class="ic-dot" id="dot2a" cx="80" cy="40" r="4" fill="#fbbf24" opacity="0"/>
+            <circle class="ic-dot" id="dot2b" cx="220" cy="40" r="4" fill="#fbbf24" opacity="0"/>
+            <circle class="ic-dot" id="dot2c" cx="280" cy="150" r="4" fill="#fbbf24" opacity="0"/>
+            <circle class="ic-dot" id="dot2d" cx="160" cy="180" r="4" fill="#fbbf24" opacity="0"/>
+          </svg>
           <div class="ic-status off" id="clipStatus">Switch OFF -- Paper clip lifted</div>
+        </div>
+      </div>
         </div>
       </div>
       <div class="activity-details">
@@ -3233,16 +3622,136 @@ footer {
       <!-- ===== Activity 3.3 ===== -->
       <div class="ncert-tag">Activity 3.3</div>
       <div class="subtitle">Testing Conductors and Insulators</div>
+      <div class="ncert-activity-pair">
+        <div class="ncert-diagram-panel">
+          <div class="ncert-book-badge">&#128214; NCERT Textbook Figure</div>
+          <svg viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+            <rect x="0" y="0" width="340" height="280" fill="#fefce8" rx="8"/>
+            <text x="170" y="18" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">Figure 3.3: Testing Conductors &amp; Insulators</text>
+            <!-- Circuit diagram -->
+            <text x="170" y="36" text-anchor="middle" font-size="9" font-weight="bold" fill="#1e3a5f">Tester Circuit</text>
+            <!-- Cell on far left -->
+            <line x1="30" y1="55" x2="30" y2="85" stroke="#1e3a5f" stroke-width="3.5"/>
+            <line x1="42" y1="60" x2="42" y2="80" stroke="#1e3a5f" stroke-width="1.5"/>
+            <text x="22" y="50" font-size="8" fill="#dc2626" font-weight="bold">+</text>
+            <text x="42" y="50" font-size="8" fill="#1e3a5f" font-weight="bold">-</text>
+            <text x="36" y="98" text-anchor="middle" font-size="7" fill="#555">Cell</text>
+            <!-- Top wire from cell to gap -->
+            <line x1="30" y1="55" x2="30" y2="45" stroke="#1e40af" stroke-width="2"/>
+            <line x1="30" y1="45" x2="120" y2="45" stroke="#1e40af" stroke-width="2"/>
+            <!-- Wire end (left jaw) -->
+            <line x1="120" y1="45" x2="130" y2="45" stroke="#1e40af" stroke-width="3"/>
+            <circle cx="130" cy="45" r="3" fill="#1e40af"/>
+            <!-- Gap for testing -->
+            <rect x="133" y="35" width="50" height="20" fill="#fff3cd" stroke="#f59e0b" stroke-width="1.5" rx="3" stroke-dasharray="4,2"/>
+            <text x="158" y="49" text-anchor="middle" font-size="8" fill="#92400e" font-weight="bold">?</text>
+            <text x="158" y="30" text-anchor="middle" font-size="7" fill="#b45309">Gap for testing</text>
+            <!-- Wire end (right jaw) -->
+            <circle cx="186" cy="45" r="3" fill="#1e40af"/>
+            <line x1="186" y1="45" x2="196" y2="45" stroke="#1e40af" stroke-width="3"/>
+            <!-- Wire to bulb -->
+            <line x1="196" y1="45" x2="280" y2="45" stroke="#1e40af" stroke-width="2"/>
+            <!-- Bulb -->
+            <circle cx="280" cy="60" r="14" fill="#f5f5f4" stroke="#78716c" stroke-width="1.8"/>
+            <line x1="272" y1="52" x2="288" y2="68" stroke="#78716c" stroke-width="1.2"/>
+            <line x1="288" y1="52" x2="272" y2="68" stroke="#78716c" stroke-width="1.2"/>
+            <line x1="280" y1="45" x2="280" y2="46" stroke="#1e40af" stroke-width="2"/>
+            <text x="280" y="84" text-anchor="middle" font-size="7" fill="#555">Bulb</text>
+            <!-- Bottom wire from bulb back to cell -->
+            <line x1="280" y1="74" x2="280" y2="95" stroke="#1e40af" stroke-width="2"/>
+            <line x1="280" y1="95" x2="42" y2="95" stroke="#1e40af" stroke-width="2"/>
+            <line x1="42" y1="95" x2="42" y2="80" stroke="#1e40af" stroke-width="2"/>
+            <!-- Object being tested -->
+            <line x1="158" y1="55" x2="158" y2="70" stroke="#999" stroke-width="0.8" stroke-dasharray="3,2"/>
+            <rect x="138" y="70" width="40" height="18" fill="#e0e7ff" stroke="#6366f1" stroke-width="1" rx="3"/>
+            <text x="158" y="82" text-anchor="middle" font-size="7" fill="#3730a3" font-weight="bold">Object</text>
+            <text x="158" y="100" text-anchor="middle" font-size="6.5" fill="#555">(e.g., key, coin, nail)</text>
+            <!-- Arrow pointing to gap -->
+            <line x1="158" y1="60" x2="158" y2="68" stroke="#999" stroke-width="0.8"/>
+            <polygon points="155,68 158,73 161,68" fill="#999"/>
+
+            <!-- Results table -->
+            <rect x="10" y="115" width="320" height="155" fill="#fef9c3" rx="6" stroke="#d97706" stroke-width="0.5"/>
+            <text x="170" y="132" text-anchor="middle" font-size="9" font-weight="bold" fill="#92400e">Test Results</text>
+
+            <!-- Conductors column -->
+            <rect x="20" y="140" width="145" height="22" fill="#dcfce7" rx="4" stroke="#16a34a" stroke-width="0.8"/>
+            <text x="92" y="155" text-anchor="middle" font-size="9" font-weight="bold" fill="#166534">CONDUCTORS</text>
+            <text x="92" y="168" text-anchor="middle" font-size="7" fill="#166534">(Bulb GLOWS)</text>
+            <!-- Conductor items -->
+            <circle cx="35" cy="182" r="3" fill="#22c55e"/>
+            <text x="45" y="185" font-size="8" fill="#333">Iron Key</text>
+            <circle cx="35" cy="197" r="3" fill="#22c55e"/>
+            <text x="45" y="200" font-size="8" fill="#333">Coin (metal)</text>
+            <circle cx="35" cy="212" r="3" fill="#22c55e"/>
+            <text x="45" y="215" font-size="8" fill="#333">Iron Nail</text>
+            <circle cx="35" cy="227" r="3" fill="#22c55e"/>
+            <text x="45" y="230" font-size="8" fill="#333">Aluminium Foil</text>
+            <circle cx="35" cy="242" r="3" fill="#86efac"/>
+            <text x="45" y="245" font-size="8" fill="#555">Graphite (dim glow)</text>
+
+            <!-- Insulators column -->
+            <rect x="175" y="140" width="145" height="22" fill="#fee2e2" rx="4" stroke="#dc2626" stroke-width="0.8"/>
+            <text x="247" y="155" text-anchor="middle" font-size="9" font-weight="bold" fill="#991b1b">INSULATORS</text>
+            <text x="247" y="168" text-anchor="middle" font-size="7" fill="#991b1b">(Bulb does NOT glow)</text>
+            <!-- Insulator items -->
+            <circle cx="190" cy="182" r="3" fill="#ef4444"/>
+            <text x="200" y="185" font-size="8" fill="#333">Rubber Eraser</text>
+            <circle cx="190" cy="197" r="3" fill="#ef4444"/>
+            <text x="200" y="200" font-size="8" fill="#333">Plastic Scale</text>
+            <circle cx="190" cy="212" r="3" fill="#ef4444"/>
+            <text x="200" y="215" font-size="8" fill="#333">Wooden Stick</text>
+            <circle cx="190" cy="227" r="3" fill="#ef4444"/>
+            <text x="200" y="230" font-size="8" fill="#333">Glass Rod</text>
+            <!-- Summary -->
+            <text x="170" y="262" text-anchor="middle" font-size="7" fill="#555" font-style="italic">Metals = good conductors; Non-metals = insulators</text>
+          </svg>
+          <div class="ncert-fig-caption">Figure 3.3: A tester circuit for identifying conductors and insulators</div>
+        </div>
+        <div class="ncert-interactive-panel">
       <div class="activity-visual interactive">
         <p class="interact-hint">Click an object below to test if it is a conductor or insulator!</p>
         <div class="test-circuit" id="testCircuit">
-          <div class="ic-cell" style="width:40px;height:60px;font-size:14px;"><span>+</span><span>-</span></div>
-          <div class="ic-wire" style="width:40px;display:inline-block;"><div class="ic-dot" id="testDot1"></div></div>
-          <div class="ic-gap" id="gapArea">
-            <span id="gapLabel">?</span>
-          </div>
-          <div class="ic-wire" style="width:40px;display:inline-block;"><div class="ic-dot" id="testDot2"></div></div>
-          <div class="ic-bulb" id="testBulb" style="width:40px;height:40px;"></div>
+          <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" style="max-width:100%;display:block;margin:0 auto;">
+            <!-- Circuit loop wires (with gap in top center) -->
+            <!-- Left vertical -->
+            <line x1="40" y1="40" x2="40" y2="180" stroke="#475569" stroke-width="3"/>
+            <!-- Bottom horizontal -->
+            <line x1="40" y1="180" x2="280" y2="180" stroke="#475569" stroke-width="3"/>
+            <!-- Right vertical -->
+            <line x1="280" y1="40" x2="280" y2="180" stroke="#475569" stroke-width="3"/>
+            <!-- Top left wire (to gap) -->
+            <line x1="40" y1="40" x2="120" y2="40" stroke="#475569" stroke-width="3"/>
+            <!-- Top right wire (from gap) -->
+            <line x1="200" y1="40" x2="280" y2="40" stroke="#475569" stroke-width="3"/>
+            <!-- Cell (left side) -->
+            <rect x="36" y="85" width="8" height="50" fill="#fffbeb" stroke="#fffbeb" stroke-width="2"/>
+            <line x1="30" y1="96" x2="50" y2="96" stroke="#1f2937" stroke-width="5"/>
+            <line x1="34" y1="108" x2="46" y2="108" stroke="#1f2937" stroke-width="2.5"/>
+            <line x1="30" y1="120" x2="50" y2="120" stroke="#1f2937" stroke-width="5"/>
+            <line x1="34" y1="132" x2="46" y2="132" stroke="#1f2937" stroke-width="2.5"/>
+            <text x="18" y="116" text-anchor="middle" font-size="9" font-weight="700" fill="#dc2626">+</text>
+            <text x="18" y="140" text-anchor="middle" font-size="9" font-weight="700" fill="#1f2937">-</text>
+            <text x="40" y="160" text-anchor="middle" font-size="8" fill="#64748b">Cell</text>
+            <!-- Gap area (top center) -->
+            <rect x="122" y="26" width="76" height="28" rx="6" fill="rgba(251,191,36,0.1)" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,3" id="gapArea"/>
+            <text x="160" y="44" text-anchor="middle" font-size="10" font-weight="900" fill="#92400e" id="gapLabel">?</text>
+            <text x="160" y="18" text-anchor="middle" font-size="7" fill="#b45309">Place object here</text>
+            <!-- Bulb (right side) -->
+            <g id="testBulbSVG" transform="translate(280,88)">
+              <rect x="-6" y="26" width="12" height="10" rx="2" fill="#78716c" stroke="#57534e" stroke-width="1"/>
+              <ellipse cx="0" cy="16" rx="16" ry="18" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.8" id="testBulbGlass"/>
+              <line x1="-6" y1="16" x2="6" y2="16" stroke="#94a3b8" stroke-width="1.2" id="testBulbFil1"/>
+              <line x1="0" y1="8" x2="0" y2="24" stroke="#94a3b8" stroke-width="1.2" id="testBulbFil2"/>
+              <circle cx="0" cy="16" r="20" fill="none" stroke="transparent" stroke-width="0" id="testBulbGlow"/>
+            </g>
+            <text x="280" y="138" text-anchor="middle" font-size="8" fill="#64748b">Bulb</text>
+            <!-- Current dots -->
+            <circle class="ic-dot" id="testDot1" cx="80" cy="40" r="4" fill="#fbbf24" opacity="0"/>
+            <circle class="ic-dot" id="testDot2" cx="240" cy="40" r="4" fill="#fbbf24" opacity="0"/>
+            <circle class="ic-dot" id="testDot3" cx="280" cy="150" r="4" fill="#fbbf24" opacity="0"/>
+            <circle class="ic-dot" id="testDot4" cx="160" cy="180" r="4" fill="#fbbf24" opacity="0"/>
+          </svg>
         </div>
         <div class="test-objects-interactive">
           <button class="test-btn" data-type="conductor" onclick="testObject(this, 'Key', 'conductor')">Key</button>
@@ -3264,6 +3773,8 @@ footer {
           </table>
         </div>
       </div>
+        </div>
+      </div>
       <div class="activity-details">
         <p><strong>Aim:</strong> To test whether materials are conductors or insulators.</p>
         <p><strong>Materials:</strong> Simple circuit (cell + bulb + wires), various objects: iron nail, key, rubber eraser, plastic scale, wooden stick, coin, aluminium foil, glass rod, pencil graphite (lead).</p>
@@ -3282,28 +3793,143 @@ footer {
       <!-- ===== Activity 3.4 ===== -->
       <div class="ncert-tag">Activity 3.4</div>
       <div class="subtitle">Series Circuit -- Two Bulbs in Series</div>
+      <div class="ncert-activity-pair">
+        <div class="ncert-diagram-panel">
+          <div class="ncert-book-badge">📖 NCERT Textbook Figure</div>
+          <svg viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+            <!-- Title -->
+            <text x="170" y="18" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1e3a5f">Series Circuit -- Two Bulbs in Series</text>
+            <!-- Main circuit loop -->
+            <rect x="40" y="32" width="260" height="130" rx="8" fill="none" stroke="#334155" stroke-width="2.5"/>
+            <!-- Battery/Cell on left side -->
+            <line x1="40" y1="80" x2="40" y2="105" stroke="#334155" stroke-width="2.5"/>
+            <!-- Cell symbol -->
+            <line x1="25" y1="80" x2="55" y2="80" stroke="#334155" stroke-width="1.5"/><!-- + long thin line -->
+            <line x1="30" y1="88" x2="50" y2="88" stroke="#334155" stroke-width="3.5"/><!-- - short thick line -->
+            <text x="16" y="84" font-family="sans-serif" font-size="10" fill="#dc2626">+</text>
+            <text x="16" y="94" font-family="sans-serif" font-size="10" fill="#1e40af">−</text>
+            <text x="8" y="105" font-family="sans-serif" font-size="9" fill="#475569" font-weight="bold">Cell</text>
+            <!-- Bulb A (top wire, left position) -->
+            <circle cx="130" cy="32" r="16" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+            <line x1="119" y1="21" x2="141" y2="43" stroke="#b45309" stroke-width="1.5"/>
+            <line x1="141" y1="21" x2="119" y2="43" stroke="#b45309" stroke-width="1.5"/>
+            <text x="130" y="60" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#92400e" font-weight="bold">Bulb A</text>
+            <!-- Bulb B (top wire, right position) -->
+            <circle cx="220" cy="32" r="16" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+            <line x1="209" y1="21" x2="231" y2="43" stroke="#b45309" stroke-width="1.5"/>
+            <line x1="231" y1="21" x2="209" y2="43" stroke="#b45309" stroke-width="1.5"/>
+            <text x="220" y="60" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#92400e" font-weight="bold">Bulb B</text>
+            <!-- Switch on bottom wire -->
+            <circle cx="200" cy="162" r="3" fill="#334155"/>
+            <line x1="200" y1="162" x2="230" y2="148" stroke="#334155" stroke-width="2.5"/>
+            <circle cx="235" cy="162" r="3" fill="#334155"/>
+            <text x="218" y="180" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#475569" font-weight="bold">Switch</text>
+            <!-- Current direction arrows on top wire -->
+            <polygon points="90,27 98,32 90,37" fill="#2563eb"/>
+            <polygon points="170,27 178,32 170,37" fill="#2563eb"/>
+            <polygon points="260,27 268,32 260,37" fill="#2563eb"/>
+            <!-- Current arrow on right side going down -->
+            <polygon points="305,70 300,62 295,70" fill="#2563eb" transform="rotate(90,300,66)"/>
+            <!-- Current arrow on bottom wire going left -->
+            <polygon points="160,157 152,162 160,167" fill="#2563eb"/>
+            <!-- Current arrow label -->
+            <text x="280" y="75" font-family="sans-serif" font-size="8" fill="#2563eb">I</text>
+            <!-- Separator line -->
+            <line x1="20" y1="195" x2="320" y2="195" stroke="#e2e8f0" stroke-width="1"/>
+            <!-- "Broken" version below - when one bulb removed -->
+            <text x="170" y="212" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#dc2626">When Bulb B is removed:</text>
+            <!-- Small broken circuit -->
+            <rect x="60" y="220" width="180" height="40" rx="4" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <!-- Bulb A still there but off -->
+            <circle cx="110" cy="220" r="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+            <line x1="103" y1="213" x2="117" y2="227" stroke="#94a3b8" stroke-width="1"/>
+            <line x1="117" y1="213" x2="103" y2="227" stroke="#94a3b8" stroke-width="1"/>
+            <!-- Gap where Bulb B was -->
+            <line x1="175" y1="212" x2="195" y2="228" stroke="#dc2626" stroke-width="2"/>
+            <line x1="195" y1="212" x2="175" y2="228" stroke="#dc2626" stroke-width="2"/>
+            <text x="185" y="245" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#dc2626">Gap!</text>
+            <!-- X through the circuit -->
+            <text x="270" y="243" font-family="sans-serif" font-size="9" fill="#dc2626" font-weight="bold">Circuit BROKEN</text>
+            <!-- Note at bottom -->
+            <text x="170" y="272" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#64748b" font-style="italic">Both bulbs dim. If one is removed, BOTH go off.</text>
+          </svg>
+          <div class="ncert-fig-caption">Figure 3.4: Series circuit with two bulbs connected in a single loop</div>
+        </div>
+        <div class="ncert-interactive-panel">
       <div class="activity-visual interactive">
         <p class="interact-hint">Click "Remove" to take out a bulb and see what happens!</p>
         <div class="interactive-circuit" id="circuit4">
-          <div class="ic-cell"><span>+</span><span>-</span></div>
-          <div class="sp-interactive">
-            <div class="ic-wire" style="width:40px;display:inline-block;"></div>
-            <div class="sp-bulb-wrap">
-              <div class="ic-bulb dim" id="serBulb0" style="width:44px;height:44px;"></div>
-              <span style="font-size:11px;font-weight:700;color:#92400e;">Bulb A</span>
+          <svg id="serSvg" viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;display:block;margin:0 auto;">
+            <!-- Rectangular wire loop -->
+            <path d="M40,30 L300,30 L300,170 L40,170 Z" fill="none" stroke="#475569" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Battery on the left side -->
+            <rect x="28" y="78" width="24" height="44" rx="3" fill="#64748b" stroke="#475569" stroke-width="1.5"/>
+            <rect x="34" y="71" width="12" height="8" rx="2" fill="#ef4444"/>
+            <text x="40" y="78" text-anchor="middle" font-size="8" fill="white" font-weight="bold">+</text>
+            <rect x="34" y="122" width="12" height="5" rx="1" fill="#1e293b"/>
+            <text x="40" y="135" text-anchor="middle" font-size="8" fill="#475569" font-weight="bold">-</text>
+            <text x="40" y="106" text-anchor="middle" font-size="7" fill="white" font-weight="bold">1.5V</text>
+            <!-- Bulb A (top wire, x~130) -->
+            <g id="serBulbG0" transform="translate(130,6)" class="bulb-glow-dim">
+              <rect x="-6" y="18" width="12" height="8" rx="2" fill="#78716c" stroke="#57534e" stroke-width="1"/>
+              <ellipse id="serGlass0" cx="0" cy="10" rx="14" ry="16" fill="#fef9c3" stroke="#94a3b8" stroke-width="1.5"/>
+              <line id="serFil0H" x1="-5" y1="10" x2="5" y2="10" stroke="#d4a017" stroke-width="1"/>
+              <line id="serFil0V" x1="0" y1="4" x2="0" y2="16" stroke="#d4a017" stroke-width="1"/>
+              <circle id="serHalo0" cx="0" cy="10" r="20" fill="rgba(254,240,138,0.15)"/>
+            </g>
+            <text id="serLabel0" x="130" y="50" text-anchor="middle" font-size="9" fill="#92400e" font-weight="bold">Bulb A</text>
+            <!-- Gap/X for bulb A (hidden) -->
+            <g id="serGap0" style="display:none;">
+              <line x1="122" y1="22" x2="138" y2="38" stroke="#ef4444" stroke-width="2.5"/>
+              <line x1="138" y1="22" x2="122" y2="38" stroke="#ef4444" stroke-width="2.5"/>
+              <text x="130" y="50" text-anchor="middle" font-size="8" fill="#ef4444" font-weight="bold">REMOVED</text>
+            </g>
+            <!-- Bulb B (top wire, x~220) -->
+            <g id="serBulbG1" transform="translate(220,6)" class="bulb-glow-dim">
+              <rect x="-6" y="18" width="12" height="8" rx="2" fill="#78716c" stroke="#57534e" stroke-width="1"/>
+              <ellipse id="serGlass1" cx="0" cy="10" rx="14" ry="16" fill="#fef9c3" stroke="#94a3b8" stroke-width="1.5"/>
+              <line id="serFil1H" x1="-5" y1="10" x2="5" y2="10" stroke="#d4a017" stroke-width="1"/>
+              <line id="serFil1V" x1="0" y1="4" x2="0" y2="16" stroke="#d4a017" stroke-width="1"/>
+              <circle id="serHalo1" cx="0" cy="10" r="20" fill="rgba(254,240,138,0.15)"/>
+            </g>
+            <text id="serLabel1" x="220" y="50" text-anchor="middle" font-size="9" fill="#92400e" font-weight="bold">Bulb B</text>
+            <!-- Gap/X for bulb B (hidden) -->
+            <g id="serGap1" style="display:none;">
+              <line x1="212" y1="22" x2="228" y2="38" stroke="#ef4444" stroke-width="2.5"/>
+              <line x1="228" y1="22" x2="212" y2="38" stroke="#ef4444" stroke-width="2.5"/>
+              <text x="220" y="50" text-anchor="middle" font-size="8" fill="#ef4444" font-weight="bold">REMOVED</text>
+            </g>
+            <!-- Switch on the bottom wire -->
+            <circle cx="155" cy="170" r="4" fill="#475569"/>
+            <circle cx="185" cy="170" r="4" fill="#475569"/>
+            <line x1="159" y1="170" x2="181" y2="170" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+            <text x="170" y="192" text-anchor="middle" font-size="8" fill="#475569" font-weight="bold">Switch (ON)</text>
+            <!-- Current flow dots around the loop -->
+            <circle class="svg-dot flowing" id="serDot0" cx="80" cy="30" r="4" fill="#fef08a" style="animation-delay:0s;"/>
+            <circle class="svg-dot flowing" id="serDot1" cx="175" cy="30" r="4" fill="#fef08a" style="animation-delay:0.25s;"/>
+            <circle class="svg-dot flowing" id="serDot2" cx="270" cy="30" r="4" fill="#fef08a" style="animation-delay:0.5s;"/>
+            <circle class="svg-dot flowing" id="serDot3" cx="300" cy="100" r="4" fill="#fef08a" style="animation-delay:0.75s;"/>
+            <circle class="svg-dot flowing" id="serDot4" cx="230" cy="170" r="4" fill="#fef08a" style="animation-delay:1.0s;"/>
+            <circle class="svg-dot flowing" id="serDot5" cx="110" cy="170" r="4" fill="#fef08a" style="animation-delay:1.25s;"/>
+            <circle class="svg-dot flowing" id="serDot6" cx="40" cy="130" r="4" fill="#fef08a" style="animation-delay:1.5s;"/>
+          </svg>
+          <div id="serBulb0" style="display:none;"></div>
+          <div id="serBulb1" style="display:none;"></div>
+          <div style="display:flex;justify-content:center;gap:24px;margin:10px 0;flex-wrap:wrap;">
+            <div style="text-align:center;">
+              <span style="font-size:11px;font-weight:700;color:#92400e;">Bulb A</span><br>
               <button class="bulb-remove-btn" id="serBtn0" onclick="toggleSeriesBulb(0)">Remove</button>
             </div>
-            <div class="ic-wire" style="width:30px;display:inline-block;"></div>
-            <div class="sp-bulb-wrap">
-              <div class="ic-bulb dim" id="serBulb1" style="width:44px;height:44px;"></div>
-              <span style="font-size:11px;font-weight:700;color:#92400e;">Bulb B</span>
+            <div style="text-align:center;">
+              <span style="font-size:11px;font-weight:700;color:#92400e;">Bulb B</span><br>
               <button class="bulb-remove-btn" id="serBtn1" onclick="toggleSeriesBulb(1)">Remove</button>
             </div>
-            <div class="ic-wire" style="width:40px;display:inline-block;"></div>
           </div>
           <div class="brightness-meter" id="serMeter" style="background:#fef3c7;color:#92400e;">Brightness: 50%</div>
           <br>
           <div class="ic-status on" id="serStatus">Both bulbs ON (dim) -- voltage shared!</div>
+        </div>
+      </div>
         </div>
       </div>
       <div class="activity-details">
@@ -3322,25 +3948,165 @@ footer {
       <!-- ===== Activity 3.5 ===== -->
       <div class="ncert-tag">Activity 3.5</div>
       <div class="subtitle">Parallel Circuit -- Two Bulbs in Parallel</div>
+      <div class="ncert-activity-pair">
+        <div class="ncert-diagram-panel">
+          <div class="ncert-book-badge">📖 NCERT Textbook Figure</div>
+          <svg viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+            <!-- Title -->
+            <text x="170" y="18" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1e3a5f">Parallel Circuit -- Two Bulbs in Parallel</text>
+            <!-- Main wires - left vertical bus -->
+            <line x1="50" y1="40" x2="50" y2="230" stroke="#334155" stroke-width="2.5"/>
+            <!-- Main wires - right vertical bus -->
+            <line x1="290" y1="40" x2="290" y2="230" stroke="#334155" stroke-width="2.5"/>
+            <!-- Top horizontal wire -->
+            <line x1="50" y1="40" x2="290" y2="40" stroke="#334155" stroke-width="2.5"/>
+            <!-- Bottom horizontal wire -->
+            <line x1="50" y1="230" x2="290" y2="230" stroke="#334155" stroke-width="2.5"/>
+            <!-- Battery/Cell on left side -->
+            <line x1="35" y1="120" x2="65" y2="120" stroke="#334155" stroke-width="1.5"/><!-- + long thin line -->
+            <line x1="39" y1="130" x2="61" y2="130" stroke="#334155" stroke-width="3.5"/><!-- - short thick line -->
+            <text x="22" y="124" font-family="sans-serif" font-size="10" fill="#dc2626">+</text>
+            <text x="22" y="136" font-family="sans-serif" font-size="10" fill="#1e40af">−</text>
+            <text x="18" y="152" font-family="sans-serif" font-size="9" fill="#475569" font-weight="bold">Cell</text>
+            <!-- Branch 1 - top horizontal wire with Bulb A -->
+            <line x1="90" y1="90" x2="250" y2="90" stroke="#334155" stroke-width="2"/>
+            <!-- Junction from left bus to branch 1 -->
+            <line x1="50" y1="90" x2="90" y2="90" stroke="#334155" stroke-width="2"/>
+            <!-- Junction from branch 1 to right bus -->
+            <line x1="250" y1="90" x2="290" y2="90" stroke="#334155" stroke-width="2"/>
+            <!-- Bulb A on branch 1 -->
+            <circle cx="170" cy="90" r="16" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+            <line x1="159" y1="79" x2="181" y2="101" stroke="#b45309" stroke-width="1.5"/>
+            <line x1="181" y1="79" x2="159" y2="101" stroke="#b45309" stroke-width="1.5"/>
+            <text x="170" y="118" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#92400e" font-weight="bold">Bulb A (Branch 1)</text>
+            <!-- Branch 2 - bottom horizontal wire with Bulb B -->
+            <line x1="90" y1="170" x2="250" y2="170" stroke="#334155" stroke-width="2"/>
+            <!-- Junction from left bus to branch 2 -->
+            <line x1="50" y1="170" x2="90" y2="170" stroke="#334155" stroke-width="2"/>
+            <!-- Junction from branch 2 to right bus -->
+            <line x1="250" y1="170" x2="290" y2="170" stroke="#334155" stroke-width="2"/>
+            <!-- Bulb B on branch 2 -->
+            <circle cx="170" cy="170" r="16" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+            <line x1="159" y1="159" x2="181" y2="181" stroke="#b45309" stroke-width="1.5"/>
+            <line x1="181" y1="159" x2="159" y2="181" stroke="#b45309" stroke-width="1.5"/>
+            <text x="170" y="198" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#92400e" font-weight="bold">Bulb B (Branch 2)</text>
+            <!-- Junction dots where branches split -->
+            <circle cx="50" cy="90" r="4" fill="#334155"/>
+            <circle cx="50" cy="170" r="4" fill="#334155"/>
+            <circle cx="290" cy="90" r="4" fill="#334155"/>
+            <circle cx="290" cy="170" r="4" fill="#334155"/>
+            <!-- Current direction arrows - main wire top -->
+            <polygon points="120,35 128,40 120,45" fill="#2563eb"/>
+            <!-- Current arrow splitting down to branch 1 -->
+            <polygon points="55,65 50,57 45,65" fill="#2563eb" transform="rotate(0,50,61)"/>
+            <!-- Current arrow on branch 1 -->
+            <polygon points="120,85 128,90 120,95" fill="#2563eb"/>
+            <!-- Current arrow on branch 2 -->
+            <polygon points="120,165 128,170 120,175" fill="#2563eb"/>
+            <!-- Current arrow splitting down to branch 2 -->
+            <polygon points="55,145 50,137 45,145" fill="#2563eb" transform="rotate(0,50,141)"/>
+            <!-- Current arrows rejoining on right side -->
+            <polygon points="295,110 290,102 285,110" fill="#2563eb" transform="rotate(180,290,106)"/>
+            <polygon points="295,190 290,182 285,190" fill="#2563eb" transform="rotate(180,290,186)"/>
+            <!-- Current label -->
+            <text x="80" y="55" font-family="sans-serif" font-size="8" fill="#2563eb" font-weight="bold">I (total)</text>
+            <text x="80" y="82" font-family="sans-serif" font-size="7.5" fill="#2563eb">I/2</text>
+            <text x="80" y="163" font-family="sans-serif" font-size="7.5" fill="#2563eb">I/2</text>
+            <!-- Note at bottom -->
+            <text x="170" y="252" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#64748b" font-style="italic">Both bulbs full brightness. If one is removed,</text>
+            <text x="170" y="264" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#64748b" font-style="italic">the OTHER stays ON.</text>
+          </svg>
+          <div class="ncert-fig-caption">Figure 3.5: Parallel circuit with two bulbs on separate branches</div>
+        </div>
+        <div class="ncert-interactive-panel">
       <div class="activity-visual interactive">
         <p class="interact-hint">Click "Remove" on a bulb -- the other one STILL works!</p>
         <div class="interactive-circuit" id="circuit5">
-          <div class="ic-cell"><span>+</span><span>-</span></div>
-          <div style="display:flex;justify-content:center;gap:20px;margin:14px 0;flex-wrap:wrap;">
-            <div class="sp-bulb-wrap" style="padding:10px;background:rgba(255,255,255,0.5);border-radius:14px;">
+          <svg id="parSvg" viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;display:block;margin:0 auto;">
+            <!-- Main wires: left vertical bus -->
+            <line x1="40" y1="30" x2="40" y2="190" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+            <!-- Main wires: right vertical bus -->
+            <line x1="300" y1="30" x2="300" y2="190" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+            <!-- Top horizontal wire -->
+            <line x1="40" y1="30" x2="300" y2="30" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+            <!-- Bottom horizontal wire -->
+            <line x1="40" y1="190" x2="300" y2="190" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+            <!-- Battery on the left -->
+            <rect x="28" y="88" width="24" height="44" rx="3" fill="#64748b" stroke="#475569" stroke-width="1.5"/>
+            <rect x="34" y="81" width="12" height="8" rx="2" fill="#ef4444"/>
+            <text x="40" y="88" text-anchor="middle" font-size="8" fill="white" font-weight="bold">+</text>
+            <rect x="34" y="132" width="12" height="5" rx="1" fill="#1e293b"/>
+            <text x="40" y="145" text-anchor="middle" font-size="8" fill="#475569" font-weight="bold">-</text>
+            <text x="40" y="116" text-anchor="middle" font-size="7" fill="white" font-weight="bold">1.5V</text>
+            <!-- Branch A horizontal wire (top branch, y=80) -->
+            <line id="parWireA" x1="40" y1="80" x2="300" y2="80" stroke="#475569" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Branch B horizontal wire (bottom branch, y=140) -->
+            <line id="parWireB" x1="40" y1="140" x2="300" y2="140" stroke="#475569" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Junction dots -->
+            <circle cx="40" cy="80" r="4" fill="#475569"/>
+            <circle cx="40" cy="140" r="4" fill="#475569"/>
+            <circle cx="300" cy="80" r="4" fill="#475569"/>
+            <circle cx="300" cy="140" r="4" fill="#475569"/>
+            <!-- Bulb A on branch A (x=170, y=80) -->
+            <g id="parBulbG0" transform="translate(170,56)" class="bulb-glow-on">
+              <rect x="-6" y="18" width="12" height="8" rx="2" fill="#78716c" stroke="#57534e" stroke-width="1"/>
+              <ellipse id="parGlass0" cx="0" cy="10" rx="14" ry="16" fill="#fef08a" stroke="#94a3b8" stroke-width="1.5"/>
+              <line id="parFil0H" x1="-5" y1="10" x2="5" y2="10" stroke="#f59e0b" stroke-width="1"/>
+              <line id="parFil0V" x1="0" y1="4" x2="0" y2="16" stroke="#f59e0b" stroke-width="1"/>
+              <circle id="parHalo0" cx="0" cy="10" r="22" fill="rgba(251,191,36,0.18)"/>
+            </g>
+            <text id="parLabelA" x="170" y="100" text-anchor="middle" font-size="8" fill="#1e40af" font-weight="bold">Branch A</text>
+            <!-- Gap/X for bulb A (hidden) -->
+            <g id="parGap0" style="display:none;">
+              <line x1="162" y1="72" x2="178" y2="88" stroke="#ef4444" stroke-width="2.5"/>
+              <line x1="178" y1="72" x2="162" y2="88" stroke="#ef4444" stroke-width="2.5"/>
+              <text x="170" y="100" text-anchor="middle" font-size="8" fill="#ef4444" font-weight="bold">REMOVED</text>
+            </g>
+            <!-- Bulb B on branch B (x=170, y=140) -->
+            <g id="parBulbG1" transform="translate(170,116)" class="bulb-glow-on">
+              <rect x="-6" y="18" width="12" height="8" rx="2" fill="#78716c" stroke="#57534e" stroke-width="1"/>
+              <ellipse id="parGlass1" cx="0" cy="10" rx="14" ry="16" fill="#fef08a" stroke="#94a3b8" stroke-width="1.5"/>
+              <line id="parFil1H" x1="-5" y1="10" x2="5" y2="10" stroke="#f59e0b" stroke-width="1"/>
+              <line id="parFil1V" x1="0" y1="4" x2="0" y2="16" stroke="#f59e0b" stroke-width="1"/>
+              <circle id="parHalo1" cx="0" cy="10" r="22" fill="rgba(251,191,36,0.18)"/>
+            </g>
+            <text id="parLabelB" x="170" y="160" text-anchor="middle" font-size="8" fill="#1e40af" font-weight="bold">Branch B</text>
+            <!-- Gap/X for bulb B (hidden) -->
+            <g id="parGap1" style="display:none;">
+              <line x1="162" y1="132" x2="178" y2="148" stroke="#ef4444" stroke-width="2.5"/>
+              <line x1="178" y1="132" x2="162" y2="148" stroke="#ef4444" stroke-width="2.5"/>
+              <text x="170" y="160" text-anchor="middle" font-size="8" fill="#ef4444" font-weight="bold">REMOVED</text>
+            </g>
+            <!-- Current dots: main top wire -->
+            <circle class="svg-dot flowing" id="parDotT0" cx="100" cy="30" r="4" fill="#fef08a" style="animation-delay:0s;"/>
+            <circle class="svg-dot flowing" id="parDotT1" cx="210" cy="30" r="4" fill="#fef08a" style="animation-delay:0.4s;"/>
+            <!-- Current dots: branch A -->
+            <circle class="svg-dot flowing" id="parDotA0" cx="100" cy="80" r="4" fill="#fef08a" style="animation-delay:0.2s;"/>
+            <circle class="svg-dot flowing" id="parDotA1" cx="240" cy="80" r="4" fill="#fef08a" style="animation-delay:0.6s;"/>
+            <!-- Current dots: branch B -->
+            <circle class="svg-dot flowing" id="parDotB0" cx="100" cy="140" r="4" fill="#fef08a" style="animation-delay:0.3s;"/>
+            <circle class="svg-dot flowing" id="parDotB1" cx="240" cy="140" r="4" fill="#fef08a" style="animation-delay:0.7s;"/>
+            <!-- Current dots: main bottom wire -->
+            <circle class="svg-dot flowing" id="parDotBot0" cx="200" cy="190" r="4" fill="#fef08a" style="animation-delay:0.5s;"/>
+            <circle class="svg-dot flowing" id="parDotBot1" cx="100" cy="190" r="4" fill="#fef08a" style="animation-delay:0.9s;"/>
+          </svg>
+          <div id="parBulb0" style="display:none;"></div>
+          <div id="parBulb1" style="display:none;"></div>
+          <div style="display:flex;justify-content:center;gap:24px;margin:10px 0;flex-wrap:wrap;">
+            <div style="text-align:center;">
               <span style="font-size:11px;font-weight:700;color:#1e40af;">Branch A</span>
-              <div class="ic-bulb on" id="parBulb0" style="width:44px;height:44px;"></div>
-              <span class="brightness-meter" style="background:#dcfce7;color:#166534;font-size:12px;padding:3px 10px;" id="parMeter0">100%</span>
+              <span class="brightness-meter" style="background:#dcfce7;color:#166534;font-size:12px;padding:3px 10px;" id="parMeter0">100%</span><br>
               <button class="bulb-remove-btn" id="parBtn0" onclick="toggleParBulb(0)">Remove</button>
             </div>
-            <div class="sp-bulb-wrap" style="padding:10px;background:rgba(255,255,255,0.5);border-radius:14px;">
+            <div style="text-align:center;">
               <span style="font-size:11px;font-weight:700;color:#1e40af;">Branch B</span>
-              <div class="ic-bulb on" id="parBulb1" style="width:44px;height:44px;"></div>
-              <span class="brightness-meter" style="background:#dcfce7;color:#166534;font-size:12px;padding:3px 10px;" id="parMeter1">100%</span>
+              <span class="brightness-meter" style="background:#dcfce7;color:#166534;font-size:12px;padding:3px 10px;" id="parMeter1">100%</span><br>
               <button class="bulb-remove-btn" id="parBtn1" onclick="toggleParBulb(1)">Remove</button>
             </div>
           </div>
           <div class="ic-status on" id="parStatus">Both bulbs ON at FULL brightness!</div>
+        </div>
+      </div>
         </div>
       </div>
       <div class="activity-details">
@@ -3359,26 +4125,140 @@ footer {
       <!-- ===== Activity 3.6 ===== -->
       <div class="ncert-tag">Activity 3.6</div>
       <div class="subtitle">Making a Simple Torch</div>
+      <div class="ncert-activity-pair">
+        <div class="ncert-diagram-panel">
+          <div class="ncert-book-badge">📖 NCERT Textbook Figure</div>
+          <svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+            <!-- Title -->
+            <text x="170" y="16" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1e3a5f">Cross-Section of a Simple Torch</text>
+            <!-- Cardboard tube body - outer rectangle -->
+            <rect x="30" y="55" width="260" height="100" rx="12" fill="#fef3c7" stroke="#92400e" stroke-width="2.5"/>
+            <!-- Inner area of the tube -->
+            <rect x="38" y="63" width="244" height="84" rx="8" fill="#fffbeb" stroke="#d4a574" stroke-width="1" stroke-dasharray="4,2"/>
+            <!-- Cell 1 (left cell) -->
+            <rect x="55" y="80" width="70" height="50" rx="5" fill="#dbeafe" stroke="#1e40af" stroke-width="2"/>
+            <text x="90" y="108" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#1e40af" font-weight="bold">1.5V</text>
+            <!-- Cell 1 terminals -->
+            <rect x="123" y="95" width="4" height="20" rx="1" fill="#dc2626"/><!-- + terminal bump -->
+            <text x="132" y="100" font-family="sans-serif" font-size="9" fill="#dc2626" font-weight="bold">+</text>
+            <text x="46" y="100" font-family="sans-serif" font-size="9" fill="#1e40af" font-weight="bold">−</text>
+            <!-- Cell 1 label -->
+            <text x="90" y="145" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569" font-weight="bold">Cell 1 (1.5V)</text>
+            <!-- Cell 2 (right cell, stacked in series) -->
+            <rect x="130" y="80" width="70" height="50" rx="5" fill="#dbeafe" stroke="#1e40af" stroke-width="2"/>
+            <text x="165" y="108" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#1e40af" font-weight="bold">1.5V</text>
+            <!-- Cell 2 terminals -->
+            <rect x="198" y="95" width="4" height="20" rx="1" fill="#dc2626"/><!-- + terminal bump -->
+            <text x="207" y="100" font-family="sans-serif" font-size="9" fill="#dc2626" font-weight="bold">+</text>
+            <text x="122" y="100" font-family="sans-serif" font-size="9" fill="#1e40af" font-weight="bold">−</text>
+            <!-- Cell 2 label -->
+            <text x="165" y="145" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569" font-weight="bold">Cell 2 (1.5V)</text>
+            <!-- Connection between cells (+ of cell 1 touching - of cell 2) -->
+            <line x1="125" y1="105" x2="130" y2="105" stroke="#ef4444" stroke-width="2"/>
+            <!-- Reflector (curved shape behind bulb) -->
+            <path d="M220,75 Q240,65 250,80 L250,130 Q240,145 220,135 Z" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+            <text x="232" y="170" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#475569" font-weight="bold">Reflector</text>
+            <!-- Bulb at the front -->
+            <circle cx="255" cy="105" r="14" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+            <line x1="247" y1="97" x2="263" y2="113" stroke="#ca8a04" stroke-width="1.2"/>
+            <line x1="263" y1="97" x2="247" y2="113" stroke="#ca8a04" stroke-width="1.2"/>
+            <text x="255" y="170" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#92400e" font-weight="bold">Bulb</text>
+            <!-- Wire from cell 2+ to bulb -->
+            <line x1="202" y1="105" x2="241" y2="105" stroke="#334155" stroke-width="1.5"/>
+            <!-- Light beam coming from front -->
+            <line x1="269" y1="95" x2="320" y2="60" stroke="#eab308" stroke-width="2" opacity="0.7"/>
+            <line x1="269" y1="105" x2="325" y2="105" stroke="#eab308" stroke-width="2" opacity="0.7"/>
+            <line x1="269" y1="115" x2="320" y2="150" stroke="#eab308" stroke-width="2" opacity="0.7"/>
+            <line x1="269" y1="99" x2="323" y2="80" stroke="#eab308" stroke-width="1.5" opacity="0.5"/>
+            <line x1="269" y1="111" x2="323" y2="130" stroke="#eab308" stroke-width="1.5" opacity="0.5"/>
+            <text x="318" y="55" font-family="sans-serif" font-size="7.5" fill="#ca8a04" font-weight="bold">Light</text>
+            <text x="318" y="63" font-family="sans-serif" font-size="7.5" fill="#ca8a04" font-weight="bold">beam</text>
+            <!-- Switch on top of tube body -->
+            <circle cx="140" cy="55" r="3" fill="#334155"/>
+            <line x1="140" y1="55" x2="165" y2="42" stroke="#334155" stroke-width="2.5"/>
+            <circle cx="168" cy="55" r="3" fill="#334155"/>
+            <text x="154" y="37" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#475569" font-weight="bold">Switch</text>
+            <!-- Cardboard tube label -->
+            <text x="30" y="48" font-family="sans-serif" font-size="8" fill="#92400e" font-weight="bold">Cardboard tube</text>
+            <!-- Wire from bulb back through switch to cell 1 negative -->
+            <path d="M255,91 L255,55 L168,55" fill="none" stroke="#334155" stroke-width="1.5"/>
+            <path d="M140,55 L55,55 L55,80" fill="none" stroke="#334155" stroke-width="1.5"/>
+            <!-- Series note -->
+            <rect x="60" y="192" width="220" height="24" rx="5" fill="#dbeafe" stroke="#1e40af" stroke-width="1"/>
+            <text x="170" y="208" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#1e40af" font-weight="bold">2 cells in series = 1.5V + 1.5V = 3V total</text>
+            <!-- Bottom note -->
+            <text x="170" y="240" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#64748b" font-style="italic">Cells stacked in series inside the tube power the bulb.</text>
+            <text x="170" y="252" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#64748b" font-style="italic">The reflector focuses light into a beam.</text>
+          </svg>
+          <div class="ncert-fig-caption">Figure 3.6: Cross-section of a simple torch showing cells, bulb, and reflector</div>
+        </div>
+        <div class="ncert-interactive-panel">
       <div class="activity-visual interactive">
         <p class="interact-hint">Build the torch step by step! Click each button in order.</p>
         <div class="interactive-circuit" id="circuit6">
-          <div class="torch-assembly" id="torchAssembly">
-            <div class="torch-comp torch-comp-cell" id="torch-cell1" style="opacity:0.15;">1.5V</div>
-            <div class="torch-comp torch-comp-cell" id="torch-cell2" style="opacity:0.15;">1.5V</div>
-            <div class="torch-comp torch-comp-switch" id="torch-switchPart" style="opacity:0.15;"></div>
-            <div class="torch-comp torch-comp-bulb" id="torch-bulbEnd" style="opacity:0.15;"></div>
-            <div class="torch-comp torch-comp-beam" id="torch-beam"></div>
-          </div>
+          <svg id="torchSvg" viewBox="0 0 340 180" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;display:block;margin:0 auto;">
+            <!-- Torch tube body (rounded rect) -->
+            <rect x="20" y="50" width="240" height="80" rx="14" fill="#94a3b8" stroke="#475569" stroke-width="2.5"/>
+            <rect x="28" y="58" width="224" height="64" rx="10" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+            <!-- Cell 1 (left cell) -->
+            <g id="torch-cell1" style="opacity:0.15;">
+              <rect x="42" y="70" width="70" height="40" rx="5" fill="#dbeafe" stroke="#1e40af" stroke-width="2"/>
+              <text x="77" y="94" text-anchor="middle" font-size="10" fill="#1e40af" font-weight="bold">1.5V</text>
+              <rect x="110" y="82" width="4" height="16" rx="1" fill="#dc2626"/>
+              <text x="118" y="85" font-size="7" fill="#dc2626" font-weight="bold">+</text>
+              <text x="36" y="85" font-size="7" fill="#1e40af" font-weight="bold">-</text>
+            </g>
+            <!-- Cell 2 (right cell, stacked in series) -->
+            <g id="torch-cell2" style="opacity:0.15;">
+              <rect x="118" y="70" width="70" height="40" rx="5" fill="#dbeafe" stroke="#1e40af" stroke-width="2"/>
+              <text x="153" y="94" text-anchor="middle" font-size="10" fill="#1e40af" font-weight="bold">1.5V</text>
+              <rect x="186" y="82" width="4" height="16" rx="1" fill="#dc2626"/>
+              <text x="194" y="85" font-size="7" fill="#dc2626" font-weight="bold">+</text>
+              <text x="112" y="85" font-size="7" fill="#1e40af" font-weight="bold">-</text>
+            </g>
+            <!-- Reflector -->
+            <path d="M230,58 Q248,52 258,65 L258,115 Q248,128 230,122 Z" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5" opacity="0.6"/>
+            <!-- Bulb at front -->
+            <g id="torch-bulbEnd" style="opacity:0.15;">
+              <rect x="252" y="78" width="10" height="8" rx="2" fill="#78716c" stroke="#57534e" stroke-width="1"/>
+              <ellipse id="torchBulbGlass" cx="262" cy="90" rx="12" ry="14" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+              <line x1="258" y1="90" x2="266" y2="90" stroke="#94a3b8" stroke-width="1"/>
+              <line x1="262" y1="84" x2="262" y2="96" stroke="#94a3b8" stroke-width="1"/>
+            </g>
+            <!-- Switch on top of tube -->
+            <g id="torch-switchPart" style="opacity:0.15;">
+              <rect x="140" y="40" width="30" height="12" rx="4" fill="#94a3b8" stroke="#475569" stroke-width="1.5"/>
+              <text x="155" y="36" text-anchor="middle" font-size="7" fill="#475569" font-weight="bold">Switch</text>
+            </g>
+            <!-- Light beam from bulb -->
+            <g id="torch-beam" style="opacity:0;">
+              <polygon points="274,80 330,50 330,130 274,100" fill="url(#torchBeamGrad)" opacity="0.7"/>
+              <line x1="274" y1="85" x2="330" y2="60" stroke="#eab308" stroke-width="1.5" opacity="0.6"/>
+              <line x1="274" y1="90" x2="335" y2="90" stroke="#eab308" stroke-width="2" opacity="0.7"/>
+              <line x1="274" y1="95" x2="330" y2="120" stroke="#eab308" stroke-width="1.5" opacity="0.6"/>
+              <text x="320" y="46" font-size="8" fill="#ca8a04" font-weight="bold">Light!</text>
+            </g>
+            <defs>
+              <linearGradient id="torchBeamGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#fef08a" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- Labels -->
+            <text x="140" y="168" text-anchor="middle" font-size="8" fill="#475569" font-weight="bold">Cardboard Tube</text>
+          </svg>
           <div class="torch-step-btns">
             <button class="torch-step-btn active" id="torchBtn0" onclick="nextTorchStep()">Add Cell 1</button>
             <button class="torch-step-btn" id="torchBtn1" onclick="nextTorchStep()">Add Cell 2</button>
             <button class="torch-step-btn" id="torchBtn2" onclick="nextTorchStep()">Add Bulb</button>
             <button class="torch-step-btn" id="torchBtn3" onclick="nextTorchStep()">Add Switch</button>
             <button class="torch-step-btn" id="torchBtn4" onclick="nextTorchStep()">Turn ON!</button>
-            <button class="torch-step-btn reset-btn" onclick="resetTorch()" style="background:#f1f5f9;border-color:#94a3b8;">Reset</button>
+            <button class="torch-step-btn reset-btn" onclick="resetTorch()">Reset</button>
           </div>
           <div style="font-size:13px;font-weight:700;color:#64748b;" id="torchProgress">Step 0 of 5</div>
           <div class="ic-status off" id="torchStatus">Build your torch step by step!</div>
+        </div>
+      </div>
         </div>
       </div>
       <div class="activity-details">
@@ -3817,14 +4697,16 @@ footer {
 <!-- ===== BOTTOM NAV ===== -->
 <div class="bottom-nav">
   <div class="bnav-cards">
-    <a href="acids-bases-salts.html" class="bnav-card">
-      <span class="bnav-dir">Previous</span>
-      <span class="bnav-title">Acids, Bases &amp; Salts</span>
+    <a href="acids-bases-salts.html" class="bnav-card" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border:2px solid #93c5fd;">
+      <span style="font-size:20px;">&#8592;</span>
+      <span class="bnav-dir" style="color:#2563eb;">Previous Chapter</span>
+      <span class="bnav-title" style="color:#1e40af;">Ch 2: Acids, Bases &amp; Salts</span>
     </a>
-    <div class="bnav-card disabled">
-      <span class="bnav-dir">Next</span>
-      <span class="bnav-title">Coming Soon</span>
-    </div>
+    <a href="heat-transfer.html" class="bnav-card" style="background:linear-gradient(135deg,#fef2f2,#fee2e2);border:2px solid #fca5a5;">
+      <span style="font-size:20px;">→</span>
+      <span class="bnav-dir" style="color:#dc2626;">Next Chapter</span>
+      <span class="bnav-title" style="color:#991b1b;">Ch 4: Heat Transfer</span>
+    </a>
   </div>
   <div class="bnav-bottom">
     <a href="../../index.html" class="bnav-home">Back to Home</a>
@@ -3879,23 +4761,47 @@ document.querySelectorAll('.toc-bar a').forEach(link => {
 // ===== Activity 3.1: Simple Circuit =====
 function toggleCircuit1() {
   var sw = document.getElementById('switch1');
-  var bulb = document.getElementById('bulb1');
   var status = document.getElementById('status1');
   var dots = document.querySelectorAll('#circuit1 .ic-dot');
   var isOn = sw.classList.toggle('on');
 
+  // SVG elements
+  var bulbGlass = document.getElementById('bulb1Glass');
+  var bulbFil1 = document.getElementById('bulb1Fil1');
+  var bulbFil2 = document.getElementById('bulb1Fil2');
+  var bulbGlow = document.getElementById('bulb1Glow');
+  var lever = document.getElementById('switchLever1');
+
   if (isOn) {
-    bulb.classList.add('on');
     sw.querySelector('.ic-switch-label').textContent = 'ON';
     status.textContent = 'Circuit CLOSED -- Bulb is ON!';
     status.className = 'ic-status on';
-    dots.forEach(function(d) { d.classList.add('flowing'); });
+    dots.forEach(function(d) { d.classList.add('flowing-svg'); });
+    // Light up the SVG bulb
+    bulbGlass.setAttribute('fill', '#fef08a');
+    bulbGlass.setAttribute('stroke', '#f59e0b');
+    bulbFil1.setAttribute('stroke', '#f59e0b');
+    bulbFil2.setAttribute('stroke', '#f59e0b');
+    bulbGlow.setAttribute('stroke', 'rgba(251,191,36,0.4)');
+    bulbGlow.setAttribute('stroke-width', '8');
+    // Close the switch lever
+    lever.setAttribute('x2', '20');
+    lever.setAttribute('y2', '0');
   } else {
-    bulb.classList.remove('on');
     sw.querySelector('.ic-switch-label').textContent = 'OFF';
     status.textContent = 'Circuit OPEN -- Tap the switch!';
     status.className = 'ic-status off';
-    dots.forEach(function(d) { d.classList.remove('flowing'); });
+    dots.forEach(function(d) { d.classList.remove('flowing-svg'); });
+    // Turn off the SVG bulb
+    bulbGlass.setAttribute('fill', '#f1f5f9');
+    bulbGlass.setAttribute('stroke', '#94a3b8');
+    bulbFil1.setAttribute('stroke', '#94a3b8');
+    bulbFil2.setAttribute('stroke', '#94a3b8');
+    bulbGlow.setAttribute('stroke', 'transparent');
+    bulbGlow.setAttribute('stroke-width', '0');
+    // Open the switch lever
+    lever.setAttribute('x2', '20');
+    lever.setAttribute('y2', '-16');
   }
 }
 
@@ -3904,29 +4810,93 @@ var clipIsOn = false;
 function toggleClipSwitch() {
   clipIsOn = !clipIsOn;
   var bar = document.getElementById('clipBar');
-  var bulb = document.getElementById('clipBulb');
   var status = document.getElementById('clipStatus');
   var dots = document.querySelectorAll('#circuit2 .ic-dot');
 
+  // SVG bulb elements
+  var clipGlass = document.getElementById('clipBulbGlass');
+  var clipFil1 = document.getElementById('clipBulbFil1');
+  var clipFil2 = document.getElementById('clipBulbFil2');
+  var clipGlow = document.getElementById('clipBulbGlow');
+
   if (clipIsOn) {
-    bar.className = 'clip-bar connected';
-    bulb.classList.add('on');
+    // Paper clip connects both pins (horizontal)
+    bar.setAttribute('x2', '64');
+    bar.setAttribute('y2', '25');
+    bar.setAttribute('stroke', '#22c55e');
     status.textContent = 'Switch ON -- Paper clip connects both pins!';
     status.className = 'ic-status on';
-    dots.forEach(function(d) { d.classList.add('flowing'); });
+    dots.forEach(function(d) { d.classList.add('flowing-svg'); });
+    // Light up bulb
+    clipGlass.setAttribute('fill', '#fef08a');
+    clipGlass.setAttribute('stroke', '#f59e0b');
+    clipFil1.setAttribute('stroke', '#f59e0b');
+    clipFil2.setAttribute('stroke', '#f59e0b');
+    clipGlow.setAttribute('stroke', 'rgba(251,191,36,0.4)');
+    clipGlow.setAttribute('stroke-width', '8');
   } else {
-    bar.className = 'clip-bar disconnected';
-    bulb.classList.remove('on');
+    // Paper clip lifted (angled)
+    bar.setAttribute('x2', '64');
+    bar.setAttribute('y2', '10');
+    bar.setAttribute('stroke', '#94a3b8');
     status.textContent = 'Switch OFF -- Paper clip lifted';
     status.className = 'ic-status off';
-    dots.forEach(function(d) { d.classList.remove('flowing'); });
+    dots.forEach(function(d) { d.classList.remove('flowing-svg'); });
+    // Turn off bulb
+    clipGlass.setAttribute('fill', '#f1f5f9');
+    clipGlass.setAttribute('stroke', '#94a3b8');
+    clipFil1.setAttribute('stroke', '#94a3b8');
+    clipFil2.setAttribute('stroke', '#94a3b8');
+    clipGlow.setAttribute('stroke', 'transparent');
+    clipGlow.setAttribute('stroke-width', '0');
   }
 }
 
 // ===== Activity 3.3: Conductor/Insulator =====
 var testedObjects = [];
+
+function setTestBulbSVG(state) {
+  // state: 'on', 'dim', 'off'
+  var glass = document.getElementById('testBulbGlass');
+  var fil1 = document.getElementById('testBulbFil1');
+  var fil2 = document.getElementById('testBulbFil2');
+  var glow = document.getElementById('testBulbGlow');
+  var gapRect = document.getElementById('gapArea');
+
+  if (state === 'on') {
+    glass.setAttribute('fill', '#fef08a');
+    glass.setAttribute('stroke', '#f59e0b');
+    fil1.setAttribute('stroke', '#f59e0b');
+    fil2.setAttribute('stroke', '#f59e0b');
+    glow.setAttribute('stroke', 'rgba(251,191,36,0.4)');
+    glow.setAttribute('stroke-width', '8');
+    gapRect.setAttribute('fill', 'rgba(34,197,94,0.15)');
+    gapRect.setAttribute('stroke', '#22c55e');
+    gapRect.setAttribute('stroke-dasharray', 'none');
+  } else if (state === 'dim') {
+    glass.setAttribute('fill', '#fef9c3');
+    glass.setAttribute('stroke', '#f59e0b');
+    fil1.setAttribute('stroke', '#d97706');
+    fil2.setAttribute('stroke', '#d97706');
+    glow.setAttribute('stroke', 'rgba(251,191,36,0.2)');
+    glow.setAttribute('stroke-width', '4');
+    gapRect.setAttribute('fill', 'rgba(251,191,36,0.15)');
+    gapRect.setAttribute('stroke', '#f59e0b');
+    gapRect.setAttribute('stroke-dasharray', 'none');
+  } else {
+    glass.setAttribute('fill', '#f1f5f9');
+    glass.setAttribute('stroke', '#94a3b8');
+    fil1.setAttribute('stroke', '#94a3b8');
+    fil2.setAttribute('stroke', '#94a3b8');
+    glow.setAttribute('stroke', 'transparent');
+    glow.setAttribute('stroke-width', '0');
+    gapRect.setAttribute('fill', 'rgba(239,68,68,0.1)');
+    gapRect.setAttribute('stroke', '#ef4444');
+    gapRect.setAttribute('stroke-dasharray', '5,3');
+  }
+}
+
 function testObject(btn, name, type) {
-  var bulb = document.getElementById('testBulb');
   var result = document.getElementById('testResult');
   var gap = document.getElementById('gapLabel');
   var dots = document.querySelectorAll('#testCircuit .ic-dot');
@@ -3936,29 +4906,23 @@ function testObject(btn, name, type) {
   gap.textContent = name;
 
   if (type === 'conductor') {
-    bulb.className = 'ic-bulb on';
-    bulb.style.width = '40px';
-    bulb.style.height = '40px';
+    setTestBulbSVG('on');
     result.textContent = name + ' -- CONDUCTOR! Bulb glows!';
     result.className = 'test-result conductor';
     btn.className = 'test-btn tested-conductor';
-    dots.forEach(function(d) { d.classList.add('flowing'); });
+    dots.forEach(function(d) { d.classList.add('flowing-svg'); });
   } else if (type === 'insulator') {
-    bulb.className = 'ic-bulb';
-    bulb.style.width = '40px';
-    bulb.style.height = '40px';
+    setTestBulbSVG('off');
     result.textContent = name + ' -- INSULATOR! Bulb does not glow!';
     result.className = 'test-result insulator';
     btn.className = 'test-btn tested-insulator';
-    dots.forEach(function(d) { d.classList.remove('flowing'); });
+    dots.forEach(function(d) { d.classList.remove('flowing-svg'); });
   } else {
-    bulb.className = 'ic-bulb dim';
-    bulb.style.width = '40px';
-    bulb.style.height = '40px';
+    setTestBulbSVG('dim');
     result.textContent = name + ' -- WEAK CONDUCTOR! Bulb glows dimly!';
     result.className = 'test-result weak';
     btn.className = 'test-btn tested-weak';
-    dots.forEach(function(d) { d.classList.add('flowing'); });
+    dots.forEach(function(d) { d.classList.add('flowing-svg'); });
   }
 
   if (testedObjects.indexOf(name) === -1) {
@@ -3974,23 +4938,24 @@ function testObject(btn, name, type) {
 }
 
 function resetTest() {
-  var bulb = document.getElementById('testBulb');
-  bulb.className = 'ic-bulb';
-  bulb.style.width = '40px';
-  bulb.style.height = '40px';
+  setTestBulbSVG('off');
+  var gapRect = document.getElementById('gapArea');
+  gapRect.setAttribute('fill', 'rgba(251,191,36,0.1)');
+  gapRect.setAttribute('stroke', '#f59e0b');
+  gapRect.setAttribute('stroke-dasharray', '5,3');
   document.getElementById('testResult').textContent = 'Click an object to test it!';
   document.getElementById('testResult').className = 'test-result';
   document.getElementById('gapLabel').textContent = '?';
   document.getElementById('testTableBody').innerHTML = '';
   document.getElementById('testTableWrap').style.display = 'none';
-  document.querySelectorAll('#testCircuit .ic-dot').forEach(function(d) { d.classList.remove('flowing'); });
+  document.querySelectorAll('#testCircuit .ic-dot').forEach(function(d) { d.classList.remove('flowing-svg'); });
   document.querySelectorAll('.test-btn').forEach(function(b) {
     if (!b.classList.contains('reset-btn')) b.className = 'test-btn';
   });
   testedObjects = [];
 }
 
-// ===== Activity 3.4: Series Circuit =====
+// ===== Activity 3.4: Series Circuit (SVG) =====
 var seriesBulbs = [true, true];
 function toggleSeriesBulb(index) {
   seriesBulbs[index] = !seriesBulbs[index];
@@ -4002,34 +4967,75 @@ function toggleSeriesBulb(index) {
 
 function updateSeries() {
   var allConnected = seriesBulbs[0] && seriesBulbs[1];
-  var b0 = document.getElementById('serBulb0');
-  var b1 = document.getElementById('serBulb1');
   var status = document.getElementById('serStatus');
   var meter = document.getElementById('serMeter');
 
+  // Update SVG bulbs
+  for (var i = 0; i < 2; i++) {
+    var bulbG = document.getElementById('serBulbG' + i);
+    var gapG  = document.getElementById('serGap' + i);
+    var glass = document.getElementById('serGlass' + i);
+    var filH  = document.getElementById('serFil' + i + 'H');
+    var filV  = document.getElementById('serFil' + i + 'V');
+    var halo  = document.getElementById('serHalo' + i);
+    var label = document.getElementById('serLabel' + i);
+
+    if (seriesBulbs[i]) {
+      // Bulb is present
+      bulbG.style.display = '';
+      gapG.style.display = 'none';
+      if (label) label.style.display = '';
+      if (allConnected) {
+        // Dim glow (series = shared voltage)
+        bulbG.setAttribute('class', 'bulb-glow-dim');
+        glass.setAttribute('fill', '#fef9c3');
+        filH.setAttribute('stroke', '#d4a017');
+        filV.setAttribute('stroke', '#d4a017');
+        halo.setAttribute('fill', 'rgba(254,240,138,0.15)');
+      } else {
+        // Off (other bulb removed => circuit broken)
+        bulbG.setAttribute('class', 'bulb-glow-off');
+        glass.setAttribute('fill', '#f1f5f9');
+        filH.setAttribute('stroke', '#94a3b8');
+        filV.setAttribute('stroke', '#94a3b8');
+        halo.setAttribute('fill', 'rgba(0,0,0,0)');
+      }
+    } else {
+      // Bulb removed: hide bulb, show gap X
+      bulbG.style.display = 'none';
+      gapG.style.display = '';
+      if (label) label.style.display = 'none';
+    }
+  }
+
+  // Update current flow dots
+  var dots = document.querySelectorAll('#serSvg .svg-dot');
+  dots.forEach(function(d) {
+    if (allConnected) {
+      d.classList.add('flowing');
+      d.classList.remove('stopped');
+    } else {
+      d.classList.remove('flowing');
+      d.classList.add('stopped');
+    }
+  });
+
   if (allConnected) {
-    b0.className = 'ic-bulb dim';
-    b1.className = 'ic-bulb dim';
     status.textContent = 'Both bulbs ON (dim) -- voltage shared!';
     status.className = 'ic-status on';
     meter.textContent = 'Brightness: 50%';
     meter.style.background = '#fef3c7';
     meter.style.color = '#92400e';
   } else {
-    b0.className = 'ic-bulb';
-    b1.className = 'ic-bulb';
     status.textContent = 'Circuit BROKEN -- Both bulbs OFF!';
     status.className = 'ic-status off';
     meter.textContent = 'Brightness: 0%';
     meter.style.background = '#fee2e2';
     meter.style.color = '#991b1b';
   }
-
-  b0.style.opacity = seriesBulbs[0] ? '1' : '0.3';
-  b1.style.opacity = seriesBulbs[1] ? '1' : '0.3';
 }
 
-// ===== Activity 3.5: Parallel Circuit =====
+// ===== Activity 3.5: Parallel Circuit (SVG) =====
 var parBulbs = [true, true];
 function toggleParBulb(index) {
   parBulbs[index] = !parBulbs[index];
@@ -4040,16 +5046,58 @@ function toggleParBulb(index) {
 }
 
 function updateParallel() {
-  var b0 = document.getElementById('parBulb0');
-  var b1 = document.getElementById('parBulb1');
   var status = document.getElementById('parStatus');
   var m0 = document.getElementById('parMeter0');
   var m1 = document.getElementById('parMeter1');
 
-  b0.className = parBulbs[0] ? 'ic-bulb on' : 'ic-bulb';
-  b1.className = parBulbs[1] ? 'ic-bulb on' : 'ic-bulb';
-  b0.style.opacity = parBulbs[0] ? '1' : '0.3';
-  b1.style.opacity = parBulbs[1] ? '1' : '0.3';
+  // Update SVG bulbs for each branch
+  for (var i = 0; i < 2; i++) {
+    var bulbG = document.getElementById('parBulbG' + i);
+    var gapG  = document.getElementById('parGap' + i);
+    var glass = document.getElementById('parGlass' + i);
+    var filH  = document.getElementById('parFil' + i + 'H');
+    var filV  = document.getElementById('parFil' + i + 'V');
+    var halo  = document.getElementById('parHalo' + i);
+    var label = document.getElementById(i === 0 ? 'parLabelA' : 'parLabelB');
+    var wire  = document.getElementById(i === 0 ? 'parWireA' : 'parWireB');
+
+    if (parBulbs[i]) {
+      bulbG.style.display = '';
+      gapG.style.display = 'none';
+      if (label) label.style.display = '';
+      if (wire) wire.setAttribute('stroke', '#475569');
+      // Full brightness (parallel = full voltage per branch)
+      bulbG.setAttribute('class', 'bulb-glow-on');
+      glass.setAttribute('fill', '#fef08a');
+      filH.setAttribute('stroke', '#f59e0b');
+      filV.setAttribute('stroke', '#f59e0b');
+      halo.setAttribute('fill', 'rgba(251,191,36,0.18)');
+    } else {
+      bulbG.style.display = 'none';
+      gapG.style.display = '';
+      if (label) label.style.display = 'none';
+      if (wire) wire.setAttribute('stroke', '#94a3b8');
+    }
+  }
+
+  // Update current dots per branch
+  var branchADots = document.querySelectorAll('#parDotA0, #parDotA1');
+  var branchBDots = document.querySelectorAll('#parDotB0, #parDotB1');
+  var mainDots = document.querySelectorAll('#parDotT0, #parDotT1, #parDotBot0, #parDotBot1');
+  var anyOn = parBulbs[0] || parBulbs[1];
+
+  branchADots.forEach(function(d) {
+    if (parBulbs[0]) { d.classList.add('flowing'); d.classList.remove('stopped'); }
+    else { d.classList.remove('flowing'); d.classList.add('stopped'); }
+  });
+  branchBDots.forEach(function(d) {
+    if (parBulbs[1]) { d.classList.add('flowing'); d.classList.remove('stopped'); }
+    else { d.classList.remove('flowing'); d.classList.add('stopped'); }
+  });
+  mainDots.forEach(function(d) {
+    if (anyOn) { d.classList.add('flowing'); d.classList.remove('stopped'); }
+    else { d.classList.remove('flowing'); d.classList.add('stopped'); }
+  });
 
   m0.textContent = parBulbs[0] ? '100%' : '0%';
   m0.style.background = parBulbs[0] ? '#dcfce7' : '#fee2e2';
@@ -4071,7 +5119,7 @@ function updateParallel() {
   }
 }
 
-// ===== Activity 3.6: Torch Assembly =====
+// ===== Activity 3.6: Torch Assembly (SVG) =====
 var torchStep = 0;
 var torchParts = ['cell1', 'cell2', 'bulbEnd', 'switchPart', 'beam'];
 function nextTorchStep() {
@@ -4086,7 +5134,7 @@ function nextTorchStep() {
 
   torchStep++;
 
-  // Show the component
+  // Show the SVG component (set opacity to 1)
   if (torchStep <= 4 && el) {
     el.style.opacity = '1';
   }
@@ -4097,20 +5145,34 @@ function nextTorchStep() {
     if (nextBtn) nextBtn.classList.add('active');
   }
 
-  // Step 4 = switch part visible
+  // Step 4 = switch visible and active color
   if (torchStep === 4) {
     var swPart = document.getElementById('torch-switchPart');
-    if (swPart) swPart.classList.add('active');
+    if (swPart) {
+      var swRect = swPart.querySelector('rect');
+      if (swRect) swRect.setAttribute('fill', '#22c55e');
+    }
   }
 
   // Step 5 = turn on!
   if (torchStep >= 5) {
     var lastBtn = document.getElementById('torchBtn4');
     if (lastBtn) { lastBtn.classList.add('done'); lastBtn.classList.remove('active'); }
+    // Light up the bulb
     var bulbEnd = document.getElementById('torch-bulbEnd');
-    if (bulbEnd) bulbEnd.classList.add('lit');
+    if (bulbEnd) {
+      bulbEnd.style.opacity = '1';
+      var bg = document.getElementById('torchBulbGlass');
+      if (bg) {
+        bg.setAttribute('fill', '#fef08a');
+        bg.setAttribute('stroke', '#f59e0b');
+      }
+      var fils = bulbEnd.querySelectorAll('line');
+      fils.forEach(function(l) { l.setAttribute('stroke', '#f59e0b'); });
+    }
+    // Show the light beam
     var beam = document.getElementById('torch-beam');
-    if (beam) beam.classList.add('active');
+    if (beam) beam.style.opacity = '1';
     document.getElementById('torchStatus').textContent = 'Torch is ON! Light shines!';
     document.getElementById('torchStatus').className = 'ic-status on';
   }
@@ -4124,11 +5186,27 @@ function resetTorch() {
     var el = document.getElementById('torch-' + id);
     if (el) {
       el.style.opacity = '0.15';
-      el.classList.remove('lit', 'active');
     }
   });
+  // Reset beam
   var beam = document.getElementById('torch-beam');
-  if (beam) { beam.classList.remove('active'); beam.style.opacity = '0.15'; }
+  if (beam) beam.style.opacity = '0';
+  // Reset bulb glass
+  var bg = document.getElementById('torchBulbGlass');
+  if (bg) { bg.setAttribute('fill', '#f1f5f9'); bg.setAttribute('stroke', '#94a3b8'); }
+  // Reset switch color
+  var swPart = document.getElementById('torch-switchPart');
+  if (swPart) {
+    var swRect = swPart.querySelector('rect');
+    if (swRect) swRect.setAttribute('fill', '#94a3b8');
+  }
+  // Reset bulb filaments
+  var bulbEnd = document.getElementById('torch-bulbEnd');
+  if (bulbEnd) {
+    var fils = bulbEnd.querySelectorAll('line');
+    fils.forEach(function(l) { l.setAttribute('stroke', '#94a3b8'); });
+  }
+  // Reset buttons
   for (var i = 0; i < 5; i++) {
     var btn = document.getElementById('torchBtn' + i);
     if (btn) { btn.classList.remove('done', 'active'); }

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 7 Science — Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Nunito', sans-serif; background: #f0fdf4; color: #1f2937; line-height: 1.6; }
+.navbar { background: white; padding: 14px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-logo { width: 40px; height: 40px; background: linear-gradient(135deg, #16a34a, #22c55e); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Fredoka One', cursive; font-size: 18px; }
+.nav-title { font-weight: 800; font-size: 16px; color: #166534; }
+.nav-back { text-decoration: none; background: #f3f4f6; color: #374151; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; transition: all 0.2s; }
+.nav-back:hover { background: #16a34a; color: white; }
+.hero { background: linear-gradient(135deg, #166534, #16a34a, #22c55e); padding: 40px 20px; text-align: center; color: white; }
+.hero .breadcrumb { font-size: 12px; opacity: 0.8; margin-bottom: 10px; }
+.hero .breadcrumb a { color: white; text-decoration: none; opacity: 0.7; }
+.hero .breadcrumb a:hover { opacity: 1; }
+.hero h1 { font-family: 'Fredoka One', cursive; font-size: clamp(28px, 5vw, 42px); margin-bottom: 6px; }
+.hero p { font-size: 14px; opacity: 0.85; }
+.container { max-width: 800px; margin: 0 auto; padding: 30px 20px; }
+.chapter-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.chapter-card { display: flex; align-items: center; gap: 16px; background: white; border-radius: 16px; padding: 18px 20px; box-shadow: 0 3px 14px rgba(0,0,0,0.06); transition: all 0.2s; text-decoration: none; color: inherit; border-left: 5px solid #22c55e; }
+.chapter-card:hover { transform: translateX(6px); box-shadow: 0 6px 22px rgba(0,0,0,0.1); border-left-color: #16a34a; }
+.chapter-card .ch-num { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'Fredoka One', cursive; font-size: 18px; color: white; flex-shrink: 0; }
+.chapter-card .ch-info { flex: 1; }
+.chapter-card .ch-title { font-size: 15px; font-weight: 800; color: #1f2937; }
+.chapter-card .ch-desc { font-size: 12px; color: #6b7280; margin-top: 2px; }
+.chapter-card .ch-badge { font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 8px; background: #dcfce7; color: #166534; }
+.chapter-card .ch-arrow { font-size: 18px; color: #22c55e; font-weight: 800; }
+.chapter-card.disabled { opacity: 0.45; pointer-events: none; border-left-color: #d1d5db; }
+.chapter-card.disabled .ch-badge { background: #f3f4f6; color: #9ca3af; }
+.ch-plant { background: linear-gradient(135deg, #16a34a, #4ade80); }
+.ch-acid { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+.ch-elec { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+.ch-heat { background: linear-gradient(135deg, #ef4444, #f87171); }
+.ch-soon { background: #d1d5db; }
+footer { text-align: center; padding: 24px; background: #166534; color: white; font-size: 13px; font-weight: 700; margin-top: 40px; }
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <div class="nav-logo">🔬</div>
+    <div class="nav-title">Class 7 · Science</div>
+  </div>
+  <a href="../index.html" class="nav-back">← Class 7</a>
+</nav>
+<section class="hero">
+  <div class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../index.html">Class 7</a> / Science</div>
+  <h1>🔬 Science Chapters</h1>
+  <p>Class 7 NCERT Science · 4 chapters available</p>
+</section>
+<div class="container">
+  <ul class="chapter-list">
+    <a href="plant-life-processes.html" class="chapter-card">
+      <div class="ch-num ch-plant">🌱</div>
+      <div class="ch-info">
+        <div class="ch-title">Ch 10: Plant Life Processes</div>
+        <div class="ch-desc">Photosynthesis, transport, respiration in plants</div>
+      </div>
+      <span class="ch-badge">LIVE</span>
+      <span class="ch-arrow">→</span>
+    </a>
+    <a href="acids-bases-salts.html" class="chapter-card">
+      <div class="ch-num ch-acid">🧪</div>
+      <div class="ch-info">
+        <div class="ch-title">Ch 2: Acids, Bases & Salts</div>
+        <div class="ch-desc">Indicators, neutralisation, everyday examples</div>
+      </div>
+      <span class="ch-badge">LIVE</span>
+      <span class="ch-arrow">→</span>
+    </a>
+    <a href="electricity-circuits.html" class="chapter-card">
+      <div class="ch-num ch-elec">⚡</div>
+      <div class="ch-info">
+        <div class="ch-title">Ch 3: Electricity & Circuits</div>
+        <div class="ch-desc">Circuits, conductors, series & parallel, torch</div>
+      </div>
+      <span class="ch-badge">LIVE</span>
+      <span class="ch-arrow">→</span>
+    </a>
+    <a href="heat-transfer.html" class="chapter-card">
+      <div class="ch-num ch-heat">🔥</div>
+      <div class="ch-info">
+        <div class="ch-title">Ch 4: Heat Transfer</div>
+        <div class="ch-desc">Conduction, convection, radiation, thermometer</div>
+      </div>
+      <span class="ch-badge">LIVE</span>
+      <span class="ch-arrow">→</span>
+    </a>
+    <div class="chapter-card disabled">
+      <div class="ch-num ch-soon">📚</div>
+      <div class="ch-info">
+        <div class="ch-title">More Chapters</div>
+        <div class="ch-desc">Additional science chapters coming soon</div>
+      </div>
+      <span class="ch-badge">SOON</span>
+    </div>
+  </ul>
+</div>
+<footer>Preeti Kushwah Classes · Quality Education for Every Student</footer>
+</body>
+</html>
