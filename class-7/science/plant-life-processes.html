@@ -45,35 +45,45 @@ body {
 /* ============= TOP NAV ============= */
 .top-nav {
   background: white;
-  padding: 10px 16px;
+  padding: 8px 12px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  flex-wrap: wrap;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  flex-wrap: nowrap;
   position: sticky;
   top: 0;
   z-index: 110;
+  overflow-x: auto;
 }
-.nav-link {
-  display: inline-block;
-  background: #f0fdf4;
-  color: #166534;
-  text-decoration: none;
-  padding: 6px 14px;
-  border-radius: 18px;
-  font-size: 13px;
-  font-weight: 700;
-  border: 1.5px solid #bbf7d0;
-  transition: all 0.2s;
-  cursor: pointer;
-  font-family: 'Nunito', sans-serif;
+.tn-home {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: linear-gradient(135deg,#f3e8ff,#ede9fe); color: #7c3aed;
+  text-decoration: none; padding: 7px 14px; border-radius: 12px;
+  font-size: 12px; font-weight: 800; border: 1.5px solid #c4b5fd;
+  transition: all 0.2s; white-space: nowrap; font-family: 'Nunito',sans-serif;
 }
-.nav-link:hover { background: #dcfce7; transform: translateY(-1px); }
-.nav-prev { opacity: 0.4; pointer-events: none; }
-.nav-spacer { flex: 1; }
-.share-btn { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
-.share-btn:hover { background: #dbeafe; }
+.tn-home:hover { background: #ede9fe; transform: translateY(-1px); box-shadow: 0 2px 8px rgba(124,58,237,0.15); }
+.tn-prev, .tn-next {
+  display: inline-flex; align-items: center; gap: 4px;
+  text-decoration: none; padding: 7px 12px; border-radius: 12px;
+  font-size: 11px; font-weight: 700; border: 1.5px solid;
+  transition: all 0.2s; white-space: nowrap; font-family: 'Nunito',sans-serif;
+}
+.tn-prev { background: linear-gradient(135deg,#eff6ff,#dbeafe); color: #2563eb; border-color: #93c5fd; }
+.tn-prev:hover { background: #dbeafe; transform: translateY(-1px); box-shadow: 0 2px 8px rgba(37,99,235,0.15); }
+.tn-next { background: linear-gradient(135deg,#f0fdf4,#dcfce7); color: #16a34a; border-color: #86efac; }
+.tn-next:hover { background: #dcfce7; transform: translateY(-1px); box-shadow: 0 2px 8px rgba(22,163,74,0.15); }
+.tn-disabled { opacity: 0.35; pointer-events: none; background: #f9fafb; color: #9ca3af; border-color: #e5e7eb; }
+.nav-spacer { flex: 1; min-width: 4px; }
+.tn-share {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: linear-gradient(135deg,#fef3c7,#fde68a); color: #92400e;
+  padding: 7px 12px; border-radius: 12px; border: 1.5px solid #fbbf24;
+  font-size: 11px; font-weight: 800; cursor: pointer;
+  transition: all 0.2s; white-space: nowrap; font-family: 'Nunito',sans-serif;
+}
+.tn-share:hover { background: #fde68a; transform: translateY(-1px); box-shadow: 0 2px 8px rgba(245,158,11,0.2); }
 
 /* ============= NAV TOC ============= */
 .toc-bar {
@@ -3062,10 +3072,11 @@ footer {
 
 <!-- ===== TOP NAV ===== -->
 <div class="top-nav">
-  <a href="../../index.html" class="nav-link">Home</a>
+  <a href="../../index.html" class="tn-home">🏠 Home</a>
+  <span class="tn-prev tn-disabled">← No Previous</span>
   <div class="nav-spacer"></div>
-  <a href="acids-bases-salts.html" class="nav-link nav-next">Acids, Bases &amp; Salts</a>
-  <button class="nav-link share-btn" onclick="openShare()">Share</button>
+  <a href="acids-bases-salts.html" class="tn-next">Next: Acids &amp; Bases →</a>
+  <button class="tn-share" onclick="openShare()">📤 Share</button>
 </div>
 
 <!-- ===== TOC NAV ===== -->
