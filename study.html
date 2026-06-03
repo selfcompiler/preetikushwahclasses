@@ -55,11 +55,28 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
 .pdf-placeholder p{margin:8px 0;font-size:13px;}
 .pdf-placeholder a{color:#a78bfa;font-weight:700;text-decoration:none;}
 .pdf-placeholder a:hover{text-decoration:underline;}
-.pdf-annotate{
+.pdf-toolbar{
+  display:flex;align-items:center;gap:4px;padding:6px 10px;
+  background:#1f2937;border-top:1px solid #374151;flex-shrink:0;flex-wrap:wrap;
+}
+.pt-btn{
+  padding:4px 10px;border-radius:8px;border:1.5px solid #475569;background:#374151;
+  cursor:pointer;font-size:11px;font-weight:700;color:#d1d5db;transition:all 0.2s;
+  font-family:'Nunito',sans-serif;
+}
+.pt-btn:hover{background:#475569;color:white;}
+.pt-btn.active{background:#f59e0b;color:#78350f;border-color:#f59e0b;}
+.pt-color{width:20px;height:20px;border-radius:50%;border:2px solid #475569;cursor:pointer;transition:all 0.2s;flex-shrink:0;}
+.pt-color:hover{transform:scale(1.15);}
+.pt-color.active{border-color:white;box-shadow:0 0 0 2px #f59e0b;}
+.pt-sep{width:1px;height:18px;background:#475569;margin:0 3px;flex-shrink:0;}
+.pt-status{font-size:10px;font-weight:700;color:#6b7280;flex:1;text-align:right;}
+.pdf-overlay{
   position:absolute;inset:0;z-index:5;pointer-events:none;
 }
-.pdf-annotate.active{pointer-events:auto;cursor:crosshair;}
-.pdf-annotate canvas{width:100%;height:100%;display:block;}
+.pdf-overlay.active{pointer-events:auto;cursor:crosshair;}
+.pdf-overlay.erasing{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='8' fill='none' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E") 10 10, auto;}
+.pdf-overlay canvas{width:100%;height:100%;display:block;}
 
 .draw-header{
   display:flex;align-items:center;gap:6px;padding:8px 10px;
@@ -133,12 +150,33 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
   <div class="panel panel-pdf" id="panelPdf">
     <div class="pdf-header">
       <span id="pdfTitle">📖 NCERT Textbook</span>
+      <button class="pt-btn" id="pdfAnnotateToggle" onclick="togglePdfAnnotate()" style="margin-left:auto;">✏️ Annotate</button>
     </div>
     <div class="pdf-body" id="pdfBody">
       <div class="pdf-placeholder" id="pdfPlaceholder">
         <p style="font-size:40px;">📚</p>
         <p style="font-weight:700;font-size:15px;">Loading textbook...</p>
       </div>
+      <div class="pdf-overlay" id="pdfOverlay">
+        <canvas id="pdfCanvas"></canvas>
+      </div>
+    </div>
+    <div class="pdf-toolbar" id="pdfToolbar" style="display:none;">
+      <button class="pt-btn active" data-ptool="pen" onclick="setPdfTool('pen',this)">✏️ Pen</button>
+      <button class="pt-btn" data-ptool="highlighter" onclick="setPdfTool('highlighter',this)">🖍️ Highlight</button>
+      <button class="pt-btn" data-ptool="eraser" onclick="setPdfTool('eraser',this)">⬜ Eraser</button>
+      <span class="pt-sep"></span>
+      <span class="pt-color active" data-pcolor="#dc2626" style="background:#dc2626;" onclick="setPdfColor('#dc2626',this)"></span>
+      <span class="pt-color" data-pcolor="#f59e0b" style="background:#f59e0b;" onclick="setPdfColor('#f59e0b',this)"></span>
+      <span class="pt-color" data-pcolor="#2563eb" style="background:#2563eb;" onclick="setPdfColor('#2563eb',this)"></span>
+      <span class="pt-color" data-pcolor="#16a34a" style="background:#16a34a;" onclick="setPdfColor('#16a34a',this)"></span>
+      <span class="pt-color" data-pcolor="#1f2937" style="background:#1f2937;" onclick="setPdfColor('#1f2937',this)"></span>
+      <span class="pt-sep"></span>
+      <input type="range" min="1" max="20" value="4" id="pdfSizeSlider" style="width:50px;accent-color:#f59e0b;">
+      <span class="pt-sep"></span>
+      <button class="pt-btn" onclick="pdfAnnotUndo()">↩</button>
+      <button class="pt-btn" style="color:#fca5a5;" onclick="pdfAnnotClear()">🗑</button>
+      <span class="pt-status" id="pdfAnnotStatus">✏️ Draw on the book!</span>
     </div>
   </div>
 
@@ -438,8 +476,127 @@ function saveDrawing() {
 }
 
 function resizeCanvas() { setupCanvas(); updatePageInfo(); }
-window.addEventListener('resize', resizeCanvas);
-setTimeout(function() { setupCanvas(); updatePageInfo(); }, 100);
+window.addEventListener('resize', function() { resizeCanvas(); resizePdfCanvas(); });
+setTimeout(function() { setupCanvas(); updatePageInfo(); resizePdfCanvas(); }, 100);
+
+// ========================================
+// ===== PDF ANNOTATION OVERLAY =====
+// ========================================
+var pdfCanvas = document.getElementById('pdfCanvas');
+var pdfCtx = pdfCanvas.getContext('2d');
+var pdfOverlay = document.getElementById('pdfOverlay');
+var pdfToolbar = document.getElementById('pdfToolbar');
+var pdfAnnotOn = false;
+var pdfTool = 'pen', pdfColor = '#dc2626', pdfSize = 4;
+var pdfDrawing = false, pdfCurPath = [];
+var PKEY = 'study_pdf_' + encodeURIComponent(chapterName);
+var pdfStrokes = [];
+try { var ps = localStorage.getItem(PKEY); if (ps) pdfStrokes = JSON.parse(ps); } catch(e) {}
+
+function savePdfStrokes() {
+  try { localStorage.setItem(PKEY, JSON.stringify(pdfStrokes)); } catch(e) {}
+}
+
+function resizePdfCanvas() {
+  var body = document.getElementById('pdfBody');
+  var w = body.clientWidth || 400, h = body.clientHeight || 400;
+  pdfCanvas.width = w * 2; pdfCanvas.height = h * 2;
+  pdfCanvas.style.width = w + 'px'; pdfCanvas.style.height = h + 'px';
+  pdfCtx.setTransform(2, 0, 0, 2, 0, 0);
+  renderPdfAnnot();
+}
+
+function renderPdfAnnot() {
+  var w = pdfCanvas.width / 2, h = pdfCanvas.height / 2;
+  pdfCtx.clearRect(0, 0, w, h);
+  pdfStrokes.forEach(function(s) { drawPdfStroke(s); });
+}
+
+function drawPdfStroke(s) {
+  if (!s.points || s.points.length < 2) return;
+  pdfCtx.save();
+  pdfCtx.lineCap = 'round'; pdfCtx.lineJoin = 'round';
+  if (s.tool === 'highlighter') {
+    pdfCtx.globalAlpha = 0.35; pdfCtx.strokeStyle = s.color; pdfCtx.lineWidth = s.size * 5;
+  } else if (s.tool === 'eraser') {
+    pdfCtx.globalCompositeOperation = 'destination-out';
+    pdfCtx.strokeStyle = 'rgba(0,0,0,1)'; pdfCtx.lineWidth = s.size * 6;
+  } else {
+    pdfCtx.globalAlpha = 1; pdfCtx.strokeStyle = s.color; pdfCtx.lineWidth = s.size;
+  }
+  pdfCtx.beginPath();
+  pdfCtx.moveTo(s.points[0].x, s.points[0].y);
+  for (var i = 1; i < s.points.length; i++) {
+    var a = s.points[i-1], b = s.points[i];
+    pdfCtx.quadraticCurveTo(a.x, a.y, (a.x+b.x)/2, (a.y+b.y)/2);
+  }
+  pdfCtx.stroke(); pdfCtx.restore();
+}
+
+function getPdfPos(e) {
+  var rect = pdfCanvas.getBoundingClientRect();
+  var sx = (pdfCanvas.width/2) / rect.width;
+  var sy = (pdfCanvas.height/2) / rect.height;
+  var t = e.touches ? e.touches[0] : e;
+  return { x: (t.clientX - rect.left) * sx, y: (t.clientY - rect.top) * sy };
+}
+
+function onPdfDrawStart(e) { e.preventDefault(); e.stopPropagation(); pdfDrawing = true; pdfCurPath = [getPdfPos(e)]; }
+function onPdfDrawMove(e) {
+  if (!pdfDrawing) return; e.preventDefault(); e.stopPropagation();
+  pdfCurPath.push(getPdfPos(e));
+  renderPdfAnnot();
+  drawPdfStroke({ tool: pdfTool, color: pdfColor, size: pdfSize, points: pdfCurPath });
+}
+function onPdfDrawEnd() {
+  if (!pdfDrawing) return; pdfDrawing = false;
+  if (pdfCurPath.length > 1) {
+    pdfStrokes.push({ tool: pdfTool, color: pdfColor, size: pdfSize, points: pdfCurPath.slice() });
+    savePdfStrokes();
+  }
+  pdfCurPath = [];
+}
+
+pdfCanvas.addEventListener('mousedown', onPdfDrawStart);
+pdfCanvas.addEventListener('mousemove', onPdfDrawMove);
+pdfCanvas.addEventListener('mouseup', onPdfDrawEnd);
+pdfCanvas.addEventListener('mouseleave', onPdfDrawEnd);
+pdfCanvas.addEventListener('touchstart', onPdfDrawStart, {passive:false});
+pdfCanvas.addEventListener('touchmove', onPdfDrawMove, {passive:false});
+pdfCanvas.addEventListener('touchend', onPdfDrawEnd);
+
+function togglePdfAnnotate() {
+  pdfAnnotOn = !pdfAnnotOn;
+  pdfOverlay.classList.toggle('active', pdfAnnotOn);
+  pdfToolbar.style.display = pdfAnnotOn ? 'flex' : 'none';
+  document.getElementById('pdfAnnotateToggle').classList.toggle('active', pdfAnnotOn);
+  document.getElementById('pdfAnnotateToggle').textContent = pdfAnnotOn ? '📖 Read Mode' : '✏️ Annotate';
+  if (pdfAnnotOn) resizePdfCanvas();
+}
+
+function setPdfTool(t, btn) {
+  pdfTool = t;
+  document.querySelectorAll('[data-ptool]').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  pdfOverlay.classList.toggle('erasing', t === 'eraser');
+  document.getElementById('pdfAnnotStatus').textContent =
+    t === 'pen' ? '✏️ Draw on the book!' : t === 'highlighter' ? '🖍️ Highlight text!' : '⬜ Erase annotations';
+}
+
+function setPdfColor(c, el) {
+  pdfColor = c;
+  document.querySelectorAll('.pt-color').forEach(function(e) { e.classList.remove('active'); });
+  el.classList.add('active');
+}
+
+document.getElementById('pdfSizeSlider').addEventListener('input', function() { pdfSize = parseInt(this.value); });
+
+function pdfAnnotUndo() { pdfStrokes.pop(); savePdfStrokes(); renderPdfAnnot(); }
+function pdfAnnotClear() {
+  if (!pdfStrokes.length || confirm('Clear all annotations on the book?')) {
+    pdfStrokes = []; savePdfStrokes(); renderPdfAnnot();
+  }
+}
 </script>
 </body>
 </html>
