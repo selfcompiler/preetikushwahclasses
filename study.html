@@ -82,9 +82,25 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
 .dt-color.active{border-color:#1f2937;box-shadow:0 0 0 2px #a78bfa;}
 .dt-sep{width:1px;height:20px;background:#d1d5db;margin:0 3px;flex-shrink:0;}
 
+.draw-pager{
+  display:flex;align-items:center;gap:6px;padding:6px 10px;
+  background:linear-gradient(135deg,#f3e8ff,#ede9fe);border-bottom:1px solid #c4b5fd;flex-shrink:0;
+}
+.dp-btn{
+  padding:5px 12px;border-radius:8px;border:1.5px solid #c4b5fd;background:white;
+  cursor:pointer;font-size:11px;font-weight:700;color:#7c3aed;transition:all 0.2s;
+  font-family:'Nunito',sans-serif;
+}
+.dp-btn:hover{background:#ede9fe;transform:translateY(-1px);box-shadow:0 2px 6px rgba(124,58,237,0.15);}
+.dp-btn:disabled{opacity:0.3;pointer-events:none;}
+.dp-add{background:linear-gradient(135deg,#f0fdf4,#dcfce7);color:#16a34a;border-color:#86efac;}
+.dp-add:hover{background:#dcfce7;box-shadow:0 2px 6px rgba(22,163,74,0.15);}
+.dp-info{
+  flex:1;text-align:center;font-size:12px;font-weight:800;color:#5b21b6;
+}
 .draw-scroll{
   flex:1;overflow-y:auto;overflow-x:hidden;background:white;position:relative;
-  -webkit-overflow-scrolling:touch;
+  -webkit-overflow-scrolling:touch;scroll-behavior:smooth;
 }
 .draw-canvas{display:block;touch-action:none;cursor:crosshair;background:white;}
 .draw-canvas.erasing{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='8' fill='none' stroke='%23999' stroke-width='1.5'/%3E%3C/svg%3E") 10 10, auto;}
@@ -148,7 +164,12 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
       <span class="dt-sep"></span>
       <button class="dt-btn" id="undoBtn">↩</button>
       <button class="dt-btn" style="color:#dc2626;" id="clearBtn">🗑</button>
-      <button class="dt-btn" id="addPageBtn" style="color:#7c3aed;">📄+</button>
+    </div>
+    <div class="draw-pager" id="drawPager">
+      <button class="dp-btn" id="prevPageBtn" onclick="goToPage(-1)">⬆ Prev Page</button>
+      <span class="dp-info" id="pageInfo">Page 1 / 3</span>
+      <button class="dp-btn" id="nextPageBtn" onclick="goToPage(1)">⬇ Next Page</button>
+      <button class="dp-btn dp-add" id="addPageBtn" onclick="addPage()">+ Add Page</button>
     </div>
     <div class="draw-scroll" id="drawScroll">
       <canvas class="draw-canvas" id="drawCanvas"></canvas>
@@ -386,11 +407,28 @@ document.getElementById('clearBtn').addEventListener('click', function() {
     strokes = []; saveStrokes(); totalPages = 3; setupCanvas();
   }
 });
-document.getElementById('addPageBtn').addEventListener('click', function() {
+// Page navigation
+var currentPage = 1;
+function updatePageInfo() {
+  currentPage = Math.max(1, Math.min(totalPages, Math.floor(scrollArea.scrollTop / PAGE_H) + 1));
+  document.getElementById('pageInfo').textContent = 'Page ' + currentPage + ' / ' + totalPages;
+  document.getElementById('prevPageBtn').disabled = (currentPage <= 1);
+}
+function goToPage(dir) {
+  var target = currentPage + dir;
+  if (target < 1) target = 1;
+  if (target > totalPages) target = totalPages;
+  scrollArea.scrollTop = (target - 1) * PAGE_H;
+  currentPage = target;
+  updatePageInfo();
+}
+function addPage() {
   totalPages++;
   setupCanvas();
-  scrollArea.scrollTop = scrollArea.scrollHeight;
-});
+  scrollArea.scrollTop = (totalPages - 1) * PAGE_H;
+  updatePageInfo();
+}
+scrollArea.addEventListener('scroll', updatePageInfo);
 
 function saveDrawing() {
   var a = document.createElement('a');
@@ -399,9 +437,9 @@ function saveDrawing() {
   a.click();
 }
 
-function resizeCanvas() { setupCanvas(); }
+function resizeCanvas() { setupCanvas(); updatePageInfo(); }
 window.addEventListener('resize', resizeCanvas);
-setTimeout(setupCanvas, 100);
+setTimeout(function() { setupCanvas(); updatePageInfo(); }, 100);
 </script>
 </body>
 </html>
