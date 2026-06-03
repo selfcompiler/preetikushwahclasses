@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Mode — Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background:#1f2937;}
+
+/* Top bar */
+.study-bar{
+  height:44px;display:flex;align-items:center;gap:8px;padding:0 12px;
+  background:linear-gradient(135deg,#1e1b4b,#4c1d95);color:white;flex-shrink:0;z-index:100;
+}
+.sb-back{
+  text-decoration:none;color:white;background:rgba(255,255,255,0.15);padding:5px 12px;
+  border-radius:10px;font-size:12px;font-weight:700;transition:all 0.2s;
+}
+.sb-back:hover{background:rgba(255,255,255,0.3);}
+.sb-title{flex:1;font-size:13px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sb-btn{
+  background:rgba(255,255,255,0.15);border:none;color:white;padding:5px 12px;
+  border-radius:10px;font-size:11px;font-weight:700;cursor:pointer;transition:all 0.2s;
+  font-family:'Nunito',sans-serif;white-space:nowrap;
+}
+.sb-btn:hover{background:rgba(255,255,255,0.3);}
+.sb-btn.active{background:rgba(124,58,237,0.5);}
+.sb-divider{width:1px;height:24px;background:rgba(255,255,255,0.2);}
+
+/* Split layout */
+.study-split{display:flex;flex:1;height:calc(100vh - 44px);overflow:hidden;}
+.panel{position:relative;overflow:hidden;display:flex;flex-direction:column;}
+.panel-pdf{flex:1;background:#374151;min-width:200px;}
+.panel-draw{flex:1;background:#f9fafb;min-width:200px;}
+
+/* Resize gutter */
+.gutter{
+  width:8px;background:#4c1d95;cursor:col-resize;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;transition:background 0.2s;
+}
+.gutter:hover{background:#6d28d9;}
+.gutter::after{content:'⋮';color:rgba(255,255,255,0.6);font-size:16px;font-weight:900;}
+
+/* PDF panel */
+.pdf-header{
+  display:flex;align-items:center;gap:6px;padding:8px 10px;
+  background:#1f2937;color:white;flex-shrink:0;
+}
+.pdf-header span{font-size:12px;font-weight:700;flex:1;}
+.pdf-nav-btn{
+  background:rgba(255,255,255,0.1);border:none;color:white;width:28px;height:28px;
+  border-radius:6px;cursor:pointer;font-size:14px;transition:all 0.2s;
+}
+.pdf-nav-btn:hover{background:rgba(255,255,255,0.25);}
+.pdf-page-info{font-size:11px;font-weight:700;color:#94a3b8;min-width:60px;text-align:center;}
+.pdf-body{flex:1;overflow:auto;display:flex;align-items:center;justify-content:center;background:#374151;}
+.pdf-body iframe{width:100%;height:100%;border:none;}
+.pdf-body embed{width:100%;height:100%;}
+.pdf-placeholder{text-align:center;color:#9ca3af;padding:30px;}
+.pdf-placeholder p{margin:8px 0;font-size:13px;}
+.pdf-placeholder a{color:#a78bfa;font-weight:700;}
+
+/* Drawing panel */
+.draw-header{
+  display:flex;align-items:center;gap:6px;padding:8px 10px;
+  background:linear-gradient(135deg,#7c3aed,#a78bfa);color:white;flex-shrink:0;
+}
+.draw-header span{font-size:12px;font-weight:800;flex:1;}
+.draw-toolbar{
+  display:flex;gap:4px;padding:6px 10px;background:#f3f4f6;border-bottom:1px solid #e5e7eb;
+  flex-shrink:0;flex-wrap:wrap;align-items:center;
+}
+.dt-btn{
+  padding:4px 10px;border-radius:8px;border:1.5px solid #e5e7eb;background:white;
+  cursor:pointer;font-size:11px;font-weight:700;color:#374151;transition:all 0.2s;
+  font-family:'Nunito',sans-serif;
+}
+.dt-btn:hover{border-color:#a78bfa;background:#faf5ff;}
+.dt-btn.active{background:#7c3aed;color:white;border-color:#7c3aed;}
+.dt-color{width:22px;height:22px;border-radius:50%;border:2.5px solid #e5e7eb;cursor:pointer;transition:all 0.2s;}
+.dt-color:hover{transform:scale(1.15);}
+.dt-color.active{border-color:#1f2937;box-shadow:0 0 0 2px #a78bfa;}
+.dt-sep{width:1px;height:20px;background:#d1d5db;margin:0 3px;}
+
+/* Infinite scrollable canvas area */
+.draw-scroll{flex:1;overflow-y:auto;overflow-x:hidden;background:white;position:relative;}
+.draw-canvas{display:block;touch-action:none;cursor:crosshair;background:white;}
+.draw-canvas.erasing{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8' fill='none' stroke='%23999' stroke-width='1.5'/%3E%3C/svg%3E") 10 10, auto;}
+/* Ruled lines background */
+.draw-scroll.ruled .draw-canvas{
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 29px, #e5e7eb 29px, #e5e7eb 30px);
+  background-size: 100% 30px;
+}
+
+/* Page break indicators */
+.page-marker{
+  position:absolute;left:0;right:0;height:2px;background:#e5e7eb;pointer-events:none;
+  display:flex;align-items:center;justify-content:center;
+}
+.page-marker::after{
+  content:attr(data-page);background:#f3f4f6;color:#9ca3af;font-size:9px;font-weight:700;
+  padding:1px 8px;border-radius:6px;position:relative;top:-8px;
+}
+
+/* Mobile: stack vertically */
+@media(max-width:700px){
+  .study-split{flex-direction:column;}
+  .panel-pdf{flex:none;height:45vh;}
+  .panel-draw{flex:none;height:calc(55vh - 44px);}
+  .gutter{width:100%;height:8px;cursor:row-resize;}
+  .gutter::after{content:'⋯';}
+}
+</style>
+</head>
+<body>
+
+<div class="study-bar">
+  <a href="javascript:history.back()" class="sb-back">← Back</a>
+  <span class="sb-title" id="studyTitle">Study Mode</span>
+  <div class="sb-divider"></div>
+  <button class="sb-btn" id="toggleRuled" onclick="toggleRuledLines()">📏 Lines</button>
+  <button class="sb-btn" id="toggleView" onclick="toggleLayout()">📐 Swap</button>
+  <button class="sb-btn" onclick="saveDrawing()">💾 Save</button>
+</div>
+
+<div class="study-split" id="studySplit">
+  <!-- PDF Panel -->
+  <div class="panel panel-pdf" id="panelPdf">
+    <div class="pdf-header">
+      <span id="pdfTitle">📖 NCERT Textbook</span>
+    </div>
+    <div class="pdf-body" id="pdfBody">
+      <div class="pdf-placeholder" id="pdfPlaceholder">
+        <p style="font-size:32px;">📚</p>
+        <p>Loading NCERT textbook...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resize gutter -->
+  <div class="gutter" id="gutter"></div>
+
+  <!-- Drawing Panel -->
+  <div class="panel panel-draw" id="panelDraw">
+    <div class="draw-header">
+      <span>✏️ Drawing Board (scroll down for more space)</span>
+    </div>
+    <div class="draw-toolbar" id="drawToolbar">
+      <button class="dt-btn active" data-tool="pen">✏️ Pen</button>
+      <button class="dt-btn" data-tool="highlighter">🖍️ Highlight</button>
+      <button class="dt-btn" data-tool="eraser">⬜ Eraser</button>
+      <span class="dt-sep"></span>
+      <span class="dt-color active" data-color="#1f2937" style="background:#1f2937;"></span>
+      <span class="dt-color" data-color="#dc2626" style="background:#dc2626;"></span>
+      <span class="dt-color" data-color="#2563eb" style="background:#2563eb;"></span>
+      <span class="dt-color" data-color="#16a34a" style="background:#16a34a;"></span>
+      <span class="dt-color" data-color="#d97706" style="background:#d97706;"></span>
+      <span class="dt-color" data-color="#7c3aed" style="background:#7c3aed;"></span>
+      <span class="dt-sep"></span>
+      <label style="font-size:10px;font-weight:700;color:#6b7280;">Size</label>
+      <input type="range" min="1" max="20" value="3" id="sizeSlider" style="width:55px;accent-color:#7c3aed;">
+      <span class="dt-sep"></span>
+      <button class="dt-btn" id="undoBtn">↩ Undo</button>
+      <button class="dt-btn" style="color:#dc2626;" id="clearBtn">🗑 Clear</button>
+      <button class="dt-btn" id="addPageBtn">📄+ Page</button>
+    </div>
+    <div class="draw-scroll" id="drawScroll">
+      <canvas class="draw-canvas" id="drawCanvas"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+// === Parse URL params ===
+var params = new URLSearchParams(window.location.search);
+var chapterName = params.get('ch') || 'Study Mode';
+var pdfUrl = params.get('pdf') || '';
+var backUrl = params.get('back') || 'javascript:history.back()';
+document.getElementById('studyTitle').textContent = chapterName;
+document.querySelector('.sb-back').href = backUrl;
+
+// === Load PDF ===
+(function loadPdf() {
+  var body = document.getElementById('pdfBody');
+  if (pdfUrl) {
+    document.getElementById('pdfPlaceholder').remove();
+    var embed = document.createElement('embed');
+    embed.src = pdfUrl;
+    embed.type = 'application/pdf';
+    embed.style.cssText = 'width:100%;height:100%;';
+    body.appendChild(embed);
+    document.getElementById('pdfTitle').textContent = '📖 ' + chapterName;
+  } else {
+    document.getElementById('pdfPlaceholder').innerHTML =
+      '<p style="font-size:32px;">📚</p>' +
+      '<p style="font-weight:700;">No PDF URL provided</p>' +
+      '<p>Open this page from a chapter link to view the NCERT textbook.</p>' +
+      '<p><a href="https://ncert.nic.in/textbook.php?gesc1=0-18" target="_blank">Open NCERT Class 7 Science on official website →</a></p>';
+  }
+})();
+
+// === Gutter resize ===
+var gutter = document.getElementById('gutter');
+var pdfPanel = document.getElementById('panelPdf');
+var drawPanel = document.getElementById('panelDraw');
+var split = document.getElementById('studySplit');
+var dragging = false;
+gutter.addEventListener('mousedown', function(e) { dragging = true; e.preventDefault(); });
+document.addEventListener('mousemove', function(e) {
+  if (!dragging) return;
+  var rect = split.getBoundingClientRect();
+  var isVert = window.innerWidth <= 700;
+  if (isVert) {
+    var pct = ((e.clientY - rect.top) / rect.height) * 100;
+    pct = Math.max(20, Math.min(80, pct));
+    pdfPanel.style.flex = 'none'; pdfPanel.style.height = pct + '%';
+    drawPanel.style.flex = 'none'; drawPanel.style.height = (100 - pct) + '%';
+  } else {
+    var pct = ((e.clientX - rect.left) / rect.width) * 100;
+    pct = Math.max(20, Math.min(80, pct));
+    pdfPanel.style.flex = 'none'; pdfPanel.style.width = pct + '%';
+    drawPanel.style.flex = 'none'; drawPanel.style.width = (100 - pct) + '%';
+  }
+});
+document.addEventListener('mouseup', function() {
+  if (dragging) { dragging = false; resizeCanvas(); }
+});
+// Touch resize
+gutter.addEventListener('touchstart', function(e) { dragging = true; e.preventDefault(); }, {passive:false});
+document.addEventListener('touchmove', function(e) {
+  if (!dragging) return;
+  var t = e.touches[0]; var rect = split.getBoundingClientRect();
+  var isVert = window.innerWidth <= 700;
+  if (isVert) {
+    var pct = ((t.clientY - rect.top) / rect.height) * 100;
+    pct = Math.max(20, Math.min(80, pct));
+    pdfPanel.style.flex = 'none'; pdfPanel.style.height = pct + '%';
+    drawPanel.style.flex = 'none'; drawPanel.style.height = (100 - pct) + '%';
+  } else {
+    var pct = ((t.clientX - rect.left) / rect.width) * 100;
+    pct = Math.max(20, Math.min(80, pct));
+    pdfPanel.style.flex = 'none'; pdfPanel.style.width = pct + '%';
+    drawPanel.style.flex = 'none'; drawPanel.style.width = (100 - pct) + '%';
+  }
+}, {passive:false});
+document.addEventListener('touchend', function() { if (dragging) { dragging = false; resizeCanvas(); } });
+
+// === Swap layout ===
+var swapped = false;
+function toggleLayout() {
+  swapped = !swapped;
+  if (swapped) {
+    split.insertBefore(drawPanel, pdfPanel);
+    split.insertBefore(gutter, pdfPanel);
+  } else {
+    split.insertBefore(pdfPanel, gutter);
+  }
+}
+
+// === Ruled lines toggle ===
+var ruled = false;
+function toggleRuledLines() {
+  ruled = !ruled;
+  document.getElementById('drawScroll').classList.toggle('ruled', ruled);
+  document.getElementById('toggleRuled').classList.toggle('active', ruled);
+}
+
+// === INFINITE SCROLLABLE DRAWING BOARD ===
+var canvas = document.getElementById('drawCanvas');
+var ctx = canvas.getContext('2d');
+var scrollArea = document.getElementById('drawScroll');
+var canvasPages = 3; // start with 3 pages worth of height
+var PAGE_HEIGHT = 800;
+var tool = 'pen', color = '#1f2937', brushSize = 3;
+var drawing = false, currentPath = [];
+var STORE_KEY = 'study_draw_' + (params.get('ch') || 'default');
+var history = [];
+
+function loadDrawHistory() {
+  try { var d = localStorage.getItem(STORE_KEY); return d ? JSON.parse(d) : []; } catch(e) { return []; }
+}
+function saveDrawHistory() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(history)); } catch(e) {}
+}
+history = loadDrawHistory();
+if (history.length > 0) {
+  var maxY = 0;
+  history.forEach(function(s) { s.points.forEach(function(p) { if (p.y > maxY) maxY = p.y; }); });
+  canvasPages = Math.max(3, Math.ceil((maxY + 200) / PAGE_HEIGHT));
+}
+
+function resizeCanvas() {
+  var w = scrollArea.clientWidth;
+  var h = canvasPages * PAGE_HEIGHT;
+  canvas.width = w * 2;
+  canvas.height = h * 2;
+  canvas.style.width = w + 'px';
+  canvas.style.height = h + 'px';
+  ctx.scale(2, 2);
+  redraw();
+}
+
+function redraw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // Draw page markers
+  ctx.save();
+  ctx.strokeStyle = '#e5e7eb'; ctx.lineWidth = 0.5; ctx.setLineDash([4,4]);
+  for (var i = 1; i < canvasPages; i++) {
+    ctx.beginPath(); ctx.moveTo(0, i * PAGE_HEIGHT); ctx.lineTo(canvas.width/2, i * PAGE_HEIGHT); ctx.stroke();
+  }
+  ctx.setLineDash([]);
+  ctx.restore();
+  history.forEach(function(s) { drawStroke(s); });
+}
+
+function drawStroke(stroke) {
+  if (stroke.points.length < 2) return;
+  ctx.save();
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if (stroke.tool === 'highlighter') {
+    ctx.globalAlpha = 0.3; ctx.strokeStyle = stroke.color; ctx.lineWidth = stroke.size * 4;
+  } else if (stroke.tool === 'eraser') {
+    ctx.globalCompositeOperation = 'destination-out'; ctx.strokeStyle = 'rgba(0,0,0,1)'; ctx.lineWidth = stroke.size * 5;
+  } else {
+    ctx.globalAlpha = 1; ctx.strokeStyle = stroke.color; ctx.lineWidth = stroke.size;
+  }
+  ctx.beginPath();
+  ctx.moveTo(stroke.points[0].x, stroke.points[0].y);
+  for (var i = 1; i < stroke.points.length; i++) {
+    var p0 = stroke.points[i-1], p1 = stroke.points[i];
+    ctx.quadraticCurveTo(p0.x, p0.y, (p0.x+p1.x)/2, (p0.y+p1.y)/2);
+  }
+  ctx.stroke(); ctx.restore();
+}
+
+function getPos(e) {
+  var rect = canvas.getBoundingClientRect();
+  var scaleX = (canvas.width/2) / rect.width;
+  var scaleY = (canvas.height/2) / rect.height;
+  var t = e.touches ? e.touches[0] : e;
+  return { x: (t.clientX - rect.left) * scaleX, y: (t.clientY - rect.top) * scaleY };
+}
+
+function startDraw(e) { e.preventDefault(); drawing = true; currentPath = [getPos(e)]; }
+function moveDraw(e) {
+  if (!drawing) return; e.preventDefault();
+  var p = getPos(e);
+  currentPath.push(p);
+  // Auto-extend canvas if drawing near bottom
+  var canvasH = canvasPages * PAGE_HEIGHT;
+  if (p.y > canvasH - 100) {
+    canvasPages++;
+    resizeCanvas();
+  }
+  redraw();
+  drawStroke({ tool: tool, color: color, size: brushSize, points: currentPath });
+}
+function endDraw() {
+  if (!drawing) return; drawing = false;
+  if (currentPath.length > 1) {
+    history.push({ tool: tool, color: color, size: brushSize, points: currentPath.slice() });
+    saveDrawHistory();
+  }
+  currentPath = [];
+}
+
+canvas.addEventListener('mousedown', startDraw);
+canvas.addEventListener('mousemove', moveDraw);
+canvas.addEventListener('mouseup', endDraw);
+canvas.addEventListener('mouseleave', endDraw);
+canvas.addEventListener('touchstart', startDraw, {passive:false});
+canvas.addEventListener('touchmove', moveDraw, {passive:false});
+canvas.addEventListener('touchend', endDraw);
+
+// Toolbar
+document.getElementById('drawToolbar').addEventListener('click', function(e) {
+  var btn = e.target.closest('[data-tool]');
+  if (btn) {
+    tool = btn.dataset.tool;
+    document.querySelectorAll('.dt-btn[data-tool]').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    canvas.classList.toggle('erasing', tool === 'eraser');
+  }
+  var col = e.target.closest('[data-color]');
+  if (col) {
+    color = col.dataset.color;
+    document.querySelectorAll('.dt-color').forEach(function(c) { c.classList.remove('active'); });
+    col.classList.add('active');
+  }
+});
+document.getElementById('sizeSlider').addEventListener('input', function() { brushSize = parseInt(this.value); });
+document.getElementById('undoBtn').addEventListener('click', function() { history.pop(); saveDrawHistory(); redraw(); });
+document.getElementById('clearBtn').addEventListener('click', function() {
+  if (!history.length || confirm('Clear everything?')) { history = []; saveDrawHistory(); canvasPages = 3; resizeCanvas(); }
+});
+document.getElementById('addPageBtn').addEventListener('click', function() {
+  canvasPages++;
+  resizeCanvas();
+  scrollArea.scrollTop = scrollArea.scrollHeight;
+});
+
+function saveDrawing() {
+  var link = document.createElement('a');
+  link.download = 'study-notes-' + Date.now() + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+// Init
+window.addEventListener('resize', resizeCanvas);
+setTimeout(resizeCanvas, 100);
+</script>
+</body>
+</html>

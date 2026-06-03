@@ -53,44 +53,76 @@ footer { text-align: center; padding: 24px; background: #166534; color: white; f
   <h1>🔬 Science Chapters</h1>
   <p>Class 7 NCERT Science · 4 chapters available</p>
 </section>
+<style>
+.ch-actions{display:flex;gap:6px;flex-shrink:0;align-items:center;}
+.ch-study{
+  display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:10px;
+  background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;border:1.5px solid #fbbf24;
+  font-size:10px;font-weight:800;text-decoration:none;transition:all 0.2s;white-space:nowrap;
+}
+.ch-study:hover{background:#fde68a;transform:translateY(-1px);box-shadow:0 2px 8px rgba(245,158,11,0.2);}
+.ch-notes{
+  display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:10px;
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);color:#166534;border:1.5px solid #86efac;
+  font-size:10px;font-weight:800;text-decoration:none;transition:all 0.2s;white-space:nowrap;
+}
+.ch-notes:hover{background:#dcfce7;transform:translateY(-1px);box-shadow:0 2px 8px rgba(34,197,94,0.2);}
+@media(max-width:500px){.ch-actions{flex-direction:column;gap:4px;}.chapter-card{flex-wrap:wrap;}}
+</style>
 <div class="container">
   <ul class="chapter-list">
-    <a href="plant-life-processes.html" class="chapter-card">
-      <div class="ch-num ch-plant">🌱</div>
-      <div class="ch-info">
-        <div class="ch-title">Ch 10: Plant Life Processes</div>
-        <div class="ch-desc">Photosynthesis, transport, respiration in plants</div>
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <a href="plant-life-processes.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+        <div class="ch-num ch-plant">🌱</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 10: Plant Life Processes</div>
+          <div class="ch-desc">Photosynthesis, transport, respiration in plants</div>
+        </div>
+      </a>
+      <div class="ch-actions">
+        <a href="../../study.html?ch=Ch%2010%3A%20Plant%20Life%20Processes&pdf=https%3A%2F%2Fncert.nic.in%2Ftextbook%2Fpdf%2Fgesc110.pdf&back=index.html" class="ch-study">📖 View Book</a>
+        <a href="plant-life-processes.html" class="ch-notes">📝 Notes →</a>
       </div>
-      <span class="ch-badge">LIVE</span>
-      <span class="ch-arrow">→</span>
-    </a>
-    <a href="acids-bases-salts.html" class="chapter-card">
-      <div class="ch-num ch-acid">🧪</div>
-      <div class="ch-info">
-        <div class="ch-title">Ch 2: Acids, Bases & Salts</div>
-        <div class="ch-desc">Indicators, neutralisation, everyday examples</div>
+    </li>
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <a href="acids-bases-salts.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+        <div class="ch-num ch-acid">🧪</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 2: Acids, Bases & Salts</div>
+          <div class="ch-desc">Indicators, neutralisation, everyday examples</div>
+        </div>
+      </a>
+      <div class="ch-actions">
+        <a href="../../study.html?ch=Ch%202%3A%20Acids%2C%20Bases%20%26%20Salts&pdf=https%3A%2F%2Fncert.nic.in%2Ftextbook%2Fpdf%2Fgesc102.pdf&back=index.html" class="ch-study">📖 View Book</a>
+        <a href="acids-bases-salts.html" class="ch-notes">📝 Notes →</a>
       </div>
-      <span class="ch-badge">LIVE</span>
-      <span class="ch-arrow">→</span>
-    </a>
-    <a href="electricity-circuits.html" class="chapter-card">
-      <div class="ch-num ch-elec">⚡</div>
-      <div class="ch-info">
-        <div class="ch-title">Ch 3: Electricity & Circuits</div>
-        <div class="ch-desc">Circuits, conductors, series & parallel, torch</div>
+    </li>
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <a href="electricity-circuits.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+        <div class="ch-num ch-elec">⚡</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 3: Electricity & Circuits</div>
+          <div class="ch-desc">Circuits, conductors, series & parallel, torch</div>
+        </div>
+      </a>
+      <div class="ch-actions">
+        <a href="../../study.html?ch=Ch%203%3A%20Electricity%20%26%20Circuits&pdf=https%3A%2F%2Fncert.nic.in%2Ftextbook%2Fpdf%2Fgesc103.pdf&back=index.html" class="ch-study">📖 View Book</a>
+        <a href="electricity-circuits.html" class="ch-notes">📝 Notes →</a>
       </div>
-      <span class="ch-badge">LIVE</span>
-      <span class="ch-arrow">→</span>
-    </a>
-    <a href="heat-transfer.html" class="chapter-card">
-      <div class="ch-num ch-heat">🔥</div>
-      <div class="ch-info">
-        <div class="ch-title">Ch 4: Heat Transfer</div>
-        <div class="ch-desc">Conduction, convection, radiation, thermometer</div>
+    </li>
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <a href="heat-transfer.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+        <div class="ch-num ch-heat">🔥</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 4: Heat Transfer</div>
+          <div class="ch-desc">Conduction, convection, radiation, thermometer</div>
+        </div>
+      </a>
+      <div class="ch-actions">
+        <a href="../../study.html?ch=Ch%204%3A%20Heat%20Transfer&pdf=https%3A%2F%2Fncert.nic.in%2Ftextbook%2Fpdf%2Fgesc104.pdf&back=index.html" class="ch-study">📖 View Book</a>
+        <a href="heat-transfer.html" class="ch-notes">📝 Notes →</a>
       </div>
-      <span class="ch-badge">LIVE</span>
-      <span class="ch-arrow">→</span>
-    </a>
+    </li>
     <div class="chapter-card disabled">
       <div class="ch-num ch-soon">📚</div>
       <div class="ch-info">
