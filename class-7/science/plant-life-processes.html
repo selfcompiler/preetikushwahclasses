@@ -837,76 +837,7 @@ tr:nth-child(even) td { background: #f0fdf4; }
 
 /* (Activity 10.7 old static styles removed — replaced by lab setup below) */
 
-/* Activity 10.8: Lime Water */
-.limewater-demo {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.seed-flask {
-  width: 60px;
-  height: 70px;
-  background: linear-gradient(to bottom, rgba(254,243,199,0.5), rgba(251,191,36,0.3));
-  border: 2px solid #94a3b8;
-  border-radius: 0 0 30px 30px;
-  position: relative;
-}
-.seed-flask-neck {
-  width: 20px;
-  height: 16px;
-  background: #94a3b8;
-  margin: 0 auto;
-  border-radius: 2px;
-}
-.seed-icon {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 10px;
-  font-weight: 800;
-  color: #92400e;
-}
-.delivery-tube {
-  width: 60px;
-  height: 3px;
-  background: #94a3b8;
-  position: relative;
-}
-.tube-bubble {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  background: #94a3b8;
-  border-radius: 50%;
-  top: -1px;
-  animation: tubeBubbleMove 2s linear infinite;
-}
-@keyframes tubeBubbleMove {
-  0% { left: 0; opacity: 0; }
-  20% { opacity: 1; }
-  100% { left: 55px; opacity: 0; }
-}
-.limewater-tube {
-  width: 30px;
-  height: 70px;
-  border: 2px solid #94a3b8;
-  border-radius: 0 0 8px 8px;
-  position: relative;
-  overflow: hidden;
-}
-.limewater-liquid {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 45px;
-  animation: turnMilky 5s ease-in-out infinite;
-}
-@keyframes turnMilky {
-  0%, 30% { background: rgba(255,255,255,0.3); }
+/* (Activity 10.8 old static styles removed — replaced by lab setup below) */
   60%, 90% { background: rgba(255,255,255,0.95); }
   100% { background: rgba(255,255,255,0.3); }
 }
@@ -2100,14 +2031,66 @@ footer {
   border-radius: 3px 3px 0 0; background: rgba(224,242,254,0.06);
 }
 .naoh-cork-lab {
-  position: absolute; bottom: 156px; left: 50%; transform: translateX(-50%);
-  width: 50px; height: 14px;
-  background: linear-gradient(180deg, #d2b48c, #c19a6b, #a0845e);
-  border-radius: 3px; z-index: 5; box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  position: absolute; bottom: 154px; left: 50%; transform: translateX(-50%);
+  width: 56px; height: 20px; z-index: 5;
+  background:
+    radial-gradient(ellipse 2px 1px at 8px 5px, rgba(139,115,85,0.6) 0%, transparent 100%),
+    radial-gradient(ellipse 1.5px 1px at 22px 12px, rgba(139,115,85,0.5) 0%, transparent 100%),
+    radial-gradient(ellipse 2px 1.5px at 38px 7px, rgba(139,115,85,0.55) 0%, transparent 100%),
+    radial-gradient(ellipse 1px 1px at 48px 14px, rgba(122,98,72,0.5) 0%, transparent 100%),
+    radial-gradient(ellipse 1.5px 1px at 14px 16px, rgba(139,115,85,0.4) 0%, transparent 100%),
+    radial-gradient(ellipse 1px 1.5px at 30px 3px, rgba(122,98,72,0.45) 0%, transparent 100%),
+    radial-gradient(ellipse 2px 1px at 42px 17px, rgba(122,98,72,0.4) 0%, transparent 100%),
+    linear-gradient(180deg, #e8d5b7 0%, #d4b896 15%, #c9ad82 35%, #bfa070 55%, #b8956a 75%, #a68358 100%);
+  border-radius: 5px;
+  box-shadow:
+    0 3px 6px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.25),
+    inset 0 -1px 0 rgba(0,0,0,0.12);
+}
+.naoh-cork-lab::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    repeating-linear-gradient(90deg, transparent 0px, transparent 3px, rgba(139,115,85,0.07) 3px, rgba(139,115,85,0.07) 4px),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(139,115,85,0.04) 2px, rgba(139,115,85,0.04) 3px);
+  border-radius: inherit; pointer-events: none;
 }
 .naoh-cork-split {
-  position: absolute; top: 0; left: 50%; width: 2px; height: 100%;
-  background: rgba(0,0,0,0.2); transform: translateX(-50%);
+  position: absolute; top: -1px; left: 50%; width: 3px; height: calc(100% + 2px);
+  background: linear-gradient(90deg, rgba(90,74,56,0.7), #4a3a28, rgba(90,74,56,0.7));
+  transform: translateX(-50%); border-radius: 1px;
+  box-shadow: inset 1px 0 0 rgba(0,0,0,0.2), inset -1px 0 0 rgba(0,0,0,0.2);
+}
+.naoh-cork-passage {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 10px; height: 4px;
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  border: 1px solid #16a34a; border-radius: 1px 3px 3px 1px; z-index: 1;
+}
+.naoh-vaseline {
+  position: absolute; bottom: -3px; left: -3px; right: -3px; height: 5px;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.4), rgba(255,255,255,0.15) 60%, rgba(255,255,255,0.05));
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  pointer-events: none;
+}
+.naoh-vaseline-top {
+  position: absolute; top: -3px; left: -3px; right: -3px; height: 4px;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.1), rgba(255,255,255,0.35) 50%, rgba(255,255,255,0.1));
+  border-radius: 5px 5px 0 0;
+  pointer-events: none;
+}
+.naoh-vaseline-side-l {
+  position: absolute; top: -2px; left: -3px; width: 4px; bottom: -2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.2), rgba(255,255,255,0.08));
+  border-radius: 3px 0 0 3px; pointer-events: none;
+}
+.naoh-vaseline-side-r {
+  position: absolute; top: -2px; right: -3px; width: 4px; bottom: -2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.2), rgba(255,255,255,0.08));
+  border-radius: 0 3px 3px 0; pointer-events: none;
 }
 .naoh-label-stk {
   position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%);
@@ -2629,85 +2612,244 @@ footer {
   .cw-epidermis { width: 74px; height: 74px; }
 }
 
-/* Lime water 10.8 */
-.lime-scene { text-align: center; margin: 16px 0; }
-.lime-flask {
-  width: 80px;
-  height: 80px;
-  background: #fef3c7;
-  border: 3px solid #92400e;
-  border-radius: 0 0 40px 40px;
-  margin: 0 auto;
-  position: relative;
+/* ===== Lime water 10.8 — Realistic Lab Setup ===== */
+.lime-lab {
+  position: relative; min-height: 400px;
+  background: linear-gradient(180deg, #faf5ff 0%, #f3e8ff 70%, #ede9fe 100%);
+  border-radius: 16px; overflow: hidden; padding: 16px 16px 56px;
+}
+.lime-bench {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 44px;
+  background: linear-gradient(180deg, #e8c89e 0%, #d4a574 4px, #c49a6c 6px, #b8854a 100%);
+  border-top: 2px solid #c49a6c;
+}
+.lime-bench::before {
+  content: ''; position: absolute; top: 3px; left: 0; right: 0; height: 1px;
+  background: rgba(255,255,255,0.25);
+}
+/* Conical flask (Erlenmeyer) */
+.lime-flask-lab {
+  position: absolute; bottom: 44px; left: 28px;
+  width: 120px; height: 130px; z-index: 3;
+}
+.lime-flask-body {
+  position: absolute; bottom: 0; left: 0;
+  width: 120px; height: 100px;
+  background: linear-gradient(135deg,
+    rgba(254,249,195,0.15), rgba(254,243,199,0.08) 40%,
+    rgba(255,255,255,0.1) 55%, rgba(254,243,199,0.06));
+  border: 2.5px solid rgba(148,163,184,0.5);
+  border-radius: 0 0 20px 20px;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
   overflow: hidden;
 }
-.lime-flask-neck {
-  width: 20px;
-  height: 20px;
-  background: #fef3c7;
-  border: 3px solid #92400e;
-  border-bottom: none;
-  margin: 0 auto;
+.lime-flask-hl {
+  position: absolute; top: 8px; left: 10px;
+  width: 12px; height: 65%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.3), transparent);
+  border-radius: 6px; pointer-events: none;
 }
-.lime-seeds {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 20px;
-  opacity: 0;
-  transition: opacity 0.5s;
+/* Moist cotton at bottom */
+.lime-cotton {
+  position: absolute; bottom: 0; left: 15%; right: 15%; height: 14px;
+  background: linear-gradient(180deg, #e5e7eb, #d1d5db);
+  border-radius: 0 0 14px 14px;
 }
-.lime-tube-int {
-  width: 80px;
-  height: 4px;
-  background: #94a3b8;
-  margin: 20px auto;
-  position: relative;
+/* Seeds */
+.lime-seeds-lab {
+  position: absolute; bottom: 14px; left: 20%; right: 20%;
+  font-size: 16px; text-align: center;
+  opacity: 0; transition: opacity 0.5s;
 }
-.lime-test-tube {
-  width: 30px;
-  height: 60px;
-  border: 3px solid #94a3b8;
+/* Flask neck */
+.lime-flask-neck-lab {
+  position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%);
+  width: 30px; height: 18px;
+  border: 2.5px solid rgba(148,163,184,0.5);
+  border-bottom: none; border-radius: 3px 3px 0 0;
+  background: rgba(254,249,195,0.06);
+}
+/* Cork on flask */
+.lime-cork {
+  position: absolute; bottom: 116px; left: 50%; transform: translateX(-50%);
+  width: 36px; height: 14px; z-index: 5;
+  background:
+    radial-gradient(ellipse 2px 1px at 6px 4px, rgba(139,115,85,0.5) 0%, transparent 100%),
+    radial-gradient(ellipse 1.5px 1px at 18px 9px, rgba(139,115,85,0.4) 0%, transparent 100%),
+    radial-gradient(ellipse 1px 1px at 28px 5px, rgba(122,98,72,0.45) 0%, transparent 100%),
+    linear-gradient(180deg, #e8d5b7 0%, #d4b896 20%, #c9ad82 50%, #b8956a 80%, #a68358 100%);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.lime-cork::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(90deg, transparent 0px, transparent 3px, rgba(139,115,85,0.06) 3px, rgba(139,115,85,0.06) 4px);
+  border-radius: inherit;
+}
+/* Tube hole in cork */
+.lime-cork-hole {
+  position: absolute; top: 50%; right: 4px; transform: translateY(-50%);
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #475569; border: 1px solid #334155;
+}
+/* Delivery tube (bent glass) */
+.lime-delivery {
+  position: absolute; z-index: 4;
+}
+/* Horizontal section */
+.lime-tube-h {
+  position: absolute; bottom: 126px; left: 95px;
+  width: 100px; height: 6px;
+  background: linear-gradient(180deg,
+    rgba(186,230,253,0.2), rgba(255,255,255,0.1), rgba(186,230,253,0.2));
+  border: 1.5px solid rgba(148,163,184,0.45);
+  border-radius: 3px;
+}
+/* Bend */
+.lime-tube-bend {
+  position: absolute; bottom: 86px; left: 189px;
+  width: 12px; height: 46px;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  border: 1.5px solid rgba(148,163,184,0.45);
+  border-radius: 0 0 6px 6px;
   border-top: none;
-  border-radius: 0 0 15px 15px;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-}
-.lime-liquid-int {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background: transparent;
-  border-radius: 0 0 12px 12px;
-  transition: all 2s ease;
-}
-.lime-liquid-int.clear { background: transparent; border: 1px dashed #cbd5e1; }
-.lime-liquid-int.milky { background: #f1f5f9; border: 1px solid #94a3b8; }
-.lime-co2 {
+  background: linear-gradient(90deg,
+    rgba(186,230,253,0.15), rgba(255,255,255,0.1), rgba(186,230,253,0.15));
   width: 6px;
-  height: 6px;
-  background: #94a3b8;
-  border-radius: 50%;
-  position: absolute;
-  opacity: 0;
 }
-.lime-co2.travel {
-  animation: co2Travel 1.5s ease-out forwards;
+/* Vertical section going into test tube */
+.lime-tube-v {
+  position: absolute; bottom: 54px; left: 192px;
+  width: 6px; height: 78px;
+  background: linear-gradient(90deg,
+    rgba(186,230,253,0.2), rgba(255,255,255,0.1), rgba(186,230,253,0.2));
+  border: 1.5px solid rgba(148,163,184,0.45);
+  border-radius: 0 0 2px 2px;
 }
-@keyframes co2Travel {
-  0% { left: 10%; top: 50%; opacity: 1; }
-  100% { left: 90%; top: 50%; opacity: 0; }
+/* Test tube with lime water */
+.lime-tt-lab {
+  position: absolute; bottom: 44px; right: 40px;
+  width: 34px; height: 90px; z-index: 3;
 }
-.lime-status {
-  font-size: 14px;
-  font-weight: 700;
-  margin-top: 12px;
-  padding: 8px;
-  border-radius: 10px;
+.lime-tt-glass {
+  width: 30px; height: 80px;
+  border: 2.5px solid rgba(148,163,184,0.5);
+  border-top: none; border-radius: 0 0 15px 15px;
+  position: absolute; bottom: 0; left: 2px;
+  background: linear-gradient(135deg,
+    rgba(224,242,254,0.08), rgba(255,255,255,0.06) 50%, rgba(224,242,254,0.05));
+  overflow: hidden;
+  box-shadow: inset 0 0 8px rgba(186,230,253,0.04);
+}
+.lime-tt-hl {
+  position: absolute; top: 4px; left: 3px;
+  width: 6px; height: 60%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.25), transparent);
+  border-radius: 3px; pointer-events: none;
+}
+/* Lime water liquid */
+.lime-lw {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 50px; border-radius: 0 0 12px 12px;
+  transition: all 1.5s ease;
+}
+.lime-lw.clear {
+  background: rgba(255,255,255,0.15);
+  border: 1px dashed rgba(203,213,225,0.5);
+}
+.lime-lw.milky {
+  background: linear-gradient(180deg, rgba(241,245,249,0.7), rgba(226,232,240,0.9));
+  border: 1px solid #94a3b8;
+  box-shadow: inset 0 0 8px rgba(203,213,225,0.4);
+}
+/* Ring stand for test tube */
+.lime-stand {
+  position: absolute; bottom: 44px; right: 30px; z-index: 1;
+}
+.lime-stand-base {
+  width: 60px; height: 6px;
+  background: linear-gradient(180deg, #78716c, #57534e);
+  border-radius: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.lime-stand-rod {
+  position: absolute; bottom: 6px; left: 6px;
+  width: 5px; height: 150px;
+  background: linear-gradient(90deg, #a8a29e, #78716c, #a8a29e);
+  border-radius: 2px 2px 0 0;
+}
+.lime-stand-clamp {
+  position: absolute; bottom: 90px; left: 11px;
+  width: 40px; height: 4px;
+  background: linear-gradient(180deg, #78716c, #57534e);
+  border-radius: 2px;
+}
+.lime-clamp-ring {
+  position: absolute; right: -6px; top: -7px;
+  width: 14px; height: 14px;
+  border: 3px solid #57534e; border-radius: 50%;
+}
+/* CO2 bubbles in delivery tube */
+.lime-co2-bubble {
+  position: absolute; width: 5px; height: 5px;
+  background: radial-gradient(circle, rgba(203,213,225,0.8), rgba(148,163,184,0.4));
+  border: 1px solid rgba(148,163,184,0.4);
+  border-radius: 50%; opacity: 0;
+}
+.lime-co2-bubble.moving {
+  animation: co2Move108 2s ease-out forwards;
+}
+@keyframes co2Move108 {
+  0% { left: 10px; top: 50%; opacity: 1; transform: translateY(-50%); }
+  45% { left: 90px; top: 50%; opacity: 0.8; transform: translateY(-50%); }
+  100% { left: 90px; top: 200%; opacity: 0; transform: translateY(0); }
+}
+/* CO2 bubbles in lime water */
+.lime-bubble-lw {
+  position: absolute; width: 4px; height: 4px;
+  background: rgba(255,255,255,0.6); border: 1px solid rgba(148,163,184,0.3);
+  border-radius: 50%; opacity: 0;
+}
+.lime-bubble-lw.rise {
+  animation: lwBubble108 1s ease-out forwards;
+}
+@keyframes lwBubble108 {
+  0% { bottom: 50px; opacity: 0.8; }
+  100% { bottom: 80px; opacity: 0; }
+}
+/* Annotations */
+.lime-annot {
+  position: absolute; font-size: 9px; font-weight: 700; color: #334155;
+  background: rgba(255,255,255,0.92); padding: 2px 6px; border-radius: 4px;
+  border: 1px solid #cbd5e1; white-space: nowrap; z-index: 10;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06); opacity: 0; transition: opacity 0.5s;
+}
+.lime-annot.visible { opacity: 1; }
+/* Dark overlay for respiration */
+.lime-dark {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 44px;
+  background: rgba(15,23,42,0.3);
+  opacity: 0; transition: opacity 1s; pointer-events: none; z-index: 6;
+  border-radius: 16px 16px 0 0;
+}
+.lime-dark.visible { opacity: 1; }
+.lime-dark-label {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  font-size: 11px; font-weight: 800; color: #e2e8f0;
+  background: rgba(15,23,42,0.6); padding: 4px 10px; border-radius: 6px;
+}
+/* Step info */
+.lime-info-lab {
+  font-size: 13px; font-weight: 700; padding: 10px 14px; border-radius: 10px;
+  margin-top: 10px; transition: all 0.3s; line-height: 1.5; position: relative; z-index: 20;
+}
+@media (max-width: 400px) {
+  .lime-lab { min-height: 360px; padding: 10px 6px 50px; }
+  .lime-flask-lab { left: 14px; transform: scale(0.85); transform-origin: bottom left; }
+  .lime-tube-h { left: 78px; width: 80px; }
+  .lime-tube-v { left: 155px; }
+  .lime-tt-lab { right: 20px; }
+  .lime-stand { right: 12px; }
 }
 </style>
 </head>
@@ -3827,7 +3969,14 @@ footer {
               <div class="naoh-label-stk">NaOH<br><span style="font-size:7px;font-weight:600;color:#64748b;">Caustic Soda</span></div>
             </div>
             <div class="naoh-neck-lab"></div>
-            <div class="naoh-cork-lab"><div class="naoh-cork-split"></div></div>
+            <div class="naoh-cork-lab">
+              <div class="naoh-cork-split"></div>
+              <div class="naoh-cork-passage"></div>
+              <div class="naoh-vaseline-top"></div>
+              <div class="naoh-vaseline"></div>
+              <div class="naoh-vaseline-side-l"></div>
+              <div class="naoh-vaseline-side-r"></div>
+            </div>
           </div>
           <!-- Plant pot -->
           <div class="naoh-pot-g">
@@ -4080,16 +4229,53 @@ footer {
       <div class="ncert-tag">Activity 10.8</div>
       <div class="subtitle">Plant Respiration -- Lime Water Test</div>
       <div class="activity-visual interactive" id="act108">
-        <p class="interact-hint">&#128070; Follow the steps to test for CO&#8322; from respiration!</p>
-        <div class="lime-scene">
-          <div class="lime-flask-neck"></div>
-          <div class="lime-flask">
-            <div class="lime-seeds" id="limeSeeds">&#127793;&#127793;&#127793;</div>
+        <p class="interact-hint">&#128070; Follow the lab steps to test for CO&#8322; from plant respiration!</p>
+        <div class="lime-lab" id="limeScene">
+          <!-- Lab bench -->
+          <div class="lime-bench"></div>
+          <!-- Conical flask -->
+          <div class="lime-flask-lab">
+            <div class="lime-flask-body">
+              <div class="lime-flask-hl"></div>
+              <div class="lime-cotton"></div>
+              <div class="lime-seeds-lab" id="limeSeeds">&#127793;&#127793;&#127793;&#127793;</div>
+            </div>
+            <div class="lime-flask-neck-lab"></div>
+            <div class="lime-cork">
+              <div class="lime-cork-hole"></div>
+            </div>
           </div>
-          <div class="lime-tube-int" id="limeTube"></div>
-          <div class="lime-test-tube">
-            <div class="lime-liquid-int clear" id="limeLiquid"></div>
+          <!-- Delivery tube -->
+          <div class="lime-delivery">
+            <div class="lime-tube-h" id="limeTubeH"></div>
+            <div class="lime-tube-v" id="limeTubeV"></div>
           </div>
+          <!-- Test tube with lime water -->
+          <div class="lime-tt-lab">
+            <div class="lime-tt-glass">
+              <div class="lime-tt-hl"></div>
+              <div class="lime-lw clear" id="limeLiquid">
+                <div id="limeBubbles" style="position:absolute;left:0;right:0;top:0;bottom:0;"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Ring stand -->
+          <div class="lime-stand">
+            <div class="lime-stand-base"></div>
+            <div class="lime-stand-rod"></div>
+            <div class="lime-stand-clamp"><div class="lime-clamp-ring"></div></div>
+          </div>
+          <!-- Dark overlay for respiration effect -->
+          <div class="lime-dark" id="limeDark">
+            <div class="lime-dark-label">&#127769; Dark (no photosynthesis)</div>
+          </div>
+          <!-- Annotations -->
+          <div class="lime-annot" id="lmAnFlask" style="bottom:155px;left:5px;">Germinating seeds<br>on moist cotton</div>
+          <div class="lime-annot" id="lmAnCork" style="bottom:170px;left:95px;">Cork + tube</div>
+          <div class="lime-annot" id="lmAnTube" style="bottom:140px;left:140px;">Delivery tube</div>
+          <div class="lime-annot" id="lmAnLW" style="bottom:145px;right:8px;">Lime water<br>Ca(OH)&#8322;</div>
+          <!-- Step info -->
+          <div class="lime-info-lab" id="limeStatus">Click Step 1 to begin the experiment</div>
         </div>
         <div class="act-controls">
           <button class="act-btn step-btn" id="l108_1" onclick="limeNextStep()">1. Add Seeds &#127793;</button>
@@ -4097,7 +4283,6 @@ footer {
           <button class="act-btn step-btn" id="l108_3" onclick="limeNextStep()" disabled>3. Observe Lime Water &#128065;</button>
           <button class="act-btn reset" onclick="resetLime()">&#128260; Reset</button>
         </div>
-        <div class="lime-status" id="limeStatus">Click Step 1 to begin</div>
       </div>
       <div class="activity-details">
         <p><strong>Aim:</strong> To show that germinating seeds (plants) release CO<sub>2</sub> during respiration.</p>
@@ -5220,9 +5405,27 @@ function resetCW() {
   cwDone = false;
 }
 
-// ===== Activity 10.8: Lime Water =====
+// ===== Activity 10.8: Lime Water (realistic lab) =====
 var limeStep = 0;
-var limeInterval = null;
+var limeCO2Int = null;
+var limeBubbleInt = null;
+function addCO2Bubble108() {
+  var tube = document.getElementById('limeTubeH');
+  if (!tube) return;
+  var b = document.createElement('div');
+  b.className = 'lime-co2-bubble moving';
+  tube.appendChild(b);
+  setTimeout(function() { if (b.parentNode) b.parentNode.removeChild(b); }, 2100);
+}
+function addLWBubble() {
+  var cont = document.getElementById('limeBubbles');
+  if (!cont) return;
+  var b = document.createElement('div');
+  b.className = 'lime-bubble-lw rise';
+  b.style.left = (4 + Math.random() * 16) + 'px';
+  cont.appendChild(b);
+  setTimeout(function() { if (b.parentNode) b.parentNode.removeChild(b); }, 1100);
+}
 function limeNextStep() {
   limeStep++;
   var btn = document.getElementById('l108_' + limeStep);
@@ -5230,47 +5433,53 @@ function limeNextStep() {
   var next = document.getElementById('l108_' + (limeStep + 1));
   if (next) next.disabled = false;
   var status = document.getElementById('limeStatus');
-
   switch(limeStep) {
     case 1:
       document.getElementById('limeSeeds').style.opacity = '1';
-      status.textContent = '🌱 Germinating moong seeds added to flask';
+      ['lmAnFlask','lmAnCork','lmAnTube','lmAnLW'].forEach(function(id) {
+        document.getElementById(id).classList.add('visible');
+      });
+      status.innerHTML = '🌱 <strong>Setup:</strong> Germinating moong seeds placed on moist cotton inside a conical flask. Cork inserted with delivery tube leading to a test tube of <strong>lime water</strong>.';
       status.style.background = '#dcfce7';
       break;
     case 2:
-      limeInterval = setInterval(function() {
-        var tube = document.getElementById('limeTube');
-        var bbl = document.createElement('div');
-        bbl.className = 'lime-co2 travel';
-        tube.appendChild(bbl);
-        setTimeout(function() { bbl.remove(); }, 1500);
-      }, 800);
-      status.textContent = '💨 Seeds are respiring... CO₂ bubbles travelling through tube...';
+      document.getElementById('limeDark').classList.add('visible');
+      limeCO2Int = setInterval(addCO2Bubble108, 700);
+      limeBubbleInt = setInterval(addLWBubble, 900);
+      status.innerHTML = '💨 <strong>Seeds are respiring</strong> in the dark (no photosynthesis possible). CO₂ gas travels through the delivery tube into the lime water...';
       status.style.background = '#fef3c7';
       break;
     case 3:
+      if (limeCO2Int) { clearInterval(limeCO2Int); limeCO2Int = null; }
+      if (limeBubbleInt) { clearInterval(limeBubbleInt); limeBubbleInt = null; }
       document.getElementById('limeLiquid').classList.remove('clear');
       document.getElementById('limeLiquid').classList.add('milky');
-      status.textContent = '✅ Lime water turned MILKY! CO₂ + Ca(OH)₂ → CaCO₃ (milky). Seeds produce CO₂!';
+      status.innerHTML = '✅ <strong>Lime water turned MILKY!</strong> CO₂ + Ca(OH)₂ → CaCO₃ (white precipitate). This proves germinating seeds release <strong>CO₂ during respiration</strong>.';
       status.style.background = '#dcfce7';
-      clearInterval(limeInterval);
       break;
   }
 }
 function resetLime() {
-  clearInterval(limeInterval);
+  if (limeCO2Int) { clearInterval(limeCO2Int); limeCO2Int = null; }
+  if (limeBubbleInt) { clearInterval(limeBubbleInt); limeBubbleInt = null; }
   limeStep = 0;
   document.getElementById('limeSeeds').style.opacity = '0';
   document.getElementById('limeLiquid').classList.add('clear');
   document.getElementById('limeLiquid').classList.remove('milky');
-  document.getElementById('limeStatus').textContent = 'Click Step 1 to begin';
+  document.getElementById('limeDark').classList.remove('visible');
+  ['lmAnFlask','lmAnCork','lmAnTube','lmAnLW'].forEach(function(id) {
+    document.getElementById(id).classList.remove('visible');
+  });
+  document.getElementById('limeStatus').textContent = 'Click Step 1 to begin the experiment';
   document.getElementById('limeStatus').style.background = 'transparent';
+  var tube = document.getElementById('limeTubeH');
+  if (tube) { var co2s = tube.querySelectorAll('.lime-co2-bubble'); co2s.forEach(function(b) { b.remove(); }); }
+  var cont = document.getElementById('limeBubbles');
+  if (cont) cont.innerHTML = '';
   for (var i = 1; i <= 3; i++) {
     var b = document.getElementById('l108_' + i);
     if (b) { b.classList.remove('done'); b.disabled = i !== 1; }
   }
-  var tube = document.getElementById('limeTube');
-  if (tube) tube.innerHTML = '';
 }
 
 // Share functions
