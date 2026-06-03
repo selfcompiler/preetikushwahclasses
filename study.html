@@ -296,8 +296,17 @@ document.addEventListener('touchend', endGutter);
 var swapped = false;
 function toggleLayout() {
   swapped = !swapped;
-  if (swapped) { splitEl.insertBefore(drawPanel, pdfPanel); splitEl.insertBefore(gutter, pdfPanel); }
-  else { splitEl.insertBefore(pdfPanel, gutter); }
+  // Reset flex/width so both panels share equally
+  pdfPanel.style.flex = '1'; pdfPanel.style.width = ''; pdfPanel.style.height = '';
+  drawPanel.style.flex = '1'; drawPanel.style.width = ''; drawPanel.style.height = '';
+  if (swapped) {
+    splitEl.insertBefore(drawPanel, splitEl.firstChild);
+    splitEl.insertBefore(gutter, pdfPanel);
+  } else {
+    splitEl.insertBefore(pdfPanel, splitEl.firstChild);
+    splitEl.insertBefore(gutter, drawPanel);
+  }
+  setTimeout(function() { resizeCanvas(); resizePdfCanvas(); }, 50);
 }
 
 // ===== RULED LINES =====
@@ -491,10 +500,21 @@ var pdfTool = 'pen', pdfColor = '#dc2626', pdfSize = 4;
 var pdfDrawing = false, pdfCurPath = [];
 var PKEY = 'study_pdf_' + encodeURIComponent(chapterName);
 var pdfStrokes = [];
-try { var ps = localStorage.getItem(PKEY); if (ps) pdfStrokes = JSON.parse(ps); } catch(e) {}
+var PDF_FADE_MS = 15000; // 15 seconds
+var pdfFadeTimer = null;
 
 function savePdfStrokes() {
-  try { localStorage.setItem(PKEY, JSON.stringify(pdfStrokes)); } catch(e) {}
+  // Don't persist — annotations are temporary (auto-fade)
+}
+function startPdfFadeLoop() {
+  if (pdfFadeTimer) return;
+  pdfFadeTimer = setInterval(function() {
+    var now = Date.now();
+    var before = pdfStrokes.length;
+    pdfStrokes = pdfStrokes.filter(function(s) { return (now - s.ts) < PDF_FADE_MS; });
+    if (pdfStrokes.length !== before) renderPdfAnnot();
+    if (pdfStrokes.length === 0) { clearInterval(pdfFadeTimer); pdfFadeTimer = null; }
+  }, 500);
 }
 
 function resizePdfCanvas() {
@@ -509,20 +529,31 @@ function resizePdfCanvas() {
 function renderPdfAnnot() {
   var w = pdfCanvas.width / 2, h = pdfCanvas.height / 2;
   pdfCtx.clearRect(0, 0, w, h);
-  pdfStrokes.forEach(function(s) { drawPdfStroke(s); });
+  var now = Date.now();
+  pdfStrokes.forEach(function(s) { drawPdfStroke(s, now); });
 }
 
-function drawPdfStroke(s) {
+function drawPdfStroke(s, now) {
   if (!s.points || s.points.length < 2) return;
+  // Calculate fade: full opacity for first 10s, then fade over last 5s
+  var age = now ? (now - (s.ts || now)) : 0;
+  var fadeStart = PDF_FADE_MS * 0.67; // start fading at 67% of lifetime
+  var fadeAlpha = 1;
+  if (age > fadeStart) {
+    fadeAlpha = Math.max(0, 1 - (age - fadeStart) / (PDF_FADE_MS - fadeStart));
+  }
+  if (fadeAlpha <= 0) return;
+
   pdfCtx.save();
   pdfCtx.lineCap = 'round'; pdfCtx.lineJoin = 'round';
   if (s.tool === 'highlighter') {
-    pdfCtx.globalAlpha = 0.35; pdfCtx.strokeStyle = s.color; pdfCtx.lineWidth = s.size * 5;
+    pdfCtx.globalAlpha = 0.35 * fadeAlpha; pdfCtx.strokeStyle = s.color; pdfCtx.lineWidth = s.size * 5;
   } else if (s.tool === 'eraser') {
     pdfCtx.globalCompositeOperation = 'destination-out';
     pdfCtx.strokeStyle = 'rgba(0,0,0,1)'; pdfCtx.lineWidth = s.size * 6;
+    pdfCtx.globalAlpha = fadeAlpha;
   } else {
-    pdfCtx.globalAlpha = 1; pdfCtx.strokeStyle = s.color; pdfCtx.lineWidth = s.size;
+    pdfCtx.globalAlpha = fadeAlpha; pdfCtx.strokeStyle = s.color; pdfCtx.lineWidth = s.size;
   }
   pdfCtx.beginPath();
   pdfCtx.moveTo(s.points[0].x, s.points[0].y);
@@ -551,8 +582,8 @@ function onPdfDrawMove(e) {
 function onPdfDrawEnd() {
   if (!pdfDrawing) return; pdfDrawing = false;
   if (pdfCurPath.length > 1) {
-    pdfStrokes.push({ tool: pdfTool, color: pdfColor, size: pdfSize, points: pdfCurPath.slice() });
-    savePdfStrokes();
+    pdfStrokes.push({ tool: pdfTool, color: pdfColor, size: pdfSize, points: pdfCurPath.slice(), ts: Date.now() });
+    startPdfFadeLoop();
   }
   pdfCurPath = [];
 }
