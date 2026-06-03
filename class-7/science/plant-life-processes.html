@@ -749,67 +749,7 @@ tr:nth-child(even) td { background: #f0fdf4; }
 .v-arrow { font-size: 36px; color: #f59e0b; animation: arrowPulse 1.5s ease-in-out infinite; }
 @keyframes arrowPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.2); } }
 
-/* Activity 10.4: NaOH Test */
-.naoh-demo {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.naoh-leaf {
-  width: 120px;
-  height: 80px;
-  border-radius: 50%;
-  position: relative;
-  overflow: hidden;
-  border: 2px solid #16a34a;
-}
-.naoh-half {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-}
-.naoh-half.enclosed {
-  left: 0;
-  background: #92400e;
-  border-right: 2px dashed #374151;
-}
-.naoh-half.exposed {
-  right: 0;
-  animation: naohTest 5s ease-in-out infinite;
-}
-@keyframes naohTest {
-  0%, 30% { background: #4ade80; }
-  50%, 80% { background: #1e1b4b; }
-  100% { background: #4ade80; }
-}
-.naoh-bottle {
-  width: 40px;
-  height: 60px;
-  background: linear-gradient(to bottom, #e2e8f0, #94a3b8);
-  border-radius: 6px;
-  position: relative;
-  margin: 0 auto;
-}
-.naoh-bottle::before {
-  content: 'NaOH';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 8px;
-  font-weight: 800;
-  color: #1e293b;
-}
-.naoh-bottle-neck {
-  width: 16px;
-  height: 14px;
-  background: #94a3b8;
-  margin: 0 auto;
-  border-radius: 2px 2px 0 0;
-}
+/* (Activity 10.4 old static styles removed — replaced by lab setup below) */
 
 /* Activity 10.5: Oxygen Release */
 .oxygen-demo {
@@ -895,79 +835,7 @@ tr:nth-child(even) td { background: #f0fdf4; }
 
 /* Activity 10.6: Stomata - uses existing stomata styles */
 
-/* Activity 10.7: Colored Water */
-.colored-water-demo {
-  position: relative;
-  display: inline-block;
-}
-.cw-beaker {
-  width: 80px;
-  height: 70px;
-  border: 3px solid #94a3b8;
-  border-top: none;
-  border-radius: 0 0 8px 8px;
-  position: relative;
-  overflow: hidden;
-}
-.cw-liquid {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background: linear-gradient(to bottom, rgba(239,68,68,0.4), rgba(239,68,68,0.7));
-}
-.cw-stem {
-  width: 10px;
-  height: 100px;
-  background: linear-gradient(to top, #a0602a, #d4a96a);
-  margin: 0 auto;
-  position: relative;
-  border-radius: 4px;
-}
-.cw-color-rise {
-  position: absolute;
-  bottom: 0;
-  left: 2px;
-  right: 2px;
-  height: 0;
-  background: linear-gradient(to top, rgba(239,68,68,0.8), rgba(239,68,68,0.3));
-  border-radius: 2px;
-  animation: colorRise 4s ease-in-out infinite;
-}
-@keyframes colorRise {
-  0% { height: 0; }
-  50% { height: 80px; }
-  100% { height: 0; }
-}
-.cw-leaf-top {
-  width: 30px;
-  height: 20px;
-  background: radial-gradient(ellipse, #4ade80, #16a34a);
-  border-radius: 50%;
-  margin: -4px auto 0;
-}
-.cw-cross {
-  width: 50px;
-  height: 50px;
-  background: #fef3c7;
-  border-radius: 50%;
-  border: 2px solid #d97706;
-  margin: 10px auto;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.cw-dot {
-  width: 6px;
-  height: 6px;
-  background: #ef4444;
-  border-radius: 50%;
-  position: absolute;
-  animation: xylemDotPulse 2s ease-in-out infinite;
-}
-@keyframes xylemDotPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.4); } }
+/* (Activity 10.7 old static styles removed — replaced by lab setup below) */
 
 /* Activity 10.8: Lime Water */
 .limewater-demo {
@@ -2143,88 +2011,280 @@ footer {
 }
 .dark-toggle input { margin-right: 6px; transform: scale(1.2); }
 
-/* ===== Activity 10.4: NaOH / CO2 Flask Setup ===== */
-.naoh-scene {
-  position: relative; min-height: 280px;
-  text-align: center; padding: 20px;
+/* ===== Activity 10.4: CO₂ / NaOH — Realistic Lab Setup ===== */
+.naoh-lab {
+  position: relative; min-height: 400px;
+  background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 70%, #dbeafe 100%);
+  border-radius: 16px; overflow: hidden; padding: 16px 16px 56px;
 }
-.naoh-plant { position: relative; width: 260px; margin: 0 auto; }
-.naoh-plant-stem {
-  width: 6px; height: 80px;
-  background: linear-gradient(to top, #65a30d, #a3e635);
-  margin: 0 auto; border-radius: 3px;
+.naoh-bench {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 44px;
+  background: linear-gradient(180deg, #e8c89e 0%, #d4a574 4px, #c49a6c 6px, #b8854a 100%);
+  border-top: 2px solid #c49a6c;
 }
-.naoh-leaf-assembly {
-  position: relative; width: 260px; height: 100px;
-  margin: -10px auto 0;
+.naoh-bench::before {
+  content: ''; position: absolute; top: 3px; left: 0; right: 0; height: 1px;
+  background: rgba(255,255,255,0.25);
 }
-.naoh-leaf-full {
-  width: 180px; height: 80px;
-  border-radius: 8px 60% 50% 8px;
-  display: flex; overflow: hidden;
-  border: 2px solid #16a34a;
-  margin: 0 auto; position: relative; z-index: 3;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+/* Retort stand */
+.naoh-retort { position: absolute; bottom: 44px; left: 20px; z-index: 1; }
+.naoh-retort-base {
+  width: 80px; height: 6px;
+  background: linear-gradient(180deg, #78716c, #57534e);
+  border-radius: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
-.naoh-lh {
-  flex: 1; display: flex; align-items: center; justify-content: center;
-  font-size: 11px; font-weight: 700; text-align: center; padding: 6px;
-  transition: all 0.8s;
+.naoh-retort-rod {
+  position: absolute; bottom: 6px; left: 8px;
+  width: 6px; height: 280px;
+  background: linear-gradient(90deg, #a8a29e, #78716c, #a8a29e);
+  border-radius: 3px 3px 0 0;
 }
-.naoh-lh.enclosed { background: linear-gradient(135deg, #22c55e, #4ade80); color: white; }
-.naoh-lh.exposed { background: linear-gradient(135deg, #16a34a, #22c55e); color: white; }
-.naoh-lh.enclosed.no-starch { background: linear-gradient(135deg, #92400e, #b45309); color: #fde68a; }
-.naoh-lh.exposed.has-starch { background: linear-gradient(135deg, #1e1b4b, #312e81); color: #c7d2fe; }
-.naoh-leaf-vein-m {
+.naoh-retort-clamp {
+  position: absolute; bottom: 195px; left: 14px;
+  width: 70px; height: 4px;
+  background: linear-gradient(180deg, #78716c, #57534e);
+  border-radius: 2px; z-index: 2;
+}
+.naoh-retort-ring {
+  position: absolute; right: -7px; top: -8px;
+  width: 16px; height: 16px;
+  border: 3px solid #57534e; border-radius: 50%;
+}
+/* Wide-mouth glass bottle */
+.naoh-bottle-lab {
+  position: absolute; bottom: 44px; left: 50%; transform: translateX(-62%);
+  width: 130px; height: 185px; opacity: 0; transition: opacity 0.6s; z-index: 3;
+}
+.naoh-bottle-lab.visible { opacity: 1; }
+.naoh-glass-body {
+  position: absolute; bottom: 0; left: 10px;
+  width: 110px; height: 140px;
+  border: 2.5px solid rgba(148,163,184,0.5);
+  border-radius: 0 0 22px 22px;
+  background: linear-gradient(135deg,
+    rgba(224,242,254,0.12), rgba(186,230,253,0.05) 40%,
+    rgba(255,255,255,0.09) 55%, rgba(186,230,253,0.05));
+  overflow: hidden;
+  box-shadow: inset 0 0 16px rgba(186,230,253,0.06), 0 4px 12px rgba(0,0,0,0.05);
+}
+.naoh-glass-hl {
+  position: absolute; top: 6px; left: 6px;
+  width: 14px; height: 70%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0));
+  border-radius: 7px; pointer-events: none;
+}
+.naoh-glass-hl2 {
+  position: absolute; top: 10px; right: 10px;
+  width: 6px; height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0));
+  border-radius: 3px; pointer-events: none;
+}
+.naoh-solution {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 40px;
+  background: linear-gradient(180deg,
+    rgba(186,230,253,0.2), rgba(147,197,253,0.35) 50%, rgba(125,185,250,0.45));
+  border-radius: 0 0 19px 19px;
+}
+.naoh-pellet {
+  position: absolute; bottom: 4px; width: 5px; height: 3px;
+  background: radial-gradient(#f8fafc, #e2e8f0); border-radius: 50%; border: 0.5px solid #cbd5e1;
+}
+.naoh-pellet.p1 { left: 22px; }
+.naoh-pellet.p2 { left: 42px; bottom: 3px; width: 6px; }
+.naoh-pellet.p3 { left: 60px; bottom: 6px; }
+.naoh-pellet.p4 { left: 35px; bottom: 8px; width: 4px; }
+.naoh-neck-lab {
+  position: absolute; bottom: 140px; left: 50%; transform: translateX(-50%);
+  width: 44px; height: 18px;
+  border: 2.5px solid rgba(148,163,184,0.5); border-bottom: none;
+  border-radius: 3px 3px 0 0; background: rgba(224,242,254,0.06);
+}
+.naoh-cork-lab {
+  position: absolute; bottom: 156px; left: 50%; transform: translateX(-50%);
+  width: 50px; height: 14px;
+  background: linear-gradient(180deg, #d2b48c, #c19a6b, #a0845e);
+  border-radius: 3px; z-index: 5; box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+.naoh-cork-split {
+  position: absolute; top: 0; left: 50%; width: 2px; height: 100%;
+  background: rgba(0,0,0,0.2); transform: translateX(-50%);
+}
+.naoh-label-stk {
+  position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%);
+  background: white; border: 1.5px solid #94a3b8; border-radius: 3px;
+  padding: 2px 6px; font-size: 9px; font-weight: 800;
+  color: #1e293b; text-align: center; line-height: 1.3; z-index: 2;
+}
+/* Plant pot */
+.naoh-pot-g { position: absolute; bottom: 44px; right: 24px; z-index: 2; }
+.naoh-pot-rim-l {
+  width: 60px; height: 8px;
+  background: linear-gradient(180deg, #d97706, #b45309);
+  border-radius: 3px; position: relative; left: -3px;
+}
+.naoh-pot-body-l {
+  width: 54px; height: 44px;
+  background: linear-gradient(135deg, #c2410c, #9a3412, #7c2d12);
+  border-radius: 2px 2px 8px 8px; position: relative; overflow: hidden;
+}
+.naoh-pot-soil {
+  position: absolute; top: 0; left: 3px; right: 3px; height: 10px;
+  background: linear-gradient(180deg, #44403c, #292524); border-radius: 0 0 2px 2px;
+}
+.naoh-pot-hl {
+  position: absolute; top: 12px; left: 4px; width: 6px; height: 55%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.12), transparent); border-radius: 3px;
+}
+/* Stem and mini leaves */
+.naoh-stem-lab {
+  position: absolute; bottom: 97px; right: 47px;
+  width: 5px; height: 140px;
+  background: linear-gradient(90deg, #4d7c0f, #65a30d, #4d7c0f);
+  border-radius: 3px; z-index: 2;
+}
+.naoh-ml {
+  position: absolute; width: 18px; height: 11px;
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  border: 1.5px solid #16a34a; z-index: 3;
+}
+.naoh-ml.m1 { bottom: 190px; right: 34px; border-radius: 2px 50% 50% 2px; transform: rotate(-15deg); }
+.naoh-ml.m2 { bottom: 210px; right: 54px; border-radius: 50% 2px 2px 50%; transform: rotate(10deg); }
+.naoh-ml.m3 { bottom: 225px; right: 38px; border-radius: 2px 50% 50% 2px; transform: rotate(-8deg); }
+/* Main leaf */
+.naoh-leaf-lab {
+  position: absolute; bottom: 180px; left: 50%; transform: translateX(-40%);
+  display: flex; z-index: 6;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+.naoh-lh-lab {
+  width: 82px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; text-align: center; padding: 4px;
+  transition: all 0.8s; position: relative; color: white;
+}
+.naoh-lh-lab.inside {
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  border-radius: 6px 0 0 50%; border: 2px solid #16a34a; border-right: none;
+}
+.naoh-lh-lab.outside {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  border-radius: 0 50% 6px 0; border: 2px solid #16a34a; border-left: none;
+}
+.naoh-leaf-mid {
   position: absolute; top: 0; bottom: 0; left: 50%;
-  width: 2px; background: rgba(255,255,255,0.3); z-index: 4;
+  width: 2px; background: rgba(255,255,255,0.35); z-index: 7; pointer-events: none;
 }
-.naoh-flask {
-  position: absolute; left: 10px; top: -20px;
-  width: 110px; height: 120px; z-index: 2;
-  opacity: 0; transition: all 0.5s;
+.naoh-lh-lab::before, .naoh-lh-lab::after {
+  content: ''; position: absolute; height: 1px; background: rgba(255,255,255,0.2);
 }
-.naoh-flask.visible { opacity: 1; }
-.naoh-flask-body {
-  width: 100px; height: 90px;
-  border: 3px solid #94a3b8;
-  border-radius: 0 0 20px 20px;
-  position: absolute; bottom: 0; left: 5px;
-  overflow: hidden; background: rgba(255,255,255,0.2);
+.naoh-lh-lab::before { top: 35%; width: 45%; }
+.naoh-lh-lab::after { top: 65%; width: 35%; }
+.naoh-lh-lab.inside::before { right: 8px; }
+.naoh-lh-lab.inside::after { right: 12px; }
+.naoh-lh-lab.outside::before { left: 8px; }
+.naoh-lh-lab.outside::after { left: 12px; }
+.naoh-lh-lab.inside.no-starch { background: linear-gradient(135deg, #92400e, #b45309) !important; color: #fde68a; }
+.naoh-lh-lab.outside.has-starch { background: linear-gradient(135deg, #1e1b4b, #312e81) !important; color: #c7d2fe; }
+/* Annotations with leader lines */
+.naoh-annot {
+  position: absolute; font-size: 9px; font-weight: 700; color: #334155;
+  background: rgba(255,255,255,0.92); padding: 2px 6px; border-radius: 4px;
+  border: 1px solid #cbd5e1; white-space: nowrap; z-index: 10;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06); opacity: 0; transition: opacity 0.5s;
 }
-.naoh-flask-liquid {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 30px; background: linear-gradient(to top, rgba(147,197,253,0.5), rgba(191,219,254,0.3));
-  border-radius: 0 0 17px 17px;
+.naoh-annot.visible { opacity: 1; }
+/* Sun */
+.naoh-sun-lab {
+  position: absolute; top: 8px; right: 14px;
+  font-size: 40px; opacity: 0; transition: all 0.5s; z-index: 8;
 }
-.naoh-flask-label-t {
-  position: absolute; bottom: 6px; left: 0; right: 0;
-  font-size: 10px; font-weight: 800; color: #475569;
-  text-align: center;
+.naoh-sun-lab.visible { opacity: 1; animation: naohSunP 2s ease-in-out infinite; }
+@keyframes naohSunP {
+  0%,100% { filter: drop-shadow(0 0 10px rgba(251,191,36,0.5)); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 20px rgba(251,191,36,0.8)); transform: scale(1.06); }
 }
-.naoh-cork {
-  width: 60px; height: 12px;
-  background: linear-gradient(to bottom, #d2b48c, #a0522d);
-  border-radius: 4px; position: absolute;
-  top: 18px; left: 25px; z-index: 5;
+.naoh-ray {
+  position: absolute; width: 2px;
+  background: linear-gradient(180deg, rgba(251,191,36,0.45), rgba(251,191,36,0));
+  transform-origin: top center; opacity: 0; transition: opacity 0.5s;
 }
-.naoh-sun-icon {
-  position: absolute; top: 8px; right: 20px;
-  font-size: 44px; transition: all 0.5s;
-  filter: drop-shadow(0 0 10px rgba(251,191,36,0.6));
-  animation: sunPulse101 2s ease-in-out infinite;
+.naoh-ray.visible { animation: naohRayA 2.5s ease-in-out infinite alternate; opacity: 1; }
+@keyframes naohRayA { 0% { opacity: 0.25; } 100% { opacity: 0.6; } }
+/* CO₂ molecules */
+.naoh-co2 {
+  position: absolute; font-size: 8px; font-weight: 800;
+  border-radius: 8px; padding: 1px 4px; opacity: 0; transition: opacity 0.5s; z-index: 9;
 }
-.naoh-step-info {
-  font-size: 14px; font-weight: 700;
-  padding: 10px 14px; border-radius: 10px;
-  margin-top: 14px; transition: all 0.3s;
+.naoh-co2.visible { opacity: 1; }
+.naoh-co2.absorbed {
+  color: #dc2626; background: rgba(254,226,226,0.8); border: 1px solid #fca5a5;
+  animation: co2sink 2.5s ease-in-out infinite;
+}
+.naoh-co2.avail {
+  color: #16a34a; background: rgba(220,252,231,0.8); border: 1px solid #86efac;
+  animation: co2drift 3s ease-in-out infinite;
+}
+@keyframes co2sink {
+  0%,100% { transform: translateY(0); opacity: 0.9; }
+  50% { transform: translateY(8px); opacity: 0.3; }
+}
+@keyframes co2drift {
+  0%,100% { transform: translate(0,0); }
+  33% { transform: translate(3px,-5px); }
+  66% { transform: translate(-3px,-2px); }
+}
+/* Iodine dropper */
+.naoh-dropper {
+  position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
+  z-index: 12; opacity: 0; transition: opacity 0.5s;
+}
+.naoh-dropper.visible { opacity: 1; }
+.naoh-dropper-bulb {
+  width: 18px; height: 14px;
+  background: linear-gradient(180deg, #1f2937, #374151);
+  border-radius: 50% 50% 20% 20%; margin: 0 auto;
+}
+.naoh-dropper-tube {
+  width: 11px; height: 40px;
+  background: linear-gradient(90deg, rgba(186,230,253,0.2), rgba(255,255,255,0.12), rgba(186,230,253,0.2));
+  border: 1.5px solid rgba(148,163,184,0.45);
+  border-radius: 0 0 2px 2px; margin: 0 auto; position: relative; overflow: hidden;
+}
+.naoh-dropper-iod {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 25px;
+  background: linear-gradient(180deg, #92400e, #78350f); border-radius: 0 0 1px 1px;
+}
+.naoh-iod-drop {
+  width: 4px; height: 7px;
+  background: linear-gradient(180deg, #78350f, #451a03);
+  border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+  position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); opacity: 0;
+}
+.naoh-dropper.visible .naoh-iod-drop { animation: naohDrop 1.2s ease-in infinite; }
+@keyframes naohDrop { 0% { bottom:-8px; opacity:1; } 100% { bottom:-50px; opacity:0; } }
+.naoh-tile {
+  position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%);
+  width: 170px; height: 10px;
+  background: linear-gradient(180deg, #f8fafc, #e2e8f0);
+  border: 2px solid #cbd5e1; border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  opacity: 0; transition: opacity 0.5s; z-index: 2;
+}
+.naoh-tile.visible { opacity: 1; }
+/* Step info */
+.naoh-info-lab {
+  font-size: 13px; font-weight: 700; padding: 10px 14px; border-radius: 10px;
+  margin-top: 10px; transition: all 0.3s; line-height: 1.5; position: relative; z-index: 20;
 }
 @media (max-width: 400px) {
-  .naoh-plant { width: 220px; }
-  .naoh-leaf-assembly { width: 220px; }
-  .naoh-leaf-full { width: 150px; height: 70px; }
-  .naoh-flask { left: 0; width: 95px; height: 110px; }
-  .naoh-flask-body { width: 85px; height: 80px; }
+  .naoh-lab { min-height: 360px; padding: 10px 6px 50px; }
+  .naoh-bottle-lab { transform: translateX(-62%) scale(0.82); }
+  .naoh-leaf-lab { transform: translateX(-40%) scale(0.82); }
+  .naoh-pot-g { right: 12px; transform: scale(0.82); transform-origin: bottom right; }
+  .naoh-stem-lab { right: 35px; }
+  .naoh-retort { left: 8px; transform: scale(0.82); transform-origin: bottom left; }
+  .naoh-lh-lab { width: 68px; height: 48px; font-size: 9px; }
+  .naoh-annot { font-size: 8px; }
   .croton-leaf { width: 120px; height: 155px; }
   .croton-base { width: 120px; height: 145px; }
 }
@@ -2367,78 +2427,206 @@ footer {
   border-radius: 10px;
 }
 
-/* Colored water 10.7 */
-.colored-water-int { text-align: center; margin: 16px 0; }
-.cw-stem-int {
-  width: 16px;
-  height: 120px;
-  background: #a3e635;
-  border: 2px solid #65a30d;
-  margin: 0 auto;
-  position: relative;
-  border-radius: 4px;
+/* ===== Colored water 10.7 — Realistic Lab Setup ===== */
+.cw-lab {
+  position: relative; min-height: 400px;
+  background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 70%, #dbeafe 100%);
+  border-radius: 16px; overflow: hidden; padding: 16px 16px 56px;
+}
+.cw-bench {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 44px;
+  background: linear-gradient(180deg, #e8c89e 0%, #d4a574 4px, #c49a6c 6px, #b8854a 100%);
+  border-top: 2px solid #c49a6c;
+}
+.cw-bench::before {
+  content: ''; position: absolute; top: 3px; left: 0; right: 0; height: 1px;
+  background: rgba(255,255,255,0.25);
+}
+/* Glass beaker */
+.cw-beaker-lab {
+  position: absolute; bottom: 44px; left: 50%; transform: translateX(-55%);
+  width: 110px; height: 105px; z-index: 2;
+}
+.cw-beaker-glass {
+  width: 100px; height: 95px;
+  border: 3px solid rgba(148,163,184,0.55); border-top: none;
+  border-radius: 0 0 14px 14px;
+  position: absolute; bottom: 0; left: 5px;
+  background: linear-gradient(135deg,
+    rgba(224,242,254,0.1), rgba(186,230,253,0.05) 40%,
+    rgba(255,255,255,0.08) 55%, rgba(186,230,253,0.05));
   overflow: hidden;
+  box-shadow: inset 0 0 12px rgba(186,230,253,0.05), 0 3px 8px rgba(0,0,0,0.05);
 }
-.cw-color-fill {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 0;
-  transition: height 3s ease;
-  border-radius: 0 0 2px 2px;
+.cw-beaker-spout {
+  position: absolute; top: 0; right: -1px;
+  width: 10px; height: 8px;
+  border-right: 3px solid rgba(148,163,184,0.55);
+  border-top: 3px solid rgba(148,163,184,0.55);
+  border-radius: 0 5px 0 0;
 }
-.cw-beaker-int {
-  width: 70px;
-  height: 50px;
-  border: 3px solid #94a3b8;
-  border-top: none;
-  border-radius: 0 0 10px 10px;
-  margin: 0 auto;
+.cw-beaker-hl {
+  position: absolute; top: 4px; left: 5px;
+  width: 10px; height: 65%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.3), transparent);
+  border-radius: 5px; pointer-events: none;
+}
+.cw-beaker-grad {
+  position: absolute; left: 8px; width: 6px; height: 1px;
+  background: rgba(148,163,184,0.35);
+}
+.cw-liquid-lab {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 65px; border-radius: 0 0 11px 11px; transition: background 0.5s;
+}
+.cw-meniscus {
+  position: absolute; top: -3px; left: 3px; right: 3px;
+  height: 6px; border-radius: 0 0 50% 50%; opacity: 0.3;
+}
+/* Realistic balsam stem */
+.cw-stem-lab {
+  position: absolute; bottom: 100px; left: 50%; transform: translateX(-55%);
+  width: 22px; height: 190px; z-index: 3;
+}
+.cw-stem-outer {
+  width: 22px; height: 190px;
+  background: linear-gradient(90deg, #5a7a18 0%, #7da832 20%, #9cc24a 40%, #a8d84e 50%, #9cc24a 60%, #7da832 80%, #5a7a18 100%);
+  border-radius: 6px; position: relative; overflow: hidden;
+  border: 1.5px solid rgba(75,120,0,0.3);
+  box-shadow: inset 2px 0 4px rgba(0,0,0,0.05), inset -2px 0 4px rgba(0,0,0,0.05);
+}
+.cw-node {
+  position: absolute; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, #4a6a12, #6d9228 50%, #4a6a12);
+  border-radius: 1px;
+}
+.cw-xylem-ch {
+  position: absolute; width: 2px; top: 0; bottom: 0;
+  background: rgba(255,255,255,0.12); border-radius: 1px;
+}
+.cw-fill-lab {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 0;
+  border-radius: 0 0 4px 4px; transition: height 3s ease; opacity: 0.45;
+}
+/* Ink particles */
+.cw-ink-particle {
+  position: absolute; width: 3px; height: 3px;
+  border-radius: 50%; opacity: 0;
+}
+.cw-ink-particle.rise { animation: inkRise107 2.5s ease-out forwards; }
+@keyframes inkRise107 {
+  0% { bottom: 0; opacity: 0.7; }
+  100% { bottom: 190px; opacity: 0; }
+}
+/* Leaves at top */
+.cw-leaves-top {
+  position: absolute; bottom: 288px; left: 50%; transform: translateX(-55%); z-index: 4;
+}
+.cw-top-leaf {
+  width: 28px; height: 16px;
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  border: 1.5px solid #16a34a; position: absolute; transition: all 2s ease;
+}
+.cw-top-leaf.tl1 { top: 0; left: -18px; border-radius: 50% 2px 2px 50%; transform: rotate(10deg); }
+.cw-top-leaf.tl2 { top: -4px; left: 8px; border-radius: 2px 50% 50% 2px; transform: rotate(-10deg); }
+.cw-top-leaf.tl3 { top: 14px; left: -22px; border-radius: 50% 2px 2px 50%; transform: rotate(20deg); }
+.cw-top-leaf.tl4 { top: 12px; left: 12px; border-radius: 2px 50% 50% 2px; transform: rotate(-15deg); }
+.cw-top-leaf.tinted-red { background: linear-gradient(135deg, #fca5a5, #f87171) !important; border-color: #ef4444; }
+.cw-top-leaf.tinted-blue { background: linear-gradient(135deg, #93c5fd, #60a5fa) !important; border-color: #3b82f6; }
+/* Cross-section — realistic anatomy */
+.cw-cross-lab {
+  position: absolute; bottom: 54px; right: 20px;
+  width: 92px; height: 92px; display: none; z-index: 5;
+}
+.cw-cross-lab.visible { display: block; animation: crossIn107 0.5s ease; }
+@keyframes crossIn107 { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+.cw-epidermis {
+  width: 88px; height: 88px; border-radius: 50%;
+  border: 3px solid #5a7a18;
+  background: radial-gradient(circle, #e8f5e9 0%, #c8e6c9 40%, #a5d6a7 70%, #81c784 100%);
   position: relative;
-  overflow: hidden;
 }
-.cw-liquid-int {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 35px;
-  border-radius: 0 0 7px 7px;
+.cw-cortex {
+  position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px;
+  border-radius: 50%; border: 1.5px dashed rgba(75,120,0,0.2);
 }
-.cw-cross-section {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #a3e635;
-  border: 3px solid #65a30d;
-  margin: 12px auto 0;
-  position: relative;
-  display: none;
+.cw-pith {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 18px; height: 18px; border-radius: 50%;
+  background: radial-gradient(circle, #f0fff0, #e0f5e0);
+  border: 1px solid rgba(75,120,0,0.15);
 }
-.cw-xylem-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  position: absolute;
-  transition: all 0.5s;
-  background: #e5e7eb;
+.cw-vb {
+  position: absolute; width: 10px; height: 10px; border-radius: 50%;
+  border: 1.5px solid rgba(75,120,0,0.4); transition: all 0.5s;
+  background: rgba(255,255,255,0.3);
 }
-.cw-ink-select {
-  font-family: 'Nunito', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 8px;
-  border: 2px solid #bbf7d0;
-  margin: 8px 0;
+.cw-vb-xy {
+  position: absolute; width: 5px; height: 5px; border-radius: 50%;
+  background: #e5e7eb; transition: background 0.5s;
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
 }
-.cw-status {
-  font-size: 14px;
-  font-weight: 700;
-  margin-top: 12px;
-  padding: 8px;
-  border-radius: 10px;
+.cw-cross-label {
+  position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
+  font-size: 9px; font-weight: 700; color: #334155;
+  background: rgba(255,255,255,0.9); padding: 1px 5px; border-radius: 3px;
+  border: 1px solid #cbd5e1; white-space: nowrap;
+}
+.cw-pith-label {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  font-size: 6px; font-weight: 800; color: #4b7600;
+}
+/* Annotations */
+.cw-annot {
+  position: absolute; font-size: 9px; font-weight: 700; color: #334155;
+  background: rgba(255,255,255,0.9); padding: 2px 6px; border-radius: 4px;
+  border: 1px solid #cbd5e1; white-space: nowrap; z-index: 10;
+  opacity: 0; transition: opacity 0.5s;
+}
+.cw-annot.visible { opacity: 1; }
+/* Magnifying glass */
+.cw-magnify {
+  position: absolute; font-size: 26px; right: 112px; bottom: 80px;
+  opacity: 0; transition: opacity 0.5s; z-index: 6;
+}
+.cw-magnify.visible { opacity: 1; animation: magP107 1.5s ease-in-out infinite; }
+@keyframes magP107 { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1) rotate(-5deg); } }
+/* Clock */
+.cw-clock {
+  position: absolute; top: 10px; right: 14px;
+  font-size: 13px; font-weight: 800; color: #475569;
+  background: rgba(255,255,255,0.92); padding: 4px 10px; border-radius: 8px;
+  border: 2px solid #cbd5e1; opacity: 0; transition: opacity 0.5s; z-index: 8;
+}
+.cw-clock.visible { opacity: 1; }
+/* Scalpel */
+.cw-scalpel {
+  position: absolute; left: calc(50% - 40px); bottom: 200px;
+  font-size: 22px; opacity: 0; transition: all 0.5s; z-index: 7;
+}
+.cw-scalpel.visible { opacity: 1; animation: scalpelCut107 0.8s ease-in-out; }
+@keyframes scalpelCut107 {
+  0% { transform: translateX(-20px) rotate(-30deg); opacity: 0; }
+  50% { transform: translateX(0) rotate(0); opacity: 1; }
+  100% { transform: translateX(15px) rotate(10deg); opacity: 0.6; }
+}
+/* Ink selector */
+.cw-ink-select-lab {
+  font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700;
+  padding: 4px 10px; border-radius: 8px; border: 2px solid #bbf7d0; margin: 8px 0;
+}
+/* Status */
+.cw-status-lab {
+  font-size: 13px; font-weight: 700; margin-top: 10px; padding: 10px 14px;
+  border-radius: 10px; transition: all 0.3s; line-height: 1.5; position: relative; z-index: 20;
+}
+@media (max-width: 400px) {
+  .cw-lab { min-height: 360px; padding: 10px 6px 50px; }
+  .cw-stem-lab { height: 160px; }
+  .cw-stem-outer { height: 160px; }
+  .cw-leaves-top { bottom: 258px; }
+  .cw-cross-lab { right: 8px; width: 78px; height: 78px; }
+  .cw-epidermis { width: 74px; height: 74px; }
 }
 
 /* Lime water 10.8 */
@@ -3615,35 +3803,81 @@ footer {
       <div class="ncert-tag">Activity 10.4</div>
       <div class="subtitle">Role of CO<sub>2</sub> -- Caustic Soda (NaOH) Test</div>
       <div class="activity-visual interactive" id="act104">
-        <p class="interact-hint">&#128070; Step through to see how we test if CO&#8322; is needed!</p>
-        <div class="naoh-scene" id="naohScene">
-          <!-- Plant with leaf going through bottle -->
-          <div class="naoh-plant">
-            <div class="naoh-plant-stem"></div>
-            <div class="naoh-leaf-assembly" id="naohLeafAsm">
-              <!-- Leaf with left half inside bottle, right half outside -->
-              <div class="naoh-leaf-full" id="naohLeafFull">
-                <div class="naoh-lh enclosed" id="naohLH">
-                  <span id="naohLHText">Inside bottle<br>(no CO&#8322;)</span>
-                </div>
-                <div class="naoh-lh exposed" id="naohRH">
-                  <span id="naohRHText">Outside<br>(normal air)</span>
-                </div>
-                <div class="naoh-leaf-vein-m"></div>
+        <p class="interact-hint">&#128070; Step through the lab experiment to test if CO&#8322; is needed!</p>
+        <div class="naoh-lab" id="naohScene">
+          <!-- Lab bench -->
+          <div class="naoh-bench"></div>
+          <!-- Retort stand -->
+          <div class="naoh-retort">
+            <div class="naoh-retort-base"></div>
+            <div class="naoh-retort-rod"></div>
+            <div class="naoh-retort-clamp"><div class="naoh-retort-ring"></div></div>
+          </div>
+          <!-- Wide-mouth glass bottle -->
+          <div class="naoh-bottle-lab" id="naohBottle">
+            <div class="naoh-glass-body">
+              <div class="naoh-glass-hl"></div>
+              <div class="naoh-glass-hl2"></div>
+              <div class="naoh-solution">
+                <div class="naoh-pellet p1"></div>
+                <div class="naoh-pellet p2"></div>
+                <div class="naoh-pellet p3"></div>
+                <div class="naoh-pellet p4"></div>
               </div>
-              <!-- The bottle around left half -->
-              <div class="naoh-flask" id="naohFlask">
-                <div class="naoh-flask-body">
-                  <div class="naoh-flask-liquid"></div>
-                  <div class="naoh-flask-label-t">NaOH<br>(absorbs CO&#8322;)</div>
-                </div>
-                <div class="naoh-cork"></div>
-              </div>
+              <div class="naoh-label-stk">NaOH<br><span style="font-size:7px;font-weight:600;color:#64748b;">Caustic Soda</span></div>
+            </div>
+            <div class="naoh-neck-lab"></div>
+            <div class="naoh-cork-lab"><div class="naoh-cork-split"></div></div>
+          </div>
+          <!-- Plant pot -->
+          <div class="naoh-pot-g">
+            <div class="naoh-pot-rim-l"></div>
+            <div class="naoh-pot-body-l">
+              <div class="naoh-pot-soil"></div>
+              <div class="naoh-pot-hl"></div>
             </div>
           </div>
-          <!-- Sun -->
-          <div class="naoh-sun-icon" id="naohSunIcon" style="opacity:0;">&#9728;&#65039;</div>
-          <div class="naoh-step-info" id="naohStepInfo">Click Step 1 to start</div>
+          <!-- Plant stem -->
+          <div class="naoh-stem-lab"></div>
+          <!-- Small decorative leaves -->
+          <div class="naoh-ml m1"></div>
+          <div class="naoh-ml m2"></div>
+          <div class="naoh-ml m3"></div>
+          <!-- Main leaf (split: inside bottle / outside) -->
+          <div class="naoh-leaf-lab" id="naohLeafLab">
+            <div class="naoh-lh-lab inside" id="naohIn">
+              <span id="naohInTxt">Inside bottle<br>(no CO&#8322;)</span>
+            </div>
+            <div class="naoh-lh-lab outside" id="naohOut">
+              <span id="naohOutTxt">Outside<br>(has CO&#8322;)</span>
+            </div>
+            <div class="naoh-leaf-mid"></div>
+          </div>
+          <!-- Annotations -->
+          <div class="naoh-annot" id="anCork" style="bottom:252px;left:50%;transform:translateX(-82%);">Split cork + vaseline seal</div>
+          <div class="naoh-annot" id="anNaOH" style="bottom:100px;left:10px;">NaOH absorbs CO&#8322;</div>
+          <div class="naoh-annot" id="anLeaf" style="bottom:242px;right:8px;">De-starched leaf</div>
+          <!-- CO&#8322; molecules (step 2) -->
+          <div class="naoh-co2 absorbed" id="co2a1" style="bottom:125px;left:calc(50% - 58px);">CO&#8322;&#8595;</div>
+          <div class="naoh-co2 absorbed" id="co2a2" style="bottom:108px;left:calc(50% - 38px);">CO&#8322;&#8595;</div>
+          <div class="naoh-co2 avail" id="co2b1" style="bottom:252px;right:68px;">CO&#8322; &#10003;</div>
+          <div class="naoh-co2 avail" id="co2b2" style="bottom:234px;right:42px;">CO&#8322; &#10003;</div>
+          <!-- Sun (step 2) -->
+          <div class="naoh-sun-lab" id="naohSun">&#9728;&#65039;</div>
+          <div class="naoh-ray" id="nr1" style="top:55px;right:48px;height:100px;transform:rotate(15deg);"></div>
+          <div class="naoh-ray" id="nr2" style="top:55px;right:78px;height:120px;transform:rotate(25deg);"></div>
+          <div class="naoh-ray" id="nr3" style="top:55px;right:32px;height:80px;transform:rotate(5deg);"></div>
+          <!-- Iodine test (step 3) -->
+          <div class="naoh-dropper" id="naohDropper">
+            <div class="naoh-dropper-bulb"></div>
+            <div class="naoh-dropper-tube">
+              <div class="naoh-dropper-iod"></div>
+              <div class="naoh-iod-drop"></div>
+            </div>
+          </div>
+          <div class="naoh-tile" id="naohTile"></div>
+          <!-- Step info -->
+          <div class="naoh-info-lab" id="naohInfo">Click Step 1 to begin the lab setup</div>
         </div>
         <div class="act-controls">
           <button class="act-btn step-btn" id="n104_1" onclick="naohNextStep()">1. Setup Bottle &#129514;</button>
@@ -3744,30 +3978,83 @@ footer {
       <div class="ncert-tag">Activity 10.7</div>
       <div class="subtitle">Water Transport in Stems -- Coloured Water Experiment</div>
       <div class="activity-visual interactive" id="act107">
-        <p class="interact-hint">&#128070; Place the stem in colored water and watch it rise!</p>
-        <div class="colored-water-int">
-          <div style="margin-bottom:8px;">
-            <label class="cw-ink-select">Ink colour:
+        <p class="interact-hint">&#128070; Place the balsam stem in coloured water and watch the ink rise through xylem!</p>
+        <div class="cw-lab" id="cwScene">
+          <!-- Lab bench -->
+          <div class="cw-bench"></div>
+          <!-- Ink selector -->
+          <div style="position:relative;z-index:20;margin-bottom:8px;">
+            <label class="cw-ink-select-lab">Ink colour:
               <select id="cwInkSelect" onchange="resetCW()">
                 <option value="#ef4444">&#128308; Red Ink</option>
                 <option value="#3b82f6">&#128309; Blue Ink</option>
               </select>
             </label>
           </div>
-          <div class="cw-stem-int">
-            <div class="cw-color-fill" id="cwFill"></div>
+          <!-- Glass beaker -->
+          <div class="cw-beaker-lab">
+            <div class="cw-beaker-glass">
+              <div class="cw-beaker-spout"></div>
+              <div class="cw-beaker-hl"></div>
+              <!-- Gradation marks -->
+              <div class="cw-beaker-grad" style="bottom:20px;"></div>
+              <div class="cw-beaker-grad" style="bottom:40px;"></div>
+              <div class="cw-beaker-grad" style="bottom:60px;"></div>
+              <!-- Coloured liquid -->
+              <div class="cw-liquid-lab" id="cwLiquid" style="background:rgba(239,68,68,0.45);">
+                <div class="cw-meniscus" id="cwMeniscus" style="background:rgba(239,68,68,0.3);"></div>
+              </div>
+            </div>
           </div>
-          <div class="cw-beaker-int">
-            <div class="cw-liquid-int" id="cwLiquid" style="background:rgba(239,68,68,0.5);"></div>
+          <!-- Realistic stem -->
+          <div class="cw-stem-lab">
+            <div class="cw-stem-outer">
+              <!-- Stem nodes -->
+              <div class="cw-node" style="top:35px;"></div>
+              <div class="cw-node" style="top:80px;"></div>
+              <div class="cw-node" style="top:125px;"></div>
+              <!-- Xylem channels (faint) -->
+              <div class="cw-xylem-ch" style="left:5px;"></div>
+              <div class="cw-xylem-ch" style="left:10px;"></div>
+              <div class="cw-xylem-ch" style="left:15px;"></div>
+              <!-- Colour fill rising -->
+              <div class="cw-fill-lab" id="cwFill"></div>
+            </div>
+            <div id="cwParticles" style="position:absolute;left:0;right:0;top:0;bottom:0;overflow:hidden;pointer-events:none;"></div>
           </div>
-          <div class="cw-cross-section" id="cwCross">
-            <div class="cw-xylem-dot" style="top:10px;left:10px;"></div>
-            <div class="cw-xylem-dot" style="top:10px;right:10px;"></div>
-            <div class="cw-xylem-dot" style="bottom:10px;left:14px;"></div>
-            <div class="cw-xylem-dot" style="bottom:10px;right:14px;"></div>
-            <div class="cw-xylem-dot" style="top:25px;left:25px;"></div>
+          <!-- Leaves at top -->
+          <div class="cw-leaves-top">
+            <div class="cw-top-leaf tl1" id="cwTL1"></div>
+            <div class="cw-top-leaf tl2" id="cwTL2"></div>
+            <div class="cw-top-leaf tl3" id="cwTL3"></div>
+            <div class="cw-top-leaf tl4" id="cwTL4"></div>
           </div>
-          <div class="cw-status" id="cwStatus">Click to place stem in colored water</div>
+          <!-- Annotations -->
+          <div class="cw-annot" id="cwAnStem" style="bottom:220px;left:calc(50% + 20px);">Balsam stem</div>
+          <div class="cw-annot" id="cwAnBeaker" style="bottom:58px;left:calc(50% + 30px);">Coloured water</div>
+          <div class="cw-annot" id="cwAnXylem" style="bottom:160px;left:calc(50% + 20px);">Xylem vessels</div>
+          <!-- Clock (step 1) -->
+          <div class="cw-clock" id="cwClock">&#9200; 2-3 hrs</div>
+          <!-- Magnifying glass + scalpel (step 2) -->
+          <div class="cw-magnify" id="cwMag">&#128270;</div>
+          <div class="cw-scalpel" id="cwScalpel">&#128298;</div>
+          <!-- Cross section -->
+          <div class="cw-cross-lab" id="cwCross">
+            <div class="cw-cross-label">Cross-section</div>
+            <div class="cw-epidermis">
+              <div class="cw-cortex"></div>
+              <div class="cw-pith"><span class="cw-pith-label">Pith</span></div>
+              <!-- 6 vascular bundles arranged in a ring -->
+              <div class="cw-vb" style="top:8px;left:50%;transform:translateX(-50%);"><div class="cw-vb-xy"></div></div>
+              <div class="cw-vb" style="top:18px;right:8px;"><div class="cw-vb-xy"></div></div>
+              <div class="cw-vb" style="bottom:18px;right:8px;"><div class="cw-vb-xy"></div></div>
+              <div class="cw-vb" style="bottom:8px;left:50%;transform:translateX(-50%);"><div class="cw-vb-xy"></div></div>
+              <div class="cw-vb" style="bottom:18px;left:8px;"><div class="cw-vb-xy"></div></div>
+              <div class="cw-vb" style="top:18px;left:8px;"><div class="cw-vb-xy"></div></div>
+            </div>
+          </div>
+          <!-- Status -->
+          <div class="cw-status-lab" id="cwStatus">Click to place the stem in coloured water</div>
         </div>
         <div class="act-controls">
           <button class="act-btn" id="cwBtn" onclick="startColoredWater()">&#129514; Place Stem in Water</button>
@@ -4662,54 +4949,74 @@ function varReset() {
   }
 }
 
-// ===== Activity 10.4: CO2 NaOH Test (flask setup) =====
+// ===== Activity 10.4: CO2 NaOH Test (realistic lab) =====
 var naohStep = 0;
 function naohNextStep() {
   naohStep++;
-  var flask = document.getElementById('naohFlask');
-  var sun = document.getElementById('naohSunIcon');
-  var info = document.getElementById('naohStepInfo');
-  var lh = document.getElementById('naohLH');
-  var rh = document.getElementById('naohRH');
-
+  var bottle = document.getElementById('naohBottle');
+  var sun = document.getElementById('naohSun');
+  var info = document.getElementById('naohInfo');
+  var lhIn = document.getElementById('naohIn');
+  var lhOut = document.getElementById('naohOut');
   var btn = document.getElementById('n104_' + naohStep);
   if (btn) { btn.classList.add('done'); btn.disabled = true; }
   var next = document.getElementById('n104_' + (naohStep + 1));
   if (next) next.disabled = false;
-
   switch(naohStep) {
     case 1:
-      flask.classList.add('visible');
-      info.innerHTML = '🧪 <strong>Setup:</strong> Half the leaf is inserted through the cork of a bottle containing <strong>NaOH (caustic soda)</strong>. NaOH absorbs all CO₂ inside the bottle. The other half stays in <strong>normal air</strong> (which has CO₂).';
+      bottle.classList.add('visible');
+      ['anCork','anNaOH','anLeaf'].forEach(function(id) {
+        document.getElementById(id).classList.add('visible');
+      });
+      info.innerHTML = '🧪 <strong>Setup:</strong> Half the de-starched leaf passes through a <strong>split cork</strong> into a wide-mouth bottle containing <strong>NaOH (caustic soda)</strong>. Cork sealed with vaseline. NaOH absorbs all CO₂ inside. The other half stays in <strong>normal air</strong>.';
       info.style.background = '#fef3c7';
       break;
     case 2:
-      sun.style.opacity = '1';
-      info.innerHTML = '☀️ <strong>Plant kept in sunlight</strong> for several hours. The exposed half receives sunlight + CO₂ → can photosynthesise. The enclosed half gets sunlight but NO CO₂ → cannot make starch!';
+      sun.classList.add('visible');
+      ['nr1','nr2','nr3'].forEach(function(id) {
+        document.getElementById(id).classList.add('visible');
+      });
+      ['co2a1','co2a2','co2b1','co2b2'].forEach(function(id) {
+        document.getElementById(id).classList.add('visible');
+      });
+      info.innerHTML = '☀️ <strong>Kept in sunlight</strong> for several hours. The <span style="color:#dc2626;">enclosed half has NO CO₂</span> (NaOH absorbed it all) → cannot photosynthesise. The <span style="color:#16a34a;">exposed half gets CO₂ from air</span> → photosynthesis occurs normally!';
       info.style.background = '#fef9c3';
       break;
     case 3:
-      flask.classList.remove('visible');
-      lh.classList.add('no-starch');
-      rh.classList.add('has-starch');
-      document.getElementById('naohLHText').innerHTML = 'BROWN ❌<br>No starch!';
-      document.getElementById('naohRHText').innerHTML = 'BLUE-BLACK ✅<br>Starch present!';
-      info.innerHTML = '✅ <strong>Iodine test result:</strong> The enclosed half (no CO₂) stays <strong>BROWN</strong> — no starch formed! The exposed half (had CO₂) turns <strong>BLUE-BLACK</strong> — starch present! This proves <strong>CO₂ is essential for photosynthesis</strong>.';
+      bottle.classList.remove('visible');
+      ['anCork','anNaOH','anLeaf'].forEach(function(id) {
+        document.getElementById(id).classList.remove('visible');
+      });
+      sun.classList.remove('visible');
+      ['nr1','nr2','nr3','co2a1','co2a2','co2b1','co2b2'].forEach(function(id) {
+        document.getElementById(id).classList.remove('visible');
+      });
+      document.getElementById('naohTile').classList.add('visible');
+      document.getElementById('naohDropper').classList.add('visible');
+      lhIn.classList.add('no-starch');
+      lhOut.classList.add('has-starch');
+      document.getElementById('naohInTxt').innerHTML = 'BROWN ❌<br>No starch!';
+      document.getElementById('naohOutTxt').innerHTML = 'BLUE-BLACK ✅<br>Starch!';
+      info.innerHTML = '✅ <strong>Iodine test:</strong> Leaf placed on white tile. Enclosed half (no CO₂) stays <strong>BROWN</strong> — no starch! Exposed half (had CO₂) turns <strong>BLUE-BLACK</strong> — starch present! <strong>CO₂ is essential for photosynthesis.</strong>';
       info.style.background = '#dcfce7';
       break;
   }
 }
-
 function resetNaoh() {
   naohStep = 0;
-  document.getElementById('naohFlask').classList.remove('visible');
-  document.getElementById('naohSunIcon').style.opacity = '0';
-  document.getElementById('naohLH').classList.remove('no-starch');
-  document.getElementById('naohRH').classList.remove('has-starch');
-  document.getElementById('naohLHText').innerHTML = 'Inside bottle<br>(no CO₂)';
-  document.getElementById('naohRHText').innerHTML = 'Outside<br>(normal air)';
-  document.getElementById('naohStepInfo').textContent = 'Click Step 1 to start';
-  document.getElementById('naohStepInfo').style.background = 'transparent';
+  document.getElementById('naohBottle').classList.remove('visible');
+  document.getElementById('naohSun').classList.remove('visible');
+  document.getElementById('naohTile').classList.remove('visible');
+  document.getElementById('naohDropper').classList.remove('visible');
+  ['anCork','anNaOH','anLeaf','nr1','nr2','nr3','co2a1','co2a2','co2b1','co2b2'].forEach(function(id) {
+    document.getElementById(id).classList.remove('visible');
+  });
+  document.getElementById('naohIn').classList.remove('no-starch');
+  document.getElementById('naohOut').classList.remove('has-starch');
+  document.getElementById('naohInTxt').innerHTML = 'Inside bottle<br>(no CO₂)';
+  document.getElementById('naohOutTxt').innerHTML = 'Outside<br>(has CO₂)';
+  document.getElementById('naohInfo').textContent = 'Click Step 1 to begin the lab setup';
+  document.getElementById('naohInfo').style.background = 'transparent';
   for (var i = 1; i <= 3; i++) {
     var b = document.getElementById('n104_' + i);
     if (b) { b.classList.remove('done'); b.disabled = i !== 1; }
@@ -4816,55 +5123,101 @@ function resetStomata() {
   toggleStomata(); // will close it
 }
 
-// ===== Activity 10.7: Colored Water =====
+// ===== Activity 10.7: Colored Water (realistic lab) =====
 var cwDone = false;
-function startColoredWater() {
-  var fill = document.getElementById('cwFill');
-  var btn = document.getElementById('cwBtn');
-  var status = document.getElementById('cwStatus');
-  var color = document.getElementById('cwInkSelect').value;
-  fill.style.background = color;
-  document.getElementById('cwLiquid').style.background = 'rgba(' + hexToRgb(color) + ',0.5)';
-  fill.style.height = '100%';
-  btn.disabled = true;
-  btn.classList.add('done');
-  status.textContent = '🔴 Colored ink rising through xylem vessels! Water travels upward.';
-  status.style.background = '#fee2e2';
-  status.style.color = '#991b1b';
-  document.getElementById('cwCutBtn').disabled = false;
-  cwDone = true;
-}
-function cutStem() {
-  document.getElementById('cwCross').style.display = 'block';
-  var dots = document.querySelectorAll('.cw-xylem-dot');
-  var color = document.getElementById('cwInkSelect').value;
-  dots.forEach(function(d) { d.style.background = color; });
-  document.getElementById('cwCutBtn').classList.add('done');
-  document.getElementById('cwCutBtn').disabled = true;
-  document.getElementById('cwStatus').textContent = '🔬 Cross-section shows colored xylem vessels! These are the tubes that carry water.';
-  document.getElementById('cwStatus').style.background = '#dcfce7';
-  document.getElementById('cwStatus').style.color = '#166534';
-}
-function resetCW() {
-  document.getElementById('cwFill').style.height = '0';
-  document.getElementById('cwCross').style.display = 'none';
-  document.getElementById('cwBtn').disabled = false;
-  document.getElementById('cwBtn').classList.remove('done');
-  document.getElementById('cwCutBtn').disabled = true;
-  document.getElementById('cwCutBtn').classList.remove('done');
-  document.getElementById('cwStatus').textContent = 'Click to place stem in colored water';
-  document.getElementById('cwStatus').style.background = 'transparent';
-  document.getElementById('cwStatus').style.color = '';
-  var color = document.getElementById('cwInkSelect').value;
-  document.getElementById('cwLiquid').style.background = 'rgba(' + hexToRgb(color) + ',0.5)';
-  document.querySelectorAll('.cw-xylem-dot').forEach(function(d) { d.style.background = '#e5e7eb'; });
-  cwDone = false;
-}
+var cwParticleInt = null;
 function hexToRgb(hex) {
   var r = parseInt(hex.slice(1,3), 16);
   var g = parseInt(hex.slice(3,5), 16);
   var b = parseInt(hex.slice(5,7), 16);
   return r + ',' + g + ',' + b;
+}
+function addInkParticle(color) {
+  var cont = document.getElementById('cwParticles');
+  if (!cont) return;
+  var p = document.createElement('div');
+  p.className = 'cw-ink-particle';
+  p.style.background = color;
+  p.style.left = (3 + Math.random() * 14) + 'px';
+  p.style.bottom = '0';
+  cont.appendChild(p);
+  requestAnimationFrame(function() { p.classList.add('rise'); });
+  setTimeout(function() { if (p.parentNode) p.parentNode.removeChild(p); }, 2600);
+}
+function startColoredWater() {
+  var fill = document.getElementById('cwFill');
+  var btn = document.getElementById('cwBtn');
+  var status = document.getElementById('cwStatus');
+  var color = document.getElementById('cwInkSelect').value;
+  var rgb = hexToRgb(color);
+  fill.style.background = color;
+  fill.style.height = '100%';
+  document.getElementById('cwLiquid').style.background = 'rgba(' + rgb + ',0.45)';
+  document.getElementById('cwMeniscus').style.background = 'rgba(' + rgb + ',0.3)';
+  // Show annotations
+  ['cwAnStem','cwAnBeaker','cwAnXylem'].forEach(function(id) {
+    document.getElementById(id).classList.add('visible');
+  });
+  document.getElementById('cwClock').classList.add('visible');
+  // Tint leaves after delay
+  var tintClass = color === '#ef4444' ? 'tinted-red' : 'tinted-blue';
+  setTimeout(function() {
+    for (var i = 1; i <= 4; i++) {
+      document.getElementById('cwTL' + i).classList.add(tintClass);
+    }
+  }, 2000);
+  // Ink particles animation
+  cwParticleInt = setInterval(function() { addInkParticle(color); }, 400);
+  btn.disabled = true;
+  btn.classList.add('done');
+  status.innerHTML = '🔬 <strong>Coloured ink rising</strong> through xylem vessels! After 2-3 hours, ink reaches the leaves and colours them. Water travels <strong>upward</strong> through xylem.';
+  status.style.background = '#fef3c7';
+  status.style.color = '#92400e';
+  document.getElementById('cwCutBtn').disabled = false;
+  cwDone = true;
+}
+function cutStem() {
+  var cross = document.getElementById('cwCross');
+  cross.classList.add('visible');
+  var color = document.getElementById('cwInkSelect').value;
+  document.querySelectorAll('.cw-vb-xy').forEach(function(d) { d.style.background = color; });
+  document.getElementById('cwScalpel').classList.add('visible');
+  document.getElementById('cwMag').classList.add('visible');
+  document.getElementById('cwCutBtn').classList.add('done');
+  document.getElementById('cwCutBtn').disabled = true;
+  document.getElementById('cwStatus').innerHTML = '🔬 <strong>Cross-section</strong> reveals coloured <strong>xylem vessels</strong> (dots in a ring)! These are the tubes that carry water and minerals upward from roots.';
+  document.getElementById('cwStatus').style.background = '#dcfce7';
+  document.getElementById('cwStatus').style.color = '#166534';
+}
+function resetCW() {
+  if (cwParticleInt) { clearInterval(cwParticleInt); cwParticleInt = null; }
+  var cont = document.getElementById('cwParticles');
+  if (cont) cont.innerHTML = '';
+  document.getElementById('cwFill').style.height = '0';
+  document.getElementById('cwCross').classList.remove('visible');
+  document.getElementById('cwBtn').disabled = false;
+  document.getElementById('cwBtn').classList.remove('done');
+  document.getElementById('cwCutBtn').disabled = true;
+  document.getElementById('cwCutBtn').classList.remove('done');
+  document.getElementById('cwStatus').textContent = 'Click to place the stem in coloured water';
+  document.getElementById('cwStatus').style.background = 'transparent';
+  document.getElementById('cwStatus').style.color = '';
+  document.getElementById('cwClock').classList.remove('visible');
+  document.getElementById('cwScalpel').classList.remove('visible');
+  document.getElementById('cwMag').classList.remove('visible');
+  ['cwAnStem','cwAnBeaker','cwAnXylem'].forEach(function(id) {
+    document.getElementById(id).classList.remove('visible');
+  });
+  for (var i = 1; i <= 4; i++) {
+    var lf = document.getElementById('cwTL' + i);
+    lf.classList.remove('tinted-red', 'tinted-blue');
+  }
+  var color = document.getElementById('cwInkSelect').value;
+  var rgb = hexToRgb(color);
+  document.getElementById('cwLiquid').style.background = 'rgba(' + rgb + ',0.45)';
+  document.getElementById('cwMeniscus').style.background = 'rgba(' + rgb + ',0.3)';
+  document.querySelectorAll('.cw-vb-xy').forEach(function(d) { d.style.background = '#e5e7eb'; });
+  cwDone = false;
 }
 
 // ===== Activity 10.8: Lime Water =====
