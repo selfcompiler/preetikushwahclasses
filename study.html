@@ -272,6 +272,20 @@ function loadPdfJs() {
 
 function initPdf() {
   var ph = document.getElementById('pdfPlaceholder');
+
+  // If running from file://, PDF.js can't fetch local files — use iframe fallback
+  if (window.location.protocol === 'file:') {
+    ph.style.display = 'none';
+    document.getElementById('pdfTitle').textContent = '📖 ' + chapterName;
+    var body = document.getElementById('pdfBody');
+    var iframe = document.createElement('iframe');
+    iframe.src = pdfUrl;
+    iframe.style.cssText = 'width:100%;height:100%;border:none;position:absolute;inset:0;z-index:1;';
+    body.appendChild(iframe);
+    document.getElementById('pdfPgInfo').textContent = 'Use PDF controls';
+    return;
+  }
+
   ph.innerHTML = '<p style="font-size:40px;">⏳</p><p style="font-weight:700;">Loading PDF...</p>';
   document.getElementById('pdfTitle').textContent = '📖 ' + chapterName;
 
