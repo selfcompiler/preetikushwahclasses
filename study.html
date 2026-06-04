@@ -46,8 +46,22 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
   background:#1f2937;color:white;flex-shrink:0;
 }
 .pdf-header span{font-size:12px;font-weight:700;flex:1;}
-.pdf-body{flex:1;overflow:auto;position:relative;background:#374151;}
-.pdf-body iframe,.pdf-body embed{width:100%;height:100%;border:none;display:block;}
+.pdf-nav{display:flex;align-items:center;gap:4px;}
+.pdf-nav-btn{
+  background:rgba(255,255,255,0.12);border:none;color:white;width:30px;height:30px;
+  border-radius:8px;cursor:pointer;font-size:14px;transition:all 0.2s;display:flex;
+  align-items:center;justify-content:center;
+}
+.pdf-nav-btn:hover{background:rgba(255,255,255,0.25);}
+.pdf-nav-btn:disabled{opacity:0.25;pointer-events:none;}
+.pdf-pg-info{font-size:11px;font-weight:700;color:#94a3b8;min-width:55px;text-align:center;}
+.pdf-zoom-btn{
+  background:rgba(255,255,255,0.1);border:none;color:#94a3b8;padding:3px 8px;
+  border-radius:6px;cursor:pointer;font-size:10px;font-weight:700;transition:all 0.2s;
+}
+.pdf-zoom-btn:hover{background:rgba(255,255,255,0.2);color:white;}
+.pdf-body{flex:1;overflow:auto;position:relative;background:#4b5563;display:flex;flex-direction:column;align-items:center;padding:10px 0;}
+.pdf-page-canvas{display:block;margin:0 auto 10px;box-shadow:0 2px 12px rgba(0,0,0,0.3);background:white;}
 .pdf-placeholder{
   position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
   justify-content:center;color:#9ca3af;padding:30px;text-align:center;
@@ -150,7 +164,14 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
   <div class="panel panel-pdf" id="panelPdf">
     <div class="pdf-header">
       <span id="pdfTitle">📖 NCERT Textbook</span>
-      <button class="pt-btn" id="pdfAnnotateToggle" onclick="togglePdfAnnotate()" style="margin-left:auto;">✏️ Annotate</button>
+      <div class="pdf-nav">
+        <button class="pdf-nav-btn" id="pdfPrev" onclick="pdfGo(-1)" disabled>◀</button>
+        <span class="pdf-pg-info" id="pdfPgInfo">-</span>
+        <button class="pdf-nav-btn" id="pdfNext" onclick="pdfGo(1)">▶</button>
+        <button class="pdf-zoom-btn" onclick="pdfZoom(-0.15)">−</button>
+        <button class="pdf-zoom-btn" onclick="pdfZoom(0.15)">+</button>
+      </div>
+      <button class="pt-btn" id="pdfAnnotateToggle" onclick="togglePdfAnnotate()" style="margin-left:6px;">✏️ Annotate</button>
     </div>
     <div class="pdf-body" id="pdfBody">
       <div class="pdf-placeholder" id="pdfPlaceholder">
@@ -235,31 +256,107 @@ function goBack() {
   }
 }
 
-// ===== LOAD PDF =====
-(function() {
-  var body = document.getElementById('pdfBody');
+// ===== PDF.js RENDERER =====
+var pdfDoc = null, pdfPageNum = 1, pdfTotalPages = 0, pdfScale = 1.2;
+var pdfRendering = false, pdfPending = null;
+
+function loadPdfJs() {
+  var s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+  s.onload = function() {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    if (pdfUrl) initPdf();
+  };
+  document.head.appendChild(s);
+}
+
+function initPdf() {
   var ph = document.getElementById('pdfPlaceholder');
-  if (pdfUrl) {
-    var iframe = document.createElement('iframe');
-    iframe.src = pdfUrl;
-    iframe.style.cssText = 'width:100%;height:100%;border:none;';
-    iframe.onload = function() { ph.style.display = 'none'; };
-    iframe.onerror = function() {
-      ph.innerHTML = '<p style="font-size:40px;">⚠️</p><p style="font-weight:700;">PDF could not load</p>' +
-        '<p>Please ensure the PDF file exists at:<br><code style="background:#1f2937;padding:4px 8px;border-radius:6px;font-size:11px;">' + pdfUrl + '</code></p>' +
-        '<p><a href="https://ncert.nic.in/textbook.php?gesc1=0-18" target="_blank">Download from NCERT official site →</a></p>';
-    };
-    body.appendChild(iframe);
-    document.getElementById('pdfTitle').textContent = '📖 ' + chapterName;
-    // Hide placeholder after short delay in case iframe loads fast
-    setTimeout(function() { if (iframe.contentDocument) ph.style.display = 'none'; }, 2000);
-  } else {
-    ph.innerHTML = '<p style="font-size:40px;">📚</p>' +
-      '<p style="font-weight:700;">No PDF selected</p>' +
-      '<p>Open this page from a chapter\'s "View Book" button.</p>' +
-      '<p style="margin-top:12px;"><a href="https://ncert.nic.in/textbook.php?gesc1=0-18" target="_blank">Browse NCERT Class 7 Science online →</a></p>';
-  }
-})();
+  ph.innerHTML = '<p style="font-size:40px;">⏳</p><p style="font-weight:700;">Loading PDF...</p>';
+  document.getElementById('pdfTitle').textContent = '📖 ' + chapterName;
+
+  pdfjsLib.getDocument(pdfUrl).promise.then(function(doc) {
+    pdfDoc = doc;
+    pdfTotalPages = doc.numPages;
+    ph.style.display = 'none';
+    updatePdfInfo();
+    renderPdfPage(pdfPageNum);
+  }).catch(function(err) {
+    ph.innerHTML = '<p style="font-size:40px;">⚠️</p><p style="font-weight:700;">Could not load PDF</p>' +
+      '<p style="font-size:12px;color:#6b7280;">' + (err.message || 'Unknown error') + '</p>' +
+      '<p>Ensure the file exists at:<br><code style="background:#1f2937;padding:4px 8px;border-radius:6px;font-size:11px;">' + pdfUrl + '</code></p>' +
+      '<p><a href="https://ncert.nic.in/textbook.php?gesc1=0-18" target="_blank">Download from NCERT →</a></p>';
+  });
+}
+
+function renderPdfPage(num) {
+  if (!pdfDoc) return;
+  pdfRendering = true;
+  pdfDoc.getPage(num).then(function(page) {
+    var body = document.getElementById('pdfBody');
+    var containerW = body.clientWidth - 20;
+    var vp = page.getViewport({ scale: 1 });
+    var fitScale = containerW / vp.width;
+    var scale = fitScale * pdfScale;
+    var viewport = page.getViewport({ scale: scale });
+
+    // Remove old page canvases
+    body.querySelectorAll('.pdf-page-canvas').forEach(function(c) { c.remove(); });
+
+    var cvs = document.createElement('canvas');
+    cvs.className = 'pdf-page-canvas';
+    var ctx = cvs.getContext('2d');
+    cvs.width = viewport.width;
+    cvs.height = viewport.height;
+    cvs.style.width = (viewport.width / window.devicePixelRatio) + 'px';
+    // For retina: render at full res
+    var dpr = window.devicePixelRatio || 1;
+    cvs.width = viewport.width * dpr;
+    cvs.height = viewport.height * dpr;
+    cvs.style.width = viewport.width + 'px';
+    cvs.style.height = viewport.height + 'px';
+    ctx.scale(dpr, dpr);
+
+    body.insertBefore(cvs, body.firstChild);
+
+    page.render({ canvasContext: ctx, viewport: viewport }).promise.then(function() {
+      pdfRendering = false;
+      if (pdfPending !== null) {
+        renderPdfPage(pdfPending);
+        pdfPending = null;
+      }
+    });
+
+    updatePdfInfo();
+  });
+}
+
+function pdfGo(dir) {
+  var newPage = pdfPageNum + dir;
+  if (newPage < 1 || newPage > pdfTotalPages) return;
+  pdfPageNum = newPage;
+  if (pdfRendering) { pdfPending = pdfPageNum; }
+  else { renderPdfPage(pdfPageNum); }
+}
+
+function pdfZoom(delta) {
+  pdfScale = Math.max(0.5, Math.min(3, pdfScale + delta));
+  renderPdfPage(pdfPageNum);
+}
+
+function updatePdfInfo() {
+  document.getElementById('pdfPgInfo').textContent = pdfPageNum + ' / ' + pdfTotalPages;
+  document.getElementById('pdfPrev').disabled = pdfPageNum <= 1;
+  document.getElementById('pdfNext').disabled = pdfPageNum >= pdfTotalPages;
+}
+
+if (!pdfUrl) {
+  document.getElementById('pdfPlaceholder').innerHTML = '<p style="font-size:40px;">📚</p>' +
+    '<p style="font-weight:700;">No PDF selected</p>' +
+    '<p>Open from a chapter\'s "View Book" button.</p>' +
+    '<p style="margin-top:12px;"><a href="https://ncert.nic.in/textbook.php?gesc1=0-18" target="_blank">Browse NCERT online →</a></p>';
+}
+loadPdfJs();
 
 // ===== GUTTER RESIZE =====
 var gutter = document.getElementById('gutter');
@@ -524,6 +621,8 @@ function resizePdfCanvas() {
   pdfCanvas.style.width = w + 'px'; pdfCanvas.style.height = h + 'px';
   pdfCtx.setTransform(2, 0, 0, 2, 0, 0);
   renderPdfAnnot();
+  // Also re-render current PDF page on resize
+  if (pdfDoc) renderPdfPage(pdfPageNum);
 }
 
 function renderPdfAnnot() {
