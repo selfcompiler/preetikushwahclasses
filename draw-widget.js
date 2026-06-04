@@ -21,6 +21,8 @@
     '.dw-tbtn{padding:4px 8px;border-radius:7px;border:1.5px solid #e5e7eb;background:#fff;cursor:pointer;font-size:11px;font-weight:700;color:#374151;transition:all 0.2s;font-family:"Nunito",sans-serif;}',
     '.dw-tbtn:hover{border-color:#a78bfa;background:#faf5ff;}',
     '.dw-tbtn.active{background:#7c3aed;color:#fff;border-color:#7c3aed;}',
+    '.dw-tbtn.active[data-tool="laser"]{background:linear-gradient(135deg,#f59e0b,#ef4444);border-color:#f59e0b;animation:dwLaserPulse 1.5s ease-in-out infinite;}',
+    '@keyframes dwLaserPulse{0%,100%{box-shadow:0 0 6px rgba(245,158,11,0.4);}50%{box-shadow:0 0 14px rgba(245,158,11,0.7);}}',
     '.dw-color{width:20px;height:20px;border-radius:50%;border:2px solid #e5e7eb;cursor:pointer;transition:all 0.2s;flex-shrink:0;}',
     '.dw-color:hover{transform:scale(1.15);}',
     '.dw-color.active{border-color:#1f2937;box-shadow:0 0 0 2px #a78bfa;}',
@@ -54,6 +56,7 @@
     '<div class="dw-toolbar" id="dwToolbar">',
     '  <button class="dw-tbtn active" data-tool="pen">✏️ Pen</button>',
     '  <button class="dw-tbtn" data-tool="highlighter">🖍️</button>',
+    '  <button class="dw-tbtn" data-tool="laser">🔦 Laser</button>',
     '  <button class="dw-tbtn" data-tool="eraser">⬜</button>',
     '  <span class="dw-sep"></span>',
     '  <span class="dw-color active" data-color="#1f2937" style="background:#1f2937;"></span>',
@@ -88,6 +91,8 @@
   var STORAGE_KEY = 'dw_strokes';
   var totalPages = 3, curPage = 1;
   var history = [], currentPath = [];
+  var LASER_FADE_MS = 5000;
+  var laserTimer = null;
 
   function loadH() { try { var d = localStorage.getItem(STORAGE_KEY); return d ? JSON.parse(d) : []; } catch(e) { return []; } }
   function saveH() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(history)); } catch(e) {} }
@@ -109,6 +114,7 @@
 
   function redraw() {
     var w = canvas.width / 2;
+    var now = Date.now();
     ctx.clearRect(0, 0, w, totalPages * PAGE_H);
     ctx.save(); ctx.strokeStyle = '#e5e7eb'; ctx.lineWidth = 0.5; ctx.setLineDash([4, 4]);
     for (var i = 1; i < totalPages; i++) {
@@ -116,21 +122,54 @@
       ctx.fillStyle = '#d1d5db'; ctx.font = '10px sans-serif'; ctx.fillText('Page ' + (i + 1), 8, i * PAGE_H + 14);
     }
     ctx.setLineDash([]); ctx.restore();
-    history.forEach(function(s) { drawStroke(s); });
+    history.forEach(function(s) { drawStroke(s, now); });
   }
 
-  function drawStroke(s) {
+  function drawStroke(s, now) {
     if (!s.points || s.points.length < 2) return;
+    // Laser fade calculation
+    var alpha = 1;
+    if (s.tool === 'laser' && s.ts && now) {
+      var age = now - s.ts;
+      var fadeStart = LASER_FADE_MS * 0.6;
+      if (age >= LASER_FADE_MS) return; // fully gone
+      if (age > fadeStart) alpha = Math.max(0, 1 - (age - fadeStart) / (LASER_FADE_MS - fadeStart));
+    }
     ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-    if (s.tool === 'highlighter') { ctx.globalAlpha = 0.3; ctx.strokeStyle = s.color; ctx.lineWidth = s.size * 4; }
-    else if (s.tool === 'eraser') { ctx.globalCompositeOperation = 'destination-out'; ctx.strokeStyle = 'rgba(0,0,0,1)'; ctx.lineWidth = s.size * 5; }
-    else { ctx.globalAlpha = 1; ctx.strokeStyle = s.color; ctx.lineWidth = s.size; }
+    if (s.tool === 'laser') {
+      ctx.globalAlpha = 0.45 * alpha;
+      ctx.strokeStyle = s.color;
+      ctx.lineWidth = s.size * 5;
+      ctx.shadowColor = s.color;
+      ctx.shadowBlur = 12 * alpha;
+    } else if (s.tool === 'highlighter') {
+      ctx.globalAlpha = 0.3; ctx.strokeStyle = s.color; ctx.lineWidth = s.size * 4;
+    } else if (s.tool === 'eraser') {
+      ctx.globalCompositeOperation = 'destination-out'; ctx.strokeStyle = 'rgba(0,0,0,1)'; ctx.lineWidth = s.size * 5;
+    } else {
+      ctx.globalAlpha = 1; ctx.strokeStyle = s.color; ctx.lineWidth = s.size;
+    }
     ctx.beginPath(); ctx.moveTo(s.points[0].x, s.points[0].y);
     for (var i = 1; i < s.points.length; i++) {
       var a = s.points[i - 1], b = s.points[i];
       ctx.quadraticCurveTo(a.x, a.y, (a.x + b.x) / 2, (a.y + b.y) / 2);
     }
     ctx.stroke(); ctx.restore();
+  }
+
+  function startLaserFade() {
+    if (laserTimer) return;
+    laserTimer = setInterval(function() {
+      var now = Date.now();
+      var hadLaser = history.some(function(s) { return s.tool === 'laser'; });
+      history = history.filter(function(s) {
+        return s.tool !== 'laser' || (now - s.ts) < LASER_FADE_MS;
+      });
+      if (hadLaser) { redraw(); saveH(); }
+      if (!history.some(function(s) { return s.tool === 'laser'; })) {
+        clearInterval(laserTimer); laserTimer = null;
+      }
+    }, 200);
   }
 
   function getPos(e) {
@@ -149,7 +188,12 @@
   }
   function endDraw() {
     if (!drawing) return; drawing = false;
-    if (currentPath.length > 1) { history.push({ tool: tool, color: color, size: size, points: currentPath.slice() }); saveH(); }
+    if (currentPath.length > 1) {
+      var stroke = { tool: tool, color: color, size: size, points: currentPath.slice() };
+      if (tool === 'laser') { stroke.ts = Date.now(); startLaserFade(); }
+      history.push(stroke);
+      saveH();
+    }
     currentPath = [];
   }
 

@@ -210,6 +210,7 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
     <div class="draw-toolbar" id="drawToolbar">
       <button class="dt-btn active" data-tool="pen">✏️ Pen</button>
       <button class="dt-btn" data-tool="highlighter">🖍️ Highlight</button>
+      <button class="dt-btn" data-tool="laser">🔦 Laser</button>
       <button class="dt-btn" data-tool="eraser">⬜ Eraser</button>
       <span class="dt-sep"></span>
       <span class="dt-color active" data-color="#1f2937" style="background:#1f2937;"></span>
@@ -440,6 +441,8 @@ var drawTool = 'pen', drawColor = '#1f2937', drawSize = 3;
 var isDrawing = false, curPath = [];
 var SKEY = 'study_' + encodeURIComponent(chapterName);
 var strokes = [];
+var LASER_MS = 5000;
+var studyLaserTimer = null;
 
 // Load saved strokes
 try { var saved = localStorage.getItem(SKEY); if (saved) strokes = JSON.parse(saved); } catch(e) {}
@@ -480,14 +483,25 @@ function renderAll() {
   }
   ctx.setLineDash([]); ctx.restore();
   // Draw all strokes
-  strokes.forEach(function(s) { renderStroke(s); });
+  var now = Date.now();
+  strokes.forEach(function(s) { renderStroke(s, now); });
 }
 
-function renderStroke(s) {
+function renderStroke(s, now) {
   if (!s.points || s.points.length < 2) return;
+  var alpha = 1;
+  if (s.tool === 'laser' && s.ts && now) {
+    var age = now - s.ts;
+    if (age >= LASER_MS) return;
+    var fadeStart = LASER_MS * 0.6;
+    if (age > fadeStart) alpha = Math.max(0, 1 - (age - fadeStart) / (LASER_MS - fadeStart));
+  }
   ctx.save();
   ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-  if (s.tool === 'highlighter') { ctx.globalAlpha = 0.3; ctx.strokeStyle = s.color; ctx.lineWidth = s.size * 4; }
+  if (s.tool === 'laser') {
+    ctx.globalAlpha = 0.45 * alpha; ctx.strokeStyle = s.color;
+    ctx.lineWidth = s.size * 5; ctx.shadowColor = s.color; ctx.shadowBlur = 12 * alpha;
+  } else if (s.tool === 'highlighter') { ctx.globalAlpha = 0.3; ctx.strokeStyle = s.color; ctx.lineWidth = s.size * 4; }
   else if (s.tool === 'eraser') { ctx.globalCompositeOperation = 'destination-out'; ctx.strokeStyle = 'rgba(0,0,0,1)'; ctx.lineWidth = s.size * 5; }
   else { ctx.globalAlpha = 1; ctx.strokeStyle = s.color; ctx.lineWidth = s.size; }
   ctx.beginPath();
@@ -525,10 +539,24 @@ function onDrawMove(e) {
 function onDrawEnd() {
   if (!isDrawing) return; isDrawing = false;
   if (curPath.length > 1) {
-    strokes.push({ tool: drawTool, color: drawColor, size: drawSize, points: curPath.slice() });
+    var stroke = { tool: drawTool, color: drawColor, size: drawSize, points: curPath.slice() };
+    if (drawTool === 'laser') { stroke.ts = Date.now(); startStudyLaserFade(); }
+    strokes.push(stroke);
     saveStrokes();
   }
   curPath = [];
+}
+function startStudyLaserFade() {
+  if (studyLaserTimer) return;
+  studyLaserTimer = setInterval(function() {
+    var now = Date.now();
+    var had = strokes.some(function(s) { return s.tool === 'laser'; });
+    strokes = strokes.filter(function(s) { return s.tool !== 'laser' || (now - s.ts) < LASER_MS; });
+    if (had) { renderAll(); saveStrokes(); }
+    if (!strokes.some(function(s) { return s.tool === 'laser'; })) {
+      clearInterval(studyLaserTimer); studyLaserTimer = null;
+    }
+  }, 200);
 }
 
 canvas.addEventListener('mousedown', onDrawStart);
