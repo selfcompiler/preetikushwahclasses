@@ -513,10 +513,11 @@ tr:nth-child(even) td { background: var(--heat-bg); }
   border: 1.5px solid transparent;
 }
 .mcq-options li:hover { background: var(--heat-pale); border-color: var(--heat-light); }
-.mcq-options li.correct { background: var(--heat-pale) !important; border-color: var(--heat-mid); font-weight: 700; color: #7f1d1d; }
+.mcq-options li.correct { background: #d1fae5 !important; border-color: #22c55e; font-weight: 700; color: #14532d; }
+.mcq-options li.wrong { background: #fee2e2 !important; border-color: #ef4444; font-weight: 700; color: #991b1b; }
 .mcq-ans { font-size: 12.5px; color: #b91c1c; font-weight: 700; margin-top: 6px; display: none; }
 .mcq-item.show-ans .mcq-ans { display: block; }
-.mcq-item.show-ans .mcq-options li.correct { background: #fecaca !important; border-color: var(--heat-mid); }
+.mcq-item.show-ans .mcq-options li.correct { background: #d1fae5 !important; border-color: #22c55e; }
 
 .short-q-list { list-style: none; padding: 0; }
 .short-q-item {
@@ -2858,7 +2859,9 @@ reveals.forEach(function(el) { observer.observe(el); });
 document.querySelectorAll('.mcq-item').forEach(function(item) {
   item.querySelectorAll('.mcq-options li').forEach(function(opt) {
     opt.addEventListener('click', function() {
+      if (item.classList.contains('show-ans')) return;
       item.classList.add('show-ans');
+      if (!opt.classList.contains('correct')) opt.classList.add('wrong');
     });
   });
 });
@@ -3270,5 +3273,7 @@ function nativeShare() {
 </script>
 
 <script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
 </body>
 </html>

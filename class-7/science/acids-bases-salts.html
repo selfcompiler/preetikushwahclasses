@@ -808,6 +808,7 @@ table.indicator-table tr:nth-child(even) td { background: #f0fdf4; }
 }
 .mcq-options li:hover { background: #ede9fe; border-color: #a78bfa; }
 .mcq-options li.correct { background: #d1fae5 !important; border-color: #22c55e; font-weight: 700; color: #14532d; }
+.mcq-options li.wrong { background: #fee2e2 !important; border-color: #ef4444; font-weight: 700; color: #991b1b; }
 .mcq-ans { font-size: 12.5px; color: #16a34a; font-weight: 700; margin-top: 6px; display: none; }
 .mcq-item.show-ans .mcq-ans { display: block; }
 .mcq-item.show-ans .mcq-options li.correct::before { content: "correct "; }
@@ -3102,7 +3103,9 @@ reveals.forEach(el => observer.observe(el));
 document.querySelectorAll('.mcq-item').forEach(item => {
   item.querySelectorAll('.mcq-options li').forEach(opt => {
     opt.addEventListener('click', () => {
+      if (item.classList.contains('show-ans')) return;
       item.classList.add('show-ans');
+      if (!opt.classList.contains('correct')) opt.classList.add('wrong');
     });
   });
 });
@@ -3279,5 +3282,7 @@ function submitInterestForm(e) {
 </div>
 
 <script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
 </body>
 </html>

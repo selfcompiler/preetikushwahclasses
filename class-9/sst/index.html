@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 9 Social Science — Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Nunito', sans-serif; background: #fffbeb; color: #1f2937; line-height: 1.6; }
+.navbar { background: white; padding: 14px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-logo { width: 40px; height: 40px; background: linear-gradient(135deg, #d97706, #f59e0b); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Fredoka One', cursive; font-size: 18px; }
+.nav-title { font-weight: 800; font-size: 16px; color: #92400e; }
+.nav-back { text-decoration: none; background: #f3f4f6; color: #374151; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; transition: all 0.2s; }
+.nav-back:hover { background: #d97706; color: white; }
+.hero { background: linear-gradient(135deg, #92400e, #d97706, #f59e0b); padding: 40px 20px; text-align: center; color: white; }
+.hero .breadcrumb { font-size: 12px; opacity: 0.8; margin-bottom: 10px; }
+.hero .breadcrumb a { color: white; text-decoration: none; opacity: 0.7; }
+.hero .breadcrumb a:hover { opacity: 1; }
+.hero h1 { font-family: 'Fredoka One', cursive; font-size: clamp(28px, 5vw, 42px); margin-bottom: 6px; }
+.hero p { font-size: 14px; opacity: 0.85; }
+.container { max-width: 800px; margin: 0 auto; padding: 30px 20px; }
+.chapter-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.chapter-card { display: flex; align-items: center; gap: 16px; background: white; border-radius: 16px; padding: 18px 20px; box-shadow: 0 3px 14px rgba(0,0,0,0.06); transition: all 0.2s; text-decoration: none; color: inherit; border-left: 5px solid #f59e0b; }
+.chapter-card:hover { transform: translateX(6px); box-shadow: 0 6px 22px rgba(0,0,0,0.1); border-left-color: #d97706; }
+.chapter-card .ch-num { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'Fredoka One', cursive; font-size: 18px; color: white; flex-shrink: 0; }
+.chapter-card .ch-info { flex: 1; }
+.chapter-card .ch-title { font-size: 15px; font-weight: 800; color: #1f2937; }
+.chapter-card .ch-desc { font-size: 12px; color: #6b7280; margin-top: 2px; }
+.chapter-card .ch-badge { font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 8px; background: #fef3c7; color: #92400e; }
+.chapter-card .ch-arrow { font-size: 18px; color: #f59e0b; font-weight: 800; }
+.chapter-card.disabled { opacity: 0.45; pointer-events: none; border-left-color: #d1d5db; }
+.chapter-card.disabled .ch-badge { background: #f3f4f6; color: #9ca3af; }
+.ch-revolution { background: linear-gradient(135deg, #c2410c, #fb923c); }
+.ch-soon { background: #d1d5db; }
+footer { text-align: center; padding: 24px; background: #92400e; color: white; font-size: 13px; font-weight: 700; margin-top: 40px; }
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <div class="nav-logo">🌍</div>
+    <div class="nav-title">Class 9 &middot; Social Science</div>
+  </div>
+  <a href="../index.html" class="nav-back">&larr; Class 9</a>
+</nav>
+<section class="hero">
+  <div class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../index.html">Class 9</a> / Social Science</div>
+  <h1>🌍 Social Science Chapters</h1>
+  <p>Class 9 NCERT History &middot; 1 chapter available</p>
+</section>
+<style>
+.ch-actions{display:flex;gap:6px;flex-shrink:0;align-items:center;}
+.ch-study{
+  display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:10px;
+  background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;border:1.5px solid #fbbf24;
+  font-size:10px;font-weight:800;text-decoration:none;transition:all 0.2s;white-space:nowrap;
+}
+.ch-study:hover{background:#fde68a;transform:translateY(-1px);box-shadow:0 2px 8px rgba(245,158,11,0.2);}
+.ch-notes{
+  display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:10px;
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);color:#166534;border:1.5px solid #86efac;
+  font-size:10px;font-weight:800;text-decoration:none;transition:all 0.2s;white-space:nowrap;
+}
+.ch-notes:hover{background:#dcfce7;transform:translateY(-1px);box-shadow:0 2px 8px rgba(34,197,94,0.2);}
+@media(max-width:500px){.ch-actions{flex-direction:column;gap:4px;}.chapter-card{flex-wrap:wrap;}}
+</style>
+<div class="container">
+  <ul class="chapter-list">
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <a href="french-revolution.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+        <div class="ch-num" style="background:linear-gradient(135deg,#c2410c,#fb923c);">🏰</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 1: The French Revolution</div>
+          <div class="ch-desc">1789, Bastille, Republic, Napoleon, Rights of Man</div>
+        </div>
+      </a>
+      <div class="ch-actions">
+        <a href="french-revolution.html" class="ch-notes">📝 Notes &rarr;</a>
+      </div>
+    </li>
+    <div class="chapter-card disabled">
+      <div class="ch-num ch-soon">📚</div>
+      <div class="ch-info">
+        <div class="ch-title">More Chapters</div>
+        <div class="ch-desc">Additional social science chapters coming soon</div>
+      </div>
+      <span class="ch-badge">SOON</span>
+    </div>
+  </ul>
+</div>
+<footer>Preeti Kushwah Classes &middot; Quality Education for Every Student</footer>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
+</body>
+</html>

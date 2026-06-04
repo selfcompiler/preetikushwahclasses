@@ -420,48 +420,71 @@ body {
 
 /* ============ CONTACT CTA ============ */
 .cta-section {
-  background: linear-gradient(135deg, #1e1b4b, #4c1d95);
-  padding: 60px 20px;
+  background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 50%, #7c3aed 100%);
+  padding: 70px 20px;
   text-align: center;
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  width: 300px; height: 300px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+  top: -100px; right: -60px;
+}
+.cta-section::after {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+  bottom: -60px; left: -40px;
 }
 .cta-section h2 {
   font-family: 'Fredoka One', cursive;
-  font-size: 32px;
-  margin-bottom: 10px;
+  font-size: clamp(26px, 5vw, 36px);
+  margin-bottom: 12px;
+  position: relative; z-index: 2;
 }
 .cta-section p {
   font-size: 15px;
-  opacity: 0.85;
-  margin-bottom: 24px;
+  opacity: 0.9;
+  margin-bottom: 28px;
   max-width: 540px;
   margin-left: auto;
   margin-right: auto;
+  position: relative; z-index: 2;
 }
 .cta-buttons {
   display: flex;
   gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative; z-index: 2;
 }
 .btn {
   background: white;
   color: var(--primary-dark);
   text-decoration: none;
-  padding: 14px 26px;
-  border-radius: 30px;
-  font-family: 'Poppins', sans-serif;
+  padding: 16px 32px;
+  border-radius: 16px;
+  font-family: 'Nunito', sans-serif;
   font-weight: 800;
-  font-size: 14px;
-  transition: all 0.2s;
+  font-size: 15px;
+  transition: all 0.3s;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  gap: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  border: none;
+  cursor: pointer;
 }
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(0,0,0,0.3);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 .btn.whatsapp { background: #25d366; color: white; }
 .btn.call { background: var(--accent); color: white; }
@@ -496,44 +519,106 @@ footer .copyright {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(15,10,36,0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 300;
   align-items: center;
   justify-content: center;
+  animation: modalFadeIn 0.3s ease;
 }
+@keyframes modalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modalSlideUp { from { opacity: 0; transform: translateY(30px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
 .modal-overlay.active { display: flex; }
 .modal-box {
   background: white;
-  border-radius: 20px;
-  padding: 28px;
-  width: 90%;
-  max-width: 400px;
+  border-radius: 24px;
+  padding: 0;
+  width: 92%;
+  max-width: 420px;
   max-height: 90vh;
   overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(124,58,237,0.1);
+  animation: modalSlideUp 0.35s ease;
 }
-.modal-box h3 {
+.modal-header {
+  background: linear-gradient(135deg, #4c1d95, #7c3aed);
+  padding: 24px 28px 20px;
+  border-radius: 24px 24px 0 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.modal-header::after {
+  content: '';
+  position: absolute;
+  width: 160px; height: 160px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+  top: -60px; right: -40px;
+}
+.modal-header h3 {
   font-family: 'Fredoka One', cursive;
-  color: #7c3aed;
+  color: white;
+  font-size: 22px;
   margin-bottom: 4px;
+  position: relative; z-index: 2;
 }
-.cls-chip {
-  width: 48px; height: 48px;
-  border-radius: 14px;
+.modal-header p {
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+  font-weight: 600;
+  position: relative; z-index: 2;
+}
+.modal-body {
+  padding: 24px 28px 20px;
+}
+.form-input {
+  width: 100%;
+  padding: 13px 16px;
   border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  margin-bottom: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  background: #fafbff;
+}
+.form-input:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 3px rgba(167,139,250,0.15);
+  background: white;
+}
+.form-input::placeholder { color: #9ca3af; font-weight: 600; }
+.form-label {
+  font-size: 13px;
+  font-weight: 800;
+  color: #374151;
+  margin-bottom: 8px;
+  display: block;
+  text-align: left;
+}
+.form-group { margin-bottom: 14px; text-align: left; }
+.cls-chip {
+  width: 50px; height: 50px;
+  border-radius: 14px;
+  border: 2.5px solid #e5e7eb;
   background: #f9fafb;
   font-family: 'Fredoka One', cursive;
   font-size: 20px;
-  color: #6b7280;
+  color: #9ca3af;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.25s;
 }
-.cls-chip:hover { border-color: #a78bfa; background: #faf5ff; color: #7c3aed; }
+.cls-chip:hover { border-color: #c4b5fd; background: #faf5ff; color: #7c3aed; }
 .cls-chip.picked {
   background: linear-gradient(135deg, #7c3aed, #a78bfa);
   color: white;
   border-color: #7c3aed;
-  box-shadow: 0 4px 12px rgba(124,58,237,0.3);
-  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(124,58,237,0.35);
+  transform: scale(1.1);
 }
 .subj-chip, .mode-chip {
   display: inline-block;
@@ -541,29 +626,66 @@ footer .copyright {
 }
 .subj-chip span, .mode-chip span {
   display: inline-block;
-  padding: 8px 14px;
+  padding: 9px 16px;
   border-radius: 12px;
-  border: 2px solid #e5e7eb;
+  border: 2.5px solid #e5e7eb;
   background: #f9fafb;
   font-size: 13px;
   font-weight: 700;
-  color: #6b7280;
-  transition: all 0.2s;
+  color: #9ca3af;
+  transition: all 0.25s;
   user-select: none;
 }
-.subj-chip span:hover, .mode-chip span:hover { border-color: #a78bfa; background: #faf5ff; }
+.subj-chip span:hover, .mode-chip span:hover { border-color: #c4b5fd; background: #faf5ff; color: #7c3aed; }
 .subj-chip input:checked + span {
   background: linear-gradient(135deg, #7c3aed, #a78bfa);
   color: white;
   border-color: #7c3aed;
-  box-shadow: 0 2px 8px rgba(124,58,237,0.25);
+  box-shadow: 0 3px 10px rgba(124,58,237,0.3);
+  transform: scale(1.04);
 }
 .mode-chip input:checked + span {
   background: linear-gradient(135deg, #16a34a, #4ade80);
   color: white;
   border-color: #16a34a;
-  box-shadow: 0 2px 8px rgba(22,163,74,0.25);
+  box-shadow: 0 3px 10px rgba(22,163,74,0.3);
+  transform: scale(1.04);
 }
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.3s;
+  box-shadow: 0 4px 14px rgba(124,58,237,0.3);
+  letter-spacing: 0.5px;
+}
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124,58,237,0.4);
+}
+.submit-btn:active { transform: translateY(0); }
+.modal-close-btn {
+  width: 100%;
+  padding: 11px;
+  background: none;
+  border: 2px solid #f3f4f6;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  color: #9ca3af;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+.modal-close-btn:hover { background: #f9fafb; border-color: #e5e7eb; color: #6b7280; }
 
 .class-header { position: relative; }
 .chapter-count {
@@ -571,6 +693,7 @@ footer .copyright {
   background: rgba(255,255,255,0.3); padding: 2px 10px; border-radius: 10px;
   font-weight: 700; z-index: 2;
 }
+
 </style>
 </head>
 <body>
@@ -586,7 +709,7 @@ footer .copyright {
   </div>
   <div class="nav-cta">
     <a href="#classes">📖 <span>Classes</span></a>
-    <a href="#" onclick="openInterestForm();return false;" class="whatsapp" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">📝 <span>Show Interest</span></a>
+    <a href="#" onclick="openInterestForm();return false;" class="whatsapp" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#78350f;">✨ <span>Show Interest</span></a>
   </div>
 </nav>
 
@@ -663,17 +786,18 @@ footer .copyright {
         </div>
       </div>
 
-      <!-- CLASS 9 -->
-      <div class="class-card c9" style="cursor:default;opacity:0.6;">
+      <!-- CLASS 9 ⭐ -->
+      <a href="class-9/index.html" class="class-card c9" style="text-decoration:none;color:inherit;">
         <div class="class-header">
           <div class="class-num">9</div>
           <div class="class-label">CLASS 9 · NCERT</div>
-          <span class="chapter-count">Coming soon</span>
+          <span class="chapter-count">3 chapters</span>
         </div>
         <div class="class-body" style="padding:14px 20px;text-align:center;">
-          <p style="font-size:14px;font-weight:700;color:#6b7280;">Chapters coming soon</p>
+          <p style="font-size:14px;font-weight:700;color:#db2777;">1 SST + 2 Maths chapters live</p>
+          <p style="font-size:13px;color:#7c3aed;font-weight:700;margin-top:6px;">Tap to explore →</p>
         </div>
-      </div>
+      </a>
 
       <!-- CLASS 10 -->
       <div class="class-card c10" style="cursor:default;opacity:0.6;">
@@ -758,13 +882,14 @@ footer .copyright {
 
 <!-- ===== CTA ===== -->
 <section class="cta-section">
-  <h2>📞 Need Help or Have Questions?</h2>
-  <p>Want to join my tuition classes or have doubts? Reach out to me anytime — I'm always happy to help my students!</p>
+  <h2>🎓 Want to Join Preeti Kushwah Classes?</h2>
+  <p>Whether you need help with Science, Maths, SST, or English — fill the form below and Preeti Ma'am will personally get in touch with you!</p>
   <div class="cta-buttons">
-    <a href="#" onclick="openInterestForm();return false;" class="btn whatsapp" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">
-      📝 Show Interest — We'll Contact You!
+    <a href="#" onclick="openInterestForm();return false;" class="btn" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#78350f;font-size:16px;padding:18px 36px;">
+      ✨ Show Interest — Get a Callback!
     </a>
   </div>
+  <p style="font-size:12px;opacity:0.6;margin-top:16px;margin-bottom:0;">Free consultation · No commitment · Classes 6 to 10</p>
 </section>
 
 <!-- ===== FOOTER ===== -->
@@ -776,49 +901,59 @@ footer .copyright {
 
 <div class="modal-overlay" id="interestModal" onclick="if(event.target===this)closeInterestForm()">
   <div class="modal-box">
-    <h3>📝 Show Interest</h3>
-    <p style="font-size:13px;color:#6b7280;margin-bottom:16px;">Fill your details and Preeti Ma'am will contact you!</p>
-    <form id="interestForm" onsubmit="submitInterestForm(event)">
-      <input type="text" name="entry.43085631" placeholder="Student's Full Name *" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:'Nunito',sans-serif;">
-      <input type="tel" name="entry.1854993535" placeholder="Phone Number *" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:'Nunito',sans-serif;">
-      <input type="email" name="entry.248400848" placeholder="Email Address (optional)" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:8px;font-family:'Nunito',sans-serif;">
-      <input type="hidden" name="entry.2008437083" id="classInput" required>
-      <div style="text-align:left;margin-bottom:12px;">
-        <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:6px;">Select Class *</p>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;">
-          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 6')">6</button>
-          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 7')">7</button>
-          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 8')">8</button>
-          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 9')">9</button>
-          <button type="button" class="cls-chip" onclick="pickClass(this,'Class 10')">10</button>
-        </div>
-      </div>
-      <div style="text-align:left;margin-bottom:12px;">
-        <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:6px;">Subjects of Interest *</p>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;">
-          <label class="subj-chip"><input type="checkbox" name="entry.126377704" value="Science" hidden><span>🔬 Science</span></label>
-          <label class="subj-chip"><input type="checkbox" name="entry.126377704" value="Mathematics" hidden><span>🔢 Maths</span></label>
-          <label class="subj-chip"><input type="checkbox" name="entry.126377704" value="Social Science" hidden><span>🌍 SST</span></label>
-          <label class="subj-chip"><input type="checkbox" name="entry.126377704" value="English" hidden><span>📖 English</span></label>
-        </div>
-      </div>
-      <div style="text-align:left;margin-bottom:12px;">
-        <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:6px;">Preferred Mode</p>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;">
-          <label class="mode-chip"><input type="radio" name="entry.750677418" value="Online (Live or Recorded)" hidden><span>💻 Online</span></label>
-          <label class="mode-chip"><input type="radio" name="entry.750677418" value="Offline (In-person / Home Tuition)" hidden><span>🏠 Offline</span></label>
-          <label class="mode-chip"><input type="radio" name="entry.750677418" value="Both are okay" hidden><span>✅ Both</span></label>
-        </div>
-      </div>
-      <textarea name="entry.2062493229" placeholder="Any message or query? (optional)" rows="2" style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;margin-bottom:12px;font-family:'Nunito',sans-serif;resize:vertical;"></textarea>
-      <button type="submit" id="interestSubmitBtn" style="width:100%;padding:12px;background:linear-gradient(135deg,#7c3aed,#a78bfa);color:white;border:none;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;">Submit</button>
-    </form>
-    <div id="interestSuccess" style="display:none;text-align:center;padding:20px;">
-      <div style="font-size:48px;margin-bottom:12px;">✅</div>
-      <h4 style="color:#16a34a;font-size:18px;">Thank You!</h4>
-      <p style="font-size:14px;color:#6b7280;">Preeti Ma'am will contact you soon.</p>
+    <div class="modal-header">
+      <h3>✨ Show Interest</h3>
+      <p>Fill your details &amp; Preeti Ma'am will contact you!</p>
     </div>
-    <button onclick="closeInterestForm()" style="width:100%;padding:10px;background:none;border:1px solid #e5e7eb;border-radius:10px;font-size:14px;cursor:pointer;margin-top:10px;font-family:'Nunito',sans-serif;color:#6b7280;">✕ Close</button>
+    <div class="modal-body">
+      <form id="interestForm" onsubmit="submitInterestForm(event)">
+        <input type="text" name="entry.43085631" class="form-input" placeholder="Student's Full Name *" required>
+        <input type="tel" name="entry.1854993535" class="form-input" placeholder="Phone / WhatsApp Number *" required>
+        <input type="email" name="entry.248400848" class="form-input" placeholder="Email Address (optional)">
+        <input type="hidden" name="entry.2008437083" id="classInput" required>
+
+        <div class="form-group">
+          <span class="form-label">Select Class *</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="cls-chip" onclick="pickClass(this,'Class 6')">6</button>
+            <button type="button" class="cls-chip" onclick="pickClass(this,'Class 7')">7</button>
+            <button type="button" class="cls-chip" onclick="pickClass(this,'Class 8')">8</button>
+            <button type="button" class="cls-chip" onclick="pickClass(this,'Class 9')">9</button>
+            <button type="button" class="cls-chip" onclick="pickClass(this,'Class 10')">10</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="form-label">Subjects of Interest *</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <label class="subj-chip"><input type="checkbox" name="entry.126377704" value="Science" hidden><span>🔬 Science</span></label>
+            <label class="subj-chip"><input type="checkbox" name="entry.126377704" value="Mathematics" hidden><span>🔢 Maths</span></label>
+            <label class="subj-chip"><input type="checkbox" name="entry.126377704" value="Social Science" hidden><span>🌍 SST</span></label>
+            <label class="subj-chip"><input type="checkbox" name="entry.126377704" value="English" hidden><span>📖 English</span></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="form-label">Preferred Mode</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <label class="mode-chip"><input type="radio" name="entry.750677418" value="Online (Live or Recorded)" hidden><span>💻 Online</span></label>
+            <label class="mode-chip"><input type="radio" name="entry.750677418" value="Offline (In-person / Home Tuition)" hidden><span>🏠 Offline</span></label>
+            <label class="mode-chip"><input type="radio" name="entry.750677418" value="Both are okay" hidden><span>✅ Both OK</span></label>
+          </div>
+        </div>
+
+        <textarea name="entry.2062493229" class="form-input" placeholder="Any message or query? (optional)" rows="2" style="resize:vertical;"></textarea>
+        <button type="submit" id="interestSubmitBtn" class="submit-btn">🚀 Submit &amp; Get Callback</button>
+      </form>
+
+      <div id="interestSuccess" style="display:none;text-align:center;padding:30px 10px;">
+        <div style="width:70px;height:70px;background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:36px;box-shadow:0 4px 14px rgba(34,197,94,0.2);">✅</div>
+        <h4 style="font-family:'Fredoka One',cursive;color:#16a34a;font-size:20px;margin-bottom:6px;">Thank You!</h4>
+        <p style="font-size:14px;color:#6b7280;line-height:1.5;">Your interest has been submitted.<br>Preeti Ma'am will contact you soon! 🎉</p>
+      </div>
+
+      <button onclick="closeInterestForm()" class="modal-close-btn">✕ Close</button>
+    </div>
   </div>
 </div>
 
@@ -865,5 +1000,8 @@ function submitInterestForm(e) {
 }
 </script>
 
+<script src="draw-widget.js"></script>
+<script src="ga.js"></script>
+<script src="whatsapp-widget.js"></script>
 </body>
 </html>
