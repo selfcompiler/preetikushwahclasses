@@ -42,9 +42,9 @@
     '.dw-hl-fab:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(245,158,11,0.5);}',
     '.dw-hl-fab.active{background:linear-gradient(135deg,#dc2626,#f87171);color:white;animation:dwHlPulse 1.5s ease-in-out infinite;}',
     '@keyframes dwHlPulse{0%,100%{box-shadow:0 4px 14px rgba(220,38,38,0.3);}50%{box-shadow:0 4px 20px rgba(220,38,38,0.6);}}',
-    '.dw-page-overlay{position:fixed;inset:0;z-index:9990;pointer-events:none;display:none;}',
+    '.dw-page-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9990;pointer-events:none;display:none;}',
     '.dw-page-overlay.active{display:block;pointer-events:auto;cursor:crosshair;}',
-    '.dw-page-overlay canvas{position:absolute;top:0;left:0;}',
+    '.dw-page-overlay canvas{display:block;width:100%;height:100%;}',
     '.dw-hl-bar{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:9995;display:none;background:white;border-radius:14px;padding:6px 10px;box-shadow:0 4px 20px rgba(0,0,0,0.2);border:2px solid #f59e0b;gap:4px;align-items:center;}',
     '.dw-hl-bar.active{display:flex;}',
     '.dw-hl-bar .dw-tbtn,.dw-hl-bar .dw-color{margin:0;}',
@@ -85,8 +85,8 @@
 
   function resizePageCanvas() {
     var dpr = window.devicePixelRatio || 1;
-    var w = document.documentElement.scrollWidth;
-    var h = document.documentElement.scrollHeight;
+    var w = window.innerWidth;
+    var h = window.innerHeight;
     pgCanvas.width = w * dpr; pgCanvas.height = h * dpr;
     pgCanvas.style.width = w + 'px'; pgCanvas.style.height = h + 'px';
     pgCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -132,7 +132,7 @@
 
   function getPgPos(e) {
     var t = e.touches ? e.touches[0] : e;
-    return { x: t.pageX, y: t.pageY };
+    return { x: t.clientX, y: t.clientY };
   }
 
   pgCanvas.addEventListener('mousedown', function(e) { e.preventDefault(); pgDrawing = true; pgCurPath = [getPgPos(e)]; });
@@ -198,7 +198,6 @@
     }
   });
 
-  window.addEventListener('scroll', function() { if (hlOn) resizePageCanvas(); });
   window.addEventListener('resize', function() { if (hlOn) resizePageCanvas(); });
 
   // === DRAWING BOARD (existing fab) ===
