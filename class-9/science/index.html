@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Class 9 Science — Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Nunito', sans-serif; background: #f0fdf4; color: #1f2937; line-height: 1.6; }
+.navbar { background: white; padding: 14px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-logo { width: 40px; height: 40px; background: linear-gradient(135deg, #16a34a, #22c55e); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Fredoka One', cursive; font-size: 18px; }
+.nav-title { font-weight: 800; font-size: 16px; color: #166534; }
+.nav-back { text-decoration: none; background: #f3f4f6; color: #374151; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; transition: all 0.2s; }
+.nav-back:hover { background: #16a34a; color: white; }
+.hero { background: linear-gradient(135deg, #166534, #16a34a, #22c55e); padding: 40px 20px; text-align: center; color: white; }
+.hero .breadcrumb { font-size: 12px; opacity: 0.8; margin-bottom: 10px; }
+.hero .breadcrumb a { color: white; text-decoration: none; opacity: 0.7; }
+.hero .breadcrumb a:hover { opacity: 1; }
+.hero h1 { font-family: 'Fredoka One', cursive; font-size: clamp(28px, 5vw, 42px); margin-bottom: 6px; }
+.hero p { font-size: 14px; opacity: 0.85; }
+.container { max-width: 800px; margin: 0 auto; padding: 30px 20px; }
+.chapter-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.chapter-card { display: flex; align-items: center; gap: 16px; background: white; border-radius: 16px; padding: 18px 20px; box-shadow: 0 3px 14px rgba(0,0,0,0.06); transition: all 0.2s; text-decoration: none; color: inherit; border-left: 5px solid #22c55e; }
+.chapter-card:hover { transform: translateX(6px); box-shadow: 0 6px 22px rgba(0,0,0,0.1); border-left-color: #16a34a; }
+.chapter-card .ch-num { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'Fredoka One', cursive; font-size: 18px; color: white; flex-shrink: 0; }
+.chapter-card .ch-info { flex: 1; }
+.chapter-card .ch-title { font-size: 15px; font-weight: 800; color: #1f2937; }
+.chapter-card .ch-desc { font-size: 12px; color: #6b7280; margin-top: 2px; }
+.chapter-card .ch-badge { font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 8px; background: #dcfce7; color: #166534; }
+.chapter-card .ch-arrow { font-size: 18px; color: #22c55e; font-weight: 800; }
+.chapter-card.disabled { opacity: 0.45; pointer-events: none; border-left-color: #d1d5db; }
+.chapter-card.disabled .ch-badge { background: #f3f4f6; color: #9ca3af; }
+.ch-explore { background: linear-gradient(135deg, #0f766e, #14b8a6); }
+.ch-cell { background: linear-gradient(135deg, #166534, #22c55e); }
+.ch-tissue { background: linear-gradient(135deg, #9d174d, #ec4899); }
+.ch-motion { background: linear-gradient(135deg, #1e40af, #3b82f6); }
+.ch-mixture { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+.ch-force { background: linear-gradient(135deg, #b91c1c, #f87171); }
+.ch-work { background: linear-gradient(135deg, #b45309, #f59e0b); }
+.ch-atom { background: linear-gradient(135deg, #4338ca, #818cf8); }
+.ch-atomic { background: linear-gradient(135deg, #0369a1, #38bdf8); }
+.ch-sound { background: linear-gradient(135deg, #a21caf, #e879f9); }
+.ch-repro { background: linear-gradient(135deg, #15803d, #4ade80); }
+.ch-diversity { background: linear-gradient(135deg, #c2410c, #fb923c); }
+.ch-earth { background: linear-gradient(135deg, #1e3a5f, #64748b); }
+.ch-soon { background: #d1d5db; }
+.ch-actions{display:flex;gap:6px;flex-shrink:0;align-items:center;}
+.ch-study{
+  display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:10px;
+  background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;border:1.5px solid #fbbf24;
+  font-size:10px;font-weight:800;text-decoration:none;transition:all 0.2s;white-space:nowrap;
+}
+.ch-study:hover{background:#fde68a;transform:translateY(-1px);box-shadow:0 2px 8px rgba(245,158,11,0.2);}
+.ch-notes{
+  display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:10px;
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);color:#166534;border:1.5px solid #86efac;
+  font-size:10px;font-weight:800;text-decoration:none;transition:all 0.2s;white-space:nowrap;
+}
+.ch-notes:hover{background:#dcfce7;transform:translateY(-1px);box-shadow:0 2px 8px rgba(34,197,94,0.2);}
+.ch-pdf{
+  display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:10px;
+  background:linear-gradient(135deg,#fef2f2,#fecaca);color:#991b1b;border:1.5px solid #fca5a5;
+  font-size:10px;font-weight:800;text-decoration:none;transition:all 0.2s;white-space:nowrap;
+}
+.ch-pdf:hover{background:#fecaca;transform:translateY(-1px);box-shadow:0 2px 8px rgba(239,68,68,0.2);}
+@media(max-width:500px){.ch-actions{flex-direction:column;gap:4px;}.chapter-card{flex-wrap:wrap;}}
+footer { text-align: center; padding: 24px; background: #166534; color: white; font-size: 13px; font-weight: 700; margin-top: 40px; }
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <div class="nav-logo">&#128300;</div>
+    <div class="nav-title">Class 9 &middot; Science</div>
+  </div>
+  <a href="../index.html" class="nav-back">&larr; Class 9</a>
+</nav>
+<section class="hero">
+  <div class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../index.html">Class 9</a> / Science</div>
+  <h1>&#128300; Science Chapters</h1>
+  <p>Class 9 NCERT Science (New Syllabus 2026) &middot; 13 chapters &middot; Animated Notes &amp; PDFs</p>
+</section>
+<div class="container">
+  <ul class="chapter-list">
+
+    <!-- Ch 1: Exploration -->
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <a href="exploration-entering-world-of-secondary-science.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+        <div class="ch-num ch-explore">&#128270;</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 1: Exploration &#8211; Entering the World of Secondary Science</div>
+          <div class="ch-desc">Scientific models, estimation, SI units, laws vs theories, predictions</div>
+        </div>
+      </a>
+      <div class="ch-actions">
+        <a href="exploration-entering-world-of-secondary-science.html" class="ch-notes">&#128221; Notes &rarr;</a>
+        <a href="../../pdfs/class-9/iesc101.pdf" class="ch-pdf" target="_blank">&#128196; PDF</a>
+      </div>
+    </li>
+
+    <!-- Ch 2: Cell -->
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <div class="ch-num ch-cell">&#128300;</div>
+      <div class="ch-info">
+        <div class="ch-title">Ch 2: Cell &#8211; The Building Block of Life</div>
+        <div class="ch-desc">Cell structure, organelles, prokaryotic &amp; eukaryotic cells</div>
+      </div>
+      <div class="ch-actions">
+        <a href="../../pdfs/class-9/iesc102.pdf" class="ch-pdf" target="_blank">&#128196; PDF</a>
+      </div>
+    </li>
+
+    <!-- Ch 3: Tissues -->
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <div class="ch-num ch-tissue">&#129516;</div>
+      <div class="ch-info">
+        <div class="ch-title">Ch 3: Tissues in Action</div>
+        <div class="ch-desc">Plant &amp; animal tissues, types, structure and function</div>
+      </div>
+      <div class="ch-actions">
+        <a href="../../pdfs/class-9/iesc103.pdf" class="ch-pdf" target="_blank">&#128196; PDF</a>
+      </div>
+    </li>
+
+    <!-- Ch 4: Motion -->
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <a href="describing-motion-around-us.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+        <div class="ch-num ch-motion">&#128663;</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 4: Describing Motion Around Us</div>
+          <div class="ch-desc">Distance, displacement, speed, velocity, acceleration, graphs</div>
+        </div>
+      </a>
+      <div class="ch-actions">
+        <a href="describing-motion-around-us.html" class="ch-notes">&#128221; Notes &rarr;</a>
+        <a href="../../pdfs/class-9/iesc104.pdf" class="ch-pdf" target="_blank">&#128196; PDF</a>
+      </div>
+    </li>
+
+    <!-- Ch 5: Mixtures -->
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <a href="exploring-mixtures-and-their-separation.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+        <div class="ch-num ch-mixture">&#129514;</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 5: Exploring Mixtures and their Separation</div>
+          <div class="ch-desc">Mixtures, solutions, separation techniques, pure substances</div>
+        </div>
+      </a>
+      <div class="ch-actions">
+        <a href="exploring-mixtures-and-their-separation.html" class="ch-notes">&#128221; Notes &rarr;</a>
+        <a href="../../pdfs/class-9/iesc105.pdf" class="ch-pdf" target="_blank">&#128196; PDF</a>
+      </div>
+    </li>
+
+    <!-- Ch 6: Forces -->
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <a href="how-forces-affect-motion.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+        <div class="ch-num ch-force">&#128170;</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 6: How Forces Affect Motion</div>
+          <div class="ch-desc">Newton's laws, inertia, momentum, force and acceleration</div>
+        </div>
+      </a>
+      <div class="ch-actions">
+        <a href="how-forces-affect-motion.html" class="ch-notes">&#128221; Notes &rarr;</a>
+        <a href="../../pdfs/class-9/iesc106.pdf" class="ch-pdf" target="_blank">&#128196; PDF</a>
+      </div>
+    </li>
+
+    <!-- Ch 7: Work & Energy -->
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <a href="work-energy-and-simple-machines.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+        <div class="ch-num ch-work">&#9889;</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 7: Work, Energy, and Simple Machines</div>
+          <div class="ch-desc">Work, kinetic &amp; potential energy, power, simple machines</div>
+        </div>
+      </a>
+      <div class="ch-actions">
+        <a href="work-energy-and-simple-machines.html" class="ch-notes">&#128221; Notes &rarr;</a>
+        <a href="../../pdfs/class-9/iesc107.pdf" class="ch-pdf" target="_blank">&#128196; PDF</a>
+      </div>
+    </li>
+
+    <!-- Ch 8: Atom -->
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <a href="journey-inside-the-atom.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+        <div class="ch-num ch-atom">&#9883;&#65039;</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 8: Journey Inside the Atom</div>
+          <div class="ch-desc">Subatomic particles, atomic models, electrons, protons, neutrons</div>
+        </div>
+      </a>
+      <div class="ch-actions">
+        <a href="journey-inside-the-atom.html" class="ch-notes">&#128221; Notes &rarr;</a>
+        <a href="../../pdfs/class-9/iesc108.pdf" class="ch-pdf" target="_blank">&#128196; PDF</a>
+      </div>
+    </li>
+
+    <!-- Ch 9: Atomic Foundations -->
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <div class="ch-num ch-atomic">&#128302;</div>
+      <div class="ch-info">
+        <div class="ch-title">Ch 9: Atomic Foundations of Matter</div>
+        <div class="ch-desc">Atomic number, mass number, isotopes, ions, molecules</div>
+      </div>
+      <div class="ch-actions">
+        <a href="../../pdfs/class-9/iesc109.pdf" class="ch-pdf" target="_blank">&#128196; PDF</a>
+      </div>
+    </li>
+
+    <!-- Ch 10: Sound -->
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <div class="ch-num ch-sound">&#128266;</div>
+      <div class="ch-info">
+        <div class="ch-title">Ch 10: Sound Waves &#8211; Characteristics and Applications</div>
+        <div class="ch-desc">Sound production, propagation, speed, echo, ultrasound</div>
+      </div>
+      <div class="ch-actions">
+        <a href="../../pdfs/class-9/iesc110.pdf" class="ch-pdf" target="_blank">&#128196; PDF</a>
+      </div>
+    </li>
+
+    <!-- Ch 11: Reproduction -->
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <div class="ch-num ch-repro">&#127793;</div>
+      <div class="ch-info">
+        <div class="ch-title">Ch 11: Reproduction &#8211; How Life Continues</div>
+        <div class="ch-desc">Modes of reproduction, asexual, sexual, plant &amp; animal reproduction</div>
+      </div>
+      <div class="ch-actions">
+        <a href="../../pdfs/class-9/iesc111.pdf" class="ch-pdf" target="_blank">&#128196; PDF</a>
+      </div>
+    </li>
+
+    <!-- Ch 12: Diversity -->
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <div class="ch-num ch-diversity">&#127807;</div>
+      <div class="ch-info">
+        <div class="ch-title">Ch 12: Patterns in Life &#8211; Diversity and Classification</div>
+        <div class="ch-desc">Biodiversity, classification of organisms, five kingdoms</div>
+      </div>
+      <div class="ch-actions">
+        <a href="../../pdfs/class-9/iesc112.pdf" class="ch-pdf" target="_blank">&#128196; PDF</a>
+      </div>
+    </li>
+
+    <!-- Ch 13: Earth -->
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <div class="ch-num ch-earth">&#127758;</div>
+      <div class="ch-info">
+        <div class="ch-title">Ch 13: Earth as a System &#8211; Energy, Matter, and Life</div>
+        <div class="ch-desc">Earth's atmosphere, climate, monsoon, natural resources, ecosystems</div>
+      </div>
+      <div class="ch-actions">
+        <a href="../../pdfs/class-9/iesc113.pdf" class="ch-pdf" target="_blank">&#128196; PDF</a>
+      </div>
+    </li>
+
+  </ul>
+</div>
+<footer>Preeti Kushwah Classes &middot; Quality Education for Every Student</footer>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../chapter-features.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
+</body>
+</html>

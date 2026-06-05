@@ -1,0 +1,2618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Work, Energy, and Simple Machines &#8212; Complete Animated Notes | Class 9</title>
+<meta name="description" content="Class 9 Science Chapter 7 - Work, Energy, and Simple Machines. Complete animated notes with work done, kinetic energy, potential energy, conservation of energy, power, simple machines, MCQs. Preeti Kushwah Classes. New NCERT 2026.">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --explore-dark: #166534;
+  --explore-mid: #22c55e;
+  --explore-light: #86efac;
+  --explore-pale: #f0fdf4;
+  --bg: #f0fdf4;
+  --text: #1c1c2e;
+  --card: #ffffff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.6; }
+
+/* ============= TOP NAV BAR ============= */
+.top-nav {
+  background: white; padding: 8px 12px; display: flex; align-items: center; gap: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); flex-wrap: nowrap; position: sticky; top: 0; z-index: 110; overflow-x: auto;
+}
+.tn-home {
+  display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);color:#166534;
+  text-decoration:none;padding:7px 14px;border-radius:12px;font-size:12px;font-weight:800;border:1.5px solid #86efac;
+  transition:all 0.2s;white-space:nowrap;font-family:'Nunito',sans-serif;
+}
+.tn-home:hover{background:#dcfce7;transform:translateY(-1px);box-shadow:0 2px 8px rgba(34,197,94,0.15);}
+.tn-prev,.tn-next{
+  display:inline-flex;align-items:center;gap:4px;text-decoration:none;padding:7px 12px;border-radius:12px;
+  font-size:11px;font-weight:700;border:1.5px solid;transition:all 0.2s;white-space:nowrap;font-family:'Nunito',sans-serif;
+}
+.tn-prev{background:linear-gradient(135deg,#eff6ff,#dbeafe);color:#2563eb;border-color:#93c5fd;}
+.tn-prev:hover{background:#dbeafe;transform:translateY(-1px);}
+.tn-next{background:linear-gradient(135deg,#f0fdf4,#dcfce7);color:#16a34a;border-color:#86efac;}
+.tn-next:hover{background:#dcfce7;transform:translateY(-1px);}
+.tn-disabled{opacity:0.35;pointer-events:none;background:#f9fafb;color:#9ca3af;border-color:#e5e7eb;}
+.nav-spacer{flex:1;min-width:4px;}
+.tn-share{
+  display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;
+  padding:7px 12px;border-radius:12px;border:1.5px solid #fbbf24;font-size:11px;font-weight:800;cursor:pointer;
+  transition:all 0.2s;white-space:nowrap;font-family:'Nunito',sans-serif;
+}
+.tn-share:hover{background:#fde68a;transform:translateY(-1px);}
+
+/* ============= NAV TOC ============= */
+.toc-bar {
+  background: linear-gradient(135deg, #166534, #22c55e);
+  padding: 12px 16px; position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2); overflow-x: auto; white-space: nowrap;
+}
+.toc-bar a {
+  display: inline-block; background: rgba(255,255,255,0.15); color: white; text-decoration: none;
+  padding: 6px 14px; border-radius: 18px; font-size: 13px; font-weight: 700; margin-right: 6px; transition: all 0.2s;
+}
+.toc-bar a:hover { background: rgba(255,255,255,0.35); transform: translateY(-2px); }
+
+/* ============= HERO ============= */
+.hero {
+  background: linear-gradient(180deg, #052e16 0%, #166534 30%, #22c55e 60%, #dcfce7 100%);
+  position: relative; overflow: hidden; min-height: 460px; padding-bottom: 30px;
+}
+.cloud { position: absolute; background: white; border-radius: 50px; opacity: 0.2; }
+.cloud::before, .cloud::after { content: ''; position: absolute; background: white; border-radius: 50%; }
+.cloud1 { width:120px;height:40px;top:40px;left:5%;animation:floatCloud 18s linear infinite; }
+.cloud1::before { width:60px;height:60px;top:-30px;left:20px; }
+.cloud1::after  { width:40px;height:40px;top:-18px;left:60px; }
+.cloud2 { width:90px;height:30px;top:70px;left:60%;animation:floatCloud 24s linear infinite; }
+.cloud2::before { width:45px;height:45px;top:-22px;left:15px; }
+.cloud2::after  { width:30px;height:30px;top:-14px;left:48px; }
+.cloud3 { width:70px;height:24px;top:30px;right:10%;animation:floatCloud 20s linear infinite reverse; }
+.cloud3::before { width:36px;height:36px;top:-18px;left:10px; }
+.cloud3::after  { width:24px;height:24px;top:-10px;left:38px; }
+@keyframes floatCloud { 0%,100%{transform:translateX(0)} 50%{transform:translateX(40px)} }
+
+.hero-content { position: relative; z-index: 10; text-align: center; padding: 36px 16px 0; }
+.hero-badge {
+  display: inline-block; background: rgba(255,255,255,0.3); border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 30px; padding: 5px 18px; font-size: 11px; font-weight: 800; letter-spacing: 2px;
+  color: white; text-transform: uppercase; margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: 'Fredoka One', cursive; font-size: clamp(22px, 5vw, 42px); color: white;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.3); margin-bottom: 6px; line-height: 1.15;
+}
+.hero p { color: rgba(255,255,255,0.9); font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+
+/* Hero orbit scene */
+.hero-scene { position: relative; width: 100%; max-width: 500px; margin: 0 auto; height: 220px; }
+.orbit-center {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 80px; height: 80px; background: rgba(255,255,255,0.2); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 38px;
+  border: 3px solid rgba(255,255,255,0.4); animation: pulse 3s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{transform:translate(-50%,-50%) scale(1)} 50%{transform:translate(-50%,-50%) scale(1.08)} }
+.orbit-item {
+  position: absolute; width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 22px; border: 2px solid rgba(255,255,255,0.3);
+}
+.orbit-item:nth-child(2) { top: 8%; left: 18%; animation: orbitFloat 4s ease-in-out infinite; }
+.orbit-item:nth-child(3) { top: 5%; right: 18%; animation: orbitFloat 4s ease-in-out 0.7s infinite; }
+.orbit-item:nth-child(4) { bottom: 12%; left: 12%; animation: orbitFloat 4s ease-in-out 1.4s infinite; }
+.orbit-item:nth-child(5) { bottom: 8%; right: 12%; animation: orbitFloat 4s ease-in-out 2.1s infinite; }
+.orbit-item:nth-child(6) { top: 50%; left: 3%; transform: translateY(-50%); animation: orbitFloat 4s ease-in-out 0.5s infinite; }
+.orbit-item:nth-child(7) { top: 50%; right: 3%; transform: translateY(-50%); animation: orbitFloat 4s ease-in-out 1.8s infinite; }
+@keyframes orbitFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+.hero-table { position: absolute; bottom: 0; left: 0; right: 0; height: 50px; background: linear-gradient(180deg, rgba(5,46,22,0), #dcfce7); }
+
+/* ============= CONTAINER ============= */
+.container { max-width: 1000px; margin: 0 auto; padding: 36px 16px 60px; }
+
+/* ============= SECTION BLOCKS ============= */
+.section-block { background: white; border-radius: 22px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin-bottom: 36px; overflow: hidden; scroll-margin-top: 80px; }
+.section-hd { padding: 22px 28px; display: flex; align-items: center; gap: 14px; color: white; font-family: 'Fredoka One', cursive; font-size: 24px; line-height: 1.2; }
+.section-hd .icon { font-size: 32px; }
+.section-bd { padding: 28px; }
+.section-bd > p { margin-bottom: 14px; }
+
+.g-teal   { background: linear-gradient(135deg, #0f766e, #2dd4bf); }
+.g-blue   { background: linear-gradient(135deg, #1e40af, #38bdf8); }
+.g-green  { background: linear-gradient(135deg, #166534, #22c55e); }
+.g-purple { background: linear-gradient(135deg, #5b21b6, #a78bfa); }
+.g-red    { background: linear-gradient(135deg, #991b1b, #f87171); }
+.g-amber  { background: linear-gradient(135deg, #78350f, #f59e0b); }
+.g-indigo { background: linear-gradient(135deg, #312e81, #818cf8); }
+.g-slate  { background: linear-gradient(135deg, #1e293b, #64748b); }
+.g-cyan   { background: linear-gradient(135deg, #164e63, #06b6d4); }
+.g-rose   { background: linear-gradient(135deg, #881337, #fb7185); }
+.g-orange { background: linear-gradient(135deg, #9a3412, #fb923c); }
+.g-pink   { background: linear-gradient(135deg, #9d174d, #ec4899); }
+
+.subtitle { font-family: 'Fredoka One', cursive; color: var(--explore-dark); font-size: 20px; margin: 22px 0 12px; display: flex; align-items: center; gap: 8px; }
+
+/* ============= KEY TERM PILL ============= */
+.kt { display: inline-block; background: #fde047; color: #713f12; border-radius: 7px; padding: 1px 9px; font-weight: 800; font-size: 13px; margin: 0 2px; }
+
+/* ============= INFO CARDS ============= */
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 16px 0; }
+.info-card { border-radius: 14px; padding: 16px 18px; font-size: 14px; }
+.info-card h4 { font-weight: 800; margin-bottom: 6px; font-size: 15px; }
+.info-card ul { padding-left: 18px; margin-top: 4px; }
+.info-card li { margin-bottom: 3px; }
+.ic-green  { background: #f0fdf4; border-left: 5px solid #22c55e; }
+.ic-blue   { background: #eff6ff; border-left: 5px solid #3b82f6; }
+.ic-orange { background: #fff7ed; border-left: 5px solid #fb923c; }
+.ic-purple { background: #faf5ff; border-left: 5px solid #a78bfa; }
+.ic-red    { background: #fef2f2; border-left: 5px solid #f87171; }
+.ic-yellow { background: #fefce8; border-left: 5px solid #facc15; }
+.ic-pink   { background: #fdf2f8; border-left: 5px solid #ec4899; }
+.ic-teal   { background: #f0fdfa; border-left: 5px solid #14b8a6; }
+.ic-indigo { background: #eef2ff; border-left: 5px solid #818cf8; }
+.ic-amber  { background: #fffbeb; border-left: 5px solid #f59e0b; }
+.ic-cyan   { background: #ecfeff; border-left: 5px solid #06b6d4; }
+
+/* ============= TABLES ============= */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 14px 0; min-width: 480px; }
+th { background: #166534; color: white; padding: 12px 14px; text-align: left; font-weight: 800; font-size: 13px; }
+td { padding: 11px 14px; border-bottom: 1px solid #bbf7d0; font-size: 13.5px; }
+tr:nth-child(even) td { background: #f0fdf4; }
+
+/* ============= TRICK / NOTE / EXAMPLE ============= */
+.trick { background: linear-gradient(135deg, #fef9c3, #fde68a); border: 2px solid #f59e0b; border-radius: 14px; padding: 14px 18px; font-size: 14px; margin: 16px 0; }
+.trick strong { color: #78350f; }
+.note-box { background: #ecfeff; border-left: 5px solid #06b6d4; border-radius: 10px; padding: 12px 16px; margin: 14px 0; font-size: 14px; }
+.example-box { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 2px solid #86efac; border-radius: 14px; padding: 18px; margin: 16px 0; font-size: 14px; }
+.example-box .ex-title { font-family: 'Fredoka One', cursive; font-size: 15px; color: #166534; margin-bottom: 8px; }
+.ncert-tag { display: inline-block; background: #fef3c7; color: #92400e; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 800; margin-bottom: 12px; }
+
+/* ============= FORMULA BOX ============= */
+.formula-box {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 2px solid #86efac;
+  border-radius: 16px; padding: 20px; margin: 16px 0; text-align: center;
+}
+.formula-box .formula-title { font-family: 'Fredoka One', cursive; font-size: 16px; color: #166534; margin-bottom: 10px; }
+.formula-big { font-size: 22px; font-weight: 900; color: #166534; margin: 8px 0; font-family: 'Nunito', sans-serif; }
+.formula-note { font-size: 13px; color: #374151; margin-top: 6px; }
+
+/* ============= ANIMATED MODEL SCENE ============= */
+.model-anim {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 2px dashed #22c55e;
+  border-radius: 18px; padding: 24px 16px; margin: 20px 0; text-align: center; overflow: hidden;
+}
+.model-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin: 16px 0; }
+.model-card {
+  background: white; border-radius: 16px; padding: 16px; width: 150px; text-align: center;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.08); border-bottom: 4px solid; transition: all 0.3s;
+}
+.model-card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+.model-card .mc-icon { font-size: 32px; margin-bottom: 6px; }
+.model-card h5 { font-size: 12px; font-weight: 800; margin-bottom: 4px; }
+.model-card p { font-size: 11px; color: #6b7280; }
+
+/* ============= ENERGY CARDS ============= */
+.energy-cards { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin: 16px 0; }
+.energy-card {
+  border-radius: 18px; padding: 20px 16px; min-width: 170px; max-width: 230px; flex: 1;
+  text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.1); transition: all 0.3s;
+}
+.energy-card:hover { transform: translateY(-6px); box-shadow: 0 8px 28px rgba(0,0,0,0.15); }
+.energy-card .energy-icon { font-size: 38px; margin-bottom: 8px; }
+.energy-card h4 { font-family: 'Fredoka One', cursive; font-size: 16px; margin-bottom: 4px; }
+.energy-card p { font-size: 12px; line-height: 1.4; }
+.energy-kinetic { background: linear-gradient(135deg, #dbeafe, #bfdbfe); color: #1e3a8a; border: 2px solid #93c5fd; }
+.energy-potential { background: linear-gradient(135deg, #dcfce7, #bbf7d0); color: #14532d; border: 2px solid #86efac; }
+.energy-mechanical { background: linear-gradient(135deg, #fce7f3, #fbcfe8); color: #831843; border: 2px solid #f9a8d4; }
+.energy-thermal { background: linear-gradient(135deg, #fff7ed, #fed7aa); color: #7c2d12; border: 2px solid #fdba74; }
+
+/* ============= ESTIMATION BOX ============= */
+.est-box {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 2px solid #93c5fd;
+  border-radius: 16px; padding: 20px; margin: 16px 0; font-size: 14px;
+}
+.est-box .est-title { font-family: 'Fredoka One', cursive; font-size: 16px; color: #1e40af; margin-bottom: 10px; }
+.est-step { background: white; border-radius: 10px; padding: 10px 14px; margin-bottom: 8px; font-size: 13px; border-left: 4px solid #3b82f6; }
+
+/* Pause & Ponder cards */
+.ponder-card {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border: 2px solid #93c5fd;
+  border-radius: 16px;
+  padding: 18px;
+  margin: 14px 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ponder-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(59,130,246,0.15); }
+.ponder-card .ponder-label {
+  display: inline-block;
+  background: #3b82f6;
+  color: white;
+  padding: 2px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.ponder-card .ponder-q { font-size: 14px; font-weight: 700; color: #1e40af; }
+.ponder-card .ponder-hint {
+  font-size: 13px;
+  color: #374151;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #93c5fd;
+  display: none;
+}
+.ponder-card.show-hint .ponder-hint { display: block; animation: chipPop 0.3s ease; }
+.ponder-card .tap-text { font-size: 11px; color: #6b7280; margin-top: 6px; }
+@keyframes chipPop { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* Fun facts */
+.fun-fact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 16px 0; }
+.fun-fact-card { background: linear-gradient(135deg, #fef9c3, #fef3c7); border: 2px solid #fbbf24; border-radius: 14px; padding: 16px 18px; font-size: 14px; }
+.fun-fact-card h4 { font-weight: 800; font-size: 15px; color: #92400e; margin-bottom: 6px; }
+
+/* ============= MCQ ============= */
+.mcq-list { list-style: none; padding: 0; }
+.mcq-item { background: white; border-radius: 14px; padding: 16px 18px; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-left: 5px solid #22c55e; }
+.mcq-q { font-weight: 700; font-size: 14.5px; margin-bottom: 10px; color: #166534; }
+.mcq-options { list-style: none; padding-left: 0; }
+.mcq-options li { background: #f0fdf4; border-radius: 8px; padding: 7px 12px; margin-bottom: 5px; font-size: 13.5px; cursor: pointer; transition: all 0.2s; border: 1.5px solid transparent; }
+.mcq-options li:hover { background: #dcfce7; border-color: #86efac; }
+.mcq-options li.correct { background: #d1fae5 !important; border-color: #22c55e; font-weight: 700; color: #14532d; }
+.mcq-options li.wrong { background: #fee2e2 !important; border-color: #ef4444; font-weight: 700; color: #991b1b; }
+.mcq-ans { font-size: 12.5px; color: #16a34a; font-weight: 700; margin-top: 6px; display: none; }
+.mcq-item.show-ans .mcq-ans { display: block; }
+
+/* Short Q, Long Q, FIB, TF */
+.short-q-list { list-style: none; padding: 0; }
+.short-q-item { background: white; border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-left: 5px solid #3b82f6; }
+.short-q { font-weight: 700; font-size: 14px; color: #1e40af; margin-bottom: 6px; }
+.short-a { font-size: 13.5px; color: #374151; }
+.short-a strong { color: #166534; }
+.long-q-item { background: white; border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-left: 5px solid #f59e0b; }
+.long-q { font-weight: 700; font-size: 14px; color: #92400e; margin-bottom: 6px; }
+.long-a { font-size: 13.5px; color: #374151; }
+.long-a strong { color: #166534; }
+.fib-item { background: white; border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-left: 5px solid #22c55e; cursor: pointer; }
+.fib-q { font-weight: 700; font-size: 14px; color: #166534; margin-bottom: 6px; }
+.fib-a { font-size: 13.5px; color: #374151; display: none; }
+.fib-item.show-ans .fib-a { display: block; }
+.tf-item { background: white; border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-left: 5px solid #ec4899; cursor: pointer; }
+.tf-q { font-weight: 700; font-size: 14px; color: #9d174d; margin-bottom: 6px; }
+.tf-a { font-size: 13.5px; color: #374151; display: none; }
+.tf-item.show-ans .tf-a { display: block; }
+
+/* ============= INTERACTIVE ACTIVITIES ============= */
+.activity-block {
+  background: white; border-radius: 16px; padding: 24px; margin: 20px 0;
+  box-shadow: 0 4px 16px rgba(22,101,52,0.08); border: 2px solid #86efac;
+}
+.activity-block h3 {
+  font-family: 'Fredoka One', cursive; color: #166534; font-size: 18px; margin-bottom: 12px;
+}
+.activity-block .act-tag {
+  display: inline-block; background: #fef3c7; color: #92400e;
+  padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 800; margin-bottom: 12px;
+}
+.activity-block label {
+  display: block; font-size: 13px; font-weight: 700; color: #14532d; margin-bottom: 4px; margin-top: 10px;
+}
+.activity-block input[type="number"],
+.activity-block input[type="range"] {
+  width: 100%; max-width: 280px; padding: 8px 14px; border: 2px solid #bbf7d0;
+  border-radius: 10px; font-size: 14px; font-family: 'Nunito', sans-serif;
+  font-weight: 700; background: white; outline: none; transition: border-color 0.2s;
+}
+.activity-block input[type="number"]:focus { border-color: #22c55e; }
+.activity-block input[type="range"] { padding: 4px 0; border: none; max-width: 320px; accent-color: #22c55e; }
+.activity-block .calc-btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px;
+  border-radius: 12px; border: none; background: linear-gradient(135deg, #166534, #22c55e);
+  color: white; font-size: 14px; font-weight: 800; cursor: pointer;
+  font-family: 'Nunito', sans-serif; margin-top: 14px; transition: all 0.2s;
+}
+.activity-block .calc-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(22,197,94,0.3); }
+.activity-block .calc-result {
+  margin-top: 14px; padding: 14px 18px; border-radius: 12px;
+  background: #f0fdf4; border: 2px solid #86efac; font-size: 14px; display: none;
+}
+.activity-block .calc-result.show { display: block; animation: chipPop 0.3s ease; }
+
+/* Energy bars */
+.energy-bars {
+  display: flex; gap: 20px; justify-content: center; align-items: flex-end;
+  height: 150px; margin: 16px 0; padding: 16px; background: #f0fdf4; border-radius: 12px;
+}
+.energy-bar {
+  width: 60px; border-radius: 8px 8px 0 0; transition: height 0.5s ease; text-align: center;
+  display: flex; flex-direction: column; justify-content: flex-end; align-items: center; min-height: 4px;
+}
+.energy-bar.ke { background: linear-gradient(to top, #f97316, #fbbf24); }
+.energy-bar.pe { background: linear-gradient(to top, #3b82f6, #60a5fa); }
+.energy-bar-label { font-size: 11px; font-weight: 800; margin-top: 4px; }
+.energy-bar-value { font-size: 10px; font-weight: 700; color: white; padding: 2px 4px; }
+
+/* Tabs for KE/PE */
+.energy-tabs { display: flex; gap: 0; margin-bottom: 16px; }
+.energy-tab {
+  padding: 8px 20px; font-size: 13px; font-weight: 800; cursor: pointer;
+  border: 2px solid #86efac; background: #f0fdf4; color: #166534; transition: all 0.2s;
+  font-family: 'Nunito', sans-serif;
+}
+.energy-tab:first-child { border-radius: 10px 0 0 10px; }
+.energy-tab:last-child { border-radius: 0 10px 10px 0; }
+.energy-tab.active { background: linear-gradient(135deg, #166534, #22c55e); color: white; }
+.energy-tab-content { display: none; }
+.energy-tab-content.active { display: block; }
+
+/* Pendulum */
+.pendulum-container {
+  width: 220px; height: 220px; margin: 20px auto; position: relative;
+}
+.pendulum-pivot {
+  position: absolute; top: 0; left: 50%; width: 12px; height: 12px;
+  background: #374151; border-radius: 50%; transform: translateX(-50%); z-index: 2;
+}
+.pendulum-arm {
+  position: absolute; top: 6px; left: 50%; width: 2px; height: 140px;
+  background: #374151; transform-origin: top center;
+  animation: pendulumSwing 2s ease-in-out infinite;
+}
+.pendulum-bob {
+  width: 30px; height: 30px; background: #22c55e; border-radius: 50%;
+  position: absolute; bottom: -15px; left: -14px;
+  box-shadow: 0 3px 10px rgba(34,197,94,0.4);
+}
+@keyframes pendulumSwing {
+  0%, 100% { transform: rotate(30deg); }
+  50% { transform: rotate(-30deg); }
+}
+.pendulum-energy-bars {
+  display: flex; gap: 12px; justify-content: center; margin-top: 8px;
+}
+.pend-bar-wrap {
+  text-align: center; width: 60px;
+}
+.pend-bar-track {
+  width: 40px; height: 100px; background: #e5e7eb; border-radius: 8px;
+  margin: 0 auto; position: relative; overflow: hidden;
+}
+.pend-bar-fill {
+  position: absolute; bottom: 0; left: 0; right: 0; border-radius: 0 0 8px 8px;
+  transition: height 0.15s ease;
+}
+.pend-bar-fill.pe-fill { background: linear-gradient(to top, #3b82f6, #60a5fa); }
+.pend-bar-fill.ke-fill { background: linear-gradient(to top, #f97316, #fbbf24); }
+.pend-bar-label { font-size: 11px; font-weight: 800; margin-top: 4px; }
+
+/* Lever */
+.lever-visual {
+  position: relative; height: 140px; margin: 20px 0; overflow: hidden;
+}
+.lever-beam {
+  width: 90%; height: 8px; background: linear-gradient(90deg, #166534, #22c55e);
+  border-radius: 4px; position: absolute; top: 50%; left: 5%;
+  transform-origin: center; transition: transform 0.5s ease;
+}
+.lever-fulcrum {
+  width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent;
+  border-bottom: 30px solid #22c55e; position: absolute; bottom: 18px; left: 50%;
+  transform: translateX(-50%); filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+.lever-weight {
+  position: absolute; top: calc(50% - 28px); width: 24px; height: 24px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 900; color: white; transition: all 0.5s;
+}
+.lever-weight.left-w { background: #3b82f6; }
+.lever-weight.right-w { background: #f97316; }
+.lever-controls {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px;
+}
+.lever-side {
+  background: #f0fdf4; border-radius: 12px; padding: 12px; text-align: center;
+}
+.lever-side h4 { font-size: 13px; font-weight: 800; margin-bottom: 8px; }
+.lever-side .lever-row { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 6px 0; }
+.lever-btn {
+  width: 30px; height: 30px; border-radius: 50%; border: 2px solid #86efac;
+  background: white; color: #166534; font-size: 16px; font-weight: 900;
+  cursor: pointer; transition: all 0.2s; font-family: 'Nunito', sans-serif;
+}
+.lever-btn:hover { background: #dcfce7; transform: scale(1.1); }
+.lever-val { font-size: 15px; font-weight: 900; min-width: 28px; text-align: center; }
+.lever-status {
+  text-align: center; margin-top: 12px; padding: 10px; border-radius: 10px;
+  font-weight: 800; font-size: 14px; transition: all 0.3s;
+}
+.lever-status.balanced { background: #d1fae5; color: #065f46; border: 2px solid #22c55e; }
+.lever-status.unbalanced { background: #fef9c3; color: #78350f; border: 2px solid #fbbf24; }
+
+/* Inclined plane */
+.ramp-visual {
+  position: relative; width: 100%; max-width: 360px; height: 180px;
+  margin: 16px auto; background: #f0fdf4; border-radius: 12px; overflow: hidden;
+}
+.ramp-surface {
+  position: absolute; bottom: 20px; left: 20px; right: 20px;
+  height: 4px; background: #166534; transform-origin: bottom left;
+}
+.ramp-ground {
+  position: absolute; bottom: 20px; left: 20px; right: 20px; height: 4px; background: #9ca3af;
+}
+.ramp-height-line {
+  position: absolute; right: 20px; bottom: 20px; width: 2px; background: #3b82f6;
+  border-left: 2px dashed #3b82f6;
+}
+.ramp-block {
+  position: absolute; width: 24px; height: 24px; background: #f97316; border-radius: 4px;
+  transition: all 1.5s ease;
+}
+.ramp-block.sliding {
+  animation: slideUp 1.5s ease-in-out forwards;
+}
+@keyframes slideUp {
+  0% { left: 30px; bottom: 26px; }
+  100% { left: calc(100% - 50px); bottom: calc(100% - 30px); }
+}
+.ramp-label {
+  position: absolute; font-size: 10px; font-weight: 800; color: #374151;
+}
+
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Bottom nav */
+.bottom-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 30px 0; }
+.bottom-nav-card { display: flex; align-items: center; gap: 12px; background: white; border-radius: 16px; padding: 18px 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); text-decoration: none; color: var(--text); transition: all 0.2s; }
+.bottom-nav-card:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.12); }
+.bottom-nav-card .nav-icon { font-size: 28px; }
+.bottom-nav-card .nav-text h4 { font-family: 'Fredoka One', cursive; font-size: 14px; margin-bottom: 2px; }
+.bottom-nav-card .nav-text p { font-size: 12px; color: #6b7280; }
+.bottom-nav-card.prev { border-left: 4px solid #22c55e; }
+.bottom-nav-card.next { border-right: 4px solid #16a34a; text-align: right; justify-content: flex-end; }
+.bottom-nav-card.disabled { opacity: 0.4; pointer-events: none; }
+.bottom-nav-full { grid-column: 1 / -1; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.bottom-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 14px; font-weight: 800; font-size: 14px; text-decoration: none; color: white; transition: all 0.2s; }
+.bottom-btn:hover { transform: translateY(-2px); }
+.bottom-btn.home-btn { background: linear-gradient(135deg, #166534, #22c55e); }
+.bottom-btn.wa-btn { background: linear-gradient(135deg, #166534, #22c55e); }
+
+/* Share */
+.float-share-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; background: linear-gradient(135deg, #166534, #22c55e); border-radius: 50%; border: none; color: white; font-size: 22px; cursor: pointer; box-shadow: 0 4px 16px rgba(22,101,52,0.4); z-index: 90; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+.float-share-btn:hover { transform: scale(1.1); }
+.share-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; justify-content: center; align-items: center; }
+.share-overlay.active { display: flex; }
+.share-popup { background: white; border-radius: 22px; padding: 28px; max-width: 360px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.2); text-align: center; }
+.share-popup h3 { font-family: 'Fredoka One', cursive; color: #166534; font-size: 20px; margin-bottom: 16px; }
+.share-btn-row { display: flex; flex-direction: column; gap: 10px; }
+.share-action-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 16px; border-radius: 12px; border: none; font-size: 14px; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; color: white; transition: all 0.2s; }
+.share-action-btn:hover { transform: translateY(-2px); }
+.share-wa { background: #25d366; }
+.share-copy { background: #3b82f6; }
+.share-native { background: #22c55e; }
+.share-close-btn { margin-top: 14px; background: #e2e8f0; color: #475569; border: none; padding: 8px 20px; border-radius: 10px; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; }
+
+footer { text-align: center; padding: 30px 16px; background: linear-gradient(135deg, #166534, #22c55e); color: white; font-size: 14px; font-weight: 700; }
+
+@media (max-width: 600px) {
+  .section-bd { padding: 18px; }
+  .section-hd { padding: 16px 20px; font-size: 19px; }
+  .bottom-nav { grid-template-columns: 1fr; }
+  .energy-card { min-width: 140px; }
+  .anim-incline-compare { flex-direction: column; }
+  .anim-incline-side { min-width: 0; }
+}
+
+/* ============================================= */
+/* ====  ANIMATED VISUAL SCENES (CSS ONLY)  ==== */
+/* ============================================= */
+
+/* ---------- SHARED ---------- */
+.anim-scene {
+  position: relative; border-radius: 18px; overflow: hidden;
+  margin: 24px 0; box-shadow: 0 6px 32px rgba(0,0,0,0.25);
+}
+.anim-scene-title {
+  font-family: 'Fredoka One', cursive; font-size: 16px; text-align: center;
+  padding: 14px 12px 6px; color: #86efac; letter-spacing: 0.5px;
+}
+
+/* ========== 1. ROLLER COASTER ========== */
+.anim-coaster {
+  background: linear-gradient(180deg, #0a0a1a 0%, #0f172a 100%);
+  height: 370px;
+}
+/* track */
+.coaster-track {
+  position: absolute; bottom: 90px; left: 0; right: 0; height: 160px;
+}
+.coaster-track svg { width: 100%; height: 100%; }
+.coaster-track path {
+  fill: none; stroke: url(#neonGrad); stroke-width: 3;
+  filter: drop-shadow(0 0 6px #22c55e);
+}
+/* ball on track */
+.coaster-ball {
+  position: absolute; width: 20px; height: 20px;
+  background: radial-gradient(circle at 35% 35%, #86efac, #166534);
+  border-radius: 50%; box-shadow: 0 0 12px #22c55e, 0 0 24px rgba(34,197,94,0.4);
+  offset-path: path('M0,120 C60,120 80,20 160,20 C240,20 260,140 340,140 C420,140 440,50 520,50 C600,50 620,130 700,130');
+  animation: coasterMove 5s ease-in-out infinite;
+}
+@keyframes coasterMove {
+  0%   { offset-distance: 0%; }
+  100% { offset-distance: 100%; }
+}
+/* energy bars */
+.coaster-bars {
+  position: absolute; bottom: 12px; left: 0; right: 0;
+  display: flex; justify-content: center; gap: 14px; align-items: flex-end; height: 70px;
+  padding: 0 20px;
+}
+.coaster-bar-wrap { text-align: center; width: 56px; }
+.coaster-bar-track {
+  width: 36px; height: 56px; background: rgba(255,255,255,0.08);
+  border-radius: 6px; margin: 0 auto; position: relative; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.coaster-bar-fill {
+  position: absolute; bottom: 0; left: 0; right: 0; border-radius: 0 0 6px 6px;
+}
+.coaster-bar-fill.c-pe {
+  background: linear-gradient(to top, #3b82f6, #60a5fa);
+  animation: coasterPE 5s ease-in-out infinite;
+}
+.coaster-bar-fill.c-ke {
+  background: linear-gradient(to top, #f97316, #fbbf24);
+  animation: coasterKE 5s ease-in-out infinite;
+}
+.coaster-bar-fill.c-total {
+  background: linear-gradient(to top, #22c55e, #86efac);
+  height: 100%;
+}
+.coaster-bar-lbl {
+  font-size: 10px; font-weight: 800; margin-top: 3px;
+}
+@keyframes coasterPE {
+  0%  { height: 90%; }
+  20% { height: 10%; }
+  40% { height: 85%; }
+  60% { height: 15%; }
+  80% { height: 75%; }
+  100%{ height: 90%; }
+}
+@keyframes coasterKE {
+  0%  { height: 10%; }
+  20% { height: 90%; }
+  40% { height: 15%; }
+  60% { height: 85%; }
+  80% { height: 25%; }
+  100%{ height: 10%; }
+}
+
+/* ========== 2. BALL DROP INTO SAND ========== */
+.anim-balldrop {
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 60%, #92702a 85%, #78590d 100%);
+  height: 380px;
+}
+/* height marker */
+.bd-height-line {
+  position: absolute; left: 18%; top: 60px; bottom: 120px;
+  width: 2px; border-left: 2px dashed rgba(134,239,172,0.5);
+}
+.bd-height-label {
+  position: absolute; left: calc(18% - 30px); top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  font-size: 11px; font-weight: 800; color: #86efac; letter-spacing: 1px;
+}
+/* ball */
+.bd-ball {
+  position: absolute; left: 40%; width: 30px; height: 30px;
+  background: radial-gradient(circle at 35% 35%, #86efac, #166534);
+  border-radius: 50%; box-shadow: 0 0 14px rgba(34,197,94,0.6);
+  animation: ballDrop 3.5s ease-in infinite;
+}
+@keyframes ballDrop {
+  0%   { top: 55px;  transform: scale(1); }
+  10%  { top: 55px;  transform: scale(1); }
+  55%  { top: calc(100% - 150px); transform: scale(1); }
+  60%  { top: calc(100% - 142px); transform: scale(1.15, 0.85); }
+  65%  { top: calc(100% - 142px); transform: scale(1); }
+  100% { top: calc(100% - 142px); transform: scale(1); opacity: 0.5; }
+}
+/* sand surface */
+.bd-sand {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+  background: linear-gradient(180deg, #b8860b, #8B6914);
+  border-top: 3px solid #d4a843;
+}
+/* sand depression */
+.bd-depression {
+  position: absolute; bottom: 86px; left: calc(40% - 5px); width: 40px; height: 20px;
+  border-radius: 0 0 50% 50%; background: #7a5c10;
+  opacity: 0; animation: depressionForm 3.5s ease-in infinite;
+}
+@keyframes depressionForm {
+  0%, 55% { opacity: 0; transform: scaleY(0); }
+  65%     { opacity: 1; transform: scaleY(1); }
+  100%    { opacity: 1; transform: scaleY(1); }
+}
+/* sand particles */
+.bd-particle {
+  position: absolute; width: 5px; height: 5px; border-radius: 50%;
+  background: #d4a843; opacity: 0;
+}
+.bd-particle:nth-child(1) { left: calc(40% + 5px); bottom: 120px; animation: sandSplash1 3.5s ease-out infinite; }
+.bd-particle:nth-child(2) { left: calc(40% + 18px); bottom: 120px; animation: sandSplash2 3.5s ease-out infinite; }
+.bd-particle:nth-child(3) { left: calc(40% - 5px); bottom: 120px; animation: sandSplash3 3.5s ease-out infinite; }
+.bd-particle:nth-child(4) { left: calc(40% + 25px); bottom: 120px; animation: sandSplash4 3.5s ease-out infinite; }
+.bd-particle:nth-child(5) { left: calc(40% - 12px); bottom: 120px; animation: sandSplash5 3.5s ease-out infinite; }
+.bd-particle:nth-child(6) { left: calc(40% + 30px); bottom: 120px; animation: sandSplash6 3.5s ease-out infinite; }
+@keyframes sandSplash1 { 0%,55%{opacity:0;transform:translate(0,0)} 60%{opacity:1} 80%{opacity:0;transform:translate(-20px,-40px)} 100%{opacity:0} }
+@keyframes sandSplash2 { 0%,55%{opacity:0;transform:translate(0,0)} 60%{opacity:1} 80%{opacity:0;transform:translate(15px,-50px)} 100%{opacity:0} }
+@keyframes sandSplash3 { 0%,55%{opacity:0;transform:translate(0,0)} 60%{opacity:1} 80%{opacity:0;transform:translate(-30px,-30px)} 100%{opacity:0} }
+@keyframes sandSplash4 { 0%,55%{opacity:0;transform:translate(0,0)} 60%{opacity:1} 80%{opacity:0;transform:translate(25px,-35px)} 100%{opacity:0} }
+@keyframes sandSplash5 { 0%,55%{opacity:0;transform:translate(0,0)} 60%{opacity:1} 80%{opacity:0;transform:translate(-35px,-45px)} 100%{opacity:0} }
+@keyframes sandSplash6 { 0%,55%{opacity:0;transform:translate(0,0)} 60%{opacity:1} 80%{opacity:0;transform:translate(30px,-25px)} 100%{opacity:0} }
+/* energy labels */
+.bd-energy-labels {
+  position: absolute; right: 14px; top: 0; bottom: 0;
+  display: flex; flex-direction: column; justify-content: center; gap: 6px;
+  width: 80px;
+}
+.bd-e-label {
+  font-size: 11px; font-weight: 800; padding: 5px 8px;
+  border-radius: 8px; text-align: center; letter-spacing: 0.5px;
+}
+.bd-e-pe { background: rgba(59,130,246,0.2); color: #93c5fd; animation: bdPEpulse 3.5s ease-in-out infinite; }
+.bd-e-ke { background: rgba(249,115,22,0.2); color: #fdba74; animation: bdKEpulse 3.5s ease-in-out infinite; }
+.bd-e-work { background: rgba(34,197,94,0.2); color: #86efac; animation: bdWorkPulse 3.5s ease-in-out infinite; }
+@keyframes bdPEpulse { 0%,10%{opacity:1;transform:scale(1.1)} 55%{opacity:0.3;transform:scale(0.9)} 100%{opacity:0.3} }
+@keyframes bdKEpulse { 0%,10%{opacity:0.3;transform:scale(0.9)} 55%{opacity:1;transform:scale(1.1)} 65%{opacity:0.3} 100%{opacity:0.3} }
+@keyframes bdWorkPulse { 0%,55%{opacity:0.3;transform:scale(0.9)} 65%{opacity:1;transform:scale(1.1)} 100%{opacity:1} }
+
+/* ========== 3. ANIMATED PENDULUM ========== */
+.anim-pendulum {
+  background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3e 100%);
+  height: 370px; display: flex; align-items: center; justify-content: center; gap: 30px;
+  flex-wrap: wrap; padding: 40px 16px 16px;
+}
+.ap-stage { position: relative; width: 220px; height: 240px; }
+/* dashed arc */
+.ap-arc {
+  position: absolute; top: 8px; left: 50%; width: 300px; height: 300px;
+  margin-left: -150px;
+  border: 2px dashed rgba(134,239,172,0.18); border-radius: 50%;
+  clip-path: polygon(15% 60%, 85% 60%, 85% 100%, 15% 100%);
+}
+.ap-pivot {
+  position: absolute; top: 8px; left: 50%; width: 14px; height: 14px;
+  background: #86efac; border-radius: 50%; transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(134,239,172,0.5); z-index: 2;
+}
+.ap-arm {
+  position: absolute; top: 15px; left: 50%; width: 2px; height: 160px;
+  background: linear-gradient(to bottom, #86efac, rgba(134,239,172,0.3));
+  transform-origin: top center;
+  animation: apSwing 2.6s ease-in-out infinite;
+}
+.ap-bob {
+  position: absolute; bottom: -18px; left: -18px; width: 38px; height: 38px;
+  background: radial-gradient(circle at 35% 35%, #86efac, #166534);
+  border-radius: 50%; box-shadow: 0 0 18px rgba(34,197,94,0.6), 0 0 40px rgba(34,197,94,0.2);
+}
+@keyframes apSwing {
+  0%, 100% { transform: rotate(35deg); }
+  50%      { transform: rotate(-35deg); }
+}
+/* bars */
+.ap-bars {
+  display: flex; gap: 18px; align-items: flex-end; height: 200px;
+}
+.ap-bar-col { text-align: center; width: 52px; }
+.ap-bar-track {
+  width: 38px; height: 160px; background: rgba(255,255,255,0.06);
+  border-radius: 8px; margin: 0 auto; position: relative; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.ap-bar-fill {
+  position: absolute; bottom: 0; left: 0; right: 0; border-radius: 0 0 8px 8px;
+}
+.ap-bar-fill.ap-pe {
+  background: linear-gradient(to top, #3b82f6, #93c5fd);
+  box-shadow: 0 0 10px rgba(59,130,246,0.4);
+  animation: apPEbar 2.6s ease-in-out infinite;
+}
+.ap-bar-fill.ap-ke {
+  background: linear-gradient(to top, #f97316, #fbbf24);
+  box-shadow: 0 0 10px rgba(249,115,22,0.4);
+  animation: apKEbar 2.6s ease-in-out infinite;
+}
+.ap-bar-lbl { font-size: 11px; font-weight: 800; margin-top: 5px; }
+@keyframes apPEbar {
+  0%, 100% { height: 95%; }
+  50%      { height: 5%; }
+}
+@keyframes apKEbar {
+  0%, 100% { height: 5%; }
+  50%      { height: 95%; }
+}
+
+/* ========== 4. ANIMATED LEVER / SEESAW ========== */
+.anim-lever {
+  background: linear-gradient(180deg, #0a0a1a 0%, #1a1a2e 100%);
+  height: 320px; padding: 30px 16px 16px;
+}
+.al-stage { position: relative; width: 100%; max-width: 460px; height: 200px; margin: 0 auto; }
+/* fulcrum triangle */
+.al-fulcrum {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 22px solid transparent; border-right: 22px solid transparent;
+  border-bottom: 34px solid #22c55e;
+  filter: drop-shadow(0 0 8px rgba(34,197,94,0.5));
+}
+/* beam */
+.al-beam {
+  position: absolute; bottom: 62px; left: 10%; right: 10%; height: 8px;
+  background: linear-gradient(90deg, #86efac, #22c55e, #86efac);
+  border-radius: 4px; transform-origin: center center;
+  animation: alRock 3s ease-in-out infinite;
+  box-shadow: 0 0 12px rgba(34,197,94,0.3);
+}
+@keyframes alRock {
+  0%, 100% { transform: rotate(-8deg); }
+  50%      { transform: rotate(8deg); }
+}
+/* effort (small weight) right side */
+.al-effort {
+  position: absolute; right: 10%; bottom: 70px; width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 900; color: white;
+  animation: alEffortMove 3s ease-in-out infinite;
+}
+.al-effort-box {
+  width: 28px; height: 28px; background: linear-gradient(135deg, #f97316, #fbbf24);
+  border-radius: 6px; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 10px rgba(249,115,22,0.5);
+}
+.al-effort-label {
+  position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
+  font-size: 9px; font-weight: 800; color: #fbbf24; white-space: nowrap;
+}
+@keyframes alEffortMove {
+  0%, 100% { transform: translateY(18px); }
+  50%      { transform: translateY(-18px); }
+}
+/* load (big weight) left side */
+.al-load {
+  position: absolute; left: 10%; bottom: 70px; width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  animation: alLoadMove 3s ease-in-out infinite;
+}
+.al-load-box {
+  width: 44px; height: 44px; background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 900; color: white;
+  box-shadow: 0 0 12px rgba(59,130,246,0.5);
+}
+.al-load-label {
+  position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
+  font-size: 9px; font-weight: 800; color: #93c5fd; white-space: nowrap;
+}
+@keyframes alLoadMove {
+  0%, 100% { transform: translateY(-18px); }
+  50%      { transform: translateY(18px); }
+}
+/* MA badge */
+.al-ma-badge {
+  position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
+  background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.4);
+  border-radius: 10px; padding: 4px 14px; font-size: 11px; font-weight: 800; color: #86efac;
+  white-space: nowrap;
+}
+/* arm labels */
+.al-arm-label {
+  position: absolute; bottom: 48px; font-size: 9px; font-weight: 700;
+  color: rgba(255,255,255,0.5); text-align: center;
+}
+.al-arm-label.left-arm  { left: 28%; }
+.al-arm-label.right-arm { right: 28%; }
+
+/* ========== 5. INCLINED PLANE COMPARISON ========== */
+.anim-incline-compare {
+  display: flex; gap: 14px; margin: 24px 0;
+}
+.anim-incline-side {
+  flex: 1; min-width: 180px; border-radius: 18px; overflow: hidden;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.25); position: relative; height: 320px;
+}
+/* scene A - lift straight up */
+.ai-lift {
+  background: linear-gradient(180deg, #1a0a0a 0%, #2d1010 100%);
+}
+.ai-lift-ground {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 40px;
+  background: linear-gradient(180deg, #4a2020, #3a1515);
+  border-top: 2px solid rgba(239,68,68,0.3);
+}
+/* person (stick figure) */
+.ai-person-lift {
+  position: absolute; bottom: 42px; left: 30%;
+}
+.ai-person-body {
+  width: 3px; height: 36px; background: rgba(255,255,255,0.7); margin: 0 auto;
+}
+.ai-person-head {
+  width: 14px; height: 14px; background: rgba(255,255,255,0.7);
+  border-radius: 50%; margin: 0 auto 2px;
+}
+.ai-person-legs {
+  width: 20px; height: 18px; position: relative; margin: 0 auto;
+}
+.ai-person-legs::before, .ai-person-legs::after {
+  content: ''; position: absolute; width: 3px; height: 18px;
+  background: rgba(255,255,255,0.7); bottom: 0;
+}
+.ai-person-legs::before { left: 3px; transform: rotate(10deg); }
+.ai-person-legs::after { right: 3px; transform: rotate(-10deg); }
+.ai-person-arms {
+  width: 24px; height: 3px; background: rgba(255,255,255,0.7);
+  position: absolute; top: 20px; left: 50%; transform: translateX(-50%) rotate(-70deg);
+}
+/* box going up (lift) */
+.ai-box-lift {
+  position: absolute; left: calc(30% + 3px); width: 30px; height: 30px;
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  border-radius: 5px; box-shadow: 0 0 10px rgba(239,68,68,0.4);
+  animation: aiLiftBox 4s ease-in-out infinite;
+}
+@keyframes aiLiftBox {
+  0%, 10% { bottom: 80px; }
+  45%     { bottom: 220px; }
+  55%, 100% { bottom: 220px; opacity: 0.7; }
+}
+/* effort arrows (red) */
+.ai-arrow-lift {
+  position: absolute; left: calc(30% + 36px); width: 3px;
+  background: #ef4444; animation: aiLiftArrow 4s ease-in-out infinite;
+}
+.ai-arrow-lift::after {
+  content: ''; position: absolute; top: -6px; left: -4px;
+  border-left: 5.5px solid transparent; border-right: 5.5px solid transparent;
+  border-bottom: 8px solid #ef4444;
+}
+.ai-arrow-lift:nth-of-type(1) { height: 40px; animation-delay: 0s; }
+.ai-arrow-lift:nth-of-type(2) { height: 32px; left: calc(30% + 42px); animation-delay: 0.3s; }
+@keyframes aiLiftArrow {
+  0%, 10% { bottom: 82px; opacity: 0.8; }
+  45%     { bottom: 222px; opacity: 1; }
+  55%, 100% { bottom: 222px; opacity: 0.4; }
+}
+.ai-label-hard {
+  position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+  background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.4);
+  border-radius: 10px; padding: 3px 12px;
+  font-size: 10px; font-weight: 800; color: #fca5a5; white-space: nowrap;
+}
+.ai-height-mark {
+  position: absolute; right: 10px; bottom: 40px; top: 60px;
+  width: 2px; border-right: 2px dashed rgba(255,255,255,0.2);
+}
+.ai-height-lbl {
+  position: absolute; right: 16px; top: 50%; transform: translateY(-50%) rotate(-90deg);
+  font-size: 10px; font-weight: 800; color: rgba(255,255,255,0.35);
+}
+
+/* scene B - push up ramp */
+.ai-ramp {
+  background: linear-gradient(180deg, #0a1a0a 0%, #102010 100%);
+}
+.ai-ramp-ground {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 40px;
+  background: linear-gradient(180deg, #1a3a1a, #153015);
+  border-top: 2px solid rgba(34,197,94,0.3);
+}
+/* the ramp surface */
+.ai-ramp-surface {
+  position: absolute; bottom: 40px; left: 10px; right: 10px;
+  height: 200px; clip-path: polygon(0% 100%, 100% 0%, 100% 100%);
+  background: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(34,197,94,0.05));
+  border: none;
+}
+.ai-ramp-line {
+  position: absolute; bottom: 40px; left: 10px;
+  width: calc(100% - 20px); height: 200px; pointer-events: none;
+}
+.ai-ramp-line::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 141.4%; height: 3px; background: #22c55e;
+  transform-origin: bottom left; transform: rotate(-45deg);
+  box-shadow: 0 0 8px rgba(34,197,94,0.5);
+}
+/* person on ramp */
+.ai-person-ramp {
+  position: absolute; bottom: 50px; left: 15%;
+}
+/* box on ramp */
+.ai-box-ramp {
+  position: absolute; width: 26px; height: 26px;
+  background: linear-gradient(135deg, #22c55e, #86efac);
+  border-radius: 4px; box-shadow: 0 0 10px rgba(34,197,94,0.4);
+  animation: aiRampBox 6s ease-in-out infinite;
+}
+@keyframes aiRampBox {
+  0%, 5%  { left: 18%; bottom: 52px; }
+  50%     { left: 72%; bottom: 215px; }
+  55%, 100% { left: 72%; bottom: 215px; opacity: 0.7; }
+}
+/* effort arrows (green) */
+.ai-arrow-ramp {
+  position: absolute; height: 20px; width: 3px;
+  background: #22c55e; transform: rotate(-45deg);
+  animation: aiRampArrow 6s ease-in-out infinite;
+}
+.ai-arrow-ramp::after {
+  content: ''; position: absolute; top: -5px; left: -3.5px;
+  border-left: 5px solid transparent; border-right: 5px solid transparent;
+  border-bottom: 7px solid #22c55e;
+}
+@keyframes aiRampArrow {
+  0%, 5%  { left: 22%; bottom: 72px; opacity: 0.8; }
+  50%     { left: 76%; bottom: 235px; opacity: 1; }
+  55%, 100% { left: 76%; bottom: 235px; opacity: 0.4; }
+}
+.ai-label-easy {
+  position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+  background: rgba(34,197,94,0.2); border: 1px solid rgba(34,197,94,0.4);
+  border-radius: 10px; padding: 3px 12px;
+  font-size: 10px; font-weight: 800; color: #86efac; white-space: nowrap;
+}
+.ai-ramp-height {
+  position: absolute; right: 14px; bottom: 40px;
+  width: 2px; height: 200px; border-right: 2px dashed rgba(34,197,94,0.25);
+}
+.ai-ramp-h-lbl {
+  position: absolute; right: 20px; top: 50%; transform: translateY(-50%) rotate(-90deg);
+  font-size: 10px; font-weight: 800; color: rgba(134,239,172,0.4);
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<div class="top-nav">
+  <a href="../../index.html" class="tn-home">&#127968; Home</a>
+  <a href="how-forces-affect-motion.html" class="tn-prev">&#8592; Ch 6: Forces &amp; Motion</a>
+  <div class="nav-spacer"></div>
+  <a href="journey-inside-the-atom.html" class="tn-next">Ch 8: Inside the Atom &#8594;</a>
+  <button class="tn-share" onclick="openSharePopup()">&#128228; Share</button>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc-bar">
+  <a href="#intro">&#9889; Intro</a>
+  <a href="#work">&#128170; Work</a>
+  <a href="#work-energy">&#128260; Work-Energy</a>
+  <a href="#forms">&#127752; Energy Forms</a>
+  <a href="#kinetic">&#127939; Kinetic Energy</a>
+  <a href="#potential">&#9968; Potential Energy</a>
+  <a href="#conservation">&#128260; Conservation</a>
+  <a href="#power">&#9889; Power</a>
+  <a href="#machines">&#9881;&#65039; Simple Machines</a>
+  <a href="#activities">&#127922; Activities</a>
+  <a href="#summary">&#128203; Summary</a>
+  <a href="#mcq">&#129504; MCQs</a>
+  <a href="#short">&#9997;&#65039; Short Q&amp;A</a>
+  <a href="#long">&#128214; Long Q&amp;A</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
+  <div class="hero-content">
+    <div class="hero-badge">&#9889; Class 9 &middot; Science &middot; New NCERT 2026</div>
+    <h1>&#9889; Work, Energy, and Simple Machines</h1>
+    <p>Work Done &middot; Kinetic &amp; Potential Energy &middot; Conservation of Energy &middot; Power &middot; Pulley, Lever &amp; Inclined Plane</p>
+  </div>
+  <div class="hero-scene">
+    <div class="orbit-center">&#9889;</div>
+    <div class="orbit-item">&#128170;</div>
+    <div class="orbit-item">&#127939;</div>
+    <div class="orbit-item">&#9968;</div>
+    <div class="orbit-item">&#9881;&#65039;</div>
+    <div class="orbit-item">&#128293;</div>
+    <div class="orbit-item">&#128161;</div>
+  </div>
+  <div class="hero-table"></div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
+
+  <!-- SECTION: INTRODUCTION -->
+  <div class="section-block reveal" id="intro">
+    <div class="section-hd g-green"><span class="icon">&#9889;</span> Introduction</div>
+    <div class="section-bd">
+      <p>In earlier chapters, you learnt how <strong>forces change the motion</strong> of objects using kinematic equations and Newton's laws. But when forces change with time or act in complicated ways, applying these laws directly can become difficult. Is there a <strong>simpler and more powerful way</strong> to understand such situations?</p>
+
+      <p>In this chapter, you will explore the ideas of <span class="kt">work</span>, <span class="kt">energy</span> and <span class="kt">power</span>, which often allow us to analyse motion and interactions more easily. You will also learn about <span class="kt">simple machines</span>, which help us perform tasks with less effort and more convenience.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#127859; Food</h4>
+          <p>Food provides energy to <strong>walk and work</strong>. Chemical energy in food powers our muscles.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#9889; Electricity</h4>
+          <p>Electricity provides energy to <strong>rotate a fan</strong>, power lights and run machines.</p>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#9981;&#65039; Fuel</h4>
+          <p>Fuel provides energy to <strong>move a car</strong>. Chemical energy is converted to kinetic energy.</p>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128218; Key Idea:</strong> <span class="kt">Energy</span>, which is the capacity to do work, lies at the heart of all these ideas and of almost every activity in our daily life. The words work, energy, and power have <strong>precise meanings in science</strong> that differ from everyday usage.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: WORK DONE BY A CONSTANT FORCE -->
+  <div class="section-block reveal" id="work">
+    <div class="section-hd g-blue"><span class="icon">&#128170;</span> Work Done by a Constant Force</div>
+    <div class="section-bd">
+      <p>Consider a wheat bag of mass 5 kg on the floor. To lift it slowly to a height of 1 m, you must apply an upward force equal to <strong>mg</strong>. The force acts upwards as the bag is displaced 1 m in the direction of the force. In everyday language, you did some <span class="kt">work</span>.</p>
+
+      <p>If you lift <strong>3 such bags</strong> one after the other to the same height, you do <strong>3 times more work</strong>. If you lift a single bag to <strong>3 m height</strong>, you also do 3 times more work. This tells us work depends on both <strong>force</strong> and <strong>displacement</strong>.</p>
+
+      <div class="formula-box">
+        <div class="formula-title">&#128220; Definition of Work Done</div>
+        <div class="formula-big">W = F &times; s</div>
+        <div class="formula-note">Work done = Force applied &times; Displacement in the direction of the force</div>
+        <div class="formula-note" style="margin-top:8px;"><strong>SI Unit:</strong> 1 joule (J) = 1 N &times; 1 m = 1 kg m&#178; s&#8315;&#178;</div>
+      </div>
+
+      <p>1 joule of work is done when a constant force of <strong>1 newton</strong> displaces an object by <strong>1 metre</strong> in the direction of the force.</p>
+
+      <h3 class="subtitle">&#128683; When is Work Done Zero?</h3>
+      <div class="info-grid">
+        <div class="info-card ic-red">
+          <h4>&#128168; F = 0 (No Force)</h4>
+          <p>If no force acts on an object, no work is done on it.</p>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128247; s = 0 (No Displacement)</h4>
+          <p>Pushing a <strong>rigid wall</strong> -- no displacement, so <strong>zero work</strong> on the wall (even though you feel tired!).</p>
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128694; Force &#10178; Displacement</h4>
+          <p>A girl <strong>carrying a box</strong> while walking -- upward force, horizontal movement. Work done by her force = <strong>zero</strong>.</p>
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Why do you feel tired pushing a wall?</strong> To apply a force, your muscles repeatedly expand and contract, using up internal energy of your body. So you feel tired even though, in a scientific sense, you have done <strong>no work on the wall</strong>.
+      </div>
+
+      <h3 class="subtitle">&#10133;&#10134; Positive and Negative Work Done</h3>
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#10133; Positive Work</h4>
+          <p>When displacement is in the <strong>same direction</strong> as the applied force. Example: <strong>Pushing a wheelchair</strong> forward.</p>
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#10134; Negative Work</h4>
+          <p>When displacement is <strong>opposite</strong> to the applied force. Example: A <strong>goalkeeper stopping</strong> a football.</p>
+        </div>
+      </div>
+
+      <div class="example-box">
+        <div class="ex-title">&#128218; NCERT Example 7.1: Dumbbell Exercise</div>
+        <p><strong>Question:</strong> A girl lifts a dumbbell and slowly lowers it down. When does she do positive and negative work?</p>
+        <p style="margin-top:8px"><strong>Answer:</strong> When moving the dumbbell <strong>up</strong>, force and displacement are in the same direction &rarr; <strong>positive work</strong>. When moving it <strong>down</strong>, force (upward) is opposite to displacement (downward) &rarr; <strong>negative work</strong>.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="ex-title">&#128218; NCERT Example 7.2: Goalkeeper Stopping a Ball</div>
+        <p><strong>Question:</strong> A goalkeeper's hand moved back by 15 cm as she stopped a ball with a force of 200 N. Work done?</p>
+        <p style="margin-top:8px"><strong>Answer:</strong> W = F &times; s = 200 N &times; (&minus;0.15 m) = <strong>&minus;30 J</strong></p>
+        <p style="font-size:13px;color:#166534;margin-top:4px;">The work is negative because the ball moves opposite to the force applied by the goalkeeper.</p>
+      </div>
+
+      <!-- INTERACTIVE: Work Calculator (Activity 7.1) -->
+      <div class="activity-block" id="activities">
+        <div class="act-tag">&#127922; Interactive Activity</div>
+        <h3>&#128170; Work Calculator (Activity 7.1)</h3>
+        <p style="font-size:13px;margin-bottom:6px;">Enter the force, distance, and angle to calculate work done. See whether work is positive, negative, or zero!</p>
+
+        <label for="workForce">&#128170; Force applied (N)</label>
+        <input type="number" id="workForce" placeholder="e.g. 50" min="0" step="any">
+
+        <label for="workDist">&#128207; Distance moved (m)</label>
+        <input type="number" id="workDist" placeholder="e.g. 10" min="0" step="any">
+
+        <label for="workAngle">&#128208; Angle between force and direction of motion (degrees)</label>
+        <input type="number" id="workAngle" placeholder="e.g. 0" min="0" max="180" step="any">
+
+        <br>
+        <button class="calc-btn" onclick="calcWork()">&#9889; Calculate Work Done</button>
+
+        <div class="calc-result" id="workResult"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION: WORK-ENERGY THEOREM -->
+  <div class="section-block reveal" id="work-energy">
+    <div class="section-hd g-cyan"><span class="icon">&#128260;</span> The Work-Energy Theorem</div>
+    <div class="section-bd">
+      <p>When a force is applied and an object is displaced, work is done on it. Does this cause the object to <strong>gain capacity to do further work</strong>?</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-blue">
+          <h4>&#127951; Cricket Ball</h4>
+          <p>A fielder throws a ball. The moving ball <strong>hits the wicket</strong>, making it fall. The ball gained energy from the work done by the fielder.</p>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#127861; Flowerpot</h4>
+          <p>A flowerpot raised to a height can <strong>damage objects</strong> below if it falls. It gained energy from the work done in raising it.</p>
+        </div>
+      </div>
+
+      <p>An object having the capacity to do work is said to possess <span class="kt">energy</span>. When <strong>positive work</strong> is done on an object, it <strong>gains energy</strong>. The object can then use that energy to apply a force on another object.</p>
+
+      <div class="formula-box">
+        <div class="formula-title">&#128260; Work-Energy Theorem</div>
+        <div class="formula-big">Work done on an object = Change in its energy</div>
+        <div class="formula-note">This holds for a system of objects and even when forces are not constant.</div>
+        <div class="formula-note">The SI unit of energy is the <strong>joule (J)</strong>, same as work.</div>
+      </div>
+
+      <div class="example-box">
+        <div class="ex-title">&#128218; NCERT Example 7.3: Carrom Shot</div>
+        <p><strong>Question:</strong> In a carrom game, a player pockets the black coin using the striker and white coin. Identify work and energy changes at each collision.</p>
+        <p style="margin-top:8px"><strong>Answer:</strong> The striker does <strong>positive work</strong> on the white coin (increasing its energy). By Newton's third law, the white coin does <strong>negative work</strong> on the striker (decreasing its energy). Similarly, the white coin does positive work on the black coin, while the black coin does negative work on the white coin.</p>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128104;&#8205;&#128300; Meet a Scientist -- James Prescott Joule:</strong> The SI unit of work and energy, <strong>joule</strong>, is named after James Prescott Joule. He studied how mechanical energy and thermal energy are related and can be converted from one to the other, helping develop a unified way to understand energy.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: FORMS OF ENERGY -->
+  <div class="section-block reveal" id="forms">
+    <div class="section-hd g-purple"><span class="icon">&#127752;</span> Forms of Energy</div>
+    <div class="section-bd">
+      <p>Energy is the <strong>capacity to do work</strong>. It can exist in <strong>many forms</strong> and it is possible to change energy from one form to another.</p>
+
+      <div class="model-anim">
+        <div style="font-family:'Fredoka One',cursive;font-size:18px;color:#166534;margin-bottom:12px;">&#127752; Different Forms of Energy</div>
+        <div class="model-cards">
+          <div class="model-card" style="border-color:#22c55e;">
+            <div class="mc-icon">&#128170;</div>
+            <h5>Mechanical</h5>
+            <p>Energy due to motion or position of objects</p>
+          </div>
+          <div class="model-card" style="border-color:#3b82f6;">
+            <div class="mc-icon">&#9889;</div>
+            <h5>Electrical</h5>
+            <p>Energy related to motion of charges</p>
+          </div>
+          <div class="model-card" style="border-color:#f59e0b;">
+            <div class="mc-icon">&#128293;</div>
+            <h5>Thermal</h5>
+            <p>Energy that makes things warm or hot</p>
+          </div>
+          <div class="model-card" style="border-color:#ec4899;">
+            <div class="mc-icon">&#128161;</div>
+            <h5>Light</h5>
+            <p>Energy that allows us to see</p>
+          </div>
+          <div class="model-card" style="border-color:#8b5cf6;">
+            <div class="mc-icon">&#128266;</div>
+            <h5>Sound</h5>
+            <p>Energy of vibrations of air or other molecules</p>
+          </div>
+          <div class="model-card" style="border-color:#ef4444;">
+            <div class="mc-icon">&#9883;&#65039;</div>
+            <h5>Nuclear</h5>
+            <p>Energy stored in the nuclei of atoms</p>
+          </div>
+          <div class="model-card" style="border-color:#06b6d4;">
+            <div class="mc-icon">&#129514;</div>
+            <h5>Chemical</h5>
+            <p>Energy stored in chemical bonds between atoms</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128161; Bulb</h4>
+          <p>Electrical energy &rarr; <strong>Light energy</strong></p>
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#128293; Water Heater</h4>
+          <p>Electrical energy &rarr; <strong>Thermal energy</strong></p>
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#127859; Food &rarr; Muscles</h4>
+          <p>Chemical energy &rarr; <strong>Mechanical energy</strong></p>
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128276; Ringing Bell</h4>
+          <p>Mechanical energy &rarr; <strong>Sound energy</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: KINETIC ENERGY -->
+  <div class="section-block reveal" id="kinetic">
+    <div class="section-hd g-blue"><span class="icon">&#127939;</span> Kinetic Energy</div>
+    <div class="section-bd">
+      <p>The energy possessed by an object due to its <strong>motion</strong> is called <span class="kt">kinetic energy</span>. All moving objects possess kinetic energy -- a moving bicycle, a rolling ball, a speeding car.</p>
+
+      <p>Consider an object of mass <strong>m</strong> starting from rest (u = 0) and acquiring velocity <strong>v</strong> under force <strong>F</strong>. Using kinematics (v&#178; = u&#178; + 2as) and Newton's second law (F = ma), we derive:</p>
+
+      <div class="est-box">
+        <div class="est-title">&#128221; Derivation of Kinetic Energy Formula</div>
+        <div class="est-step"><strong>Step 1:</strong> From kinematics: v&#178; = u&#178; + 2as, so s = (v&#178; - u&#178;) / 2a</div>
+        <div class="est-step"><strong>Step 2:</strong> Work done: W = F &times; s = ma &times; s</div>
+        <div class="est-step"><strong>Step 3:</strong> Substituting: W = ma &times; (v&#178; - u&#178;) / 2a = &#189;m(v&#178; - u&#178;)</div>
+        <div class="est-step"><strong>Step 4:</strong> If u = 0, the work done equals the kinetic energy gained:</div>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">&#127939; Kinetic Energy</div>
+        <div class="formula-big">K = &#189;mv&#178;</div>
+        <div class="formula-note">where m = mass (kg), v = velocity (m/s), K = kinetic energy (J)</div>
+        <div class="formula-note" style="margin-top:6px;">General work-energy expression: <strong>W = &#189;m(v&#178; - u&#178;)</strong></div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Key Insight:</strong> If the <strong>velocity doubles</strong>, kinetic energy becomes <strong>4 times</strong> (since KE depends on v&#178;). This is why high-speed collisions are so much more dangerous!
+      </div>
+
+      <div class="example-box">
+        <div class="ex-title">&#128218; NCERT Example 7.5: Fastest Cricket Delivery</div>
+        <p><strong>Question:</strong> A cricket ball (mass 0.2 kg) is bowled at 154.8 km/h. Calculate its kinetic energy.</p>
+        <p style="margin-top:8px"><strong>Answer:</strong> v = 154.8 km/h = 43 m/s</p>
+        <p>K = &#189; &times; 0.2 &times; 43&#178; = &#189; &times; 0.2 &times; 1849 = <strong>184.9 J</strong></p>
+      </div>
+
+      <div class="example-box">
+        <div class="ex-title">&#128218; NCERT Example 7.6: Jet Aircraft Landing</div>
+        <p><strong>Question:</strong> A jet (mass 15,000 kg) is stopped by a wire exerting 367,500 N over 100 m. Find the aircraft's initial velocity.</p>
+        <p style="margin-top:8px"><strong>Answer:</strong> Using work-energy theorem:</p>
+        <p>&#189; &times; 15000 &times; v&#178; - 0 = -(-367500 &times; 100)</p>
+        <p>7500 &times; v&#178; = 36,750,000 &rarr; v&#178; = 4900 &rarr; <strong>v = 70 m/s = 252 km/h</strong></p>
+      </div>
+      <!-- INTERACTIVE: KE vs PE Calculator -->
+      <div class="activity-block">
+        <div class="act-tag">&#127922; Interactive Activity</div>
+        <h3>&#128170; Kinetic Energy vs Potential Energy Calculator</h3>
+        <p style="font-size:13px;margin-bottom:10px;">Switch between tabs to calculate kinetic or potential energy. See how your energy compares to real-world examples!</p>
+
+        <div class="energy-tabs">
+          <div class="energy-tab active" onclick="switchEnergyTab('ke')">&#127939; Kinetic Energy</div>
+          <div class="energy-tab" onclick="switchEnergyTab('pe')">&#9968; Potential Energy</div>
+        </div>
+
+        <!-- KE Tab -->
+        <div class="energy-tab-content active" id="keTab">
+          <label for="keMass">&#9878;&#65039; Mass of object (kg)</label>
+          <input type="number" id="keMass" placeholder="e.g. 2" min="0" step="any">
+
+          <label for="keVel">&#127939; Velocity (m/s)</label>
+          <input type="number" id="keVel" placeholder="e.g. 10" min="0" step="any">
+
+          <br>
+          <button class="calc-btn" onclick="calcKE()">&#9889; Calculate KE</button>
+          <div class="calc-result" id="keResult"></div>
+        </div>
+
+        <!-- PE Tab -->
+        <div class="energy-tab-content" id="peTab">
+          <label for="peMass">&#9878;&#65039; Mass of object (kg)</label>
+          <input type="number" id="peMass" placeholder="e.g. 2" min="0" step="any">
+
+          <label for="peHeight">&#9968; Height above ground (m)</label>
+          <input type="number" id="peHeight" placeholder="e.g. 5" min="0" step="any">
+
+          <br>
+          <button class="calc-btn" onclick="calcPE()">&#9889; Calculate PE</button>
+          <div class="calc-result" id="peResult"></div>
+        </div>
+
+        <div class="energy-bars" id="energyBarsComparison" style="display:none;">
+          <div>
+            <div class="energy-bar ke" id="keBarVis" style="height:0px;"></div>
+            <div class="energy-bar-label" style="color:#f97316;">KE</div>
+          </div>
+          <div>
+            <div class="energy-bar pe" id="peBarVis" style="height:0px;"></div>
+            <div class="energy-bar-label" style="color:#3b82f6;">PE</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION: POTENTIAL ENERGY -->
+  <div class="section-block reveal" id="potential">
+    <div class="section-hd g-green"><span class="icon">&#9968;</span> Potential Energy</div>
+    <div class="section-bd">
+      <p>Energy can be stored not only due to motion but also due to the <strong>shape or position</strong> of an object. A stretched rubber band can shoot a stone. A bent bow can launch an arrow. A compressed spring can push an object.</p>
+
+      <p>The energy stored by an object as a result of its <strong>deformation</strong> or in a system of objects due to their <strong>relative positions</strong> is called <span class="kt">potential energy</span>.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#127993; Slingshot / Bow</h4>
+          <p>Stretched rubber band / bent bow stores energy in its shape. When released, it converts to <strong>kinetic energy</strong> of the projectile.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#129522; Spring</h4>
+          <p>A compressed or stretched spring stores energy. When released, it can push an object with stored energy.</p>
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#129522; Magnets</h4>
+          <p>Two magnets separated from each other store energy due to their <strong>relative positions</strong>.</p>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#127758; Earth-Ball System</h4>
+          <p>A ball lifted to a height stores <strong>gravitational potential energy</strong> in the Earth-ball system.</p>
+        </div>
+      </div>
+
+      <h3 class="subtitle">&#127758; Gravitational Potential Energy</h3>
+      <p>Consider an object of mass <strong>m</strong> on the ground (potential energy = 0). To raise it to height <strong>h</strong>, we apply force mg over distance h:</p>
+
+      <div class="formula-box">
+        <div class="formula-title">&#9968; Gravitational Potential Energy</div>
+        <div class="formula-big">U = mgh</div>
+        <div class="formula-note">where m = mass (kg), g = acceleration due to gravity (m/s&#178;), h = height (m)</div>
+        <div class="formula-note" style="margin-top:6px;">Derivation: W = mg &times; h = mgh. By work-energy theorem, this work appears as potential energy.</div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Activity 7.1 (NCERT):</strong> Drop a heavy ball onto sand from different heights (1 m, 2 m). The <strong>deeper depression</strong> at greater height shows the ball has <strong>more potential energy</strong> at greater height!
+      </div>
+
+      <!-- ANIMATED SCENE: Ball Drop into Sand -->
+      <div class="anim-scene anim-balldrop">
+        <div class="anim-scene-title">Ball Drop into Sand -- PE to KE to Work Done</div>
+        <div class="bd-height-line"></div>
+        <div class="bd-height-label">HEIGHT h</div>
+        <div class="bd-ball"></div>
+        <div class="bd-sand">
+          <div class="bd-depression"></div>
+        </div>
+        <div class="bd-particle"></div>
+        <div class="bd-particle"></div>
+        <div class="bd-particle"></div>
+        <div class="bd-particle"></div>
+        <div class="bd-particle"></div>
+        <div class="bd-particle"></div>
+        <div class="bd-energy-labels">
+          <div class="bd-e-label bd-e-pe">PE = mgh</div>
+          <div class="bd-e-label bd-e-ke">KE = 1/2 mv2</div>
+          <div class="bd-e-label bd-e-work">Work on Sand</div>
+        </div>
+      </div>
+
+      <div class="example-box">
+        <div class="ex-title">&#128218; NCERT Example 7.7: Cricket Ball Celebration</div>
+        <p><strong>Question:</strong> A fielder throws a ball (200 g) 10 m high in celebration. What is its potential energy at the top? (g = 10 m/s&#178;)</p>
+        <p style="margin-top:8px"><strong>Answer:</strong> U = mgh = 0.2 &times; 10 &times; 10 = <strong>20 J</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: CONSERVATION OF MECHANICAL ENERGY -->
+  <div class="section-block reveal" id="conservation">
+    <div class="section-hd g-teal"><span class="icon">&#128260;</span> Conservation of Mechanical Energy</div>
+    <div class="section-bd">
+      <p>The sum of kinetic energy and potential energy is called <span class="kt">mechanical energy</span>. Let us find what happens to mechanical energy as an object falls freely.</p>
+
+      <p>An object of mass <strong>m</strong> is dropped from height <strong>h</strong> (initial velocity = 0):</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#128205; At Top (Point A)</h4>
+          <p>PE = mgh, KE = 0<br><strong>Total = mgh</strong></p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128205; At Middle (Point B)</h4>
+          <p>PE = mgh', KE = &#189;mg&#178;t&#178;<br><strong>Total = mgh</strong></p>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128205; At Bottom (Point C)</h4>
+          <p>PE = 0, KE = mgh<br><strong>Total = mgh</strong></p>
+        </div>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">&#128260; Conservation of Mechanical Energy</div>
+        <div class="formula-big">KE + PE = constant (when no external forces act)</div>
+        <div class="formula-note">As an object falls: PE decreases and KE increases, but the total mechanical energy remains the same.</div>
+        <div class="formula-note" style="margin-top:6px;">The lost potential energy converts into kinetic energy during motion.</div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128218; Pendulum Experiment (Activity 7.2):</strong> Release a pendulum bob from height h. At the lowest point, all PE converts to KE. At the other extreme, all KE converts back to PE. The bob reaches <strong>almost the same height</strong> on the other side, demonstrating conservation. It eventually stops due to friction and air resistance.
+      </div>
+
+      <!-- ANIMATED SCENE: Roller Coaster with Energy Bars -->
+      <div class="anim-scene anim-coaster">
+        <div class="anim-scene-title">Roller Coaster -- Conservation of Energy</div>
+        <div class="coaster-track">
+          <svg viewBox="0 0 700 160" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="neonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#22c55e"/>
+                <stop offset="50%" stop-color="#86efac"/>
+                <stop offset="100%" stop-color="#22c55e"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,120 C60,120 80,20 160,20 C240,20 260,140 340,140 C420,140 440,50 520,50 C600,50 620,130 700,130"/>
+          </svg>
+        </div>
+        <div class="coaster-ball"></div>
+        <div class="coaster-bars">
+          <div class="coaster-bar-wrap">
+            <div class="coaster-bar-track">
+              <div class="coaster-bar-fill c-pe"></div>
+            </div>
+            <div class="coaster-bar-lbl" style="color:#93c5fd;">PE</div>
+          </div>
+          <div class="coaster-bar-wrap">
+            <div class="coaster-bar-track">
+              <div class="coaster-bar-fill c-ke"></div>
+            </div>
+            <div class="coaster-bar-lbl" style="color:#fbbf24;">KE</div>
+          </div>
+          <div class="coaster-bar-wrap">
+            <div class="coaster-bar-track">
+              <div class="coaster-bar-fill c-total"></div>
+            </div>
+            <div class="coaster-bar-lbl" style="color:#86efac;">Total</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANIMATED SCENE: Pendulum with Energy Bars -->
+      <div class="anim-scene anim-pendulum">
+        <div class="anim-scene-title" style="position:absolute;top:0;left:0;right:0;">Pendulum -- KE and PE Exchange</div>
+        <div class="ap-stage">
+          <div class="ap-arc"></div>
+          <div class="ap-pivot"></div>
+          <div class="ap-arm">
+            <div class="ap-bob"></div>
+          </div>
+        </div>
+        <div class="ap-bars">
+          <div class="ap-bar-col">
+            <div class="ap-bar-track">
+              <div class="ap-bar-fill ap-pe"></div>
+            </div>
+            <div class="ap-bar-lbl" style="color:#93c5fd;">PE</div>
+          </div>
+          <div class="ap-bar-col">
+            <div class="ap-bar-track">
+              <div class="ap-bar-fill ap-ke"></div>
+            </div>
+            <div class="ap-bar-lbl" style="color:#fbbf24;">KE</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE: Pendulum Energy Conservation Simulator -->
+      <div class="activity-block">
+        <div class="act-tag">&#127922; Interactive Activity</div>
+        <h3>&#128260; Energy Conservation Simulator (Activity 7.2 -- Pendulum)</h3>
+        <p style="font-size:13px;margin-bottom:10px;">Watch the pendulum swing and see how PE and KE exchange at each position. Adjust the height with the slider!</p>
+
+        <label for="pendHeight">&#9968; Release height: <span id="pendHeightVal" style="color:#166534;">1.0</span> m</label>
+        <input type="range" id="pendHeight" min="0.3" max="2.0" step="0.1" value="1.0" oninput="updatePendulum()">
+
+        <div style="display:flex;align-items:center;justify-content:center;gap:30px;flex-wrap:wrap;">
+          <div class="pendulum-container" id="pendulumContainer">
+            <div class="pendulum-pivot"></div>
+            <div class="pendulum-arm" id="pendulumArm">
+              <div class="pendulum-bob"></div>
+            </div>
+          </div>
+
+          <div class="pendulum-energy-bars">
+            <div class="pend-bar-wrap">
+              <div class="pend-bar-track">
+                <div class="pend-bar-fill pe-fill" id="pendPEbar" style="height:100%;"></div>
+              </div>
+              <div class="pend-bar-label" style="color:#3b82f6;">PE</div>
+            </div>
+            <div class="pend-bar-wrap">
+              <div class="pend-bar-track">
+                <div class="pend-bar-fill ke-fill" id="pendKEbar" style="height:0%;"></div>
+              </div>
+              <div class="pend-bar-label" style="color:#f97316;">KE</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:8px;font-size:13px;">
+          <strong>PE = <span id="pendPEval" style="color:#3b82f6;">9.8</span> J</strong> &nbsp;&middot;&nbsp;
+          <strong>KE = <span id="pendKEval" style="color:#f97316;">0.0</span> J</strong> &nbsp;&middot;&nbsp;
+          <strong>Total = <span id="pendTotalVal" style="color:#166534;">9.8</span> J</strong>
+        </div>
+
+        <div class="note-box" style="margin-top:12px;">
+          <strong>&#128161; Notice:</strong> At the extreme positions, PE is maximum and KE is zero. At the lowest point, KE is maximum and PE is zero. The total energy stays constant!
+        </div>
+      </div>
+
+      <div class="example-box">
+        <div class="ex-title">&#128218; NCERT Example 7.8: Child on a Slide</div>
+        <p><strong>Question:</strong> What is the velocity of a child at the bottom of a slide of height h?</p>
+        <p style="margin-top:8px"><strong>Answer:</strong> At top: PE = mgh. At bottom: KE = &#189;mv&#178;</p>
+        <p>By conservation: mgh = &#189;mv&#178; &rarr; v&#178; = 2gh &rarr; <strong>v = &#8730;(2gh)</strong></p>
+        <p style="margin-top:6px;color:#166534;font-weight:700;">The velocity depends only on height h -- the shape of the slide or mass of the child does not matter!</p>
+      </div>
+
+      <div class="example-box">
+        <div class="ex-title">&#128218; NCERT Example 7.9: Escape Ramp</div>
+        <p><strong>Question:</strong> A truck (10,000 kg) at 72 km/h has brake failure. It enters a 30&#176; escape ramp (sand force = 50,000 N). Find minimum ramp length. (g = 10 m/s&#178;, hint: truck rises 1 m for every 2 m along ramp)</p>
+        <p style="margin-top:8px"><strong>Answer:</strong> v = 20 m/s, Initial KE = &#189; &times; 10000 &times; 400 = 2,000,000 J</p>
+        <p>Height gained = d/2. Final PE = mg &times; d/2 = 50,000d</p>
+        <p>Work by sand = &minus;50,000d</p>
+        <p>Using work-energy theorem: &minus;50,000d = (50,000d) &minus; 2,000,000</p>
+        <p>100,000d = 2,000,000 &rarr; <strong>d = 20 m</strong></p>
+      </div>
+
+      <div class="ponder-card" onclick="this.classList.toggle('show-hint')">
+        <div class="ponder-label">&#129300; Pause &amp; Ponder (NCERT)</div>
+        <div class="ponder-q">In a science park ball roller coaster, describe how KE and PE change at each point. Why do subsequent hills have lower heights?</div>
+        <div class="tap-text">&#128073; Tap to see answer</div>
+        <div class="ponder-hint">
+          <p>&#8226; At the <strong>top of each hill</strong>: maximum PE, minimum KE</p>
+          <p>&#8226; At the <strong>bottom of each valley</strong>: maximum KE, minimum PE</p>
+          <p>&#8226; Each subsequent hill is <strong>lower</strong> because some mechanical energy is <strong>lost to friction</strong> and air resistance at every point. The total energy available decreases, so the ball cannot reach the same height again.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: POWER -->
+  <div class="section-block reveal" id="power">
+    <div class="section-hd g-amber"><span class="icon">&#9889;</span> Power</div>
+    <div class="section-bd">
+      <p>Running up stairs in <strong>1 minute</strong> feels very different from walking up in <strong>5 minutes</strong>, even though the same work is done. This difference is described by <span class="kt">power</span> -- the rate at which work is done.</p>
+
+      <div class="formula-box">
+        <div class="formula-title">&#9889; Power</div>
+        <div class="formula-big">P = W / t</div>
+        <div class="formula-note">Power = Work done / Time taken</div>
+        <div class="formula-note" style="margin-top:6px;"><strong>SI Unit:</strong> watt (W), where 1 W = 1 J/s</div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128170; More Work, Same Time</h4>
+          <p>Requires <strong>more power</strong></p>
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#9201; Same Work, Less Time</h4>
+          <p>Also requires <strong>more power</strong></p>
+        </div>
+      </div>
+
+      <div class="example-box">
+        <div class="ex-title">&#128218; NCERT Example 7.10: Weightlifter</div>
+        <p><strong>Question:</strong> A weightlifter lifts 75 kg by 2 m in 5 seconds. How much power?</p>
+        <p style="margin-top:8px"><strong>Answer:</strong> W = mgh = 75 &times; 10 &times; 2 = 1500 J</p>
+        <p>P = 1500/5 = <strong>300 W</strong></p>
+      </div>
+
+      <div class="example-box">
+        <div class="ex-title">&#128218; NCERT Example 7.11: Car Engine Power</div>
+        <p><strong>Question:</strong> A car (1000 kg) goes from rest to 72 km/h in 10 s. Calculate engine power.</p>
+        <p style="margin-top:8px"><strong>Answer:</strong> v = 20 m/s. Work = &#189;mv&#178; = &#189; &times; 1000 &times; 400 = 200,000 J</p>
+        <p>Power = 200,000/10 = <strong>20,000 W = 20 kW</strong></p>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128218; Threads of Curiosity -- Horsepower:</strong> The unit <strong>watt</strong> is named after James Watt, who invented the efficient steam engine. Another unit, <strong>horsepower (hp)</strong>, is used for car engines and pumps. <strong>1 hp = 746 W</strong>. In the early days, engine powers were compared to the power of actual horses!
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: SIMPLE MACHINES -->
+  <div class="section-block reveal" id="machines">
+    <div class="section-hd g-indigo"><span class="icon">&#9881;&#65039;</span> Simple Machines</div>
+    <div class="section-bd">
+      <p>Although the total work required for a task <strong>cannot be reduced</strong>, it can be made easier by changing the <strong>magnitude or direction</strong> of the force. Devices that help us do this are called <span class="kt">simple machines</span>.</p>
+
+      <div class="formula-box">
+        <div class="formula-title">&#9881;&#65039; Mechanical Advantage</div>
+        <div class="formula-big">MA = Load / Effort</div>
+        <div class="formula-note">The force we apply is the <strong>effort</strong>; the force to be overcome is the <strong>load</strong>.</div>
+      </div>
+
+      <!-- PULLEY -->
+      <h3 class="subtitle" style="color:#312e81;">&#128230; 1. Pulley</h3>
+      <p>A pulley is a <strong>wheel with a groove</strong> that guides a rope. A <strong>fixed pulley</strong> changes only the <strong>direction</strong> of force (easier to pull down than lift up), so its MA = 1.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-blue">
+          <h4>&#127987; Fixed Pulley</h4>
+          <p>Changes <strong>direction</strong> of effort only. MA = 1. Example: Raising a flag.</p>
+        </div>
+        <div class="info-card ic-indigo">
+          <h4>&#128230; Movable Pulley System</h4>
+          <p>Can have MA &gt; 1, lifting much heavier loads with smaller effort. Used in elevators and cranes.</p>
+        </div>
+      </div>
+
+      <!-- INCLINED PLANE -->
+      <h3 class="subtitle" style="color:#312e81;">&#128739; 2. Inclined Plane</h3>
+      <p>An inclined plane helps move a heavy load to a higher level using <strong>less force over a greater distance</strong>. The force decreases as the plank becomes <strong>less steep</strong> (longer), but the displacement increases.</p>
+
+      <div class="formula-box">
+        <div class="formula-title">&#128739; Mechanical Advantage of Inclined Plane</div>
+        <div class="formula-big">MA = L / h</div>
+        <div class="formula-note">where L = length of inclined plane, h = height</div>
+        <div class="formula-note" style="margin-top:6px;">Since L &gt; h, the MA is always &gt; 1. A longer, shallower ramp needs even less force.</div>
+      </div>
+
+      <div class="example-box">
+        <div class="ex-title">&#128218; NCERT Example 7.12: Ramp Calculation</div>
+        <p><strong>Question:</strong> A ramp raises an object over a 30 cm step. The ramp width is 40 cm. Find MA.</p>
+        <p style="margin-top:8px"><strong>Answer:</strong> Ramp length = &#8730;(30&#178; + 40&#178;) = &#8730;2500 = 50 cm</p>
+        <p>MA = L/h = 50/30 = <strong>1.67</strong></p>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Why do hill roads wind around?</strong> Winding roads are like long inclined planes with a gentle slope. This <strong>reduces the force</strong> needed to climb, making it easier for vehicles (even though they travel a longer distance).
+      </div>
+
+      <!-- ANIMATED SCENE: Inclined Plane Comparison -->
+      <div class="anim-incline-compare">
+        <!-- Left: Lifting straight up (hard) -->
+        <div class="anim-incline-side ai-lift">
+          <div class="ai-label-hard">WITHOUT RAMP -- Hard!</div>
+          <div class="ai-height-mark"></div>
+          <div class="ai-height-lbl">SAME HEIGHT</div>
+          <div class="ai-person-lift">
+            <div class="ai-person-head"></div>
+            <div style="position:relative;">
+              <div class="ai-person-body"></div>
+              <div class="ai-person-arms"></div>
+            </div>
+            <div class="ai-person-legs"></div>
+          </div>
+          <div class="ai-box-lift"></div>
+          <div class="ai-arrow-lift" style="height:40px;"></div>
+          <div class="ai-arrow-lift" style="height:32px;"></div>
+          <div class="ai-lift-ground"></div>
+          <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:800;color:#fca5a5;white-space:nowrap;">Force = mg (full weight)</div>
+        </div>
+        <!-- Right: Pushing up ramp (easy) -->
+        <div class="anim-incline-side ai-ramp">
+          <div class="ai-label-easy">WITH RAMP -- Easy!</div>
+          <div class="ai-ramp-height"></div>
+          <div class="ai-ramp-h-lbl">SAME HEIGHT</div>
+          <div class="ai-ramp-surface"></div>
+          <div class="ai-ramp-line"></div>
+          <div class="ai-box-ramp"></div>
+          <div class="ai-arrow-ramp"></div>
+          <div class="ai-ramp-ground"></div>
+          <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:800;color:#86efac;white-space:nowrap;">Force = mg x h/L (less!)</div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE: Inclined Plane Calculator -->
+      <div class="activity-block">
+        <div class="act-tag">&#127922; Interactive Activity</div>
+        <h3>&#128739; Inclined Plane Calculator</h3>
+        <p style="font-size:13px;margin-bottom:10px;">Enter the mass, ramp height, and ramp length to calculate effort, mechanical advantage, and work done. Watch the block slide up!</p>
+
+        <label for="rampMass">&#9878;&#65039; Mass of object (kg)</label>
+        <input type="number" id="rampMass" placeholder="e.g. 50" min="0" step="any">
+
+        <label for="rampH">&#9968; Height of ramp (m)</label>
+        <input type="number" id="rampH" placeholder="e.g. 2" min="0.1" step="any">
+
+        <label for="rampL">&#128207; Length of ramp (m)</label>
+        <input type="number" id="rampL" placeholder="e.g. 5" min="0.1" step="any">
+
+        <br>
+        <button class="calc-btn" onclick="calcRamp()">&#128739; Calculate &amp; Animate</button>
+
+        <div class="ramp-visual" id="rampVisual" style="display:none;">
+          <div class="ramp-ground"></div>
+          <div class="ramp-surface" id="rampSurface"></div>
+          <div class="ramp-height-line" id="rampHeightLine"></div>
+          <div class="ramp-block" id="rampBlock"></div>
+          <div class="ramp-label" id="rampLabelH" style="right:6px;bottom:50%;color:#3b82f6;"></div>
+          <div class="ramp-label" id="rampLabelL" style="left:50%;bottom:4px;color:#166534;"></div>
+        </div>
+
+        <div class="calc-result" id="rampResult"></div>
+      </div>
+
+      <!-- LEVER -->
+      <h3 class="subtitle" style="color:#312e81;">&#9878;&#65039; 3. Lever</h3>
+      <p>A lever is a <strong>rigid bar</strong> that can rotate about a fixed point. It has three main parts:</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#128204; Fulcrum</h4>
+          <p>The fixed point about which the lever rotates.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128170; Effort</h4>
+          <p>The force applied. Distance from fulcrum = <strong>effort arm</strong>.</p>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#127959; Load</h4>
+          <p>The force to be overcome. Distance from fulcrum = <strong>load arm</strong>.</p>
+        </div>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">&#9878;&#65039; Lever Principle</div>
+        <div class="formula-big">Effort &times; Effort Arm = Load &times; Load Arm</div>
+        <div class="formula-note">MA = Load / Effort = Effort Arm / Load Arm</div>
+        <div class="formula-note" style="margin-top:6px;">By increasing the effort arm, a smaller force can lift a heavier load!</div>
+      </div>
+
+      <!-- ANIMATED SCENE: Lever / Seesaw -->
+      <div class="anim-scene anim-lever">
+        <div class="anim-scene-title">Lever / Seesaw -- Mechanical Advantage in Action</div>
+        <div class="al-stage">
+          <div class="al-beam"></div>
+          <div class="al-fulcrum"></div>
+          <div class="al-load">
+            <div class="al-load-box">50 N</div>
+            <div class="al-load-label">LOAD (heavy)</div>
+          </div>
+          <div class="al-effort">
+            <div class="al-effort-box" style="font-size:8px;">25 N</div>
+            <div class="al-effort-label">EFFORT (small)</div>
+          </div>
+          <div class="al-arm-label left-arm">Load Arm</div>
+          <div class="al-arm-label right-arm">Effort Arm (2x)</div>
+          <div class="al-ma-badge">MA = 2 -- Small effort lifts big load!</div>
+        </div>
+      </div>
+
+      <h3 class="subtitle" style="color:#312e81;">&#128218; Three Classes of Levers</h3>
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>Class</th>
+            <th>Arrangement</th>
+            <th>Examples</th>
+          </tr>
+          <tr>
+            <td><strong>Class I</strong></td>
+            <td>Fulcrum in between effort and load</td>
+            <td>Scissors, seesaw, crowbar, pliers, balance scale</td>
+          </tr>
+          <tr>
+            <td><strong>Class II</strong></td>
+            <td>Load in between fulcrum and effort</td>
+            <td>Lemon squeezer, wheelbarrow, bottle opener</td>
+          </tr>
+          <tr>
+            <td><strong>Class III</strong></td>
+            <td>Effort in between fulcrum and load</td>
+            <td>Tweezers, broom, hammer, oar</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="example-box">
+        <div class="ex-title">&#128218; NCERT Example 7.13: Seesaw Problem</div>
+        <p><strong>Question:</strong> A seesaw has seats at distances 1 m and 2 m from the fulcrum on each side. Where should children of 15 kg and 30 kg sit to balance?</p>
+        <p style="margin-top:8px"><strong>Answer:</strong> 15 kg &times; 2 m = 30 kg &times; L &rarr; L = 1 m</p>
+        <p>The 15 kg child sits at 2 m from fulcrum, the 30 kg child at <strong>1 m from fulcrum</strong>.</p>
+      </div>
+
+      <!-- INTERACTIVE: Lever Balance -->
+      <div class="activity-block">
+        <div class="act-tag">&#127922; Interactive Activity</div>
+        <h3>&#9878;&#65039; Simple Machines -- Lever Balance</h3>
+        <p style="font-size:13px;margin-bottom:10px;">Place weights on left and right sides and adjust their distance from the fulcrum. Try to balance the lever!</p>
+
+        <div class="lever-visual" id="leverVisual">
+          <div class="lever-beam" id="leverBeam"></div>
+          <div class="lever-fulcrum"></div>
+          <div class="lever-weight left-w" id="leverLeftW" style="display:none;"></div>
+          <div class="lever-weight right-w" id="leverRightW" style="display:none;"></div>
+        </div>
+
+        <div class="lever-controls">
+          <div class="lever-side" style="border-left:4px solid #3b82f6;">
+            <h4 style="color:#1e40af;">&#128170; Left Side (Load)</h4>
+            <div class="lever-row">
+              <span style="font-size:12px;font-weight:700;">Weight (N):</span>
+              <button class="lever-btn" onclick="adjustLever('leftW',-10)">-</button>
+              <span class="lever-val" id="leftWVal">0</span>
+              <button class="lever-btn" onclick="adjustLever('leftW',10)">+</button>
+            </div>
+            <div class="lever-row">
+              <span style="font-size:12px;font-weight:700;">Arm (m):</span>
+              <button class="lever-btn" onclick="adjustLever('leftA',-0.5)">-</button>
+              <span class="lever-val" id="leftAVal">1.0</span>
+              <button class="lever-btn" onclick="adjustLever('leftA',0.5)">+</button>
+            </div>
+            <div style="font-size:12px;font-weight:800;color:#1e40af;margin-top:6px;">Moment: <span id="leftMoment">0</span> N&middot;m</div>
+          </div>
+          <div class="lever-side" style="border-right:4px solid #f97316;">
+            <h4 style="color:#9a3412;">&#127959; Right Side (Effort)</h4>
+            <div class="lever-row">
+              <span style="font-size:12px;font-weight:700;">Weight (N):</span>
+              <button class="lever-btn" onclick="adjustLever('rightW',-10)">-</button>
+              <span class="lever-val" id="rightWVal">0</span>
+              <button class="lever-btn" onclick="adjustLever('rightW',10)">+</button>
+            </div>
+            <div class="lever-row">
+              <span style="font-size:12px;font-weight:700;">Arm (m):</span>
+              <button class="lever-btn" onclick="adjustLever('rightA',-0.5)">-</button>
+              <span class="lever-val" id="rightAVal">1.0</span>
+              <button class="lever-btn" onclick="adjustLever('rightA',0.5)">+</button>
+            </div>
+            <div style="font-size:12px;font-weight:800;color:#9a3412;margin-top:6px;">Moment: <span id="rightMoment">0</span> N&middot;m</div>
+          </div>
+        </div>
+
+        <div class="lever-status unbalanced" id="leverStatus">
+          &#9878;&#65039; Add weights to both sides and try to balance the lever!
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128218; Key Principle:</strong> In all simple machines, <strong>conservation of energy holds</strong>. The work we put in equals the useful work done on the load (ignoring friction). Machines <strong>do not create energy</strong> -- they only help us use it more effectively. A lever reduces the force required but <strong>not the total work done</strong>.
+      </div>
+
+      <div class="ponder-card" onclick="this.classList.toggle('show-hint')">
+        <div class="ponder-label">&#129300; Think About It (NCERT)</div>
+        <div class="ponder-q">Why do all proposed perpetual motion machines fail? Why do real machines eventually slow down and stop?</div>
+        <div class="tap-text">&#128073; Tap to see answer</div>
+        <div class="ponder-hint">
+          <p>&#8226; Every real machine loses some energy to <strong>friction and air resistance</strong>.</p>
+          <p>&#8226; This energy converts to <strong>heat</strong>, which dissipates and cannot be fully recovered.</p>
+          <p>&#8226; Because of these inevitable losses, no machine can run forever without an external energy source.</p>
+          <p>&#8226; This is a consequence of the <strong>conservation of energy</strong> -- you cannot get more energy out than you put in.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: BRIDGING SCIENCE & SOCIETY -->
+  <div class="section-block reveal" id="bridge">
+    <div class="section-hd g-cyan"><span class="icon">&#127758;</span> Bridging Science and Society</div>
+    <div class="section-bd">
+      <div class="fun-fact-grid">
+        <div class="fun-fact-card">
+          <h4>&#127786; Gharat / Panchakki (Water Mill)</h4>
+          <p>In the Himalayan region, water flowing downhill converts <strong>potential energy into kinetic energy</strong>. This was traditionally used in the <strong>gharat</strong> (water mill) to grind grain. Water from the top (PE) flows down a pipe, gaining KE, which drives a wheel connected to a grinding stone.</p>
+        </div>
+        <div class="fun-fact-card">
+          <h4>&#9889; Modern Hydroelectric Power</h4>
+          <p>The same principle is used in modern <strong>hydroelectric dams</strong>. Water stored at height has PE, which converts to KE as it falls, driving turbines that generate electricity.</p>
+        </div>
+      </div>
+
+      <div class="fun-fact-grid">
+        <div class="fun-fact-card">
+          <h4>&#127756; Dark Energy -- The Quest Continues</h4>
+          <p>Scientists have discovered that the Universe is expanding and this expansion is <strong>accelerating</strong>. To explain this, a mysterious form of energy called <strong>dark energy</strong> has been proposed. There is no way to exchange dark energy with other forms of energy, and it may govern the fate of the Universe billions of years into the future!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: SUMMARY -->
+  <div class="section-block reveal" id="summary">
+    <div class="section-hd g-slate"><span class="icon">&#128203;</span> Chapter Summary</div>
+    <div class="section-bd">
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#128170; Work Done</h4>
+          <p>W = F &times; s. Work is done when a force displaces an object in its direction. SI unit: joule (J). Work can be positive, negative, or zero.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128260; Work-Energy Theorem</h4>
+          <p>Work done on an object = Change in its energy. This connects force, displacement, and energy.</p>
+        </div>
+        <div class="info-card ic-cyan">
+          <h4>&#127939; Kinetic Energy</h4>
+          <p>KE = &#189;mv&#178;. Energy due to motion. Doubles velocity means 4 times KE!</p>
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#9968; Potential Energy</h4>
+          <p>PE = mgh (gravitational). Energy stored due to position or deformation. Greater height = more PE.</p>
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128260; Conservation of Energy</h4>
+          <p>KE + PE = constant (when no external forces). Lost PE converts to KE and vice versa.</p>
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#9889; Power</h4>
+          <p>P = W/t. Rate of doing work. SI unit: watt (W). 1 hp = 746 W.</p>
+        </div>
+        <div class="info-card ic-indigo">
+          <h4>&#9881;&#65039; Simple Machines</h4>
+          <p>Pulley, inclined plane, lever. They change force magnitude or direction. MA = Load/Effort.</p>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128218; Key Principle</h4>
+          <p>Machines do NOT create energy. They only help us use it more effectively. Total work done remains the same.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: MCQs -->
+  <div class="section-block reveal" id="mcq">
+    <div class="section-hd g-green"><span class="icon">&#129504;</span> MCQs (Multiple Choice Questions)</div>
+    <div class="section-bd">
+      <ul class="mcq-list">
+        <li class="mcq-item">
+          <div class="mcq-q">Q1. Work done by a force on an object is zero when:</div>
+          <ul class="mcq-options">
+            <li data-correct="false">a) Force is large but displacement is small</li>
+            <li data-correct="false">b) Force and displacement are in the same direction</li>
+            <li data-correct="true">c) Force is perpendicular to the displacement</li>
+            <li data-correct="false">d) Force and displacement are in opposite directions</li>
+          </ul>
+          <div class="mcq-ans">&#10004; c) When force is perpendicular to displacement, there is no displacement in the direction of force, so work done is zero. Example: carrying a box while walking.</div>
+        </li>
+        <li class="mcq-item">
+          <div class="mcq-q">Q2. The SI unit of work is:</div>
+          <ul class="mcq-options">
+            <li data-correct="false">a) Newton</li>
+            <li data-correct="true">b) Joule</li>
+            <li data-correct="false">c) Watt</li>
+            <li data-correct="false">d) Pascal</li>
+          </ul>
+          <div class="mcq-ans">&#10004; b) The SI unit of work is joule (J). 1 J = 1 N &times; 1 m = 1 kg m&#178; s&#8315;&#178;.</div>
+        </li>
+        <li class="mcq-item">
+          <div class="mcq-q">Q3. If the velocity of an object is doubled, its kinetic energy becomes:</div>
+          <ul class="mcq-options">
+            <li data-correct="false">a) Double</li>
+            <li data-correct="false">b) Triple</li>
+            <li data-correct="true">c) Four times</li>
+            <li data-correct="false">d) Half</li>
+          </ul>
+          <div class="mcq-ans">&#10004; c) KE = &#189;mv&#178;. If v becomes 2v, KE = &#189;m(2v)&#178; = 4 &times; &#189;mv&#178;. Kinetic energy becomes 4 times.</div>
+        </li>
+        <li class="mcq-item">
+          <div class="mcq-q">Q4. The potential energy of an object at height h from the ground is:</div>
+          <ul class="mcq-options">
+            <li data-correct="false">a) &#189;mv&#178;</li>
+            <li data-correct="true">b) mgh</li>
+            <li data-correct="false">c) mg/h</li>
+            <li data-correct="false">d) mv&#178;</li>
+          </ul>
+          <div class="mcq-ans">&#10004; b) Gravitational potential energy U = mgh, where m is mass, g is acceleration due to gravity, and h is height.</div>
+        </li>
+        <li class="mcq-item">
+          <div class="mcq-q">Q5. A goalkeeper stops a ball by applying a force opposite to its motion. The work done by the goalkeeper on the ball is:</div>
+          <ul class="mcq-options">
+            <li data-correct="false">a) Positive</li>
+            <li data-correct="true">b) Negative</li>
+            <li data-correct="false">c) Zero</li>
+            <li data-correct="false">d) Cannot be determined</li>
+          </ul>
+          <div class="mcq-ans">&#10004; b) When force and displacement are in opposite directions, the work done is negative.</div>
+        </li>
+        <li class="mcq-item">
+          <div class="mcq-q">Q6. The mechanical advantage of a fixed pulley is:</div>
+          <ul class="mcq-options">
+            <li data-correct="true">a) 1</li>
+            <li data-correct="false">b) 2</li>
+            <li data-correct="false">c) Greater than 1</li>
+            <li data-correct="false">d) Less than 1</li>
+          </ul>
+          <div class="mcq-ans">&#10004; a) A fixed pulley only changes the direction of force, not its magnitude. Load equals effort, so MA = 1.</div>
+        </li>
+        <li class="mcq-item">
+          <div class="mcq-q">Q7. Power is defined as:</div>
+          <ul class="mcq-options">
+            <li data-correct="false">a) Force multiplied by displacement</li>
+            <li data-correct="false">b) Energy stored in an object</li>
+            <li data-correct="true">c) Rate at which work is done</li>
+            <li data-correct="false">d) Force multiplied by velocity</li>
+          </ul>
+          <div class="mcq-ans">&#10004; c) Power = Work done / Time taken. It measures how fast work is being done. SI unit is watt (W).</div>
+        </li>
+        <li class="mcq-item">
+          <div class="mcq-q">Q8. In conservation of mechanical energy, as a ball falls freely:</div>
+          <ul class="mcq-options">
+            <li data-correct="false">a) Both KE and PE increase</li>
+            <li data-correct="false">b) Both KE and PE decrease</li>
+            <li data-correct="true">c) KE increases and PE decreases, total stays constant</li>
+            <li data-correct="false">d) KE decreases and PE increases</li>
+          </ul>
+          <div class="mcq-ans">&#10004; c) As a ball falls, height decreases so PE decreases. Speed increases so KE increases. The total mechanical energy (KE + PE) remains constant.</div>
+        </li>
+        <li class="mcq-item">
+          <div class="mcq-q">Q9. The mechanical advantage of an inclined plane of length L and height h is:</div>
+          <ul class="mcq-options">
+            <li data-correct="false">a) h/L</li>
+            <li data-correct="true">b) L/h</li>
+            <li data-correct="false">c) L &times; h</li>
+            <li data-correct="false">d) L + h</li>
+          </ul>
+          <div class="mcq-ans">&#10004; b) MA of inclined plane = L/h. Since L &gt; h, MA is always greater than 1. A longer, gentler slope reduces the effort needed.</div>
+        </li>
+        <li class="mcq-item">
+          <div class="mcq-q">Q10. A child at the top of a slide of height h reaches the bottom with velocity v. If friction is neglected, v equals:</div>
+          <ul class="mcq-options">
+            <li data-correct="false">a) gh</li>
+            <li data-correct="true">b) &#8730;(2gh)</li>
+            <li data-correct="false">c) 2gh</li>
+            <li data-correct="false">d) &#8730;(gh)</li>
+          </ul>
+          <div class="mcq-ans">&#10004; b) By conservation of energy: mgh = &#189;mv&#178; &rarr; v&#178; = 2gh &rarr; v = &#8730;(2gh). This is independent of the child's mass or the shape of the slide.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION: SHORT Q&A -->
+  <div class="section-block reveal" id="short">
+    <div class="section-hd g-blue"><span class="icon">&#9997;&#65039;</span> Short Answer Questions</div>
+    <div class="section-bd">
+      <ul class="short-q-list">
+        <li class="short-q-item">
+          <div class="short-q">Q1. Define work done by a force. What is its SI unit?</div>
+          <div class="short-a">Work done by a constant force is defined as the <strong>product of the force applied and the displacement of the object in the direction of the force</strong>: W = F &times; s. The SI unit of work is the <strong>joule (J)</strong>. 1 J = 1 N &times; 1 m.</div>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">Q2. When is the work done by a force zero? Give two examples.</div>
+          <div class="short-a">Work done is zero when: (i) there is <strong>no displacement</strong> (e.g., pushing a wall -- s = 0), or (ii) the force is <strong>perpendicular to displacement</strong> (e.g., a girl carrying a box while walking -- upward force, horizontal motion). Also, if the force itself is zero, no work is done.</div>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">Q3. Distinguish between positive and negative work done with examples.</div>
+          <div class="short-a"><strong>Positive work:</strong> When displacement is in the <strong>same direction</strong> as the force. Example: pushing a wheelchair forward. <strong>Negative work:</strong> When displacement is <strong>opposite</strong> to the force. Example: a goalkeeper stopping a ball -- the force is backward but the ball moves forward.</div>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">Q4. State the work-energy theorem.</div>
+          <div class="short-a">The <strong>work-energy theorem</strong> states that the work done on an object is equal to the <strong>change in its energy</strong>. Mathematically: W = Change in energy. This theorem holds even for a system of objects or when forces are not constant.</div>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">Q5. What is kinetic energy? Write its formula.</div>
+          <div class="short-a"><strong>Kinetic energy</strong> is the energy possessed by an object due to its <strong>motion</strong>. The formula is <strong>K = &#189;mv&#178;</strong>, where m is the mass and v is the velocity. Its SI unit is joule (J). If velocity doubles, KE becomes 4 times.</div>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">Q6. What is gravitational potential energy? How does it depend on height?</div>
+          <div class="short-a"><strong>Gravitational potential energy</strong> is the energy stored in an object due to its <strong>position above the ground</strong>. It is given by <strong>U = mgh</strong>. The greater the height h, the greater the potential energy. This was demonstrated in the NCERT activity where a ball dropped from greater height makes a <strong>deeper depression</strong> in sand.</div>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">Q7. What is a simple machine? Name three types.</div>
+          <div class="short-a">A <strong>simple machine</strong> is a device that makes work easier by changing the <strong>magnitude or direction</strong> of the force that needs to be applied. It does NOT reduce the total work. Three types are: (i) <strong>Pulley</strong>, (ii) <strong>Inclined plane</strong>, and (iii) <strong>Lever</strong>.</div>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">Q8. Define power and give its SI unit. What is 1 horsepower?</div>
+          <div class="short-a"><strong>Power</strong> is defined as the <strong>rate at which work is done</strong>: P = W/t. The SI unit is the <strong>watt (W)</strong>, where 1 W = 1 J/s. <strong>1 horsepower (hp) = 746 W</strong>. The watt is named after James Watt who invented the efficient steam engine.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION: LONG Q&A -->
+  <div class="section-block reveal" id="long">
+    <div class="section-hd g-amber"><span class="icon">&#128214;</span> Long Answer Questions</div>
+    <div class="section-bd">
+      <div class="long-q-item">
+        <div class="long-q">Q1. Derive the expression for kinetic energy of an object. Explain the work-energy theorem.</div>
+        <div class="long-a">
+          <p>Consider an object of mass <strong>m</strong> with initial velocity <strong>u</strong> that acquires final velocity <strong>v</strong> under a constant force <strong>F</strong>, undergoing displacement <strong>s</strong>.</p>
+          <p style="margin-top:6px">From kinematics: v&#178; = u&#178; + 2as, so s = (v&#178; - u&#178;)/2a</p>
+          <p>Work done: W = F &times; s = ma &times; (v&#178; - u&#178;)/2a = <strong>&#189;m(v&#178; - u&#178;)</strong></p>
+          <p style="margin-top:6px">If the object starts from rest (u = 0), all the work done appears as kinetic energy:</p>
+          <p><strong>K = &#189;mv&#178;</strong></p>
+          <p style="margin-top:6px">The <strong>work-energy theorem</strong> states that work done on an object equals the change in its energy. This is a powerful tool because it works even when forces are complex or vary with time, offering a simpler approach than Newton's laws in many cases.</p>
+        </div>
+      </div>
+      <div class="long-q-item">
+        <div class="long-q">Q2. Explain the law of conservation of mechanical energy with the example of a freely falling object.</div>
+        <div class="long-a">
+          <p>The <strong>conservation of mechanical energy</strong> states that when an object moves under gravitational force alone (no external forces like friction), its total mechanical energy (KE + PE) remains <strong>constant</strong>.</p>
+          <p style="margin-top:6px"><strong>Freely falling object:</strong> An object of mass m is dropped from height h.</p>
+          <p>&bull; <strong>At the top (A):</strong> PE = mgh, KE = 0. Total energy = mgh</p>
+          <p>&bull; <strong>At point B (after time t):</strong> Height h' = h - &#189;gt&#178;. PE = mgh' = mgh - &#189;mg&#178;t&#178;. KE = &#189;mv&#178; = &#189;mg&#178;t&#178;. Total = mgh</p>
+          <p>&bull; <strong>At the ground (C):</strong> PE = 0, KE = mgh. Total energy = mgh</p>
+          <p style="margin-top:6px">At every point, the <strong>decrease in PE exactly equals the increase in KE</strong>. The total mechanical energy remains mgh throughout. This demonstrates that potential energy is converted into kinetic energy during free fall while the total is conserved.</p>
+          <p style="margin-top:6px">A <strong>pendulum</strong> also demonstrates this -- the bob swings between PE (at extremes) and KE (at the lowest point), reaching almost the same height on both sides.</p>
+        </div>
+      </div>
+      <div class="long-q-item">
+        <div class="long-q">Q3. Explain the three types of simple machines (pulley, inclined plane, lever) with their mechanical advantages.</div>
+        <div class="long-a">
+          <p><strong>1. Pulley:</strong> A wheel with a groove guiding a rope. A <strong>fixed pulley</strong> changes the direction of effort (MA = 1). A <strong>movable pulley system</strong> can have MA &gt; 1, allowing heavier loads to be lifted with smaller effort. Used in cranes and elevators.</p>
+          <p style="margin-top:6px"><strong>2. Inclined Plane:</strong> A ramp that allows moving heavy loads to a height with less force. By conservation of energy: F' &times; L = mgh, so <strong>MA = L/h</strong>. Since L &gt; h, the effort F' is less than the weight mg. A longer, gentler ramp reduces force further. This is why hill roads wind around in gentle slopes.</p>
+          <p style="margin-top:6px"><strong>3. Lever:</strong> A rigid bar rotating about a fulcrum. It has effort arm and load arm. The principle: <strong>Effort &times; Effort arm = Load &times; Load arm</strong>. MA = Effort arm / Load arm. By increasing the effort arm, a smaller force can lift a heavier load. Three classes: Class I (fulcrum in between -- scissors, seesaw), Class II (load in between -- wheelbarrow, bottle opener), Class III (effort in between -- tweezers, broom).</p>
+          <p style="margin-top:6px"><strong>Important:</strong> All simple machines conserve energy. They reduce force but increase displacement. Total work done remains the same.</p>
+        </div>
+      </div>
+      <div class="long-q-item">
+        <div class="long-q">Q4. Explain the different forms of energy with examples of energy transformation.</div>
+        <div class="long-a">
+          <p>Energy exists in many forms: <strong>Mechanical energy</strong> (due to motion or position), <strong>Chemical energy</strong> (stored in bonds -- food, fuels), <strong>Electrical energy</strong> (motion of charges), <strong>Thermal energy</strong> (makes things hot), <strong>Light energy</strong> (allows us to see), <strong>Sound energy</strong> (vibrations), and <strong>Nuclear energy</strong> (in atomic nuclei).</p>
+          <p style="margin-top:6px"><strong>Energy transformations:</strong></p>
+          <p>&bull; A <strong>bulb</strong> converts electrical &rarr; light energy</p>
+          <p>&bull; A <strong>water heater</strong> converts electrical &rarr; thermal energy</p>
+          <p>&bull; <strong>Food</strong> converts chemical &rarr; mechanical energy (muscles)</p>
+          <p>&bull; A <strong>bell</strong> converts mechanical &rarr; sound energy</p>
+          <p>&bull; A <strong>watermill (gharat)</strong> converts PE of water &rarr; KE &rarr; mechanical energy for grinding</p>
+          <p>&bull; A <strong>solar panel</strong> converts light &rarr; electrical energy</p>
+          <p>&bull; <strong>Photosynthesis</strong> converts light &rarr; chemical energy</p>
+          <p style="margin-top:6px">In all transformations, the <strong>total energy is conserved</strong> -- it changes form but is never created or destroyed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: FILL IN BLANKS -->
+  <div class="section-block reveal" id="fib">
+    <div class="section-hd g-green"><span class="icon">&#9999;&#65039;</span> Fill in the Blanks</div>
+    <div class="section-bd">
+      <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+        <div class="fib-q">1. Work done = __________ &times; __________ (in the direction of force).</div>
+        <div class="fib-a">&#10004; <strong>Force &times; Displacement</strong></div>
+      </div>
+      <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+        <div class="fib-q">2. The SI unit of both work and energy is __________.</div>
+        <div class="fib-a">&#10004; <strong>Joule (J)</strong></div>
+      </div>
+      <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+        <div class="fib-q">3. The kinetic energy of an object of mass m moving with velocity v is __________.</div>
+        <div class="fib-a">&#10004; <strong>&#189;mv&#178;</strong></div>
+      </div>
+      <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+        <div class="fib-q">4. The gravitational potential energy of an object of mass m at height h is __________.</div>
+        <div class="fib-a">&#10004; <strong>mgh</strong></div>
+      </div>
+      <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+        <div class="fib-q">5. Power is defined as the __________ at which work is done.</div>
+        <div class="fib-a">&#10004; <strong>Rate</strong></div>
+      </div>
+      <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+        <div class="fib-q">6. The mechanical advantage of an inclined plane of length L and height h is __________.</div>
+        <div class="fib-a">&#10004; <strong>L/h</strong></div>
+      </div>
+      <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+        <div class="fib-q">7. 1 horsepower is equal to __________ watts.</div>
+        <div class="fib-a">&#10004; <strong>746 W</strong></div>
+      </div>
+      <div class="fib-item" onclick="this.classList.toggle('show-ans')">
+        <div class="fib-q">8. In a lever, the principle states: Effort &times; Effort arm = __________ &times; __________.</div>
+        <div class="fib-a">&#10004; <strong>Load &times; Load arm</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: TRUE/FALSE -->
+  <div class="section-block reveal" id="tf">
+    <div class="section-hd g-rose"><span class="icon">&#10003;</span> True or False</div>
+    <div class="section-bd">
+      <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+        <div class="tf-q">1. Work is done on an object when a force is applied, even if the object does not move.</div>
+        <div class="tf-a">&#10008; <strong>False.</strong> If there is no displacement (s = 0), work done is zero regardless of the force applied. Example: pushing a wall.</div>
+      </div>
+      <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+        <div class="tf-q">2. Lifting a bucket vertically upward results in positive work done on the bucket.</div>
+        <div class="tf-a">&#10004; <strong>True.</strong> The force (upward) and displacement (upward) are in the same direction, so work done is positive.</div>
+      </div>
+      <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+        <div class="tf-q">3. A motionless stretched rubber band has kinetic energy.</div>
+        <div class="tf-a">&#10008; <strong>False.</strong> A motionless stretched rubber band has potential energy (elastic PE) due to its deformation, not kinetic energy. KE requires motion.</div>
+      </div>
+      <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+        <div class="tf-q">4. Energy can change from one form to another.</div>
+        <div class="tf-a">&#10004; <strong>True.</strong> Energy can be transformed between forms -- chemical to mechanical, electrical to light, PE to KE, etc.</div>
+      </div>
+      <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+        <div class="tf-q">5. Simple machines reduce the total work needed to perform a task.</div>
+        <div class="tf-a">&#10008; <strong>False.</strong> Simple machines do NOT reduce total work. They only change the magnitude or direction of the force. The product of force and displacement remains the same.</div>
+      </div>
+      <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+        <div class="tf-q">6. The velocity of a child at the bottom of a slide depends on the shape of the slide (if friction is neglected).</div>
+        <div class="tf-a">&#10008; <strong>False.</strong> By conservation of energy, v = &#8730;(2gh). The velocity depends only on the height h, not the shape of the slide or the mass of the child.</div>
+      </div>
+      <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+        <div class="tf-q">7. A fixed pulley has a mechanical advantage greater than 1.</div>
+        <div class="tf-a">&#10008; <strong>False.</strong> A fixed pulley has MA = 1. It only changes the direction of force, not its magnitude. A movable pulley system can have MA &gt; 1.</div>
+      </div>
+      <div class="tf-item" onclick="this.classList.toggle('show-ans')">
+        <div class="tf-q">8. In a lever, increasing the effort arm reduces the effort needed to lift the load.</div>
+        <div class="tf-a">&#10004; <strong>True.</strong> By the lever principle, Effort &times; Effort arm = Load &times; Load arm. Increasing the effort arm means less effort is needed for the same load.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <a href="how-forces-affect-motion.html" class="bottom-nav-card prev">
+      <div class="nav-icon">&#128218;</div>
+      <div class="nav-text"><h4>&#8592; Ch 6: How Forces Affect Motion</h4><p>Previous Chapter</p></div>
+    </a>
+    <a href="journey-inside-the-atom.html" class="bottom-nav-card next">
+      <div class="nav-text"><h4>Ch 8: Journey Inside the Atom &#8594;</h4><p>Next Chapter</p></div>
+      <div class="nav-icon">&#128218;</div>
+    </a>
+    <div class="bottom-nav-full">
+      <a href="../../index.html" class="bottom-btn home-btn">&#127968; Home</a>
+      <a href="https://wa.me/?text=Check%20out%20these%20Class%209%20Science%20notes%20-%20Work%2C%20Energy%20and%20Simple%20Machines%20(New%20NCERT%202026)!%20Free%20animated%20notes%20with%20MCQs!" class="bottom-btn wa-btn" target="_blank">&#128172; Share on WhatsApp</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- SHARE POPUP -->
+<div class="share-overlay" id="shareOverlay">
+  <div class="share-popup">
+    <h3>&#128228; Share These Notes!</h3>
+    <div class="share-btn-row">
+      <button class="share-action-btn share-wa" onclick="shareWhatsApp()">&#128172; Share on WhatsApp</button>
+      <button class="share-action-btn share-copy" onclick="copyLink()">&#128203; Copy Link</button>
+      <button class="share-action-btn share-native" onclick="shareNative()" id="nativeShareBtn" style="display:none;">&#128228; More Options</button>
+    </div>
+    <button class="share-close-btn" onclick="closeSharePopup()">Close</button>
+  </div>
+</div>
+
+<button class="float-share-btn" onclick="openSharePopup()">&#128228;</button>
+
+<footer>Preeti Kushwah Classes &middot; Quality Education for Every Student</footer>
+
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../chapter-features.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
+<script>
+document.querySelectorAll('.mcq-options li').forEach(function(li){
+  li.addEventListener('click', function(){
+    var item = this.closest('.mcq-item');
+    if(item.classList.contains('show-ans')) return;
+    item.classList.add('show-ans');
+    if(this.getAttribute('data-correct')==='true'){
+      this.classList.add('correct');
+    } else {
+      this.classList.add('wrong');
+      item.querySelectorAll('.mcq-options li').forEach(function(o){
+        if(o.getAttribute('data-correct')==='true') o.classList.add('correct');
+      });
+    }
+  });
+});
+var reveals = document.querySelectorAll('.reveal');
+function checkReveals(){
+  reveals.forEach(function(el){
+    var top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 60) el.classList.add('visible');
+  });
+}
+window.addEventListener('scroll', checkReveals);
+checkReveals();
+function openSharePopup(){ document.getElementById('shareOverlay').classList.add('active'); if(navigator.share) document.getElementById('nativeShareBtn').style.display='flex'; }
+function closeSharePopup(){ document.getElementById('shareOverlay').classList.remove('active'); }
+function shareWhatsApp(){ window.open('https://wa.me/?text='+encodeURIComponent('Check out these Class 9 Science notes - Work, Energy & Simple Machines (New NCERT 2026)! '+window.location.href),'_blank'); }
+function copyLink(){ navigator.clipboard.writeText(window.location.href).then(function(){ alert('Link copied!'); }); }
+function shareNative(){ if(navigator.share) navigator.share({title:'Class 9 Science - Work, Energy & Simple Machines',text:'Free animated notes with MCQs!',url:window.location.href}); }
+document.getElementById('shareOverlay').addEventListener('click',function(e){ if(e.target===this) closeSharePopup(); });
+
+/* ========== ACTIVITY 1: Work Calculator ========== */
+function calcWork() {
+  var F = parseFloat(document.getElementById('workForce').value);
+  var d = parseFloat(document.getElementById('workDist').value);
+  var angle = parseFloat(document.getElementById('workAngle').value);
+  var result = document.getElementById('workResult');
+  if (isNaN(F) || isNaN(d) || isNaN(angle)) {
+    result.innerHTML = '<strong style="color:#991b1b;">Please fill in all three fields.</strong>';
+    result.className = 'calc-result show';
+    return;
+  }
+  var rad = angle * Math.PI / 180;
+  var cosA = Math.cos(rad);
+  var W = F * d * cosA;
+  var sign, color, emoji, explanation;
+  if (Math.abs(W) < 0.001) {
+    sign = 'ZERO'; color = '#6b7280'; emoji = '&#9898;';
+    explanation = 'The force is perpendicular to displacement (cos ' + angle + '&deg; = ' + cosA.toFixed(4) + '), so no work is done!';
+  } else if (W > 0) {
+    sign = 'POSITIVE'; color = '#166534'; emoji = '&#10133;';
+    explanation = 'Force and displacement have a component in the same direction. Energy is transferred TO the object.';
+  } else {
+    sign = 'NEGATIVE'; color = '#991b1b'; emoji = '&#10134;';
+    explanation = 'Force has a component opposite to displacement. Energy is taken FROM the object.';
+  }
+  result.innerHTML = '<div style="text-align:center;margin-bottom:10px;">' +
+    '<span style="display:inline-block;background:' + color + ';color:white;padding:6px 16px;border-radius:20px;font-weight:800;font-size:15px;">' +
+    emoji + ' ' + sign + ' Work</span></div>' +
+    '<p><strong>W = F &times; d &times; cos(&theta;)</strong></p>' +
+    '<p>W = ' + F + ' N &times; ' + d + ' m &times; cos(' + angle + '&deg;)</p>' +
+    '<p>W = ' + F + ' &times; ' + d + ' &times; ' + cosA.toFixed(4) + '</p>' +
+    '<p style="font-size:18px;font-weight:900;color:' + color + ';margin-top:6px;">W = ' + W.toFixed(2) + ' J</p>' +
+    '<p style="font-size:12px;color:#374151;margin-top:8px;">' + explanation + '</p>';
+  result.className = 'calc-result show';
+}
+
+/* ========== ACTIVITY 2: KE vs PE Calculator ========== */
+var lastKE = 0, lastPE = 0;
+function switchEnergyTab(tab) {
+  document.querySelectorAll('.energy-tab').forEach(function(t) { t.classList.remove('active'); });
+  document.querySelectorAll('.energy-tab-content').forEach(function(c) { c.classList.remove('active'); });
+  if (tab === 'ke') {
+    document.querySelectorAll('.energy-tab')[0].classList.add('active');
+    document.getElementById('keTab').classList.add('active');
+  } else {
+    document.querySelectorAll('.energy-tab')[1].classList.add('active');
+    document.getElementById('peTab').classList.add('active');
+  }
+}
+function energyComparison(joules) {
+  var textbookMass = 0.5;
+  var textbookHeight = 1.0;
+  var textbookPE = textbookMass * 9.8 * textbookHeight;
+  var count = joules / textbookPE;
+  return 'Your energy equals lifting <strong>' + count.toFixed(1) + ' textbooks</strong> (0.5 kg each) to <strong>1 metre</strong> height!';
+}
+function updateEnergyBars() {
+  var bars = document.getElementById('energyBarsComparison');
+  bars.style.display = 'flex';
+  var maxE = Math.max(lastKE, lastPE, 1);
+  document.getElementById('keBarVis').style.height = Math.max(4, (lastKE / maxE) * 120) + 'px';
+  document.getElementById('peBarVis').style.height = Math.max(4, (lastPE / maxE) * 120) + 'px';
+}
+function calcKE() {
+  var m = parseFloat(document.getElementById('keMass').value);
+  var v = parseFloat(document.getElementById('keVel').value);
+  var result = document.getElementById('keResult');
+  if (isNaN(m) || isNaN(v)) {
+    result.innerHTML = '<strong style="color:#991b1b;">Please enter both mass and velocity.</strong>';
+    result.className = 'calc-result show';
+    return;
+  }
+  var KE = 0.5 * m * v * v;
+  lastKE = KE;
+  result.innerHTML = '<p><strong>KE = &frac12;mv&sup2;</strong></p>' +
+    '<p>KE = &frac12; &times; ' + m + ' &times; ' + v + '&sup2;</p>' +
+    '<p style="font-size:18px;font-weight:900;color:#f97316;margin-top:6px;">KE = ' + KE.toFixed(2) + ' J</p>' +
+    '<p style="font-size:12px;color:#374151;margin-top:8px;">' + energyComparison(KE) + '</p>';
+  result.className = 'calc-result show';
+  updateEnergyBars();
+}
+function calcPE() {
+  var m = parseFloat(document.getElementById('peMass').value);
+  var h = parseFloat(document.getElementById('peHeight').value);
+  var result = document.getElementById('peResult');
+  if (isNaN(m) || isNaN(h)) {
+    result.innerHTML = '<strong style="color:#991b1b;">Please enter both mass and height.</strong>';
+    result.className = 'calc-result show';
+    return;
+  }
+  var PE = m * 9.8 * h;
+  lastPE = PE;
+  result.innerHTML = '<p><strong>PE = mgh</strong></p>' +
+    '<p>PE = ' + m + ' &times; 9.8 &times; ' + h + '</p>' +
+    '<p style="font-size:18px;font-weight:900;color:#3b82f6;margin-top:6px;">PE = ' + PE.toFixed(2) + ' J</p>' +
+    '<p style="font-size:12px;color:#374151;margin-top:8px;">' + energyComparison(PE) + '</p>';
+  result.className = 'calc-result show';
+  updateEnergyBars();
+}
+
+/* ========== ACTIVITY 3: Pendulum Simulator ========== */
+var pendulumRAF;
+function updatePendulum() {
+  var h = parseFloat(document.getElementById('pendHeight').value);
+  document.getElementById('pendHeightVal').textContent = h.toFixed(1);
+  var maxAngle = Math.min(45, Math.asin(h / 1.4) * 180 / Math.PI);
+  if (isNaN(maxAngle) || maxAngle < 5) maxAngle = 15;
+  var arm = document.getElementById('pendulumArm');
+  arm.style.animation = 'none';
+  arm.offsetHeight;
+  var duration = 2 * Math.sqrt(1.4 / 9.8);
+  var styleSheet = document.styleSheets[0];
+  var keyframeName = 'pendulumSwing';
+  for (var i = styleSheet.cssRules.length - 1; i >= 0; i--) {
+    if (styleSheet.cssRules[i].name === keyframeName) {
+      styleSheet.deleteRule(i);
+      break;
+    }
+  }
+  styleSheet.insertRule('@keyframes ' + keyframeName + ' { 0%, 100% { transform: rotate(' + maxAngle + 'deg); } 50% { transform: rotate(-' + maxAngle + 'deg); } }', styleSheet.cssRules.length);
+  arm.style.animation = keyframeName + ' ' + (duration * 2).toFixed(2) + 's ease-in-out infinite';
+  animatePendulumBars(maxAngle, h);
+}
+function animatePendulumBars(maxAngle, h) {
+  if (pendulumRAF) cancelAnimationFrame(pendulumRAF);
+  var bobMass = 1;
+  var totalE = bobMass * 9.8 * h;
+  var armLen = 1.4;
+  var duration = 2 * Math.sqrt(armLen / 9.8) * 2 * 1000;
+  var startTime = Date.now();
+  function tick() {
+    var elapsed = (Date.now() - startTime) % duration;
+    var phase = (elapsed / duration) * 2 * Math.PI;
+    var angle = maxAngle * Math.cos(phase);
+    var angleRad = angle * Math.PI / 180;
+    var currentH = armLen * (1 - Math.cos(angleRad));
+    var maxH = armLen * (1 - Math.cos(maxAngle * Math.PI / 180));
+    if (maxH < 0.001) maxH = 0.001;
+    var peFraction = currentH / maxH;
+    var keFraction = 1 - peFraction;
+    var pe = totalE * peFraction;
+    var ke = totalE * keFraction;
+    document.getElementById('pendPEbar').style.height = (peFraction * 100) + '%';
+    document.getElementById('pendKEbar').style.height = (keFraction * 100) + '%';
+    document.getElementById('pendPEval').textContent = pe.toFixed(1);
+    document.getElementById('pendKEval').textContent = ke.toFixed(1);
+    document.getElementById('pendTotalVal').textContent = totalE.toFixed(1);
+    pendulumRAF = requestAnimationFrame(tick);
+  }
+  tick();
+}
+(function initPendulum() {
+  var h = parseFloat(document.getElementById('pendHeight').value) || 1.0;
+  var maxAngle = Math.min(45, Math.asin(h / 1.4) * 180 / Math.PI);
+  if (isNaN(maxAngle) || maxAngle < 5) maxAngle = 30;
+  animatePendulumBars(maxAngle, h);
+})();
+
+/* ========== ACTIVITY 4: Lever Balance ========== */
+var leverState = { leftW: 0, leftA: 1.0, rightW: 0, rightA: 1.0 };
+function adjustLever(key, delta) {
+  leverState[key] += delta;
+  if (key === 'leftW' || key === 'rightW') {
+    if (leverState[key] < 0) leverState[key] = 0;
+    if (leverState[key] > 200) leverState[key] = 200;
+  }
+  if (key === 'leftA' || key === 'rightA') {
+    if (leverState[key] < 0.5) leverState[key] = 0.5;
+    if (leverState[key] > 4.0) leverState[key] = 4.0;
+  }
+  updateLever();
+}
+function updateLever() {
+  document.getElementById('leftWVal').textContent = leverState.leftW;
+  document.getElementById('leftAVal').textContent = leverState.leftA.toFixed(1);
+  document.getElementById('rightWVal').textContent = leverState.rightW;
+  document.getElementById('rightAVal').textContent = leverState.rightA.toFixed(1);
+  var leftMoment = leverState.leftW * leverState.leftA;
+  var rightMoment = leverState.rightW * leverState.rightA;
+  document.getElementById('leftMoment').textContent = leftMoment.toFixed(1);
+  document.getElementById('rightMoment').textContent = rightMoment.toFixed(1);
+  var beam = document.getElementById('leverBeam');
+  var status = document.getElementById('leverStatus');
+  var diff = leftMoment - rightMoment;
+  var maxTilt = 8;
+  var tilt;
+  if (leftMoment === 0 && rightMoment === 0) {
+    tilt = 0;
+    status.className = 'lever-status unbalanced';
+    status.innerHTML = '&#9878;&#65039; Add weights to both sides and try to balance the lever!';
+  } else if (Math.abs(diff) < 0.1) {
+    tilt = 0;
+    status.className = 'lever-status balanced';
+    status.innerHTML = '&#10004; BALANCED! Load &times; Load Arm = Effort &times; Effort Arm = ' + leftMoment.toFixed(1) + ' N&middot;m';
+  } else {
+    var maxMoment = Math.max(leftMoment, rightMoment, 1);
+    tilt = (diff / maxMoment) * maxTilt;
+    tilt = Math.max(-maxTilt, Math.min(maxTilt, tilt));
+    status.className = 'lever-status unbalanced';
+    if (diff > 0) {
+      status.innerHTML = '&#9878;&#65039; Left side is heavier! (Left: ' + leftMoment.toFixed(1) + ' vs Right: ' + rightMoment.toFixed(1) + ' N&middot;m)';
+    } else {
+      status.innerHTML = '&#9878;&#65039; Right side is heavier! (Left: ' + leftMoment.toFixed(1) + ' vs Right: ' + rightMoment.toFixed(1) + ' N&middot;m)';
+    }
+  }
+  beam.style.transform = 'rotate(' + tilt + 'deg)';
+  var leftW = document.getElementById('leverLeftW');
+  var rightW = document.getElementById('leverRightW');
+  if (leverState.leftW > 0) {
+    leftW.style.display = 'flex';
+    leftW.textContent = leverState.leftW;
+    var leftPos = 50 - (leverState.leftA / 4.0) * 40;
+    leftW.style.left = leftPos + '%';
+    var leftTopOffset = tilt * (50 - leftPos) / 50 * 1.5;
+    leftW.style.top = 'calc(50% - 28px + ' + leftTopOffset + 'px)';
+  } else { leftW.style.display = 'none'; }
+  if (leverState.rightW > 0) {
+    rightW.style.display = 'flex';
+    rightW.textContent = leverState.rightW;
+    var rightPos = 50 + (leverState.rightA / 4.0) * 40;
+    rightW.style.left = rightPos + '%';
+    var rightTopOffset = tilt * (rightPos - 50) / 50 * 1.5;
+    rightW.style.top = 'calc(50% - 28px - ' + rightTopOffset + 'px)';
+  } else { rightW.style.display = 'none'; }
+}
+
+/* ========== ACTIVITY 5: Inclined Plane Calculator ========== */
+function calcRamp() {
+  var m = parseFloat(document.getElementById('rampMass').value);
+  var h = parseFloat(document.getElementById('rampH').value);
+  var L = parseFloat(document.getElementById('rampL').value);
+  var result = document.getElementById('rampResult');
+  if (isNaN(m) || isNaN(h) || isNaN(L)) {
+    result.innerHTML = '<strong style="color:#991b1b;">Please fill in all three fields.</strong>';
+    result.className = 'calc-result show';
+    return;
+  }
+  if (L < h) {
+    result.innerHTML = '<strong style="color:#991b1b;">Ramp length must be greater than height!</strong>';
+    result.className = 'calc-result show';
+    return;
+  }
+  var g = 9.8;
+  var weight = m * g;
+  var effort = (m * g * h) / L;
+  var MA = L / h;
+  var workDone = m * g * h;
+  var vis = document.getElementById('rampVisual');
+  vis.style.display = 'block';
+  var angle = Math.atan(h / L);
+  var angleDeg = angle * 180 / Math.PI;
+  var surface = document.getElementById('rampSurface');
+  surface.style.transform = 'rotate(-' + angleDeg.toFixed(1) + 'deg)';
+  var heightRatio = Math.min(h / L, 0.8);
+  var hLine = document.getElementById('rampHeightLine');
+  hLine.style.height = (heightRatio * 130) + 'px';
+  document.getElementById('rampLabelH').textContent = 'h=' + h + 'm';
+  document.getElementById('rampLabelL').textContent = 'L=' + L + 'm';
+  var block = document.getElementById('rampBlock');
+  block.classList.remove('sliding');
+  block.style.left = '30px';
+  block.style.bottom = '26px';
+  void block.offsetWidth;
+  var endLeft = vis.offsetWidth - 50;
+  var endBottom = 20 + heightRatio * 130;
+  block.style.setProperty('--end-left', endLeft + 'px');
+  block.style.setProperty('--end-bottom', endBottom + 'px');
+  block.style.transition = 'left 1.5s ease, bottom 1.5s ease';
+  setTimeout(function() {
+    block.style.left = (endLeft) + 'px';
+    block.style.bottom = (endBottom) + 'px';
+  }, 50);
+  result.innerHTML = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">' +
+    '<div style="background:#dcfce7;padding:10px;border-radius:10px;text-align:center;">' +
+    '<div style="font-size:11px;font-weight:700;color:#166534;">Without Ramp</div>' +
+    '<div style="font-size:20px;font-weight:900;color:#991b1b;">' + weight.toFixed(1) + ' N</div></div>' +
+    '<div style="background:#dcfce7;padding:10px;border-radius:10px;text-align:center;">' +
+    '<div style="font-size:11px;font-weight:700;color:#166534;">With Ramp</div>' +
+    '<div style="font-size:20px;font-weight:900;color:#166534;">' + effort.toFixed(1) + ' N</div></div></div>' +
+    '<p><strong>Mechanical Advantage:</strong> MA = L/h = ' + L + '/' + h + ' = <strong>' + MA.toFixed(2) + '</strong></p>' +
+    '<p><strong>Work Done:</strong> W = mgh = ' + m + ' &times; 9.8 &times; ' + h + ' = <strong>' + workDone.toFixed(1) + ' J</strong></p>' +
+    '<p style="font-size:12px;color:#374151;margin-top:8px;">Without the ramp you would need <strong>' + weight.toFixed(1) + ' N</strong>, ' +
+    'with the ramp only <strong>' + effort.toFixed(1) + ' N</strong> -- that is ' + (weight / effort).toFixed(1) + ' times easier!</p>';
+  result.className = 'calc-result show';
+}
+</script>
+</body>
+</html>
