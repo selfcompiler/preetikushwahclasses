@@ -35,49 +35,93 @@ body { font-family: 'Nunito', sans-serif; background: #eff6ff; color: #1f2937; l
 .chapter-card.disabled .ch-badge { background: #f3f4f6; color: #9ca3af; }
 .ch-numbers { background: linear-gradient(135deg, #2563eb, #60a5fa); }
 .ch-soon { background: #d1d5db; }
+.ch-actions{display:flex;gap:6px;flex-shrink:0;align-items:center;}
+.ch-notes{
+  display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:10px;
+  background:linear-gradient(135deg,#eff6ff,#dbeafe);color:#1e40af;border:1.5px solid #93c5fd;
+  font-size:10px;font-weight:800;text-decoration:none;transition:all 0.2s;white-space:nowrap;
+}
+.ch-notes:hover{background:#dbeafe;transform:translateY(-1px);box-shadow:0 2px 8px rgba(37,99,235,0.2);}
+.ch-test{
+  display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:10px;
+  background:linear-gradient(135deg,#f5f3ff,#ede9fe);color:#5b21b6;border:1.5px solid #c4b5fd;
+  font-size:10px;font-weight:800;text-decoration:none;transition:all 0.2s;white-space:nowrap;
+}
+.ch-test:hover{background:#ede9fe;transform:translateY(-1px);box-shadow:0 2px 8px rgba(124,58,237,0.2);}
+.ch-share{
+  display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:10px;
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);color:#166534;border:1.5px solid #86efac;
+  font-size:10px;font-weight:800;text-decoration:none;transition:all 0.2s;white-space:nowrap;
+}
+.ch-share:hover{background:#dcfce7;transform:translateY(-1px);box-shadow:0 2px 8px rgba(34,197,94,0.2);}
+.ch-test-sets{
+  display:flex;gap:6px;flex-wrap:wrap;margin:-6px 0 6px 81px;
+}
+.ch-set{
+  display:inline-flex;align-items:center;gap:3px;padding:4px 10px;border-radius:6px;
+  font-size:10px;font-weight:800;text-decoration:none;transition:all 0.2s;white-space:nowrap;
+  background:#faf5ff;border:1.5px solid #d8b4fe;color:#7c3aed;
+}
+.ch-set:hover{background:#ede9fe;transform:translateY(-1px);box-shadow:0 2px 6px rgba(124,58,237,0.12);}
+.ch-set.hard{border-color:#fca5a5;color:#dc2626;background:#fef2f2;}
+.ch-set.hard:hover{background:#fee2e2;}
+@media(max-width:500px){.ch-actions{flex-direction:column;gap:4px;}.chapter-card{flex-wrap:wrap;}.ch-test-sets{margin-left:20px;}}
 footer { text-align: center; padding: 24px; background: #1e3a8a; color: white; font-size: 13px; font-weight: 700; margin-top: 40px; }
 </style>
 </head>
 <body>
 <nav class="navbar">
   <div class="nav-brand">
-    <div class="nav-logo">🔢</div>
-    <div class="nav-title">Class 7 · Maths</div>
+    <div class="nav-logo">&#128290;</div>
+    <div class="nav-title">Class 7 &middot; Maths</div>
   </div>
-  <a href="../index.html" class="nav-back">← Class 7</a>
+  <a href="../index.html" class="nav-back">&larr; Class 7</a>
 </nav>
 <section class="hero">
   <div class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../index.html">Class 7</a> / Mathematics</div>
-  <h1>🔢 Mathematics Chapters</h1>
-  <p>Class 7 NCERT Mathematics · 1 chapter available</p>
+  <h1>&#128290; Mathematics Chapters</h1>
+  <p>Class 7 NCERT Mathematics &middot; 1 chapter available &middot; Notes &amp; Test Papers</p>
 </section>
 <div class="container">
   <ul class="chapter-list">
-    <a href="large-numbers-around-us.html" class="chapter-card">
-      <div class="ch-num ch-numbers">🔢</div>
-      <div class="ch-info">
-        <div class="ch-title">Large Numbers Around Us</div>
-        <div class="ch-desc">Indian & international number systems, place value, estimation</div>
+
+    <!-- Ch 1: Large Numbers -->
+    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
+      <a href="large-numbers-around-us.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+        <div class="ch-num ch-numbers">&#128290;</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 1: Large Numbers Around Us</div>
+          <div class="ch-desc">Indian &amp; international number systems, place value, estimation, rounding</div>
+        </div>
+      </a>
+      <div class="ch-actions">
+        <a href="large-numbers-around-us.html" class="ch-notes">&#128221; Notes &rarr;</a>
       </div>
-      <span class="ch-badge">LIVE</span>
-      <span class="ch-arrow">→</span>
-    </a>
-    <div class="chapter-card disabled">
-      <div class="ch-num ch-soon">📚</div>
+    </li>
+    <div class="ch-test-sets">
+      <a href="test-paper-ch1.html" class="ch-set">&#128196; Set 1</a>
+      <a href="test-paper-ch1-set2.html" class="ch-set">&#128196; Set 2</a>
+      <a href="test-paper-ch1-set3.html" class="ch-set">&#128196; Set 3</a>
+      <a href="test-paper-ch1-set4.html" class="ch-set hard">&#128293; Set 4</a>
+    </div>
+
+    <!-- More chapters coming -->
+    <li class="chapter-card disabled">
+      <div class="ch-num ch-soon">&#128218;</div>
       <div class="ch-info">
         <div class="ch-title">More Chapters</div>
         <div class="ch-desc">Additional maths chapters coming soon</div>
       </div>
-      <span class="ch-badge">SOON</span>
-    </div>
+      <span class="ch-badge" style="background:#f3f4f6;color:#9ca3af;">SOON</span>
+    </li>
+
   </ul>
 </div>
-<footer>Preeti Kushwah Classes · Quality Education for Every Student</footer>
+<footer>Preeti Kushwah Classes &middot; Quality Education for Every Student</footer>
 <script src="../../dark-mode.js"></script>
 <script src="../../back-to-top.js"></script>
 <script src="../../chapter-features.js"></script>
 <script src="../../draw-widget.js"></script>
 <script src="../../ga.js"></script>
-<script src="../../whatsapp-widget.js"></script>
 </body>
 </html>

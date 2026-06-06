@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Test Paper Set 3 — Ch 1: Large Numbers Around Us | Class 7 Maths</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-darkest: #134e4a;
+  --teal-dark: #0f766e;
+  --teal-mid: #14b8a6;
+  --teal-light: #5eead4;
+  --teal-pale: #ccfbf1;
+  --teal-bg: #f0fdfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #f0fdfa;
+  background-image: linear-gradient(180deg, #f0fdfa 0%, #fff7ed 50%, #f0fdfa 100%);
+  color: #1e1b4b;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+.top-nav {
+  background: white; padding: 10px 16px; display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08); flex-wrap: wrap; position: sticky; top: 0; z-index: 110;
+}
+.nav-link {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 8px;
+  font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s;
+}
+.nav-link.tn-home {
+  background: linear-gradient(135deg, #ccfbf1, #99f6e4); color: #0f766e; border: 1px solid #5eead4;
+}
+.nav-link.tn-home:hover { background: linear-gradient(135deg, #99f6e4, #5eead4); transform: translateY(-1px); }
+.nav-spacer { flex: 1; }
+.nav-title { font-family: 'Fredoka One', cursive; font-size: 14px; color: #0f766e; }
+.nav-title small { font-family: 'Nunito', sans-serif; font-size: 11px; color: #9ca3af; font-weight: 600; }
+.hero {
+  background: linear-gradient(135deg, #134e4a 0%, #0f766e 50%, #14b8a6 100%);
+  color: white; text-align: center; padding: 48px 20px 40px; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.06) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-icon { font-size: 48px; margin-bottom: 12px; }
+.hero h1 { font-family: 'Fredoka One', cursive; font-size: 30px; letter-spacing: 1px; margin-bottom: 8px; }
+.hero .hero-sub { font-size: 15px; opacity: 0.9; font-weight: 600; margin-bottom: 4px; }
+.hero .hero-chapter { font-size: 13px; opacity: 0.75; margin-bottom: 16px; }
+.hero-meta { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.hero-meta span { background: rgba(255,255,255,0.15); padding: 6px 18px; border-radius: 10px; font-weight: 800; font-size: 14px; backdrop-filter: blur(4px); }
+.container { max-width: 800px; margin: 0 auto; padding: 24px 16px 40px; }
+.test-paper { background: white; border: 2px solid #134e4a; border-radius: 16px; padding: 0; overflow: hidden; position: relative; }
+.watermark {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none; z-index: 1; overflow: hidden;
+  user-select: none; -webkit-user-select: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='200'%3E%3Ctext x='210' y='110' text-anchor='middle' font-family='sans-serif' font-size='26' font-weight='bold' fill='rgba(0,0,0,0.04)' transform='rotate(-30,210,110)'%3EPreeti Kushwah Classes%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 420px 200px;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.test-header {
+  background: linear-gradient(135deg, #134e4a, #0f766e); color: white; text-align: center; padding: 24px 20px 18px; position: relative; z-index: 2;
+}
+.test-header h2 { font-family: 'Fredoka One', cursive; font-size: 22px; margin: 0 0 4px; letter-spacing: 1px; }
+.test-header p { font-size: 13px; opacity: 0.85; margin: 2px 0; }
+.test-header .test-meta { display: flex; justify-content: center; gap: 24px; margin-top: 12px; font-weight: 800; font-size: 14px; }
+.test-header .test-meta span { background: rgba(255,255,255,0.15); padding: 4px 14px; border-radius: 8px; }
+.test-body { padding: 24px 20px; position: relative; z-index: 2; }
+.qr-strip {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  padding: 14px 20px; background: #f8fafc; border-top: 1px solid #e2e8f0;
+  position: relative; z-index: 2;
+}
+.qr-strip img { width: 70px; height: 70px; border-radius: 6px; border: 2px solid #e2e8f0; }
+.qr-strip .qr-text { font-size: 11px; color: #64748b; font-weight: 700; line-height: 1.5; }
+.qr-strip .qr-text strong { color: #134e4a; font-size: 12px; }
+.test-section-title {
+  font-family: 'Fredoka One', cursive; font-size: 16px; color: #0f766e;
+  border-bottom: 2px solid #ccfbf1; padding-bottom: 6px; margin: 28px 0 14px;
+}
+.test-section-title:first-child { margin-top: 0; }
+.test-q { margin-bottom: 18px; padding-left: 4px; }
+.test-q .q-num { font-weight: 800; color: #14b8a6; font-size: 14px; }
+.test-q .q-text { font-size: 14px; color: #1f2937; margin-top: 4px; line-height: 1.7; }
+.test-q .q-marks { display: inline-block; background: #ccfbf1; color: #0f766e; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px; margin-left: 6px; }
+.test-q table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0; }
+.test-q table th { background: #f0fdfa; padding: 8px 10px; text-align: left; font-weight: 700; border: 1px solid #99f6e4; }
+.test-q table td { padding: 8px 10px; border: 1px solid #99f6e4; font-family: 'Fredoka One', cursive; font-size: 13px; }
+.test-instructions {
+  background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px;
+  font-size: 13px; color: #92400e; border-radius: 0 10px 10px 0; margin-bottom: 20px; line-height: 1.7;
+}
+.print-bar { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 24px 0; }
+.print-btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px;
+  background: linear-gradient(135deg, #14b8a6, #0f766e); color: white; border: none; border-radius: 12px;
+  font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 15px; cursor: pointer; transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(15,118,110,0.3);
+}
+.print-btn:hover { background: linear-gradient(135deg, #0f766e, #134e4a); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(15,118,110,0.4); }
+.share-sol-btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px;
+  background: linear-gradient(135deg, #059669, #10b981); color: white; border: none;
+  border-radius: 12px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 15px;
+  cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 14px rgba(5,150,105,0.3);
+}
+.share-sol-btn:hover { background: linear-gradient(135deg, #047857, #059669); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(5,150,105,0.4); }
+.pdf-note { text-align: center; font-size: 12px; color: #9ca3af; margin-top: 8px; }
+.sol-lock-overlay {
+  background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%); border: 2px dashed #5eead4;
+  border-radius: 14px; padding: 30px 20px; text-align: center; margin-top: 32px;
+}
+.sol-lock-overlay h3 { font-family: 'Fredoka One', cursive; color: #0f766e; font-size: 18px; margin: 0 0 8px; }
+.sol-lock-overlay p { font-size: 13px; color: #6b7280; margin: 0 0 16px; }
+.sol-code-input {
+  padding: 10px 16px; border: 2px solid #5eead4; border-radius: 10px; font-size: 16px; font-weight: 800;
+  font-family: 'Nunito', sans-serif; text-align: center; width: 200px; letter-spacing: 4px; text-transform: uppercase;
+}
+.sol-code-input:focus { outline: none; border-color: #14b8a6; box-shadow: 0 0 0 3px rgba(20,184,166,0.15); }
+.sol-unlock-btn {
+  display: inline-block; margin-left: 10px; padding: 10px 22px; background: #14b8a6; color: white; border: none;
+  border-radius: 10px; font-weight: 800; font-family: 'Nunito', sans-serif; font-size: 14px; cursor: pointer; transition: all 0.2s;
+}
+.sol-unlock-btn:hover { background: #0f766e; transform: translateY(-1px); }
+.sol-error { color: #dc2626; font-weight: 700; font-size: 13px; margin-top: 10px; }
+.sol-success { color: #059669; font-weight: 700; font-size: 13px; margin-top: 10px; }
+.test-solutions { display: none; margin-top: 24px; }
+.test-solutions.unlocked { display: block; }
+.test-sol-item { background: #f0fdf4; border-left: 4px solid #22c55e; border-radius: 0 12px 12px 0; padding: 14px 18px; margin-bottom: 14px; }
+.test-sol-item .sol-num { font-weight: 800; color: #166534; font-size: 14px; }
+.test-sol-item .sol-body { font-size: 13px; color: #374151; margin-top: 6px; line-height: 1.8; }
+.test-sol-item .sol-body strong { color: #0f766e; }
+.confetti-piece { position: fixed; width: 10px; height: 10px; border-radius: 2px; z-index: 999; pointer-events: none; animation: confettiFall 3s ease-out forwards; }
+@keyframes confettiFall { 0% { opacity: 1; transform: translateY(0) rotate(0deg); } 100% { opacity: 0; transform: translateY(100vh) rotate(720deg); } }
+footer { background: linear-gradient(135deg, #0f766e 0%, #134e4a 100%); color: rgba(255,255,255,0.8); text-align: center; padding: 28px 20px; font-size: 13px; margin-top: 0; }
+.set-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 3px 12px; border-radius: 6px; font-size: 12px; font-weight: 800; letter-spacing: 1px; margin-bottom: 10px; }
+@media (max-width: 600px) {
+  .hero h1 { font-size: 24px; } .hero-meta { gap: 10px; } .hero-meta span { font-size: 12px; padding: 5px 12px; }
+  .test-header h2 { font-size: 18px; } .test-header .test-meta { gap: 12px; } .test-body { padding: 18px 14px; }
+  .sol-code-input { width: 160px; font-size: 14px; }
+  .sol-unlock-btn { margin-left: 0; margin-top: 10px; display: block; width: 160px; margin-left: auto; margin-right: auto; }
+  .sol-lock-overlay > div { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+}
+@media print {
+  .top-nav, .print-bar, .pdf-note, .sol-lock-overlay, footer, .dm-toggle { display: none !important; }
+  .hero { padding: 20px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: white !important; }
+  .container { padding: 0; max-width: 100%; }
+  .test-paper { border: 1px solid #333; border-radius: 0; }
+  .test-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 16px; }
+  .test-q { page-break-inside: avoid; }
+  .test-sol-item { page-break-inside: avoid; }
+  .test-solutions.unlocked { display: block !important; }
+  .test-solutions { page-break-before: always; }
+  .watermark { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='200'%3E%3Ctext x='210' y='110' text-anchor='middle' font-family='sans-serif' font-size='26' font-weight='bold' fill='rgba(0,0,0,0.06)' transform='rotate(-30,210,110)'%3EPreeti Kushwah Classes%3C/text%3E%3C/svg%3E") !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="large-numbers-around-us.html" class="nav-link tn-home">&#8592; Back to Chapter</a>
+  <span class="nav-spacer"></span>
+  <span class="nav-title">Test Paper Set 3 <small>Ch 1</small></span>
+</div>
+
+<div class="hero">
+  <div class="set-badge">SET 3</div>
+  <div class="hero-icon">&#128214;</div>
+  <h1>Practice Paper &#8212; Set 3</h1>
+  <div class="hero-sub">Class 7 Mathematics &#8212; Chapter 1: Large Numbers Around Us</div>
+  <div class="hero-chapter">Preeti Kushwah Classes</div>
+  <div class="hero-meta">
+    <span>&#128203; Total Marks: 40</span>
+    <span>&#9200; Time: 1&#189; Hours</span>
+    <span>&#127942; Difficulty: Medium-Hard</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="print-bar">
+    <button class="print-btn" onclick="window.print()">&#128424; Print Test Paper</button>
+    <button class="share-sol-btn" onclick="shareSolutions()">&#128228; Share Solutions PDF</button>
+  </div>
+  <div class="pdf-note">&#128161; Print paper or share solutions as PDF via WhatsApp to students.</div>
+
+  <div class="test-paper">
+    <div class="watermark"></div>
+    <div class="test-header">
+      <h2>CHAPTER 1 &#8212; LARGE NUMBERS AROUND US</h2>
+      <p>Class VII Mathematics &#8212; Practice Paper Set 3</p>
+      <p>Preeti Kushwah Classes</p>
+      <div class="test-meta">
+        <span>Total Marks: 40</span>
+        <span>Time: 1&#189; Hours</span>
+      </div>
+    </div>
+
+    <div class="test-body">
+
+      <div class="test-instructions">
+        <strong>General Instructions:</strong><br>
+        1. All questions are compulsory.<br>
+        2. Section A: 6 questions of 1 mark each (6 marks).<br>
+        3. Section B: 5 questions of 2 marks each (10 marks).<br>
+        4. Section C: 4 questions of 3 marks each (12 marks).<br>
+        5. Section D: 2 questions of 4 marks each (8 marks).<br>
+        6. Bonus: 1 question of 4 marks (optional).<br>
+        7. Show all working clearly.
+      </div>
+
+      <!-- SECTION A -->
+      <div class="test-section-title">Section A &#8212; (1 Mark Each) [6 &#215; 1 = 6]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q1.</span><span class="q-marks">1</span>
+        <div class="q-text">Write the numeral for: <em>Ninety crore eight lakh sixty thousand twelve</em></div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q2.</span><span class="q-marks">1</span>
+        <div class="q-text">How many ten-thousands are there in 1 crore?</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q3.</span><span class="q-marks">1</span>
+        <div class="q-text">The face value of 8 in the number 3,78,45,902 is ___ and its place value is ___.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q4.</span><span class="q-marks">1</span>
+        <div class="q-text">Which is greater: 99,99,999 or 1,00,00,000? By how much?</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q5.</span><span class="q-marks">1</span>
+        <div class="q-text">Express 456 &#215; 10<sup>4</sup> in standard form.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q6.</span><span class="q-marks">1</span>
+        <div class="q-text">Round <strong>3,45,67,891</strong> to the nearest crore.</div>
+      </div>
+
+      <!-- SECTION B -->
+      <div class="test-section-title">Section B &#8212; (2 Marks Each) [5 &#215; 2 = 10]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q7.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          Write the following in both Indian and International number systems with correct comma placement:<br>
+          (a) 270546083 &nbsp;&nbsp; (b) 509008400
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q8.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          Find the successor and predecessor of:<br>
+          (a) 99,99,999 &nbsp;&nbsp; (b) 10,00,00,000
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q9.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          Calculate using multiplication shortcuts:<br>
+          (a) 568 &#215; 999 &nbsp;&nbsp; (b) 784 &#215; 101
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q10.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          A builder constructs a building with 18 floors. Each floor is 3.5 metres high. The Statue of Unity is 182 metres tall. How many such buildings placed on top of each other equal the height of the Statue of Unity?
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q11.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          If 1 million = 10 lakh, find the value in lakhs:<br>
+          (a) 45 million &nbsp;&nbsp; (b) 3.7 million
+        </div>
+      </div>
+
+      <!-- SECTION C -->
+      <div class="test-section-title">Section C &#8212; (3 Marks Each) [4 &#215; 3 = 12]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q12.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          In a city election, five candidates got the following votes:
+          <table>
+            <tr><th>Candidate</th><th>Votes</th></tr>
+            <tr><td>A</td><td>3,48,729</td></tr>
+            <tr><td>B</td><td>5,12,045</td></tr>
+            <tr><td>C</td><td>2,97,816</td></tr>
+            <tr><td>D</td><td>4,63,580</td></tr>
+            <tr><td>E</td><td>1,85,230</td></tr>
+          </table>
+          (a) Who won the election? By how many votes did they win over the runner-up?<br>
+          (b) Find the total votes polled.<br>
+          (c) Round the winner&#8217;s votes to the nearest ten thousand.
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q13.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          A printing press prints 8,500 copies of a newspaper daily. Each copy has 24 pages.<br>
+          (a) How many total pages are printed in a day?<br>
+          (b) How many pages in a year (365 days)?<br>
+          (c) If each page weighs 5 grams, find the total weight of paper used in a year. Express in tonnes. (1 tonne = 10,00,000 grams)
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q14.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          Estimate each product by rounding to the nearest suitable place, then find the actual product:<br>
+          (a) 673 &#215; 4,891<br>
+          (b) 8,025 &#215; 396<br>
+          Compare the estimated and actual products. Which estimate was more accurate?
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q15.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          Form the largest and smallest 8-digit numbers using the digits <strong>3, 0, 5, 2, 8, 1, 6, 9</strong> (each digit used exactly once).<br>
+          (a) Write both numbers in words (Indian system).<br>
+          (b) Find their difference.<br>
+          (c) What is the sum of the place values of 5 in both numbers?
+        </div>
+      </div>
+
+      <!-- SECTION D -->
+      <div class="test-section-title">Section D &#8212; (4 Marks Each) [2 &#215; 4 = 8]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q16.</span><span class="q-marks">4</span>
+        <div class="q-text">
+          The distance from Delhi to various cities (by road) is:<br>
+          Delhi to Mumbai: 1,400 km, Delhi to Chennai: 2,180 km, Delhi to Kolkata: 1,530 km.<br><br>
+          A truck travels 350 km per day.<br>
+          (a) How many days to travel from Delhi to Chennai and back?<br>
+          (b) In a year (300 working days), how many total km does the truck cover?<br>
+          (c) Express the yearly distance in words (Indian system).<br>
+          (d) If diesel costs &#8377;95 per litre and the truck gives 5 km per litre, find the total fuel cost for the year.
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q17.</span><span class="q-marks">4</span>
+        <div class="q-text">
+          A school has 2,400 students. Each student is asked to donate &#8377;15 per month for a tree plantation drive.<br>
+          (a) What is the total amount collected in one month?<br>
+          (b) What is the total amount collected in the academic year (10 months)?<br>
+          (c) If one tree costs &#8377;450 to plant and maintain for a year, how many trees can be planted?<br>
+          (d) Each tree absorbs approximately 22 kg of CO<sub>2</sub> per year. How many tonnes of CO<sub>2</sub> will these trees absorb? (1 tonne = 1,000 kg)
+        </div>
+      </div>
+
+      <!-- Bonus -->
+      <div class="test-section-title">Bonus Question (Optional) [4 Marks]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q18.</span><span class="q-marks">4</span>
+        <div class="q-text">
+          &#9733; Without actually multiplying, determine the number of digits in each product. Then verify:<br>
+          (a) 999 &#215; 99 &nbsp;&nbsp; (b) 1001 &#215; 101 &nbsp;&nbsp; (c) 50000 &#215; 200 &nbsp;&nbsp; (d) 12345 &#215; 6789<br>
+          State the rule you used and verify any two with actual multiplication.
+        </div>
+      </div>
+
+    </div>
+    <div class="qr-strip">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://www.preetikushwahclasses.com/" alt="QR Code">
+      <div class="qr-text">
+        <strong>Preeti Kushwah Classes</strong><br>
+        Scan for more notes &amp; papers<br>
+        www.preetikushwahclasses.com
+      </div>
+    </div>
+  </div>
+
+  <!-- SOLUTION UNLOCK -->
+  <div class="sol-lock-overlay" id="testSolLock">
+    <h3>&#128274; Solutions are Locked</h3>
+    <p>Enter the access code provided by your teacher to view solutions with explanations.</p>
+    <div>
+      <input type="password" class="sol-code-input" id="testSolCode" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" maxlength="10" autocomplete="off" onkeydown="if(event.key==='Enter')unlockTestSol()">
+      <button class="sol-unlock-btn" onclick="unlockTestSol()">Unlock</button>
+    </div>
+    <div id="testSolMsg"></div>
+  </div>
+
+  <!-- SOLUTIONS -->
+  <div class="test-solutions" id="testSolBlock">
+
+    <div class="test-section-title" style="color:#166534; border-color:#bbf7d0;">Answer Key &amp; Detailed Solutions</div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q1. [1 Mark]</div>
+      <div class="sol-body">
+        Ninety crore eight lakh sixty thousand twelve<br>
+        = 90,00,00,000 + 8,00,000 + 60,000 + 12<br>
+        = <strong>90,08,60,012</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q2. [1 Mark]</div>
+      <div class="sol-body">
+        1 crore = 1,00,00,000<br>
+        1 ten-thousand = 10,000<br>
+        1,00,00,000 &#247; 10,000 = <strong>1,000 ten-thousands</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q3. [1 Mark]</div>
+      <div class="sol-body">
+        3,<strong>7</strong>8,45,902<br>
+        Positions: 3(Cr) 7(TL) 8(L) 4(TTh) 5(Th) 9(H) 0(T) 2(O)<br>
+        The digit 8 is in the <strong>lakhs</strong> place.<br>
+        Face value of 8 = <strong>8</strong><br>
+        Place value of 8 = <strong>8,00,000</strong> (Eight lakh)
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q4. [1 Mark]</div>
+      <div class="sol-body">
+        99,99,999 is a 7-digit number.<br>
+        1,00,00,000 is an 8-digit number.<br>
+        <strong>1,00,00,000 is greater.</strong><br>
+        Difference = 1,00,00,000 &#8722; 99,99,999 = <strong>1</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q5. [1 Mark]</div>
+      <div class="sol-body">
+        456 &#215; 10<sup>4</sup> = 456 &#215; 10,000 = <strong>45,60,000</strong><br>
+        (Add 4 zeros to 456)
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q6. [1 Mark]</div>
+      <div class="sol-body">
+        3,45,67,891<br>
+        Crores digit: 3. Ten-lakhs digit: 4. Since 4 &lt; 5, round down.<br>
+        <strong>Answer: 3,00,00,000</strong> (Three crore)
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q7. [2 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) 270546083</strong> [1 mark]<br>
+        Indian: 27,05,46,083 (Twenty-seven crore five lakh forty-six thousand eighty-three)<br>
+        International: 270,546,083 (Two hundred seventy million five hundred forty-six thousand eighty-three)<br><br>
+        <strong>(b) 509008400</strong> [1 mark]<br>
+        Indian: 50,90,08,400 (Fifty crore ninety lakh eight thousand four hundred)<br>
+        International: 509,008,400 (Five hundred nine million eight thousand four hundred)
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q8. [2 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) 99,99,999:</strong> [1 mark]<br>
+        Successor = 99,99,999 + 1 = <strong>1,00,00,000</strong><br>
+        Predecessor = 99,99,999 &#8722; 1 = <strong>99,99,998</strong><br><br>
+        <strong>(b) 10,00,00,000:</strong> [1 mark]<br>
+        Successor = 10,00,00,000 + 1 = <strong>10,00,00,001</strong><br>
+        Predecessor = 10,00,00,000 &#8722; 1 = <strong>9,99,99,999</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q9. [2 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) 568 &#215; 999</strong> [1 mark]<br>
+        Trick: 999 = 1000 &#8722; 1<br>
+        568 &#215; 999 = 568 &#215; 1000 &#8722; 568 &#215; 1<br>
+        = 5,68,000 &#8722; 568 = <strong>5,67,432</strong><br><br>
+        <strong>(b) 784 &#215; 101</strong> [1 mark]<br>
+        Trick: 101 = 100 + 1<br>
+        784 &#215; 101 = 784 &#215; 100 + 784 &#215; 1<br>
+        = 78,400 + 784 = <strong>79,184</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q10. [2 Marks]</div>
+      <div class="sol-body">
+        Height of one building = 18 &#215; 3.5 = 63 metres [1 mark]<br>
+        Height of Statue of Unity = 182 metres<br>
+        Number of buildings = 182 &#247; 63 = 2.889... &#8776; <strong>3 buildings</strong> [1 mark]<br>
+        (Need 3 buildings since 2 buildings = 126m, which is less than 182m)
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q11. [2 Marks]</div>
+      <div class="sol-body">
+        <strong>(a)</strong> 45 million = 45 &#215; 10 lakh = <strong>450 lakh</strong> (= 4,50,00,000) [1 mark]<br><br>
+        <strong>(b)</strong> 3.7 million = 3.7 &#215; 10 lakh = <strong>37 lakh</strong> (= 37,00,000) [1 mark]
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q12. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) Winner:</strong> [1 mark]<br>
+        B got most votes (5,12,045). Runner-up is D (4,63,580).<br>
+        Winning margin = 5,12,045 &#8722; 4,63,580 = <strong>48,465 votes</strong><br><br>
+        <strong>(b) Total votes:</strong> [1 mark]<br>
+        3,48,729 + 5,12,045 + 2,97,816 + 4,63,580 + 1,85,230<br>
+        = <strong>18,07,400</strong> (Eighteen lakh seven thousand four hundred)<br><br>
+        <strong>(c) Winner rounded to nearest ten thousand:</strong> [1 mark]<br>
+        5,12,045 &#8594; thousands digit is 2, which is &lt; 5. Round down.<br>
+        <strong>Answer: 5,10,000</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q13. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) Pages per day:</strong> [1 mark]<br>
+        8,500 &#215; 24 = <strong>2,04,000 pages</strong><br><br>
+        <strong>(b) Pages per year:</strong> [1 mark]<br>
+        2,04,000 &#215; 365 = <strong>7,44,60,000 pages</strong><br>
+        = Seven crore forty-four lakh sixty thousand<br><br>
+        <strong>(c) Weight in tonnes:</strong> [1 mark]<br>
+        Total weight = 7,44,60,000 &#215; 5 = 37,23,00,000 grams<br>
+        In tonnes = 37,23,00,000 &#247; 10,00,000 = <strong>3,723 tonnes</strong><br>
+        = Three thousand seven hundred twenty-three tonnes
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q14. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) 673 &#215; 4,891:</strong> [1&#189; marks]<br>
+        Estimation: 700 &#215; 5,000 = <strong>35,00,000</strong><br>
+        Actual: 673 &#215; 4,891 = <strong>32,91,643</strong><br>
+        Error = 35,00,000 &#8722; 32,91,643 = 2,08,357 (6.3% error)<br><br>
+        <strong>(b) 8,025 &#215; 396:</strong> [1&#189; marks]<br>
+        Estimation: 8,000 &#215; 400 = <strong>32,00,000</strong><br>
+        Actual: 8,025 &#215; 396 = <strong>31,77,900</strong><br>
+        Error = 32,00,000 &#8722; 31,77,900 = 22,100 (0.7% error)<br><br>
+        <strong>Answer: (b) was more accurate</strong> because the rounding errors cancelled each other (8,025 rounded down, 396 rounded up).
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q15. [3 Marks]</div>
+      <div class="sol-body">
+        Digits: 0, 1, 2, 3, 5, 6, 8, 9<br><br>
+        <strong>Largest 8-digit:</strong> 9,86,53,210 [&#189; mark]<br>
+        = Nine crore eighty-six lakh fifty-three thousand two hundred ten<br><br>
+        <strong>Smallest 8-digit:</strong> 1,02,35,689 [&#189; mark]<br>
+        = One crore two lakh thirty-five thousand six hundred eighty-nine<br><br>
+        <strong>(b) Difference:</strong> [1 mark]<br>
+        9,86,53,210 &#8722; 1,02,35,689 = <strong>8,84,17,521</strong><br><br>
+        <strong>(c) Place value of 5:</strong> [1 mark]<br>
+        In 9,86,<strong>5</strong>3,210: 5 is in ten-thousands place = 50,000<br>
+        In 1,02,3<strong>5</strong>,689: 5 is in thousands place = 5,000<br>
+        Sum = 50,000 + 5,000 = <strong>55,000</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q16. [4 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) Days for Delhi-Chennai round trip:</strong> [1 mark]<br>
+        Round trip = 2,180 &#215; 2 = 4,360 km<br>
+        Days = 4,360 &#247; 350 = 12.46 &#8776; <strong>13 days</strong><br><br>
+        <strong>(b) Yearly distance:</strong> [1 mark]<br>
+        350 &#215; 300 = <strong>1,05,000 km</strong><br><br>
+        <strong>(c) In words:</strong> [&#189; mark]<br>
+        <strong>One lakh five thousand kilometres</strong><br><br>
+        <strong>(d) Fuel cost:</strong> [1&#189; marks]<br>
+        Litres needed = 1,05,000 &#247; 5 = 21,000 litres<br>
+        Cost = 21,000 &#215; 95 = <strong>&#8377;19,95,000</strong><br>
+        = Nineteen lakh ninety-five thousand rupees
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q17. [4 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) Monthly collection:</strong> [1 mark]<br>
+        2,400 &#215; 15 = <strong>&#8377;36,000</strong><br><br>
+        <strong>(b) Annual collection (10 months):</strong> [1 mark]<br>
+        36,000 &#215; 10 = <strong>&#8377;3,60,000</strong><br><br>
+        <strong>(c) Number of trees:</strong> [1 mark]<br>
+        3,60,000 &#247; 450 = <strong>800 trees</strong><br><br>
+        <strong>(d) CO<sub>2</sub> absorbed:</strong> [1 mark]<br>
+        800 &#215; 22 = 17,600 kg<br>
+        In tonnes = 17,600 &#247; 1,000 = <strong>17.6 tonnes of CO<sub>2</sub></strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q18. Bonus [4 Marks]</div>
+      <div class="sol-body">
+        <strong>Rule:</strong> If a number has m digits and another has n digits, their product has at least (m + n &#8722; 1) and at most (m + n) digits. [1 mark for rule]<br><br>
+        <strong>(a) 999 &#215; 99:</strong> m=3, n=2 &#8594; 4 to 5 digits [&#189; mark]<br>
+        Actual: 999 &#215; 99 = 98,901 &#8594; <strong>5 digits</strong> &#9989;<br><br>
+        <strong>(b) 1001 &#215; 101:</strong> m=4, n=3 &#8594; 6 to 7 digits [&#189; mark]<br>
+        Actual: 1001 &#215; 101 = 1,01,101 &#8594; <strong>6 digits</strong> &#9989;<br><br>
+        <strong>(c) 50000 &#215; 200:</strong> m=5, n=3 &#8594; 7 to 8 digits [&#189; mark]<br>
+        Actual: 50,000 &#215; 200 = 1,00,00,000 &#8594; <strong>8 digits</strong> &#9989;<br><br>
+        <strong>(d) 12345 &#215; 6789:</strong> m=5, n=4 &#8594; 8 to 9 digits [&#189; mark]<br>
+        Actual: 12,345 &#215; 6,789 = 8,38,10,205 &#8594; <strong>8 digits</strong> &#9989;<br><br>
+        (Any two verifications with full computation earn the marks)
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <div>Preeti Kushwah Classes &middot; Quality Education for Every Student</div>
+  <div style="margin-top:6px;">&copy; 2026 Preeti Kushwah Classes</div>
+</footer>
+
+<script>
+function fireConfetti() {
+  var colors = ['#14b8a6','#ec4899','#f97316','#fbbf24','#16a34a','#3b82f6','#ef4444'];
+  for (var i = 0; i < 60; i++) {
+    var c = document.createElement('div');
+    c.className = 'confetti-piece';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.top = '-20px';
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.style.width = (6 + Math.random() * 10) + 'px';
+    c.style.height = (6 + Math.random() * 10) + 'px';
+    c.style.animationDelay = (Math.random() * 1.5) + 's';
+    c.style.animationDuration = (2 + Math.random() * 2) + 's';
+    document.body.appendChild(c);
+    (function(el) { setTimeout(function() { el.remove(); }, 5000); })(c);
+  }
+}
+function _h(s){var h=5381;for(var i=0;i<s.length;i++){h=((h<<5)+h)+s.charCodeAt(i);}return h>>>0;}
+function unlockTestSol() {
+  var code = document.getElementById('testSolCode').value.trim().toUpperCase();
+  var msg = document.getElementById('testSolMsg');
+  if ([3594616101,3225666297,3317573739,4201821354].indexOf(_h(code)) !== -1) {
+    document.getElementById('testSolBlock').classList.add('unlocked');
+    document.getElementById('testSolLock').style.display = 'none';
+    msg.className = 'sol-success';
+    msg.textContent = '';
+    fireConfetti();
+  } else {
+    msg.className = 'sol-error';
+    msg.textContent = 'Incorrect code. Ask your teacher for the access code.';
+    document.getElementById('testSolCode').value = '';
+    document.getElementById('testSolCode').focus();
+  }
+}
+</script>
+<script>
+function shareSolutions(){var s=document.getElementById('testSolBlock');if(!s.classList.contains('unlocked')){var c=prompt('Enter access code to unlock solutions first:');if(!c)return;c=c.trim().toUpperCase();if([3594616101,3225666297,3317573739,4201821354].indexOf(_h(c))===-1){alert('Incorrect code.');return;}s.classList.add('unlocked');document.getElementById('testSolLock').style.display='none';}var w=window.open('','_blank');w.document.write('<!DOCTYPE html><html><head><title>Solutions - Preeti Kushwah Classes</title><link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0;}body{font-family:"Nunito",sans-serif;padding:30px 24px;color:#1e1b4b;line-height:1.7;}.sol-header{text-align:center;margin-bottom:24px;padding-bottom:16px;border-bottom:3px solid #14b8a6;}.sol-header h1{font-family:"Fredoka One",cursive;font-size:22px;color:#0f766e;}.sol-header p{font-size:13px;color:#6b7280;margin-top:4px;}.test-sol-item{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 12px 12px 0;padding:14px 18px;margin-bottom:14px;page-break-inside:avoid;}.test-sol-item .sol-num{font-weight:800;color:#166534;font-size:14px;}.test-sol-item .sol-body{font-size:13px;color:#374151;margin-top:6px;line-height:1.8;}.test-sol-item .sol-body strong{color:#0f766e;}.qr-footer{text-align:center;margin-top:30px;padding-top:16px;border-top:2px solid #e5e7eb;}.qr-footer img{width:80px;height:80px;}.qr-footer p{font-size:11px;color:#6b7280;font-weight:700;margin-top:6px;}@media print{body{padding:16px;}}</style></head><body><div class="sol-header"><h1>Answer Key & Solutions &mdash; Set 3</h1><p>Chapter 1: Large Numbers Around Us &mdash; Preeti Kushwah Classes</p></div>'+s.innerHTML+'<div class="qr-footer"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.preetikushwahclasses.com/" alt="QR"><p>www.preetikushwahclasses.com</p></div></body></html>');w.document.close();setTimeout(function(){w.print();},600);}
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+</body>
+</html>

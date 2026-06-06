@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Test Paper Set 2 — Ch 1: Large Numbers Around Us | Class 7 Maths</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple-darkest: #3b0764;
+  --purple-dark: #5b21b6;
+  --purple-mid: #7c3aed;
+  --purple-light: #a78bfa;
+  --purple-pale: #ede9fe;
+  --purple-bg: #faf5ff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #faf5ff;
+  background-image: linear-gradient(180deg, #faf5ff 0%, #fff7ed 50%, #faf5ff 100%);
+  color: #1e1b4b;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+.top-nav {
+  background: white;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 110;
+}
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-link.tn-home {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  color: #5b21b6;
+  border: 1px solid #c4b5fd;
+}
+.nav-link.tn-home:hover {
+  background: linear-gradient(135deg, #ddd6fe, #c4b5fd);
+  transform: translateY(-1px);
+}
+.nav-spacer { flex: 1; }
+.nav-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 14px;
+  color: #5b21b6;
+}
+.nav-title small {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+.hero {
+  background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 50%, #0284c7 100%);
+  color: white;
+  text-align: center;
+  padding: 48px 20px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.06) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-icon { font-size: 48px; margin-bottom: 12px; }
+.hero h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 30px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.hero .hero-sub {
+  font-size: 15px;
+  opacity: 0.9;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.hero .hero-chapter {
+  font-size: 13px;
+  opacity: 0.75;
+  margin-bottom: 16px;
+}
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.hero-meta span {
+  background: rgba(255,255,255,0.15);
+  padding: 6px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 14px;
+  backdrop-filter: blur(4px);
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+.test-paper {
+  background: white;
+  border: 2px solid #0c4a6e;
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+.watermark {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none; z-index: 1; overflow: hidden;
+  user-select: none; -webkit-user-select: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='200'%3E%3Ctext x='210' y='110' text-anchor='middle' font-family='sans-serif' font-size='26' font-weight='bold' fill='rgba(0,0,0,0.04)' transform='rotate(-30,210,110)'%3EPreeti Kushwah Classes%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 420px 200px;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.test-header {
+  background: linear-gradient(135deg, #0c4a6e, #075985);
+  color: white;
+  text-align: center;
+  padding: 24px 20px 18px;
+  position: relative;
+  z-index: 2;
+}
+.test-header h2 { font-family: 'Fredoka One', cursive; font-size: 22px; margin: 0 0 4px; letter-spacing: 1px; }
+.test-header p { font-size: 13px; opacity: 0.85; margin: 2px 0; }
+.test-header .test-meta {
+  display: flex; justify-content: center; gap: 24px; margin-top: 12px;
+  font-weight: 800; font-size: 14px;
+}
+.test-header .test-meta span { background: rgba(255,255,255,0.15); padding: 4px 14px; border-radius: 8px; }
+.test-body { padding: 24px 20px; position: relative; z-index: 2; }
+.qr-strip {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  padding: 14px 20px; background: #f8fafc; border-top: 1px solid #e2e8f0;
+  position: relative; z-index: 2;
+}
+.qr-strip img { width: 70px; height: 70px; border-radius: 6px; border: 2px solid #e2e8f0; }
+.qr-strip .qr-text { font-size: 11px; color: #64748b; font-weight: 700; line-height: 1.5; }
+.qr-strip .qr-text strong { color: #0c4a6e; font-size: 12px; }
+.test-section-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 16px;
+  color: #0369a1;
+  border-bottom: 2px solid #e0f2fe;
+  padding-bottom: 6px;
+  margin: 28px 0 14px;
+}
+.test-section-title:first-child { margin-top: 0; }
+.test-q {
+  margin-bottom: 18px;
+  padding-left: 4px;
+}
+.test-q .q-num {
+  font-weight: 800;
+  color: #0284c7;
+  font-size: 14px;
+}
+.test-q .q-text {
+  font-size: 14px;
+  color: #1f2937;
+  margin-top: 4px;
+  line-height: 1.7;
+}
+.test-q .q-marks {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-left: 6px;
+}
+.test-q table {
+  width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0;
+}
+.test-q table th { background: #f0f9ff; padding: 8px 10px; text-align: left; font-weight: 700; border: 1px solid #bae6fd; }
+.test-q table td { padding: 8px 10px; border: 1px solid #bae6fd; font-family: 'Fredoka One', cursive; font-size: 13px; }
+.test-instructions {
+  background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px;
+  font-size: 13px; color: #92400e; border-radius: 0 10px 10px 0; margin-bottom: 20px; line-height: 1.7;
+}
+.print-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(3,105,161,0.3);
+}
+.print-btn:hover {
+  background: linear-gradient(135deg, #0369a1, #075985);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(3,105,161,0.4);
+}
+.share-sol-btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px;
+  background: linear-gradient(135deg, #059669, #10b981); color: white; border: none;
+  border-radius: 12px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 15px;
+  cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 14px rgba(5,150,105,0.3);
+}
+.share-sol-btn:hover { background: linear-gradient(135deg, #047857, #059669); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(5,150,105,0.4); }
+.pdf-note {
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 8px;
+}
+.sol-lock-overlay {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 2px dashed #7dd3fc;
+  border-radius: 14px;
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: 32px;
+}
+.sol-lock-overlay h3 {
+  font-family: 'Fredoka One', cursive; color: #0369a1; font-size: 18px; margin: 0 0 8px;
+}
+.sol-lock-overlay p { font-size: 13px; color: #6b7280; margin: 0 0 16px; }
+.sol-code-input {
+  padding: 10px 16px;
+  border: 2px solid #7dd3fc;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  width: 200px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.sol-code-input:focus { outline: none; border-color: #0284c7; box-shadow: 0 0 0 3px rgba(2,132,199,0.15); }
+.sol-unlock-btn {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 10px 22px;
+  background: #0284c7;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sol-unlock-btn:hover { background: #0369a1; transform: translateY(-1px); }
+.sol-error { color: #dc2626; font-weight: 700; font-size: 13px; margin-top: 10px; }
+.sol-success { color: #059669; font-weight: 700; font-size: 13px; margin-top: 10px; }
+.test-solutions { display: none; margin-top: 24px; }
+.test-solutions.unlocked { display: block; }
+.test-sol-item {
+  background: #f0fdf4;
+  border-left: 4px solid #22c55e;
+  border-radius: 0 12px 12px 0;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+}
+.test-sol-item .sol-num { font-weight: 800; color: #166534; font-size: 14px; }
+.test-sol-item .sol-body { font-size: 13px; color: #374151; margin-top: 6px; line-height: 1.8; }
+.test-sol-item .sol-body strong { color: #0369a1; }
+.confetti-piece {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  z-index: 999;
+  pointer-events: none;
+  animation: confettiFall 3s ease-out forwards;
+}
+@keyframes confettiFall {
+  0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+}
+footer {
+  background: linear-gradient(135deg, #075985 0%, #0c4a6e 100%);
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 13px;
+  margin-top: 0;
+}
+.set-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  padding: 3px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+@media (max-width: 600px) {
+  .hero h1 { font-size: 24px; }
+  .hero-meta { gap: 10px; }
+  .hero-meta span { font-size: 12px; padding: 5px 12px; }
+  .test-header h2 { font-size: 18px; }
+  .test-header .test-meta { gap: 12px; }
+  .test-body { padding: 18px 14px; }
+  .sol-code-input { width: 160px; font-size: 14px; }
+  .sol-unlock-btn { margin-left: 0; margin-top: 10px; display: block; width: 160px; margin-left: auto; margin-right: auto; }
+  .sol-lock-overlay > div { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+}
+@media print {
+  .top-nav, .print-bar, .pdf-note, .sol-lock-overlay, footer, .dm-toggle { display: none !important; }
+  .hero { padding: 20px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: white !important; }
+  .container { padding: 0; max-width: 100%; }
+  .test-paper { border: 1px solid #333; border-radius: 0; }
+  .test-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 16px; }
+  .test-q { page-break-inside: avoid; }
+  .test-sol-item { page-break-inside: avoid; }
+  .test-solutions.unlocked { display: block !important; }
+  .test-solutions { page-break-before: always; }
+  .watermark { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='200'%3E%3Ctext x='210' y='110' text-anchor='middle' font-family='sans-serif' font-size='26' font-weight='bold' fill='rgba(0,0,0,0.06)' transform='rotate(-30,210,110)'%3EPreeti Kushwah Classes%3C/text%3E%3C/svg%3E") !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="large-numbers-around-us.html" class="nav-link tn-home">&#8592; Back to Chapter</a>
+  <span class="nav-spacer"></span>
+  <span class="nav-title">Test Paper Set 2 <small>Ch 1</small></span>
+</div>
+
+<div class="hero">
+  <div class="set-badge">SET 2</div>
+  <div class="hero-icon">&#128221;</div>
+  <h1>Practice Paper &#8212; Set 2</h1>
+  <div class="hero-sub">Class 7 Mathematics &#8212; Chapter 1: Large Numbers Around Us</div>
+  <div class="hero-chapter">Preeti Kushwah Classes</div>
+  <div class="hero-meta">
+    <span>&#128203; Total Marks: 40</span>
+    <span>&#9200; Time: 1&#189; Hours</span>
+    <span>&#127942; Difficulty: Medium-Hard</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="print-bar">
+    <button class="print-btn" onclick="window.print()">&#128424; Print Test Paper</button>
+    <button class="share-sol-btn" onclick="shareSolutions()">&#128228; Share Solutions PDF</button>
+  </div>
+  <div class="pdf-note">&#128161; Print paper or share solutions as PDF via WhatsApp to students.</div>
+
+  <div class="test-paper">
+    <div class="watermark"></div>
+    <div class="test-header">
+      <h2>CHAPTER 1 &#8212; LARGE NUMBERS AROUND US</h2>
+      <p>Class VII Mathematics &#8212; Practice Paper Set 2</p>
+      <p>Preeti Kushwah Classes</p>
+      <div class="test-meta">
+        <span>Total Marks: 40</span>
+        <span>Time: 1&#189; Hours</span>
+      </div>
+    </div>
+
+    <div class="test-body">
+
+      <div class="test-instructions">
+        <strong>General Instructions:</strong><br>
+        1. All questions are compulsory.<br>
+        2. Section A: 6 questions of 1 mark each.<br>
+        3. Section B: 5 questions of 2 marks each.<br>
+        4. Section C: 4 questions of 3 marks each.<br>
+        5. Section D: 2 questions of 4 marks each. (6+10+12+8 = 36 marks + 4 bonus = 40)<br>
+        6. Show all working clearly.
+      </div>
+
+      <!-- SECTION A -->
+      <div class="test-section-title">Section A &#8212; (1 Mark Each) [6 &#215; 1 = 6]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q1.</span><span class="q-marks">1</span>
+        <div class="q-text">Write the number name for <strong>8,04,06,503</strong> in the Indian system.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q2.</span><span class="q-marks">1</span>
+        <div class="q-text">How many millions are equal to 3 crores?</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q3.</span><span class="q-marks">1</span>
+        <div class="q-text">What is the place value of <strong>6</strong> in 9,56,23,018?</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q4.</span><span class="q-marks">1</span>
+        <div class="q-text">The difference between the place values of two 5s in <strong>5,03,50,427</strong> is ___.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q5.</span><span class="q-marks">1</span>
+        <div class="q-text">Round <strong>7,84,96,310</strong> to the nearest ten lakh.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q6.</span><span class="q-marks">1</span>
+        <div class="q-text">The product of a 4-digit number and a 3-digit number has at most ___ digits and at least ___ digits.</div>
+      </div>
+
+      <!-- SECTION B -->
+      <div class="test-section-title">Section B &#8212; (2 Marks Each) [5 &#215; 2 = 10]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q7.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          Arrange in ascending order:<br>
+          45,67,893 &nbsp; ; &nbsp; 4,56,78,930 &nbsp; ; &nbsp; 4,56,789 &nbsp; ; &nbsp; 45,67,89,300
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q8.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          Write the numeral for each:<br>
+          (a) Six crore forty lakh three thousand seventy-five<br>
+          (b) Nine hundred eight million fifty-two thousand four hundred
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q9.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          A calculator has buttons: <strong>+1, +10, +100, +1000, +10000</strong>. What is the minimum number of button clicks to reach <strong>3,56,789</strong>?
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q10.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          Calculate using a shortcut (show the trick):<br>
+          (a) 372 &#215; 50 &nbsp;&nbsp;&nbsp; (b) 456 &#215; 125
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q11.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          The population of a town increased from <strong>23,45,678</strong> in 2011 to <strong>31,20,450</strong> in 2021. Find the increase in population and express it in words (Indian system).
+        </div>
+      </div>
+
+      <!-- SECTION C -->
+      <div class="test-section-title">Section C &#8212; (3 Marks Each) [4 &#215; 3 = 12]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q12.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          Using the digits <strong>2, 0, 4, 7, 9, 1</strong> (each used exactly once):<br>
+          (a) Write the largest 6-digit number.<br>
+          (b) Write the smallest 6-digit number.<br>
+          (c) Find the difference and express it in words (Indian system).
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q13.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          A milk dairy supplies 25,750 litres of milk daily to a city.<br>
+          (a) How many litres are supplied in a month of 30 days?<br>
+          (b) If the price of 1 litre is &#8377;54, find the total revenue in a month.<br>
+          (c) Express the monthly revenue in International system (in words).
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q14.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          A number when rounded to the nearest thousand becomes 47,000 and when rounded to the nearest hundred becomes 46,800. Find all possible values the number can take. How many such numbers are there?
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q15.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          Study the data and answer:
+          <table>
+            <tr><th>Country</th><th>Area (sq km)</th></tr>
+            <tr><td>India</td><td>32,87,263</td></tr>
+            <tr><td>Pakistan</td><td>8,81,913</td></tr>
+            <tr><td>Bangladesh</td><td>1,47,570</td></tr>
+            <tr><td>Sri Lanka</td><td>65,610</td></tr>
+          </table>
+          (a) How many times is India&#8217;s area approximately compared to Sri Lanka&#8217;s? (Round suitably)<br>
+          (b) Find the total area of all four countries. Express in International system words.<br>
+          (c) Round India&#8217;s area to the nearest lakh.
+        </div>
+      </div>
+
+      <!-- SECTION D -->
+      <div class="test-section-title">Section D &#8212; (4 Marks Each) [2 &#215; 4 = 8]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q16.</span><span class="q-marks">4</span>
+        <div class="q-text">
+          A car manufacturing company produces 450 cars per day. The company works 25 days a month and 12 months a year.<br>
+          (a) Find the total number of cars produced in a year.<br>
+          (b) If the cost of one car is &#8377;8,75,000, what is the total value of cars produced in a year? Express in crores.<br>
+          (c) The company plans to increase production by 15% next year. How many extra cars will be produced daily?<br>
+          (d) Will the total production next year cross 2 lakh cars? Justify.
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q17.</span><span class="q-marks">4</span>
+        <div class="q-text">
+          The Indian Railways carries approximately 2,30,00,000 passengers daily.<br>
+          (a) How many passengers are carried in a year (365 days)? Express in crores.<br>
+          (b) If the average ticket cost is &#8377;125, find the daily revenue.<br>
+          (c) In the International system, express the daily revenue in millions.<br>
+          (d) If the railways wants to carry 1,000 crore passengers in a year, by what percentage must daily passengers increase?
+        </div>
+      </div>
+
+      <!-- Bonus -->
+      <div class="test-section-title">Bonus Question (Optional) [4 Marks]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q18.</span><span class="q-marks">4</span>
+        <div class="q-text">
+          &#9733; A 7-digit number has the following properties:<br>
+          &bull; The digit in the lakhs place is 3 more than the digit in the ones place.<br>
+          &bull; The digit in the ten-thousands place is twice the digit in the hundreds place.<br>
+          &bull; The sum of all digits is 30.<br>
+          &bull; The digits in the thousands and tens place are both 4.<br>
+          &bull; The digit in the ten-lakhs place is 7.<br>
+          &bull; The digit in the hundreds place is 2.<br>
+          Find the number and write it in words (Indian system).
+        </div>
+      </div>
+
+    </div>
+    <div class="qr-strip">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://www.preetikushwahclasses.com/" alt="QR Code">
+      <div class="qr-text">
+        <strong>Preeti Kushwah Classes</strong><br>
+        Scan for more notes &amp; papers<br>
+        www.preetikushwahclasses.com
+      </div>
+    </div>
+  </div>
+
+  <!-- SOLUTION UNLOCK -->
+  <div class="sol-lock-overlay" id="testSolLock">
+    <h3>&#128274; Solutions are Locked</h3>
+    <p>Enter the access code provided by your teacher to view solutions with explanations.</p>
+    <div>
+      <input type="password" class="sol-code-input" id="testSolCode" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" maxlength="10" autocomplete="off" onkeydown="if(event.key==='Enter')unlockTestSol()">
+      <button class="sol-unlock-btn" onclick="unlockTestSol()">Unlock</button>
+    </div>
+    <div id="testSolMsg"></div>
+  </div>
+
+  <!-- SOLUTIONS -->
+  <div class="test-solutions" id="testSolBlock">
+
+    <div class="test-section-title" style="color:#166534; border-color:#bbf7d0;">Answer Key &amp; Detailed Solutions</div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q1. [1 Mark]</div>
+      <div class="sol-body">
+        8,04,06,503<br>
+        = <strong>Eight crore four lakh six thousand five hundred three</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q2. [1 Mark]</div>
+      <div class="sol-body">
+        1 crore = 1,00,00,000<br>
+        3 crores = 3,00,00,000<br>
+        1 million = 10,00,000<br>
+        3,00,00,000 &#247; 10,00,000 = <strong>30 million</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q3. [1 Mark]</div>
+      <div class="sol-body">
+        In 9,<strong>5</strong>6,23,018 the digit 6 is in the <strong>ten-lakhs place</strong>.<br>
+        Wait &#8212; let&#8217;s identify carefully:<br>
+        9 | 56 | 23 | 018<br>
+        9 = crores, 5 = ten-lakhs, 6 = lakhs, 2 = ten-thousands, 3 = thousands, 0 = hundreds, 1 = tens, 8 = ones<br>
+        The 6 is in the <strong>lakhs place</strong>.<br>
+        Place value of 6 = <strong>6,00,000</strong> (Six lakh)
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q4. [1 Mark]</div>
+      <div class="sol-body">
+        <strong>5</strong>,03,<strong>5</strong>0,427<br>
+        First 5 (leftmost): crores place &#8594; place value = 5,00,00,000<br>
+        Second 5: ten-thousands place &#8594; place value = 50,000<br>
+        Difference = 5,00,00,000 &#8722; 50,000 = <strong>4,99,50,000</strong><br>
+        = Four crore ninety-nine lakh fifty thousand
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q5. [1 Mark]</div>
+      <div class="sol-body">
+        7,84,96,310<br>
+        Ten-lakh digit: 4. Look at the next digit (lakh): 9.<br>
+        Wait &#8212; to round to nearest ten lakh: 7,<strong>8</strong>4,96,310. The ten-lakhs digit is 8. The lakhs digit is 4.<br>
+        Since 4 &lt; 5, round down.<br>
+        <strong>Answer: 7,80,00,000</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q6. [1 Mark]</div>
+      <div class="sol-body">
+        m = 4, n = 3<br>
+        At most m + n = 4 + 3 = <strong>7 digits</strong><br>
+        At least m + n &#8722; 1 = 4 + 3 &#8722; 1 = <strong>6 digits</strong><br>
+        Verification: 1000 &#215; 100 = 1,00,000 (6 digits) &#9989;; 9999 &#215; 999 = 99,89,001 (7 digits) &#9989;
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q7. [2 Marks]</div>
+      <div class="sol-body">
+        Let&#8217;s count the digits:<br>
+        4,56,789 &#8594; 6 digits [1 mark for correct identification]<br>
+        45,67,893 &#8594; 7 digits<br>
+        4,56,78,930 &#8594; 8 digits<br>
+        45,67,89,300 &#8594; 9 digits<br><br>
+        <strong>Ascending order:</strong><br>
+        <strong>4,56,789 &lt; 45,67,893 &lt; 4,56,78,930 &lt; 45,67,89,300</strong> [1 mark]
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q8. [2 Marks]</div>
+      <div class="sol-body">
+        <strong>(a)</strong> Six crore forty lakh three thousand seventy-five [1 mark]<br>
+        = 6,00,00,000 + 40,00,000 + 3,000 + 75<br>
+        = <strong>6,40,03,075</strong><br><br>
+        <strong>(b)</strong> Nine hundred eight million fifty-two thousand four hundred [1 mark]<br>
+        = 908,000,000 + 52,000 + 400<br>
+        = <strong>908,052,400</strong><br>
+        In Indian system: 90,80,52,400
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q9. [2 Marks]</div>
+      <div class="sol-body">
+        3,56,789 = 3 &#215; 1,00,000 + 5 &#215; 10,000 + 6 &#215; 1,000 + 7 &#215; 100 + 8 &#215; 10 + 9 &#215; 1<br><br>
+        But we only have +10000 as maximum. So:<br>
+        +10000 pressed: 35 times (to get 3,50,000) [1 mark]<br>
+        +1000 pressed: 6 times (to add 6,000)<br>
+        +100 pressed: 7 times (to add 700)<br>
+        +10 pressed: 8 times (to add 80)<br>
+        +1 pressed: 9 times (to add 9)<br><br>
+        Total = 35 + 6 + 7 + 8 + 9 = <strong>65 clicks</strong> [1 mark]
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q10. [2 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) 372 &#215; 50</strong> [1 mark]<br>
+        Trick: 50 = 100 &#247; 2<br>
+        372 &#215; 100 = 37,200<br>
+        37,200 &#247; 2 = <strong>18,600</strong><br><br>
+        <strong>(b) 456 &#215; 125</strong> [1 mark]<br>
+        Trick: 125 = 1000 &#247; 8<br>
+        456 &#215; 1000 = 4,56,000<br>
+        4,56,000 &#247; 8 = <strong>57,000</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q11. [2 Marks]</div>
+      <div class="sol-body">
+        Increase = 31,20,450 &#8722; 23,45,678 [1 mark]<br>
+        = <strong>7,74,772</strong><br><br>
+        In words: <strong>Seven lakh seventy-four thousand seven hundred seventy-two</strong> [1 mark]
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q12. [3 Marks]</div>
+      <div class="sol-body">
+        Digits: 0, 1, 2, 4, 7, 9<br><br>
+        <strong>(a) Largest 6-digit number:</strong> [1 mark]<br>
+        Arrange in descending order: <strong>9,74,210</strong><br><br>
+        <strong>(b) Smallest 6-digit number:</strong> [1 mark]<br>
+        First digit cannot be 0. Use 1 (smallest non-zero).<br>
+        Remaining in ascending: 0, 2, 4, 7, 9<br>
+        <strong>Answer: 1,02,479</strong><br><br>
+        <strong>(c) Difference:</strong> [1 mark]<br>
+        9,74,210 &#8722; 1,02,479 = <strong>8,71,731</strong><br>
+        = Eight lakh seventy-one thousand seven hundred thirty-one
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q13. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) Monthly supply:</strong> [1 mark]<br>
+        25,750 &#215; 30 = <strong>7,72,500 litres</strong><br><br>
+        <strong>(b) Monthly revenue:</strong> [1 mark]<br>
+        7,72,500 &#215; 54<br>
+        = 7,72,500 &#215; 50 + 7,72,500 &#215; 4<br>
+        = 3,86,25,000 + 30,90,000<br>
+        = <strong>&#8377;4,17,15,000</strong><br><br>
+        <strong>(c) In International system:</strong> [1 mark]<br>
+        4,17,15,000 = 41,715,000<br>
+        = <strong>Forty-one million seven hundred fifteen thousand</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q14. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>Condition 1:</strong> Rounded to nearest thousand = 47,000 [1 mark]<br>
+        This means: 46,500 &#8804; N &#8804; 47,499<br><br>
+        <strong>Condition 2:</strong> Rounded to nearest hundred = 46,800 [1 mark]<br>
+        This means: 46,750 &#8804; N &#8804; 46,849<br><br>
+        <strong>Intersection:</strong> [1 mark]<br>
+        max(46,500, 46,750) &#8804; N &#8804; min(47,499, 46,849)<br>
+        <strong>46,750 &#8804; N &#8804; 46,849</strong><br>
+        Count = 46,849 &#8722; 46,750 + 1 = <strong>100 numbers</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q15. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) India &#247; Sri Lanka:</strong> [1 mark]<br>
+        32,87,263 &#247; 65,610 &#8776; 33,00,000 &#247; 66,000 = 50<br>
+        India&#8217;s area is approximately <strong>50 times</strong> Sri Lanka&#8217;s area.<br><br>
+        <strong>(b) Total area:</strong> [1 mark]<br>
+        32,87,263 + 8,81,913 + 1,47,570 + 65,610 = <strong>43,82,356 sq km</strong><br>
+        In International: 4,382,356<br>
+        = <strong>Four million three hundred eighty-two thousand three hundred fifty-six sq km</strong><br><br>
+        <strong>(c) India rounded to nearest lakh:</strong> [1 mark]<br>
+        32,87,263 &#8594; ten-thousands digit is 8 (&#8805; 5), round up.<br>
+        <strong>Answer: 33,00,000</strong> (Thirty-three lakh)
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q16. [4 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) Cars per year:</strong> [1 mark]<br>
+        450 &#215; 25 &#215; 12 = 450 &#215; 300 = <strong>1,35,000 cars</strong><br><br>
+        <strong>(b) Total value:</strong> [1 mark]<br>
+        1,35,000 &#215; 8,75,000<br>
+        = 1,35,000 &#215; 8,75,000<br>
+        = 1,181,25,00,000 &#8594; Wait, let me compute carefully:<br>
+        135 &#215; 875 = 1,18,125<br>
+        So 1,35,000 &#215; 8,75,000 = 1,18,125 &#215; 10<sup>5</sup> &#215; 10<sup>3</sup> &#247; 10<sup>3</sup><br>
+        = 1,35,000 &#215; 8,75,000 = <strong>11,81,25,00,000</strong><br>
+        = <strong>&#8377;1,181.25 crore</strong> (approximately &#8377;1,181 crore)<br><br>
+        <strong>(c) 15% increase:</strong> [1 mark]<br>
+        Extra daily = 450 &#215; 15/100 = <strong>67.5 &#8776; 68 extra cars/day</strong><br><br>
+        <strong>(d) Will it cross 2 lakh?</strong> [1 mark]<br>
+        New daily = 450 + 68 = 518 cars<br>
+        New yearly = 518 &#215; 300 = <strong>1,55,400</strong><br>
+        1,55,400 &lt; 2,00,000 &#8594; <strong>No, it will NOT cross 2 lakh cars.</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q17. [4 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) Passengers per year:</strong> [1 mark]<br>
+        2,30,00,000 &#215; 365 = <strong>83,95,00,00,000</strong> &#8776; <strong>839.5 crore</strong><br>
+        &#8776; <strong>840 crore passengers per year</strong><br><br>
+        <strong>(b) Daily revenue:</strong> [1 mark]<br>
+        2,30,00,000 &#215; 125 = <strong>287,50,00,000</strong><br>
+        = <strong>&#8377;287.5 crore per day</strong><br>
+        (= &#8377;2,87,50,00,000)<br><br>
+        <strong>(c) In International system:</strong> [1 mark]<br>
+        2,87,50,00,000 = 2,875,000,000<br>
+        = <strong>Two billion eight hundred seventy-five million</strong><br><br>
+        <strong>(d) Percentage increase:</strong> [1 mark]<br>
+        Target: 1,000 crore = 10,00,00,00,000 per year<br>
+        Required daily = 10,00,00,00,000 &#247; 365 &#8776; 2,73,97,260 per day<br>
+        Current daily = 2,30,00,000<br>
+        Increase needed = 2,73,97,260 &#8722; 2,30,00,000 = 43,97,260<br>
+        Percentage = (43,97,260 / 2,30,00,000) &#215; 100 &#8776; <strong>19.1% increase</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q18. Bonus [4 Marks]</div>
+      <div class="sol-body">
+        Let the 7-digit number be: <strong>_ _ _ _ _ _ _</strong><br>
+        Positions: TL L TTh Th H T O (Ten-Lakhs, Lakhs, Ten-Thousands, Thousands, Hundreds, Tens, Ones)<br><br>
+        Given: [1 mark each clue]<br>
+        &#8226; Ten-lakhs = <strong>7</strong><br>
+        &#8226; Thousands = <strong>4</strong>, Tens = <strong>4</strong><br>
+        &#8226; Hundreds = <strong>2</strong><br>
+        &#8226; Ten-thousands = 2 &#215; Hundreds = 2 &#215; 2 = <strong>4</strong><br>
+        &#8226; Lakhs = Ones + 3<br>
+        &#8226; Sum of all digits = 30<br><br>
+        Known digits: 7, L, 4, 4, 2, 4, O<br>
+        Sum: 7 + L + 4 + 4 + 2 + 4 + O = 30<br>
+        21 + L + O = 30<br>
+        L + O = 9<br>
+        Also, L = O + 3<br>
+        So: (O + 3) + O = 9 &#8594; 2O = 6 &#8594; O = <strong>3</strong><br>
+        L = 3 + 3 = <strong>6</strong><br><br>
+        The number is: <strong>76,44,243</strong><br>
+        = <strong>Seventy-six lakh forty-four thousand two hundred forty-three</strong>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <div>Preeti Kushwah Classes &middot; Quality Education for Every Student</div>
+  <div style="margin-top:6px;">&copy; 2026 Preeti Kushwah Classes</div>
+</footer>
+
+<script>
+function fireConfetti() {
+  var colors = ['#0284c7','#ec4899','#f97316','#fbbf24','#16a34a','#3b82f6','#ef4444'];
+  for (var i = 0; i < 60; i++) {
+    var c = document.createElement('div');
+    c.className = 'confetti-piece';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.top = '-20px';
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.style.width = (6 + Math.random() * 10) + 'px';
+    c.style.height = (6 + Math.random() * 10) + 'px';
+    c.style.animationDelay = (Math.random() * 1.5) + 's';
+    c.style.animationDuration = (2 + Math.random() * 2) + 's';
+    document.body.appendChild(c);
+    (function(el) { setTimeout(function() { el.remove(); }, 5000); })(c);
+  }
+}
+function _h(s){var h=5381;for(var i=0;i<s.length;i++){h=((h<<5)+h)+s.charCodeAt(i);}return h>>>0;}
+function unlockTestSol() {
+  var code = document.getElementById('testSolCode').value.trim().toUpperCase();
+  var msg = document.getElementById('testSolMsg');
+  if ([3594616101,3225666297,3317573739,4201821354].indexOf(_h(code)) !== -1) {
+    document.getElementById('testSolBlock').classList.add('unlocked');
+    document.getElementById('testSolLock').style.display = 'none';
+    msg.className = 'sol-success';
+    msg.textContent = '';
+    fireConfetti();
+  } else {
+    msg.className = 'sol-error';
+    msg.textContent = 'Incorrect code. Ask your teacher for the access code.';
+    document.getElementById('testSolCode').value = '';
+    document.getElementById('testSolCode').focus();
+  }
+}
+</script>
+<script>
+function shareSolutions(){var s=document.getElementById('testSolBlock');if(!s.classList.contains('unlocked')){var c=prompt('Enter access code to unlock solutions first:');if(!c)return;c=c.trim().toUpperCase();if([3594616101,3225666297,3317573739,4201821354].indexOf(_h(c))===-1){alert('Incorrect code.');return;}s.classList.add('unlocked');document.getElementById('testSolLock').style.display='none';}var w=window.open('','_blank');w.document.write('<!DOCTYPE html><html><head><title>Solutions - Preeti Kushwah Classes</title><link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0;}body{font-family:"Nunito",sans-serif;padding:30px 24px;color:#1e1b4b;line-height:1.7;}.sol-header{text-align:center;margin-bottom:24px;padding-bottom:16px;border-bottom:3px solid #0284c7;}.sol-header h1{font-family:"Fredoka One",cursive;font-size:22px;color:#0369a1;}.sol-header p{font-size:13px;color:#6b7280;margin-top:4px;}.test-sol-item{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 12px 12px 0;padding:14px 18px;margin-bottom:14px;page-break-inside:avoid;}.test-sol-item .sol-num{font-weight:800;color:#166534;font-size:14px;}.test-sol-item .sol-body{font-size:13px;color:#374151;margin-top:6px;line-height:1.8;}.test-sol-item .sol-body strong{color:#0369a1;}.qr-footer{text-align:center;margin-top:30px;padding-top:16px;border-top:2px solid #e5e7eb;}.qr-footer img{width:80px;height:80px;}.qr-footer p{font-size:11px;color:#6b7280;font-weight:700;margin-top:6px;}@media print{body{padding:16px;}}</style></head><body><div class="sol-header"><h1>Answer Key & Solutions &mdash; Set 2</h1><p>Chapter 1: Large Numbers Around Us &mdash; Preeti Kushwah Classes</p></div>'+s.innerHTML+'<div class="qr-footer"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.preetikushwahclasses.com/" alt="QR"><p>www.preetikushwahclasses.com</p></div></body></html>');w.document.close();setTimeout(function(){w.print();},600);}
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+</body>
+</html>

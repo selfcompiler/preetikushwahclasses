@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Test Paper — Ch 1: Large Numbers Around Us | Class 7 Maths</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple-darkest: #3b0764;
+  --purple-dark: #5b21b6;
+  --purple-mid: #7c3aed;
+  --purple-light: #a78bfa;
+  --purple-pale: #ede9fe;
+  --purple-bg: #faf5ff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #faf5ff;
+  background-image: linear-gradient(180deg, #faf5ff 0%, #fff7ed 50%, #faf5ff 100%);
+  color: #1e1b4b;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ============= TOP NAV ============= */
+.top-nav {
+  background: white;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 110;
+}
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-link.tn-home {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  color: #5b21b6;
+  border: 1px solid #c4b5fd;
+}
+.nav-link.tn-home:hover {
+  background: linear-gradient(135deg, #ddd6fe, #c4b5fd);
+  transform: translateY(-1px);
+}
+.nav-spacer { flex: 1; }
+.nav-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 14px;
+  color: #5b21b6;
+}
+.nav-title small {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+/* ============= HERO ============= */
+.hero {
+  background: linear-gradient(135deg, #3b0764 0%, #5b21b6 50%, #7c3aed 100%);
+  color: white;
+  text-align: center;
+  padding: 48px 20px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.06) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-icon { font-size: 48px; margin-bottom: 12px; }
+.hero h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 30px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.hero .hero-sub {
+  font-size: 15px;
+  opacity: 0.9;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.hero .hero-chapter {
+  font-size: 13px;
+  opacity: 0.75;
+  margin-bottom: 16px;
+}
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.hero-meta span {
+  background: rgba(255,255,255,0.15);
+  padding: 6px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 14px;
+  backdrop-filter: blur(4px);
+}
+
+/* ============= CONTAINER ============= */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* ============= TEST PAPER ============= */
+.test-paper {
+  background: white;
+  border: 2px solid #1e1b4b;
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+.watermark {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none; z-index: 1; overflow: hidden;
+  user-select: none; -webkit-user-select: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='200'%3E%3Ctext x='210' y='110' text-anchor='middle' font-family='sans-serif' font-size='26' font-weight='bold' fill='rgba(0,0,0,0.04)' transform='rotate(-30,210,110)'%3EPreeti Kushwah Classes%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 420px 200px;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.test-header {
+  background: linear-gradient(135deg, #1e1b4b, #3b0764);
+  color: white;
+  text-align: center;
+  padding: 24px 20px 18px;
+  position: relative;
+  z-index: 2;
+}
+.test-header h2 { font-family: 'Fredoka One', cursive; font-size: 22px; margin: 0 0 4px; letter-spacing: 1px; }
+.test-header p { font-size: 13px; opacity: 0.85; margin: 2px 0; }
+.test-header .test-meta {
+  display: flex; justify-content: center; gap: 24px; margin-top: 12px;
+  font-weight: 800; font-size: 14px;
+}
+.test-header .test-meta span { background: rgba(255,255,255,0.15); padding: 4px 14px; border-radius: 8px; }
+.test-body { padding: 24px 20px; position: relative; z-index: 2; }
+.qr-strip {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  padding: 14px 20px; background: #f8fafc; border-top: 1px solid #e2e8f0;
+  position: relative; z-index: 2;
+}
+.qr-strip img { width: 70px; height: 70px; border-radius: 6px; border: 2px solid #e2e8f0; }
+.qr-strip .qr-text { font-size: 11px; color: #64748b; font-weight: 700; line-height: 1.5; }
+.qr-strip .qr-text strong { color: #1e1b4b; font-size: 12px; }
+.test-section-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 16px;
+  color: #5b21b6;
+  border-bottom: 2px solid #ede9fe;
+  padding-bottom: 6px;
+  margin: 28px 0 14px;
+}
+.test-section-title:first-child { margin-top: 0; }
+.test-q {
+  margin-bottom: 18px;
+  padding-left: 4px;
+}
+.test-q .q-num {
+  font-weight: 800;
+  color: #7c3aed;
+  font-size: 14px;
+}
+.test-q .q-text {
+  font-size: 14px;
+  color: #1f2937;
+  margin-top: 4px;
+  line-height: 1.7;
+}
+.test-q .q-marks {
+  display: inline-block;
+  background: #ede9fe;
+  color: #5b21b6;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-left: 6px;
+}
+.test-q table {
+  width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0;
+}
+.test-q table th { background: #f3f4f6; padding: 8px 10px; text-align: left; font-weight: 700; border: 1px solid #d1d5db; }
+.test-q table td { padding: 8px 10px; border: 1px solid #d1d5db; font-family: 'Fredoka One', cursive; font-size: 13px; }
+.test-instructions {
+  background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px;
+  font-size: 13px; color: #92400e; border-radius: 0 10px 10px 0; margin-bottom: 20px; line-height: 1.7;
+}
+
+/* ============= PRINT BUTTON ============= */
+.print-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #7c3aed, #5b21b6);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(124,58,237,0.3);
+}
+.print-btn:hover {
+  background: linear-gradient(135deg, #6d28d9, #4c1d95);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124,58,237,0.4);
+}
+.share-sol-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(5,150,105,0.3);
+}
+.share-sol-btn:hover {
+  background: linear-gradient(135deg, #047857, #059669);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(5,150,105,0.4);
+}
+.pdf-note {
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 8px;
+}
+
+/* ============= SOLUTION UNLOCK ============= */
+.sol-lock-overlay {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border: 2px dashed #a78bfa;
+  border-radius: 14px;
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: 32px;
+}
+.sol-lock-overlay h3 {
+  font-family: 'Fredoka One', cursive; color: #5b21b6; font-size: 18px; margin: 0 0 8px;
+}
+.sol-lock-overlay p { font-size: 13px; color: #6b7280; margin: 0 0 16px; }
+.sol-code-input {
+  padding: 10px 16px;
+  border: 2px solid #c4b5fd;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  width: 200px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.sol-code-input:focus { outline: none; border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,0.15); }
+.sol-unlock-btn {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 10px 22px;
+  background: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sol-unlock-btn:hover { background: #6d28d9; transform: translateY(-1px); }
+.sol-error { color: #dc2626; font-weight: 700; font-size: 13px; margin-top: 10px; }
+.sol-success { color: #059669; font-weight: 700; font-size: 13px; margin-top: 10px; }
+.test-solutions { display: none; margin-top: 24px; }
+.test-solutions.unlocked { display: block; }
+.test-sol-item {
+  background: #f0fdf4;
+  border-left: 4px solid #22c55e;
+  border-radius: 0 12px 12px 0;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+}
+.test-sol-item .sol-num { font-weight: 800; color: #166534; font-size: 14px; }
+.test-sol-item .sol-body { font-size: 13px; color: #374151; margin-top: 6px; line-height: 1.8; }
+.test-sol-item .sol-body strong { color: #5b21b6; }
+
+/* ============= CONFETTI ============= */
+.confetti-piece {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  z-index: 999;
+  pointer-events: none;
+  animation: confettiFall 3s ease-out forwards;
+}
+@keyframes confettiFall {
+  0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+}
+
+/* ============= FOOTER ============= */
+footer {
+  background: linear-gradient(135deg, #3b0764 0%, #1e1b4b 100%);
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 13px;
+  margin-top: 0;
+}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 24px; }
+  .hero-meta { gap: 10px; }
+  .hero-meta span { font-size: 12px; padding: 5px 12px; }
+  .test-header h2 { font-size: 18px; }
+  .test-header .test-meta { gap: 12px; }
+  .test-body { padding: 18px 14px; }
+  .sol-code-input { width: 160px; font-size: 14px; }
+  .sol-unlock-btn { margin-left: 0; margin-top: 10px; display: block; width: 160px; margin-left: auto; margin-right: auto; }
+  .sol-lock-overlay > div { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+}
+
+/* ============= PRINT STYLES ============= */
+@media print {
+  .top-nav, .print-bar, .pdf-note, .sol-lock-overlay, footer, .dm-toggle { display: none !important; }
+  .hero { padding: 20px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: white !important; }
+  .container { padding: 0; max-width: 100%; }
+  .test-paper { border: 1px solid #333; border-radius: 0; }
+  .test-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 16px; }
+  .test-q { page-break-inside: avoid; }
+  .test-sol-item { page-break-inside: avoid; }
+  .test-solutions.unlocked { display: block !important; }
+  .test-solutions { page-break-before: always; }
+  .watermark { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='200'%3E%3Ctext x='210' y='110' text-anchor='middle' font-family='sans-serif' font-size='26' font-weight='bold' fill='rgba(0,0,0,0.06)' transform='rotate(-30,210,110)'%3EPreeti Kushwah Classes%3C/text%3E%3C/svg%3E") !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<div class="top-nav">
+  <a href="large-numbers-around-us.html" class="nav-link tn-home">&#8592; Back to Chapter</a>
+  <span class="nav-spacer"></span>
+  <span class="nav-title">Test Paper <small>Ch 1</small></span>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-icon">&#128220;</div>
+  <h1>Chapter Test Paper</h1>
+  <div class="hero-sub">Class 7 Mathematics &#8212; Chapter 1: Large Numbers Around Us</div>
+  <div class="hero-chapter">NCERT Ganita Prakash 2024 &#8212; Preeti Kushwah Classes</div>
+  <div class="hero-meta">
+    <span>&#128203; Total Marks: 40</span>
+    <span>&#9200; Time: 1&#189; Hours</span>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTAINER ===== -->
+<div class="container">
+
+  <!-- Print / PDF Buttons -->
+  <div class="print-bar">
+    <button class="print-btn" onclick="window.print()">&#128424; Print Test Paper</button>
+    <button class="share-sol-btn" onclick="shareSolutions()">&#128228; Share Solutions PDF</button>
+  </div>
+  <div class="pdf-note">&#128161; Print paper or share solutions as PDF via WhatsApp to students.</div>
+
+  <!-- ===== TEST PAPER ===== -->
+  <div class="test-paper">
+    <div class="watermark"></div>
+    <div class="test-header">
+      <h2>CHAPTER 1 &#8212; LARGE NUMBERS AROUND US</h2>
+      <p>Class VII Mathematics &#8212; NCERT Ganita Prakash 2024</p>
+      <p>Preeti Kushwah Classes &#8212; Unit Test</p>
+      <div class="test-meta">
+        <span>Total Marks: 40</span>
+        <span>Time: 1&#189; Hours</span>
+      </div>
+    </div>
+
+    <div class="test-body">
+
+      <div class="test-instructions">
+        <strong>General Instructions:</strong><br>
+        1. All questions are compulsory.<br>
+        2. Section A has 6 questions of 1 mark each.<br>
+        3. Section B has 5 questions of 2 marks each.<br>
+        4. Section C has 4 questions of 3 marks each.<br>
+        5. Section D has 2 questions of 5 marks each.<br>
+        6. Show all working clearly. Marks are awarded for steps.
+      </div>
+
+      <!-- ===== SECTION A: 1 Mark Each (6 x 1 = 6) ===== -->
+      <div class="test-section-title">Section A &#8212; (1 Mark Each) [6 &#215; 1 = 6]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q1.</span><span class="q-marks">1</span>
+        <div class="q-text">Write the numeral for: <em>Thirty-two lakh seven thousand ninety</em></div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q2.</span><span class="q-marks">1</span>
+        <div class="q-text">How many lakhs make one crore?</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q3.</span><span class="q-marks">1</span>
+        <div class="q-text">Round 48,73,562 to the nearest lakh.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q4.</span><span class="q-marks">1</span>
+        <div class="q-text">Place the correct symbol (&lt;, &gt; or =): &nbsp; 50 lakhs ___ 5 million</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q5.</span><span class="q-marks">1</span>
+        <div class="q-text">A calculator has only a <strong>+100</strong> button. How many presses to show 7,200 on the screen?</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q6.</span><span class="q-marks">1</span>
+        <div class="q-text">The product of a 3-digit number and a 2-digit number will have at least ___ digits and at most ___ digits.</div>
+      </div>
+
+      <!-- ===== SECTION B: 2 Marks Each (5 x 2 = 10) ===== -->
+      <div class="test-section-title">Section B &#8212; (2 Marks Each) [5 &#215; 2 = 10]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q7.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          Write the following number in both Indian and International systems. Also write in words in both systems.<br>
+          <strong>59,40,38,072</strong>
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q8.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          A calculator has buttons: <strong>+1, +10, +100, +1000</strong>. What is the minimum number of button clicks to reach <strong>47,253</strong>? Explain your reasoning.
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q9.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          Find all 4 nearest neighbours of the number <strong>6,83,47,215</strong>:<br>
+          (a) Nearest Thousand &nbsp;&nbsp; (b) Nearest Ten Thousand &nbsp;&nbsp; (c) Nearest Lakh &nbsp;&nbsp; (d) Nearest Crore
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q10.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          Calculate using a shortcut (show the trick):<br>
+          (a) 248 &#215; 25 &nbsp;&nbsp;&nbsp; (b) 64 &#215; 125
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q11.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          India has approximately 1,00,000 varieties of rice. If a person tastes 4 varieties every day, how many years will it take to taste all of them? (Take 1 year = 365 days)
+        </div>
+      </div>
+
+      <!-- ===== SECTION C: 3 Marks Each (4 x 3 = 12) ===== -->
+      <div class="test-section-title">Section C &#8212; (3 Marks Each) [4 &#215; 3 = 12]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q12.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          Study the table and answer the questions below:
+          <table>
+            <tr><th>City</th><th>Population (2011)</th></tr>
+            <tr><td>Bengaluru</td><td>84,25,970</td></tr>
+            <tr><td>Hyderabad</td><td>68,09,970</td></tr>
+            <tr><td>Pune</td><td>31,15,431</td></tr>
+            <tr><td>Surat</td><td>44,67,797</td></tr>
+          </table>
+          (a) Arrange the cities in descending order of population.<br>
+          (b) What is the difference between the populations of Bengaluru and Pune?<br>
+          (c) Round Hyderabad&#8217;s population to the nearest ten lakh.
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q13.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          A school raises funds for flood relief. They collect &#8377;275 from each of 1,850 students. The principal adds &#8377;48,500 from the school fund.<br>
+          (a) What is the total amount collected?<br>
+          (b) Express the total in words (Indian system).<br>
+          (c) If the target was &#8377;6,00,000, how much more is needed?
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q14.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          Estimate the product <strong>489 &#215; 7,210</strong> by rounding each number. Then find the exact product. How close was your estimate?
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q15.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          Using the digits <strong>0, 3, 5, 7, 8</strong> (each used exactly once):<br>
+          (a) Write the largest 5-digit number.<br>
+          (b) Write the smallest 5-digit number.<br>
+          (c) Find the difference between them.
+        </div>
+      </div>
+
+      <!-- ===== SECTION D: 5 Marks Each (2 x 5 = 10) ===== -->
+      <div class="test-section-title">Section D &#8212; (5 Marks Each) [2 &#215; 5 = 10]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q16.</span><span class="q-marks">5</span>
+        <div class="q-text">
+          (a) A factory produces 12,500 bottles per day. It operates 6 days a week.<br>
+          &nbsp;&nbsp;(i) How many bottles in a week?<br>
+          &nbsp;&nbsp;(ii) How many bottles in a year (52 weeks)?<br>
+          &nbsp;&nbsp;(iii) Express the yearly production in words (Indian system).<br>
+          &nbsp;&nbsp;(iv) If each bottle weighs 250 grams, what is the total weight in tonnes? (1 tonne = 10,00,000 g)<br><br>
+          (b) The factory wants to reach a target of 50 lakh bottles per year. How many extra bottles must they produce daily (over 6 days/week, 52 weeks)?
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q17.</span><span class="q-marks">5</span>
+        <div class="q-text">
+          (a) A satellite orbits the Earth at 28,000 km/hour.<br>
+          &nbsp;&nbsp;(i) How many km does it travel in one day?<br>
+          &nbsp;&nbsp;(ii) How many days to cover a distance equal to Earth&#8211;Sun (15,00,00,000 km)?<br>
+          &nbsp;&nbsp;(iii) Round your answer to the nearest hundred days.<br><br>
+          (b) The Moon is 3,84,400 km from Earth. If a spacecraft travels at 1,200 km/hour:<br>
+          &nbsp;&nbsp;(i) How many hours to reach the Moon?<br>
+          &nbsp;&nbsp;(ii) How many complete days is that? Express the remaining hours too.
+        </div>
+      </div>
+
+      <!-- Bonus -->
+      <div class="test-section-title">Bonus Question (Optional) [2 Marks]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q18.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          &#9733; A number when rounded to the nearest lakh gives 35,00,000 and when rounded to the nearest ten thousand gives 34,90,000. Find the range of possible values of the number.
+        </div>
+      </div>
+
+    </div><!-- end test-body -->
+    <div class="qr-strip">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://www.preetikushwahclasses.com/" alt="QR Code">
+      <div class="qr-text">
+        <strong>Preeti Kushwah Classes</strong><br>
+        Scan for more notes &amp; papers<br>
+        www.preetikushwahclasses.com
+      </div>
+    </div>
+  </div><!-- end test-paper -->
+
+  <!-- ===== SOLUTION UNLOCK ===== -->
+  <div class="sol-lock-overlay" id="testSolLock">
+    <h3>&#128274; Solutions are Locked</h3>
+    <p>Enter the access code provided by your teacher to view solutions with explanations.</p>
+    <div>
+      <input type="password" class="sol-code-input" id="testSolCode" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" maxlength="10" autocomplete="off" onkeydown="if(event.key==='Enter')unlockTestSol()">
+      <button class="sol-unlock-btn" onclick="unlockTestSol()">Unlock</button>
+    </div>
+    <div id="testSolMsg"></div>
+  </div>
+
+  <!-- ===== SOLUTIONS (hidden) ===== -->
+  <div class="test-solutions" id="testSolBlock">
+
+    <div class="test-section-title" style="color:#166534; border-color:#bbf7d0;">Answer Key &amp; Detailed Solutions</div>
+
+    <!-- Q1 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q1. [1 Mark]</div>
+      <div class="sol-body">
+        Thirty-two lakh seven thousand ninety<br>
+        = 32,00,000 + 7,000 + 90<br>
+        = <strong>32,07,090</strong>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q2. [1 Mark]</div>
+      <div class="sol-body">
+        1 Crore = 1,00,00,000<br>
+        1 Lakh = 1,00,000<br>
+        1,00,00,000 &#247; 1,00,000 = <strong>100 lakhs</strong> make one crore.
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q3. [1 Mark]</div>
+      <div class="sol-body">
+        48,73,562 &#8594; Look at the ten-thousands digit: <strong>7</strong><br>
+        Since 7 &#8805; 5, round up the lakh digit (8 becomes 9).<br>
+        Wait &#8212; let&#8217;s be careful: 48,<strong>7</strong>3,562. The lakhs digit is 8. The digit after lakhs place (ten-thousands) is 7.<br>
+        Since 7 &#8805; 5, round up: 48 lakhs becomes 49 lakhs.<br>
+        <strong>Answer: 49,00,000</strong>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q4. [1 Mark]</div>
+      <div class="sol-body">
+        50 lakhs = 50,00,000<br>
+        5 million = 50,00,000 (since 1 million = 10 lakh)<br>
+        50,00,000 = 50,00,000<br>
+        <strong>Answer: 50 lakhs = 5 million</strong>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q5. [1 Mark]</div>
+      <div class="sol-body">
+        7,200 &#247; 100 = <strong>72 presses</strong>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q6. [1 Mark]</div>
+      <div class="sol-body">
+        Smallest: 100 &#215; 10 = 1,000 (4 digits)<br>
+        Largest: 999 &#215; 99 = 98,901 (5 digits)<br>
+        <strong>Answer: at least 4 digits and at most 5 digits.</strong><br>
+        Rule: m + n &#8722; 1 to m + n digits &#8594; 3 + 2 &#8722; 1 = 4 to 3 + 2 = 5.
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q7. [2 Marks]</div>
+      <div class="sol-body">
+        <strong>Indian system:</strong> 59,40,38,072<br>
+        In words: <strong>Fifty-nine crore forty lakh thirty-eight thousand seventy-two</strong><br><br>
+        <strong>International system:</strong> 594,038,072<br>
+        In words: <strong>Five hundred ninety-four million thirty-eight thousand seventy-two</strong><br><br>
+        <em>(1 mark for correct comma placement + 1 mark for correct words in both systems)</em>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q8. [2 Marks]</div>
+      <div class="sol-body">
+        47,253 = <strong>4</strong> &#215; 10,000 + <strong>7</strong> &#215; 1,000 + <strong>2</strong> &#215; 100 + <strong>5</strong> &#215; 10 + <strong>3</strong> &#215; 1<br><br>
+        Optimal strategy: use the +1000 button for thousands and above.<br>
+        +1000 pressed: 4 &#215; 10 + 7 = 47 times (to make 47,000) [1 mark]<br>
+        +100 pressed: 2 times (to add 200)<br>
+        +10 pressed: 5 times (to add 50)<br>
+        +1 pressed: 3 times (to add 3)<br><br>
+        Total = 47 + 2 + 5 + 3 = <strong>57 clicks</strong> [1 mark]
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q9. [2 Marks]</div>
+      <div class="sol-body">
+        Number: 6,83,47,215<br><br>
+        (a) <strong>Nearest Thousand:</strong> Look at hundreds digit (2). Since 2 &lt; 5, round down.<br>
+        &#8594; <strong>6,83,47,000</strong> [&#189; mark]<br><br>
+        (b) <strong>Nearest Ten Thousand:</strong> Look at thousands digit (7). Since 7 &#8805; 5, round up.<br>
+        &#8594; <strong>6,83,50,000</strong> [&#189; mark]<br><br>
+        (c) <strong>Nearest Lakh:</strong> Look at ten-thousands digit (4). Since 4 &lt; 5, round down.<br>
+        &#8594; <strong>6,83,00,000</strong> [&#189; mark]<br><br>
+        (d) <strong>Nearest Crore:</strong> Look at ten-lakhs digit (8). Since 8 &#8805; 5, round up.<br>
+        &#8594; <strong>7,00,00,000</strong> [&#189; mark]
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q10. [2 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) 248 &#215; 25</strong> [1 mark]<br>
+        Trick: 25 = 100 &#247; 4<br>
+        248 &#215; 100 = 24,800<br>
+        24,800 &#247; 4 = <strong>6,200</strong><br><br>
+        <strong>(b) 64 &#215; 125</strong> [1 mark]<br>
+        Trick: 125 = 1000 &#247; 8<br>
+        64 &#215; 1000 = 64,000<br>
+        64,000 &#247; 8 = <strong>8,000</strong><br><br>
+        <em>Alternative for (b): 64 &#215; 125 = 8 &#215; 8 &#215; 125 = 8 &#215; 1000 = 8,000</em>
+      </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q11. [2 Marks]</div>
+      <div class="sol-body">
+        Varieties per day = 4<br>
+        Varieties per year = 4 &#215; 365 = 1,460 [1 mark]<br><br>
+        Years needed = 1,00,000 &#247; 1,460 &#8776; 68.49 years [1 mark]<br><br>
+        <strong>Answer:</strong> It will take approximately <strong>69 years</strong> (rounding up since you can&#8217;t taste a fraction of a year&#8217;s worth).
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q12. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) Descending order of population:</strong> [1 mark]<br>
+        Bengaluru (84,25,970) &gt; Hyderabad (68,09,970) &gt; Surat (44,67,797) &gt; Pune (31,15,431)<br><br>
+        <strong>(b) Difference between Bengaluru and Pune:</strong> [1 mark]<br>
+        84,25,970 &#8722; 31,15,431 = <strong>53,10,539</strong><br>
+        = Fifty-three lakh ten thousand five hundred thirty-nine<br><br>
+        <strong>(c) Hyderabad nearest ten lakh:</strong> [1 mark]<br>
+        68,09,970 &#8594; Look at the lakh digit: 8. Since 8 &#8805; 5, round up.<br>
+        <strong>Answer: 70,00,000</strong> (Seventy lakh)
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q13. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) Total collected:</strong> [1 mark]<br>
+        From students: 275 &#215; 1,850<br>
+        = 275 &#215; 1,000 + 275 &#215; 850<br>
+        = 2,75,000 + 2,33,750<br>
+        = 5,08,750<br>
+        Adding principal&#8217;s contribution: 5,08,750 + 48,500 = <strong>&#8377;5,57,250</strong><br><br>
+        <strong>(b) In words:</strong> [1 mark]<br>
+        <strong>Five lakh fifty-seven thousand two hundred fifty rupees</strong><br><br>
+        <strong>(c) More needed:</strong> [1 mark]<br>
+        6,00,000 &#8722; 5,57,250 = <strong>&#8377;42,750</strong> more is needed.<br>
+        = Forty-two thousand seven hundred fifty rupees.
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q14. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>Estimation:</strong> [1 mark]<br>
+        489 &#8776; 500 (nearest hundred)<br>
+        7,210 &#8776; 7,000 (nearest thousand)<br>
+        Estimated product: 500 &#215; 7,000 = <strong>35,00,000</strong><br><br>
+        <strong>Exact product:</strong> [1 mark]<br>
+        489 &#215; 7,210<br>
+        = 489 &#215; 7,000 + 489 &#215; 210<br>
+        = 34,23,000 + 1,02,690<br>
+        = <strong>35,25,690</strong><br><br>
+        <strong>Comparison:</strong> [1 mark]<br>
+        Difference = 35,25,690 &#8722; 35,00,000 = 25,690<br>
+        Error percentage = 25,690 / 35,25,690 &#215; 100 &#8776; <strong>0.73%</strong><br>
+        The estimate was very close &#8212; less than 1% error!
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q15. [3 Marks]</div>
+      <div class="sol-body">
+        Available digits: 0, 3, 5, 7, 8<br><br>
+        <strong>(a) Largest 5-digit number:</strong> [1 mark]<br>
+        Arrange in descending order: <strong>87,530</strong><br><br>
+        <strong>(b) Smallest 5-digit number:</strong> [1 mark]<br>
+        First digit cannot be 0, so use 3 (smallest non-zero).<br>
+        Then arrange remaining (0, 5, 7, 8) in ascending: 0, 5, 7, 8<br>
+        <strong>Answer: 30,578</strong><br><br>
+        <strong>(c) Difference:</strong> [1 mark]<br>
+        87,530 &#8722; 30,578 = <strong>56,952</strong>
+      </div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q16. [5 Marks]</div>
+      <div class="sol-body">
+        <strong>(a)(i) Bottles per week:</strong> [1 mark]<br>
+        12,500 &#215; 6 = <strong>75,000 bottles</strong><br><br>
+        <strong>(a)(ii) Bottles per year:</strong> [1 mark]<br>
+        75,000 &#215; 52 = <strong>39,00,000 bottles</strong><br><br>
+        <strong>(a)(iii) In words:</strong> [&#189; mark]<br>
+        <strong>Thirty-nine lakh</strong> bottles<br><br>
+        <strong>(a)(iv) Total weight:</strong> [1 mark]<br>
+        Weight = 39,00,000 &#215; 250 = 97,50,00,000 grams<br>
+        In tonnes = 97,50,00,000 &#247; 10,00,000 = <strong>975 tonnes</strong><br><br>
+        <strong>(b) Extra bottles needed daily:</strong> [1&#189; marks]<br>
+        Target: 50,00,000 bottles/year<br>
+        Current: 39,00,000 bottles/year<br>
+        Shortfall: 50,00,000 &#8722; 39,00,000 = 11,00,000 bottles/year<br>
+        Working days/year: 6 &#215; 52 = 312 days<br>
+        Extra per day: 11,00,000 &#247; 312 &#8776; <strong>3,526 extra bottles/day</strong><br>
+        New daily production &#8776; 12,500 + 3,526 = <strong>16,026 bottles/day</strong>
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q17. [5 Marks]</div>
+      <div class="sol-body">
+        <strong>(a)(i) Distance in one day:</strong> [1 mark]<br>
+        28,000 &#215; 24 = <strong>6,72,000 km/day</strong><br><br>
+        <strong>(a)(ii) Days to reach the Sun:</strong> [1 mark]<br>
+        15,00,00,000 &#247; 6,72,000 &#8776; <strong>223.2 days</strong><br><br>
+        <strong>(a)(iii) Rounded to nearest hundred:</strong> [&#189; mark]<br>
+        223.2 &#8594; <strong>200 days</strong> (nearest hundred)<br><br>
+        <strong>(b)(i) Hours to reach the Moon:</strong> [1&#189; marks]<br>
+        3,84,400 &#247; 1,200 = <strong>320.33 hours</strong><br><br>
+        <strong>(b)(ii) Complete days + remaining hours:</strong> [1 mark]<br>
+        320.33 &#247; 24 = 13 days remainder 8.33 hours<br>
+        <strong>Answer: 13 complete days and approximately 8 hours</strong>
+      </div>
+    </div>
+
+    <!-- Q18 Bonus -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q18. Bonus [2 Marks]</div>
+      <div class="sol-body">
+        <strong>Condition 1:</strong> Rounded to nearest lakh = 35,00,000 [1 mark]<br>
+        This means: 34,50,000 &#8804; N &#8804; 35,49,999<br><br>
+        <strong>Condition 2:</strong> Rounded to nearest ten thousand = 34,90,000 [1 mark]<br>
+        This means: 34,85,000 &#8804; N &#8804; 34,94,999<br><br>
+        <strong>Both conditions together:</strong><br>
+        The number must satisfy BOTH ranges.<br>
+        Intersection: max(34,50,000, 34,85,000) &#8804; N &#8804; min(35,49,999, 34,94,999)<br>
+        &#8594; <strong>34,85,000 &#8804; N &#8804; 34,94,999</strong><br><br>
+        The number lies between <strong>34,85,000</strong> and <strong>34,94,999</strong> (a range of 10,000 values).
+      </div>
+    </div>
+
+  </div><!-- end test-solutions -->
+
+</div><!-- end container -->
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div>Preeti Kushwah Classes &middot; Quality Education for Every Student</div>
+  <div style="margin-top:6px;">&copy; 2026 Preeti Kushwah Classes</div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+function fireConfetti() {
+  var colors = ['#7c3aed','#ec4899','#f97316','#fbbf24','#16a34a','#3b82f6','#ef4444'];
+  for (var i = 0; i < 60; i++) {
+    var c = document.createElement('div');
+    c.className = 'confetti-piece';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.top = '-20px';
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.style.width = (6 + Math.random() * 10) + 'px';
+    c.style.height = (6 + Math.random() * 10) + 'px';
+    c.style.animationDelay = (Math.random() * 1.5) + 's';
+    c.style.animationDuration = (2 + Math.random() * 2) + 's';
+    document.body.appendChild(c);
+    (function(el) { setTimeout(function() { el.remove(); }, 5000); })(c);
+  }
+}
+
+function _h(s){var h=5381;for(var i=0;i<s.length;i++){h=((h<<5)+h)+s.charCodeAt(i);}return h>>>0;}
+function unlockTestSol() {
+  var code = document.getElementById('testSolCode').value.trim().toUpperCase();
+  var msg = document.getElementById('testSolMsg');
+  var validHashes = [3594616101,3225666297,3317573739,4201821354];
+  if (validHashes.indexOf(_h(code)) !== -1) {
+    document.getElementById('testSolBlock').classList.add('unlocked');
+    document.getElementById('testSolLock').style.display = 'none';
+    msg.className = 'sol-success';
+    msg.textContent = '';
+    fireConfetti();
+  } else {
+    msg.className = 'sol-error';
+    msg.textContent = 'Incorrect code. Ask your teacher for the access code.';
+    document.getElementById('testSolCode').value = '';
+    document.getElementById('testSolCode').focus();
+  }
+}
+</script>
+
+<script>
+function shareSolutions() {
+  var sol = document.getElementById('testSolBlock');
+  if (!sol.classList.contains('unlocked')) {
+    var code = prompt('Enter access code to unlock solutions first:');
+    if (!code) return;
+    code = code.trim().toUpperCase();
+    if ([3594616101,3225666297,3317573739,4201821354].indexOf(_h(code)) === -1) { alert('Incorrect code.'); return; }
+    sol.classList.add('unlocked');
+    document.getElementById('testSolLock').style.display = 'none';
+  }
+  var win = window.open('', '_blank');
+  win.document.write('<!DOCTYPE html><html><head><title>Solutions - Preeti Kushwah Classes</title>');
+  win.document.write('<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">');
+  win.document.write('<style>*{box-sizing:border-box;margin:0;padding:0;}body{font-family:"Nunito",sans-serif;padding:30px 24px;color:#1e1b4b;line-height:1.7;}');
+  win.document.write('.sol-header{text-align:center;margin-bottom:24px;padding-bottom:16px;border-bottom:3px solid #7c3aed;}');
+  win.document.write('.sol-header h1{font-family:"Fredoka One",cursive;font-size:22px;color:#5b21b6;}');
+  win.document.write('.sol-header p{font-size:13px;color:#6b7280;margin-top:4px;}');
+  win.document.write('.test-sol-item{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 12px 12px 0;padding:14px 18px;margin-bottom:14px;page-break-inside:avoid;}');
+  win.document.write('.test-sol-item .sol-num{font-weight:800;color:#166534;font-size:14px;}');
+  win.document.write('.test-sol-item .sol-body{font-size:13px;color:#374151;margin-top:6px;line-height:1.8;}');
+  win.document.write('.test-sol-item .sol-body strong{color:#5b21b6;}');
+  win.document.write('.qr-footer{text-align:center;margin-top:30px;padding-top:16px;border-top:2px solid #e5e7eb;}');
+  win.document.write('.qr-footer img{width:80px;height:80px;}');
+  win.document.write('.qr-footer p{font-size:11px;color:#6b7280;font-weight:700;margin-top:6px;}');
+  win.document.write('@media print{body{padding:16px;}}');
+  win.document.write('</style></head><body>');
+  win.document.write('<div class="sol-header"><h1>Answer Key & Solutions</h1>');
+  win.document.write('<p>Chapter 1: Large Numbers Around Us &mdash; Preeti Kushwah Classes</p></div>');
+  win.document.write(sol.innerHTML);
+  win.document.write('<div class="qr-footer"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.preetikushwahclasses.com/" alt="QR"><p>www.preetikushwahclasses.com</p></div>');
+  win.document.write('</body></html>');
+  win.document.close();
+  setTimeout(function() { win.print(); }, 600);
+}
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+</body>
+</html>
