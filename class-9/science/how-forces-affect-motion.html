@@ -2494,6 +2494,19 @@ footer { text-align: center; padding: 30px 16px; background: linear-gradient(135
 
       <h3 class="subtitle" style="color:#78350f;">&#127947; Real-Life Applications of F = ma</h3>
 
+      <div class="anim-scene" style="margin-bottom:18px;">
+        <div class="anim-scene-title">&#127916; Watch: F = ma in Real Life — 3 Animated Examples</div>
+        <div style="display:flex;justify-content:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+          <button class="tug-btn" onclick="fmaAppSetScene(0)" style="font-size:12px;padding:6px 14px;" id="fmaBtn0">&#127951; Cricket Ball</button>
+          <button class="tug-btn" onclick="fmaAppSetScene(1)" style="font-size:12px;padding:6px 14px;" id="fmaBtn1">&#128663; Airbags</button>
+          <button class="tug-btn" onclick="fmaAppSetScene(2)" style="font-size:12px;padding:6px 14px;" id="fmaBtn2">&#129381; Coconut</button>
+        </div>
+        <div style="display:flex;justify-content:center;">
+          <canvas id="fmaAppCanvas" width="680" height="340" style="border-radius:14px;max-width:100%;box-shadow:0 4px 18px rgba(0,0,0,0.12);"></canvas>
+        </div>
+        <div id="fmaAppInfo" style="margin-top:10px;font-size:13px;color:#374151;line-height:1.5;text-align:center;font-weight:600;"></div>
+      </div>
+
       <div class="info-grid">
         <div class="info-card ic-green">
           <h4>&#127951; Catching a Cricket Ball</h4>
@@ -4887,17 +4900,31 @@ initLawQuiz();
   var CY = H/2;
 
   // Magnetic state
-  var magA = { x: 200, y: CY, w: 100, h: 44 };
-  var magB = { x: 520, y: CY, w: 100, h: 44 };
-  var magFlipped = false;
+  var magA = { x: 160, y: CY, w: 100, h: 44, vx: 0 };
+  var magB = { x: 460, y: CY, w: 100, h: 44, vx: 0 };
+  var magFlipped = false; // false = N-S attract, true = N-N repel
 
   // Electrostatic state
-  var chargeA = { x: 220, y: CY, r: 30, q: +1 };
-  var chargeB = { x: 500, y: CY, r: 30, q: +1 };
+  var chargeA = { x: 220, y: CY, r: 30, q: +1, vx: 0, vy: 0 };
+  var chargeB = { x: 500, y: CY, r: 30, q: +1, vx: 0, vy: 0 };
+  var chargeFlipped = false; // false = both +, true = + and -
 
-  // Gravitational state
-  var gravBig = { x: 360, y: CY+40, r: 70, m: 5.97e24, label: 'Earth' };
-  var gravSmall = { x: 360, y: 60, r: 16, m: 1, label: 'Apple (1 kg)' };
+  // Gravitational state — Earth centered, 3 zones
+  var EX = W/2, EY = H/2;
+  var ER = 32;
+  var gravBig = { x: EX, y: EY, r: ER, m: 5.97e24 };
+  var ZONE_FALL = ER + 30;   // inner boundary — below this falls to Earth
+  var ZONE_ORBIT_MIN = ER + 30;  // orbit zone starts
+  var ZONE_ORBIT_MAX = ER + 110; // orbit zone ends
+  var ZONE_ESCAPE = ER + 110;    // beyond this = escape / drift
+  var gravSmall = { x: EX, y: EY - ZONE_ORBIT_MIN - 20, r: 8, m: 1, vx: 0, vy: 0 };
+  var gravTrail = [];
+  var gravOrbiting = false;
+  var gravEscaping = false;
+  var gravFalling = false;
+  var GM_GRAV = 120;
+  var SUBSTEPS = 8;
+  var gravState = 'idle'; // idle, orbit, fall, escape
 
   var time = 0;
 
@@ -4935,33 +4962,76 @@ initLawQuiz();
   function drawMag(){
     drawBg();
     var a = magA, b = magB;
-    var dist = Math.abs(b.x - a.x - a.w);
+    var gap = b.x - (a.x+a.w);
+    var dist = Math.abs(gap);
     var force = Math.max(2, 4000 / (dist*dist+100));
     var forceN = (force*15).toFixed(1);
 
+    // Determine facing poles: A's right side vs B's left side
+    // A is always [N|S]. B flips: default [S|N] (opposite=attract), flipped [N|S] (same=repel)
+    var aRightPole = 'S';
+    var bLeftPole = magFlipped ? 'N' : 'S';
+    var samePoles = (aRightPole === bLeftPole);
+    var attracting = !samePoles; // opposite poles attract
+
+    // Physics: apply force when not dragging
+    if(!dragging || dragging.obj !== a){
+      var accel = (attracting ? 1 : -1) * force * 0.4;
+      a.vx += accel * 0.016;
+      a.vx *= 0.92;
+      a.x += a.vx;
+    } else { a.vx = 0; }
+    if(!dragging || dragging.obj !== b){
+      var accel2 = (attracting ? -1 : 1) * force * 0.4;
+      b.vx += accel2 * 0.016;
+      b.vx *= 0.92;
+      b.x += b.vx;
+    } else { b.vx = 0; }
+
+    // Clamp positions
+    a.x = Math.max(10, Math.min(W/2-a.w-5, a.x));
+    b.x = Math.max(W/2+5, Math.min(W-b.w-10, b.x));
+    // Minimum gap: if attracting, let them touch; if repelling, keep min 20px gap
+    var minGap = attracting ? 2 : 20;
+    if(b.x - (a.x+a.w) < minGap){
+      if(attracting){
+        b.x = a.x+a.w+minGap; a.vx=0; b.vx=0;
+      } else {
+        var push = (minGap-(b.x-(a.x+a.w)))/2;
+        a.x -= push; b.x += push; a.vx=0; b.vx=0;
+      }
+    }
+
+    var midX = (a.x+a.w + b.x) / 2;
+
     // Title
     ctx.fillStyle = '#c4b5fd'; ctx.font = 'bold 16px Fredoka One'; ctx.textAlign = 'center';
-    ctx.fillText('Drag the magnets!', W/2, 28);
+    ctx.fillText('Drag the magnets! Tap "Flip" to change poles', W/2, 28);
+
+    // Flip button
+    ctx.fillStyle = 'rgba(139,92,246,0.25)';
+    rrect(W/2-40, 38, 80, 28, 10); ctx.fill();
+    ctx.strokeStyle = 'rgba(196,181,253,0.5)'; ctx.lineWidth = 1.5;
+    rrect(W/2-40, 38, 80, 28, 10); ctx.stroke();
+    ctx.fillStyle = '#e9d5ff'; ctx.font = 'bold 12px Nunito'; ctx.textAlign = 'center';
+    ctx.fillText('Flip Magnet B', W/2, 56);
 
     // Field lines between magnets
-    var midX = (a.x+a.w + b.x) / 2;
     var fieldW = b.x - (a.x+a.w);
     if(fieldW > 10){
       for(var fl=-2;fl<=2;fl++){
         var fy = CY + fl*14;
         ctx.strokeStyle = 'rgba(196,181,253,'+(0.1+force*0.02)+')';
-        ctx.lineWidth = 1.5;
-        ctx.setLineDash([4,4]);
+        ctx.lineWidth = 1.5; ctx.setLineDash([4,4]);
         ctx.beginPath();
         var curve = fl*8*Math.sin(time*2);
         ctx.moveTo(a.x+a.w, fy);
         ctx.quadraticCurveTo(midX, fy+curve, b.x, fy);
-        ctx.stroke();
-        ctx.setLineDash([]);
+        ctx.stroke(); ctx.setLineDash([]);
       }
     }
 
-    // Magnet A
+    // Magnet A: always [N(red) | S(blue)]
     var aGrad = ctx.createLinearGradient(a.x, 0, a.x+a.w, 0);
     aGrad.addColorStop(0, '#dc2626'); aGrad.addColorStop(0.5, '#ef4444');
     aGrad.addColorStop(0.5, '#2563eb'); aGrad.addColorStop(1, '#3b82f6');
@@ -4973,31 +5043,53 @@ initLawQuiz();
     ctx.fillText('N', a.x+a.w*0.25, a.y+6);
     ctx.fillText('S', a.x+a.w*0.75, a.y+6);
 
-    // Magnet B
+    // Magnet B: default [S(blue)|N(red)], flipped [N(red)|S(blue)]
     var bGrad = ctx.createLinearGradient(b.x, 0, b.x+b.w, 0);
-    bGrad.addColorStop(0, '#2563eb'); bGrad.addColorStop(0.5, '#3b82f6');
-    bGrad.addColorStop(0.5, '#dc2626'); bGrad.addColorStop(1, '#ef4444');
+    if(magFlipped){
+      bGrad.addColorStop(0, '#dc2626'); bGrad.addColorStop(0.5, '#ef4444');
+      bGrad.addColorStop(0.5, '#2563eb'); bGrad.addColorStop(1, '#3b82f6');
+    } else {
+      bGrad.addColorStop(0, '#2563eb'); bGrad.addColorStop(0.5, '#3b82f6');
+      bGrad.addColorStop(0.5, '#dc2626'); bGrad.addColorStop(1, '#ef4444');
+    }
     ctx.fillStyle = bGrad;
     rrect(b.x, b.y-b.h/2, b.w, b.h, 8); ctx.fill();
     ctx.strokeStyle = 'rgba(255,255,255,0.2)'; ctx.lineWidth = 1.5;
     rrect(b.x, b.y-b.h/2, b.w, b.h, 8); ctx.stroke();
     ctx.fillStyle = 'white'; ctx.font = 'bold 16px Nunito'; ctx.textAlign = 'center';
-    ctx.fillText('S', b.x+b.w*0.25, b.y+6);
-    ctx.fillText('N', b.x+b.w*0.75, b.y+6);
+    if(magFlipped){
+      ctx.fillText('N', b.x+b.w*0.25, b.y+6);
+      ctx.fillText('S', b.x+b.w*0.75, b.y+6);
+    } else {
+      ctx.fillText('S', b.x+b.w*0.25, b.y+6);
+      ctx.fillText('N', b.x+b.w*0.75, b.y+6);
+    }
 
     // Force arrows
     var arrowLen = Math.min(80, force*20);
-    // A feels pull toward B (action)
-    drawArrow(a.x+a.w+4, a.y-16, a.x+a.w+4+arrowLen, a.y-16, '#86efac', 3);
-    // B feels pull toward A (reaction)
-    drawArrow(b.x-4, b.y-16, b.x-4-arrowLen, b.y-16, '#fca5a5', 3);
+    if(attracting){
+      // Pull toward each other
+      drawArrow(a.x+a.w+4, a.y-16, a.x+a.w+4+arrowLen, a.y-16, '#86efac', 3);
+      drawArrow(b.x-4, b.y-16, b.x-4-arrowLen, b.y-16, '#fca5a5', 3);
+    } else {
+      // Push apart
+      drawArrow(a.x+a.w+4+arrowLen, a.y-16, a.x+a.w+4, a.y-16, '#86efac', 3);
+      drawArrow(b.x-4-arrowLen, b.y-16, b.x-4, b.y-16, '#fca5a5', 3);
+    }
 
     // Labels
     ctx.font = 'bold 12px Nunito'; ctx.textAlign = 'center';
-    ctx.fillStyle = '#86efac';
-    ctx.fillText('Action: '+forceN+' N →', a.x+a.w/2, a.y-a.h/2-14);
-    ctx.fillStyle = '#fca5a5';
-    ctx.fillText('← Reaction: '+forceN+' N', b.x+b.w/2, b.y-b.h/2-14);
+    if(attracting){
+      ctx.fillStyle = '#86efac';
+      ctx.fillText('Action: '+forceN+' N →', a.x+a.w/2, a.y-a.h/2-14);
+      ctx.fillStyle = '#fca5a5';
+      ctx.fillText('← Reaction: '+forceN+' N', b.x+b.w/2, b.y-b.h/2-14);
+    } else {
+      ctx.fillStyle = '#86efac';
+      ctx.fillText('← Action: '+forceN+' N', a.x+a.w/2, a.y-a.h/2-14);
+      ctx.fillStyle = '#fca5a5';
+      ctx.fillText('Reaction: '+forceN+' N →', b.x+b.w/2, b.y-b.h/2-14);
+    }
 
     // Distance label
     ctx.fillStyle = '#94a3b8'; ctx.font = 'bold 11px Nunito';
@@ -5011,9 +5103,14 @@ initLawQuiz();
     ctx.fillStyle = '#86efac'; ctx.font = 'bold 12px Nunito';
     ctx.fillText('F(action) = F(reaction) = '+forceN+' N', W/2, H-28);
 
-    // Attraction indicator
-    ctx.fillStyle = 'rgba(196,181,253,0.8)'; ctx.font = 'bold 13px Fredoka One';
-    ctx.fillText('N→←S  ATTRACT!', midX, CY+a.h/2+44);
+    // Attract/Repel indicator
+    ctx.fillStyle = attracting ? 'rgba(134,239,172,0.8)' : 'rgba(252,165,165,0.8)';
+    ctx.font = 'bold 13px Fredoka One';
+    if(attracting){
+      ctx.fillText('S→←N  Opposite poles — ATTRACT!', midX, CY+a.h/2+44);
+    } else {
+      ctx.fillText('S→  ←S  Same poles — REPEL!', midX, CY+a.h/2+44);
+    }
   }
 
   // ===== ELECTROSTATIC MODE =====
@@ -5026,24 +5123,68 @@ initLawQuiz();
     var forceN = (force*10).toFixed(1);
     var ux = dx/(dist||1), uy = dy/(dist||1);
 
-    ctx.fillStyle = '#fde68a'; ctx.font = 'bold 16px Fredoka One'; ctx.textAlign = 'center';
-    ctx.fillText('Drag the charges!', W/2, 28);
+    // Like charges repel, opposite attract
+    var likeCharges = (a.q === b.q);
+    var repelling = likeCharges;
 
-    // Electric field lines (repulsion)
-    for(var fl=0;fl<8;fl++){
-      var ang = fl*Math.PI/4 + time*0.3;
-      var sx = (a.x+b.x)/2, sy = (a.y+b.y)/2;
-      ctx.strokeStyle = 'rgba(253,224,71,'+(0.05+force*0.015)+')';
-      ctx.lineWidth = 1;
-      ctx.setLineDash([3,5]);
-      ctx.beginPath();
-      ctx.moveTo(sx+Math.cos(ang)*10, sy+Math.sin(ang)*10);
-      ctx.lineTo(sx+Math.cos(ang)*40, sy+Math.sin(ang)*40);
-      ctx.stroke();
-      ctx.setLineDash([]);
+    // Physics: apply force when not dragging
+    var forceDir = repelling ? -1 : 1; // -1 = push apart, +1 = pull together
+    if(!dragging || dragging.obj !== a){
+      a.vx += forceDir * ux * force * 0.3 * 0.016;
+      a.vy += forceDir * uy * force * 0.3 * 0.016;
+      a.vx *= 0.92; a.vy *= 0.92;
+      a.x += a.vx; a.y += a.vy;
+    } else { a.vx=0; a.vy=0; }
+    if(!dragging || dragging.obj !== b){
+      b.vx += -forceDir * ux * force * 0.3 * 0.016;
+      b.vy += -forceDir * uy * force * 0.3 * 0.016;
+      b.vx *= 0.92; b.vy *= 0.92;
+      b.x += b.vx; b.y += b.vy;
+    } else { b.vx=0; b.vy=0; }
+
+    // Clamp in bounds
+    a.x = Math.max(a.r+5, Math.min(W-a.r-5, a.x));
+    a.y = Math.max(a.r+70, Math.min(H-a.r-40, a.y));
+    b.x = Math.max(b.r+5, Math.min(W-b.r-5, b.x));
+    b.y = Math.max(b.r+70, Math.min(H-b.r-40, b.y));
+    // Min distance
+    var curDist = Math.sqrt((b.x-a.x)*(b.x-a.x)+(b.y-a.y)*(b.y-a.y));
+    var minD = a.r+b.r+(repelling?20:2);
+    if(curDist < minD && curDist > 0){
+      var overlap = (minD-curDist)/2;
+      var ox=(b.x-a.x)/curDist*overlap, oy=(b.y-a.y)/curDist*overlap;
+      a.x-=ox; a.y-=oy; b.x+=ox; b.y+=oy;
+      a.vx=0;a.vy=0;b.vx=0;b.vy=0;
     }
 
-    // Charge A
+    // Recalculate after physics
+    dx=b.x-a.x; dy=b.y-a.y; dist=Math.sqrt(dx*dx+dy*dy);
+    ux=dx/(dist||1); uy=dy/(dist||1);
+
+    ctx.fillStyle = '#fde68a'; ctx.font = 'bold 16px Fredoka One'; ctx.textAlign = 'center';
+    ctx.fillText('Drag the charges! Tap "Flip" to change sign', W/2, 28);
+
+    // Flip button
+    ctx.fillStyle = 'rgba(245,158,11,0.25)';
+    rrect(W/2-40, 38, 80, 28, 10); ctx.fill();
+    ctx.strokeStyle = 'rgba(253,224,71,0.5)'; ctx.lineWidth = 1.5;
+    rrect(W/2-40, 38, 80, 28, 10); ctx.stroke();
+    ctx.fillStyle = '#fde68a'; ctx.font = 'bold 12px Nunito'; ctx.textAlign = 'center';
+    ctx.fillText('Flip Charge B', W/2, 56);
+
+    // Electric field lines
+    for(var fl=0;fl<8;fl++){
+      var ang = fl*Math.PI/4 + time*0.3;
+      var sx2 = (a.x+b.x)/2, sy2 = (a.y+b.y)/2;
+      ctx.strokeStyle = 'rgba(253,224,71,'+(0.05+force*0.015)+')';
+      ctx.lineWidth = 1; ctx.setLineDash([3,5]);
+      ctx.beginPath();
+      ctx.moveTo(sx2+Math.cos(ang)*10, sy2+Math.sin(ang)*10);
+      ctx.lineTo(sx2+Math.cos(ang)*40, sy2+Math.sin(ang)*40);
+      ctx.stroke(); ctx.setLineDash([]);
+    }
+
+    // Charge A (always +)
     var gA = ctx.createRadialGradient(a.x-6,a.y-6,4,a.x,a.y,a.r);
     gA.addColorStop(0,'#fde68a'); gA.addColorStop(0.5,'#f59e0b'); gA.addColorStop(1,'#b45309');
     ctx.fillStyle = gA;
@@ -5053,142 +5194,295 @@ initLawQuiz();
     ctx.fillStyle = 'white'; ctx.font = 'bold 22px Nunito'; ctx.textAlign = 'center';
     ctx.fillText('+', a.x, a.y+8);
 
-    // Charge B
+    // Charge B (+ or -)
     var gB = ctx.createRadialGradient(b.x-6,b.y-6,4,b.x,b.y,b.r);
-    gB.addColorStop(0,'#fde68a'); gB.addColorStop(0.5,'#f59e0b'); gB.addColorStop(1,'#b45309');
+    if(chargeFlipped){
+      gB.addColorStop(0,'#93c5fd'); gB.addColorStop(0.5,'#3b82f6'); gB.addColorStop(1,'#1e3a8a');
+    } else {
+      gB.addColorStop(0,'#fde68a'); gB.addColorStop(0.5,'#f59e0b'); gB.addColorStop(1,'#b45309');
+    }
     ctx.fillStyle = gB;
     ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
-    ctx.strokeStyle = 'rgba(253,224,71,0.4)'; ctx.lineWidth = 2;
+    ctx.strokeStyle = chargeFlipped ? 'rgba(147,197,253,0.4)' : 'rgba(253,224,71,0.4)';
+    ctx.lineWidth = 2;
     ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.stroke();
     ctx.fillStyle = 'white'; ctx.font = 'bold 22px Nunito'; ctx.textAlign = 'center';
-    ctx.fillText('+', b.x, b.y+8);
+    ctx.fillText(chargeFlipped ? '−' : '+', b.x, b.y+8);
 
-    // Repulsion arrows (away from each other)
+    // Force arrows
     var arrowLen = Math.min(70, force*18);
-    drawArrow(a.x-ux*(a.r+4), a.y-uy*(a.r+4), a.x-ux*(a.r+4+arrowLen), a.y-uy*(a.r+4+arrowLen), '#fca5a5', 3);
-    drawArrow(b.x+ux*(b.r+4), b.y+uy*(b.r+4), b.x+ux*(b.r+4+arrowLen), b.y+uy*(b.r+4+arrowLen), '#86efac', 3);
+    if(repelling){
+      drawArrow(a.x-ux*(a.r+4), a.y-uy*(a.r+4), a.x-ux*(a.r+4+arrowLen), a.y-uy*(a.r+4+arrowLen), '#fca5a5', 3);
+      drawArrow(b.x+ux*(b.r+4), b.y+uy*(b.r+4), b.x+ux*(b.r+4+arrowLen), b.y+uy*(b.r+4+arrowLen), '#86efac', 3);
+    } else {
+      drawArrow(a.x+ux*(a.r+4), a.y+uy*(a.r+4), a.x+ux*(a.r+4+arrowLen), a.y+uy*(a.r+4+arrowLen), '#fca5a5', 3);
+      drawArrow(b.x-ux*(b.r+4), b.y-uy*(b.r+4), b.x-ux*(b.r+4+arrowLen), b.y-uy*(b.r+4+arrowLen), '#86efac', 3);
+    }
 
     // Labels
     ctx.font = 'bold 12px Nunito';
     ctx.fillStyle = '#fca5a5'; ctx.textAlign = 'right';
-    ctx.fillText('← F = '+forceN+' N', a.x-a.r-12, a.y-a.r-8);
+    ctx.fillText((repelling?'← ':'')+'F = '+forceN+' N'+(repelling?'':'→'), a.x-a.r-12, a.y-a.r-8);
     ctx.fillStyle = '#86efac'; ctx.textAlign = 'left';
-    ctx.fillText('F = '+forceN+' N →', b.x+b.r+12, b.y-b.r-8);
+    ctx.fillText((repelling?'':'←')+'F = '+forceN+' N'+(repelling?' →':''), b.x+b.r+12, b.y-b.r-8);
 
     // Distance
     ctx.fillStyle = '#94a3b8'; ctx.font = 'bold 11px Nunito'; ctx.textAlign = 'center';
-    ctx.fillText('Distance: '+Math.round(dist)+' px', (a.x+b.x)/2, (a.y+b.y)/2+50);
+    ctx.fillText('Distance: '+Math.round(dist)+' px', (a.x+b.x)/2, Math.max((a.y+b.y)/2+50, H-70));
 
     // Badge
     ctx.fillStyle = 'rgba(251,191,36,0.1)';
-    rrect(W/2-110, H-48, 220, 30, 12); ctx.fill();
+    rrect(W/2-130, H-48, 260, 30, 12); ctx.fill();
     ctx.strokeStyle = 'rgba(251,191,36,0.25)'; ctx.lineWidth = 1;
-    rrect(W/2-110, H-48, 220, 30, 12); ctx.stroke();
+    rrect(W/2-130, H-48, 260, 30, 12); ctx.stroke();
     ctx.fillStyle = '#fde68a'; ctx.font = 'bold 12px Nunito'; ctx.textAlign = 'center';
-    ctx.fillText('Like charges REPEL — Equal & opposite: '+forceN+' N', W/2, H-28);
+    if(repelling){
+      ctx.fillText('Like charges (+,+) REPEL — Equal & opposite: '+forceN+' N', W/2, H-28);
+    } else {
+      ctx.fillText('Opposite charges (+,−) ATTRACT — Equal & opposite: '+forceN+' N', W/2, H-28);
+    }
 
     // Sparks
     var sp = Math.sin(time*5);
     if(force > 2){
-      var mx = (a.x+b.x)/2, my = (a.y+b.y)/2;
+      var emx = (a.x+b.x)/2, emy = (a.y+b.y)/2;
       for(var si=0;si<3;si++){
         var sa = time*3+si*2.1;
         var sr = 8+sp*4;
         ctx.fillStyle = 'rgba(253,224,71,'+(0.3+sp*0.2)+')';
         ctx.beginPath();
-        ctx.arc(mx+Math.cos(sa)*sr, my+Math.sin(sa)*sr, 2, 0, Math.PI*2);
+        ctx.arc(emx+Math.cos(sa)*sr, emy+Math.sin(sa)*sr, 2, 0, Math.PI*2);
         ctx.fill();
       }
     }
   }
 
   // ===== GRAVITATIONAL MODE =====
+  function gravReset(){
+    gravSmall.x = EX; gravSmall.y = EY - ZONE_ORBIT_MIN - 20;
+    gravSmall.vx = 0; gravSmall.vy = 0;
+    gravTrail = []; gravState = 'idle';
+    gravOrbiting = false; gravEscaping = false; gravFalling = false;
+  }
+
+  function gravAutoLaunch(r){
+    var vOrbit = Math.sqrt(GM_GRAV / r);
+    var dx2 = gravSmall.x - EX, dy2 = gravSmall.y - EY;
+    var d2 = Math.sqrt(dx2*dx2+dy2*dy2);
+    if(d2 < 1) d2 = 1;
+    gravSmall.vx = (-dy2/d2) * vOrbit;
+    gravSmall.vy = (dx2/d2) * vOrbit;
+    gravTrail = [];
+    gravState = 'orbit';
+    gravOrbiting = true; gravEscaping = false; gravFalling = false;
+  }
+
+
   function drawGrav(){
     drawBg();
     var big = gravBig, sm = gravSmall;
-    var dx = big.x-sm.x, dy = big.y-sm.y;
+    var isDragging = (dragging && dragging.obj === sm);
+
+    var dx = sm.x - EX, dy = sm.y - EY;
     var dist = Math.sqrt(dx*dx+dy*dy);
-    var ux = dx/(dist||1), uy = dy/(dist||1);
-    var force = sm.m * 9.8;
-    var forceN = force.toFixed(1);
-    var accelSmall = (force/sm.m).toFixed(1);
-    var accelBig = (force/big.m).toExponential(1);
+    if(dist < 1) dist = 1;
+    var ux = (EX-sm.x)/dist, uy = (EY-sm.y)/dist;
 
-    ctx.fillStyle = '#86efac'; ctx.font = 'bold 16px Fredoka One'; ctx.textAlign = 'center';
-    ctx.fillText('Drag the apple! Watch action-reaction forces', W/2, 28);
+    // Sub-stepped Velocity Verlet
+    if(!isDragging && gravState !== 'idle'){
+      var dt = 1.0 / SUBSTEPS;
+      for(var step = 0; step < SUBSTEPS; step++){
+        var dx1 = EX - sm.x, dy1 = EY - sm.y;
+        var d1 = Math.sqrt(dx1*dx1 + dy1*dy1);
+        if(d1 < 1) d1 = 1;
+        var a1 = GM_GRAV / (d1 * d1);
+        sm.vx += (a1 * dx1/d1) * dt * 0.5;
+        sm.vy += (a1 * dy1/d1) * dt * 0.5;
+        sm.x += sm.vx * dt;
+        sm.y += sm.vy * dt;
+        var dx2 = EX - sm.x, dy2 = EY - sm.y;
+        var d2 = Math.sqrt(dx2*dx2 + dy2*dy2);
+        if(d2 < 1) d2 = 1;
+        var a2 = GM_GRAV / (d2 * d2);
+        sm.vx += (a2 * dx2/d2) * dt * 0.5;
+        sm.vy += (a2 * dy2/d2) * dt * 0.5;
 
-    // Stars
-    for(var si=0;si<12;si++){
-      var sx = (si*67+23)%W, sy = (si*41+7)%120+40;
-      var sb = 0.3+0.2*Math.sin(time*2+si);
-      ctx.fillStyle = 'rgba(255,255,255,'+sb+')';
-      ctx.beginPath(); ctx.arc(sx,sy,1.5,0,Math.PI*2); ctx.fill();
+        var dc = Math.sqrt((EX-sm.x)*(EX-sm.x)+(EY-sm.y)*(EY-sm.y));
+        if(dc < ER + sm.r + 2 && dc > 0){
+          var nx = (sm.x-EX)/dc, ny = (sm.y-EY)/dc;
+          sm.x = EX + nx*(ER+sm.r+2); sm.y = EY + ny*(ER+sm.r+2);
+          sm.vx = 0; sm.vy = 0;
+          gravState = 'landed'; gravOrbiting = false; gravFalling = false;
+          break;
+        }
+      }
+      if(gravTrail.length===0 || Math.abs(sm.x-gravTrail[gravTrail.length-1].x)>1.5 || Math.abs(sm.y-gravTrail[gravTrail.length-1].y)>1.5){
+        gravTrail.push({x:sm.x,y:sm.y});
+        if(gravTrail.length > 600) gravTrail.shift();
+      }
     }
 
-    // Earth
-    var eg = ctx.createRadialGradient(big.x-15,big.y-20,10,big.x,big.y,big.r);
-    eg.addColorStop(0,'#4ade80'); eg.addColorStop(0.4,'#22c55e');
-    eg.addColorStop(0.8,'#15803d'); eg.addColorStop(1,'#052e16');
-    ctx.fillStyle = eg;
-    ctx.beginPath(); ctx.arc(big.x, big.y, big.r, 0, Math.PI*2); ctx.fill();
-    ctx.strokeStyle = 'rgba(134,239,172,0.3)'; ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.arc(big.x, big.y, big.r, 0, Math.PI*2); ctx.stroke();
-    // Continents (simple shapes)
-    ctx.fillStyle = 'rgba(22,101,52,0.5)';
-    ctx.beginPath(); ctx.arc(big.x-15,big.y-10,18,0,Math.PI*2); ctx.fill();
-    ctx.beginPath(); ctx.arc(big.x+20,big.y+5,14,0,Math.PI*2); ctx.fill();
-    ctx.fillStyle = 'white'; ctx.font = 'bold 13px Nunito'; ctx.textAlign = 'center';
-    ctx.fillText('Earth', big.x, big.y+5);
-    ctx.font = 'bold 9px Nunito'; ctx.fillStyle = '#bbf7d0';
-    ctx.fillText('M = 5.97×10²⁴ kg', big.x, big.y+20);
+    if(Math.abs(sm.x-EX) > W || Math.abs(sm.y-EY) > H){
+      gravState = 'escaped'; gravEscaping = true; gravOrbiting = false;
+    }
 
-    // Apple
-    var ag = ctx.createRadialGradient(sm.x-4,sm.y-4,2,sm.x,sm.y,sm.r);
-    ag.addColorStop(0,'#fca5a5'); ag.addColorStop(0.5,'#ef4444'); ag.addColorStop(1,'#991b1b');
-    ctx.fillStyle = ag;
-    ctx.beginPath(); ctx.arc(sm.x, sm.y, sm.r, 0, Math.PI*2); ctx.fill();
-    ctx.strokeStyle = 'rgba(252,165,165,0.4)'; ctx.lineWidth = 1.5;
-    ctx.beginPath(); ctx.arc(sm.x, sm.y, sm.r, 0, Math.PI*2); ctx.stroke();
-    // Stem
-    ctx.strokeStyle = '#92400e'; ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.moveTo(sm.x, sm.y-sm.r); ctx.lineTo(sm.x+2, sm.y-sm.r-8); ctx.stroke();
-    // Leaf
-    ctx.fillStyle = '#22c55e';
-    ctx.beginPath(); ctx.ellipse(sm.x+5, sm.y-sm.r-6, 6, 3, 0.4, 0, Math.PI*2); ctx.fill();
-    ctx.fillStyle = 'white'; ctx.font = 'bold 10px Nunito'; ctx.textAlign = 'center';
-    ctx.fillText(sm.m+' kg', sm.x, sm.y+4);
+    dx = sm.x - EX; dy = sm.y - EY;
+    dist = Math.sqrt(dx*dx+dy*dy); if(dist<1) dist=1;
+    ux = (EX-sm.x)/dist; uy = (EY-sm.y)/dist;
+    var speed = Math.sqrt(sm.vx*sm.vx+sm.vy*sm.vy);
 
-    // Force arrows
-    var arrowScale = Math.min(60, force*5);
-    // On apple: force toward Earth
-    drawArrow(sm.x+sm.r+6, sm.y, sm.x+sm.r+6+arrowScale, sm.y+(arrowScale*uy), '#fca5a5', 4);
-    // On Earth: force toward apple (tiny visually)
-    var tinyArrow = Math.max(8, arrowScale*0.12);
-    drawArrow(big.x-big.r-6, big.y, big.x-big.r-6-tinyArrow, big.y-tinyArrow*uy, '#93c5fd', 2);
+    var currentZone = 'fall';
+    if(dist >= ZONE_ORBIT_MIN && dist <= ZONE_ORBIT_MAX) currentZone = 'orbit';
+    else if(dist > ZONE_ORBIT_MAX) currentZone = 'escape';
 
-    // Labels
-    ctx.font = 'bold 12px Nunito'; ctx.textAlign = 'left';
-    ctx.fillStyle = '#fca5a5';
-    ctx.fillText('F on apple = '+forceN+' N', sm.x+sm.r+arrowScale+14, sm.y+4);
-    ctx.fillText('a = '+accelSmall+' m/s²', sm.x+sm.r+arrowScale+14, sm.y+20);
+    var force = sm.m * 9.8;
+    var forceN = force.toFixed(1);
+    var accelBig = (force/big.m).toExponential(1);
 
-    ctx.textAlign = 'right'; ctx.fillStyle = '#93c5fd';
-    ctx.fillText('F on Earth = '+forceN+' N', big.x-big.r-tinyArrow-14, big.y-6);
-    ctx.fillText('a = '+accelBig+' m/s²', big.x-big.r-tinyArrow-14, big.y+12);
+    // Stars
+    for(var si=0;si<30;si++){
+      var sx3 = (si*23+11)%W, sy3 = (si*41+7)%(H-10);
+      ctx.fillStyle = 'rgba(255,255,255,'+(0.15+0.1*Math.sin(time*1.5+si))+')';
+      ctx.beginPath(); ctx.arc(sx3,sy3,1,0,Math.PI*2); ctx.fill();
+    }
 
-    // Bottom badge
-    ctx.fillStyle = 'rgba(34,197,94,0.1)';
-    rrect(W/2-180, H-52, 360, 34, 12); ctx.fill();
-    ctx.strokeStyle = 'rgba(34,197,94,0.2)'; ctx.lineWidth = 1;
-    rrect(W/2-180, H-52, 360, 34, 12); ctx.stroke();
-    ctx.fillStyle = '#86efac'; ctx.font = 'bold 12px Nunito'; ctx.textAlign = 'center';
-    ctx.fillText('Same force ('+forceN+' N) but Earth\'s acceleration ≈ 0!', W/2, H-30);
+    // Orbit zone ring (blue tint between inner and outer)
+    ctx.save();
+    ctx.beginPath(); ctx.arc(EX, EY, ZONE_ORBIT_MAX, 0, Math.PI*2);
+    ctx.arc(EX, EY, ZONE_ORBIT_MIN, 0, Math.PI*2, true);
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(96,165,250,0.06)'; ctx.fill();
+    ctx.restore();
 
-    // Connecting dashed line
-    ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.lineWidth = 1;
-    ctx.setLineDash([4,6]);
-    ctx.beginPath(); ctx.moveTo(sm.x, sm.y+sm.r); ctx.lineTo(big.x, big.y-big.r); ctx.stroke();
+    // Zone border lines
+    ctx.strokeStyle = 'rgba(96,165,250,0.2)'; ctx.lineWidth = 1;
+    ctx.setLineDash([5,5]);
+    ctx.beginPath(); ctx.arc(EX, EY, ZONE_ORBIT_MIN, 0, Math.PI*2); ctx.stroke();
+    ctx.beginPath(); ctx.arc(EX, EY, ZONE_ORBIT_MAX, 0, Math.PI*2); ctx.stroke();
     ctx.setLineDash([]);
+
+    // Zone labels
+    ctx.font = 'bold 9px Nunito'; ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(239,68,68,0.45)';
+    ctx.fillText('FALLS BACK', EX, EY - ER - 10);
+    ctx.fillStyle = 'rgba(96,165,250,0.55)';
+    ctx.fillText('ORBIT ZONE', EX, EY - (ZONE_ORBIT_MIN+ZONE_ORBIT_MAX)/2 + 4);
+    ctx.fillStyle = 'rgba(251,191,36,0.4)';
+    ctx.fillText('DRIFTS TO SPACE', EX, EY - ZONE_ORBIT_MAX - 6);
+
+    // Trail
+    if(gravTrail.length > 2){
+      for(var ti=1;ti<gravTrail.length;ti++){
+        var alpha = (ti/gravTrail.length)*0.7;
+        ctx.strokeStyle = gravOrbiting ? 'rgba(96,165,250,'+alpha+')' : gravEscaping ? 'rgba(251,191,36,'+alpha+')' : 'rgba(252,165,165,'+alpha+')';
+        ctx.lineWidth = gravOrbiting ? 2 : 1.5;
+        ctx.beginPath();
+        ctx.moveTo(gravTrail[ti-1].x, gravTrail[ti-1].y);
+        ctx.lineTo(gravTrail[ti].x, gravTrail[ti].y);
+        ctx.stroke();
+      }
+    }
+
+    // Atmosphere
+    ctx.strokeStyle = 'rgba(74,222,128,0.1)'; ctx.lineWidth = 5;
+    ctx.beginPath(); ctx.arc(EX, EY, ER+3, 0, Math.PI*2); ctx.stroke();
+
+    // Earth
+    var eg = ctx.createRadialGradient(EX-6,EY-8,4,EX,EY,ER);
+    eg.addColorStop(0,'#4ade80'); eg.addColorStop(0.35,'#22c55e');
+    eg.addColorStop(0.75,'#15803d'); eg.addColorStop(1,'#052e16');
+    ctx.fillStyle = eg;
+    ctx.beginPath(); ctx.arc(EX, EY, ER, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = 'rgba(134,239,172,0.3)'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.arc(EX, EY, ER, 0, Math.PI*2); ctx.stroke();
+    ctx.fillStyle = 'rgba(22,101,52,0.4)';
+    ctx.beginPath(); ctx.arc(EX-6,EY-4,9,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(EX+8,EY+3,7,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle = 'white'; ctx.font = 'bold 9px Nunito'; ctx.textAlign = 'center';
+    ctx.fillText('Earth', EX, EY+3);
+
+    // Apple color changes by zone while dragging
+    var appleCol = isDragging ? (currentZone==='orbit'?'#60a5fa':currentZone==='escape'?'#fbbf24':'#ef4444') : '#ef4444';
+    ctx.fillStyle = appleCol;
+    ctx.beginPath(); ctx.arc(sm.x, sm.y, sm.r, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,0.5)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.arc(sm.x, sm.y, sm.r, 0, Math.PI*2); ctx.stroke();
+    ctx.strokeStyle = '#92400e'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(sm.x, sm.y-sm.r); ctx.lineTo(sm.x+1, sm.y-sm.r-4); ctx.stroke();
+    ctx.fillStyle = '#22c55e';
+    ctx.beginPath(); ctx.ellipse(sm.x+3, sm.y-sm.r-3, 3, 1.5, 0.4, 0, Math.PI*2); ctx.fill();
+
+    // Gravity arrow
+    if(dist > ER+sm.r+6 && gravState !== 'idle'){
+      var aLen = Math.min(28, 400/dist);
+      drawArrow(sm.x, sm.y, sm.x+ux*aLen, sm.y+uy*aLen, '#fca5a5', 2);
+    }
+    // Velocity arrow
+    if(speed > 0.3 && !isDragging){
+      var vSc = Math.min(28, speed*5);
+      drawArrow(sm.x, sm.y, sm.x+(sm.vx/speed)*vSc, sm.y+(sm.vy/speed)*vSc, '#60a5fa', 2);
+    }
+
+    // Title
+    ctx.font = 'bold 13px Fredoka One'; ctx.textAlign = 'center';
+    if(gravState === 'escaped'){
+      ctx.fillStyle = '#fbbf24';
+      ctx.fillText('Escaped into space! Tap Reset to try again', W/2, 18);
+    } else if(gravState === 'landed'){
+      ctx.fillStyle = '#fca5a5';
+      ctx.fillText('Fell to Earth! Drag further into the blue orbit zone', W/2, 18);
+    } else if(gravOrbiting){
+      ctx.fillStyle = '#60a5fa';
+      ctx.fillText('ORBITING! Gravity = centripetal force — keeps falling but always misses!', W/2, 18);
+    } else if(isDragging){
+      ctx.fillStyle = currentZone==='orbit'?'#60a5fa':currentZone==='escape'?'#fbbf24':'#fca5a5';
+      ctx.fillText(currentZone==='orbit'?'ORBIT ZONE — release to orbit!':currentZone==='escape'?'ESCAPE ZONE — will drift to space!':'Too close — drag to blue zone!', W/2, 18);
+    } else {
+      ctx.fillStyle = '#86efac';
+      ctx.fillText('Drag apple into blue orbit zone and release!', W/2, 18);
+    }
+
+    // Reset button
+    ctx.fillStyle = 'rgba(239,68,68,0.2)';
+    rrect(10, 32, 70, 26, 10); ctx.fill();
+    ctx.strokeStyle = 'rgba(252,165,165,0.4)'; ctx.lineWidth = 1.5;
+    rrect(10, 32, 70, 26, 10); ctx.stroke();
+    ctx.fillStyle = '#fca5a5'; ctx.font = 'bold 11px Nunito'; ctx.textAlign = 'center';
+    ctx.fillText('Reset', 45, 49);
+
+    // Bottom info
+    ctx.fillStyle = 'rgba(15,23,42,0.7)';
+    rrect(W/2-230, H-48, 460, 44, 10); ctx.fill();
+    ctx.font = 'bold 10px Nunito'; ctx.textAlign = 'center';
+    if(gravOrbiting){
+      ctx.fillStyle = '#60a5fa';
+      ctx.fillText('Gravity ('+forceN+' N) acts as centripetal force → F = mv²/r', W/2, H-32);
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText('Same force on both! Apple orbits, Earth barely moves — just like Moon & satellites!', W/2, H-16);
+    } else if(gravState === 'escaped'){
+      ctx.fillStyle = '#fbbf24';
+      ctx.fillText('Speed > escape velocity — gravity too weak to pull it back', W/2, H-32);
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText('Real escape velocity at Earth surface = 11.2 km/s', W/2, H-16);
+    } else if(gravState === 'landed'){
+      ctx.fillStyle = '#fca5a5';
+      ctx.fillText('Gravity pulled it straight down — not enough sideways speed', W/2, H-32);
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText('Orbiting = falling sideways fast enough to keep missing the Earth', W/2, H-16);
+    } else {
+      ctx.fillStyle = '#86efac';
+      ctx.fillText('F = '+forceN+' N on both (action = reaction)', W/2, H-32);
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText('Drag → Red zone = falls | Blue zone = orbits | Beyond = drifts to space', W/2, H-16);
+    }
+
+    // Legend
+    ctx.fillStyle = 'rgba(15,23,42,0.5)';
+    rrect(W-130, 32, 120, 46, 8); ctx.fill();
+    ctx.font = 'bold 9px Nunito'; ctx.textAlign = 'left';
+    ctx.fillStyle = '#fca5a5'; ctx.fillText('— Gravity force', W-123, 46);
+    ctx.fillStyle = '#60a5fa'; ctx.fillText('— Velocity', W-123, 58);
+    ctx.fillStyle = '#94a3b8'; ctx.fillText('Speed: '+speed.toFixed(1)+' px/f', W-123, 70);
   }
 
   function draw(){
@@ -5211,15 +5505,36 @@ initLawQuiz();
       if(db <= chargeB.r+10) return {obj:chargeB,type:'circle'};
     } else {
       var ds = Math.sqrt((mx-gravSmall.x)**2+(my-gravSmall.y)**2);
-      if(ds <= gravSmall.r+12) return {obj:gravSmall,type:'circle'};
+      if(ds <= gravSmall.r+20) return {obj:gravSmall,type:'circle'};
     }
     return null;
+  }
+
+  function handleFlipBtn(mx,my){
+    if(mode==='mag' && mx>=W/2-40 && mx<=W/2+40 && my>=38 && my<=66){
+      magFlipped = !magFlipped;
+      magA.vx=0; magB.vx=0;
+      return true;
+    }
+    if(mode==='elec' && mx>=W/2-40 && mx<=W/2+40 && my>=38 && my<=66){
+      chargeFlipped = !chargeFlipped;
+      chargeB.q = chargeFlipped ? -1 : +1;
+      chargeA.vx=0;chargeA.vy=0;chargeB.vx=0;chargeB.vy=0;
+      return true;
+    }
+    if(mode==='grav'){
+      if(mx>=10 && mx<=80 && my>=32 && my<=58){
+        gravReset(); updateInfo(); return true;
+      }
+    }
+    return false;
   }
 
   canvas.addEventListener('mousedown', function(e){
     var rect = canvas.getBoundingClientRect();
     var sx = W/rect.width, sy = H/rect.height;
     var mx = (e.clientX-rect.left)*sx, my = (e.clientY-rect.top)*sy;
+    if(handleFlipBtn(mx,my)) return;
     var hit = hitObj(mx,my);
     if(hit){
       dragging = hit;
@@ -5235,13 +5550,42 @@ initLawQuiz();
     if(dragging.type==='rect'){
       dragging.obj.x = Math.max(10, Math.min(W-dragging.obj.w-10, mx-dragOffX));
     } else {
-      dragging.obj.x = Math.max(dragging.obj.r+5, Math.min(W-dragging.obj.r-5, mx-dragOffX));
-      dragging.obj.y = Math.max(dragging.obj.r+5, Math.min(H-dragging.obj.r-5, my-dragOffY));
+      var newX = Math.max(dragging.obj.r+5, Math.min(W-dragging.obj.r-5, mx-dragOffX));
+      var newY = Math.max(dragging.obj.r+5, Math.min(H-dragging.obj.r-5, my-dragOffY));
+      if(mode==='grav' && dragging.obj === gravSmall){
+        gravLastDragX = newX - dragging.obj.x;
+        gravLastDragY = newY - dragging.obj.y;
+      }
+      dragging.obj.x = newX;
+      dragging.obj.y = newY;
     }
     updateInfo();
   });
-  canvas.addEventListener('mouseup', function(){ dragging = null; });
-  canvas.addEventListener('mouseleave', function(){ dragging = null; });
+  function gravRelease(){
+    var dx=gravSmall.x-EX, dy=gravSmall.y-EY;
+    var dist=Math.sqrt(dx*dx+dy*dy);
+    gravLastDragX=0; gravLastDragY=0;
+    if(dist >= ZONE_ORBIT_MIN && dist <= ZONE_ORBIT_MAX){
+      gravAutoLaunch(dist);
+    } else if(dist > ZONE_ORBIT_MAX){
+      var vEscape = Math.sqrt(2*GM_GRAV/dist)*1.2;
+      gravSmall.vx = (dx/dist)*vEscape;
+      gravSmall.vy = (dy/dist)*vEscape;
+      gravState = 'escape'; gravEscaping = true; gravOrbiting = false;
+    } else {
+      gravSmall.vx = 0; gravSmall.vy = 0;
+      gravState = 'fall'; gravFalling = true; gravOrbiting = false;
+    }
+    gravTrail = [];
+  }
+  canvas.addEventListener('mouseup', function(){
+    if(dragging && mode==='grav' && dragging.obj === gravSmall) gravRelease();
+    dragging = null;
+  });
+  canvas.addEventListener('mouseleave', function(){
+    if(dragging && mode==='grav' && dragging.obj === gravSmall) gravRelease();
+    dragging = null;
+  });
 
   // Touch support
   canvas.addEventListener('touchstart', function(e){
@@ -5250,6 +5594,7 @@ initLawQuiz();
     var rect = canvas.getBoundingClientRect();
     var sx = W/rect.width, sy = H/rect.height;
     var mx = (t.clientX-rect.left)*sx, my = (t.clientY-rect.top)*sy;
+    if(handleFlipBtn(mx,my)) return;
     var hit = hitObj(mx,my);
     if(hit){
       dragging = hit;
@@ -5266,12 +5611,21 @@ initLawQuiz();
     if(dragging.type==='rect'){
       dragging.obj.x = Math.max(10, Math.min(W-dragging.obj.w-10, mx-dragOffX));
     } else {
-      dragging.obj.x = Math.max(dragging.obj.r+5, Math.min(W-dragging.obj.r-5, mx-dragOffX));
-      dragging.obj.y = Math.max(dragging.obj.r+5, Math.min(H-dragging.obj.r-5, my-dragOffY));
+      var newX = Math.max(dragging.obj.r+5, Math.min(W-dragging.obj.r-5, mx-dragOffX));
+      var newY = Math.max(dragging.obj.r+5, Math.min(H-dragging.obj.r-5, my-dragOffY));
+      if(mode==='grav' && dragging.obj === gravSmall){
+        gravLastDragX = newX - dragging.obj.x;
+        gravLastDragY = newY - dragging.obj.y;
+      }
+      dragging.obj.x = newX;
+      dragging.obj.y = newY;
     }
     updateInfo();
   }, {passive:false});
-  canvas.addEventListener('touchend', function(){ dragging = null; });
+  canvas.addEventListener('touchend', function(){
+    if(dragging && mode==='grav' && dragging.obj === gravSmall) gravRelease();
+    dragging = null;
+  });
 
   function updateInfo(){
     var info = document.getElementById('tl3Info');
@@ -5279,25 +5633,48 @@ initLawQuiz();
       var dist = Math.abs(magB.x - magA.x - magA.w);
       var force = Math.max(2, 4000/(dist*dist+100));
       var forceN = (force*15).toFixed(1);
-      info.innerHTML = '<h4>Magnetic Action-Reaction</h4>'+
-        '<p><strong>Distance:</strong> '+Math.round(dist)+' px | <strong>Force on each magnet:</strong> '+forceN+' N</p>'+
-        '<p>Magnet A pulls B with '+forceN+' N → (action). Magnet B pulls A with '+forceN+' N ← (reaction).<br>'+
-        '<strong>Forces are equal &amp; opposite</strong>, acting on different objects! Move them closer — force increases dramatically (inverse square law).</p>';
+      var samePoles = magFlipped;
+      if(samePoles){
+        info.innerHTML = '<h4>Magnetic Action-Reaction — REPULSION</h4>'+
+          '<p><strong>Distance:</strong> '+Math.round(dist)+' px | <strong>Force on each magnet:</strong> '+forceN+' N</p>'+
+          '<p>Same poles (S↔N) face each other — magnets <strong>repel</strong>! Magnet A pushes B with '+forceN+' N (action). Magnet B pushes A with '+forceN+' N (reaction).<br>'+
+          '<strong>Try dragging them close — they push apart!</strong> Tap "Flip" to see attraction.</p>';
+      } else {
+        info.innerHTML = '<h4>Magnetic Action-Reaction — ATTRACTION</h4>'+
+          '<p><strong>Distance:</strong> '+Math.round(dist)+' px | <strong>Force on each magnet:</strong> '+forceN+' N</p>'+
+          '<p>Opposite poles (S↔N) face each other — magnets <strong>attract</strong>! Magnet A pulls B with '+forceN+' N (action). Magnet B pulls A with '+forceN+' N (reaction).<br>'+
+          '<strong>Forces are equal &amp; opposite</strong>, acting on different objects! Tap "Flip" to see repulsion.</p>';
+      }
     } else if(mode==='elec'){
       var dx=chargeB.x-chargeA.x, dy=chargeB.y-chargeA.y;
-      var dist = Math.sqrt(dx*dx+dy*dy);
-      var force = Math.max(1, 3000/(dist*dist+200));
-      var forceN = (force*10).toFixed(1);
-      info.innerHTML = '<h4>Electrostatic Action-Reaction</h4>'+
-        '<p><strong>Distance:</strong> '+Math.round(dist)+' px | <strong>Force on each charge:</strong> '+forceN+' N</p>'+
-        '<p>Like charges (+,+) <strong>repel</strong>: Charge A pushes B away with '+forceN+' N (action). Charge B pushes A away with '+forceN+' N (reaction).<br>'+
-        '<strong>Coulomb\'s Law:</strong> F ∝ 1/r² — bring them closer and force shoots up!</p>';
+      var dist2 = Math.sqrt(dx*dx+dy*dy);
+      var force2 = Math.max(1, 3000/(dist2*dist2+200));
+      var forceN2 = (force2*10).toFixed(1);
+      var likeC = (chargeA.q === chargeB.q);
+      if(likeC){
+        info.innerHTML = '<h4>Electrostatic Action-Reaction — REPULSION</h4>'+
+          '<p><strong>Distance:</strong> '+Math.round(dist2)+' px | <strong>Force on each charge:</strong> '+forceN2+' N</p>'+
+          '<p>Like charges (+,+) <strong>repel</strong>: They push each other away with equal force! Drag them close — they fly apart.<br>'+
+          '<strong>Coulomb\'s Law:</strong> F ∝ 1/r² — Tap "Flip" to see opposite charges attract.</p>';
+      } else {
+        info.innerHTML = '<h4>Electrostatic Action-Reaction — ATTRACTION</h4>'+
+          '<p><strong>Distance:</strong> '+Math.round(dist2)+' px | <strong>Force on each charge:</strong> '+forceN2+' N</p>'+
+          '<p>Opposite charges (+,−) <strong>attract</strong>: They pull toward each other with equal force!<br>'+
+          '<strong>Coulomb\'s Law:</strong> F ∝ 1/r² — Tap "Flip" to see like charges repel.</p>';
+      }
     } else {
-      var force = gravSmall.m * 9.8;
-      info.innerHTML = '<h4>Gravitational Action-Reaction</h4>'+
-        '<p><strong>Apple mass:</strong> '+gravSmall.m+' kg | <strong>Force:</strong> '+force.toFixed(1)+' N on BOTH objects</p>'+
-        '<p>Earth pulls apple with '+force.toFixed(1)+' N ↓ (action). Apple pulls Earth with '+force.toFixed(1)+' N ↑ (reaction).<br>'+
-        '<strong>Same force, wildly different accelerations!</strong> Apple: a = '+((force/gravSmall.m).toFixed(1))+' m/s². Earth: a = '+(force/gravBig.m).toExponential(1)+' m/s² (practically zero!)</p>';
+      var force3 = gravSmall.m * 9.8;
+      var stLabel = gravState==='orbit'?' — ORBITING!':gravState==='escaped'?' — ESCAPED!':gravState==='landed'?' — LANDED':'';
+      info.innerHTML = '<h4>Gravitational Action-Reaction'+stLabel+'</h4>'+
+        '<p><strong>Apple mass:</strong> '+gravSmall.m+' kg | <strong>Force:</strong> '+force3.toFixed(1)+' N on BOTH objects</p>'+
+        '<p>Earth pulls apple with '+force3.toFixed(1)+' N (action). Apple pulls Earth with '+force3.toFixed(1)+' N (reaction).<br>'+
+        (gravOrbiting ?
+          '<strong>The apple is orbiting!</strong> Gravity acts as <strong>centripetal force</strong>. The apple keeps falling toward Earth but always misses! This is how <strong>Moon and satellites</strong> orbit.' :
+          gravState==='escaped' ?
+          '<strong>The apple escaped!</strong> It was placed beyond the orbit zone — gravity was too weak to hold it.' :
+          gravState==='landed' ?
+          '<strong>The apple fell!</strong> Too close to Earth — drag it into the <strong>blue orbit zone</strong> next time.' :
+          '<strong>3 zones:</strong> Close (red) = falls back. Blue ring = orbits automatically. Beyond blue = drifts to space. Drag the apple and see!')+'</p>';
     }
   }
 
@@ -5308,16 +5685,705 @@ initLawQuiz();
     document.querySelectorAll('.tl3act-tab').forEach(function(t){
       if(t.textContent.indexOf(labels[m])>=0) t.classList.add('active');
     });
-    // Reset positions
-    magA.x=200; magA.y=CY; magB.x=520; magB.y=CY;
-    chargeA.x=220; chargeA.y=CY; chargeB.x=500; chargeB.y=CY;
-    gravSmall.x=360; gravSmall.y=60;
+    // Reset positions and velocities
+    magA.x=160; magA.y=CY; magA.vx=0; magB.x=460; magB.y=CY; magB.vx=0;
+    chargeA.x=220; chargeA.y=CY; chargeA.vx=0; chargeA.vy=0;
+    chargeB.x=500; chargeB.y=CY; chargeB.vx=0; chargeB.vy=0;
+    gravReset();
     updateInfo();
   };
 
   updateInfo();
   draw();
 })();
+
+// ─── F=ma Real-Life Applications Animated Canvas ───
+// ─── F=ma Real-Life Applications Animated Canvas ───
+(function(){
+  var c = document.getElementById('fmaAppCanvas');
+  if(!c) return;
+  var ctx = c.getContext('2d');
+  var W = c.width, H = c.height;
+  var scene = 0, t = 0, autoTimer = null;
+  var infoEl = document.getElementById('fmaAppInfo');
+  var CYCLE = 5.0;
+
+  var infos = [
+    'Fielder pulls hands BACKWARD → increases stopping time → reduces acceleration → F = ma gives LESS force on hands!',
+    'Airbag inflates as a soft cushion → head decelerates SLOWLY → stopping time increases → F = ma gives LESS force → fewer injuries!',
+    'Coconut hits HARD surface at high speed → stops in VERY short time → F = ma gives VERY LARGE force → shell cracks!'
+  ];
+
+  function setScene(s){
+    scene = s; t = 0;
+    for(var i=0;i<3;i++){
+      var b = document.getElementById('fmaBtn'+i);
+      if(b){ b.style.background = i===s ? '#f97316' : ''; b.style.color = i===s ? '#fff' : ''; }
+    }
+    if(infoEl) infoEl.textContent = infos[s];
+    clearInterval(autoTimer);
+    autoTimer = setInterval(function(){ setScene((scene+1)%3); }, 8000);
+  }
+  window.fmaAppSetScene = setScene;
+
+  function lerp(a,b,p){ return a+(b-a)*p; }
+  function ease(p){ return p<0.5?2*p*p:1-Math.pow(-2*p+2,2)/2; }
+  function easeOut(p){ return 1-Math.pow(1-p,3); }
+  function clamp01(v){ return v<0?0:v>1?1:v; }
+
+  function rrect(x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+    ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+    ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y); ctx.closePath();
+  }
+
+  function drawArrow(x1,y1,x2,y2,col,w){
+    var dx=x2-x1,dy=y2-y1,len=Math.sqrt(dx*dx+dy*dy);
+    if(len<3)return;
+    var ux=dx/len,uy=dy/len;
+    ctx.strokeStyle=col; ctx.lineWidth=w; ctx.lineCap='round';
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+    ctx.fillStyle=col; ctx.beginPath();
+    ctx.moveTo(x2,y2);
+    ctx.lineTo(x2-ux*10+uy*5,y2-uy*10-ux*5);
+    ctx.lineTo(x2-ux*10-uy*5,y2-uy*10+ux*5);
+    ctx.fill();
+  }
+
+  // ===== SCENE 0: Catching a Cricket Ball =====
+  function drawCricket(p){
+    // Sky
+    var sky=ctx.createLinearGradient(0,0,0,H);
+    sky.addColorStop(0,'#1e3a5f'); sky.addColorStop(0.5,'#2563eb'); sky.addColorStop(1,'#60a5fa');
+    ctx.fillStyle=sky; ctx.fillRect(0,0,W,H);
+
+    // Stadium lights glow
+    ctx.fillStyle='rgba(253,224,71,0.04)';
+    ctx.beginPath(); ctx.arc(120,20,120,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(W-120,20,120,0,Math.PI*2); ctx.fill();
+
+    // Ground - cricket pitch green
+    var gY = H-80;
+    var grd=ctx.createLinearGradient(0,gY,0,H);
+    grd.addColorStop(0,'#22c55e'); grd.addColorStop(0.3,'#16a34a'); grd.addColorStop(1,'#15803d');
+    ctx.fillStyle=grd; ctx.fillRect(0,gY,W,80);
+    // Pitch strip
+    ctx.fillStyle='#d4c17a'; ctx.fillRect(W/2-30,gY,60,80);
+    ctx.fillStyle='#c4a94d'; ctx.fillRect(W/2-28,gY+2,56,76);
+
+    // phases
+    var ph1 = clamp01(p/0.35);       // ball flying
+    var ph2 = clamp01((p-0.35)/0.25); // catching + pullback
+    var ph3 = clamp01((p-0.6)/0.15);  // result cards appear
+    var ph4 = clamp01((p-0.75)/0.25); // formula emphasis
+
+    // Fielder position
+    var fX = 420, fY = gY-2;
+    var pullBack = ph2 > 0 ? ease(ph2)*35 : 0;
+
+    // Fielder body (side view, facing left)
+    ctx.save(); ctx.translate(fX+pullBack*0.3, fY);
+    // Legs
+    ctx.fillStyle='#1e3a5f';
+    ctx.fillRect(-12,-2,8,36); ctx.fillRect(2,-2,8,36);
+    // Shoes
+    ctx.fillStyle='#f8fafc';
+    rrect(-14,32,12,6,2); ctx.fill(); rrect(0,32,12,6,2); ctx.fill();
+    // Body (jersey - blue)
+    var jg=ctx.createLinearGradient(-15,-50,15,-50);
+    jg.addColorStop(0,'#1d4ed8'); jg.addColorStop(1,'#3b82f6');
+    ctx.fillStyle=jg;
+    rrect(-16,-50,30,52,4); ctx.fill();
+    // Jersey number
+    ctx.fillStyle='rgba(255,255,255,0.3)'; ctx.font='bold 16px Fredoka One'; ctx.textAlign='center';
+    ctx.fillText('7', -1, -18);
+    // Head
+    ctx.fillStyle='#d4a574';
+    ctx.beginPath(); ctx.arc(-1,-60,13,0,Math.PI*2); ctx.fill();
+    // Hair
+    ctx.fillStyle='#1c1917';
+    ctx.beginPath(); ctx.arc(-1,-64,12,Math.PI,Math.PI*2); ctx.fill();
+    // Cap
+    ctx.fillStyle='#1d4ed8';
+    ctx.beginPath(); ctx.ellipse(-1,-70,14,5,0,0,Math.PI*2); ctx.fill();
+    ctx.fillRect(-15,-73,28,5);
+    // Brim
+    ctx.fillStyle='#1e40af'; ctx.fillRect(-18,-68,10,3);
+    // Eyes
+    ctx.fillStyle='#1c1917';
+    ctx.beginPath(); ctx.arc(-6,-59,1.5,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(4,-59,1.5,0,Math.PI*2); ctx.fill();
+    // Arms reaching forward then pulling back
+    var armAng = ph2>0 ? lerp(-2.5, -1.0, ease(ph2)) : -2.5;
+    ctx.strokeStyle='#d4a574'; ctx.lineWidth=5; ctx.lineCap='round';
+    ctx.beginPath(); ctx.moveTo(-14,-38);
+    ctx.lineTo(-14+Math.cos(armAng)*30, -38+Math.sin(armAng)*30); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(14,-38);
+    ctx.lineTo(14+Math.cos(Math.PI+armAng)*30, -38+Math.sin(Math.PI+armAng)*30); ctx.stroke();
+    // Hands (gloves)
+    var hx=-14+Math.cos(armAng)*32, hy=-38+Math.sin(armAng)*32;
+    ctx.fillStyle='#f8fafc';
+    ctx.beginPath(); ctx.arc(hx,hy,6,0,Math.PI*2); ctx.fill();
+    ctx.restore();
+
+    // Ball trajectory
+    var bStartX=80, bStartY=80;
+    var bCatchX=fX-40+pullBack*0.3, bCatchY=fY-38;
+    var bx,by;
+    if(ph1<1){
+      var ep=ease(ph1);
+      bx=lerp(bStartX,bCatchX,ep);
+      by=lerp(bStartY,bCatchY,ep)-Math.sin(ep*Math.PI)*70;
+    } else {
+      var hx2=fX+pullBack*0.3-14+Math.cos(lerp(-2.5,-1.0,ease(ph2)))*32;
+      var hy2=fY-38+Math.sin(lerp(-2.5,-1.0,ease(ph2)))*32;
+      bx=hx2; by=hy2;
+    }
+
+    // Ball trail (dotted arc)
+    if(ph1<1){
+      ctx.strokeStyle='rgba(255,100,100,0.25)'; ctx.lineWidth=2; ctx.setLineDash([3,6]);
+      ctx.beginPath();
+      for(var i=0;i<=30;i++){
+        var tp=i/30*ph1, tep=ease(Math.min(1,tp/0.35*1));
+        var tx=lerp(bStartX,bCatchX,tep), ty=lerp(bStartY,bCatchY,tep)-Math.sin(tep*Math.PI)*70;
+        i===0?ctx.moveTo(tx,ty):ctx.lineTo(tx,ty);
+      }
+      ctx.stroke(); ctx.setLineDash([]);
+    }
+
+    // Cricket ball (detailed)
+    ctx.save(); ctx.translate(bx,by);
+    if(ph1<1) ctx.rotate(t*12);
+    // Ball body
+    var bg2=ctx.createRadialGradient(-2,-2,1,0,0,9);
+    bg2.addColorStop(0,'#ef4444'); bg2.addColorStop(0.7,'#dc2626'); bg2.addColorStop(1,'#991b1b');
+    ctx.fillStyle=bg2;
+    ctx.beginPath(); ctx.arc(0,0,9,0,Math.PI*2); ctx.fill();
+    // Seam
+    ctx.strokeStyle='#fef2f2'; ctx.lineWidth=1.2;
+    ctx.beginPath(); ctx.arc(0,0,7,0.2,1.4); ctx.stroke();
+    ctx.beginPath(); ctx.arc(0,0,7,3.3,4.5); ctx.stroke();
+    // Shine
+    ctx.fillStyle='rgba(255,255,255,0.3)';
+    ctx.beginPath(); ctx.arc(-3,-3,3,0,Math.PI*2); ctx.fill();
+    ctx.restore();
+
+    // Speed label on ball
+    if(ph1<1 && ph1>0.05){
+      ctx.save();
+      ctx.font='bold 13px Fredoka One'; ctx.textAlign='center';
+      ctx.fillStyle='#fef2f2';
+      ctx.shadowColor='rgba(0,0,0,0.5)'; ctx.shadowBlur=4;
+      ctx.fillText('140 km/h', bx, by-18);
+      ctx.restore();
+    }
+
+    // Pull-back motion arrow
+    if(ph2>0.1 && ph2<1){
+      ctx.globalAlpha=Math.min(1,ph2*2);
+      var arSx=fX-30, arSy=fY-45;
+      drawArrow(arSx,arSy,arSx+pullBack+10,arSy+5,'#60a5fa',3);
+      ctx.font='bold 11px Nunito'; ctx.textAlign='center';
+      ctx.fillStyle='#93c5fd';
+      ctx.fillText('Hands pull back!', arSx+pullBack/2+5, arSy-10);
+      ctx.globalAlpha=1;
+    }
+
+    // ── Force-Time comparison bars ──
+    if(ph3>0){
+      ctx.globalAlpha=ease(ph3);
+      var barY=32;
+      // Box bg
+      rrect(20,barY-8,290,95,12);
+      ctx.fillStyle='rgba(15,23,42,0.85)'; ctx.fill();
+
+      ctx.font='bold 10px Nunito'; ctx.textAlign='left';
+      // Without pullback
+      ctx.fillStyle='#fca5a5'; ctx.fillText('Without pulling back:', 32, barY+10);
+      ctx.fillStyle='#ef4444';
+      rrect(32,barY+15,220,16,4); ctx.fill();
+      ctx.fillStyle='#fff'; ctx.font='bold 10px Fredoka One'; ctx.textAlign='center';
+      ctx.fillText('LARGE FORCE — Ouch! Injury!', 142, barY+27);
+
+      // With pullback
+      ctx.textAlign='left';
+      ctx.fillStyle='#86efac'; ctx.font='bold 10px Nunito';
+      ctx.fillText('With pulling back:', 32, barY+50);
+      ctx.fillStyle='#22c55e';
+      rrect(32,barY+55,80,16,4); ctx.fill();
+      ctx.fillStyle='#fff'; ctx.font='bold 10px Fredoka One'; ctx.textAlign='center';
+      ctx.fillText('Small force ✔', 72, barY+67);
+
+      // Time labels
+      ctx.textAlign='right'; ctx.font='bold 9px Nunito';
+      ctx.fillStyle='#fca5a5'; ctx.fillText('Δt small', 290, barY+27);
+      ctx.fillStyle='#86efac'; ctx.fillText('Δt large', 290, barY+67);
+
+      ctx.globalAlpha=1;
+    }
+
+    // Formula emphasis
+    if(ph4>0){
+      ctx.globalAlpha=ease(ph4);
+      ctx.font='bold 16px Fredoka One'; ctx.textAlign='center';
+      ctx.fillStyle='#fbbf24';
+      ctx.shadowColor='rgba(251,191,36,0.5)'; ctx.shadowBlur=8;
+      ctx.fillText('F = m × a   →   More time = Less force!', W/2, H-20);
+      ctx.shadowBlur=0;
+      ctx.globalAlpha=1;
+    }
+  }
+
+  // ===== SCENE 1: Airbags in Vehicles =====
+  function drawAirbag(p){
+    // Dark road scene
+    var sky=ctx.createLinearGradient(0,0,0,H*0.7);
+    sky.addColorStop(0,'#0f172a'); sky.addColorStop(1,'#1e293b');
+    ctx.fillStyle=sky; ctx.fillRect(0,0,W,H);
+
+    // Road
+    var roadY=H-60;
+    ctx.fillStyle='#334155'; ctx.fillRect(0,roadY,W,60);
+    ctx.fillStyle='#475569'; ctx.fillRect(0,roadY,W,3);
+    // Lane markings
+    ctx.strokeStyle='#fbbf24'; ctx.lineWidth=3; ctx.setLineDash([25,20]);
+    ctx.beginPath(); ctx.moveTo(0,roadY+30); ctx.lineTo(W,roadY+30); ctx.stroke();
+    ctx.setLineDash([]);
+
+    var ph1 = clamp01(p/0.25);       // car moving
+    var ph2 = clamp01((p-0.25)/0.1);  // impact
+    var ph3 = clamp01((p-0.35)/0.2);  // airbag deploy + head decel
+    var ph4 = clamp01((p-0.55)/0.15); // comparison cards
+    var ph5 = clamp01((p-0.7)/0.3);   // formula
+
+    // Wall/barrier
+    var wallX=W-100;
+    ctx.fillStyle='#dc2626';
+    ctx.fillRect(wallX,roadY-90,20,90);
+    // Stripes on barrier
+    for(var si=0;si<5;si++){
+      ctx.fillStyle=si%2===0?'#fbbf24':'#dc2626';
+      ctx.fillRect(wallX,roadY-90+si*18,20,18);
+    }
+    ctx.fillStyle='#991b1b';
+    ctx.fillRect(wallX-5,roadY-95,30,8);
+
+    // Car position
+    var carTargetX=wallX-95;
+    var carX=lerp(60, carTargetX, ease(ph1));
+    var carY=roadY-5;
+    // Impact crumple
+    var crumple=ph2>0?ease(ph2)*12:0;
+
+    // Car body (side view - detailed sedan)
+    ctx.save(); ctx.translate(carX,carY);
+    // Shadow
+    ctx.fillStyle='rgba(0,0,0,0.3)';
+    ctx.beginPath(); ctx.ellipse(0,8,55,6,0,0,Math.PI*2); ctx.fill();
+    // Lower body
+    var cbg=ctx.createLinearGradient(-60,-30,60,-30);
+    cbg.addColorStop(0,'#3b82f6'); cbg.addColorStop(1,'#2563eb');
+    ctx.fillStyle=cbg;
+    rrect(-60-crumple*0.5,-35,120-crumple,32,5); ctx.fill();
+    // Hood (front crumples)
+    ctx.fillStyle='#2563eb';
+    ctx.beginPath();
+    ctx.moveTo(55-crumple,-35); ctx.lineTo(70-crumple,-30);
+    ctx.lineTo(70-crumple,-8); ctx.lineTo(55-crumple,-5);
+    ctx.fill();
+    // Roof
+    ctx.fillStyle='#60a5fa';
+    rrect(-35,-58,55,26,4); ctx.fill();
+    // Windshield (front)
+    ctx.fillStyle='rgba(147,197,253,0.5)';
+    ctx.beginPath();
+    ctx.moveTo(20,-55); ctx.lineTo(45,-38); ctx.lineTo(45,-10); ctx.lineTo(20,-10);
+    ctx.fill();
+    // Rear window
+    ctx.fillStyle='rgba(147,197,253,0.4)';
+    ctx.beginPath();
+    ctx.moveTo(-35,-55); ctx.lineTo(-50,-40); ctx.lineTo(-50,-10); ctx.lineTo(-35,-10);
+    ctx.fill();
+    // Headlight
+    ctx.fillStyle=ph2>0?'#fbbf24':'#fef3c7';
+    ctx.beginPath(); ctx.arc(68-crumple,-25,4,0,Math.PI*2); ctx.fill();
+    // Tail light
+    ctx.fillStyle='#ef4444';
+    ctx.beginPath(); ctx.arc(-62,-25,4,0,Math.PI*2); ctx.fill();
+    // Wheels
+    ctx.fillStyle='#0f172a';
+    ctx.beginPath(); ctx.arc(-35,0,12,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(35,0,12,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#64748b';
+    ctx.beginPath(); ctx.arc(-35,0,6,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(35,0,6,0,Math.PI*2); ctx.fill();
+    // Wheel spokes
+    ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1.5;
+    for(var wi=0;wi<4;wi++){
+      var wa=wi*Math.PI/2+t*3;
+      ctx.beginPath(); ctx.moveTo(-35,0); ctx.lineTo(-35+Math.cos(wa)*5,Math.sin(wa)*5); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(35,0); ctx.lineTo(35+Math.cos(wa)*5,Math.sin(wa)*5); ctx.stroke();
+    }
+
+    // ── Person inside car (visible through windshield) ──
+    var headRestX=15, headRestY=-42;
+    var headForward = ph3>0 ? ease(ph3)*15 : 0;
+    var headSlowStop = ph3>0.5 ? ease(clamp01((ph3-0.5)/0.5))*(-10) : 0;
+    var personHeadX = headRestX + headForward + headSlowStop;
+    var personHeadY = headRestY;
+    // Body
+    ctx.fillStyle='#94a3b8'; ctx.lineWidth=2;
+    rrect(10,-35,12,22,2); ctx.fill();
+    // Head
+    ctx.fillStyle='#fcd34d';
+    ctx.beginPath(); ctx.arc(personHeadX, personHeadY, 7, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle='#b45309'; ctx.lineWidth=0.8;
+    ctx.beginPath(); ctx.arc(personHeadX, personHeadY, 7, 0, Math.PI*2); ctx.stroke();
+
+    // Airbag deployment
+    if(ph3>0){
+      var inflateR=ease(Math.min(1,ph3*2))*22;
+      // Airbag shape (soft, rounded)
+      var abg=ctx.createRadialGradient(40+5,-30,2,40,-28,inflateR);
+      abg.addColorStop(0,'rgba(255,255,255,0.95)');
+      abg.addColorStop(0.7,'rgba(226,232,240,0.9)');
+      abg.addColorStop(1,'rgba(203,213,225,0.6)');
+      ctx.fillStyle=abg;
+      ctx.beginPath(); ctx.ellipse(40,-30,inflateR*0.8,inflateR,0,0,Math.PI*2); ctx.fill();
+      ctx.strokeStyle='rgba(148,163,184,0.4)'; ctx.lineWidth=1;
+      ctx.beginPath(); ctx.ellipse(40,-30,inflateR*0.8,inflateR,0,0,Math.PI*2); ctx.stroke();
+      if(inflateR>12){
+        ctx.font='bold 8px Nunito'; ctx.textAlign='center';
+        ctx.fillStyle='rgba(100,116,139,0.7)';
+        ctx.fillText('AIRBAG',40,-30);
+      }
+    }
+    ctx.restore();
+
+    // Impact sparks
+    if(ph2>0 && ph2<0.8){
+      var sparkAlpha=1-ph2*1.3;
+      ctx.fillStyle='rgba(251,191,36,'+Math.max(0,sparkAlpha)+')';
+      for(var sp=0;sp<12;sp++){
+        var sa=sp*Math.PI/6+ph2*2, sr=8+ph2*35+sp*2;
+        var sx2=wallX-2+Math.cos(sa)*sr, sy2=carY-20+Math.sin(sa)*sr*0.6;
+        ctx.beginPath(); ctx.arc(sx2,sy2,2-ph2*1.5,0,Math.PI*2); ctx.fill();
+      }
+      // Flash
+      ctx.fillStyle='rgba(255,255,255,'+(0.4-ph2*0.5)+')';
+      ctx.beginPath(); ctx.arc(wallX-5,carY-20,20-ph2*15,0,Math.PI*2); ctx.fill();
+    }
+
+    // ── Comparison panels ──
+    if(ph4>0){
+      ctx.globalAlpha=ease(ph4);
+
+      // Without airbag
+      rrect(15,15,200,80,10);
+      ctx.fillStyle='rgba(127,29,29,0.9)'; ctx.fill();
+      ctx.strokeStyle='#fca5a5'; ctx.lineWidth=1.5;
+      rrect(15,15,200,80,10); ctx.stroke();
+      ctx.font='bold 11px Nunito'; ctx.textAlign='center'; ctx.fillStyle='#fca5a5';
+      ctx.fillText('❌ Without Airbag', 115, 35);
+      ctx.font='bold 10px Nunito'; ctx.fillStyle='#fecaca';
+      ctx.fillText('Stops in 0.01 sec', 115, 52);
+      ctx.fillText('a = Δv/Δt = HUGE', 115, 66);
+      ctx.fillStyle='#ef4444'; ctx.font='bold 12px Fredoka One';
+      ctx.fillText('F = ma → DEADLY!', 115, 85);
+
+      // With airbag
+      rrect(W-215,15,200,80,10);
+      ctx.fillStyle='rgba(5,46,22,0.9)'; ctx.fill();
+      ctx.strokeStyle='#86efac'; ctx.lineWidth=1.5;
+      rrect(W-215,15,200,80,10); ctx.stroke();
+      ctx.font='bold 11px Nunito'; ctx.textAlign='center'; ctx.fillStyle='#86efac';
+      ctx.fillText('✅ With Airbag', W-115, 35);
+      ctx.font='bold 10px Nunito'; ctx.fillStyle='#bbf7d0';
+      ctx.fillText('Stops in 0.15 sec', W-115, 52);
+      ctx.fillText('a = Δv/Δt = 15× smaller!', W-115, 66);
+      ctx.fillStyle='#22c55e'; ctx.font='bold 12px Fredoka One';
+      ctx.fillText('F = ma → Survivable', W-115, 85);
+
+      ctx.globalAlpha=1;
+    }
+
+    // Formula
+    if(ph5>0){
+      ctx.globalAlpha=ease(ph5);
+      ctx.font='bold 16px Fredoka One'; ctx.textAlign='center';
+      ctx.fillStyle='#fbbf24';
+      ctx.shadowColor='rgba(251,191,36,0.5)'; ctx.shadowBlur=8;
+      ctx.fillText('F = m × a   →   15× more time = 15× less force!', W/2, H-15);
+      ctx.shadowBlur=0;
+      ctx.globalAlpha=1;
+    }
+  }
+
+  // ===== SCENE 2: Cracking a Coconut =====
+  function drawCoconut(p){
+    // Warm outdoor bg
+    var sky=ctx.createLinearGradient(0,0,0,H*0.65);
+    sky.addColorStop(0,'#fef3c7'); sky.addColorStop(0.5,'#fde68a'); sky.addColorStop(1,'#fbbf24');
+    ctx.fillStyle=sky; ctx.fillRect(0,0,W,H);
+    // Sun
+    ctx.fillStyle='rgba(251,191,36,0.15)';
+    ctx.beginPath(); ctx.arc(W-80,50,60,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='rgba(251,191,36,0.3)';
+    ctx.beginPath(); ctx.arc(W-80,50,30,0,Math.PI*2); ctx.fill();
+
+    // Ground
+    var gY=H-60;
+    var gg=ctx.createLinearGradient(0,gY,0,H);
+    gg.addColorStop(0,'#a8a29e'); gg.addColorStop(0.3,'#78716c'); gg.addColorStop(1,'#57534e');
+    ctx.fillStyle=gg; ctx.fillRect(0,gY,W,60);
+
+    // Hard stone surface
+    var stoneX=W/2, stoneY=gY;
+    ctx.fillStyle='#44403c';
+    rrect(stoneX-55,stoneY-8,110,16,4); ctx.fill();
+    // Stone texture
+    ctx.fillStyle='#57534e';
+    rrect(stoneX-50,stoneY-6,30,5,2); ctx.fill();
+    rrect(stoneX-10,stoneY-6,40,5,2); ctx.fill();
+    rrect(stoneX+35,stoneY-6,15,5,2); ctx.fill();
+    ctx.strokeStyle='#292524'; ctx.lineWidth=1.5;
+    rrect(stoneX-55,stoneY-8,110,16,4); ctx.stroke();
+    ctx.font='bold 9px Nunito'; ctx.textAlign='center';
+    ctx.fillStyle='#d6d3d1'; ctx.fillText('HARD STONE', stoneX, stoneY+3);
+
+    var ph1 = clamp01(p/0.15);       // raise up
+    var ph2 = clamp01((p-0.15)/0.2);  // hold at top
+    var ph3 = clamp01((p-0.35)/0.12); // smash down!
+    var ph4 = clamp01((p-0.47)/0.08); // crack + split
+    var ph5 = clamp01((p-0.55)/0.15); // pieces fly + splash
+    var ph6 = clamp01((p-0.7)/0.3);   // formula card
+
+    // Person (left side)
+    var pX=W/2-100, pY=gY;
+    ctx.save(); ctx.translate(pX,pY);
+    // Legs
+    ctx.fillStyle='#1e3a5f'; ctx.fillRect(-8,-2,7,32); ctx.fillRect(3,-2,7,32);
+    // Sandals
+    ctx.fillStyle='#92400e'; rrect(-10,28,11,5,2); ctx.fill(); rrect(1,28,11,5,2); ctx.fill();
+    // Body
+    var bg3=ctx.createLinearGradient(-12,-48,12,-48);
+    bg3.addColorStop(0,'#ea580c'); bg3.addColorStop(1,'#f97316');
+    ctx.fillStyle=bg3;
+    rrect(-14,-48,28,48,4); ctx.fill();
+    // Head
+    ctx.fillStyle='#d4a574';
+    ctx.beginPath(); ctx.arc(0,-58,11,0,Math.PI*2); ctx.fill();
+    // Hair
+    ctx.fillStyle='#1c1917';
+    ctx.beginPath(); ctx.arc(0,-62,10,Math.PI,Math.PI*2); ctx.fill();
+    // Face
+    ctx.fillStyle='#1c1917';
+    ctx.beginPath(); ctx.arc(-4,-57,1.5,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(4,-57,1.5,0,Math.PI*2); ctx.fill();
+    // Determined expression during smash
+    if(ph3>0){
+      ctx.strokeStyle='#1c1917'; ctx.lineWidth=1.5;
+      ctx.beginPath(); ctx.arc(0,-52,4,0.2,Math.PI-0.2); ctx.stroke();
+    } else {
+      ctx.strokeStyle='#1c1917'; ctx.lineWidth=1.5;
+      ctx.beginPath(); ctx.arc(0,-53,3,0,Math.PI); ctx.stroke();
+    }
+
+    // Arms - raising coconut
+    var armTarget;
+    if(ph1<1) armTarget = lerp(-0.5, -2.3, ease(ph1));
+    else if(ph2<1) armTarget = -2.3 + Math.sin(ph2*3)*0.1;
+    else if(ph3<1) armTarget = lerp(-2.3, -0.3, ease(ph3));
+    else armTarget = -0.3;
+
+    ctx.strokeStyle='#d4a574'; ctx.lineWidth=5; ctx.lineCap='round';
+    var armLen=35;
+    var handX=Math.cos(armTarget)*armLen;
+    var handY=-40+Math.sin(armTarget)*armLen;
+    ctx.beginPath(); ctx.moveTo(12,-40); ctx.lineTo(12+handX*0.6, handY); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(-12,-40); ctx.lineTo(-12+handX*0.6, handY); ctx.stroke();
+    ctx.restore();
+
+    // Coconut position
+    var cocX, cocY;
+    var personHandX = pX + Math.cos(ph3<1&&ph1>=1?lerp(-2.3,-0.3,ease(ph3)):(ph1<1?lerp(-0.5,-2.3,ease(ph1)):-0.3))*35*0.6;
+    var personHandY = pY-40 + Math.sin(ph3<1&&ph1>=1?lerp(-2.3,-0.3,ease(ph3)):(ph1<1?lerp(-0.5,-2.3,ease(ph1)):-0.3))*35;
+
+    var smashTargetX=stoneX, smashTargetY=stoneY-22;
+    if(ph3<1){
+      cocX=pX+personHandX-pX+40;
+      cocY=personHandY+10;
+    } else {
+      cocX=smashTargetX; cocY=smashTargetY;
+    }
+
+    // coconut gets closer to stone target during smash
+    if(ph1>=1 && ph2>=1 && ph3<1){
+      cocX=lerp(pX+30, smashTargetX, ease(ph3));
+      cocY=lerp(pY-75, smashTargetY, ease(ph3));
+    } else if(ph1<1){
+      cocX=pX+30;
+      cocY=lerp(pY-25, pY-75, ease(ph1));
+    } else if(ph2<1){
+      cocX=pX+30;
+      cocY=pY-75+Math.sin(ph2*6)*3;
+    }
+
+    // Speed arrow during smash
+    if(ph3>0.1 && ph3<1){
+      var arLen=ease(ph3)*50;
+      drawArrow(cocX+20,cocY-10,cocX+20,cocY+arLen,'#dc2626',3);
+      ctx.font='bold 12px Fredoka One'; ctx.textAlign='left';
+      ctx.fillStyle='#dc2626';
+      ctx.fillText('HIGH v!', cocX+30, cocY+arLen/2);
+    }
+
+    // Draw coconut (intact or cracked)
+    if(ph4<0.5){
+      // Intact coconut
+      ctx.save(); ctx.translate(cocX,cocY);
+      // Outer shell
+      var cg=ctx.createRadialGradient(-3,-3,2,0,0,18);
+      cg.addColorStop(0,'#a16207'); cg.addColorStop(0.5,'#92400e'); cg.addColorStop(1,'#78350f');
+      ctx.fillStyle=cg;
+      ctx.beginPath(); ctx.ellipse(0,0,15,19,0,0,Math.PI*2); ctx.fill();
+      // Husk texture
+      ctx.strokeStyle='#713f12'; ctx.lineWidth=0.7;
+      for(var hi=0;hi<8;hi++){
+        var ha=hi*Math.PI/4;
+        ctx.beginPath(); ctx.moveTo(Math.cos(ha)*10,Math.sin(ha)*13);
+        ctx.lineTo(Math.cos(ha)*15,Math.sin(ha)*19); ctx.stroke();
+      }
+      // Three eyes
+      ctx.fillStyle='#78350f';
+      ctx.beginPath(); ctx.arc(-4,-7,2.5,0,Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(4,-7,2.5,0,Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(0,-2,2,0,Math.PI*2); ctx.fill();
+      // Shine
+      ctx.fillStyle='rgba(255,255,255,0.15)';
+      ctx.beginPath(); ctx.ellipse(-5,-6,4,6,0.3,0,Math.PI*2); ctx.fill();
+
+      // Crack lines appearing
+      if(ph4>0){
+        ctx.strokeStyle='#1c1917'; ctx.lineWidth=2;
+        ctx.beginPath(); ctx.moveTo(-2,0);
+        ctx.lineTo(-8,12); ctx.lineTo(-12,19); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(2,0);
+        ctx.lineTo(10,10); ctx.lineTo(14,18); ctx.stroke();
+      }
+      ctx.restore();
+    } else {
+      // Cracked! Two halves flying apart
+      var splitP=ease(clamp01((ph4-0.5)/0.5));
+      var splitDist=splitP*40;
+      var flyUp=splitP*15;
+
+      // Left half
+      ctx.save(); ctx.translate(cocX-splitDist, cocY-flyUp);
+      ctx.rotate(-splitP*0.4);
+      ctx.fillStyle='#92400e';
+      ctx.beginPath(); ctx.ellipse(0,0,13,17,0,Math.PI/2,Math.PI*1.5); ctx.fill();
+      // White flesh inside
+      ctx.fillStyle='#fefce8';
+      ctx.beginPath(); ctx.ellipse(3,0,8,13,0,Math.PI/2,Math.PI*1.5); ctx.fill();
+      ctx.restore();
+
+      // Right half
+      ctx.save(); ctx.translate(cocX+splitDist, cocY-flyUp*0.7);
+      ctx.rotate(splitP*0.4);
+      ctx.fillStyle='#92400e';
+      ctx.beginPath(); ctx.ellipse(0,0,13,17,0,-Math.PI/2,Math.PI/2); ctx.fill();
+      ctx.fillStyle='#fefce8';
+      ctx.beginPath(); ctx.ellipse(-3,0,8,13,0,-Math.PI/2,Math.PI/2); ctx.fill();
+      ctx.restore();
+
+      // Water droplets
+      if(ph5>0){
+        ctx.fillStyle='rgba(186,230,253,0.7)';
+        for(var di=0;di<14;di++){
+          var da=di*Math.PI*2/14-Math.PI/2;
+          var dr=ph5*50+di*4;
+          var ddx=cocX+Math.cos(da)*dr;
+          var ddy=cocY-10+Math.sin(da)*dr*0.5+ph5*ph5*30;
+          var dsz=3-ph5*2;
+          if(dsz>0.5){
+            ctx.beginPath(); ctx.arc(ddx,ddy,dsz,0,Math.PI*2); ctx.fill();
+          }
+        }
+      }
+
+      // Shell fragments
+      if(ph5>0){
+        ctx.fillStyle='#78350f';
+        for(var fi2=0;fi2<6;fi2++){
+          var fa2=(fi2-3)*0.8;
+          var fr2=ph5*40+fi2*6;
+          var fx2=cocX+Math.cos(fa2-Math.PI/3)*fr2;
+          var fy2=cocY-8+Math.sin(fa2)*fr2*0.4+ph5*ph5*25;
+          ctx.save(); ctx.translate(fx2,fy2); ctx.rotate(ph5*3+fi2);
+          ctx.fillRect(-3,-2,6,4);
+          ctx.restore();
+        }
+      }
+    }
+
+    // Impact flash
+    if(ph4>0 && ph4<0.5){
+      var flashA=1-ph4*2;
+      ctx.fillStyle='rgba(251,191,36,'+flashA+')';
+      ctx.beginPath();
+      for(var ii=0;ii<10;ii++){
+        var ia=ii*Math.PI/5, ir=5+ph4*50;
+        ctx.lineTo(cocX+Math.cos(ia)*ir, smashTargetY+Math.sin(ia)*ir*0.4);
+        ctx.lineTo(cocX+Math.cos(ia+Math.PI/10)*3, smashTargetY+Math.sin(ia+Math.PI/10)*3);
+      }
+      ctx.fill();
+    }
+
+    // Formula card
+    if(ph6>0){
+      ctx.globalAlpha=ease(ph6);
+      rrect(W/2-170,20,340,80,12);
+      ctx.fillStyle='rgba(120,53,15,0.92)'; ctx.fill();
+      ctx.strokeStyle='#fbbf24'; ctx.lineWidth=2;
+      rrect(W/2-170,20,340,80,12); ctx.stroke();
+
+      ctx.font='bold 11px Nunito'; ctx.textAlign='center';
+      ctx.fillStyle='#fde68a';
+      ctx.fillText('High velocity → coconut stops almost instantly', W/2, 42);
+      ctx.fillStyle='#fef3c7';
+      ctx.fillText('Δt ≈ 0.001s → a = Δv/Δt = ENORMOUS deceleration!', W/2, 60);
+      ctx.fillStyle='#fbbf24'; ctx.font='bold 15px Fredoka One';
+      ctx.fillText('F = m × a → HUGE FORCE → CRACK!', W/2, 84);
+      ctx.globalAlpha=1;
+    }
+
+    // Title
+    ctx.font='bold 15px Fredoka One'; ctx.textAlign='center';
+    ctx.fillStyle='#78350f';
+    ctx.fillText('Cracking a Coconut on Hard Surface', W/2, H-30);
+    ctx.font='bold 11px Nunito';
+    ctx.fillStyle='#92400e';
+    ctx.fillText('Tiny stopping time → massive deceleration → F = ma gives enormous force!', W/2, H-14);
+  }
+
+  var drawFns = [drawCricket, drawAirbag, drawCoconut];
+
+  function frame(){
+    t += 1/60;
+    var p = (t % CYCLE) / CYCLE;
+    ctx.clearRect(0,0,W,H);
+    drawFns[scene](p);
+    requestAnimationFrame(frame);
+  }
+
+  setScene(0);
+  frame();
+})();
+
 </script>
 </body>
 </html>

@@ -369,7 +369,9 @@ footer { text-align: center; padding: 30px 16px; background: linear-gradient(135
 .shell-m { width: 200px; height: 200px; }
 .shell-label { position: absolute; color: #6366f1; font-size: 10px; font-weight: 800; }
 .nucleus-dot { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 22px; height: 22px; background: radial-gradient(#ef4444, #991b1b); border-radius: 50%; z-index: 5; display: flex; align-items: center; justify-content: center; font-size: 8px; color: white; font-weight: 800; }
-.elec-dot { position: absolute; width: 10px; height: 10px; background: #6366f1; border-radius: 50%; z-index: 10; box-shadow: 0 0 6px rgba(99,102,241,0.5); transition: all 0.5s ease; }
+.elec-orbit-wrap { position: absolute; width: 0; height: 0; top: 50%; left: 50%; z-index: 10; }
+.elec-dot { position: absolute; width: 10px; height: 10px; background: #6366f1; border-radius: 50%; z-index: 10; box-shadow: 0 0 6px rgba(99,102,241,0.5); transition: opacity 0.4s ease, transform 0.4s ease; transform-origin: center; }
+@keyframes elecOrbit { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 .config-info { background: #eef2ff; border-radius: 12px; padding: 14px 18px; margin-top: 14px; font-size: 14px; }
 .config-info strong { color: #3730a3; }
 .config-select { padding: 10px 16px; border: 2px solid #a5b4fc; border-radius: 10px; font-size: 14px; font-family: 'Nunito', sans-serif; font-weight: 700; background: white; color: #3730a3; outline: none; min-width: 220px; cursor: pointer; }
@@ -1092,37 +1094,17 @@ footer { text-align: center; padding: 30px 16px; background: linear-gradient(135
         <strong>&#128161; Why This Was Shocking:</strong> Thomson's model (positive charge spread evenly) could NOT explain why some alpha particles bounced back. This completely disproved the plum pudding model!
       </div>
 
-      <!-- ANIMATED SCENE: Gold Foil Experiment -->
-      <div class="gf-anim-scene">
-        <div class="gf-source"></div>
-        <div class="gf-source-label">Alpha Source</div>
-        <div class="gf-foil-line"></div>
-        <div class="gf-foil-label">Gold Foil</div>
-        <div class="gf-nucleus-dot"></div>
-        <div class="gf-screen"></div>
-        <div class="gf-screen-label">Detector</div>
-        <!-- Particle trails (decorative) -->
-        <div class="gf-trail" style="top:50%;left:70px;width:calc(55% - 70px);opacity:0.08;"></div>
-        <!-- Straight-through particles (most common) -->
-        <div class="gf-particle-stream gf-p-straight" style="top:42%;animation-delay:0s;"></div>
-        <div class="gf-particle-stream gf-p-straight" style="top:46%;animation-delay:0.4s;"></div>
-        <div class="gf-particle-stream gf-p-straight" style="top:50%;animation-delay:0.8s;"></div>
-        <div class="gf-particle-stream gf-p-straight" style="top:54%;animation-delay:1.2s;"></div>
-        <div class="gf-particle-stream gf-p-straight" style="top:58%;animation-delay:1.6s;"></div>
-        <div class="gf-particle-stream gf-p-straight" style="top:44%;animation-delay:2.0s;"></div>
-        <div class="gf-particle-stream gf-p-straight" style="top:48%;animation-delay:0.3s;"></div>
-        <div class="gf-particle-stream gf-p-straight" style="top:52%;animation-delay:0.7s;"></div>
-        <div class="gf-particle-stream gf-p-straight" style="top:56%;animation-delay:1.1s;"></div>
-        <div class="gf-particle-stream gf-p-straight" style="top:40%;animation-delay:1.5s;"></div>
-        <!-- Slight deflections -->
-        <div class="gf-particle-stream gf-p-slight-up" style="animation-delay:0.6s;"></div>
-        <div class="gf-particle-stream gf-p-slight-down" style="animation-delay:1.8s;"></div>
-        <!-- Large deflections (rare) -->
-        <div class="gf-particle-stream gf-p-deflect-up" style="animation-delay:1.0s;"></div>
-        <div class="gf-particle-stream gf-p-deflect-down" style="animation-delay:2.2s;"></div>
-        <!-- Bounce back (very rare) -->
-        <div class="gf-particle-stream gf-p-bounce" style="animation-delay:1.4s;"></div>
-        <div class="gf-info-badge">Most pass through | Some deflect | Very few bounce back</div>
+      <!-- ANIMATED SCENE: Gold Foil Experiment (detailed canvas) -->
+      <div style="margin:24px 0;">
+        <div style="display:flex;justify-content:center;gap:8px;margin-bottom:10px;flex-wrap:wrap;">
+          <button class="tug-btn" onclick="gfSetScene(0)" id="gfBtn0" style="font-size:12px;padding:6px 14px;background:#6366f1;color:#fff;">&#10004; Passes Through</button>
+          <button class="tug-btn" onclick="gfSetScene(1)" id="gfBtn1" style="font-size:12px;padding:6px 14px;">&#8634; Deflects</button>
+          <button class="tug-btn" onclick="gfSetScene(2)" id="gfBtn2" style="font-size:12px;padding:6px 14px;">&#8617; Bounces Back</button>
+        </div>
+        <div style="display:flex;justify-content:center;">
+          <canvas id="gfDetailCanvas" width="700" height="400" style="border-radius:14px;max-width:100%;box-shadow:0 4px 24px rgba(0,0,0,0.25);"></canvas>
+        </div>
+        <div id="gfDetailInfo" style="margin-top:10px;font-size:13px;color:#4338ca;line-height:1.5;text-align:center;font-weight:700;"></div>
       </div>
 
       <h3 class="subtitle" style="color:#312e81;">&#127758; Rutherford's Nuclear (Planetary) Model</h3>
@@ -2364,7 +2346,7 @@ function buildElectronConfig() {
   var diagram = document.getElementById('shellDiagram');
   var info = document.getElementById('configInfo');
 
-  diagram.querySelectorAll('.elec-dot').forEach(function(d) { d.remove(); });
+  diagram.querySelectorAll('.elec-orbit-wrap').forEach(function(d) { d.remove(); });
 
   if (!z || z < 1 || z > 18) {
     info.style.display = 'none';
@@ -2374,22 +2356,26 @@ function buildElectronConfig() {
   var elem = elementData[z];
   var shellRadii = { k: 30, l: 65, m: 100 };
   var shellCounts = { k: elem.k, l: elem.l, m: elem.m };
-  var centerX = 130, centerY = 130;
+  var shellSpeeds = { k: 2.5, l: 4, m: 6 };
 
   function placeElectrons(shell, count, radius, delay) {
+    var speed = shellSpeeds[shell];
     for (var i = 0; i < count; i++) {
       (function(idx) {
         setTimeout(function() {
-          var angle = (2 * Math.PI * idx / count) - Math.PI / 2;
-          var x = centerX + radius * Math.cos(angle) - 5;
-          var y = centerY + radius * Math.sin(angle) - 5;
+          var startAngle = (360 * idx / count) - 90;
+          var wrap = document.createElement('div');
+          wrap.className = 'elec-orbit-wrap';
+          wrap.style.animation = 'elecOrbit ' + speed + 's linear infinite';
+          wrap.style.animationDelay = (-speed * idx / count) + 's';
           var dot = document.createElement('div');
           dot.className = 'elec-dot';
-          dot.style.left = x + 'px';
-          dot.style.top = y + 'px';
+          dot.style.left = (-5) + 'px';
+          dot.style.top = (-radius - 5) + 'px';
           dot.style.opacity = '0';
           dot.style.transform = 'scale(0)';
-          diagram.appendChild(dot);
+          wrap.appendChild(dot);
+          diagram.appendChild(wrap);
           setTimeout(function() {
             dot.style.opacity = '1';
             dot.style.transform = 'scale(1)';
@@ -2791,6 +2777,798 @@ loadQuizQuestion();
 
   window.addEventListener('scroll', sfCheckVisible);
   sfCheckVisible();
+})();
+
+// ─── Gold Foil Experiment Detailed Canvas Animation ───
+(function(){
+  var c = document.getElementById('gfDetailCanvas');
+  if(!c) return;
+  var ctx = c.getContext('2d');
+  var W = c.width, H = c.height;
+  var scene = 0, t = 0, autoTimer = null;
+  var infoEl = document.getElementById('gfDetailInfo');
+
+  var infos = [
+    'MOST alpha particles pass straight through — the atom is mostly EMPTY SPACE, so there is nothing to stop them!',
+    'SOME alpha particles pass close to the nucleus — the positive nucleus REPELS the positive alpha particle, bending its path!',
+    'VERY FEW alpha particles hit the nucleus HEAD-ON — the enormous repulsive force REVERSES their direction completely!'
+  ];
+
+  function setScene(s){
+    scene = s; t = 0;
+    for(var i=0;i<3;i++){
+      var b = document.getElementById('gfBtn'+i);
+      if(b){ b.style.background = i===s ? '#6366f1' : ''; b.style.color = i===s ? '#fff' : ''; }
+    }
+    if(infoEl) infoEl.textContent = infos[s];
+    clearInterval(autoTimer);
+    autoTimer = setInterval(function(){ setScene((scene+1)%3); }, 9000);
+  }
+  window.gfSetScene = setScene;
+
+  function lerp(a,b,p){ return a+(b-a)*p; }
+  function ease(p){ return p<0.5?2*p*p:1-Math.pow(-2*p+2,2)/2; }
+  function clamp01(v){ return v<0?0:v>1?1:v; }
+
+  function rrect(x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+    ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+    ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y); ctx.closePath();
+  }
+
+  function drawArrow(x1,y1,x2,y2,col,w){
+    var dx=x2-x1,dy=y2-y1,len=Math.sqrt(dx*dx+dy*dy);
+    if(len<3)return;
+    var ux=dx/len,uy=dy/len;
+    ctx.strokeStyle=col; ctx.lineWidth=w; ctx.lineCap='round';
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+    ctx.fillStyle=col; ctx.beginPath();
+    ctx.moveTo(x2,y2);
+    ctx.lineTo(x2-ux*8+uy*4,y2-uy*8-ux*4);
+    ctx.lineTo(x2-ux*8-uy*4,y2-uy*8+ux*4);
+    ctx.fill();
+  }
+
+  // Gold atom positions in the foil cross-section
+  var foilX = 370;
+  var atoms = [
+    {x:foilX, y:80}, {x:foilX, y:170}, {x:foilX, y:260}, {x:foilX, y:350},
+    {x:foilX-45, y:125}, {x:foilX+45, y:125},
+    {x:foilX-45, y:215}, {x:foilX+45, y:215},
+    {x:foilX-45, y:305}, {x:foilX+45, y:305}
+  ];
+  var ATOM_R = 42;
+  var NUC_R = 4;
+
+  function drawBackground(){
+    var bg = ctx.createLinearGradient(0,0,0,H);
+    bg.addColorStop(0,'#0a0a1a'); bg.addColorStop(0.5,'#0d0d2b'); bg.addColorStop(1,'#0a0a1a');
+    ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+    // Subtle stars
+    for(var i=0;i<25;i++){
+      var sx=(i*47+13)%W, sy=(i*31+7)%H;
+      ctx.fillStyle='rgba(255,255,255,'+(0.05+0.03*Math.sin(t*1.2+i))+')';
+      ctx.beginPath(); ctx.arc(sx,sy,0.8,0,Math.PI*2); ctx.fill();
+    }
+  }
+
+  function drawSource(){
+    // Alpha source box
+    ctx.save();
+    var sg = ctx.createLinearGradient(15,H/2-35,55,H/2+35);
+    sg.addColorStop(0,'#fbbf24'); sg.addColorStop(1,'#f59e0b');
+    ctx.fillStyle=sg;
+    rrect(15,H/2-35,45,70,8); ctx.fill();
+    ctx.strokeStyle='#d97706'; ctx.lineWidth=2;
+    rrect(15,H/2-35,45,70,8); ctx.stroke();
+    // Glow
+    ctx.shadowColor='rgba(251,191,36,0.4)'; ctx.shadowBlur=15+5*Math.sin(t*2);
+    rrect(15,H/2-35,45,70,8); ctx.fill();
+    ctx.shadowBlur=0;
+    // Radiation symbol
+    ctx.fillStyle='#78350f'; ctx.font='bold 18px sans-serif'; ctx.textAlign='center';
+    ctx.fillText('☢',37,H/2+6);
+    // Nozzle
+    ctx.fillStyle='#d97706';
+    ctx.beginPath();
+    ctx.moveTo(60,H/2-8); ctx.lineTo(75,H/2-4);
+    ctx.lineTo(75,H/2+4); ctx.lineTo(60,H/2+8);
+    ctx.fill();
+    // Label
+    ctx.font='bold 9px Nunito'; ctx.fillStyle='#fbbf24';
+    ctx.fillText('Alpha',37,H/2+52);
+    ctx.fillText('Source',37,H/2+63);
+    ctx.restore();
+  }
+
+  function drawGoldAtoms(highlightIdx){
+    // Foil background strip
+    ctx.fillStyle='rgba(251,191,36,0.03)';
+    ctx.fillRect(foilX-55,0,110,H);
+    ctx.strokeStyle='rgba(251,191,36,0.15)'; ctx.lineWidth=1;
+    ctx.setLineDash([4,6]);
+    ctx.beginPath(); ctx.moveTo(foilX-55,0); ctx.lineTo(foilX-55,H); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(foilX+55,0); ctx.lineTo(foilX+55,H); ctx.stroke();
+    ctx.setLineDash([]);
+    // Foil label
+    ctx.font='bold 10px Nunito'; ctx.textAlign='center';
+    ctx.fillStyle='rgba(251,191,36,0.5)';
+    ctx.fillText('GOLD FOIL (cross-section, zoomed in)', foilX, 14);
+
+    for(var i=0;i<atoms.length;i++){
+      var a = atoms[i];
+      var isH = (highlightIdx !== undefined && highlightIdx === i);
+
+      // Atom boundary circle — the full gold atom
+      ctx.strokeStyle = isH ? 'rgba(251,191,36,0.4)' : 'rgba(251,191,36,0.12)';
+      ctx.lineWidth = isH ? 2 : 1;
+      ctx.setLineDash([3,4]);
+      ctx.beginPath(); ctx.arc(a.x,a.y,ATOM_R,0,Math.PI*2); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Faint fill to show the atom boundary
+      ctx.fillStyle = isH ? 'rgba(251,191,36,0.06)' : 'rgba(251,191,36,0.015)';
+      ctx.beginPath(); ctx.arc(a.x,a.y,ATOM_R,0,Math.PI*2); ctx.fill();
+
+      // "Au" label on each atom boundary
+      ctx.font = isH ? 'bold 9px Nunito' : '8px Nunito';
+      ctx.fillStyle = isH ? 'rgba(251,191,36,0.6)' : 'rgba(251,191,36,0.18)';
+      ctx.textAlign='center';
+      ctx.fillText('Au', a.x, a.y + ATOM_R - 6);
+
+      // Nucleus (tiny red dot in center) with glow
+      ctx.shadowColor='rgba(239,68,68,0.5)'; ctx.shadowBlur = isH ? 14+4*Math.sin(t*3) : 6;
+      var ng = ctx.createRadialGradient(a.x-1,a.y-1,1,a.x,a.y,NUC_R+1);
+      ng.addColorStop(0,'#fca5a5'); ng.addColorStop(0.4,'#ef4444'); ng.addColorStop(1,'#991b1b');
+      ctx.fillStyle=ng;
+      ctx.beginPath(); ctx.arc(a.x,a.y,NUC_R+1,0,Math.PI*2); ctx.fill();
+      ctx.shadowBlur=0;
+
+      // "+" on every nucleus so it's clear they are positive
+      ctx.fillStyle = isH ? '#fecaca' : 'rgba(254,202,202,0.5)';
+      ctx.font = isH ? 'bold 9px sans-serif' : 'bold 7px sans-serif';
+      ctx.fillText('+', a.x, a.y+3);
+
+      // Highlighted atom gets detailed callouts
+      if(isH){
+        // "Nucleus" label with arrow
+        ctx.strokeStyle='rgba(248,113,113,0.6)'; ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a.x+NUC_R+2,a.y-2); ctx.lineTo(a.x+28,a.y-18); ctx.stroke();
+        ctx.fillStyle='#fca5a5'; ctx.font='bold 9px Nunito'; ctx.textAlign='left';
+        ctx.fillText('Nucleus (+)', a.x+30, a.y-14);
+        ctx.fillStyle='rgba(252,165,165,0.6)'; ctx.font='8px Nunito';
+        ctx.fillText('Tiny, dense, positive', a.x+30, a.y-3);
+
+        // "Atom boundary" label
+        ctx.strokeStyle='rgba(251,191,36,0.4)'; ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(a.x-ATOM_R+4,a.y-ATOM_R+10); ctx.lineTo(a.x-ATOM_R-18,a.y-ATOM_R-4); ctx.stroke();
+        ctx.fillStyle='rgba(251,191,36,0.7)'; ctx.font='bold 9px Nunito'; ctx.textAlign='right';
+        ctx.fillText('Gold Atom', a.x-ATOM_R-20, a.y-ATOM_R-6);
+
+        // "Empty space" labels scattered inside atom
+        ctx.fillStyle='rgba(134,239,172,0.25)'; ctx.font='7px Nunito'; ctx.textAlign='center';
+        ctx.fillText('empty', a.x-18, a.y-18);
+        ctx.fillText('space', a.x+20, a.y+16);
+        ctx.fillText('empty', a.x-15, a.y+22);
+      }
+    }
+
+    // Legend box (bottom-right corner)
+    rrect(W-155,H-75,145,65,10);
+    ctx.fillStyle='rgba(0,0,0,0.65)'; ctx.fill();
+    ctx.strokeStyle='rgba(251,191,36,0.2)'; ctx.lineWidth=1;
+    rrect(W-155,H-75,145,65,10); ctx.stroke();
+    ctx.font='bold 9px Nunito'; ctx.textAlign='left';
+    // Gold atom
+    ctx.strokeStyle='rgba(251,191,36,0.3)'; ctx.lineWidth=1; ctx.setLineDash([2,2]);
+    ctx.beginPath(); ctx.arc(W-140,H-57,6,0,Math.PI*2); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle='#fbbf24'; ctx.fillText('Gold Atom (Au)',W-128,H-53);
+    // Nucleus
+    ctx.fillStyle='#ef4444';
+    ctx.beginPath(); ctx.arc(W-140,H-40,3,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#fca5a5'; ctx.fillText('Nucleus (+charged)',W-128,H-36);
+    // Alpha
+    ctx.fillStyle='#fbbf24';
+    ctx.beginPath(); ctx.arc(W-140,H-23,4,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#fde68a'; ctx.fillText('Alpha particle (α²⁺)',W-128,H-19);
+  }
+
+  function drawDetector(){
+    ctx.fillStyle='rgba(99,102,241,0.15)';
+    rrect(W-30,40,16,H-80,6); ctx.fill();
+    ctx.strokeStyle='rgba(99,102,241,0.3)'; ctx.lineWidth=1;
+    rrect(W-30,40,16,H-80,6); ctx.stroke();
+    ctx.save();
+    ctx.translate(W-22,H/2);
+    ctx.rotate(-Math.PI/2);
+    ctx.font='bold 8px Nunito'; ctx.textAlign='center';
+    ctx.fillStyle='rgba(165,180,252,0.6)';
+    ctx.fillText('ZINC SULFIDE SCREEN',0,0);
+    ctx.restore();
+  }
+
+  // ===== SCENE 0: Passes Straight Through =====
+  function drawPassThrough(p){
+    drawBackground();
+    drawSource();
+    drawGoldAtoms(-1);
+    drawDetector();
+
+    var CYCLE = 6.0;
+    var pp = (t % CYCLE) / CYCLE;
+
+    // Main alpha particle — passes between nuclei
+    var alphaY = H/2 + 18;
+    var startX = 80, endX = W - 40;
+    var ph1 = clamp01(pp/0.6);
+    var ph2 = clamp01((pp-0.6)/0.15);
+    var ph3 = clamp01((pp-0.75)/0.25);
+
+    var ax = lerp(startX, endX, ease(ph1));
+
+    // Trail
+    if(ph1>0.05){
+      var grd = ctx.createLinearGradient(startX,0,ax,0);
+      grd.addColorStop(0,'rgba(253,230,138,0)');
+      grd.addColorStop(0.7,'rgba(253,230,138,0.25)');
+      grd.addColorStop(1,'rgba(253,230,138,0.6)');
+      ctx.strokeStyle=grd; ctx.lineWidth=2;
+      ctx.beginPath(); ctx.moveTo(startX,alphaY); ctx.lineTo(ax,alphaY); ctx.stroke();
+    }
+
+    // Alpha particle glow + body
+    ctx.shadowColor='rgba(251,191,36,0.7)'; ctx.shadowBlur=10;
+    var ag = ctx.createRadialGradient(ax-1,alphaY-1,1,ax,alphaY,7);
+    ag.addColorStop(0,'#fef3c7'); ag.addColorStop(0.5,'#fbbf24'); ag.addColorStop(1,'#d97706');
+    ctx.fillStyle=ag;
+    ctx.beginPath(); ctx.arc(ax,alphaY,7,0,Math.PI*2); ctx.fill();
+    ctx.shadowBlur=0;
+    // + label on alpha
+    ctx.fillStyle='#78350f'; ctx.font='bold 8px sans-serif'; ctx.textAlign='center';
+    ctx.fillText('α²⁺',ax,alphaY+3);
+
+    // Speed arrow
+    if(ph1>0.05 && ph1<0.95){
+      drawArrow(ax+12,alphaY,ax+35,alphaY,'#fbbf24',2);
+      ctx.font='bold 9px Nunito'; ctx.fillStyle='#fde68a';
+      ctx.fillText('v →',ax+40,alphaY+3);
+    }
+
+    // Show the gap between nuclei it passes through
+    var nearestNuc = atoms[1]; // y=170
+    var distToNuc = Math.abs(alphaY - nearestNuc.y);
+
+    if(ax > foilX-60 && ax < foilX+60){
+      // Distance annotation
+      ctx.strokeStyle='rgba(134,239,172,0.5)'; ctx.lineWidth=1; ctx.setLineDash([3,3]);
+      ctx.beginPath(); ctx.moveTo(foilX,alphaY); ctx.lineTo(foilX,nearestNuc.y); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle='#86efac'; ctx.font='bold 9px Nunito';
+      ctx.fillText('Far from',foilX+20,(alphaY+nearestNuc.y)/2-4);
+      ctx.fillText('nucleus!',foilX+20,(alphaY+nearestNuc.y)/2+8);
+
+      // Highlight empty space
+      ctx.fillStyle='rgba(134,239,172,0.06)';
+      ctx.fillRect(foilX-50,alphaY-15,100,30);
+      ctx.font='bold 8px Nunito'; ctx.fillStyle='rgba(134,239,172,0.4)';
+      ctx.fillText('EMPTY SPACE',foilX,alphaY-20);
+    }
+
+    // Flash on detector when arrives
+    if(ph1>0.95){
+      var flashA = 1-clamp01((ph1-0.95)/0.05)*0.7;
+      ctx.fillStyle='rgba(99,102,241,'+flashA*0.4+')';
+      ctx.beginPath(); ctx.arc(W-22,alphaY,12,0,Math.PI*2); ctx.fill();
+    }
+
+    // Explanation card
+    if(ph2 > 0){
+      ctx.globalAlpha=ease(ph2);
+      rrect(85,25,250,90,12);
+      ctx.fillStyle='rgba(5,46,22,0.9)'; ctx.fill();
+      ctx.strokeStyle='#86efac'; ctx.lineWidth=1.5;
+      rrect(85,25,250,90,12); ctx.stroke();
+
+      ctx.font='bold 12px Fredoka One'; ctx.textAlign='center';
+      ctx.fillStyle='#86efac';
+      ctx.fillText('✓ PASSED STRAIGHT THROUGH!', 210, 50);
+      ctx.font='bold 10px Nunito'; ctx.fillStyle='#bbf7d0';
+      ctx.fillText('Atom is 99.99% EMPTY SPACE', 210, 68);
+      ctx.fillText('Nucleus is 10⁵ times smaller than atom', 210, 82);
+      ctx.fillStyle='#86efac'; ctx.font='bold 11px Fredoka One';
+      ctx.fillText('Nothing to stop it → goes right through!', 210, 102);
+      ctx.globalAlpha=1;
+    }
+
+    // Stats badge
+    ctx.globalAlpha=0.7;
+    rrect(10,H-35,180,28,8);
+    ctx.fillStyle='rgba(0,0,0,0.6)'; ctx.fill();
+    ctx.font='bold 10px Nunito'; ctx.textAlign='center';
+    ctx.fillStyle='#86efac';
+    ctx.fillText('~99% of particles do this!', 100, H-17);
+    ctx.globalAlpha=1;
+
+    // Title
+    ctx.font='bold 14px Fredoka One'; ctx.textAlign='center';
+    ctx.fillStyle='#86efac';
+    ctx.fillText('Case 1: Alpha Particle Passes Through Undeflected', W/2, H-8);
+  }
+
+  // ===== SCENE 1: Deflection =====
+  function drawDeflect(p){
+    drawBackground();
+    drawSource();
+    var targetAtom = 1;
+    drawGoldAtoms(targetAtom);
+    drawDetector();
+
+    var CYCLE = 7.5;
+    var pp = (t % CYCLE) / CYCLE;
+    var nucX = atoms[targetAtom].x, nucY = atoms[targetAtom].y;
+
+    // Foil boundaries
+    var foilLeft = foilX - 55, foilRight = foilX + 55;
+    var startX = 80, startY = nucY - 15;
+
+    // Build 3-phase path: straight → curve inside foil → straight exit
+    var pathPts = [];
+    // Phase A: straight from source to foil edge
+    var straightSteps = 30;
+    for(var si=0;si<=straightSteps;si++){
+      var frac = si/straightSteps;
+      pathPts.push({x:lerp(startX, foilLeft, frac), y:startY, phase:'straight'});
+    }
+    // Phase B: Coulomb physics ONLY inside the foil
+    var px = foilLeft, py = startY, pvx = 2.8, pvy = 0;
+    var simSteps = 100;
+    for(var si=0;si<simSteps;si++){
+      var dx = nucX - px, dy = nucY - py;
+      var dist = Math.sqrt(dx*dx+dy*dy);
+      if(dist < 4) dist = 4;
+      var force = 1400 / (dist*dist);
+      pvx += -force * dx/dist;
+      pvy += -force * dy/dist;
+      var spd = Math.sqrt(pvx*pvx+pvy*pvy);
+      if(spd > 5){ pvx=pvx/spd*5; pvy=pvy/spd*5; }
+      px += pvx; py += pvy;
+      pathPts.push({x:px, y:py, phase:'curve'});
+      if(px > foilRight + 10) break;
+    }
+    // Phase C: straight exit in the deflected direction
+    var exitVx = pvx, exitVy = pvy;
+    var exitSpd = Math.sqrt(exitVx*exitVx+exitVy*exitVy);
+    if(exitSpd < 0.5) exitSpd = 0.5;
+    var eUx = exitVx/exitSpd, eUy = exitVy/exitSpd;
+    var lastPt = pathPts[pathPts.length-1];
+    var exitSteps = 30;
+    for(var si=1;si<=exitSteps;si++){
+      var frac = si/exitSteps;
+      pathPts.push({
+        x:lastPt.x + eUx * frac * 200,
+        y:lastPt.y + eUy * frac * 200,
+        phase:'exit'
+      });
+    }
+
+    // Animate along path with slowdown near nucleus
+    var totalProgress = clamp01(pp/0.7);
+    // Remap: fast straight, slow in foil, fast exit
+    var straightEnd = straightSteps / pathPts.length;
+    var remapped;
+    if(totalProgress < 0.25){
+      remapped = (totalProgress/0.25) * straightEnd;
+    } else if(totalProgress < 0.7){
+      remapped = straightEnd + ((totalProgress-0.25)/0.45) * (1-straightEnd-exitSteps/pathPts.length);
+    } else {
+      remapped = (1-exitSteps/pathPts.length) + ((totalProgress-0.7)/0.3) * (exitSteps/pathPts.length);
+    }
+    var ptIdx = Math.floor(remapped * (pathPts.length-1));
+    ptIdx = Math.min(ptIdx, pathPts.length-1);
+    var ax = pathPts[ptIdx].x;
+    var ay = pathPts[ptIdx].y;
+    var curPhase = pathPts[ptIdx].phase;
+
+    var phExplain = clamp01((pp-0.72)/0.28);
+
+    // ── Dotted "original straight path" — where it WOULD go without nucleus ──
+    ctx.strokeStyle='rgba(134,239,172,0.25)'; ctx.lineWidth=1.5; ctx.setLineDash([6,6]);
+    ctx.beginPath(); ctx.moveTo(startX,startY); ctx.lineTo(W-30,startY); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.font='bold 8px Nunito'; ctx.textAlign='right';
+    ctx.fillStyle='rgba(134,239,172,0.4)';
+    ctx.fillText('Original path (if no nucleus) →', foilLeft-8, startY-6);
+
+    // ── "ENTERS FOIL" / "EXITS FOIL" markers ──
+    ctx.strokeStyle='rgba(251,191,36,0.3)'; ctx.lineWidth=1;
+    if(ax > foilLeft - 30 && ax < foilRight + 60){
+      // Entry marker
+      ctx.beginPath(); ctx.moveTo(foilLeft, startY-18); ctx.lineTo(foilLeft, startY+18); ctx.stroke();
+      ctx.font='bold 8px Nunito'; ctx.fillStyle='rgba(251,191,36,0.5)'; ctx.textAlign='center';
+      ctx.fillText('ENTERS', foilLeft, startY-22);
+      ctx.fillText('FOIL', foilLeft, startY-12);
+    }
+
+    // ── Force field rings around nucleus ──
+    for(var ri=1;ri<=4;ri++){
+      var ringR = NUC_R + ri*12;
+      var ringAlpha = 0.15 - ri*0.03;
+      ctx.strokeStyle='rgba(239,68,68,'+Math.max(0.02,ringAlpha)+')';
+      ctx.lineWidth=1;
+      ctx.beginPath(); ctx.arc(nucX,nucY,ringR,0,Math.PI*2); ctx.stroke();
+    }
+    ctx.font='bold 7px Nunito'; ctx.textAlign='center';
+    ctx.fillStyle='rgba(248,113,113,0.3)';
+    ctx.fillText('+ Repulsion field',nucX,nucY+NUC_R+58);
+
+    // ── Trail: yellow straight + curving + straight exit ──
+    if(ptIdx > 1){
+      ctx.lineCap='round';
+      for(var ti=1;ti<=ptIdx;ti++){
+        var alpha = 0.1 + (ti/ptIdx)*0.6;
+        var ph = pathPts[ti].phase;
+        if(ph==='straight'){
+          ctx.strokeStyle='rgba(253,230,138,'+alpha+')'; ctx.lineWidth=2;
+        } else if(ph==='curve'){
+          ctx.strokeStyle='rgba(253,180,80,'+alpha+')'; ctx.lineWidth=3;
+        } else {
+          ctx.strokeStyle='rgba(253,230,138,'+alpha+')'; ctx.lineWidth=2;
+        }
+        ctx.beginPath();
+        ctx.moveTo(pathPts[ti-1].x, pathPts[ti-1].y);
+        ctx.lineTo(pathPts[ti].x, pathPts[ti].y);
+        ctx.stroke();
+      }
+    }
+
+    // ── Repulsion force visualization (only when inside the foil near nucleus) ──
+    var dxN = ax-nucX, dyN = ay-nucY;
+    var distN = Math.sqrt(dxN*dxN+dyN*dyN);
+    var ux = dxN/Math.max(1,distN), uy = dyN/Math.max(1,distN);
+
+    if(curPhase==='curve' && distN < ATOM_R+25){
+      var intensity = clamp01(1 - (distN-8)/(ATOM_R+17));
+
+      // Pulsing repulsion waves from nucleus
+      for(var pr=0;pr<3;pr++){
+        var pulseR = NUC_R + 3 + pr*9 + ((t*30)%9);
+        var pulseA = intensity * (0.4 - pr*0.1);
+        if(pulseA > 0.02 && pulseR < distN){
+          ctx.strokeStyle='rgba(239,68,68,'+pulseA+')'; ctx.lineWidth=1.5;
+          ctx.beginPath(); ctx.arc(nucX,nucY,pulseR,0,Math.PI*2); ctx.stroke();
+        }
+      }
+
+      // BIG force arrow: nucleus → alpha (PUSH)
+      var fMag = Math.min(50, 1000/(distN*distN)*40);
+      if(fMag > 4){
+        drawArrow(nucX+ux*7,nucY+uy*7, nucX+ux*(7+fMag),nucY+uy*(7+fMag), '#ef4444', 3);
+        ctx.font='bold 11px Fredoka One'; ctx.textAlign='center';
+        ctx.fillStyle='rgba(248,113,113,'+Math.min(1,intensity*1.8)+')';
+        ctx.fillText('PUSH!', nucX+ux*(fMag+20), nucY+uy*(fMag+20));
+      }
+
+      // Distance line nucleus↔alpha
+      ctx.strokeStyle='rgba(251,191,36,0.2)'; ctx.lineWidth=1; ctx.setLineDash([3,3]);
+      ctx.beginPath(); ctx.moveTo(nucX,nucY); ctx.lineTo(ax,ay); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Pulsing "+" on both
+      var plusSz = 12 + 3*Math.sin(t*5);
+      ctx.font='bold '+Math.round(plusSz)+'px sans-serif';
+      ctx.fillStyle='#ef4444'; ctx.fillText('+',nucX,nucY+plusSz*0.35);
+      ctx.fillStyle='#fbbf24'; ctx.fillText('+',ax+(ux>0?12:-12),ay-10);
+
+      // "Like charges REPEL" callout
+      if(intensity > 0.25){
+        ctx.globalAlpha = Math.min(1,intensity*1.5);
+        rrect(nucX-90,nucY+NUC_R+14,130,38,8);
+        ctx.fillStyle='rgba(127,29,29,0.88)'; ctx.fill();
+        ctx.font='bold 10px Nunito'; ctx.textAlign='center';
+        ctx.fillStyle='#fca5a5';
+        ctx.fillText('Both are + POSITIVE',nucX-25,nucY+NUC_R+30);
+        ctx.fillStyle='#fecaca'; ctx.font='bold 11px Fredoka One';
+        ctx.fillText('Like charges REPEL!',nucX-25,nucY+NUC_R+46);
+        ctx.globalAlpha=1;
+      }
+    }
+
+    // ── Alpha particle ──
+    ctx.shadowColor='rgba(251,191,36,0.7)'; ctx.shadowBlur=12;
+    var ag = ctx.createRadialGradient(ax-1,ay-1,1,ax,ay,7);
+    ag.addColorStop(0,'#fef3c7'); ag.addColorStop(0.5,'#fbbf24'); ag.addColorStop(1,'#d97706');
+    ctx.fillStyle=ag;
+    ctx.beginPath(); ctx.arc(ax,ay,7,0,Math.PI*2); ctx.fill();
+    ctx.shadowBlur=0;
+    ctx.fillStyle='#78350f'; ctx.font='bold 8px sans-serif'; ctx.textAlign='center';
+    ctx.fillText('α²⁺',ax,ay+3);
+
+    // Label what's happening at each phase
+    if(curPhase==='straight'){
+      ctx.font='bold 10px Nunito'; ctx.fillStyle='#86efac'; ctx.textAlign='center';
+      ctx.fillText('→ Travelling straight toward foil', ax, ay-16);
+    } else if(curPhase==='exit'){
+      ctx.font='bold 10px Nunito'; ctx.fillStyle='#c4b5fd'; ctx.textAlign='center';
+      ctx.fillText('Deflected! Exits at an angle ↗', ax-30, ay-16);
+    }
+
+    // ── Deflection angle after exiting foil ──
+    if(curPhase==='exit' && phExplain < 0.3){
+      var exitAngle = Math.atan2(eUy,eUx);
+      var angleDeg = Math.round(Math.abs(exitAngle) * 180/Math.PI);
+      var arcCx = foilRight + 15, arcCy = startY;
+      ctx.strokeStyle='rgba(165,180,252,0.6)'; ctx.lineWidth=2;
+      ctx.beginPath();
+      ctx.arc(arcCx,arcCy,22,0,exitAngle,exitAngle<0);
+      ctx.stroke();
+      ctx.font='bold 12px Fredoka One'; ctx.fillStyle='#a5b4fc'; ctx.textAlign='left';
+      ctx.fillText(angleDeg+'°',arcCx+26,arcCy+(exitAngle>0?14:-6));
+    }
+
+    // ── Explanation card ──
+    if(phExplain > 0){
+      ctx.globalAlpha=ease(phExplain);
+      rrect(15,15,330,115,12);
+      ctx.fillStyle='rgba(49,46,129,0.93)'; ctx.fill();
+      ctx.strokeStyle='#a5b4fc'; ctx.lineWidth=1.5;
+      rrect(15,15,330,115,12); ctx.stroke();
+
+      ctx.font='bold 13px Fredoka One'; ctx.textAlign='left';
+      ctx.fillStyle='#c4b5fd';
+      ctx.fillText('WHY did it deflect?', 30, 38);
+      ctx.font='bold 10px Nunito'; ctx.fillStyle='#ddd6fe';
+      ctx.fillText('1. Particle enters foil → passes near a nucleus', 30, 56);
+      ctx.fillText('2. Alpha (+2) and nucleus (+79) are both POSITIVE', 30, 72);
+      ctx.fillText('3. Coulomb repulsion PUSHES the particle sideways', 30, 88);
+      ctx.fillText('4. Particle exits foil at an angle — DEFLECTED!', 30, 104);
+      ctx.fillStyle='#fbbf24'; ctx.font='bold 11px Fredoka One';
+      ctx.fillText('Closer to nucleus → stronger push → bigger angle!', 30, 120);
+      ctx.globalAlpha=1;
+    }
+
+    // Stats badge
+    ctx.globalAlpha=0.7;
+    rrect(10,H-35,180,28,8);
+    ctx.fillStyle='rgba(0,0,0,0.6)'; ctx.fill();
+    ctx.font='bold 10px Nunito'; ctx.textAlign='center';
+    ctx.fillStyle='#c4b5fd';
+    ctx.fillText('~0.5% of particles do this', 100, H-17);
+    ctx.globalAlpha=1;
+
+    // Title
+    ctx.font='bold 14px Fredoka One'; ctx.textAlign='center';
+    ctx.fillStyle='#a5b4fc';
+    ctx.fillText('Case 2: Alpha Particle Deflected — Repelled Inside Foil', W/2, H-8);
+  }
+
+  // ===== SCENE 2: Bounces Back =====
+  function drawBounce(p){
+    drawBackground();
+    drawSource();
+    var targetAtom = 1;
+    drawGoldAtoms(targetAtom);
+    drawDetector();
+
+    var CYCLE = 8.0;
+    var pp = (t % CYCLE) / CYCLE;
+    var nucX = atoms[targetAtom].x, nucY = atoms[targetAtom].y;
+    var foilLeft = foilX - 55;
+
+    var startX = 80, alphaY = nucY;
+    var stopX = nucX - NUC_R - 12;
+
+    // Phases: straight to foil → enter foil & slow down → stop → bounce back out → exit left → explain
+    var ph0 = clamp01(pp/0.15);          // straight travel to foil edge
+    var ph1 = clamp01((pp-0.15)/0.18);   // enter foil, approach nucleus, slowing
+    var ph2 = clamp01((pp-0.33)/0.06);   // final approach, almost stopped
+    var ph3 = clamp01((pp-0.39)/0.06);   // momentary stop + shock
+    var ph4 = clamp01((pp-0.45)/0.08);   // bounce inside foil
+    var ph5 = clamp01((pp-0.53)/0.12);   // exit foil back to left
+    var ph6 = clamp01((pp-0.65)/0.35);   // explanation
+
+    var ax, ay = alphaY;
+    var isBouncing = (pp >= 0.45);
+    if(ph0 < 1){
+      ax = lerp(startX, foilLeft, ease(ph0));
+    } else if(ph1 < 1){
+      ax = lerp(foilLeft, stopX + 25, ease(ph1));
+    } else if(ph2 < 1){
+      ax = lerp(stopX + 25, stopX, ease(ph2));
+    } else if(ph3 < 1){
+      ax = stopX + Math.sin(ph3*Math.PI*8)*2;
+    } else if(ph4 < 1){
+      ax = lerp(stopX, foilLeft, ease(ph4));
+    } else if(ph5 < 1){
+      ax = lerp(foilLeft, startX - 30, ease(ph5));
+    } else {
+      ax = startX - 30;
+    }
+
+    // Is particle inside the foil?
+    var insideFoil = (ax >= foilLeft - 5 && ax <= foilX + 55);
+
+    // ── "ENTERS FOIL" marker ──
+    ctx.strokeStyle='rgba(251,191,36,0.3)'; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(foilLeft, alphaY-20); ctx.lineTo(foilLeft, alphaY+20); ctx.stroke();
+    ctx.font='bold 8px Nunito'; ctx.fillStyle='rgba(251,191,36,0.5)'; ctx.textAlign='center';
+    ctx.fillText('FOIL', foilLeft, alphaY-24);
+
+    // ── Incoming trail (yellow) ──
+    var trailEndX = Math.min(ax, stopX);
+    if(ph0 > 0.05 && ph4 < 0.8){
+      var grd = ctx.createLinearGradient(startX,0,trailEndX,0);
+      grd.addColorStop(0,'rgba(253,230,138,0)');
+      grd.addColorStop(1,'rgba(253,230,138,0.35)');
+      ctx.strokeStyle=grd; ctx.lineWidth=2;
+      ctx.beginPath(); ctx.moveTo(startX,alphaY); ctx.lineTo(trailEndX,alphaY); ctx.stroke();
+    }
+
+    // ── Return trail (red) ──
+    if(isBouncing && ph5 > 0){
+      var grd2 = ctx.createLinearGradient(stopX,0,ax,0);
+      grd2.addColorStop(0,'rgba(248,113,113,0.35)');
+      grd2.addColorStop(1,'rgba(248,113,113,0)');
+      ctx.strokeStyle=grd2; ctx.lineWidth=2.5;
+      ctx.beginPath(); ctx.moveTo(stopX,alphaY); ctx.lineTo(ax,alphaY); ctx.stroke();
+    }
+
+    // ── Phase labels ──
+    if(ph0 < 1){
+      ctx.font='bold 10px Nunito'; ctx.fillStyle='#86efac'; ctx.textAlign='center';
+      ctx.fillText('→ Heading straight for the foil', ax, ay-18);
+    }
+    if(ph0 >= 1 && ph1 < 1){
+      ctx.font='bold 10px Nunito'; ctx.fillStyle='#fbbf24'; ctx.textAlign='center';
+      ctx.fillText('Entered foil — heading directly at nucleus!', ax-20, ay-18);
+    }
+
+    // ── Slowing down arrows (getting shorter as it approaches) ──
+    if(ph1 > 0.2 && ph2 < 1 && !isBouncing){
+      var speedFrac = ph2 > 0 ? 1 - ease(ph2) : Math.max(0.3, 1 - ph1*0.7);
+      var arLen = speedFrac * 30;
+      if(arLen > 3){
+        drawArrow(ax+12,alphaY,ax+12+arLen,alphaY,'rgba(251,191,36,'+(speedFrac*0.7+0.3)+')',2);
+        ctx.font='bold 9px Nunito'; ctx.textAlign='left';
+        ctx.fillStyle='rgba(253,230,138,'+(speedFrac*0.7+0.3)+')';
+        if(speedFrac > 0.6) ctx.fillText('FAST →', ax+arLen+16, alphaY+3);
+        else if(speedFrac > 0.3) ctx.fillText('slowing...', ax+arLen+16, alphaY+3);
+        else ctx.fillText('almost stopped!', ax+arLen+16, alphaY+3);
+      }
+    }
+
+    // ── Reverse arrow after bounce ──
+    if(ph4 > 0.1 && ph5 < 0.9){
+      var revLen = Math.min(ease(isBouncing?ph5:ph4), 1) * 35;
+      drawArrow(ax-12,alphaY,ax-12-revLen,alphaY,'#f87171',2.5);
+      ctx.font='bold 10px Nunito'; ctx.fillStyle='#fca5a5'; ctx.textAlign='right';
+      ctx.fillText('← BOUNCED BACK!', ax-revLen-20, alphaY+3);
+    }
+
+    // ── INTENSE repulsion when inside foil near nucleus ──
+    var distToNuc = Math.abs(ax - nucX);
+    if(insideFoil && distToNuc < ATOM_R + 20 && !isBouncing){
+      var intensity = clamp01(1 - distToNuc / (ATOM_R+20));
+
+      // Pulsing force field waves
+      for(var ri=0;ri<4;ri++){
+        var ringR = NUC_R + 4 + ri*10 + ((t*25)%10);
+        var ringA = intensity * (0.4 - ri*0.08);
+        if(ringA > 0.02 && ringR < distToNuc){
+          ctx.strokeStyle='rgba(239,68,68,'+ringA+')'; ctx.lineWidth=1.5;
+          ctx.beginPath(); ctx.arc(nucX,nucY,ringR,0,Math.PI*2); ctx.stroke();
+        }
+      }
+
+      // Big repulsion arrow pushing LEFT
+      var fMag = intensity * 55;
+      if(fMag > 5){
+        drawArrow(nucX-NUC_R-4, nucY, nucX-NUC_R-4-fMag, nucY, '#ef4444', 3.5);
+        ctx.font='bold 11px Fredoka One'; ctx.fillStyle='#fca5a5'; ctx.textAlign='center';
+        ctx.fillText('ENORMOUS', nucX-NUC_R-fMag/2, nucY-18);
+        ctx.fillText('REPULSION!', nucX-NUC_R-fMag/2, nucY-6);
+      }
+
+      // Pulsing + signs
+      var plusSz = 13 + 4*Math.sin(t*6);
+      ctx.font='bold '+Math.round(plusSz)+'px sans-serif';
+      ctx.fillStyle='#ef4444'; ctx.fillText('+',nucX,nucY+plusSz*0.35);
+      ctx.fillStyle='#fbbf24'; ctx.fillText('+',ax-10,ay-12);
+
+      // "HEAD-ON" label
+      if(intensity > 0.4){
+        ctx.globalAlpha=intensity;
+        rrect(nucX-100,nucY+NUC_R+15,140,40,8);
+        ctx.fillStyle='rgba(127,29,29,0.9)'; ctx.fill();
+        ctx.font='bold 10px Nunito'; ctx.textAlign='center';
+        ctx.fillStyle='#fca5a5';
+        ctx.fillText('DIRECT HIT on nucleus!', nucX-30, nucY+NUC_R+32);
+        ctx.fillStyle='#fecaca'; ctx.font='bold 10px Fredoka One';
+        ctx.fillText('Maximum repulsive force!', nucX-30, nucY+NUC_R+48);
+        ctx.globalAlpha=1;
+      }
+    }
+
+    // ── Shock waves at moment of stop ──
+    if(ph3 > 0 && ph3 < 1){
+      for(var sl=0;sl<8;sl++){
+        var sa=sl*Math.PI/4;
+        var sr1=NUC_R+5, sr2=NUC_R+10+ph3*25;
+        ctx.strokeStyle='rgba(239,68,68,'+(0.6*(1-ph3))+')'; ctx.lineWidth=2;
+        ctx.beginPath();
+        ctx.moveTo(nucX+Math.cos(sa)*sr1,nucY+Math.sin(sa)*sr1);
+        ctx.lineTo(nucX+Math.cos(sa)*sr2,nucY+Math.sin(sa)*sr2);
+        ctx.stroke();
+      }
+      ctx.strokeStyle='rgba(239,68,68,'+(0.5*(1-ph3))+')'; ctx.lineWidth=2;
+      ctx.beginPath(); ctx.arc(nucX,nucY,NUC_R+5+ph3*25,0,Math.PI*2); ctx.stroke();
+    }
+
+    // ── Alpha particle ──
+    ctx.shadowColor = isBouncing ? 'rgba(248,113,113,0.7)' : 'rgba(251,191,36,0.7)';
+    ctx.shadowBlur=12;
+    var ag = ctx.createRadialGradient(ax-1,ay-1,1,ax,ay,7);
+    if(isBouncing){
+      ag.addColorStop(0,'#fecaca'); ag.addColorStop(0.5,'#f87171'); ag.addColorStop(1,'#dc2626');
+    } else {
+      ag.addColorStop(0,'#fef3c7'); ag.addColorStop(0.5,'#fbbf24'); ag.addColorStop(1,'#d97706');
+    }
+    ctx.fillStyle=ag;
+    ctx.beginPath(); ctx.arc(ax,ay,7,0,Math.PI*2); ctx.fill();
+    ctx.shadowBlur=0;
+    ctx.fillStyle = isBouncing ? '#7f1d1d' : '#78350f';
+    ctx.font='bold 8px sans-serif'; ctx.textAlign='center';
+    ctx.fillText('α²⁺',ax,ay+3);
+
+    // ── Explanation card ──
+    if(ph6 > 0){
+      ctx.globalAlpha=ease(ph6);
+      rrect(30,15,330,118,12);
+      ctx.fillStyle='rgba(127,29,29,0.93)'; ctx.fill();
+      ctx.strokeStyle='#fca5a5'; ctx.lineWidth=1.5;
+      rrect(30,15,330,118,12); ctx.stroke();
+
+      ctx.font='bold 13px Fredoka One'; ctx.textAlign='left';
+      ctx.fillStyle='#fca5a5';
+      ctx.fillText('WHY did it bounce back?', 45, 38);
+      ctx.font='bold 10px Nunito'; ctx.fillStyle='#fecaca';
+      ctx.fillText('1. Particle entered foil → aimed directly at nucleus', 45, 56);
+      ctx.fillText('2. Nucleus (+79) repels alpha (+2) with HUGE force', 45, 72);
+      ctx.fillText('3. Nucleus is extremely DENSE (almost all mass)', 45, 88);
+      ctx.fillText('4. Like a marble hitting a bowling ball → rebounds!', 45, 104);
+      ctx.fillStyle='#fca5a5'; ctx.font='bold 11px Fredoka One';
+      ctx.fillText('Force so strong it REVERSES direction = 180° bounce!', 45, 122);
+      ctx.globalAlpha=1;
+    }
+
+    // Stats badge
+    ctx.globalAlpha=0.7;
+    rrect(10,H-35,220,28,8);
+    ctx.fillStyle='rgba(0,0,0,0.6)'; ctx.fill();
+    ctx.font='bold 10px Nunito'; ctx.textAlign='center';
+    ctx.fillStyle='#fca5a5';
+    ctx.fillText('Only ~0.01% (1 in 10,000) bounce back!', 120, H-17);
+    ctx.globalAlpha=1;
+
+    // Title
+    ctx.font='bold 14px Fredoka One'; ctx.textAlign='center';
+    ctx.fillStyle='#fca5a5';
+    ctx.fillText('Case 3: Direct Hit on Nucleus — Bounces Back!', W/2, H-8);
+  }
+
+  var drawFns = [drawPassThrough, drawDeflect, drawBounce];
+
+  function frame(){
+    t += 1/60;
+    ctx.clearRect(0,0,W,H);
+    drawFns[scene](t);
+    requestAnimationFrame(frame);
+  }
+
+  setScene(0);
+  frame();
 })();
 </script>
 </body>
