@@ -1,0 +1,2716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Ch 2: Arithmetic Expressions — Class 7 Maths | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple-darkest: #3b0764;
+  --purple-dark: #5b21b6;
+  --purple-mid: #7c3aed;
+  --purple-light: #a78bfa;
+  --purple-pale: #ede9fe;
+  --purple-bg: #faf5ff;
+  --pink: #ec4899;
+  --pink-pale: #fdf2f8;
+  --orange: #f97316;
+  --orange-pale: #fff7ed;
+  --yellow: #fbbf24;
+  --yellow-pale: #fefce8;
+  --green: #16a34a;
+  --green-pale: #f0fdf4;
+  --blue: #3b82f6;
+  --blue-pale: #eff6ff;
+  --red: #ef4444;
+  --red-pale: #fef2f2;
+  --teal: #14b8a6;
+  --teal-pale: #f0fdfa;
+  --bg: linear-gradient(180deg, #faf5ff 0%, #fff7ed 100%);
+  --text: #1e1b4b;
+  --card: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #faf5ff;
+  background-image: linear-gradient(180deg, #faf5ff 0%, #fff7ed 50%, #faf5ff 100%);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ============= TOP NAV ============= */
+.top-nav {
+  background: white;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 110;
+}
+.nav-link {
+  display: inline-block;
+  background: var(--purple-pale);
+  color: var(--purple-dark);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1.5px solid #c4b5fd;
+  transition: all 0.2s;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+}
+.nav-link:hover { background: #ddd6fe; transform: translateY(-1px); }
+.nav-spacer { flex: 1; }
+.share-btn { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+.share-btn:hover { background: #dbeafe; }
+
+/* ============= NAV TOC ============= */
+.toc-bar {
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
+  padding: 12px 16px;
+  position: sticky;
+  top: 44px;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(124,58,237,0.3);
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.toc-bar a {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-right: 6px;
+  transition: all 0.2s;
+}
+.toc-bar a:hover {
+  background: rgba(255,255,255,0.35);
+  transform: translateY(-2px);
+}
+
+/* ============= HERO ============= */
+.hero {
+  background: linear-gradient(180deg, #7c3aed 0%, #a78bfa 30%, #c4b5fd 55%, #fde68a 85%, #fff7ed 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  padding-bottom: 30px;
+}
+.hero-star {
+  position: absolute;
+  color: rgba(255,255,255,0.6);
+  animation: twinkle 2s ease-in-out infinite;
+}
+@keyframes twinkle { 0%,100%{opacity:0.3;transform:scale(0.8)} 50%{opacity:1;transform:scale(1.2)} }
+
+.hero-content { position: relative; z-index: 10; text-align: center; padding: 36px 16px 0; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.3);
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: 30px;
+  padding: 5px 18px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(28px, 6vw, 54px);
+  color: white;
+  text-shadow: 0 3px 12px rgba(91,33,182,0.4);
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+.hero p { color: white; font-size: 15px; font-weight: 700; opacity: 0.9; margin-bottom: 16px; }
+
+/* Expression rain animation */
+.expr-rain {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.rain-expr {
+  position: absolute;
+  font-family: 'Fredoka One', cursive;
+  color: rgba(255,255,255,0.15);
+  font-size: 20px;
+  animation: exprFall linear infinite;
+}
+@keyframes exprFall {
+  0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(500px) rotate(360deg); opacity: 0; }
+}
+
+/* Hero expression display */
+.hero-expr-box {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px 28px;
+  display: inline-block;
+  margin: 20px auto;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.hero-expr-display {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(24px, 6vw, 44px);
+  color: #fde047;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  letter-spacing: 2px;
+  min-height: 50px;
+}
+.hero-expr-label {
+  font-size: 14px;
+  color: white;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+/* ============= CONTAINER ============= */
+.container { max-width: 1000px; margin: 0 auto; padding: 36px 16px 60px; }
+
+/* ============= SECTION BLOCKS ============= */
+.section-block {
+  background: white;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  margin-bottom: 36px;
+  overflow: hidden;
+  scroll-margin-top: 100px;
+}
+.section-hd {
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: white;
+  font-family: 'Fredoka One', cursive;
+  font-size: 24px;
+  line-height: 1.2;
+}
+.section-hd .icon { font-size: 32px; }
+.section-bd { padding: 28px; }
+.section-bd > p { margin-bottom: 14px; }
+
+.g-purple { background: linear-gradient(135deg, #5b21b6, #a78bfa); }
+.g-pink   { background: linear-gradient(135deg, #9d174d, #ec4899); }
+.g-orange { background: linear-gradient(135deg, #9a3412, #fb923c); }
+.g-teal   { background: linear-gradient(135deg, #134e4a, #2dd4bf); }
+.g-blue   { background: linear-gradient(135deg, #1e40af, #38bdf8); }
+.g-green  { background: linear-gradient(135deg, #166534, #22c55e); }
+.g-rose   { background: linear-gradient(135deg, #881337, #fb7185); }
+.g-amber  { background: linear-gradient(135deg, #78350f, #fbbf24); }
+.g-indigo { background: linear-gradient(135deg, #312e81, #818cf8); }
+.g-sky    { background: linear-gradient(135deg, #0c4a6e, #38bdf8); }
+
+.subtitle {
+  font-family: 'Fredoka One', cursive;
+  color: var(--purple-dark);
+  font-size: 20px;
+  margin: 22px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============= SPEECH BUBBLES ============= */
+.speech-bubble {
+  position: relative;
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+}
+.purna-bubble {
+  background: #fdf2f8;
+  border: 2px solid #f9a8d4;
+  color: #831843;
+}
+.purna-bubble::after { left: 20px; background: #fdf2f8; border-right: 2px solid #f9a8d4; border-bottom: 2px solid #f9a8d4; }
+.mallesh-bubble {
+  background: #eff6ff;
+  border: 2px solid #93c5fd;
+  color: #1e3a5f;
+}
+.mallesh-bubble::after { right: 20px; background: #eff6ff; border-right: 2px solid #93c5fd; border-bottom: 2px solid #93c5fd; }
+.char-name { font-weight: 800; font-size: 13px; margin-bottom: 2px; }
+
+/* ============= KEY TERM PILL ============= */
+.kt {
+  display: inline-block;
+  background: #fde047;
+  color: #713f12;
+  border-radius: 7px;
+  padding: 1px 9px;
+  font-weight: 800;
+  font-size: 13px;
+  margin: 0 2px;
+}
+
+/* ============= INFO CARDS GRID ============= */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.info-card {
+  border-radius: 14px;
+  padding: 16px 18px;
+  font-size: 14px;
+}
+.info-card h4 { font-weight: 800; margin-bottom: 6px; font-size: 15px; }
+.info-card ul { padding-left: 18px; margin-top: 4px; }
+.info-card li { margin-bottom: 3px; }
+.ic-purple { background: #faf5ff; border-left: 5px solid #a78bfa; }
+.ic-pink   { background: #fdf2f8; border-left: 5px solid #ec4899; }
+.ic-orange { background: #fff7ed; border-left: 5px solid #fb923c; }
+.ic-green  { background: #f0fdf4; border-left: 5px solid #22c55e; }
+.ic-blue   { background: #eff6ff; border-left: 5px solid #3b82f6; }
+.ic-yellow { background: #fefce8; border-left: 5px solid #facc15; }
+.ic-red    { background: #fef2f2; border-left: 5px solid #f87171; }
+.ic-teal   { background: #f0fdfa; border-left: 5px solid #14b8a6; }
+
+/* ============= TABLES ============= */
+.table-wrap { overflow-x: auto; margin: 14px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 400px; }
+th { background: linear-gradient(135deg, #7c3aed, #a78bfa); color: white; padding: 12px 14px; text-align: left; font-weight: 800; font-size: 13px; }
+td { padding: 11px 14px; border-bottom: 1px solid #ede9fe; font-size: 13.5px; }
+tr:nth-child(even) td { background: #faf5ff; }
+
+/* ============= TRICK / NOTE / EXAMPLE ============= */
+.trick {
+  background: linear-gradient(135deg, #fef9c3, #fde68a);
+  border: 2px solid #f59e0b;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.trick strong { color: #78350f; }
+
+.note-box {
+  background: #eff6ff;
+  border-left: 5px solid #3b82f6;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 14px 0;
+  font-size: 14px;
+}
+
+.example-box {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border: 2px solid #86efac;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.example-box strong { color: #166534; }
+.example-box .ex-title {
+  font-family: 'Fredoka One', cursive;
+  color: #166534;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.fun-fact {
+  background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+  border: 2px solid #f9a8d4;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.fun-fact strong { color: #9d174d; }
+
+/* ============= ANIMATION BOX ============= */
+.anim-box {
+  background: linear-gradient(135deg, #faf5ff, #ede9fe);
+  border: 3px solid #c4b5fd;
+  border-radius: 18px;
+  padding: 24px;
+  margin: 20px 0;
+  text-align: center;
+  overflow: hidden;
+}
+.anim-box h3 {
+  font-family: 'Fredoka One', cursive;
+  color: var(--purple-dark);
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+.anim-stage {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  margin: 14px 0;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.anim-controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Expression blocks */
+.expr-block {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.expr-block.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.expr-arrow {
+  font-size: 24px;
+  color: var(--purple-mid);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.expr-arrow.show { opacity: 1; }
+.expr-result {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  color: white;
+  font-family: 'Fredoka One', cursive;
+  font-size: 28px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.5s ease;
+}
+.expr-result.show { opacity: 1; transform: scale(1); }
+
+/* Step evaluator */
+.step-line {
+  font-family: 'Fredoka One', cursive;
+  font-size: 22px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.5s ease;
+  display: inline-block;
+  margin: 4px 0;
+}
+.step-line.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.step-highlight {
+  background: #fde047;
+  color: #713f12;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+.step-correct { background: #dcfce7; color: #166534; }
+.step-wrong { background: #fee2e2; color: #991b1b; text-decoration: line-through; }
+
+/* Bar comparison */
+.bar-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.bar-label {
+  font-size: 12px;
+  font-weight: 800;
+  min-width: 120px;
+  text-align: right;
+  color: #374151;
+}
+.bar-track {
+  flex: 1;
+  height: 30px;
+  background: #f3f4f6;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 15px;
+  transition: width 1.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  color: white;
+  width: 0;
+}
+.bar-fill.fill-purple { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+.bar-fill.fill-pink { background: linear-gradient(135deg, #ec4899, #f9a8d4); }
+.bar-diff-label {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--orange);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.bar-diff-label.show { opacity: 1; }
+
+/* Term blocks */
+.term-block {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 18px;
+  margin: 4px;
+  transition: all 0.5s ease;
+}
+.term-plus {
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  color: #6b7280;
+  margin: 0 4px;
+}
+.tb-purple { background: #ede9fe; color: #5b21b6; border: 2px solid #a78bfa; }
+.tb-pink { background: #fce7f3; color: #9d174d; border: 2px solid #f9a8d4; }
+.tb-green { background: #dcfce7; color: #166534; border: 2px solid #86efac; }
+.tb-orange { background: #ffedd5; color: #9a3412; border: 2px solid #fdba74; }
+.tb-blue { background: #dbeafe; color: #1e40af; border: 2px solid #93c5fd; }
+.tb-red { background: #fee2e2; color: #991b1b; border: 2px solid #fca5a5; }
+
+/* Sign flip animation */
+@keyframes flipSign {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(90deg); }
+  100% { transform: rotateX(0deg); }
+}
+.sign-flip {
+  display: inline-block;
+  animation: flipSign 0.6s ease;
+}
+
+/* Rectangle distributive */
+.rect-visual {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
+  margin: 14px 0;
+}
+.rect-part {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fredoka One', cursive;
+  font-size: 16px;
+  color: white;
+  min-height: 80px;
+  transition: all 0.8s ease;
+  border: 2px solid rgba(255,255,255,0.5);
+}
+
+/* ============= INTERACTIVE EXERCISE STYLES ============= */
+.exercise-box {
+  margin-top: 24px;
+  padding: 20px;
+  background: linear-gradient(135deg, #faf5ff 0%, #ede9fe 100%);
+  border-radius: 16px;
+  border: 2px dashed #c4b5fd;
+}
+.exercise-box .subtitle { color: #5b21b6; }
+
+.q-item {
+  background: white;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #7c3aed;
+}
+.q-item .q-text { font-weight: 700; font-size: 14px; color: #5b21b6; margin-bottom: 8px; }
+.q-item input[type="text"], .q-item input[type="number"] {
+  padding: 6px 12px;
+  border: 2px solid #c4b5fd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  width: 80px;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.q-item input:focus { border-color: #7c3aed; }
+.q-feedback {
+  display: inline-block;
+  margin-left: 8px;
+  font-weight: 800;
+  font-size: 14px;
+}
+.q-feedback.correct { color: #16a34a; }
+.q-feedback.wrong { color: #ef4444; }
+.q-answer {
+  font-size: 13px;
+  color: #16a34a;
+  font-weight: 700;
+  display: none;
+  margin-top: 6px;
+}
+.q-item.show-ans .q-answer { display: block; }
+
+/* Buttons */
+.game-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.2s;
+  margin: 4px;
+}
+.game-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.game-btn:active { transform: translateY(0); }
+.btn-purple { background: linear-gradient(135deg, #7c3aed, #a78bfa); color: white; }
+.btn-pink { background: linear-gradient(135deg, #ec4899, #f9a8d4); color: white; }
+.btn-orange { background: linear-gradient(135deg, #f97316, #fdba74); color: white; }
+.btn-green { background: linear-gradient(135deg, #16a34a, #4ade80); color: white; }
+.btn-blue { background: linear-gradient(135deg, #3b82f6, #93c5fd); color: white; }
+.btn-sm { padding: 6px 14px; font-size: 12px; border-radius: 10px; }
+
+.toggle-ans-btn {
+  background: none;
+  border: 1.5px solid #c4b5fd;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #7c3aed;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.2s;
+}
+.toggle-ans-btn:hover { background: #ede9fe; }
+
+/* Reveal button for term table */
+.reveal-btn {
+  background: none;
+  border: 1.5px solid #c4b5fd;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #7c3aed;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.2s;
+}
+.reveal-btn:hover { background: #ede9fe; }
+.term-hidden {
+  background: #ede9fe;
+  color: #ede9fe;
+  border-radius: 6px;
+  padding: 2px 8px;
+  user-select: none;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.term-hidden.revealed { color: #5b21b6; background: #faf5ff; }
+
+/* ============= MCQ ============= */
+.mcq-list { list-style: none; padding: 0; }
+.mcq-item {
+  background: white;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #7c3aed;
+}
+.mcq-q { font-weight: 700; font-size: 14.5px; margin-bottom: 10px; color: #5b21b6; }
+.mcq-options { list-style: none; padding-left: 0; }
+.mcq-options li {
+  background: #faf5ff;
+  border-radius: 8px;
+  padding: 7px 12px;
+  margin-bottom: 5px;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1.5px solid transparent;
+}
+.mcq-options li:hover { background: #ede9fe; border-color: #a78bfa; }
+.mcq-options li.correct { background: #d1fae5 !important; border-color: #22c55e; font-weight: 700; color: #14532d; }
+.mcq-options li.wrong-pick { background: #fee2e2 !important; border-color: #ef4444; }
+.mcq-ans { font-size: 12.5px; color: #16a34a; font-weight: 700; margin-top: 6px; display: none; }
+.mcq-item.show-ans .mcq-ans { display: block; }
+
+/* Fill blanks */
+.fib-item {
+  background: white;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #f97316;
+}
+.fib-q { font-weight: 700; font-size: 14px; color: #9a3412; margin-bottom: 4px; }
+.fib-a { font-size: 13px; color: #16a34a; font-weight: 700; display: none; }
+.fib-item.show-ans .fib-a { display: block; }
+
+/* True/False */
+.tf-item {
+  background: white;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #14b8a6;
+}
+.tf-q { font-weight: 700; font-size: 14px; color: #134e4a; margin-bottom: 4px; }
+.tf-a { font-size: 13px; color: #7c3aed; font-weight: 700; display: none; }
+.tf-item.show-ans .tf-a { display: block; }
+
+/* Short Q&A */
+.short-q-list { list-style: none; padding: 0; }
+.short-q-item {
+  background: white;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #3b82f6;
+}
+.short-q { font-weight: 700; font-size: 14px; color: #1e40af; margin-bottom: 6px; }
+.short-a { font-size: 13.5px; color: #374151; display: none; }
+.short-a strong { color: #5b21b6; }
+.short-q-item.show-ans .short-a { display: block; }
+
+/* ============= CHALLENGE CARDS ============= */
+.challenge-card {
+  background: linear-gradient(135deg, #fdf2f8, #ede9fe);
+  border: 3px solid #c084fc;
+  border-radius: 18px;
+  padding: 20px;
+  margin: 16px 0;
+  position: relative;
+  overflow: hidden;
+}
+.challenge-card::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  background: rgba(192,132,252,0.15);
+  border-radius: 50%;
+}
+.challenge-card h4 {
+  font-family: 'Fredoka One', cursive;
+  color: #7c3aed;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.challenge-card p {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* Dot group animation */
+.dot-group-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 10px;
+}
+.dot-group {
+  display: grid;
+  grid-template-columns: repeat(5, 16px);
+  gap: 4px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 2px dashed #c4b5fd;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.5s ease;
+}
+.dot-group.show { opacity: 1; transform: scale(1); }
+.dot-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--purple-mid);
+}
+.dot-remainder {
+  display: flex;
+  gap: 4px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 2px dashed #fbbf24;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.dot-remainder.show { opacity: 1; }
+.dot-remainder .dot-circle { background: #f97316; }
+
+/* Grid array visual */
+.grid-array {
+  display: inline-grid;
+  gap: 4px;
+  padding: 10px;
+  border-radius: 12px;
+  background: white;
+  border: 2px solid #e5e7eb;
+}
+.grid-cell {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+/* ============= SCROLL REVEAL ============= */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============= FAB SHARE ============= */
+.fab-share {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 16px rgba(124,58,237,0.4);
+  cursor: pointer;
+  z-index: 200;
+  transition: transform 0.2s;
+}
+.fab-share:hover { transform: scale(1.1); }
+
+/* ============= SHARE OVERLAY ============= */
+.share-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+}
+.share-overlay.active { display: flex; }
+.share-box {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  width: 90%;
+  max-width: 340px;
+  text-align: center;
+}
+.share-box h3 { font-family: 'Fredoka One', cursive; color: #7c3aed; margin-bottom: 18px; }
+.share-opt {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-family: 'Nunito', sans-serif;
+  transition: transform 0.2s;
+}
+.share-opt:hover { transform: scale(1.02); }
+.share-opt.wa { background: #25d366; color: white; }
+.share-opt.copy { background: #eff6ff; color: #1e40af; }
+.share-opt.native { background: #faf5ff; color: #7c3aed; }
+.share-close { background: none; border: 1px solid #e5e7eb; width: 100%; padding: 10px; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; color: #6b7280; }
+.copy-feedback { display: none; color: #16a34a; font-weight: 700; margin-top: 10px; font-size: 14px; }
+
+/* ============= FOOTER ============= */
+footer {
+  text-align: center;
+  padding: 30px 16px;
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+footer .footer-interest {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 24px;
+  background: rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 20px;
+  color: white;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+footer .footer-interest:hover { background: rgba(255,255,255,0.35); }
+
+/* ============= BOTTOM NAV ============= */
+.bottom-nav {
+  max-width: 1000px;
+  margin: 0 auto 30px;
+  padding: 0 16px;
+}
+.bnav-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.bnav-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.bnav-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.bnav-card.disabled { opacity: 0.4; pointer-events: none; }
+.bnav-dir { font-size: 13px; font-weight: 700; color: #7c3aed; }
+.bnav-title { font-size: 16px; font-weight: 800; color: var(--text); }
+.bnav-bottom {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.bnav-home {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s;
+  background: #faf5ff; color: #7c3aed; border: 2px solid #c4b5fd;
+}
+.bnav-home:hover { transform: translateY(-2px); }
+
+/* ============= RESPONSIVE ============= */
+@media (max-width: 600px) {
+  .section-hd { font-size: 18px; padding: 16px 18px; }
+  .section-bd { padding: 18px; }
+  .bnav-cards { grid-template-columns: 1fr; }
+  .info-grid { grid-template-columns: 1fr; }
+  .bar-label { min-width: 80px; font-size: 11px; }
+  .rect-visual { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<nav class="top-nav">
+  <a href="index.html" class="nav-link">&#8592; Back</a>
+  <span class="nav-link" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);color:white;border-color:#7c3aed;">Ch 2: Arithmetic Expressions</span>
+  <span class="nav-spacer"></span>
+  <span class="nav-link share-btn" onclick="openShare()">&#128279; Share</span>
+</nav>
+
+<!-- ===== TOC BAR ===== -->
+<div class="toc-bar">
+  <a href="#sec1">Simple Expressions</a>
+  <a href="#sec2">Comparing</a>
+  <a href="#sec3">Brackets &amp; Terms</a>
+  <a href="#sec4">Brackets in Expressions</a>
+  <a href="#sec5">Terms</a>
+  <a href="#sec6">Swapping &amp; Grouping</a>
+  <a href="#sec7">Stories &amp; Terms</a>
+  <a href="#sec8">Removing Brackets I</a>
+  <a href="#sec9">Removing Brackets II</a>
+  <a href="#sec10">Figure it Out 5</a>
+  <a href="#sec11">Expression Engineer</a>
+  <a href="#sec12">Practice</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="expr-rain" id="exprRain"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Class 7 Mathematics &mdash; Chapter 2</div>
+    <h1>Arithmetic Expressions</h1>
+    <p>Understanding expressions, brackets, terms &amp; properties</p>
+    <div class="hero-expr-box">
+      <div class="hero-expr-display" id="heroExpr">2 + 3 &times; 4 = ?</div>
+      <div class="hero-expr-label">Watch the expression evaluate step by step!</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ================================================================== -->
+<!-- SECTION 1: Simple Expressions                                      -->
+<!-- ================================================================== -->
+<div class="section-block reveal" id="sec1">
+  <div class="section-hd g-purple">
+    <span class="icon">&#9998;</span>
+    <span>1. Simple Expressions</span>
+  </div>
+  <div class="section-bd">
+
+    <p>An <span class="kt">arithmetic expression</span> is a mathematical phrase that combines numbers with operations. Think of it as a compact way to describe a calculation.</p>
+
+    <div class="info-grid">
+      <div class="info-card ic-purple">
+        <h4>&#10133; Addition</h4>
+        <p>13 + 2 = 15</p>
+      </div>
+      <div class="info-card ic-pink">
+        <h4>&#10134; Subtraction</h4>
+        <p>20 &minus; 4 = 16</p>
+      </div>
+      <div class="info-card ic-orange">
+        <h4>&#10006; Multiplication</h4>
+        <p>12 &times; 5 = 60</p>
+      </div>
+      <div class="info-card ic-green">
+        <h4>&#10135; Division</h4>
+        <p>18 &divide; 3 = 6</p>
+      </div>
+    </div>
+
+    <p>Every expression has a <span class="kt">value</span> &mdash; the number it evaluates to. The <strong>= sign</strong> shows the relationship between an expression and its value.</p>
+
+    <div class="note-box">
+      <strong>&#128161; Key Idea:</strong> Different expressions can have the <em>same value</em>! For example, all of these equal <strong>12</strong>:
+      <br>10 + 2 &nbsp;&bull;&nbsp; 15 &minus; 3 &nbsp;&bull;&nbsp; 3 &times; 4 &nbsp;&bull;&nbsp; 24 &divide; 2
+    </div>
+
+    <!-- Animation: Multiple expressions = same value -->
+    <div class="anim-box">
+      <h3>&#127916; Multiple Expressions, One Value</h3>
+      <div class="anim-stage" id="sameValStage">
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:center;width:100%;">
+          <div class="expr-block tb-purple" id="sv1">10 + 2</div>
+          <div class="expr-block tb-pink" id="sv2">15 &minus; 3</div>
+          <div class="expr-block tb-green" id="sv3">3 &times; 4</div>
+          <div class="expr-block tb-orange" id="sv4">24 &divide; 2</div>
+          <div class="expr-arrow" id="svArrow" style="font-size:28px;">&#8595;</div>
+          <div class="expr-result" id="svResult">= 12</div>
+        </div>
+      </div>
+      <div class="anim-controls">
+        <button class="game-btn btn-purple" onclick="playSameVal()">&#9654; Play</button>
+        <button class="game-btn btn-orange" onclick="resetSameVal()">&#8635; Reset</button>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 1: Mallika's Lunch</div>
+      <p>Mallika spends &#8377;25 every day for lunch from Monday to Friday.</p>
+      <p><strong>Expression:</strong> 5 &times; 25 = 125</p>
+      <p>So Mallika spends <strong>&#8377;125</strong> on lunch in a week.</p>
+    </div>
+
+    <div class="trick">
+      <strong>&#128161; Remember:</strong> An expression is a <em>mathematical phrase</em>, not a sentence. It doesn't have an = sign by itself. When we write "5 &times; 25 = 125", the left side (5 &times; 25) is the expression, 125 is its value, and = connects them.
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================================== -->
+<!-- SECTION 2: Comparing Expressions                                   -->
+<!-- ================================================================== -->
+<div class="section-block reveal" id="sec2">
+  <div class="section-hd g-pink">
+    <span class="icon">&#9878;</span>
+    <span>2. Comparing Expressions</span>
+  </div>
+  <div class="section-bd">
+
+    <p>We can compare expressions using <span class="kt">&gt;</span>, <span class="kt">&lt;</span>, and <span class="kt">=</span> by finding their values first.</p>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 2: Raja vs Joy &mdash; Marble Challenge</div>
+      <p>Raja has <strong>1023 + 125</strong> marbles. Joy has <strong>1022 + 128</strong> marbles. Who has more?</p>
+      <p>Raja: 1023 + 125 = <strong>1148</strong></p>
+      <p>Joy: 1022 + 128 = <strong>1150</strong></p>
+      <p>Joy has <strong>2 more</strong> marbles! So: <span class="kt">1023 + 125 &lt; 1022 + 128</span></p>
+    </div>
+
+    <!-- Animated bar comparison -->
+    <div class="anim-box">
+      <h3>&#128202; Marble Comparison</h3>
+      <div class="anim-stage" style="flex-direction:column;padding:20px;">
+        <div class="bar-compare" id="marbleCompare">
+          <div class="bar-row">
+            <div class="bar-label">Raja<br>1023+125</div>
+            <div class="bar-track"><div class="bar-fill fill-purple" id="barRaja">1148</div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Joy<br>1022+128</div>
+            <div class="bar-track"><div class="bar-fill fill-pink" id="barJoy">1150</div></div>
+          </div>
+          <div class="bar-diff-label" id="barDiff">Joy has 2 more marbles!</div>
+        </div>
+      </div>
+      <div class="anim-controls">
+        <button class="game-btn btn-pink" onclick="playMarbleBar()">&#9654; Play</button>
+        <button class="game-btn btn-orange" onclick="resetMarbleBar()">&#8635; Reset</button>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 3: Equal Expressions</div>
+      <p>Compare: 113 &minus; 25 vs 112 &minus; 24</p>
+      <p>113 &minus; 25 = <strong>88</strong></p>
+      <p>112 &minus; 24 = <strong>88</strong></p>
+      <p>They are <strong>equal</strong>! So: <span class="kt">113 &minus; 25 = 112 &minus; 24</span></p>
+    </div>
+
+    <div class="trick">
+      <strong>&#128161; Quick Trick:</strong> Sometimes you can compare without fully computing. If one expression adds more and the other starts higher, think about the <em>net difference</em>. Raja starts 1 higher but adds 3 less, so Joy wins by 2.
+    </div>
+
+    <!-- Figure it Out 1 -->
+    <div class="exercise-box">
+      <div class="subtitle">&#9999; Figure it Out 1</div>
+
+      <div class="q-item">
+        <div class="q-text">Q1. Fill in the blanks:</div>
+        <p style="margin:8px 0;font-size:14px;">(a) 13 + 4 = <input type="text" id="fio1a" style="width:60px;" placeholder="?"> + 6
+          <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio1a','11','fb1a')">Check</button>
+          <span class="q-feedback" id="fb1a"></span>
+        </p>
+        <p style="margin:8px 0;font-size:14px;">(b) 22 + <input type="text" id="fio1b" style="width:60px;" placeholder="?"> = 6 &times; 5
+          <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio1b','8','fb1b')">Check</button>
+          <span class="q-feedback" id="fb1b"></span>
+        </p>
+        <p style="margin:8px 0;font-size:14px;">(c) 8 &times; <input type="text" id="fio1c" style="width:60px;" placeholder="?"> = 64 &divide; 2
+          <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio1c','4','fb1c')">Check</button>
+          <span class="q-feedback" id="fb1c"></span>
+        </p>
+        <p style="margin:8px 0;font-size:14px;">(d) 34 &minus; <input type="text" id="fio1d" style="width:60px;" placeholder="?"> = 25
+          <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio1d','9','fb1d')">Check</button>
+          <span class="q-feedback" id="fb1d"></span>
+        </p>
+        <div class="q-answer">Answers: (a) 11 (b) 8 (c) 4 (d) 9</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q2. Arrange in ascending order (smallest to largest):</div>
+        <p style="font-size:14px;margin:6px 0;">67 &minus; 19, &nbsp; 67 &minus; 20, &nbsp; 35 + 25, &nbsp; 5 &times; 11, &nbsp; 120 &divide; 3</p>
+        <p style="font-size:13px;color:#6b7280;margin:4px 0;">Values: 48, 47, 60, 55, 40</p>
+        <div class="q-answer"><strong>Ascending order:</strong> 120 &divide; 3 (=40) &lt; 67&minus;20 (=47) &lt; 67&minus;19 (=48) &lt; 5&times;11 (=55) &lt; 35+25 (=60)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================================== -->
+<!-- SECTION 3: Reading Complex Expressions                             -->
+<!-- ================================================================== -->
+<div class="section-block reveal" id="sec3">
+  <div class="section-hd g-orange">
+    <span class="icon">&#128270;</span>
+    <span>3. Reading Complex Expressions</span>
+  </div>
+  <div class="section-bd">
+
+    <p>When an expression has more than one operation, things can get confusing &mdash; just like ambiguity in language!</p>
+
+    <div class="fun-fact">
+      <strong>&#128172; Language Analogy:</strong> "Shalini sat next to a friend with toys." Does Shalini have toys, or does the friend? The sentence is ambiguous! Similarly, <strong>30 + 5 &times; 4</strong> can be read in two ways.
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 4: The Big Debate</div>
+      <p><strong>Expression:</strong> 30 + 5 &times; 4</p>
+      <div class="speech-bubble purna-bubble" style="margin-top:12px;">
+        <div class="char-name">&#128103; Purna says:</div>
+        "Add first! (30 + 5) &times; 4 = 35 &times; 4 = <strong>140</strong>"
+      </div>
+      <div class="speech-bubble mallesh-bubble" style="margin-top:18px;">
+        <div class="char-name">&#128102; Mallesh says:</div>
+        "Multiply first! 30 + (5 &times; 4) = 30 + 20 = <strong>50</strong>"
+      </div>
+      <p style="margin-top:18px;"><strong>Who is right?</strong> <span class="kt">Mallesh is correct!</span> By convention, multiplication is done before addition.</p>
+    </div>
+
+    <!-- Animation: Two paths -->
+    <div class="anim-box">
+      <h3>&#127916; Two Paths, One Correct</h3>
+      <div class="anim-stage" id="twoPathStage" style="flex-direction:column;gap:12px;min-height:200px;">
+        <div class="step-line" id="tp0" style="font-size:26px;color:#5b21b6;">30 + 5 &times; 4</div>
+        <div style="display:flex;gap:30px;justify-content:center;flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <div class="step-line step-wrong" id="tp1">(30+5) &times; 4</div>
+            <div class="step-line step-wrong" id="tp2">= 35 &times; 4</div>
+            <div class="step-line step-wrong" id="tp3">= 140 &#10008;</div>
+          </div>
+          <div style="text-align:center;">
+            <div class="step-line step-correct" id="tp4">30 + (5&times;4)</div>
+            <div class="step-line step-correct" id="tp5">= 30 + 20</div>
+            <div class="step-line step-correct" id="tp6">= 50 &#10004;</div>
+          </div>
+        </div>
+      </div>
+      <div class="anim-controls">
+        <button class="game-btn btn-orange" onclick="playTwoPath()">&#9654; Play</button>
+        <button class="game-btn btn-purple" onclick="resetTwoPath()">&#8635; Reset</button>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>&#128161; Why We Need Brackets &amp; Rules:</strong> Without clear rules or brackets, the same expression could give different answers. That's why we use <strong>brackets</strong> to make the order clear and we have the convention that <strong>multiplication/division</strong> is done before <strong>addition/subtraction</strong>.
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================================== -->
+<!-- SECTION 4: Brackets in Expressions                                 -->
+<!-- ================================================================== -->
+<div class="section-block reveal" id="sec4">
+  <div class="section-hd g-teal">
+    <span class="icon">&#128206;</span>
+    <span>4. Brackets in Expressions</span>
+  </div>
+  <div class="section-bd">
+
+    <p><strong>Rule:</strong> Always evaluate expressions inside <span class="kt">brackets</span> first!</p>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 5: Irfan's Shopping</div>
+      <p>Irfan buys biscuits for <strong>&#8377;15</strong> and toor dal for <strong>&#8377;56</strong>. He pays <strong>&#8377;100</strong>.</p>
+      <p><strong>Correct:</strong> Change = 100 &minus; (15 + 56) = 100 &minus; 71 = <span class="kt">&#8377;29</span></p>
+      <p><strong>Wrong way:</strong> 100 &minus; 15 + 56 = 85 + 56 = 141 &#10008; (Absurd! More than he paid!)</p>
+    </div>
+
+    <!-- Animation: Bracket resolver -->
+    <div class="anim-box">
+      <h3>&#127916; Bracket Resolver</h3>
+      <div class="anim-stage" id="bracketStage" style="flex-direction:column;gap:12px;min-height:150px;">
+        <div class="step-line" id="br0" style="font-size:22px;">100 &minus; (<span id="brInner" style="background:#fde047;padding:2px 8px;border-radius:8px;">15 + 56</span>)</div>
+        <div class="step-line" id="br1">100 &minus; <span style="background:#86efac;padding:2px 8px;border-radius:8px;">71</span></div>
+        <div class="step-line" id="br2" style="font-size:26px;color:#166534;">= 29 &#10004;</div>
+      </div>
+      <div class="anim-controls">
+        <button class="game-btn btn-green" onclick="playBracket()">&#9654; Play</button>
+        <button class="game-btn btn-orange" onclick="resetBracket()">&#8635; Reset</button>
+      </div>
+    </div>
+
+    <div class="trick">
+      <strong>&#128161; Think of brackets as a box:</strong> Whatever is inside the box must be solved first before you can use the result in the rest of the expression.
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================================== -->
+<!-- SECTION 5: Terms in Expressions                                    -->
+<!-- ================================================================== -->
+<div class="section-block reveal" id="sec5">
+  <div class="section-hd g-blue">
+    <span class="icon">&#128293;</span>
+    <span>5. Terms in Expressions</span>
+  </div>
+  <div class="section-bd">
+
+    <p><span class="kt">Terms</span> are the parts of an expression separated by the <strong>+</strong> sign.</p>
+
+    <p>Subtracting is the same as adding the <span class="kt">inverse</span>:</p>
+    <p style="font-family:'Fredoka One',cursive;font-size:20px;color:#5b21b6;text-align:center;margin:14px 0;">
+      83 &minus; 14 = 83 + (&minus;14)
+    </p>
+    <p>So the terms of <strong>83 &minus; 14</strong> are: <span class="kt">83</span> and <span class="kt">&minus;14</span></p>
+
+    <div class="info-grid">
+      <div class="info-card ic-purple">
+        <h4>&#10134; Subtraction as Addition</h4>
+        <p>&minus;18 &minus; 3 = (&minus;18) + (&minus;3)</p>
+        <p>Terms: &minus;18 and &minus;3</p>
+      </div>
+      <div class="info-card ic-green">
+        <h4>&#10006; Multiplication within a Term</h4>
+        <p>6 &times; 5 + 3</p>
+        <p>Terms: 6&times;5 and 3</p>
+        <p><em>6&times;5 is a single term!</em></p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>&#128161; Important:</strong> A product like <strong>6 &times; 5</strong> counts as a <em>single term</em> because there is no + sign inside it. The + sign is what separates terms.
+    </div>
+
+    <!-- Animation: Term Identifier -->
+    <div class="anim-box">
+      <h3>&#127916; Term Identifier</h3>
+      <div class="anim-stage" id="termIdStage" style="flex-direction:column;gap:10px;min-height:100px;">
+        <div id="termExprDisplay" style="font-family:'Fredoka One',cursive;font-size:22px;color:#1e1b4b;">23 &minus; 2&times;4 + 16</div>
+        <div id="termBlocksDisplay" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;"></div>
+      </div>
+      <div class="anim-controls">
+        <button class="game-btn btn-blue" onclick="playTermId()">&#9654; Play</button>
+        <button class="game-btn btn-orange" onclick="resetTermId()">&#8635; Reset</button>
+      </div>
+    </div>
+
+    <!-- Interactive Table Activity -->
+    <div class="subtitle">&#128204; Identify the Terms</div>
+    <p>Click "Reveal" to see the terms for each expression:</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Expression</th><th>Terms</th><th></th></tr>
+        <tr>
+          <td>13 &minus; 2 + 6</td>
+          <td><span class="term-hidden" id="th1">13, &minus;2, 6</span></td>
+          <td><button class="reveal-btn" onclick="document.getElementById('th1').classList.add('revealed')">Reveal</button></td>
+        </tr>
+        <tr>
+          <td>5 + 6&times;3</td>
+          <td><span class="term-hidden" id="th2">5, 6&times;3</span></td>
+          <td><button class="reveal-btn" onclick="document.getElementById('th2').classList.add('revealed')">Reveal</button></td>
+        </tr>
+        <tr>
+          <td>4 + 15 &minus; 9</td>
+          <td><span class="term-hidden" id="th3">4, 15, &minus;9</span></td>
+          <td><button class="reveal-btn" onclick="document.getElementById('th3').classList.add('revealed')">Reveal</button></td>
+        </tr>
+        <tr>
+          <td>23 &minus; 2&times;4 + 16</td>
+          <td><span class="term-hidden" id="th4">23, &minus;2&times;4, 16</span></td>
+          <td><button class="reveal-btn" onclick="document.getElementById('th4').classList.add('revealed')">Reveal</button></td>
+        </tr>
+        <tr>
+          <td>28 + 19 &minus; 8</td>
+          <td><span class="term-hidden" id="th5">28, 19, &minus;8</span></td>
+          <td><button class="reveal-btn" onclick="document.getElementById('th5').classList.add('revealed')">Reveal</button></td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================================== -->
+<!-- SECTION 6: Swapping & Grouping                                     -->
+<!-- ================================================================== -->
+<div class="section-block reveal" id="sec6">
+  <div class="section-hd g-green">
+    <span class="icon">&#128260;</span>
+    <span>6. Swapping &amp; Grouping</span>
+  </div>
+  <div class="section-bd">
+
+    <div class="subtitle">&#128257; Commutative Property</div>
+    <p><strong>Swapping terms</strong> doesn't change the sum.</p>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 6: Drone Flight</div>
+      <p>A drone goes <strong>6 m up</strong> and then <strong>4 m down</strong>.</p>
+      <p>Expression: 6 + (&minus;4) = <strong>2</strong></p>
+      <p>Swap the terms: (&minus;4) + 6 = <strong>2</strong></p>
+      <p>Same result! &#10004;</p>
+    </div>
+
+    <!-- Commutative Swap Animation -->
+    <div class="anim-box">
+      <h3>&#127916; Commutative Swap</h3>
+      <div class="anim-stage" id="swapStage" style="min-height:100px;">
+        <div class="term-block tb-green" id="swapA" style="opacity:1;transform:none;">6</div>
+        <span class="term-plus" id="swapPlus">+</span>
+        <div class="term-block tb-red" id="swapB" style="opacity:1;transform:none;">(&minus;4)</div>
+        <span class="term-plus">=</span>
+        <div class="term-block tb-purple" id="swapResult" style="opacity:1;transform:none;">2</div>
+      </div>
+      <div class="anim-controls">
+        <button class="game-btn btn-green" onclick="playSwap()">&#9654; Swap!</button>
+        <button class="game-btn btn-orange" onclick="resetSwap()">&#8635; Reset</button>
+      </div>
+    </div>
+
+    <div class="subtitle">&#129520; Associative Property</div>
+    <p><strong>Grouping terms differently</strong> doesn't change the sum.</p>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example: Different Groupings</div>
+      <p>Evaluate (&minus;7) + 10 + (&minus;11) in different ways:</p>
+      <p><strong>Way 1:</strong> [(&minus;7) + 10] + (&minus;11) = 3 + (&minus;11) = <strong>&minus;8</strong></p>
+      <p><strong>Way 2:</strong> (&minus;7) + [10 + (&minus;11)] = (&minus;7) + (&minus;1) = <strong>&minus;8</strong></p>
+      <p><strong>Way 3:</strong> [(&minus;7) + (&minus;11)] + 10 = (&minus;18) + 10 = <strong>&minus;8</strong></p>
+      <p>All give <span class="kt">&minus;8</span>!</p>
+    </div>
+
+    <div class="note-box">
+      <strong>&#128161; Key Rule:</strong> "In an expression with only additions (remember, subtraction is just adding the inverse), the order of terms doesn't matter."
+    </div>
+
+    <div class="subtitle">&#128290; Evaluating Expressions with Multiplication</div>
+    <p>When an expression has multiplication, evaluate each <strong>term</strong> first, then add.</p>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example: 30 + 5 &times; 4</div>
+      <p>Terms: 30 and 5&times;4</p>
+      <p>Step 1: Evaluate 5 &times; 4 = 20</p>
+      <p>Step 2: Add: 30 + 20 = <strong>50</strong></p>
+    </div>
+
+    <div class="fun-fact">
+      <strong>&#128161; Manasa's Problem:</strong> Manasa added a long list of numbers and got 11,749. Then she realized she forgot to include 9,055. Does she need to restart? <strong>No!</strong> She can simply add: 11,749 + 9,055 = <strong>20,804</strong>. The associative property saves the day!
+    </div>
+
+    <div class="trick">
+      <strong>&#129510; Swapping in Everyday Life:</strong> Putting on a hat and shoes &mdash; order doesn't matter (commutative!). But putting on socks and then shoes &mdash; order matters (not commutative!). In addition, swapping always works.
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================================== -->
+<!-- SECTION 7: Expressions with Stories                                -->
+<!-- ================================================================== -->
+<div class="section-block reveal" id="sec7">
+  <div class="section-hd g-rose">
+    <span class="icon">&#128214;</span>
+    <span>7. Expressions with Stories</span>
+  </div>
+  <div class="section-bd">
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 7: Dosa Dinner</div>
+      <p>A family orders <strong>4 dosas</strong> at &#8377;23 each and gives a &#8377;5 tip.</p>
+      <p><strong>Expression:</strong> 4 &times; 23 + 5 = 92 + 5 = <span class="kt">&#8377;97</span></p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 8: Fire in the Mountain</div>
+      <p>33 students play "Fire in the Mountain, Run Run Run!" They form groups of 5.</p>
+      <p><strong>Expression:</strong> 6 &times; 5 + 3 = 30 + 3 = <span class="kt">33</span></p>
+      <p>6 complete groups with 3 students left over.</p>
+    </div>
+
+    <!-- Fire in the Mountain animation -->
+    <div class="anim-box">
+      <h3>&#127916; Fire in the Mountain!</h3>
+      <div class="anim-stage" id="fireStage" style="min-height:160px;flex-direction:column;gap:10px;">
+        <div class="dot-group-container" id="fireGroups"></div>
+        <div style="font-family:'Fredoka One',cursive;font-size:18px;color:#5b21b6;" id="fireLabel"></div>
+      </div>
+      <div class="anim-controls">
+        <button class="game-btn btn-pink" onclick="playFire()">&#9654; Play</button>
+        <button class="game-btn btn-orange" onclick="resetFire()">&#8635; Reset</button>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 9: Raghu's Packets</div>
+      <p>Raghu has 4 packets. His mother gives half of 100 more.</p>
+      <p><strong>Expression:</strong> 4 + 100 &divide; 2 = 4 + 50 = <span class="kt">54 packets</span></p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 10: Kannan's Payment</div>
+      <p>Kannan pays &#8377;432 using notes and coins:</p>
+      <p><strong>Expression:</strong> 4 &times; 100 + 1 &times; 20 + 1 &times; 10 + 2 &times; 1</p>
+      <p>= 400 + 20 + 10 + 2 = <span class="kt">&#8377;432</span></p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 11: Grid Arrangements</div>
+      <p>Which grid matches <strong>5 &times; 2 + 3</strong>?</p>
+      <p>We need a grid with 5 rows of 2, plus 3 extra = <strong>13 cells</strong></p>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:10px;align-items:flex-end;">
+        <div style="text-align:center;">
+          <div class="grid-array" style="grid-template-columns:repeat(2,24px);">
+            <div class="grid-cell" style="background:#a78bfa;"></div><div class="grid-cell" style="background:#a78bfa;"></div>
+            <div class="grid-cell" style="background:#a78bfa;"></div><div class="grid-cell" style="background:#a78bfa;"></div>
+            <div class="grid-cell" style="background:#a78bfa;"></div><div class="grid-cell" style="background:#a78bfa;"></div>
+            <div class="grid-cell" style="background:#a78bfa;"></div><div class="grid-cell" style="background:#a78bfa;"></div>
+            <div class="grid-cell" style="background:#a78bfa;"></div><div class="grid-cell" style="background:#a78bfa;"></div>
+          </div>
+          <div style="display:flex;gap:4px;margin-top:4px;justify-content:center;">
+            <div class="grid-cell" style="width:24px;height:24px;border-radius:6px;background:#f97316;"></div>
+            <div class="grid-cell" style="width:24px;height:24px;border-radius:6px;background:#f97316;"></div>
+            <div class="grid-cell" style="width:24px;height:24px;border-radius:6px;background:#f97316;"></div>
+          </div>
+          <div style="font-size:12px;font-weight:800;color:#5b21b6;margin-top:4px;">5&times;2 + 3 = 13 &#10004;</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Figure it Out 2 -->
+    <div class="exercise-box">
+      <div class="subtitle">&#9999; Figure it Out 2</div>
+
+      <div class="q-item">
+        <div class="q-text">Q1. Find the values by identifying terms:</div>
+        <p style="margin:6px 0;font-size:14px;">(a) 28 &minus; 7 + 8 = <input type="text" id="fio2a" style="width:60px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio2a','29','fb2a')">Check</button> <span class="q-feedback" id="fb2a"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(b) 39 &minus; 2&times;6 + 11 = <input type="text" id="fio2b" style="width:60px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio2b','38','fb2b')">Check</button> <span class="q-feedback" id="fb2b"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(c) 40 &minus; 10 + 10 + 10 = <input type="text" id="fio2c" style="width:60px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio2c','50','fb2c')">Check</button> <span class="q-feedback" id="fb2c"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(d) 48 &minus; 10&times;2 + 16&divide;2 = <input type="text" id="fio2d" style="width:60px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio2d','36','fb2d')">Check</button> <span class="q-feedback" id="fb2d"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(e) 6&times;3 &minus; 4&times;8&divide;5 = <input type="text" id="fio2e" style="width:80px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio2e','11.6','fb2e')">Check</button> <span class="q-feedback" id="fb2e"></span></p>
+        <div class="q-answer">Answers: (a) 29 (b) 38 (c) 50 (d) 36 (e) 11.6</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q2. Write a story for each expression:</div>
+        <p style="font-size:14px;margin:6px 0;">(a) <strong>89 + 21 &minus; 10</strong></p>
+        <p style="font-size:14px;margin:6px 0;">(b) <strong>5 &times; 12 &minus; 6</strong></p>
+        <p style="font-size:14px;margin:6px 0;">(c) <strong>4 &times; 9 + 2 &times; 6</strong></p>
+        <div class="q-answer">
+          <strong>Sample stories:</strong><br>
+          (a) A shop had 89 items, received 21 more, then sold 10. Total = 100 items.<br>
+          (b) 5 packets of 12 biscuits, 6 got crushed. Remaining = 54 biscuits.<br>
+          (c) 4 rows of 9 red chairs + 2 rows of 6 blue chairs = 36 + 12 = 48 chairs.
+        </div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q3. Word Problems:</div>
+        <p style="font-size:14px;margin:8px 0;"><strong>(a)</strong> A princess has 5 chests with 20 gold coins each, plus 13 loose coins. How many coins total?</p>
+        <p style="margin:4px 0;font-size:14px;">Answer: <input type="text" id="fio2wa" style="width:60px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio2wa','113','fb2wa')">Check</button> <span class="q-feedback" id="fb2wa"></span></p>
+
+        <p style="font-size:14px;margin:8px 0;"><strong>(b)</strong> A metro ticket costs &#8377;35. A family of 4 buys tickets but gets &#8377;10 discount. Total cost?</p>
+        <p style="margin:4px 0;font-size:14px;">Answer: <input type="text" id="fio2wb" style="width:60px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio2wb','130','fb2wb')">Check</button> <span class="q-feedback" id="fb2wb"></span></p>
+
+        <p style="font-size:14px;margin:8px 0;"><strong>(c)</strong> A window is at 12 m height. A ladder reaches 3 m above the window. Ladder length?</p>
+        <p style="margin:4px 0;font-size:14px;">Answer: <input type="text" id="fio2wc" style="width:60px;"> m <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio2wc','15','fb2wc')">Check</button> <span class="q-feedback" id="fb2wc"></span></p>
+
+        <div class="q-answer">Answers: (a) 5&times;20 + 13 = 113 (b) 4&times;35 &minus; 10 = 130 (c) 12 + 3 = 15 m</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================================== -->
+<!-- SECTION 8: Removing Brackets I                                     -->
+<!-- ================================================================== -->
+<div class="section-block reveal" id="sec8">
+  <div class="section-hd g-amber">
+    <span class="icon">&#128275;</span>
+    <span>8. Removing Brackets I</span>
+  </div>
+  <div class="section-bd">
+
+    <div class="note-box">
+      <strong>&#128161; Key Rule:</strong> When brackets are preceded by a <strong>MINUS sign</strong>, the signs of all terms inside <strong>CHANGE</strong> (+ becomes &minus;, &minus; becomes +). When preceded by a <strong>PLUS sign</strong>, signs stay the same.
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 12: Minus Before Bracket</div>
+      <p>100 &minus; (15 + 56)</p>
+      <p>= 100 <span style="color:#ef4444;font-weight:800;">&minus;</span> 15 <span style="color:#ef4444;font-weight:800;">&minus;</span> 56</p>
+      <p>= <strong>29</strong></p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 13: Be Careful!</div>
+      <p>500 &minus; (250 &minus; 100)</p>
+      <p>= 500 <span style="color:#ef4444;font-weight:800;">&minus;</span> 250 <span style="color:#16a34a;font-weight:800;">+</span> 100 &nbsp; (the &minus; flipped to +!)</p>
+      <p>= <strong>350</strong></p>
+      <p style="color:#ef4444;font-weight:700;">NOT 500 &minus; 250 &minus; 100 = 150 &#10008;</p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 14: Plus Before Bracket</div>
+      <p>28 + (35 &minus; 10)</p>
+      <p>= 28 + 35 &minus; 10 &nbsp; (signs stay the same!)</p>
+      <p>= <strong>53</strong></p>
+    </div>
+
+    <!-- Sign Flip Animation -->
+    <div class="anim-box">
+      <h3>&#127916; Sign Flipper</h3>
+      <div class="anim-stage" id="signFlipStage" style="flex-direction:column;gap:12px;min-height:140px;">
+        <div class="step-line" id="sf0" style="font-size:22px;">500 &minus; (<span style="color:#16a34a;">+250</span> <span style="color:#ef4444;">&minus;100</span>)</div>
+        <div style="font-size:16px;color:#f97316;font-weight:800;" id="sfArrow">&#8595; minus flips the signs! &#8595;</div>
+        <div class="step-line" id="sf1" style="font-size:22px;">500 <span style="color:#ef4444;">&minus;250</span> <span style="color:#16a34a;">+100</span></div>
+        <div class="step-line" id="sf2" style="font-size:26px;color:#166534;">= 350</div>
+      </div>
+      <div class="anim-controls">
+        <button class="game-btn btn-orange" onclick="playSignFlip()">&#9654; Play</button>
+        <button class="game-btn btn-purple" onclick="resetSignFlip()">&#8635; Reset</button>
+      </div>
+    </div>
+
+    <!-- Tinker the Terms I -->
+    <div class="subtitle">&#128295; Tinker the Terms I</div>
+    <p>How does changing one term affect the value?</p>
+
+    <div class="q-item">
+      <div class="q-text">If 53 + (&minus;16) = 37, what is 54 + (&minus;16)?</div>
+      <p style="margin:6px 0;font-size:14px;">Answer: <input type="text" id="tink1a" style="width:60px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('tink1a','38','fbtk1a')">Check</button> <span class="q-feedback" id="fbtk1a"></span></p>
+      <div class="q-answer">38 (one more than 37, because 54 is one more than 53)</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+
+    <div class="q-item">
+      <div class="q-text">If 53 + (&minus;16) = 37, what is 53 + (&minus;17)?</div>
+      <p style="margin:6px 0;font-size:14px;">Answer: <input type="text" id="tink1b" style="width:60px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('tink1b','36','fbtk1b')">Check</button> <span class="q-feedback" id="fbtk1b"></span></p>
+      <div class="q-answer">36 (one less, because we are subtracting 1 more)</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+
+    <div class="q-item">
+      <div class="q-text">If 53 + (&minus;16) = 37, what is 55 + (&minus;18)?</div>
+      <p style="margin:6px 0;font-size:14px;">Answer: <input type="text" id="tink1c" style="width:60px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('tink1c','37','fbtk1c')">Check</button> <span class="q-feedback" id="fbtk1c"></span></p>
+      <div class="q-answer">37 (53 increased by 2, 16 increased by 2 &mdash; net change is 0!)</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+
+    <!-- Figure it Out 3 -->
+    <div class="exercise-box">
+      <div class="subtitle">&#9999; Figure it Out 3</div>
+
+      <div class="q-item">
+        <div class="q-text">Q1. Fill in the blanks:</div>
+        <p style="margin:6px 0;font-size:14px;">(a) 38 &minus; (&minus;7) = 38 + <input type="text" id="fio3_1a" style="width:50px;"> = <input type="text" id="fio3_1a2" style="width:50px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO3Q1('fio3_1a','7','fio3_1a2','45','fb3_1a')">Check</button> <span class="q-feedback" id="fb3_1a"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(b) 17 + (&minus;3) = 17 &minus; <input type="text" id="fio3_1b" style="width:50px;"> = <input type="text" id="fio3_1b2" style="width:50px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO3Q1('fio3_1b','3','fio3_1b2','14','fb3_1b')">Check</button> <span class="q-feedback" id="fb3_1b"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(c) (&minus;22) + 18 = 18 &minus; <input type="text" id="fio3_1c" style="width:50px;"> = <input type="text" id="fio3_1c2" style="width:50px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO3Q1('fio3_1c','22','fio3_1c2','-4','fb3_1c')">Check</button> <span class="q-feedback" id="fb3_1c"></span></p>
+        <div class="q-answer">Answers: (a) 7, 45 (b) 3, 14 (c) 22, &minus;4</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q2. Remove brackets:</div>
+        <p style="margin:6px 0;font-size:14px;">(a) 13 &minus; (6 + 3) = <input type="text" id="fio3_2a" style="width:100px;" placeholder="e.g. 13-6-3"> <button class="game-btn btn-green btn-sm" onclick="checkText('fio3_2a',['13-6-3','13 - 6 - 3'],'fb3_2a')">Check</button> <span class="q-feedback" id="fb3_2a"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(b) 13 &minus; (6 &minus; 3) = <input type="text" id="fio3_2b" style="width:100px;"> <button class="game-btn btn-green btn-sm" onclick="checkText('fio3_2b',['13-6+3','13 - 6 + 3'],'fb3_2b')">Check</button> <span class="q-feedback" id="fb3_2b"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(c) 13 + (6 + 3) = <input type="text" id="fio3_2c" style="width:100px;"> <button class="game-btn btn-green btn-sm" onclick="checkText('fio3_2c',['13+6+3','13 + 6 + 3'],'fb3_2c')">Check</button> <span class="q-feedback" id="fb3_2c"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(d) 13 + (6 &minus; 3) = <input type="text" id="fio3_2d" style="width:100px;"> <button class="game-btn btn-green btn-sm" onclick="checkText('fio3_2d',['13+6-3','13 + 6 - 3'],'fb3_2d')">Check</button> <span class="q-feedback" id="fb3_2d"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(e) &minus;(18 + 5) = <input type="text" id="fio3_2e" style="width:100px;"> <button class="game-btn btn-green btn-sm" onclick="checkText('fio3_2e',['-18-5','-18 - 5'],'fb3_2e')">Check</button> <span class="q-feedback" id="fb3_2e"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(f) &minus;(18 &minus; 5) = <input type="text" id="fio3_2f" style="width:100px;"> <button class="game-btn btn-green btn-sm" onclick="checkText('fio3_2f',['-18+5','-18 + 5'],'fb3_2f')">Check</button> <span class="q-feedback" id="fb3_2f"></span></p>
+        <div class="q-answer">Answers: (a) 13&minus;6&minus;3=4 (b) 13&minus;6+3=10 (c) 13+6+3=22 (d) 13+6&minus;3=16 (e) &minus;18&minus;5=&minus;23 (f) &minus;18+5=&minus;13</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q3. Compare each pair:</div>
+        <p style="margin:6px 0;font-size:14px;">(a) 43 &minus; (12 + 9) &nbsp;vs&nbsp; 43 &minus; 12 &minus; 9 &rarr; <input type="text" id="fio3_3a" style="width:30px;" placeholder="="> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio3_3a','=','fb3_3a')">Check</button> <span class="q-feedback" id="fb3_3a"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(b) 43 &minus; (12 &minus; 9) &nbsp;vs&nbsp; 43 &minus; 12 &minus; 9 &rarr; <input type="text" id="fio3_3b" style="width:30px;" placeholder=">,<,="> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio3_3b','>','fb3_3b')">Check</button> <span class="q-feedback" id="fb3_3b"></span></p>
+        <div class="q-answer">Answers: (a) = (both equal 22) (b) > (40 vs 22)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q5. Add brackets to get the indicated values:</div>
+        <p style="margin:6px 0;font-size:14px;">(a) 16 &minus; 4 + 2 = <strong>10</strong> &rarr; Write with brackets: <input type="text" id="fio3_5a" style="width:140px;" placeholder="e.g. 16-(4+2)"> <button class="game-btn btn-green btn-sm" onclick="checkText('fio3_5a',['16-(4+2)','16 - (4+2)','16 - (4 + 2)'],'fb3_5a')">Check</button> <span class="q-feedback" id="fb3_5a"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(b) 3 + 2 &times; 4 = <strong>20</strong> &rarr; <input type="text" id="fio3_5b" style="width:140px;"> <button class="game-btn btn-green btn-sm" onclick="checkText('fio3_5b',['(3+2)*4','(3+2)x4','(3 + 2) * 4','(3+2)×4'],'fb3_5b')">Check</button> <span class="q-feedback" id="fb3_5b"></span></p>
+        <div class="q-answer">Answers: (a) 16 &minus; (4+2) = 16&minus;6 = 10 (b) (3+2) &times; 4 = 5&times;4 = 20</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q7. Using 2, 3, and 5 with + and &minus;, how many different values can you make?</div>
+        <p style="font-size:13px;color:#6b7280;">Try all combinations: 2+3+5, 2+3&minus;5, 2&minus;3+5, 2&minus;3&minus;5, etc.</p>
+        <div class="q-answer">
+          <strong>Possible values:</strong><br>
+          +2+3+5 = 10, +2+3&minus;5 = 0, +2&minus;3+5 = 4, +2&minus;3&minus;5 = &minus;6<br>
+          &minus;2+3+5 = 6, &minus;2+3&minus;5 = &minus;4, &minus;2&minus;3+5 = 0, &minus;2&minus;3&minus;5 = &minus;10<br>
+          Distinct values: &minus;10, &minus;6, &minus;4, 0, 4, 6, 10 (7 values, but 0 appears twice so <strong>6 distinct values</strong>)
+        </div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q8. Jasoda's Strategy: To subtract 9, she subtracts 10 then adds 1. Why does this work?</div>
+        <div class="q-answer">
+          <strong>Explanation:</strong> n &minus; 9 = n &minus; (10 &minus; 1) = n &minus; 10 + 1.<br>
+          Subtracting 10 is easy (just decrease the tens digit), then add 1 back. This is the bracket-removal rule in action!
+        </div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================================== -->
+<!-- SECTION 9: Removing Brackets II — Distributive Property            -->
+<!-- ================================================================== -->
+<div class="section-block reveal" id="sec9">
+  <div class="section-hd g-indigo">
+    <span class="icon">&#128302;</span>
+    <span>9. Removing Brackets II &mdash; Distributive Property</span>
+  </div>
+  <div class="section-bd">
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 15: Lhamo &amp; Norbu's Hotel Bill</div>
+      <p>Lhamo and Norbu each order a meal costing &#8377;43 for food + &#8377;24 for drink.</p>
+      <p><strong>Expression:</strong> 2 &times; (43 + 24) = 2 &times; 67 = <span class="kt">134</span></p>
+      <p><strong>OR:</strong> 2 &times; 43 + 2 &times; 24 = 86 + 48 = <span class="kt">134</span></p>
+      <p>Both ways give the same answer!</p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 16: Republic Day Parade</div>
+      <p>4 rows of soldiers + 3 rows of soldiers, each row has 5 soldiers.</p>
+      <p>4 &times; 5 + 3 &times; 5 = (4 + 3) &times; 5 = 7 &times; 5 = <span class="kt">35</span></p>
+    </div>
+
+    <div class="note-box">
+      <strong>&#128161; Distributive Property:</strong><br>
+      <span style="font-family:'Fredoka One',cursive;font-size:18px;color:#5b21b6;">a &times; (b + c) = a &times; b + a &times; c</span><br>
+      "Multiple of a sum = Sum of the multiples"
+    </div>
+
+    <!-- Distributive Property Rectangle Animation -->
+    <div class="anim-box">
+      <h3>&#127916; Distributive Property &mdash; Area Model</h3>
+      <div class="anim-stage" id="distStage" style="flex-direction:column;gap:10px;min-height:180px;">
+        <div style="font-family:'Fredoka One',cursive;font-size:16px;color:#5b21b6;" id="distLabel">a &times; (b + c)</div>
+        <div class="rect-visual" id="distRect">
+          <div class="rect-part" id="distLeft" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);width:120px;border-radius:12px 0 0 12px;">a &times; b</div>
+          <div class="rect-part" id="distRight" style="background:linear-gradient(135deg,#ec4899,#f9a8d4);width:80px;border-radius:0 12px 12px 0;">a &times; c</div>
+        </div>
+        <div style="font-family:'Fredoka One',cursive;font-size:16px;color:#166534;" id="distResult">= a&times;b + a&times;c</div>
+      </div>
+      <div class="anim-controls">
+        <button class="game-btn btn-purple" onclick="playDist()">&#9654; Play</button>
+        <button class="game-btn btn-orange" onclick="resetDist()">&#8635; Reset</button>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 17: Smart Multiplication</div>
+      <p>Given that 53 &times; 18 = 954, find 63 &times; 18.</p>
+      <p>63 &times; 18 = (53 + 10) &times; 18 = 53&times;18 + 10&times;18 = 954 + 180 = <span class="kt">1134</span></p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">&#128214; Example 18: Mental Math Magic</div>
+      <p>Calculate 97 &times; 25 mentally:</p>
+      <p>97 &times; 25 = (100 &minus; 3) &times; 25 = 100&times;25 &minus; 3&times;25 = 2500 &minus; 75 = <span class="kt">2425</span></p>
+    </div>
+
+    <div class="trick">
+      <strong>&#128161; Power of Distributive Property:</strong> It lets us break "hard" multiplications into "easy" ones. 99 &times; 7 = (100&minus;1) &times; 7 = 700 &minus; 7 = 693. No long multiplication needed!
+    </div>
+
+    <!-- Tinker the Terms II -->
+    <div class="subtitle">&#128295; Tinker the Terms II &mdash; Mental Math</div>
+
+    <div class="q-item">
+      <div class="q-text">Use the distributive property to compute:</div>
+      <p style="margin:6px 0;font-size:14px;">(a) 102 &times; 7 = <input type="text" id="tink2a" style="width:70px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('tink2a','714','fbtk2a')">Check</button> <span class="q-feedback" id="fbtk2a"></span></p>
+      <p style="margin:6px 0;font-size:14px;">(b) 98 &times; 12 = <input type="text" id="tink2b" style="width:70px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('tink2b','1176','fbtk2b')">Check</button> <span class="q-feedback" id="fbtk2b"></span></p>
+      <p style="margin:6px 0;font-size:14px;">(c) 999 &times; 4 = <input type="text" id="tink2c" style="width:70px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('tink2c','3996','fbtk2c')">Check</button> <span class="q-feedback" id="fbtk2c"></span></p>
+      <div class="q-answer">
+        (a) (100+2)&times;7 = 700+14 = 714<br>
+        (b) (100&minus;2)&times;12 = 1200&minus;24 = 1176<br>
+        (c) (1000&minus;1)&times;4 = 4000&minus;4 = 3996
+      </div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+
+    <!-- Figure it Out 4 -->
+    <div class="exercise-box">
+      <div class="subtitle">&#9999; Figure it Out 4</div>
+
+      <div class="q-item">
+        <div class="q-text">Q1. Use the distributive property:</div>
+        <p style="margin:6px 0;font-size:14px;">(a) 3 &times; (5 + 2) = <input type="text" id="fio4a" style="width:50px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4a','21','fb4a')">Check</button> <span class="q-feedback" id="fb4a"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(b) 7 &times; (8 &minus; 3) = <input type="text" id="fio4b" style="width:50px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4b','35','fb4b')">Check</button> <span class="q-feedback" id="fb4b"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(c) (10 + 4) &times; 6 = <input type="text" id="fio4c" style="width:50px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4c','84','fb4c')">Check</button> <span class="q-feedback" id="fb4c"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(d) (20 &minus; 3) &times; 5 = <input type="text" id="fio4d" style="width:50px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4d','85','fb4d')">Check</button> <span class="q-feedback" id="fb4d"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(e) 6 &times; 12 + 6 &times; 8 = 6 &times; <input type="text" id="fio4e" style="width:50px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4e','20','fb4e')">Check</button> <span class="q-feedback" id="fb4e"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(f) 5 &times; 17 &minus; 5 &times; 7 = 5 &times; <input type="text" id="fio4f" style="width:50px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4f','10','fb4f')">Check</button> <span class="q-feedback" id="fb4f"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(g) 101 &times; 13 = <input type="text" id="fio4g" style="width:70px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4g','1313','fb4g')">Check</button> <span class="q-feedback" id="fb4g"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(h) 99 &times; 15 = <input type="text" id="fio4h" style="width:70px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4h','1485','fb4h')">Check</button> <span class="q-feedback" id="fb4h"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(i) 48 &times; 9 = <input type="text" id="fio4i" style="width:70px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4i','432','fb4i')">Check</button> <span class="q-feedback" id="fb4i"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(j) 52 &times; 11 = <input type="text" id="fio4j" style="width:70px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4j','572','fb4j')">Check</button> <span class="q-feedback" id="fb4j"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(k) 4 &times; 63 + 4 &times; 37 = <input type="text" id="fio4k" style="width:70px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4k','400','fb4k')">Check</button> <span class="q-feedback" id="fb4k"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(l) 7 &times; 84 &minus; 7 &times; 34 = <input type="text" id="fio4l" style="width:70px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4l','350','fb4l')">Check</button> <span class="q-feedback" id="fb4l"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(m) 997 &times; 5 = <input type="text" id="fio4m" style="width:70px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4m','4985','fb4m')">Check</button> <span class="q-feedback" id="fb4m"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(n) 1005 &times; 8 = <input type="text" id="fio4n" style="width:70px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4n','8040','fb4n')">Check</button> <span class="q-feedback" id="fb4n"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(o) 12 &times; 45 + 12 &times; 55 = <input type="text" id="fio4o" style="width:70px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4o','1200','fb4o')">Check</button> <span class="q-feedback" id="fb4o"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(p) 25 &times; 88 = <input type="text" id="fio4p" style="width:70px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4p','2200','fb4p')">Check</button> <span class="q-feedback" id="fb4p"></span></p>
+
+        <div class="q-answer">
+          (a) 21 (b) 35 (c) 84 (d) 85 (e) 20 (f) 10 (g) 1313 (h) 1485 (i) 432 (j) 572 (k) 400 (l) 350 (m) 4985 (n) 8040 (o) 1200 (p) 2200
+        </div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q2. Compare using &lt;, &gt;, or =</div>
+        <p style="margin:6px 0;font-size:14px;">(a) 3&times;(4+5) vs 3&times;4+5 &rarr; <input type="text" id="fio4_2a" style="width:30px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4_2a','>','fb4_2a')">Check</button> <span class="q-feedback" id="fb4_2a"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(b) 8&times;(7&minus;2) vs 8&times;7&minus;2 &rarr; <input type="text" id="fio4_2b" style="width:30px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4_2b','<','fb4_2b')">Check</button> <span class="q-feedback" id="fb4_2b"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(c) 5&times;9+5&times;1 vs 5&times;(9+1) &rarr; <input type="text" id="fio4_2c" style="width:30px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4_2c','=','fb4_2c')">Check</button> <span class="q-feedback" id="fb4_2c"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(d) 6&times;(10&minus;3) vs 6&times;10&minus;3 &rarr; <input type="text" id="fio4_2d" style="width:30px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio4_2d','<','fb4_2d')">Check</button> <span class="q-feedback" id="fb4_2d"></span></p>
+        <div class="q-answer">(a) > (27 vs 17) (b) < (40 vs 54) (c) = (50 vs 50) (d) < (42 vs 57)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q3. Write 14 in the form ___ &times; ( ___ + ___ )</div>
+        <p style="margin:6px 0;font-size:14px;">Answer: <input type="text" id="fio4_3" style="width:160px;" placeholder="e.g. 2 x (5+2)"> <button class="game-btn btn-green btn-sm" onclick="checkMultiAns('fio4_3',['2*(5+2)','2 * (5 + 2)','2x(5+2)','2*(3+4)','2 x (5+2)','7*(1+1)','2*(4+3)','7*(2+0)'],'fb4_3')">Check</button> <span class="q-feedback" id="fb4_3"></span></p>
+        <div class="q-answer">Multiple answers: 2 &times; (5+2), 2 &times; (3+4), 7 &times; (1+1), etc.</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q4. Write the sum of the array in two different ways:</div>
+        <p style="font-size:14px;">A grid with 3 rows of 4 and 3 rows of 6:</p>
+        <p style="font-size:14px;"><strong>Way 1:</strong> 3&times;4 + 3&times;6 = 12 + 18 = 30</p>
+        <p style="font-size:14px;"><strong>Way 2:</strong> 3&times;(4+6) = 3&times;10 = 30</p>
+        <div class="q-answer">Both ways use the distributive property and give 30.</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================================== -->
+<!-- SECTION 10: Figure it Out 5 — Final Exercises                      -->
+<!-- ================================================================== -->
+<div class="section-block reveal" id="sec10">
+  <div class="section-hd g-sky">
+    <span class="icon">&#128221;</span>
+    <span>10. Figure it Out 5 &mdash; Final Exercises</span>
+  </div>
+  <div class="section-bd">
+
+    <div class="exercise-box">
+      <div class="subtitle">&#9999; Figure it Out 5</div>
+
+      <div class="q-item">
+        <div class="q-text">Q1. Real-life word problems:</div>
+        <p style="font-size:14px;margin:8px 0;"><strong>(a)</strong> A vendor has 5 baskets with 24 mangoes each, and gives away 18 mangoes. How many left?</p>
+        <p style="margin:4px 0;font-size:14px;">Answer: <input type="text" id="fio5_1a" style="width:60px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio5_1a','102','fb5_1a')">Check</button> <span class="q-feedback" id="fb5_1a"></span></p>
+
+        <p style="font-size:14px;margin:8px 0;"><strong>(b)</strong> Binu saves &#8377;15 daily. After 10 days, he spends &#8377;50. How much does he have?</p>
+        <p style="margin:4px 0;font-size:14px;">Answer: <input type="text" id="fio5_1b" style="width:60px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio5_1b','100','fb5_1b')">Check</button> <span class="q-feedback" id="fb5_1b"></span></p>
+
+        <p style="font-size:14px;margin:8px 0;"><strong>(c)</strong> A snail climbs 3 m up each day and slides 1 m down at night. After 5 days, how high is it?</p>
+        <p style="margin:4px 0;font-size:14px;">Answer: <input type="text" id="fio5_1c" style="width:60px;"> m <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio5_1c','10','fb5_1c')">Check</button> <span class="q-feedback" id="fb5_1c"></span></p>
+
+        <div class="q-answer">
+          (a) 5&times;24 &minus; 18 = 120 &minus; 18 = 102<br>
+          (b) 15&times;10 &minus; 50 = 150 &minus; 50 = 100<br>
+          (c) 5&times;3 &minus; 5&times;1 = 15 &minus; 5 = 10 m (or 5&times;(3&minus;1) = 5&times;2 = 10)
+        </div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q2. Melvin wrote these stories. Which expression matches each?</div>
+        <p style="font-size:14px;margin:6px 0;"><strong>(a)</strong> "I had 20 chocolates, gave 5 to each of 3 friends." <br>Expression: <input type="text" id="fio5_2a" style="width:120px;" placeholder="e.g. 20-5*3"> <button class="game-btn btn-green btn-sm" onclick="checkText('fio5_2a',['20-5*3','20-3*5','20 - 5*3','20-5x3','20 - 3*5','20 - 3 * 5','20 - 5 * 3'],'fb5_2a')">Check</button> <span class="q-feedback" id="fb5_2a"></span></p>
+        <p style="font-size:14px;margin:6px 0;"><strong>(b)</strong> "4 packets of 6 pencils plus 2 loose pencils." <br>Expression: <input type="text" id="fio5_2b" style="width:120px;"> <button class="game-btn btn-green btn-sm" onclick="checkText('fio5_2b',['4*6+2','4x6+2','6*4+2','4 * 6 + 2','6 * 4 + 2'],'fb5_2b')">Check</button> <span class="q-feedback" id="fb5_2b"></span></p>
+        <div class="q-answer">(a) 20 &minus; 5&times;3 = 20&minus;15 = 5 (b) 4&times;6 + 2 = 24+2 = 26</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q3. Evaluate 1&minus;2+3&minus;4+5&minus;6+7&minus;8+9&minus;10 in different ways:</div>
+        <p style="font-size:14px;"><strong>Way 1:</strong> Group pairs: (1&minus;2)+(3&minus;4)+(5&minus;6)+(7&minus;8)+(9&minus;10) = (&minus;1)+(&minus;1)+(&minus;1)+(&minus;1)+(&minus;1) = <strong>&minus;5</strong></p>
+        <p style="font-size:14px;"><strong>Way 2:</strong> Group differently: 1+(−2+3)+(−4+5)+(−6+7)+(−8+9)−10 = 1+1+1+1+1−10 = <strong>&minus;5</strong></p>
+        <p style="font-size:14px;"><strong>Way 3:</strong> Positives: 1+3+5+7+9 = 25. Negatives: 2+4+6+8+10 = 30. Total: 25&minus;30 = <strong>&minus;5</strong></p>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q4. Compare each pair using &lt;, &gt;, =</div>
+        <p style="margin:6px 0;font-size:14px;">(a) 28+32 vs 28+33 &rarr; <input type="text" id="fio5_4a" style="width:30px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio5_4a','<','fb5_4a')">Check</button> <span class="q-feedback" id="fb5_4a"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(b) 45&minus;19 vs 45&minus;20 &rarr; <input type="text" id="fio5_4b" style="width:30px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio5_4b','>','fb5_4b')">Check</button> <span class="q-feedback" id="fb5_4b"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(c) 7&times;8 vs 7&times;6+7&times;2 &rarr; <input type="text" id="fio5_4c" style="width:30px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio5_4c','=','fb5_4c')">Check</button> <span class="q-feedback" id="fb5_4c"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(d) 3&times;(5+2) vs 3&times;5+2 &rarr; <input type="text" id="fio5_4d" style="width:30px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio5_4d','>','fb5_4d')">Check</button> <span class="q-feedback" id="fb5_4d"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(e) 100&minus;(30+20) vs 100&minus;30+20 &rarr; <input type="text" id="fio5_4e" style="width:30px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio5_4e','<','fb5_4e')">Check</button> <span class="q-feedback" id="fb5_4e"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(f) 50&minus;(25&minus;10) vs 50&minus;25&minus;10 &rarr; <input type="text" id="fio5_4f" style="width:30px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio5_4f','>','fb5_4f')">Check</button> <span class="q-feedback" id="fb5_4f"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(g) 9&times;(8+3) vs 9&times;8+9&times;3 &rarr; <input type="text" id="fio5_4g" style="width:30px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio5_4g','=','fb5_4g')">Check</button> <span class="q-feedback" id="fb5_4g"></span></p>
+        <p style="margin:6px 0;font-size:14px;">(h) 12&times;5&minus;4 vs 12&times;(5&minus;4) &rarr; <input type="text" id="fio5_4h" style="width:30px;"> <button class="game-btn btn-green btn-sm" onclick="checkFIO1('fio5_4h','>','fb5_4h')">Check</button> <span class="q-feedback" id="fb5_4h"></span></p>
+        <div class="q-answer">(a) < (b) > (c) = (d) > (21 vs 17) (e) < (50 vs 90) (f) > (35 vs 15) (g) = (99 vs 99) (h) > (56 vs 12)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q5. Identify equal expressions (same value):</div>
+        <p style="font-size:14px;">A: 8&times;6+8&times;4 &nbsp;&bull;&nbsp; B: 8&times;(6+4) &nbsp;&bull;&nbsp; C: 8&times;10 &nbsp;&bull;&nbsp; D: 80 &nbsp;&bull;&nbsp; E: 8&times;6+4</p>
+        <div class="q-answer">A = B = C = D = 80. Expression E = 52 (different because 4 is not multiplied by 8).</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">Q6. Create 10 different expressions that all equal 24:</div>
+        <div class="q-answer">
+          <strong>Some possibilities:</strong><br>
+          20+4, 30&minus;6, 12&times;2, 48&divide;2, 8&times;3, 6&times;4, 25&minus;1, 12+12, 100&minus;76, 3&times;(5+3)
+        </div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================================== -->
+<!-- SECTION 11: Expression Engineer                                    -->
+<!-- ================================================================== -->
+<div class="section-block reveal" id="sec11">
+  <div class="section-hd g-purple">
+    <span class="icon">&#128640;</span>
+    <span>11. Expression Engineer</span>
+  </div>
+  <div class="section-bd">
+
+    <p style="font-size:16px;font-weight:800;color:#5b21b6;text-align:center;margin-bottom:16px;">Put your expression skills to the ultimate test!</p>
+
+    <div class="challenge-card">
+      <h4>&#127942; Challenge 1: Three 3's</h4>
+      <p>Using exactly three 3's and any operations (+, &minus;, &times;, &divide;, brackets), make as many different values as possible.</p>
+      <p style="font-size:13px;color:#6b7280;">Example: 3 + 3 + 3 = 9, &nbsp; 3 &times; 3 + 3 = 12, &nbsp; 3 &times; 3 &times; 3 = 27, &nbsp; 3 &times; 3 &minus; 3 = 6, &nbsp; (3 + 3) &times; 3 = 18</p>
+      <div class="q-answer" style="display:none;" id="ch1ans">
+        Some values: 3+3+3=9, 3&times;3+3=12, 3&times;3&minus;3=6, 3&times;3&times;3=27, (3+3)&times;3=18, (3+3)&divide;3=2, 3&divide;3+3=4, 3&divide;3&times;3=3, 3&times;(3&minus;3)=0, 33&minus;3=30, 33+3=36, 3&times;33=99, 33&divide;3=11, 33&times;3=99
+      </div>
+      <button class="toggle-ans-btn" onclick="var a=document.getElementById('ch1ans');a.style.display=a.style.display==='none'?'block':'none';">Show Examples</button>
+    </div>
+
+    <div class="challenge-card">
+      <h4>&#127942; Challenge 2: Four 4's</h4>
+      <p>Using exactly four 4's and any operations, try to make every number from <strong>1 to 20</strong>.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:10px;">
+        <div style="font-size:13px;"><strong>1</strong> = 44 &divide; 44</div>
+        <div style="font-size:13px;"><strong>2</strong> = 4 &divide; 4 + 4 &divide; 4</div>
+        <div style="font-size:13px;"><strong>3</strong> = (4 + 4 + 4) &divide; 4</div>
+        <div style="font-size:13px;"><strong>4</strong> = 4 + 4 &times; (4 &minus; 4)</div>
+        <div style="font-size:13px;"><strong>5</strong> = (4 &times; 4 + 4) &divide; 4</div>
+        <div style="font-size:13px;"><strong>6</strong> = 4 + (4 + 4) &divide; 4</div>
+        <div style="font-size:13px;"><strong>7</strong> = 4 + 4 &minus; 4 &divide; 4</div>
+        <div style="font-size:13px;"><strong>8</strong> = 4 + 4 + 4 &minus; 4</div>
+        <div style="font-size:13px;"><strong>9</strong> = 4 + 4 + 4 &divide; 4</div>
+        <div style="font-size:13px;"><strong>10</strong> = (44 &minus; 4) &divide; 4</div>
+        <div style="font-size:13px;"><strong>12</strong> = 4 &times; (4 &minus; 4 &divide; 4)</div>
+        <div style="font-size:13px;"><strong>15</strong> = 4 &times; 4 &minus; 4 &divide; 4</div>
+        <div style="font-size:13px;"><strong>16</strong> = 4 &times; 4 + 4 &minus; 4</div>
+        <div style="font-size:13px;"><strong>17</strong> = 4 &times; 4 + 4 &divide; 4</div>
+        <div style="font-size:13px;"><strong>20</strong> = 4 &times; (4 + 4 &divide; 4)</div>
+      </div>
+    </div>
+
+    <div class="challenge-card">
+      <h4>&#127942; Challenge 3: Using 1, 2, 3, 4, 5</h4>
+      <p>Using digits 1, 2, 3, 4, 5 exactly once each with +, &minus;, try to get every value from <strong>&minus;10 to +10</strong>.</p>
+      <div class="q-answer" style="display:none;" id="ch3ans">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:13px;">
+          <div>&minus;10: &minus;1&minus;2&minus;3&minus;4+... (tricky!)</div>
+          <div>&minus;5: 1&minus;2&minus;3+4&minus;5</div>
+          <div>0: 1+2+3&minus;4&minus;5+3... (try!)</div>
+          <div>1: 1&minus;2&minus;3+4&minus;5+... (explore!)</div>
+          <div>5: &minus;1+2&minus;3+4+5&minus;2...</div>
+          <div>10: 1+2&minus;3+4+5+... (try!)</div>
+        </div>
+        <p>This is an open challenge &mdash; there are many solutions!</p>
+      </div>
+      <button class="toggle-ans-btn" onclick="var a=document.getElementById('ch3ans');a.style.display=a.style.display==='none'?'block':'none';">Show Hints</button>
+    </div>
+
+    <div class="challenge-card">
+      <h4>&#127942; Challenge 4: Century Express</h4>
+      <p>Using digits 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 <strong>exactly once each</strong>, make an expression that equals <strong>100</strong>.</p>
+      <div class="q-answer" style="display:none;" id="ch4ans">
+        <p><strong>One solution:</strong> 70 + 24 + 5 &minus; 1 + 3 + 8 &minus; 9 + 0 &times; 6 = 100</p>
+        <p><strong>Another:</strong> 50 + 49 + 1 + 0 &times; 23678 = 100... (be creative!)</p>
+      </div>
+      <button class="toggle-ans-btn" onclick="var a=document.getElementById('ch4ans');a.style.display=a.style.display==='none'?'block':'none';">Show Examples</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================================== -->
+<!-- SECTION 12: Practice Zone                                          -->
+<!-- ================================================================== -->
+<div class="section-block reveal" id="sec12">
+  <div class="section-hd g-green">
+    <span class="icon">&#127919;</span>
+    <span>12. Practice Zone</span>
+  </div>
+  <div class="section-bd">
+
+    <!-- MCQs -->
+    <div class="subtitle">&#9989; Multiple Choice Questions</div>
+    <ul class="mcq-list">
+      <li class="mcq-item" data-ans="2">
+        <div class="mcq-q">1. What is the value of 5 + 3 &times; 2?</div>
+        <ul class="mcq-options">
+          <li data-opt="1">16</li>
+          <li data-opt="2">11</li>
+          <li data-opt="3">13</li>
+          <li data-opt="4">10</li>
+        </ul>
+        <div class="mcq-ans">&#10004; Answer: 11 (multiply first: 5 + 6 = 11)</div>
+      </li>
+
+      <li class="mcq-item" data-ans="3">
+        <div class="mcq-q">2. What is 100 &minus; (30 + 25)?</div>
+        <ul class="mcq-options">
+          <li data-opt="1">95</li>
+          <li data-opt="2">55</li>
+          <li data-opt="3">45</li>
+          <li data-opt="4">5</li>
+        </ul>
+        <div class="mcq-ans">&#10004; Answer: 45 (bracket first: 100 &minus; 55 = 45)</div>
+      </li>
+
+      <li class="mcq-item" data-ans="1">
+        <div class="mcq-q">3. The terms of 8 &minus; 3&times;2 + 5 are:</div>
+        <ul class="mcq-options">
+          <li data-opt="1">8, &minus;3&times;2, 5</li>
+          <li data-opt="2">8, &minus;3, 2, 5</li>
+          <li data-opt="3">8, 3&times;2, 5</li>
+          <li data-opt="4">8&minus;3, 2+5</li>
+        </ul>
+        <div class="mcq-ans">&#10004; Answer: 8, &minus;3&times;2, 5 (3&times;2 stays together as one term)</div>
+      </li>
+
+      <li class="mcq-item" data-ans="2">
+        <div class="mcq-q">4. Which property says a &times; (b + c) = a&times;b + a&times;c?</div>
+        <ul class="mcq-options">
+          <li data-opt="1">Commutative</li>
+          <li data-opt="2">Distributive</li>
+          <li data-opt="3">Associative</li>
+          <li data-opt="4">Identity</li>
+        </ul>
+        <div class="mcq-ans">&#10004; Answer: Distributive Property</div>
+      </li>
+
+      <li class="mcq-item" data-ans="4">
+        <div class="mcq-q">5. 50 &minus; (20 &minus; 8) equals:</div>
+        <ul class="mcq-options">
+          <li data-opt="1">22</li>
+          <li data-opt="2">42</li>
+          <li data-opt="3">58</li>
+          <li data-opt="4">38</li>
+        </ul>
+        <div class="mcq-ans">&#10004; Answer: 38 (bracket: 50 &minus; 12 = 38)</div>
+      </li>
+
+      <li class="mcq-item" data-ans="3">
+        <div class="mcq-q">6. 99 &times; 7 using distributive property equals:</div>
+        <ul class="mcq-options">
+          <li data-opt="1">700 + 7</li>
+          <li data-opt="2">700 &minus; 3</li>
+          <li data-opt="3">700 &minus; 7</li>
+          <li data-opt="4">693 + 7</li>
+        </ul>
+        <div class="mcq-ans">&#10004; Answer: 700 &minus; 7 = 693 [(100&minus;1)&times;7 = 700&minus;7]</div>
+      </li>
+
+      <li class="mcq-item" data-ans="1">
+        <div class="mcq-q">7. When a minus sign is before a bracket, the signs inside:</div>
+        <ul class="mcq-options">
+          <li data-opt="1">Change (flip)</li>
+          <li data-opt="2">Stay the same</li>
+          <li data-opt="3">All become positive</li>
+          <li data-opt="4">All become negative</li>
+        </ul>
+        <div class="mcq-ans">&#10004; Answer: Change (+ becomes &minus;, &minus; becomes +)</div>
+      </li>
+
+      <li class="mcq-item" data-ans="2">
+        <div class="mcq-q">8. Which pair of expressions are equal?</div>
+        <ul class="mcq-options">
+          <li data-opt="1">3&times;(4+5) and 3&times;4+5</li>
+          <li data-opt="2">3&times;(4+5) and 3&times;4+3&times;5</li>
+          <li data-opt="3">3+4&times;5 and (3+4)&times;5</li>
+          <li data-opt="4">3&minus;(4+5) and 3&minus;4+5</li>
+        </ul>
+        <div class="mcq-ans">&#10004; Answer: 3&times;(4+5) = 3&times;4+3&times;5 = 27 (distributive property)</div>
+      </li>
+
+      <li class="mcq-item" data-ans="3">
+        <div class="mcq-q">9. The value of 4 + 100 &divide; 2 is:</div>
+        <ul class="mcq-options">
+          <li data-opt="1">52</li>
+          <li data-opt="2">202</li>
+          <li data-opt="3">54</li>
+          <li data-opt="4">48</li>
+        </ul>
+        <div class="mcq-ans">&#10004; Answer: 54 (divide first: 4 + 50 = 54)</div>
+      </li>
+
+      <li class="mcq-item" data-ans="4">
+        <div class="mcq-q">10. 15 + (&minus;8) is the same as:</div>
+        <ul class="mcq-options">
+          <li data-opt="1">15 + 8</li>
+          <li data-opt="2">&minus;15 + 8</li>
+          <li data-opt="3">&minus;15 &minus; 8</li>
+          <li data-opt="4">15 &minus; 8</li>
+        </ul>
+        <div class="mcq-ans">&#10004; Answer: 15 &minus; 8 = 7</div>
+      </li>
+    </ul>
+
+    <!-- Fill in the Blanks -->
+    <div class="subtitle">&#9999; Fill in the Blanks</div>
+    <div class="fib-item">
+      <div class="fib-q">1. An arithmetic __________ is a mathematical phrase combining numbers and operations.</div>
+      <div class="fib-a">Answer: expression</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+    <div class="fib-item">
+      <div class="fib-q">2. The parts of an expression separated by + are called __________.</div>
+      <div class="fib-a">Answer: terms</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+    <div class="fib-item">
+      <div class="fib-q">3. a &times; (b + c) = a&times;b + a&times;c is called the __________ property.</div>
+      <div class="fib-a">Answer: distributive</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+    <div class="fib-item">
+      <div class="fib-q">4. Swapping terms in addition gives the same result due to the __________ property.</div>
+      <div class="fib-a">Answer: commutative</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+    <div class="fib-item">
+      <div class="fib-q">5. 83 &minus; 14 can be rewritten as 83 + __________.</div>
+      <div class="fib-a">Answer: (&minus;14)</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+    <div class="fib-item">
+      <div class="fib-q">6. When brackets are preceded by a minus sign, the signs inside __________.</div>
+      <div class="fib-a">Answer: change (flip / reverse)</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+    <div class="fib-item">
+      <div class="fib-q">7. In 30 + 5 &times; 4, the expression __________ is done first.</div>
+      <div class="fib-a">Answer: 5 &times; 4 (multiplication)</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+    <div class="fib-item">
+      <div class="fib-q">8. Changing the grouping of terms in addition does not change the result. This is the __________ property.</div>
+      <div class="fib-a">Answer: associative</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+
+    <!-- True/False -->
+    <div class="subtitle">&#10004;&#10008; True or False</div>
+    <div class="tf-item">
+      <div class="tf-q">1. 5 + 3 &times; 2 = 16</div>
+      <div class="tf-a">False. 5 + 3&times;2 = 5 + 6 = 11 (multiply first)</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+    <div class="tf-item">
+      <div class="tf-q">2. 100 &minus; (30 + 20) = 100 &minus; 30 &minus; 20</div>
+      <div class="tf-a">True. Minus before bracket: signs change, so &minus;(30+20) = &minus;30 &minus; 20</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+    <div class="tf-item">
+      <div class="tf-q">3. 50 &minus; (20 &minus; 5) = 50 &minus; 20 &minus; 5</div>
+      <div class="tf-a">False. 50 &minus; (20&minus;5) = 50 &minus; 20 + 5 = 35. But 50&minus;20&minus;5 = 25.</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+    <div class="tf-item">
+      <div class="tf-q">4. The terms of 6&times;5 + 3 are: 6, 5, and 3.</div>
+      <div class="tf-a">False. 6&times;5 is a single term. The terms are 6&times;5 and 3.</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+    <div class="tf-item">
+      <div class="tf-q">5. 7 &times; 98 = 7 &times; 100 &minus; 7 &times; 2 = 686</div>
+      <div class="tf-a">True. Distributive property: 700 &minus; 14 = 686</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+    <div class="tf-item">
+      <div class="tf-q">6. In addition, the order of terms does not matter.</div>
+      <div class="tf-a">True. This is the commutative property of addition.</div>
+      <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+    </div>
+
+    <!-- Short Answer -->
+    <div class="subtitle">&#128221; Short Answer Questions</div>
+    <ul class="short-q-list">
+      <li class="short-q-item">
+        <div class="short-q">1. Why do we need brackets in arithmetic expressions?</div>
+        <div class="short-a"><strong>Answer:</strong> Brackets remove ambiguity by making the order of operations clear. Without brackets, expressions like 30 + 5 &times; 4 could be interpreted in multiple ways. Brackets tell us which operation to do first.</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </li>
+      <li class="short-q-item">
+        <div class="short-q">2. Explain with an example how the distributive property helps in mental math.</div>
+        <div class="short-a"><strong>Answer:</strong> To calculate 98 &times; 6 mentally: 98&times;6 = (100&minus;2)&times;6 = 600&minus;12 = 588. The distributive property breaks a hard multiplication into easy ones.</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </li>
+      <li class="short-q-item">
+        <div class="short-q">3. What are the terms of the expression 15 &minus; 3&times;4 + 2&times;7?</div>
+        <div class="short-a"><strong>Answer:</strong> The terms are: <strong>15</strong>, <strong>&minus;3&times;4</strong>, and <strong>2&times;7</strong>. Products within a term stay together.</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </li>
+      <li class="short-q-item">
+        <div class="short-q">4. Remove brackets: 200 &minus; (75 &minus; 30 + 15)</div>
+        <div class="short-a"><strong>Answer:</strong> 200 &minus; 75 + 30 &minus; 15 = 140. When a minus is before the bracket, all signs inside flip.</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </li>
+      <li class="short-q-item">
+        <div class="short-q">5. Give a real-life example that uses the expression 3 &times; 45 + 2 &times; 30.</div>
+        <div class="short-a"><strong>Answer:</strong> Example: "3 shirts cost &#8377;45 each and 2 pants cost &#8377;30 each. Total cost = 3&times;45 + 2&times;30 = 135 + 60 = &#8377;195."</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<!-- ===== BOTTOM NAV ===== -->
+<div class="bottom-nav">
+  <div class="bnav-cards">
+    <a href="large-numbers-around-us.html" class="bnav-card">
+      <span class="bnav-dir">&#8592; Previous Chapter</span>
+      <span class="bnav-title">Ch 1: Large Numbers Around Us</span>
+    </a>
+    <div class="bnav-card disabled">
+      <span class="bnav-dir">Next Chapter &#8594;</span>
+      <span class="bnav-title">Coming Soon</span>
+    </div>
+  </div>
+  <div class="bnav-bottom">
+    <a href="index.html" class="bnav-home">&#127968; Back to Class 7 Maths</a>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div>&#128290; Class 7 Maths &middot; Arithmetic Expressions &middot; Complete Interactive Notes</div>
+  <div style="margin-top:6px;">&#128105;&#8205;&#127979; Made by Preeti Kushwah Ma'am</div>
+  <div style="margin-top:4px;opacity:0.8;">&copy; 2026 Preeti Kushwah Classes</div>
+</footer>
+
+<!-- ===== ALL JAVASCRIPT ===== -->
+<script>
+// ===== Hero Animation =====
+(function() {
+  var rain = document.getElementById('exprRain');
+  if (!rain) return;
+  var exprs = ['+', '-', '×', '÷', '(', ')', '=', '2', '3', '5', '7', '12', '?', '{', '}'];
+  for (var i = 0; i < 30; i++) {
+    var span = document.createElement('span');
+    span.className = 'rain-expr';
+    span.textContent = exprs[Math.floor(Math.random() * exprs.length)];
+    span.style.left = Math.random() * 100 + '%';
+    span.style.fontSize = (14 + Math.random() * 20) + 'px';
+    span.style.animationDuration = (4 + Math.random() * 6) + 's';
+    span.style.animationDelay = (Math.random() * 8) + 's';
+    rain.appendChild(span);
+  }
+})();
+
+// Hero expression evaluator
+(function() {
+  var el = document.getElementById('heroExpr');
+  if (!el) return;
+  var steps = ['2 + 3 × 4 = ?', '2 + [3 × 4] = ?', '2 + 12 = ?', '2 + 12 = 14!'];
+  var idx = 0;
+  setInterval(function() {
+    idx = (idx + 1) % steps.length;
+    el.style.transition = 'opacity 0.3s';
+    el.style.opacity = '0';
+    setTimeout(function() {
+      el.textContent = steps[idx];
+      el.style.opacity = '1';
+    }, 300);
+  }, 2000);
+})();
+
+// ===== Scroll Reveal =====
+(function() {
+  var els = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(function(el) { observer.observe(el); });
+})();
+
+// ===== ANIMATION: Same Value =====
+var svTimer;
+function playSameVal() {
+  resetSameVal();
+  var ids = ['sv1','sv2','sv3','sv4','svArrow','svResult'];
+  var delay = 0;
+  ids.forEach(function(id, i) {
+    svTimer = setTimeout(function() {
+      document.getElementById(id).classList.add('show');
+    }, delay);
+    delay += 500;
+  });
+}
+function resetSameVal() {
+  clearTimeout(svTimer);
+  ['sv1','sv2','sv3','sv4','svArrow','svResult'].forEach(function(id) {
+    document.getElementById(id).classList.remove('show');
+  });
+}
+
+// ===== ANIMATION: Marble Bar =====
+function playMarbleBar() {
+  resetMarbleBar();
+  setTimeout(function() {
+    document.getElementById('barRaja').style.width = '95%';
+    document.getElementById('barJoy').style.width = '95.2%';
+  }, 100);
+  setTimeout(function() {
+    document.getElementById('barDiff').classList.add('show');
+  }, 1800);
+}
+function resetMarbleBar() {
+  document.getElementById('barRaja').style.width = '0';
+  document.getElementById('barJoy').style.width = '0';
+  document.getElementById('barDiff').classList.remove('show');
+}
+
+// ===== ANIMATION: Two Paths =====
+var tpTimers = [];
+function playTwoPath() {
+  resetTwoPath();
+  var ids = ['tp0','tp1','tp2','tp3','tp4','tp5','tp6'];
+  var delays = [0, 600, 1000, 1400, 600, 1000, 1400];
+  ids.forEach(function(id, i) {
+    tpTimers.push(setTimeout(function() {
+      document.getElementById(id).classList.add('show');
+    }, delays[i]));
+  });
+}
+function resetTwoPath() {
+  tpTimers.forEach(clearTimeout);
+  tpTimers = [];
+  ['tp0','tp1','tp2','tp3','tp4','tp5','tp6'].forEach(function(id) {
+    document.getElementById(id).classList.remove('show');
+  });
+}
+
+// ===== ANIMATION: Bracket Resolver =====
+var brTimers = [];
+function playBracket() {
+  resetBracket();
+  var ids = ['br0','br1','br2'];
+  var delays = [0, 1200, 2200];
+  ids.forEach(function(id, i) {
+    brTimers.push(setTimeout(function() {
+      document.getElementById(id).classList.add('show');
+    }, delays[i]));
+  });
+  brTimers.push(setTimeout(function() {
+    var inner = document.getElementById('brInner');
+    if (inner) {
+      inner.style.transition = 'all 0.5s';
+      inner.style.background = '#86efac';
+      inner.textContent = '71';
+    }
+  }, 800));
+}
+function resetBracket() {
+  brTimers.forEach(clearTimeout);
+  brTimers = [];
+  ['br0','br1','br2'].forEach(function(id) {
+    document.getElementById(id).classList.remove('show');
+  });
+  var inner = document.getElementById('brInner');
+  if (inner) {
+    inner.style.background = '#fde047';
+    inner.textContent = '15 + 56';
+  }
+}
+
+// ===== ANIMATION: Term Identifier =====
+var tiTimers = [];
+function playTermId() {
+  resetTermId();
+  var container = document.getElementById('termBlocksDisplay');
+  var terms = [
+    { text: '23', cls: 'tb-purple' },
+    { text: '+', cls: '' },
+    { text: '−2×4', cls: 'tb-red' },
+    { text: '+', cls: '' },
+    { text: '16', cls: 'tb-green' }
+  ];
+  terms.forEach(function(t, i) {
+    tiTimers.push(setTimeout(function() {
+      if (t.cls === '') {
+        var plus = document.createElement('span');
+        plus.className = 'term-plus';
+        plus.textContent = t.text;
+        container.appendChild(plus);
+      } else {
+        var block = document.createElement('div');
+        block.className = 'term-block ' + t.cls;
+        block.textContent = t.text;
+        block.style.opacity = '1';
+        block.style.transform = 'none';
+        container.appendChild(block);
+      }
+    }, i * 500));
+  });
+}
+function resetTermId() {
+  tiTimers.forEach(clearTimeout);
+  tiTimers = [];
+  var container = document.getElementById('termBlocksDisplay');
+  if (container) container.innerHTML = '';
+}
+
+// ===== ANIMATION: Sign Flip =====
+var sfTimers = [];
+function playSignFlip() {
+  resetSignFlip();
+  var ids = ['sf0','sfArrow','sf1','sf2'];
+  var delays = [0, 800, 1600, 2400];
+  ids.forEach(function(id, i) {
+    sfTimers.push(setTimeout(function() {
+      var el = document.getElementById(id);
+      el.classList.add('show');
+      el.style.opacity = '1';
+      el.style.transform = 'translateX(0)';
+    }, delays[i]));
+  });
+}
+function resetSignFlip() {
+  sfTimers.forEach(clearTimeout);
+  sfTimers = [];
+  ['sf0','sfArrow','sf1','sf2'].forEach(function(id) {
+    var el = document.getElementById(id);
+    el.classList.remove('show');
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(-30px)';
+  });
+}
+
+// ===== ANIMATION: Commutative Swap =====
+var swapState = false;
+function playSwap() {
+  var a = document.getElementById('swapA');
+  var b = document.getElementById('swapB');
+  if (!swapState) {
+    a.style.transform = 'translateX(100px)';
+    b.style.transform = 'translateX(-100px)';
+    a.textContent = '(−4)';
+    a.className = 'term-block tb-red';
+    b.textContent = '6';
+    b.className = 'term-block tb-green';
+    setTimeout(function() {
+      a.style.transform = 'none';
+      b.style.transform = 'none';
+    }, 50);
+  } else {
+    a.textContent = '6';
+    a.className = 'term-block tb-green';
+    b.textContent = '(−4)';
+    b.className = 'term-block tb-red';
+  }
+  swapState = !swapState;
+}
+function resetSwap() {
+  swapState = false;
+  var a = document.getElementById('swapA');
+  var b = document.getElementById('swapB');
+  a.textContent = '6';
+  a.className = 'term-block tb-green';
+  a.style.transform = 'none';
+  b.textContent = '(−4)';
+  b.className = 'term-block tb-red';
+  b.style.transform = 'none';
+}
+
+// ===== ANIMATION: Fire in the Mountain =====
+var fireTimers = [];
+function playFire() {
+  resetFire();
+  var container = document.getElementById('fireGroups');
+  var label = document.getElementById('fireLabel');
+  // 6 groups of 5
+  for (var g = 0; g < 6; g++) {
+    (function(gi) {
+      fireTimers.push(setTimeout(function() {
+        var group = document.createElement('div');
+        group.className = 'dot-group';
+        for (var d = 0; d < 5; d++) {
+          var dot = document.createElement('div');
+          dot.className = 'dot-circle';
+          group.appendChild(dot);
+        }
+        container.appendChild(group);
+        setTimeout(function() { group.classList.add('show'); }, 50);
+        label.textContent = (gi + 1) + ' group' + (gi > 0 ? 's' : '') + ' of 5';
+      }, gi * 400));
+    })(g);
+  }
+  // 3 remaining
+  fireTimers.push(setTimeout(function() {
+    var rem = document.createElement('div');
+    rem.className = 'dot-remainder';
+    for (var d = 0; d < 3; d++) {
+      var dot = document.createElement('div');
+      dot.className = 'dot-circle';
+      rem.appendChild(dot);
+    }
+    container.appendChild(rem);
+    setTimeout(function() { rem.classList.add('show'); }, 50);
+    label.textContent = '6 × 5 + 3 = 33';
+  }, 2800));
+}
+function resetFire() {
+  fireTimers.forEach(clearTimeout);
+  fireTimers = [];
+  document.getElementById('fireGroups').innerHTML = '';
+  document.getElementById('fireLabel').textContent = '';
+}
+
+// ===== ANIMATION: Distributive Property =====
+var distTimers = [];
+function playDist() {
+  resetDist();
+  var left = document.getElementById('distLeft');
+  var right = document.getElementById('distRight');
+  var label = document.getElementById('distLabel');
+  var result = document.getElementById('distResult');
+
+  // Step 1: Show combined rectangle
+  label.textContent = '2 × (43 + 24) = 2 × 67 = 134';
+  left.textContent = '2 × 43';
+  left.style.width = '140px';
+  right.textContent = '2 × 24';
+  right.style.width = '100px';
+
+  // Step 2: Split apart
+  distTimers.push(setTimeout(function() {
+    left.style.marginRight = '20px';
+    left.style.borderRadius = '12px';
+    right.style.borderRadius = '12px';
+    label.textContent = '= 2×43 + 2×24';
+    result.textContent = '= 86 + 48 = 134';
+  }, 1500));
+}
+function resetDist() {
+  distTimers.forEach(clearTimeout);
+  distTimers = [];
+  var left = document.getElementById('distLeft');
+  var right = document.getElementById('distRight');
+  if (left) {
+    left.style.marginRight = '0';
+    left.style.borderRadius = '12px 0 0 12px';
+    left.textContent = 'a × b';
+    left.style.width = '120px';
+  }
+  if (right) {
+    right.style.borderRadius = '0 12px 12px 0';
+    right.textContent = 'a × c';
+    right.style.width = '80px';
+  }
+  document.getElementById('distLabel').textContent = 'a × (b + c)';
+  document.getElementById('distResult').textContent = '= a×b + a×c';
+}
+
+// ===== INTERACTIVE: Check Answer (numeric) =====
+function checkFIO1(inputId, correct, fbId) {
+  var val = document.getElementById(inputId).value.trim();
+  var fb = document.getElementById(fbId);
+  if (val === correct || val === correct.toString()) {
+    fb.textContent = '✓ Correct!';
+    fb.className = 'q-feedback correct';
+  } else {
+    fb.textContent = '✗ Try again';
+    fb.className = 'q-feedback wrong';
+  }
+}
+
+// Check text answers (multiple acceptable)
+function checkText(inputId, acceptable, fbId) {
+  var val = document.getElementById(inputId).value.trim().replace(/\s+/g, '');
+  var fb = document.getElementById(fbId);
+  var found = false;
+  for (var i = 0; i < acceptable.length; i++) {
+    if (val === acceptable[i].replace(/\s+/g, '')) {
+      found = true;
+      break;
+    }
+  }
+  if (found) {
+    fb.textContent = '✓ Correct!';
+    fb.className = 'q-feedback correct';
+  } else {
+    fb.textContent = '✗ Try again';
+    fb.className = 'q-feedback wrong';
+  }
+}
+
+function checkMultiAns(inputId, acceptable, fbId) {
+  checkText(inputId, acceptable, fbId);
+}
+
+// FIO3 Q1 double input check
+function checkFIO3Q1(id1, ans1, id2, ans2, fbId) {
+  var v1 = document.getElementById(id1).value.trim();
+  var v2 = document.getElementById(id2).value.trim();
+  var fb = document.getElementById(fbId);
+  if (v1 === ans1 && v2 === ans2) {
+    fb.textContent = '✓ Correct!';
+    fb.className = 'q-feedback correct';
+  } else {
+    fb.textContent = '✗ Try again';
+    fb.className = 'q-feedback wrong';
+  }
+}
+
+// ===== MCQ Handler =====
+document.querySelectorAll('.mcq-item').forEach(function(item) {
+  var correctAns = item.getAttribute('data-ans');
+  item.querySelectorAll('.mcq-options li').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      if (item.classList.contains('show-ans')) return;
+      var chosen = opt.getAttribute('data-opt');
+      if (chosen === correctAns) {
+        opt.classList.add('correct');
+      } else {
+        opt.classList.add('wrong-pick');
+        item.querySelector('[data-opt="' + correctAns + '"]').classList.add('correct');
+      }
+      item.classList.add('show-ans');
+    });
+  });
+});
+
+// ===== Share Functions =====
+function openShare() {
+  document.getElementById('shareOverlay').classList.add('active');
+}
+function closeShare() {
+  document.getElementById('shareOverlay').classList.remove('active');
+}
+function shareWhatsApp() {
+  var url = encodeURIComponent(window.location.href);
+  var text = encodeURIComponent('Check out these Class 7 Maths notes on Arithmetic Expressions by Preeti Kushwah Ma\'am! ');
+  window.open('https://wa.me/?text=' + text + url, '_blank');
+}
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    var fb = document.getElementById('copyFeedback');
+    fb.style.display = 'block';
+    setTimeout(function() { fb.style.display = 'none'; }, 2000);
+  });
+}
+function nativeShare() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Arithmetic Expressions — Class 7 Maths',
+      text: 'Interactive notes by Preeti Kushwah Classes',
+      url: window.location.href
+    });
+  } else {
+    copyLink();
+  }
+}
+</script>
+
+<!-- ===== FLOATING SHARE BUTTON ===== -->
+<div class="fab-share" onclick="openShare()">&#128279;</div>
+
+<!-- ===== SHARE OVERLAY ===== -->
+<div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeShare()">
+  <div class="share-box">
+    <h3>Share These Notes</h3>
+    <button class="share-opt wa" onclick="shareWhatsApp()">WhatsApp</button>
+    <button class="share-opt copy" onclick="copyLink()">Copy Link</button>
+    <button class="share-opt native" onclick="nativeShare()">Share...</button>
+    <button class="share-close" onclick="closeShare()">Close</button>
+    <div class="copy-feedback" id="copyFeedback">Link Copied!</div>
+  </div>
+</div>
+
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+</body>
+</html>
