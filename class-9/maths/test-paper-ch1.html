@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Test Paper Set 1 — Ch 1: The Use of Coordinates | Class 9 Maths</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple-darkest: #3b0764;
+  --purple-dark: #5b21b6;
+  --purple-mid: #7c3aed;
+  --purple-light: #a78bfa;
+  --purple-pale: #ede9fe;
+  --purple-bg: #faf5ff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #faf5ff;
+  background-image: linear-gradient(180deg, #faf5ff 0%, #fff7ed 50%, #faf5ff 100%);
+  color: #1e1b4b;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ============= TOP NAV ============= */
+.top-nav {
+  background: white;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 110;
+}
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-link.tn-home {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  color: #5b21b6;
+  border: 1px solid #c4b5fd;
+}
+.nav-link.tn-home:hover {
+  background: linear-gradient(135deg, #ddd6fe, #c4b5fd);
+  transform: translateY(-1px);
+}
+.nav-spacer { flex: 1; }
+.nav-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 14px;
+  color: #5b21b6;
+}
+.nav-title small {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+/* ============= HERO ============= */
+.hero {
+  background: linear-gradient(135deg, #3b0764 0%, #5b21b6 50%, #7c3aed 100%);
+  color: white;
+  text-align: center;
+  padding: 48px 20px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.06) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-icon { font-size: 48px; margin-bottom: 12px; }
+.hero h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 30px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.hero .hero-sub {
+  font-size: 15px;
+  opacity: 0.9;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.hero .hero-chapter {
+  font-size: 13px;
+  opacity: 0.75;
+  margin-bottom: 16px;
+}
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.hero-meta span {
+  background: rgba(255,255,255,0.15);
+  padding: 6px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 14px;
+  backdrop-filter: blur(4px);
+}
+
+/* ============= CONTAINER ============= */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* ============= TEST PAPER ============= */
+.test-paper {
+  background: white;
+  border: 2px solid #1e1b4b;
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+.watermark {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none; z-index: 1; overflow: hidden;
+  user-select: none; -webkit-user-select: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='200'%3E%3Ctext x='210' y='110' text-anchor='middle' font-family='sans-serif' font-size='26' font-weight='bold' fill='rgba(0,0,0,0.04)' transform='rotate(-30,210,110)'%3EPreeti Kushwah Classes%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 420px 200px;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.test-header {
+  background: linear-gradient(135deg, #1e1b4b, #3b0764);
+  color: white;
+  text-align: center;
+  padding: 24px 20px 18px;
+  position: relative;
+  z-index: 2;
+}
+.test-header h2 { font-family: 'Fredoka One', cursive; font-size: 22px; margin: 0 0 4px; letter-spacing: 1px; }
+.test-header p { font-size: 13px; opacity: 0.85; margin: 2px 0; }
+.test-header .test-meta {
+  display: flex; justify-content: center; gap: 24px; margin-top: 12px;
+  font-weight: 800; font-size: 14px;
+}
+.test-header .test-meta span { background: rgba(255,255,255,0.15); padding: 4px 14px; border-radius: 8px; }
+.test-body { padding: 24px 20px; position: relative; z-index: 2; }
+.qr-strip {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  padding: 14px 20px; background: #f8fafc; border-top: 1px solid #e2e8f0;
+  position: relative; z-index: 2;
+}
+.qr-strip img { width: 70px; height: 70px; border-radius: 6px; border: 2px solid #e2e8f0; }
+.qr-strip .qr-text { font-size: 11px; color: #64748b; font-weight: 700; line-height: 1.5; }
+.qr-strip .qr-text strong { color: #1e1b4b; font-size: 12px; }
+.test-section-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 16px;
+  color: #5b21b6;
+  border-bottom: 2px solid #ede9fe;
+  padding-bottom: 6px;
+  margin: 28px 0 14px;
+}
+.test-section-title:first-child { margin-top: 0; }
+.test-q {
+  margin-bottom: 18px;
+  padding-left: 4px;
+}
+.test-q .q-num {
+  font-weight: 800;
+  color: #7c3aed;
+  font-size: 14px;
+}
+.test-q .q-text {
+  font-size: 14px;
+  color: #1f2937;
+  margin-top: 4px;
+  line-height: 1.7;
+}
+.test-q .q-marks {
+  display: inline-block;
+  background: #ede9fe;
+  color: #5b21b6;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-left: 6px;
+}
+.test-q table {
+  width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0;
+}
+.test-q table th { background: #f3f4f6; padding: 8px 10px; text-align: left; font-weight: 700; border: 1px solid #d1d5db; }
+.test-q table td { padding: 8px 10px; border: 1px solid #d1d5db; font-family: 'Fredoka One', cursive; font-size: 13px; }
+.test-instructions {
+  background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px;
+  font-size: 13px; color: #92400e; border-radius: 0 10px 10px 0; margin-bottom: 20px; line-height: 1.7;
+}
+
+/* ============= PRINT BUTTON ============= */
+.print-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #7c3aed, #5b21b6);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(124,58,237,0.3);
+}
+.print-btn:hover {
+  background: linear-gradient(135deg, #6d28d9, #4c1d95);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124,58,237,0.4);
+}
+.share-sol-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(5,150,105,0.3);
+}
+.share-sol-btn:hover {
+  background: linear-gradient(135deg, #047857, #059669);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(5,150,105,0.4);
+}
+.pdf-note {
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 8px;
+}
+
+/* ============= SOLUTION UNLOCK ============= */
+.sol-lock-overlay {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border: 2px dashed #a78bfa;
+  border-radius: 14px;
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: 32px;
+}
+.sol-lock-overlay h3 {
+  font-family: 'Fredoka One', cursive; color: #5b21b6; font-size: 18px; margin: 0 0 8px;
+}
+.sol-lock-overlay p { font-size: 13px; color: #6b7280; margin: 0 0 16px; }
+.sol-code-input {
+  padding: 10px 16px;
+  border: 2px solid #c4b5fd;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  width: 200px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.sol-code-input:focus { outline: none; border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,0.15); }
+.sol-unlock-btn {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 10px 22px;
+  background: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sol-unlock-btn:hover { background: #6d28d9; transform: translateY(-1px); }
+.sol-error { color: #dc2626; font-weight: 700; font-size: 13px; margin-top: 10px; }
+.sol-success { color: #059669; font-weight: 700; font-size: 13px; margin-top: 10px; }
+.test-solutions { display: none; margin-top: 24px; }
+.test-solutions.unlocked { display: block; }
+.test-sol-item {
+  background: #f0fdf4;
+  border-left: 4px solid #22c55e;
+  border-radius: 0 12px 12px 0;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+}
+.test-sol-item .sol-num { font-weight: 800; color: #166534; font-size: 14px; }
+.test-sol-item .sol-body { font-size: 13px; color: #374151; margin-top: 6px; line-height: 1.8; }
+.test-sol-item .sol-body strong { color: #5b21b6; }
+
+/* ============= CONFETTI ============= */
+.confetti-piece {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  z-index: 999;
+  pointer-events: none;
+  animation: confettiFall 3s ease-out forwards;
+}
+@keyframes confettiFall {
+  0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+}
+
+/* ============= FOOTER ============= */
+footer {
+  background: linear-gradient(135deg, #3b0764 0%, #1e1b4b 100%);
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 13px;
+  margin-top: 0;
+}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 24px; }
+  .hero-meta { gap: 10px; }
+  .hero-meta span { font-size: 12px; padding: 5px 12px; }
+  .test-header h2 { font-size: 18px; }
+  .test-header .test-meta { gap: 12px; }
+  .test-body { padding: 18px 14px; }
+  .sol-code-input { width: 160px; font-size: 14px; }
+  .sol-unlock-btn { margin-left: 0; margin-top: 10px; display: block; width: 160px; margin-left: auto; margin-right: auto; }
+  .sol-lock-overlay > div { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+}
+
+/* ============= PRINT STYLES ============= */
+@media print {
+  .top-nav, .print-bar, .pdf-note, .sol-lock-overlay, footer, .dm-toggle { display: none !important; }
+  .hero { padding: 20px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: white !important; }
+  .container { padding: 0; max-width: 100%; }
+  .test-paper { border: 1px solid #333; border-radius: 0; }
+  .test-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 16px; }
+  .test-q { page-break-inside: avoid; }
+  .test-sol-item { page-break-inside: avoid; }
+  .test-solutions.unlocked { display: block !important; }
+  .test-solutions { page-break-before: always; }
+  .watermark { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='200'%3E%3Ctext x='210' y='110' text-anchor='middle' font-family='sans-serif' font-size='26' font-weight='bold' fill='rgba(0,0,0,0.06)' transform='rotate(-30,210,110)'%3EPreeti Kushwah Classes%3C/text%3E%3C/svg%3E") !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<div class="top-nav">
+  <a href="index.html" class="nav-link tn-home">&#8592; Back to Maths</a>
+  <span class="nav-spacer"></span>
+  <span class="nav-title">Test Paper Set 1 <small>Ch 1</small></span>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-icon">&#128208;</div>
+  <h1>Chapter Test Paper &#8212; Set 1</h1>
+  <div class="hero-sub">Class 9 Mathematics &#8212; Chapter 1: The Use of Coordinates</div>
+  <div class="hero-chapter">Foundation Level &#8212; Preeti Kushwah Classes</div>
+  <div class="hero-meta">
+    <span>&#128203; Total Marks: 40</span>
+    <span>&#9200; Time: 1&#189; Hours</span>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTAINER ===== -->
+<div class="container">
+
+  <!-- Print / PDF Buttons -->
+  <div class="print-bar">
+    <button class="print-btn" onclick="window.print()">&#128424; Print Test Paper</button>
+    <button class="share-sol-btn" onclick="shareSolutions()">&#128228; Share Solutions PDF</button>
+  </div>
+  <div class="pdf-note">&#128161; Print paper or share solutions as PDF via WhatsApp to students.</div>
+
+  <!-- ===== TEST PAPER ===== -->
+  <div class="test-paper">
+    <div class="watermark"></div>
+    <div class="test-header">
+      <h2>CHAPTER 1 &#8212; THE USE OF COORDINATES</h2>
+      <p>Class IX Mathematics &#8212; Coordinate Geometry</p>
+      <p>Preeti Kushwah Classes &#8212; Unit Test (Set 1: Foundation)</p>
+      <div class="test-meta">
+        <span>Total Marks: 40</span>
+        <span>Time: 1&#189; Hours</span>
+      </div>
+    </div>
+
+    <div class="test-body">
+
+      <div class="test-instructions">
+        <strong>General Instructions:</strong><br>
+        1. All questions are compulsory.<br>
+        2. Section A has 6 questions of 1 mark each.<br>
+        3. Section B has 5 questions of 2 marks each.<br>
+        4. Section C has 4 questions of 3 marks each.<br>
+        5. Section D has 2 questions of 5 marks each.<br>
+        6. Draw neat figures wherever required. Use graph paper for plotting questions.
+      </div>
+
+      <!-- ===== SECTION A: 1 Mark Each (6 x 1 = 6) ===== -->
+      <div class="test-section-title">Section A &#8212; (1 Mark Each) [6 &#215; 1 = 6]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q1.</span><span class="q-marks">1</span>
+        <div class="q-text">The point where the x-axis and y-axis intersect is called ___. Write its coordinates.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q2.</span><span class="q-marks">1</span>
+        <div class="q-text">The abscissa of the point (&minus;3, 5) is ___.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q3.</span><span class="q-marks">1</span>
+        <div class="q-text">In which quadrant does the point (&minus;4, &minus;7) lie?</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q4.</span><span class="q-marks">1</span>
+        <div class="q-text">True or False: The point (0, &minus;5) lies in the third quadrant.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q5.</span><span class="q-marks">1</span>
+        <div class="q-text">A point on the x-axis has coordinates of the form: (a) (x, 0) or (b) (0, y)? Choose the correct option.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q6.</span><span class="q-marks">1</span>
+        <div class="q-text">Write the coordinates of a point 6 units to the left of the origin on the x-axis.</div>
+      </div>
+
+      <!-- ===== SECTION B: 2 Marks Each (5 x 2 = 10) ===== -->
+      <div class="test-section-title">Section B &#8212; (2 Marks Each) [5 &#215; 2 = 10]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q7.</span><span class="q-marks">2</span>
+        <div class="q-text">Identify the quadrant or axis for each point: (3, &minus;1), (&minus;4, 6), (0, 3), (&minus;2, 0)</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q8.</span><span class="q-marks">2</span>
+        <div class="q-text">Write the abscissa and ordinate of each point: P(7, &minus;3), Q(&minus;5, 2), R(0, &minus;8), S(4, 0)</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q9.</span><span class="q-marks">2</span>
+        <div class="q-text">A point has abscissa &minus;3 and ordinate 5. Write its coordinates and name the quadrant it lies in.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q10.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          Fill in the blanks:<br>
+          (a) The x-coordinate of every point on the y-axis is ___.<br>
+          (b) The coordinate axes divide the plane into ___ parts called ___.<br>
+          (c) The perpendicular distance of point (5, 7) from the y-axis is ___.<br>
+          (d) Point (&minus;4, 0) lies on the ___ axis.
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q11.</span><span class="q-marks">2</span>
+        <div class="q-text">A point lies on the y-axis at a distance of 4 units below the origin. Write its coordinates.</div>
+      </div>
+
+      <!-- ===== SECTION C: 3 Marks Each (4 x 3 = 12) ===== -->
+      <div class="test-section-title">Section C &#8212; (3 Marks Each) [4 &#215; 3 = 12]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q12.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          Plot A(1, 1), B(1, 4), C(4, 4), D(4, 1). Join ABCD in order.<br>
+          (a) Name the figure formed.<br>
+          (b) Find the length of each side.<br>
+          (c) Find the perimeter.
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q13.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          From the following points, identify which lie in: (i) Quadrant II &nbsp; (ii) on the x-axis &nbsp; (iii) on the y-axis<br>
+          Points: (3, 0), (&minus;2, 5), (0, &minus;7), (&minus;1, &minus;3), (0, 4), (6, &minus;2), (&minus;5, 0), (4, 7)
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q14.</span><span class="q-marks">3</span>
+        <div class="q-text">Three vertices of a rectangle are A(2, 1), B(2, 4), C(6, 4). Find the fourth vertex D and plot the rectangle.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q15.</span><span class="q-marks">3</span>
+        <div class="q-text">Write two points in each of the four quadrants and two points on each axis (total 12 points).</div>
+      </div>
+
+      <!-- ===== SECTION D: 5 Marks Each (2 x 5 = 10) ===== -->
+      <div class="test-section-title">Section D &#8212; (5 Marks Each) [2 &#215; 5 = 10]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q16.</span><span class="q-marks">5</span>
+        <div class="q-text">
+          A teacher draws a seating plan on a Cartesian plane. Desks are placed at:<br>
+          Row 1: (1,1), (2,1), (3,1), (4,1)<br>
+          Row 2: (1,2), (2,2), (3,2), (4,2)<br>
+          Row 3: (1,3), (2,3), (3,3), (4,3)<br><br>
+          (a) Plot all 12 desks on the Cartesian plane. [1]<br>
+          (b) Aman sits at (3, 2). Write the coordinates of his neighbours (left, right, front, back). [1]<br>
+          (c) Priya moves from (1, 1) to (4, 3). How many units right and up does she move? [1]<br>
+          (d) The teacher stands at the origin. Which desk is closest to the teacher? [1]<br>
+          (e) If the room is expanded by adding column x = 5 and row y = 4, how many new desks are added? List their coordinates. [1]
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q17.</span><span class="q-marks">5</span>
+        <div class="q-text">
+          Plot the points A(&minus;4, 3), B(3, 3), C(3, &minus;2), D(&minus;4, &minus;2). Join ABCD.<br><br>
+          (a) What shape is formed? [1]<br>
+          (b) Find the lengths AB and BC. [1]<br>
+          (c) Find the perimeter and area. [1]<br>
+          (d) Which sides are parallel to the axes? [1]<br>
+          (e) Write the coordinates where the sides cross the x-axis and the y-axis. [1]
+        </div>
+      </div>
+
+      <!-- Bonus -->
+      <div class="test-section-title">Bonus Question (Optional) [2 Marks]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q18.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          &#9733; A point P lies in the second quadrant. Its distance from the x-axis is 5 units and from the y-axis is 3 units. Find the coordinates of P. If P is reflected in the x-axis, what are the new coordinates and which quadrant will it lie in?
+        </div>
+      </div>
+
+    </div><!-- end test-body -->
+    <div class="qr-strip">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://www.preetikushwahclasses.com/" alt="QR Code">
+      <div class="qr-text">
+        <strong>Preeti Kushwah Classes</strong><br>
+        Scan for more notes &amp; papers<br>
+        www.preetikushwahclasses.com
+      </div>
+    </div>
+  </div><!-- end test-paper -->
+
+  <!-- ===== SOLUTION UNLOCK ===== -->
+  <div class="sol-lock-overlay" id="testSolLock">
+    <h3>&#128274; Solutions are Locked</h3>
+    <p>Enter the access code provided by your teacher to view solutions with explanations.</p>
+    <div>
+      <input type="password" class="sol-code-input" id="testSolCode" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" maxlength="10" autocomplete="off" onkeydown="if(event.key==='Enter')unlockTestSol()">
+      <button class="sol-unlock-btn" onclick="unlockTestSol()">Unlock</button>
+    </div>
+    <div id="testSolMsg"></div>
+  </div>
+
+  <!-- ===== SOLUTIONS (hidden) ===== -->
+  <div class="test-solutions" id="testSolBlock">
+
+    <div class="test-section-title" style="color:#166534; border-color:#bbf7d0;">Answer Key &amp; Detailed Solutions</div>
+
+    <!-- Q1 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q1. [1 Mark]</div>
+      <div class="sol-body">
+        Origin. Coordinates: <strong>(0, 0)</strong>.
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q2. [1 Mark]</div>
+      <div class="sol-body">
+        <strong>&minus;3</strong>. (The abscissa is the x-coordinate.)
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q3. [1 Mark]</div>
+      <div class="sol-body">
+        <strong>Quadrant III</strong>. (Both coordinates are negative &#8594; Quadrant III.)
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q4. [1 Mark]</div>
+      <div class="sol-body">
+        <strong>False.</strong> The point (0, &minus;5) lies on the y-axis (x-coordinate is 0), not in any quadrant.
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q5. [1 Mark]</div>
+      <div class="sol-body">
+        <strong>(a) (x, 0)</strong>. Points on the x-axis always have y-coordinate = 0.
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q6. [1 Mark]</div>
+      <div class="sol-body">
+        <strong>(&minus;6, 0)</strong>. Moving left means negative x-direction.
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q7. [2 Marks]</div>
+      <div class="sol-body">
+        (3, &minus;1) &#8594; <strong>Quadrant IV</strong> (x positive, y negative)<br>
+        (&minus;4, 6) &#8594; <strong>Quadrant II</strong> (x negative, y positive)<br>
+        (0, 3) &#8594; <strong>y-axis</strong> (x = 0)<br>
+        (&minus;2, 0) &#8594; <strong>x-axis</strong> (y = 0)<br>
+        <em>[&#189; mark each]</em>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q8. [2 Marks]</div>
+      <div class="sol-body">
+        P(7, &minus;3): abscissa = <strong>7</strong>, ordinate = <strong>&minus;3</strong><br>
+        Q(&minus;5, 2): abscissa = <strong>&minus;5</strong>, ordinate = <strong>2</strong><br>
+        R(0, &minus;8): abscissa = <strong>0</strong>, ordinate = <strong>&minus;8</strong><br>
+        S(4, 0): abscissa = <strong>4</strong>, ordinate = <strong>0</strong><br>
+        <em>[&#189; mark each]</em>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q9. [2 Marks]</div>
+      <div class="sol-body">
+        Coordinates = <strong>(&minus;3, 5)</strong>. Since x is negative and y is positive, the point lies in <strong>Quadrant II</strong>.<br>
+        <em>[1 mark for coordinates, 1 mark for quadrant]</em>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q10. [2 Marks]</div>
+      <div class="sol-body">
+        (a) <strong>0</strong><br>
+        (b) <strong>4</strong> parts called <strong>quadrants</strong><br>
+        (c) <strong>5 units</strong><br>
+        (d) <strong>x-axis</strong><br>
+        <em>[&#189; mark each]</em>
+      </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q11. [2 Marks]</div>
+      <div class="sol-body">
+        The point is on the y-axis (x = 0) and 4 units below origin (y = &minus;4).<br>
+        Coordinates: <strong>(0, &minus;4)</strong>.<br>
+        <em>[1 mark for reasoning, 1 mark for answer]</em>
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q12. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>(a)</strong> <strong>Square</strong>. [1 mark]<br><br>
+        <strong>(b)</strong> AB = |4&minus;1| = 3, BC = |4&minus;1| = 3, CD = |4&minus;1| = 3, DA = |4&minus;1| = 3.<br>
+        All sides = <strong>3 units</strong>. [1 mark]<br><br>
+        <strong>(c)</strong> Perimeter = 4 &#215; 3 = <strong>12 units</strong>. [1 mark]
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q13. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>(i) Quadrant II</strong> (x negative, y positive): <strong>(&minus;2, 5)</strong> [1 mark]<br><br>
+        <strong>(ii) On x-axis</strong> (y = 0): <strong>(3, 0), (&minus;5, 0)</strong> [1 mark]<br><br>
+        <strong>(iii) On y-axis</strong> (x = 0): <strong>(0, &minus;7), (0, 4)</strong> [1 mark]
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q14. [3 Marks]</div>
+      <div class="sol-body">
+        In rectangle ABCD: A(2,1), B(2,4), C(6,4).<br>
+        AB is vertical (x = 2), BC is horizontal (y = 4).<br>
+        D must have x = 6 (same as C) and y = 1 (same as A).<br>
+        <strong>D = (6, 1)</strong>.<br>
+        <em>[2 marks for finding D, 1 mark for plot]</em>
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q15. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>Sample answer:</strong><br>
+        QI: (2, 3), (5, 1)<br>
+        QII: (&minus;3, 4), (&minus;1, 7)<br>
+        QIII: (&minus;2, &minus;5), (&minus;4, &minus;1)<br>
+        QIV: (6, &minus;3), (1, &minus;2)<br>
+        x-axis: (4, 0), (&minus;3, 0)<br>
+        y-axis: (0, 5), (0, &minus;2)<br>
+        <em>[&#189; mark per correct pair in each region]</em>
+      </div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q16. [5 Marks]</div>
+      <div class="sol-body">
+        <strong>(a)</strong> Plot all 12 points on grid. [1 mark]<br><br>
+        <strong>(b)</strong> Left: <strong>(2, 2)</strong>, Right: <strong>(4, 2)</strong>, Front (above): <strong>(3, 3)</strong>, Back (below): <strong>(3, 1)</strong>. [1 mark]<br><br>
+        <strong>(c)</strong> Right: 4 &minus; 1 = <strong>3 units</strong>. Up: 3 &minus; 1 = <strong>2 units</strong>. [1 mark]<br><br>
+        <strong>(d)</strong> Desk <strong>(1, 1)</strong> &#8212; closest to origin (distance = &#8730;(1+1) = &#8730;2 &#8776; 1.41). [1 mark]<br><br>
+        <strong>(e)</strong> New desks: (5,1), (5,2), (5,3), (5,4), (1,4), (2,4), (3,4), (4,4) = <strong>8 new desks</strong>. [1 mark]
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q17. [5 Marks]</div>
+      <div class="sol-body">
+        <strong>(a)</strong> <strong>Rectangle</strong>. [1 mark]<br><br>
+        <strong>(b)</strong> AB = 3 &minus; (&minus;4) = <strong>7 units</strong>. BC = 3 &minus; (&minus;2) = <strong>5 units</strong>. [1 mark]<br><br>
+        <strong>(c)</strong> Perimeter = 2(7 + 5) = <strong>24 units</strong>. Area = 7 &#215; 5 = <strong>35 sq units</strong>. [1 mark]<br><br>
+        <strong>(d)</strong> AB and CD are parallel to x-axis. BC and DA are parallel to y-axis. [1 mark]<br><br>
+        <strong>(e)</strong> DA crosses x-axis at <strong>(&minus;4, 0)</strong>. BC crosses x-axis at <strong>(3, 0)</strong>. AB crosses y-axis at <strong>(0, 3)</strong>. DC crosses y-axis at <strong>(0, &minus;2)</strong>. [1 mark]
+      </div>
+    </div>
+
+    <!-- Q18 Bonus -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q18. Bonus [2 Marks]</div>
+      <div class="sol-body">
+        In Quadrant II: x is negative, y is positive.<br>
+        Distance from x-axis = |y| = 5, so y = 5.<br>
+        Distance from y-axis = |x| = 3, so x = &minus;3.<br>
+        <strong>P = (&minus;3, 5)</strong>. [1 mark]<br><br>
+        Reflection in x-axis: (x, y) &#8594; (x, &minus;y) = <strong>(&minus;3, &minus;5)</strong>.<br>
+        This lies in <strong>Quadrant III</strong>. [1 mark]
+      </div>
+    </div>
+
+  </div><!-- end test-solutions -->
+
+</div><!-- end container -->
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div>Preeti Kushwah Classes &middot; Quality Education for Every Student</div>
+  <div style="margin-top:6px;">&copy; 2026 Preeti Kushwah Classes</div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+function fireConfetti() {
+  var colors = ['#7c3aed','#ec4899','#f97316','#fbbf24','#16a34a','#3b82f6','#ef4444'];
+  for (var i = 0; i < 60; i++) {
+    var c = document.createElement('div');
+    c.className = 'confetti-piece';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.top = '-20px';
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.style.width = (6 + Math.random() * 10) + 'px';
+    c.style.height = (6 + Math.random() * 10) + 'px';
+    c.style.animationDelay = (Math.random() * 1.5) + 's';
+    c.style.animationDuration = (2 + Math.random() * 2) + 's';
+    document.body.appendChild(c);
+    (function(el) { setTimeout(function() { el.remove(); }, 5000); })(c);
+  }
+}
+
+function _h(s){var h=5381;for(var i=0;i<s.length;i++){h=((h<<5)+h)+s.charCodeAt(i);}return h>>>0;}
+function unlockTestSol() {
+  var code = document.getElementById('testSolCode').value.trim().toUpperCase();
+  var msg = document.getElementById('testSolMsg');
+  var validHashes = [3594616101,3225666297,3317573739,4201821354];
+  if (validHashes.indexOf(_h(code)) !== -1) {
+    document.getElementById('testSolBlock').classList.add('unlocked');
+    document.getElementById('testSolLock').style.display = 'none';
+    msg.className = 'sol-success';
+    msg.textContent = '';
+    fireConfetti();
+  } else {
+    msg.className = 'sol-error';
+    msg.textContent = 'Incorrect code. Ask your teacher for the access code.';
+    document.getElementById('testSolCode').value = '';
+    document.getElementById('testSolCode').focus();
+  }
+}
+</script>
+
+<script>
+function shareSolutions() {
+  var sol = document.getElementById('testSolBlock');
+  if (!sol.classList.contains('unlocked')) {
+    var code = prompt('Enter access code to unlock solutions first:');
+    if (!code) return;
+    code = code.trim().toUpperCase();
+    if ([3594616101,3225666297,3317573739,4201821354].indexOf(_h(code)) === -1) { alert('Incorrect code.'); return; }
+    sol.classList.add('unlocked');
+    document.getElementById('testSolLock').style.display = 'none';
+  }
+  var win = window.open('', '_blank');
+  win.document.write('<!DOCTYPE html><html><head><title>Solutions - Preeti Kushwah Classes</title>');
+  win.document.write('<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">');
+  win.document.write('<style>*{box-sizing:border-box;margin:0;padding:0;}body{font-family:"Nunito",sans-serif;padding:30px 24px;color:#1e1b4b;line-height:1.7;}');
+  win.document.write('.sol-header{text-align:center;margin-bottom:24px;padding-bottom:16px;border-bottom:3px solid #7c3aed;}');
+  win.document.write('.sol-header h1{font-family:"Fredoka One",cursive;font-size:22px;color:#5b21b6;}');
+  win.document.write('.sol-header p{font-size:13px;color:#6b7280;margin-top:4px;}');
+  win.document.write('.test-sol-item{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 12px 12px 0;padding:14px 18px;margin-bottom:14px;page-break-inside:avoid;}');
+  win.document.write('.test-sol-item .sol-num{font-weight:800;color:#166534;font-size:14px;}');
+  win.document.write('.test-sol-item .sol-body{font-size:13px;color:#374151;margin-top:6px;line-height:1.8;}');
+  win.document.write('.test-sol-item .sol-body strong{color:#5b21b6;}');
+  win.document.write('.qr-footer{text-align:center;margin-top:30px;padding-top:16px;border-top:2px solid #e5e7eb;}');
+  win.document.write('.qr-footer img{width:80px;height:80px;}');
+  win.document.write('.qr-footer p{font-size:11px;color:#6b7280;font-weight:700;margin-top:6px;}');
+  win.document.write('@media print{body{padding:16px;}}');
+  win.document.write('</style></head><body>');
+  win.document.write('<div class="sol-header"><h1>Answer Key & Solutions</h1>');
+  win.document.write('<p>Chapter 1: The Use of Coordinates &mdash; Set 1 &mdash; Preeti Kushwah Classes</p></div>');
+  win.document.write(sol.innerHTML);
+  win.document.write('<div class="qr-footer"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.preetikushwahclasses.com/" alt="QR"><p>www.preetikushwahclasses.com</p></div>');
+  win.document.write('</body></html>');
+  win.document.close();
+  setTimeout(function() { win.print(); }, 600);
+}
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+</body>
+</html>
