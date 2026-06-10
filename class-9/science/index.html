@@ -54,7 +54,7 @@ body { font-family: 'Nunito', sans-serif; background: #f0fdf4; color: #1f2937; l
 .ch-diversity { background: linear-gradient(135deg, #c2410c, #fb923c); }
 .ch-earth { background: linear-gradient(135deg, #1e3a5f, #64748b); }
 .ch-soon { background: #d1d5db; }
-.ch-actions{display:flex;gap:6px;flex-shrink:0;align-items:center;}
+.ch-actions{display:flex;gap:6px;flex-shrink:0;align-items:center;flex-wrap:wrap;}
 .ch-study{
   display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:10px;
   background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;border:1.5px solid #fbbf24;
@@ -224,12 +224,18 @@ footer { text-align: center; padding: 24px; background: #166534; color: white; f
 
     <!-- Ch 10: Sound -->
     <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
-      <div class="ch-num ch-sound">&#128266;</div>
-      <div class="ch-info">
-        <div class="ch-title">Ch 10: Sound Waves &#8211; Characteristics and Applications</div>
-        <div class="ch-desc">Sound production, propagation, speed, echo, ultrasound</div>
-      </div>
+      <a href="sound-waves.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+        <div class="ch-num ch-sound">&#128266;</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 10: Sound Waves &#8211; Characteristics and Applications</div>
+          <div class="ch-desc">Sound production, propagation, speed, echo, ultrasound</div>
+        </div>
+      </a>
       <div class="ch-actions">
+        <a href="sound-waves.html" class="ch-notes">&#128221; Notes &rarr;</a>
+        <a href="test-paper-ch10-set1.html" class="ch-notes" style="background:linear-gradient(135deg,#fae8ff,#f5d0fe);color:#701a75;border-color:#e879f9;">&#128196; Test 1</a>
+        <a href="test-paper-ch10-set2.html" class="ch-notes" style="background:linear-gradient(135deg,#fae8ff,#f5d0fe);color:#701a75;border-color:#e879f9;">&#128196; Test 2</a>
+        <a href="test-paper-ch10-set3.html" class="ch-notes" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8);color:#9d174d;border-color:#f9a8d4;">&#128196; Test 3</a>
         <a href="../../study.html?ch=Ch%2010%3A%20Sound%20Waves&pdf=pdfs%2Fclass-9%2Fiesc110.pdf&back=class-9%2Fscience%2Findex.html" class="ch-study">&#128214; View Book</a>
       </div>
     </li>
