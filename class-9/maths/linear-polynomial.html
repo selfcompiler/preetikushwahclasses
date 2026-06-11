@@ -101,6 +101,7 @@ tr:nth-child(even) td{background:#faf5ff;}
 .short-a{font-size:13.5px;color:#374151;}
 .short-a strong{color:#5b21b6;}
 
+.ncert-ex-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #818cf8;}
 .long-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
 .long-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
 .long-a{font-size:13.5px;color:#374151;}
@@ -189,13 +190,17 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#3b
   <a href="#whatpoly">&#128218; What is a Polynomial?</a>
   <a href="#types">&#128202; Types</a>
   <a href="#linear">&#128200; Linear Polynomials</a>
+  <a href="#evaluate">&#128290; Evaluating</a>
   <a href="#zeros">&#127919; Zeros</a>
   <a href="#remainder">&#128290; Remainder Theorem</a>
   <a href="#factor">&#128273; Factor Theorem</a>
   <a href="#interactive-identify" style="background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.5);">&#127918; Identify Lab</a>
   <a href="#interactive-zero" style="background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.5);">&#127919; Zero Finder</a>
   <a href="#interactive-graph" style="background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.5);">&#128200; Graph Lab</a>
+  <a href="#interactive-factor" style="background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.5);">&#128273; Factor Checker</a>
+  <a href="#interactive-sort" style="background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.5);">&#127918; Sort Quiz</a>
   <a href="#worked">&#9999;&#65039; Examples</a>
+  <a href="#ncert-ex">&#128214; NCERT Exercises</a>
   <a href="#summary">&#128202; Summary</a>
   <a href="#mcq">&#129504; MCQs</a>
   <a href="#short">&#9997;&#65039; Short Q&amp;A</a>
@@ -454,6 +459,38 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#3b
     </div>
   </div>
 
+  <!-- ===== SECTION: EVALUATING A POLYNOMIAL ===== -->
+  <div class="section-block reveal" id="evaluate">
+    <div class="section-hd g-teal">
+      <span class="icon">&#128290;</span>
+      Evaluating a Polynomial at a Point
+    </div>
+    <div class="section-bd">
+      <p>Before we learn about zeros, let&rsquo;s master a foundational skill: <strong>finding the value of a polynomial at a given point</strong>. This means substituting a specific number for x and simplifying.</p>
+
+      <div class="formula-box">
+        p(x) at x = a &nbsp;&rarr;&nbsp; Replace every x with a &nbsp;&rarr;&nbsp; Simplify to get p(a)
+        <small>This is called &ldquo;evaluating the polynomial at x = a&rdquo;</small>
+      </div>
+
+      <div class="subtitle">&#9999;&#65039; Worked Examples</div>
+      <div class="worked-example">
+        <h4>Example 1: If p(x) = 2x&sup2; &minus; 3x + 5, find p(1), p(0), and p(&minus;2).</h4>
+        <div class="we-step"><strong>p(1)</strong> = 2(1)&sup2; &minus; 3(1) + 5 = 2 &minus; 3 + 5 = <strong>4</strong></div>
+        <div class="we-step"><strong>p(0)</strong> = 2(0)&sup2; &minus; 3(0) + 5 = 0 &minus; 0 + 5 = <strong>5</strong></div>
+        <div class="we-step"><strong>p(&minus;2)</strong> = 2(&minus;2)&sup2; &minus; 3(&minus;2) + 5 = 2(4) + 6 + 5 = <strong>19</strong></div>
+      </div>
+      <div class="worked-example">
+        <h4>Example 2: If p(x) = x&sup3; &minus; 4x + 7, find p(2).</h4>
+        <div class="we-step"><strong>p(2)</strong> = (2)&sup3; &minus; 4(2) + 7 = 8 &minus; 8 + 7 = <strong>7</strong></div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Why is this important?</strong> Evaluating polynomials is the foundation for everything that comes next &mdash; finding zeros (where p(a) = 0), the Remainder Theorem (remainder = p(a)), and the Factor Theorem (check if p(a) = 0). Master this skill first!
+      </div>
+    </div>
+  </div>
+
   <!-- ===== SECTION 5: ZEROS OF A POLYNOMIAL ===== -->
   <div class="section-block reveal" id="zeros">
     <div class="section-hd g-amber">
@@ -469,9 +506,55 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#3b
         <small>Geometrically, the graph of p(x) crosses (or touches) the x-axis at x = a</small>
       </div>
 
+      <!-- Zero as x-intercept visual -->
+      <div class="subtitle">&#128200; Zero as x-Intercept &mdash; Geometric Meaning</div>
+      <p>The zero of a polynomial is where its graph <strong>crosses the x-axis</strong>. For a linear polynomial p(x) = ax + b, the graph is a straight line, and it crosses the x-axis exactly once at x = &minus;b/a.</p>
+
+      <div style="text-align:center;margin:20px 0;">
+        <svg width="320" height="220" viewBox="0 0 320 220" style="max-width:100%;border-radius:14px;background:#fafbff;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
+          <!-- Grid -->
+          <line x1="0" y1="130" x2="320" y2="130" stroke="#5b21b6" stroke-width="2"/>
+          <line x1="60" y1="10" x2="60" y2="210" stroke="#5b21b6" stroke-width="2"/>
+          <!-- Grid lines -->
+          <line x1="0" y1="90" x2="320" y2="90" stroke="#e0e7ff" stroke-width="1"/>
+          <line x1="0" y1="50" x2="320" y2="50" stroke="#e0e7ff" stroke-width="1"/>
+          <line x1="0" y1="170" x2="320" y2="170" stroke="#e0e7ff" stroke-width="1"/>
+          <line x1="140" y1="10" x2="140" y2="210" stroke="#e0e7ff" stroke-width="1"/>
+          <line x1="220" y1="10" x2="220" y2="210" stroke="#e0e7ff" stroke-width="1"/>
+          <line x1="300" y1="10" x2="300" y2="210" stroke="#e0e7ff" stroke-width="1"/>
+          <!-- Line: p(x) = 2x - 6 → zero at x=3 -->
+          <line x1="20" y1="190" x2="300" y2="30" stroke="#7c3aed" stroke-width="3"/>
+          <!-- Zero point (red dot at x=3, which is x=60+3*40=180, y=130) -->
+          <circle cx="200" cy="130" r="8" fill="#ef4444" stroke="white" stroke-width="2"/>
+          <!-- Y-intercept (blue dot) -->
+          <circle cx="60" cy="170" r="6" fill="#3b82f6" stroke="white" stroke-width="2"/>
+          <!-- Labels -->
+          <text x="310" y="125" font-size="11" fill="#5b21b6" font-weight="800">x</text>
+          <text x="65" y="18" font-size="11" fill="#5b21b6" font-weight="800">y</text>
+          <text x="50" y="145" font-size="10" fill="#5b21b6" font-weight="700">O</text>
+          <text x="200" y="155" font-size="11" fill="#ef4444" font-weight="800" text-anchor="middle">Zero: x = 3</text>
+          <text x="200" y="170" font-size="10" fill="#ef4444" font-weight="700" text-anchor="middle">(x-intercept)</text>
+          <text x="25" y="178" font-size="10" fill="#3b82f6" font-weight="700">(0, &minus;6)</text>
+          <text x="240" y="55" font-size="12" fill="#7c3aed" font-weight="800">p(x) = 2x &minus; 6</text>
+          <!-- Arrow pointing to crossing -->
+          <text x="135" y="118" font-size="9" fill="#64748b" font-weight="700">graph crosses x-axis</text>
+        </svg>
+      </div>
+      <div class="note-box">
+        <strong>&#128161; Key Insight:</strong> The <strong>zero</strong> of a polynomial and the <strong>x-intercept</strong> of its graph are the same thing! When a question asks &ldquo;where does p(x) cross the x-axis?&rdquo; &mdash; it&rsquo;s asking for the zero. Example: p(x) = 2x &minus; 6 crosses the x-axis at x = 3.
+      </div>
+
       <div class="subtitle">&#128290; Finding the Zero of a Linear Polynomial</div>
-      <p>For p(x) = ax + b (where a &ne; 0), set p(x) = 0:</p>
-      <p style="text-align:center;font-weight:700;font-size:15px;margin:10px 0;">ax + b = 0 &nbsp;&rarr;&nbsp; ax = &minus;b &nbsp;&rarr;&nbsp; <strong>x = &minus;b/a</strong></p>
+
+      <!-- Step-by-step formula box -->
+      <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #22c55e;border-radius:14px;padding:18px 22px;margin:16px 0;">
+        <div style="font-family:'Fredoka One',cursive;color:#166534;font-size:16px;margin-bottom:10px;">&#9989; Steps to Find the Zero of p(x) = ax + b</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="background:white;border-radius:10px;padding:10px 14px;border-left:4px solid #22c55e;font-size:14px;"><strong>Step 1:</strong> Set p(x) = 0 &nbsp;&rarr;&nbsp; ax + b = 0</div>
+          <div style="background:white;border-radius:10px;padding:10px 14px;border-left:4px solid #22c55e;font-size:14px;"><strong>Step 2:</strong> Solve for x &nbsp;&rarr;&nbsp; x = &minus;b/a</div>
+          <div style="background:white;border-radius:10px;padding:10px 14px;border-left:4px solid #22c55e;font-size:14px;"><strong>Step 3:</strong> Verify by substituting back &nbsp;&rarr;&nbsp; Check p(&minus;b/a) = 0 &#9989;</div>
+        </div>
+      </div>
 
       <div class="formula-box">
         Zero of p(x) = ax + b is: &nbsp; x = &minus;b/a
@@ -495,6 +578,17 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#3b
         <h4>Example 3: Find the zero of p(x) = 5x</h4>
         <div class="we-step"><strong>Set p(x) = 0:</strong> 5x = 0 &rarr; x = <strong>0</strong></div>
         <div class="we-step"><strong>Verify:</strong> p(0) = 5(0) = 0 &#9989;</div>
+      </div>
+
+      <!-- Watch Out! Common Mistakes -->
+      <div style="background:linear-gradient(135deg,#fef2f2,#fecaca);border:2px solid #ef4444;border-radius:14px;padding:16px 20px;margin:18px 0;">
+        <div style="font-family:'Fredoka One',cursive;color:#991b1b;font-size:16px;margin-bottom:8px;">&#9888;&#65039; Watch Out! Common Mistakes with Zeros</div>
+        <ul style="font-size:14px;color:#7f1d1d;margin-left:16px;">
+          <li style="margin-bottom:6px;"><strong>Confusing the zero with the coefficient:</strong> The zero of 3x &minus; 6 is x = 2, NOT x = 3 or x = 6. Always solve ax + b = 0!</li>
+          <li style="margin-bottom:6px;"><strong>Forgetting the negative sign:</strong> For p(x) = x + 5, the zero is x = &minus;5 (not +5). Remember: x = <em>&minus;b/a</em>.</li>
+          <li style="margin-bottom:6px;"><strong>Mixing up &ldquo;value of polynomial&rdquo; with &ldquo;zero of polynomial&rdquo;:</strong> p(2) = 7 means the <em>value</em> at x=2 is 7. The <em>zero</em> is the x where p(x) = 0.</li>
+          <li><strong>Saying constant polynomials have zero = 0:</strong> p(x) = 5 has <strong>no zero</strong> (5 &ne; 0 for any x). Only the zero polynomial has every number as a zero.</li>
+        </ul>
       </div>
 
       <div class="subtitle">&#128202; Number of Zeros &mdash; General Rule</div>
@@ -605,11 +699,54 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#3b
         <div class="we-step">Set 15 &minus; 3k = 0 &rarr; 3k = 15 &rarr; <strong>k = 5</strong></div>
       </div>
 
-      <div class="note-box">
-        <strong>&#128161; Remainder vs. Factor Theorem:</strong><br>
-        &bull; <strong>Remainder Theorem:</strong> p(a) gives the remainder when p(x) &divide; (x &minus; a)<br>
-        &bull; <strong>Factor Theorem:</strong> If that remainder is <strong>zero</strong>, then (x &minus; a) is a <strong>factor</strong><br>
-        The Factor Theorem is simply the special case of the Remainder Theorem when the remainder is 0!
+      <!-- Side-by-side Comparison Table -->
+      <div class="subtitle">&#128203; Remainder Theorem vs. Factor Theorem &mdash; Comparison</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>Remainder Theorem</th><th>Factor Theorem</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Statement</strong></td><td>When p(x) is divided by (x &minus; a), remainder = p(a)</td><td>(x &minus; a) is a factor of p(x) if and only if p(a) = 0</td></tr>
+            <tr><td><strong>Condition</strong></td><td>p(a) can be <em>any value</em></td><td>p(a) must equal <strong>0</strong></td></tr>
+            <tr><td><strong>What it tells you</strong></td><td>The remainder without doing long division</td><td>Whether (x &minus; a) divides p(x) exactly</td></tr>
+            <tr><td><strong>Example</strong></td><td>p(x) = x&sup2; + 1, a = 2 &rarr; p(2) = 5 (remainder = 5)</td><td>p(x) = x&sup2; &minus; 4, a = 2 &rarr; p(2) = 0 &rarr; (x&minus;2) is a factor</td></tr>
+            <tr><td><strong>Relationship</strong></td><td colspan="2" style="text-align:center;font-weight:800;color:#5b21b6;">Factor Theorem = Special case of Remainder Theorem (when remainder = 0)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Connection Card -->
+      <div style="background:linear-gradient(135deg,#ede9fe,#ddd6fe);border:2px solid #a78bfa;border-radius:14px;padding:16px 20px;margin:18px 0;text-align:center;">
+        <div style="font-family:'Fredoka One',cursive;color:#5b21b6;font-size:16px;margin-bottom:8px;">&#128279; How These Theorems Connect</div>
+        <p style="font-size:14px;color:#3b0764;margin-bottom:8px;">The <strong>Factor Theorem is actually a special case of the Remainder Theorem</strong>.</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-size:14px;font-weight:700;">
+          <span style="background:white;padding:8px 14px;border-radius:10px;border:2px solid #818cf8;">Remainder Theorem<br><span style="font-size:12px;font-weight:600;color:#6b7280;">p(a) = remainder</span></span>
+          <span style="font-size:22px;color:#5b21b6;">&rarr;</span>
+          <span style="background:white;padding:8px 14px;border-radius:10px;border:2px solid #f59e0b;">If remainder = 0<br><span style="font-size:12px;font-weight:600;color:#6b7280;">then p(a) = 0</span></span>
+          <span style="font-size:22px;color:#5b21b6;">&rarr;</span>
+          <span style="background:white;padding:8px 14px;border-radius:10px;border:2px solid #22c55e;">Factor Theorem<br><span style="font-size:12px;font-weight:600;color:#6b7280;">(x &minus; a) is a factor!</span></span>
+        </div>
+      </div>
+
+      <!-- Factorisation Using Factor Theorem -->
+      <div class="subtitle">&#128273; Factorisation Using the Factor Theorem</div>
+      <p>The Factor Theorem doesn&rsquo;t just check if something is a factor &mdash; it&rsquo;s a powerful tool for <strong>completely factorising</strong> a polynomial. Here&rsquo;s the method:</p>
+
+      <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #22c55e;border-radius:14px;padding:18px 22px;margin:16px 0;">
+        <div style="font-family:'Fredoka One',cursive;color:#166534;font-size:16px;margin-bottom:10px;">&#9989; Steps for Factorisation</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="background:white;border-radius:10px;padding:10px 14px;border-left:4px solid #22c55e;font-size:14px;"><strong>Step 1:</strong> Try small integer values (0, &plusmn;1, &plusmn;2, &plusmn;3, &hellip;) &mdash; find a value &lsquo;a&rsquo; where p(a) = 0</div>
+          <div style="background:white;border-radius:10px;padding:10px 14px;border-left:4px solid #22c55e;font-size:14px;"><strong>Step 2:</strong> By Factor Theorem, (x &minus; a) is a factor</div>
+          <div style="background:white;border-radius:10px;padding:10px 14px;border-left:4px solid #22c55e;font-size:14px;"><strong>Step 3:</strong> Divide p(x) by (x &minus; a) to get the remaining factor q(x)</div>
+          <div style="background:white;border-radius:10px;padding:10px 14px;border-left:4px solid #22c55e;font-size:14px;"><strong>Step 4:</strong> Repeat until fully factorised: p(x) = (x &minus; a) &times; q(x)</div>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example: Factorise x&sup3; &minus; 4x&sup2; + x + 6 completely.</h4>
+        <div class="we-step"><strong>Try x = &minus;1:</strong> p(&minus;1) = &minus;1 &minus; 4 &minus; 1 + 6 = 0 &#9989; &rarr; (x + 1) is a factor</div>
+        <div class="we-step"><strong>Divide:</strong> x&sup3; &minus; 4x&sup2; + x + 6 &divide; (x + 1) = x&sup2; &minus; 5x + 6</div>
+        <div class="we-step"><strong>Factorise x&sup2; &minus; 5x + 6:</strong> Try x = 2: 4 &minus; 10 + 6 = 0 &#9989; &rarr; (x &minus; 2) is a factor. Try x = 3: 9 &minus; 15 + 6 = 0 &#9989; &rarr; (x &minus; 3) is a factor.</div>
+        <div class="we-step"><strong>Final answer:</strong> x&sup3; &minus; 4x&sup2; + x + 6 = <strong>(x + 1)(x &minus; 2)(x &minus; 3)</strong></div>
       </div>
     </div>
   </div>
@@ -720,6 +857,69 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#3b
     </div>
   </div>
 
+  <!-- ===== INTERACTIVE: FACTOR THEOREM CHECKER ===== -->
+  <div class="section-block reveal" id="interactive-factor">
+    <div class="section-hd g-rose">
+      <span class="icon">&#128273;</span>
+      Interactive: Factor Theorem Checker
+    </div>
+    <div class="section-bd">
+      <p>Enter a polynomial p(x) and a value of &lsquo;a&rsquo; to check whether (x &minus; a) is a factor!</p>
+
+      <div class="activity-wrap">
+        <div class="activity-title">&#128273; Is (x &minus; a) a factor of p(x)?</div>
+        <div class="activity-desc">Enter p(x) and a value to test. The tool evaluates p(a) and shows full working.</div>
+        <div class="activity-controls" style="margin-bottom:10px;">
+          <button class="act-btn act-btn-purple" onclick="setFactorSample('x^3-4x^2+x+6',2)">x&sup3;&minus;4x&sup2;+x+6, a=2</button>
+          <button class="act-btn act-btn-blue" onclick="setFactorSample('x^2+x+1',-1)">x&sup2;+x+1, a=&minus;1</button>
+          <button class="act-btn act-btn-green" onclick="setFactorSample('x^2-5x+6',3)">x&sup2;&minus;5x+6, a=3</button>
+        </div>
+        <div style="display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:10px;">
+          <label style="font-weight:800;color:#5b21b6;">p(x) =</label>
+          <input type="text" id="factorPoly" class="poly-input" style="width:220px;" placeholder="x^3-4x^2+x+6">
+          <label style="font-weight:800;color:#5b21b6;">a =</label>
+          <input type="number" id="factorA" class="poly-input" style="width:80px;" value="2" step="any">
+        </div>
+        <div class="activity-controls">
+          <button class="act-btn act-btn-purple" onclick="checkFactor()">&#128273; Check Factor</button>
+        </div>
+        <div class="activity-result" id="factorResult">Click &ldquo;Check Factor&rdquo; to test&hellip;</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== INTERACTIVE: POLYNOMIAL SORTING QUIZ ===== -->
+  <div class="section-block reveal" id="interactive-sort">
+    <div class="section-hd g-blue">
+      <span class="icon">&#127918;</span>
+      Quiz: Polynomial or NOT?
+    </div>
+    <div class="section-bd">
+      <p>Click on each expression to sort it into the correct category. Can you get all 10 right?</p>
+
+      <div class="activity-wrap">
+        <div class="activity-title">&#127918; Sort the Expressions!</div>
+        <div class="activity-desc">Click an expression, then click the correct bucket.</div>
+        <div id="sortScore" style="font-weight:800;color:#5b21b6;font-size:14px;margin-bottom:10px;">Score: 0 / 10</div>
+        <div id="sortExpressions" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:16px;"></div>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <div id="bucketYes" class="sort-bucket" onclick="dropInBucket(true)" style="min-width:140px;min-height:100px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:3px dashed #22c55e;border-radius:14px;padding:14px;text-align:center;cursor:pointer;transition:all 0.2s;">
+            <div style="font-weight:800;color:#166534;font-size:14px;margin-bottom:6px;">&#9989; Polynomial</div>
+            <div id="bucketYesItems" style="font-size:12px;color:#166534;"></div>
+          </div>
+          <div id="bucketNo" class="sort-bucket" onclick="dropInBucket(false)" style="min-width:140px;min-height:100px;background:linear-gradient(135deg,#fef2f2,#fecaca);border:3px dashed #ef4444;border-radius:14px;padding:14px;text-align:center;cursor:pointer;transition:all 0.2s;">
+            <div style="font-weight:800;color:#991b1b;font-size:14px;margin-bottom:6px;">&#10060; NOT Polynomial</div>
+            <div id="bucketNoItems" style="font-size:12px;color:#991b1b;"></div>
+          </div>
+        </div>
+        <div class="activity-result" id="sortResult" style="margin-top:14px;"></div>
+        <div class="activity-controls" style="margin-top:10px;">
+          <button class="act-btn act-btn-red" onclick="resetSortQuiz()">&#128260; Reset Quiz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== SECTION: WORKED EXAMPLES ===== -->
   <div class="section-block reveal" id="worked">
     <div class="section-hd g-orange">
@@ -761,6 +961,54 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#3b
         <div class="we-step">p(&minus;2) = (&minus;2)&sup3; + k(&minus;2)&sup2; + 7(&minus;2) + 10</div>
         <div class="we-step">= &minus;8 + 4k &minus; 14 + 10 = 4k &minus; 12</div>
         <div class="we-step">Set 4k &minus; 12 = 0 &rarr; 4k = 12 &rarr; <strong>k = 3</strong></div>
+      </div>
+
+      <div class="subtitle">&#127775; Additional Exam-Style Problems</div>
+
+      <!-- NEW: Find k for Zeros -->
+      <div class="worked-example">
+        <h4>Problem 6: If x = 3 is a zero of p(x) = kx &minus; 9, find k.</h4>
+        <div class="we-step"><strong>Zero means p(3) = 0:</strong> k(3) &minus; 9 = 0</div>
+        <div class="we-step">3k = 9 &rarr; <strong>k = 3</strong></div>
+        <div class="we-step"><strong>Verify:</strong> p(x) = 3x &minus; 9 &rarr; p(3) = 9 &minus; 9 = 0 &#9989;</div>
+      </div>
+
+      <!-- NEW: Verify if a given value IS a zero -->
+      <div class="worked-example">
+        <h4>Problem 7: Check whether x = &minus;1 is a zero of p(x) = 3x&sup2; + 2x &minus; 1.</h4>
+        <div class="we-step"><strong>Substitute x = &minus;1 into p(x):</strong></div>
+        <div class="we-step">p(&minus;1) = 3(&minus;1)&sup2; + 2(&minus;1) &minus; 1 = 3(1) &minus; 2 &minus; 1 = 3 &minus; 2 &minus; 1 = <strong>0</strong></div>
+        <div class="we-step">Since p(&minus;1) = 0, <strong>yes, x = &minus;1 IS a zero</strong> of p(x). &#9989;</div>
+      </div>
+
+      <!-- NEW: Remainder with (2x - 1) form -->
+      <div class="worked-example">
+        <h4>Problem 8: Find the remainder when p(x) = 6x&sup3; &minus; x&sup2; + 4 is divided by (2x &minus; 1).</h4>
+        <div class="we-step"><strong>Set 2x &minus; 1 = 0 &rarr; x = 1/2</strong>, so we evaluate p(1/2)</div>
+        <div class="we-step">p(1/2) = 6(1/2)&sup3; &minus; (1/2)&sup2; + 4</div>
+        <div class="we-step">= 6(1/8) &minus; (1/4) + 4 = 3/4 &minus; 1/4 + 4 = 2/4 + 4 = 1/2 + 4 = <strong>9/2</strong></div>
+        <div class="we-step">The remainder is <strong>9/2</strong> (or 4.5).</div>
+      </div>
+
+      <!-- NEW: Two-step find k then find zero -->
+      <div class="worked-example">
+        <h4>Problem 9: If (x &minus; 2) is a factor of p(x) = x&sup2; &minus; kx + 2, find k. Hence find all zeros of p(x).</h4>
+        <div class="we-step"><strong>Step 1 &mdash; Find k:</strong> Since (x &minus; 2) is a factor, p(2) = 0</div>
+        <div class="we-step">p(2) = (2)&sup2; &minus; k(2) + 2 = 4 &minus; 2k + 2 = 6 &minus; 2k = 0 &rarr; <strong>k = 3</strong></div>
+        <div class="we-step"><strong>Step 2 &mdash; Find zeros:</strong> p(x) = x&sup2; &minus; 3x + 2</div>
+        <div class="we-step">Factorise: x&sup2; &minus; 3x + 2 = (x &minus; 1)(x &minus; 2)</div>
+        <div class="we-step">Zeros: <strong>x = 1</strong> and <strong>x = 2</strong></div>
+        <div class="we-step"><strong>Verify:</strong> p(1) = 1 &minus; 3 + 2 = 0 &#9989;, p(2) = 4 &minus; 6 + 2 = 0 &#9989;</div>
+      </div>
+
+      <!-- NEW: Word problem → Polynomial → Zero -->
+      <div class="worked-example">
+        <h4>Problem 10: A shopkeeper&rsquo;s profit (in &#8377;) from selling x items is P(x) = 10x &minus; 500. For how many items does he break even (profit = 0)?</h4>
+        <div class="we-step"><strong>Identify:</strong> P(x) = 10x &minus; 500 is a linear polynomial (a = 10, b = &minus;500)</div>
+        <div class="we-step"><strong>Break even means P(x) = 0:</strong> 10x &minus; 500 = 0</div>
+        <div class="we-step"><strong>Solve:</strong> 10x = 500 &rarr; x = 500/10 = <strong>50</strong></div>
+        <div class="we-step"><strong>Answer:</strong> The shopkeeper breaks even after selling <strong>50 items</strong>.</div>
+        <div class="we-step"><strong>Verify:</strong> P(50) = 10(50) &minus; 500 = 500 &minus; 500 = 0 &#9989;</div>
       </div>
     </div>
   </div>
@@ -956,6 +1204,127 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#3b
         <strong>3. Kerala School of Mathematics (14th&ndash;16th Century):</strong> Madhava of Sangamagrama and his successors (Nilakantha, Jyeshthadeva) expressed trigonometric functions as infinite polynomial series (power series). For example, they wrote sin(x) and cos(x) as infinite sums of polynomial terms &mdash; what we now call Taylor series &mdash; nearly 300 years before Newton and Leibniz independently discovered them in Europe.<br><br>
         These contributions show that India has a rich mathematical heritage in algebra and polynomial theory.
       </div></div>
+    </div>
+  </div>
+
+  <!-- ===== NCERT EXERCISES ===== -->
+  <div class="section-block reveal" id="ncert-ex">
+    <div class="section-hd g-indigo">
+      <span class="icon">&#128214;</span>
+      NCERT Exercise Questions with Solutions
+    </div>
+    <div class="section-bd">
+      <p>Practice these NCERT-style exercise questions. Click <strong>&ldquo;Show Answer&rdquo;</strong> to reveal the solution.</p>
+
+      <div class="subtitle">&#128221; Exercise 2.1 &mdash; Polynomials Basics</div>
+      <div class="ncert-ex-item">
+        <div class="short-q">Ex 2.1 Q1: Which of the following expressions are polynomials? Give reasons.<br>(i) 4x&sup2; + 3x &minus; 7 &nbsp; (ii) x + 1/x &nbsp; (iii) &radic;3 x&sup2; &minus; 2x + 5 &nbsp; (iv) x<sup>3/2</sup> + 1</div>
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;font-weight:800;color:#5b21b6;font-size:13px;padding:6px 12px;background:#ede9fe;border-radius:8px;display:inline-block;">Show Answer</summary>
+          <div class="short-a" style="margin-top:8px;">
+            <strong>(i) 4x&sup2; + 3x &minus; 7:</strong> &#9989; Yes &mdash; all exponents (2, 1, 0) are whole numbers.<br>
+            <strong>(ii) x + 1/x = x + x<sup>&minus;1</sup>:</strong> &#10060; No &mdash; exponent &minus;1 is not a whole number.<br>
+            <strong>(iii) &radic;3 x&sup2; &minus; 2x + 5:</strong> &#9989; Yes &mdash; &radic;3 is a coefficient (real number), exponents are whole numbers.<br>
+            <strong>(iv) x<sup>3/2</sup> + 1:</strong> &#10060; No &mdash; exponent 3/2 is not a whole number.
+          </div>
+        </details>
+      </div>
+
+      <div class="ncert-ex-item">
+        <div class="short-q">Ex 2.1 Q2: Write the degree of each polynomial:<br>(i) 5x&sup3; + 4x&sup2; + 7x &nbsp; (ii) 4 &minus; y&sup2; &nbsp; (iii) 7 &nbsp; (iv) 2t &minus; t&sup2; + t&sup4;</div>
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;font-weight:800;color:#5b21b6;font-size:13px;padding:6px 12px;background:#ede9fe;border-radius:8px;display:inline-block;">Show Answer</summary>
+          <div class="short-a" style="margin-top:8px;">
+            (i) Degree = <strong>3</strong> (from 5x&sup3;)<br>
+            (ii) Degree = <strong>2</strong> (from &minus;y&sup2;)<br>
+            (iii) Degree = <strong>0</strong> (non-zero constant)<br>
+            (iv) Degree = <strong>4</strong> (from t&sup4;)
+          </div>
+        </details>
+      </div>
+
+      <div class="ncert-ex-item">
+        <div class="short-q">Ex 2.1 Q3: Classify as monomial, binomial, or trinomial:<br>(i) x&sup2; + x + 1 &nbsp; (ii) 3y &nbsp; (iii) t &minus; t&sup3; &nbsp; (iv) 7x&sup2; &minus; 3x + 5</div>
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;font-weight:800;color:#5b21b6;font-size:13px;padding:6px 12px;background:#ede9fe;border-radius:8px;display:inline-block;">Show Answer</summary>
+          <div class="short-a" style="margin-top:8px;">
+            (i) <strong>Trinomial</strong> (3 terms) &nbsp; (ii) <strong>Monomial</strong> (1 term) &nbsp; (iii) <strong>Binomial</strong> (2 terms) &nbsp; (iv) <strong>Trinomial</strong> (3 terms)
+          </div>
+        </details>
+      </div>
+
+      <div class="subtitle">&#127919; Exercise 2.2 &mdash; Zeros of Polynomials</div>
+      <div class="ncert-ex-item">
+        <div class="short-q">Ex 2.2 Q1: Find the zeros of the following polynomials:<br>(i) p(x) = 3x + 6 &nbsp; (ii) p(x) = &minus;4x + 8 &nbsp; (iii) p(x) = 7x &nbsp; (iv) p(x) = &frac12;x &minus; 3</div>
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;font-weight:800;color:#5b21b6;font-size:13px;padding:6px 12px;background:#ede9fe;border-radius:8px;display:inline-block;">Show Answer</summary>
+          <div class="short-a" style="margin-top:8px;">
+            (i) 3x + 6 = 0 &rarr; x = &minus;6/3 = <strong>&minus;2</strong><br>
+            (ii) &minus;4x + 8 = 0 &rarr; x = 8/4 = <strong>2</strong><br>
+            (iii) 7x = 0 &rarr; x = <strong>0</strong><br>
+            (iv) &frac12;x &minus; 3 = 0 &rarr; x = 3 &times; 2 = <strong>6</strong>
+          </div>
+        </details>
+      </div>
+
+      <div class="ncert-ex-item">
+        <div class="short-q">Ex 2.2 Q2: Verify whether x = 2 is a zero of p(x) = x&sup2; &minus; 5x + 6.</div>
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;font-weight:800;color:#5b21b6;font-size:13px;padding:6px 12px;background:#ede9fe;border-radius:8px;display:inline-block;">Show Answer</summary>
+          <div class="short-a" style="margin-top:8px;">
+            p(2) = (2)&sup2; &minus; 5(2) + 6 = 4 &minus; 10 + 6 = <strong>0</strong><br>
+            Since p(2) = 0, <strong>yes, x = 2 is a zero</strong> of p(x). &#9989;
+          </div>
+        </details>
+      </div>
+
+      <div class="subtitle">&#128290; Exercise 2.3 &mdash; Remainder &amp; Factor Theorem</div>
+      <div class="ncert-ex-item">
+        <div class="short-q">Ex 2.3 Q1: Find the remainder when p(x) = x&sup3; + 3x&sup2; + 3x + 1 is divided by:<br>(i) x + 1 &nbsp; (ii) x &minus; &frac12; &nbsp; (iii) x</div>
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;font-weight:800;color:#5b21b6;font-size:13px;padding:6px 12px;background:#ede9fe;border-radius:8px;display:inline-block;">Show Answer</summary>
+          <div class="short-a" style="margin-top:8px;">
+            (i) x + 1 &rarr; a = &minus;1: p(&minus;1) = &minus;1 + 3 &minus; 3 + 1 = <strong>0</strong><br>
+            (ii) x &minus; &frac12; &rarr; a = &frac12;: p(&frac12;) = 1/8 + 3/4 + 3/2 + 1 = 1/8 + 6/8 + 12/8 + 8/8 = <strong>27/8</strong><br>
+            (iii) x &rarr; a = 0: p(0) = 0 + 0 + 0 + 1 = <strong>1</strong>
+          </div>
+        </details>
+      </div>
+
+      <div class="ncert-ex-item">
+        <div class="short-q">Ex 2.3 Q2: Check whether (x &minus; 1) is a factor of:<br>(i) x&sup3; &minus; x&sup2; &minus; x + 1 &nbsp; (ii) x&sup3; + x&sup2; &minus; x &minus; 1</div>
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;font-weight:800;color:#5b21b6;font-size:13px;padding:6px 12px;background:#ede9fe;border-radius:8px;display:inline-block;">Show Answer</summary>
+          <div class="short-a" style="margin-top:8px;">
+            (i) p(1) = 1 &minus; 1 &minus; 1 + 1 = <strong>0</strong> &rarr; &#9989; Yes, (x &minus; 1) IS a factor.<br>
+            (ii) p(1) = 1 + 1 &minus; 1 &minus; 1 = <strong>0</strong> &rarr; &#9989; Yes, (x &minus; 1) IS a factor.
+          </div>
+        </details>
+      </div>
+
+      <div class="ncert-ex-item">
+        <div class="short-q">Ex 2.3 Q3: Factorise x&sup3; &minus; 2x&sup2; &minus; x + 2 using the Factor Theorem.</div>
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;font-weight:800;color:#5b21b6;font-size:13px;padding:6px 12px;background:#ede9fe;border-radius:8px;display:inline-block;">Show Answer</summary>
+          <div class="short-a" style="margin-top:8px;">
+            Try x = 1: p(1) = 1 &minus; 2 &minus; 1 + 2 = 0 &#9989; &rarr; (x &minus; 1) is a factor.<br>
+            Try x = &minus;1: p(&minus;1) = &minus;1 &minus; 2 + 1 + 2 = 0 &#9989; &rarr; (x + 1) is a factor.<br>
+            Try x = 2: p(2) = 8 &minus; 8 &minus; 2 + 2 = 0 &#9989; &rarr; (x &minus; 2) is a factor.<br>
+            <strong>x&sup3; &minus; 2x&sup2; &minus; x + 2 = (x &minus; 1)(x + 1)(x &minus; 2)</strong>
+          </div>
+        </details>
+      </div>
+
+      <div class="ncert-ex-item">
+        <div class="short-q">Ex 2.3 Q4: Find the value of k if (x &minus; 1) is a factor of p(x) = kx&sup2; &minus; 3x + k.</div>
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;font-weight:800;color:#5b21b6;font-size:13px;padding:6px 12px;background:#ede9fe;border-radius:8px;display:inline-block;">Show Answer</summary>
+          <div class="short-a" style="margin-top:8px;">
+            If (x &minus; 1) is a factor, p(1) = 0:<br>
+            k(1)&sup2; &minus; 3(1) + k = 0 &rarr; k &minus; 3 + k = 0 &rarr; 2k = 3 &rarr; <strong>k = 3/2</strong>
+          </div>
+        </details>
+      </div>
     </div>
   </div>
 
@@ -1297,8 +1666,104 @@ function updateGraph(){
   }
 }
 
+// ==============================
+// INTERACTIVE: FACTOR THEOREM CHECKER
+// ==============================
+function checkFactor(){
+  var s=document.getElementById('factorPoly').value.trim();
+  var a=parseFloat(document.getElementById('factorA').value);
+  var res=document.getElementById('factorResult');
+  if(!s){res.innerHTML='Enter a polynomial.';return;}
+  if(isNaN(a)){res.innerHTML='Enter a valid number for a.';return;}
+  var terms=parsePolyTerms(s);
+  if(terms.length===0){res.innerHTML='Could not parse the polynomial.';return;}
+  var val=evalPoly(terms,a);
+  var valStr=Number.isInteger(val)?val.toString():val.toFixed(4);
+  var aStr=a<0?'('+a+')':a.toString();
+  var divStr=a>=0?'(x − '+a+')':'(x + '+Math.abs(a)+')';
+  var h='<div class="step"><strong>Polynomial:</strong> p(x) = '+s+'</div>';
+  h+='<div class="step"><strong>Testing:</strong> Is '+divStr+' a factor? → Check p('+aStr+')</div>';
+  h+='<div class="step"><strong>p('+aStr+') = '+valStr+'</strong></div>';
+  if(Math.abs(val)<0.0001){
+    h+='<div class="step" style="border-left-color:#22c55e;background:#f0fdf4;"><strong style="color:#16a34a;">✅ YES! '+divStr+' IS a factor of p(x)</strong><br>Since p('+aStr+') = 0, by the Factor Theorem, '+divStr+' divides p(x) exactly.</div>';
+  }else{
+    h+='<div class="step" style="border-left-color:#ef4444;background:#fef2f2;"><strong style="color:#dc2626;">❌ NO! '+divStr+' is NOT a factor of p(x)</strong><br>Since p('+aStr+') = '+valStr+' ≠ 0, '+divStr+' does not divide p(x) exactly. The remainder is '+valStr+'.</div>';
+  }
+  res.innerHTML=h;
+}
+function setFactorSample(poly,a){document.getElementById('factorPoly').value=poly;document.getElementById('factorA').value=a;checkFactor();}
+
+// ==============================
+// INTERACTIVE: POLYNOMIAL SORTING QUIZ
+// ==============================
+var sortData=[
+  {expr:'3x² + 5x − 1', display:'3x² + 5x − 1', isPoly:true},
+  {expr:'√x + 2', display:'√x + 2', isPoly:false},
+  {expr:'1/x', display:'1/x', isPoly:false},
+  {expr:'7', display:'7', isPoly:true},
+  {expr:'x³ − 4x + 1', display:'x³ − 4x + 1', isPoly:true},
+  {expr:'x⁻¹ + 3', display:'x⁻¹ + 3', isPoly:false},
+  {expr:'2ˣ', display:'2ˣ', isPoly:false},
+  {expr:'−5x + 9', display:'−5x + 9', isPoly:true},
+  {expr:'x² + √2·x', display:'x² + √2·x', isPoly:true},
+  {expr:'|x| + 1', display:'|x| + 1', isPoly:false}
+];
+var sortSelected=null,sortScore=0,sortAnswered=0;
+
+function initSortQuiz(){
+  var container=document.getElementById('sortExpressions');
+  if(!container)return;
+  container.innerHTML='';
+  sortData.forEach(function(item,i){
+    var btn=document.createElement('button');
+    btn.className='act-btn';
+    btn.style.cssText='background:linear-gradient(135deg,#5b21b6,#a78bfa);font-size:14px;padding:10px 16px;';
+    btn.textContent=item.display;
+    btn.id='sortBtn'+i;
+    btn.onclick=function(){selectSortItem(i);};
+    container.appendChild(btn);
+  });
+  document.getElementById('sortScore').textContent='Score: 0 / 10';
+  document.getElementById('sortResult').innerHTML='';
+  document.getElementById('bucketYesItems').innerHTML='';
+  document.getElementById('bucketNoItems').innerHTML='';
+  sortSelected=null;sortScore=0;sortAnswered=0;
+}
+
+function selectSortItem(i){
+  document.querySelectorAll('#sortExpressions button').forEach(function(b){b.style.outline='none';});
+  var btn=document.getElementById('sortBtn'+i);
+  if(btn&&!btn.disabled){btn.style.outline='3px solid #fbbf24';sortSelected=i;}
+}
+
+function dropInBucket(isPoly){
+  if(sortSelected===null)return;
+  var item=sortData[sortSelected];
+  var btn=document.getElementById('sortBtn'+sortSelected);
+  if(!btn||btn.disabled)return;
+  var correct=item.isPoly===isPoly;
+  if(correct){
+    sortScore++;
+    btn.style.background='linear-gradient(135deg,#16a34a,#22c55e)';
+  }else{
+    btn.style.background='linear-gradient(135deg,#dc2626,#f87171)';
+  }
+  btn.disabled=true;btn.style.outline='none';btn.style.opacity='0.7';btn.style.cursor='default';
+  var target=isPoly?document.getElementById('bucketYesItems'):document.getElementById('bucketNoItems');
+  target.innerHTML+='<div style="margin:2px 0;">'+item.display+(correct?' ✅':' ❌')+'</div>';
+  sortAnswered++;
+  document.getElementById('sortScore').textContent='Score: '+sortScore+' / 10';
+  sortSelected=null;
+  if(sortAnswered>=10){
+    var msg=sortScore>=9?'🎉 Excellent! You really know your polynomials!':sortScore>=7?'👏 Great job! Keep practicing!':'📚 Good try! Review the "What is a Polynomial?" section above.';
+    document.getElementById('sortResult').innerHTML='<div class="step" style="text-align:center;font-size:15px;"><strong>Final Score: '+sortScore+'/10</strong><br>'+msg+'</div>';
+  }
+}
+
+function resetSortQuiz(){initSortQuiz();}
+
 // Init
-window.addEventListener('DOMContentLoaded',function(){calcZero();initGraph();});
+window.addEventListener('DOMContentLoaded',function(){calcZero();initGraph();initSortQuiz();});
 </script>
 <script src="../../dark-mode.js"></script>
 <script src="../../back-to-top.js"></script>

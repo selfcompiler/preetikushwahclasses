@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Class 9 Maths NCERT Ganita Manjari notes — Coordinate Geometry, Linear Polynomials with interactive notes &amp; test papers. Free by Preeti Kushwah Classes.">
+<meta name="description" content="Class 9 Maths NCERT Ganita Manjari (2026-27) — all 8 chapters with PDF book links, interactive notes &amp; test papers. Free by Preeti Kushwah Classes.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.preetikushwahclasses.com/class-9/maths/">
 <meta property="og:title" content="Class 9 Mathematics — Preeti Kushwah Classes">
@@ -30,17 +30,13 @@ body { font-family: 'Nunito', sans-serif; background: #eef2ff; color: #1f2937; l
 .hero p { font-size: 14px; opacity: 0.85; }
 .container { max-width: 800px; margin: 0 auto; padding: 30px 20px; }
 .chapter-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-.chapter-card { display: flex; align-items: center; gap: 16px; background: white; border-radius: 16px; padding: 18px 20px; box-shadow: 0 3px 14px rgba(0,0,0,0.06); transition: all 0.2s; text-decoration: none; color: inherit; border-left: 5px solid #818cf8; }
+.chapter-card { display: flex; flex-direction: column; gap: 12px; background: white; border-radius: 16px; padding: 18px 20px; box-shadow: 0 3px 14px rgba(0,0,0,0.06); transition: all 0.2s; text-decoration: none; color: inherit; border-left: 5px solid #818cf8; }
 .chapter-card:hover { transform: translateX(6px); box-shadow: 0 6px 22px rgba(0,0,0,0.1); border-left-color: #3730a3; }
+.ch-header { display: flex; align-items: center; gap: 14px; }
 .chapter-card .ch-num { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'Fredoka One', cursive; font-size: 18px; color: white; flex-shrink: 0; }
 .chapter-card .ch-info { flex: 1; }
 .chapter-card .ch-title { font-size: 15px; font-weight: 800; color: #1f2937; }
 .chapter-card .ch-desc { font-size: 12px; color: #6b7280; margin-top: 2px; }
-.chapter-card .ch-badge { font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 8px; background: #e0e7ff; color: #3730a3; }
-.chapter-card .ch-arrow { font-size: 18px; color: #818cf8; font-weight: 800; }
-.chapter-card.disabled { opacity: 0.45; pointer-events: none; border-left-color: #d1d5db; }
-.chapter-card.disabled .ch-badge { background: #f3f4f6; color: #9ca3af; }
-.ch-soon { background: #d1d5db; }
 footer { text-align: center; padding: 24px; background: #1e1b4b; color: white; font-size: 13px; font-weight: 700; margin-top: 40px; }
 </style>
 </head>
@@ -55,29 +51,42 @@ footer { text-align: center; padding: 24px; background: #1e1b4b; color: white; f
 <section class="hero">
   <div class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../index.html">Class 9</a> / Mathematics</div>
   <h1>📐 Mathematics Chapters</h1>
-  <p>Class 9 NCERT Ganita Manjari · New Syllabus 2026-27 · 2 chapters available</p>
+  <p>Class 9 NCERT Ganita Manjari · New Syllabus 2026-27 · All 8 Chapters</p>
 </section>
 <style>
-.ch-actions{display:flex;gap:6px;flex-shrink:0;align-items:center;}
+.ch-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding-left:58px;}
 .ch-notes{
   display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:10px;
   background:linear-gradient(135deg,#f0fdf4,#dcfce7);color:#166534;border:1.5px solid #86efac;
   font-size:10px;font-weight:800;text-decoration:none;transition:all 0.2s;white-space:nowrap;
 }
 .ch-notes:hover{background:#dcfce7;transform:translateY(-1px);box-shadow:0 2px 8px rgba(34,197,94,0.2);}
-@media(max-width:500px){.ch-actions{flex-direction:column;gap:4px;}.chapter-card{flex-wrap:wrap;}}
+.ch-book{
+  display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:10px;
+  background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;border:1.5px solid #fbbf24;
+  font-size:10px;font-weight:800;text-decoration:none;transition:all 0.2s;white-space:nowrap;
+}
+.ch-book:hover{background:#fde68a;transform:translateY(-1px);box-shadow:0 2px 8px rgba(251,191,36,0.3);}
+.ch-soon-badge{
+  display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:10px;
+  background:linear-gradient(135deg,#f3f4f6,#e5e7eb);color:#6b7280;border:1.5px solid #d1d5db;
+  font-size:10px;font-weight:800;white-space:nowrap;cursor:default;
+}
+@media(max-width:500px){.ch-actions{padding-left:0;gap:5px;}.chapter-card{flex-wrap:wrap;}}
 </style>
 <div class="container">
   <ul class="chapter-list">
-    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
-      <a href="coordinate-geometry.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+    <!-- Ch 1 — Notes available -->
+    <li class="chapter-card">
+      <div class="ch-header">
         <div class="ch-num" style="background:linear-gradient(135deg,#3730a3,#818cf8);">📐</div>
         <div class="ch-info">
           <div class="ch-title">Ch 1: Orienting Yourself — The Use of Coordinates</div>
           <div class="ch-desc">Cartesian system, quadrants, distance formula, midpoint formula</div>
         </div>
-      </a>
+      </div>
       <div class="ch-actions">
+        <a href="../../study.html?ch=Ch%201%3A%20Coordinates&pdf=pdfs%2Fclass-9-maths%2Fiemh101.pdf&back=class-9%2Fmaths%2Findex.html" class="ch-book">📖 View Book</a>
         <a href="coordinate-geometry.html" class="ch-notes">📝 Notes →</a>
         <a href="test-paper-ch1.html" class="ch-notes" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);color:#1e40af;border-color:#93c5fd;">📄 Test 1</a>
         <a href="test-paper-ch1-set2.html" class="ch-notes" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);color:#1e40af;border-color:#93c5fd;">📄 Test 2</a>
@@ -85,26 +94,108 @@ footer { text-align: center; padding: 24px; background: #1e1b4b; color: white; f
         <a href="test-paper-ch1-set4.html" class="ch-notes" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8);color:#9d174d;border-color:#f9a8d4;">📄 Test 4</a>
       </div>
     </li>
-    <li class="chapter-card" style="display:flex;align-items:center;gap:12px;">
-      <a href="linear-polynomial.html" style="display:flex;align-items:center;gap:12px;flex:1;text-decoration:none;color:inherit;">
+    <!-- Ch 2 — Notes available -->
+    <li class="chapter-card">
+      <div class="ch-header">
         <div class="ch-num" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">📊</div>
         <div class="ch-info">
-          <div class="ch-title">Ch 2: Introduction to Linear Polynomial</div>
+          <div class="ch-title">Ch 2: Introduction to Linear Polynomials</div>
           <div class="ch-desc">Polynomials, degree, zeros, remainder theorem, factor theorem</div>
         </div>
-      </a>
+      </div>
       <div class="ch-actions">
+        <a href="../../study.html?ch=Ch%202%3A%20Linear%20Polynomials&pdf=pdfs%2Fclass-9-maths%2Fiemh102.pdf&back=class-9%2Fmaths%2Findex.html" class="ch-book">📖 View Book</a>
         <a href="linear-polynomial.html" class="ch-notes">📝 Notes →</a>
+        <a href="test-paper-ch2-set1.html" class="ch-notes" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);color:#1e40af;border-color:#93c5fd;">📄 Test 1</a>
+        <a href="test-paper-ch2-set2.html" class="ch-notes" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);color:#1e40af;border-color:#93c5fd;">📄 Test 2</a>
+        <a href="test-paper-ch2-set3.html" class="ch-notes" style="background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;border-color:#fbbf24;">📄 Test 3</a>
+        <a href="test-paper-ch2-set4.html" class="ch-notes" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8);color:#9d174d;border-color:#f9a8d4;">📄 Test 4</a>
       </div>
     </li>
-    <div class="chapter-card disabled">
-      <div class="ch-num ch-soon">📚</div>
-      <div class="ch-info">
-        <div class="ch-title">More Chapters</div>
-        <div class="ch-desc">Additional mathematics chapters coming soon</div>
+    <!-- Ch 3 — Notes coming soon -->
+    <li class="chapter-card">
+      <div class="ch-header">
+        <div class="ch-num" style="background:linear-gradient(135deg,#059669,#34d399);">🔢</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 3: The World of Numbers</div>
+          <div class="ch-desc">Number systems, rational & irrational numbers, real number line</div>
+        </div>
       </div>
-      <span class="ch-badge">SOON</span>
-    </div>
+      <div class="ch-actions">
+        <a href="../../study.html?ch=Ch%203%3A%20World%20of%20Numbers&pdf=pdfs%2Fclass-9-maths%2Fiemh103.pdf&back=class-9%2Fmaths%2Findex.html" class="ch-book">📖 View Book</a>
+        <span class="ch-soon-badge">📝 Notes Coming Soon</span>
+      </div>
+    </li>
+    <!-- Ch 4 — Notes coming soon -->
+    <li class="chapter-card">
+      <div class="ch-header">
+        <div class="ch-num" style="background:linear-gradient(135deg,#dc2626,#f87171);">✖️</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 4: Exploring Algebraic Identities</div>
+          <div class="ch-desc">Algebraic identities, expansions, factorisation</div>
+        </div>
+      </div>
+      <div class="ch-actions">
+        <a href="../../study.html?ch=Ch%204%3A%20Algebraic%20Identities&pdf=pdfs%2Fclass-9-maths%2Fiemh104.pdf&back=class-9%2Fmaths%2Findex.html" class="ch-book">📖 View Book</a>
+        <span class="ch-soon-badge">📝 Notes Coming Soon</span>
+      </div>
+    </li>
+    <!-- Ch 5 — Notes coming soon -->
+    <li class="chapter-card">
+      <div class="ch-header">
+        <div class="ch-num" style="background:linear-gradient(135deg,#0891b2,#22d3ee);">🔄</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 5: I'm Up and Down, and Round and Round</div>
+          <div class="ch-desc">Linear equations, graphs, circles, geometry of motion</div>
+        </div>
+      </div>
+      <div class="ch-actions">
+        <a href="../../study.html?ch=Ch%205%3A%20Up%20Down%20Round&pdf=pdfs%2Fclass-9-maths%2Fiemh105.pdf&back=class-9%2Fmaths%2Findex.html" class="ch-book">📖 View Book</a>
+        <span class="ch-soon-badge">📝 Notes Coming Soon</span>
+      </div>
+    </li>
+    <!-- Ch 6 — Notes coming soon -->
+    <li class="chapter-card">
+      <div class="ch-header">
+        <div class="ch-num" style="background:linear-gradient(135deg,#d97706,#fbbf24);">📏</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 6: Measuring Space — Perimeter and Area</div>
+          <div class="ch-desc">Perimeter, area, surface area, volume of solids</div>
+        </div>
+      </div>
+      <div class="ch-actions">
+        <a href="../../study.html?ch=Ch%206%3A%20Perimeter%20%26%20Area&pdf=pdfs%2Fclass-9-maths%2Fiemh106.pdf&back=class-9%2Fmaths%2Findex.html" class="ch-book">📖 View Book</a>
+        <span class="ch-soon-badge">📝 Notes Coming Soon</span>
+      </div>
+    </li>
+    <!-- Ch 7 — Notes coming soon -->
+    <li class="chapter-card">
+      <div class="ch-header">
+        <div class="ch-num" style="background:linear-gradient(135deg,#9333ea,#c084fc);">🎲</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 7: The Mathematics of Maybe — Introduction to Probability</div>
+          <div class="ch-desc">Experimental probability, events, outcomes, data interpretation</div>
+        </div>
+      </div>
+      <div class="ch-actions">
+        <a href="../../study.html?ch=Ch%207%3A%20Probability&pdf=pdfs%2Fclass-9-maths%2Fiemh107.pdf&back=class-9%2Fmaths%2Findex.html" class="ch-book">📖 View Book</a>
+        <span class="ch-soon-badge">📝 Notes Coming Soon</span>
+      </div>
+    </li>
+    <!-- Ch 8 — Notes coming soon -->
+    <li class="chapter-card">
+      <div class="ch-header">
+        <div class="ch-num" style="background:linear-gradient(135deg,#be185d,#f472b6);">📈</div>
+        <div class="ch-info">
+          <div class="ch-title">Ch 8: Predicting What Comes Next — Exploring Sequences and Progressions</div>
+          <div class="ch-desc">Patterns, sequences, arithmetic progressions</div>
+        </div>
+      </div>
+      <div class="ch-actions">
+        <a href="../../study.html?ch=Ch%208%3A%20Sequences%20%26%20Progressions&pdf=pdfs%2Fclass-9-maths%2Fiemh108.pdf&back=class-9%2Fmaths%2Findex.html" class="ch-book">📖 View Book</a>
+        <span class="ch-soon-badge">📝 Notes Coming Soon</span>
+      </div>
+    </li>
   </ul>
 </div>
 <footer>Preeti Kushwah Classes · Quality Education for Every Student</footer>
