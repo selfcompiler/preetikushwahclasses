@@ -1,7 +1,5 @@
-// Google Analytics — Replace G-XXXXXXXXXX with your actual Measurement ID
-// Get it from: https://analytics.google.com → Admin → Data Streams → your site → Measurement ID
 (function(){
-var id='G-XXXXXXXXXX';
+var id='AW-821609162';
 var s=document.createElement('script');
 s.async=true;
 s.src='https://www.googletagmanager.com/gtag/js?id='+id;
