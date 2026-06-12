@@ -4949,105 +4949,106 @@ button, a, input, select,
 
     <script>
     (function(){
-      // Wheel of Theodorus
-      // Center at (240, 210), scale 60px per unit
-      var CX=240, CY=240, SC=60;
+      var CX=240, CY=220, SC=48;
       var spStep=0, spTimer=null;
       var MAX_N=12;
+      var colors=["#ef4444","#f97316","#eab308","#22c55e","#14b8a6","#3b82f6","#8b5cf6","#ec4899","#06b6d4","#84cc16","#f43f5e","#a855f7"];
 
-      // Pre-compute triangle vertices
-      // Start: O=(0,0), A=(1,0) in math coords
-      // Each step: current hypotenuse end -> rotate 90deg -> add unit vector -> new hypotenuse end
-      function buildSpiral(n){
-        var pts=[{x:0,y:0},{x:1,y:0}];
-        for(var i=1;i<n;i++){
-          var prev=pts[pts.length-1];
-          var pprev=pts[pts.length-2];
-          // direction from pprev to prev
-          var dx=prev.x-pprev.x, dy=prev.y-pprev.y;
-          var len=Math.sqrt(dx*dx+dy*dy);
-          dx/=len; dy/=len;
-          // perpendicular (rotate 90 CCW): (-dy, dx)
-          var nx=prev.x-dy, ny=prev.y+dx;
-          pts.push({x:nx,y:ny});
+      function buildPoints(n){
+        var pts=[{x:1,y:0}];
+        for(var i=0;i<n;i++){
+          var p=pts[i];
+          var len=Math.sqrt(p.x*p.x+p.y*p.y);
+          pts.push({x:p.x-p.y/len, y:p.y+p.x/len});
         }
         return pts;
       }
 
       function toSvg(p){ return {x:CX+p.x*SC, y:CY-p.y*SC}; }
-
-      // Colors for each triangle
-      var colors=["#ef4444","#f97316","#eab308","#22c55e","#14b8a6","#3b82f6","#8b5cf6","#ec4899","#06b6d4","#84cc16","#f43f5e","#a855f7"];
-
       function getSvg(){ return document.getElementById("spiral-svg"); }
+
+      function mkEl(tag){return document.createElementNS("http://www.w3.org/2000/svg",tag);}
 
       function drawSpiral(upToN){
         var svg=getSvg(); svg.innerHTML="";
-        // origin dot
         var oc=toSvg({x:0,y:0});
-        var orig=document.createElementNS("http://www.w3.org/2000/svg","circle");
-        orig.setAttribute("cx",oc.x);orig.setAttribute("cy",oc.y);orig.setAttribute("r",4);
-        orig.setAttribute("fill","#1e293b");svg.appendChild(orig);
-        var otxt=document.createElementNS("http://www.w3.org/2000/svg","text");
-        otxt.setAttribute("x",oc.x-12);otxt.setAttribute("y",oc.y+5);
-        otxt.setAttribute("font-size","12");otxt.setAttribute("fill","#1e293b");otxt.setAttribute("font-weight","bold");
-        otxt.textContent="O";svg.appendChild(otxt);
 
-        if(upToN<1) return;
-        var pts=buildSpiral(upToN+1);
+        if(upToN<1){
+          var ph=mkEl("text");
+          ph.setAttribute("x",CX);ph.setAttribute("y",CY);
+          ph.setAttribute("text-anchor","middle");ph.setAttribute("font-size","14");
+          ph.setAttribute("fill","#94a3b8");
+          ph.textContent="Press Next √n or Play All to start";
+          svg.appendChild(ph);
+          var od=mkEl("circle");
+          od.setAttribute("cx",oc.x);od.setAttribute("cy",oc.y);od.setAttribute("r",4);
+          od.setAttribute("fill","#1e293b");svg.appendChild(od);
+          return;
+        }
+
+        var pts=buildPoints(upToN);
 
         for(var i=0;i<upToN;i++){
-          var a=toSvg(pts[i]), b=toSvg(pts[i+1]), c=toSvg(pts[i+2]);
           var col=colors[i%colors.length];
+          var a=toSvg(pts[i]), b=toSvg(pts[i+1]);
 
-          // Filled triangle
-          var poly=document.createElementNS("http://www.w3.org/2000/svg","polygon");
-          poly.setAttribute("points",a.x+","+a.y+" "+b.x+","+b.y+" "+c.x+","+c.y);
-          poly.setAttribute("fill",col);poly.setAttribute("fill-opacity","0.18");
+          var poly=mkEl("polygon");
+          poly.setAttribute("points",oc.x+","+oc.y+" "+a.x+","+a.y+" "+b.x+","+b.y);
+          poly.setAttribute("fill",col);poly.setAttribute("fill-opacity","0.15");
           poly.setAttribute("stroke",col);poly.setAttribute("stroke-width","1.5");
           svg.appendChild(poly);
 
-          // Hypotenuse arc
-          var hypLen=Math.sqrt(pts[i+2].x*pts[i+2].x+pts[i+2].y*pts[i+2].y)*SC;
-          var angleC=Math.atan2(-pts[i+2].y,pts[i+2].x)*180/Math.PI;
-          var angleB=Math.atan2(-pts[i+1].y,pts[i+1].x)*180/Math.PI;
-          // Small arc from angleC to angleB
-          if(Math.abs(angleC-angleB)<45){
-            var arcPath=document.createElementNS("http://www.w3.org/2000/svg","path");
-            var ang1=angleC*Math.PI/180, ang2=angleB*Math.PI/180;
-            var r2=hypLen;
-            var ax1=CX+r2*Math.cos(ang1),ay1=CY+r2*Math.sin(ang1);
-            var ax2=CX+r2*Math.cos(ang2),ay2=CY+r2*Math.sin(ang2);
-            arcPath.setAttribute("d","M "+ax1+" "+ay1+" A "+r2+" "+r2+" 0 0 0 "+ax2+" "+ay2);
-            arcPath.setAttribute("stroke",col);arcPath.setAttribute("stroke-width","1");
-            arcPath.setAttribute("fill","none");arcPath.setAttribute("stroke-dasharray","3,2");
-            svg.appendChild(arcPath);
-          }
+          var p=pts[i],pp=pts[i+1];
+          var lenOP=Math.sqrt(p.x*p.x+p.y*p.y);
+          var toOx=-p.x/lenOP, toOy=-p.y/lenOP;
+          var dx=pp.x-p.x, dy=pp.y-p.y;
+          var ms=0.14;
+          var ra=toSvg({x:p.x+ms*toOx,y:p.y+ms*toOy});
+          var rb=toSvg({x:p.x+ms*toOx+ms*dx,y:p.y+ms*toOy+ms*dy});
+          var rc=toSvg({x:p.x+ms*dx,y:p.y+ms*dy});
+          var rl=mkEl("polyline");
+          rl.setAttribute("points",ra.x+","+ra.y+" "+rb.x+","+rb.y+" "+rc.x+","+rc.y);
+          rl.setAttribute("stroke",col);rl.setAttribute("stroke-width","1");
+          rl.setAttribute("fill","none");svg.appendChild(rl);
 
-          // Label hypotenuse at midpoint with √(i+2)
-          if(i+2<=upToN+1){
-            var labelPt=pts[i+2];
-            var lx=toSvg(labelPt);
-            var angle=Math.atan2(-labelPt.y,labelPt.x);
-            var offR=0.18;
-            var lxOff=CX+(labelPt.x+offR*Math.cos(angle+0.3))*SC;
-            var lyOff=CY-(labelPt.y+offR*Math.sin(angle+0.3))*SC;
-            var labTxt=document.createElementNS("http://www.w3.org/2000/svg","text");
-            labTxt.setAttribute("x",lxOff);labTxt.setAttribute("y",lyOff);
-            labTxt.setAttribute("text-anchor","middle");labTxt.setAttribute("font-size","10");
-            labTxt.setAttribute("fill",col);labTxt.setAttribute("font-weight","bold");
-            var n2=i+2;
-            labTxt.innerHTML="&radic;"+n2+(n2===4?"=2":"");
-            svg.appendChild(labTxt);
-          }
+          var lm={x:(p.x+pp.x)/2, y:(p.y+pp.y)/2};
+          var ldx=pp.x-p.x, ldy=pp.y-p.y;
+          var nx=-ldy, ny=ldx;
+          var nl=Math.sqrt(nx*nx+ny*ny);
+          var ls=toSvg({x:lm.x+nx/nl*0.22, y:lm.y+ny/nl*0.22});
+          var lt=mkEl("text");
+          lt.setAttribute("x",ls.x);lt.setAttribute("y",ls.y);
+          lt.setAttribute("text-anchor","middle");lt.setAttribute("font-size","9");
+          lt.setAttribute("fill",col);lt.textContent="1";svg.appendChild(lt);
+
+          var hm={x:pp.x/2, y:pp.y/2};
+          var hn=Math.sqrt(pp.x*pp.x+pp.y*pp.y);
+          var hpx=pp.y/hn, hpy=-pp.x/hn;
+          var hs=toSvg({x:hm.x+hpx*0.22, y:hm.y+hpy*0.22});
+          var ht=mkEl("text");
+          ht.setAttribute("x",hs.x);ht.setAttribute("y",hs.y);
+          ht.setAttribute("text-anchor","middle");ht.setAttribute("font-size","10");
+          ht.setAttribute("fill",col);ht.setAttribute("font-weight","bold");
+          var n2=i+2;
+          ht.innerHTML="√"+n2+(n2===4?"=2":"")+(n2===9?"=3":"");
+          svg.appendChild(ht);
         }
 
-        // Mark the last hypotenuse endpoint
-        var last=toSvg(pts[upToN]);
-        var lpt=document.createElementNS("http://www.w3.org/2000/svg","circle");
-        lpt.setAttribute("cx",last.x);lpt.setAttribute("cy",last.y);lpt.setAttribute("r",4);
-        lpt.setAttribute("fill",colors[(upToN-1)%colors.length]);
-        svg.appendChild(lpt);
+        for(var j=0;j<=upToN;j++){
+          var pp2=toSvg(pts[j]);
+          var dot=mkEl("circle");
+          dot.setAttribute("cx",pp2.x);dot.setAttribute("cy",pp2.y);dot.setAttribute("r",3);
+          dot.setAttribute("fill",colors[(j>0?j-1:0)%colors.length]);svg.appendChild(dot);
+        }
+
+        var od2=mkEl("circle");
+        od2.setAttribute("cx",oc.x);od2.setAttribute("cy",oc.y);od2.setAttribute("r",5);
+        od2.setAttribute("fill","#1e293b");svg.appendChild(od2);
+        var otxt=mkEl("text");
+        otxt.setAttribute("x",oc.x);otxt.setAttribute("y",oc.y+18);
+        otxt.setAttribute("text-anchor","middle");otxt.setAttribute("font-size","12");
+        otxt.setAttribute("fill","#1e293b");otxt.setAttribute("font-weight","bold");
+        otxt.textContent="O";svg.appendChild(otxt);
       }
 
       window.spiralStep=function(){
@@ -5057,9 +5058,9 @@ button, a, input, select,
         var n=spStep+1;
         var val=Math.sqrt(n).toFixed(4);
         document.getElementById("spiral-info").innerHTML=
-          "Added triangle "+spStep+": &nbsp; hypotenuse = <strong>&radic;"+n+(n===4?"&nbsp;= 2":"")+"</strong>"
-          +(n!==4?" &asymp; "+val:"")
-          +(spStep>=MAX_N?"&nbsp;&mdash; spiral complete!":"");
+          "Triangle "+spStep+": hypotenuse = <strong>√"+n+(n===4?" = 2":"")+(n===9?" = 3":"")+"</strong>"
+          +(n!==4&&n!==9?" ≈ "+val:"")
+          +(spStep>=MAX_N?" — spiral complete!":"");
         if(spStep>=MAX_N){
           document.getElementById("sp-step-btn").disabled=true;
           document.getElementById("sp-play-btn").disabled=true;
