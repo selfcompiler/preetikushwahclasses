@@ -1735,10 +1735,6 @@ button, a, input, select,
   <a href="#sec-3-6">&#128200; 3.6 Number Line</a>
   <a href="#sec-3-7">&#9999;&#65039; 3.7 Operations</a>
   <a href="#exercises">&#128221; Exercises</a>
-  <a href="test-paper-ch3-set1.html">&#9997; Test 1</a>
-  <a href="test-paper-ch3-set2.html">&#9997; Test 2</a>
-  <a href="test-paper-ch3-set3.html">&#9997; Test 3</a>
-  <a href="test-paper-ch3-set4.html">&#9997; Test 4</a>
   <a href="#recap">&#127775; Recap</a>
   <a href="#cheat-sheet">&#128196; Cheat Sheet</a>
 </div>
@@ -5258,33 +5254,7 @@ button, a, input, select,
 <!-- ================================================================ -->
 
 
-<!-- ===== TEST PAPERS (separate pages) ===== -->
-<div class="section-block" id="test-papers">
-  <div class="section-hd g-slate"><span class="icon">&#128221;</span> Chapter Test Papers</div>
-  <div class="section-bd">
-    <p>Practice with printable test papers of increasing difficulty:</p>
-    <div class="info-grid" style="margin-top:16px;">
-      <a href="test-paper-ch3-set1.html" class="info-card ic-green" style="text-decoration:none;text-align:center;">
-        <h4>&#127941; Set 1 &mdash; Foundation</h4>
-        <p>40 Marks &middot; Basic definitions, number types, simple operations</p>
-      </a>
-      <a href="test-paper-ch3-set2.html" class="info-card ic-blue" style="text-decoration:none;text-align:center;">
-        <h4>&#127942; Set 2 &mdash; Intermediate</h4>
-        <p>40 Marks &middot; Decimal classification, sign rules, conversions</p>
-      </a>
-      <a href="test-paper-ch3-set3.html" class="info-card ic-purple" style="text-decoration:none;text-align:center;">
-        <h4>&#127895; Set 3 &mdash; Advanced</h4>
-        <p>40 Marks &middot; Proofs, constructions, assertion-reason</p>
-      </a>
-      <a href="test-paper-ch3-set4.html" class="info-card ic-red" style="text-decoration:none;text-align:center;">
-        <h4>&#128293; Set 4 &mdash; HOTS</h4>
-        <p>40 Marks &middot; Case studies, challenging mixed problems</p>
-      </a>
-    </div>
-  </div>
-</div>
-
-</p><!-- ═══════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════════ -->
 <!-- SECTION: WHAT YOU HAVE LEARNT (RECAP)                        -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <section id="recap" class="section-block">
@@ -5998,181 +5968,6 @@ function renderZoom() {
   if (btn) btn.disabled = (zoomStep >= zoomLevels.length - 1);
 }
 
-/* ================================================================
-   h) √2 CONSTRUCTION ANIMATION (Section 3.7)
-   ================================================================ */
-
-var sqrt2Step = 0;
-var SQRT2_STEPS = 6;
-
-function initSqrt2() {
-  sqrt2Step = 0;
-  renderSqrt2();
-}
-
-function stepSqrt2() {
-  if (sqrt2Step < SQRT2_STEPS) { sqrt2Step++; renderSqrt2(); }
-}
-
-function resetSqrt2() { sqrt2Step = 0; renderSqrt2(); }
-
-function renderSqrt2() {
-  var svg = document.getElementById('sqrt2-svg');
-  if (!svg) return;
-  clearSVG(svg);
-
-  var W = svg.clientWidth || 400, H = 220;
-  svg.setAttribute('height', H);
-
-  var ox = 60, oy = 160, scale = 100;
-
-  // Draw axes hint
-  drawLine(svg, ox - 20, oy, ox + W - 40, oy, '#ccc', 1);
-  drawLine(svg, ox, oy + 20, ox, oy - H + 30, '#ccc', 1);
-
-  // Step 0: number line with O and A
-  drawLine(svg, ox, oy, ox + 2.5 * scale, oy, '#555', 2);
-  drawCircle(svg, ox, oy, 4, '#333', '#333', 1);
-  drawText(svg, ox, oy + 18, 'O (0)', '#333', 12, 'middle');
-
-  if (sqrt2Step >= 1) {
-    // Point A at 1
-    var ax = ox + scale;
-    drawCircle(svg, ax, oy, 4, '#2563eb', '#2563eb', 1);
-    drawText(svg, ax, oy + 18, 'A (1)', '#2563eb', 12, 'middle');
-    drawLine(svg, ox, oy, ax, oy, '#2563eb', 2.5);
-  }
-
-  if (sqrt2Step >= 2) {
-    // Perpendicular at A of length 1
-    var ax2 = ox + scale;
-    var by = oy - scale;
-    drawLine(svg, ax2, oy, ax2, by, '#10b981', 2.5);
-    drawCircle(svg, ax2, by, 4, '#10b981', '#10b981', 1);
-    drawText(svg, ax2 + 18, by, "A' (1,1)", '#10b981', 12, 'start');
-    // Right-angle marker
-    drawLine(svg, ax2 - 10, oy, ax2 - 10, oy - 10, '#10b981', 1.5);
-    drawLine(svg, ax2 - 10, oy - 10, ax2, oy - 10, '#10b981', 1.5);
-  }
-
-  if (sqrt2Step >= 3) {
-    // Hypotenuse O to A'
-    var ax3 = ox + scale, byp = oy - scale;
-    drawLine(svg, ox, oy, ax3, byp, '#e53e3e', 2.5);
-    var mx = (ox + ax3) / 2, my = (oy + byp) / 2;
-    drawText(svg, mx - 12, my, '√2', '#c53030', 14, 'end');
-  }
-
-  if (sqrt2Step >= 4) {
-    // Arc from A' to number line
-    var hyp = Math.sqrt(2) * scale;
-    drawArc(svg, ox, oy, hyp, 270, 360, '#f59e0b', 2);
-    drawText(svg, ox + hyp, oy + 18, '√2', '#b45309', 13, 'middle');
-    drawLine(svg, ox + hyp, oy - 8, ox + hyp, oy + 8, '#f59e0b', 2);
-  }
-
-  if (sqrt2Step >= 5) {
-    // Mark √2 point on number line
-    var sx = ox + Math.sqrt(2) * scale;
-    drawCircle(svg, sx, oy, 6, '#e53e3e', '#fca5a5', 2);
-    drawText(svg, sx, oy - 14, '√2 ≈ 1.414', '#c53030', 12, 'middle');
-  }
-
-  if (sqrt2Step >= 6) {
-    // Also show √3: perpendicular at √2 of height 1, then arc
-    var sx2 = ox + Math.sqrt(2) * scale;
-    var c2y = oy - scale;
-    drawLine(svg, sx2, oy, sx2, c2y, '#7c3aed', 2);
-    drawCircle(svg, sx2, c2y, 3, '#7c3aed', '#7c3aed', 1);
-    var hyp3 = Math.sqrt(3) * scale;
-    drawLine(svg, ox, oy, sx2, c2y, '#7c3aed', 2);
-    drawArc(svg, ox, oy, hyp3, 270, 360, '#7c3aed', 1.5);
-    var s3x = ox + hyp3;
-    drawCircle(svg, s3x, oy, 5, '#7c3aed', '#c4b5fd', 2);
-    drawText(svg, s3x, oy - 14, '√3', '#5b21b6', 12, 'middle');
-  }
-
-  var desc = [
-    'Number line with origin O',
-    'Mark point A at distance 1 from O',
-    'Erect perpendicular at A of length 1 (point A’)',
-    'Draw hypotenuse O–A’ (length = √2)',
-    'Swing arc to the number line',
-    '√2 is now marked on the number line!',
-    'Extend: use √2 to construct √3 similarly'
-  ][sqrt2Step];
-  drawText(svg, W / 2, H - 8, desc, '#374151', 11, 'middle');
-
-  var btn = document.getElementById('sqrt2-step-btn');
-  if (btn) btn.disabled = (sqrt2Step >= SQRT2_STEPS);
-}
-
-/* ================================================================
-   i) SQUARE ROOT SPIRAL ANIMATION (Section 3.7)
-   ================================================================ */
-
-var spiralStep = 0;
-var SPIRAL_MAX = 10;
-
-function initSpiral() {
-  spiralStep = 1;
-  renderSpiral();
-}
-
-function stepSpiral() {
-  if (spiralStep < SPIRAL_MAX) { spiralStep++; renderSpiral(); }
-}
-
-function resetSpiral() { spiralStep = 1; renderSpiral(); }
-
-function renderSpiral() {
-  var svg = document.getElementById('spiral-svg');
-  if (!svg) return;
-  clearSVG(svg);
-
-  var W = svg.clientWidth || 400, H = 300;
-  svg.setAttribute('height', H);
-
-  var cx = W / 2, cy = H / 2 + 20, scale = 55;
-  var colors = ['#e53e3e','#d97706','#059669','#2563eb','#7c3aed',
-                '#db2777','#0891b2','#65a30d','#ea580c','#6366f1'];
-
-  // Start at (cx, cy), go right by 1 unit for the first leg
-  var px = cx, py = cy;
-  var dx = scale, dy = 0;  // initial direction: right
-
-  for (var n = 1; n <= spiralStep; n++) {
-    // Next point
-    var nx = px + dx, ny = py + dy;
-
-    // Draw hypotenuse (the spiral arm of length √n)
-    var col = colors[(n - 1) % colors.length];
-    drawLine(svg, px, py, nx, ny, col, 2.5);
-    drawCircle(svg, nx, ny, 3, col, col, 1);
-    drawText(svg, (px + nx) / 2 - 8, (py + ny) / 2, '√' + n, col, 11, 'end');
-
-    // Label the point
-    drawText(svg, nx + 4, ny - 4, '√' + (n + 1), '#374151', 10, 'start');
-
-    // Next direction: perpendicular of unit length (rotate 90° CCW from hypotenuse)
-    var hx = nx - px, hy = ny - py;
-    var len = Math.sqrt(hx * hx + hy * hy);
-    // Unit perpendicular (CCW): (-hy/len, hx/len) * scale
-    dx = (-hy / len) * scale;
-    dy = ( hx / len) * scale;
-    px = nx; py = ny;
-  }
-
-  // Origin label
-  drawCircle(svg, cx, cy, 4, '#333', '#333', 1);
-  drawText(svg, cx - 8, cy + 14, 'O', '#333', 12, 'middle');
-
-  var lbl = '√1 to √' + (spiralStep + 1) + '  (' + spiralStep + ' step' + (spiralStep > 1 ? 's' : '') + ')';
-  drawText(svg, W / 2, 16, lbl, '#374151', 12, 'middle');
-
-  var btn = document.getElementById('spiral-step-btn');
-  if (btn) btn.disabled = (spiralStep >= SPIRAL_MAX);
-}
 
 /* ================================================================
    j) VENN DIAGRAM INTERACTION (Section 3.6)
@@ -6223,13 +6018,7 @@ function resetVennHighlights() {
 }
 
 /* ================================================================
-   k) QUIZ / TEST SCORING — 4 Test Papers
-   ================================================================ */
-
-// --- Test 1 ---
-
-/* ================================================================
-   l) DOMContentLoaded — INIT ALL INTERACTIVES
+   DOMContentLoaded — INIT ALL INTERACTIVES
    ================================================================ */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -6244,29 +6033,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initNumberLine();
   });
 
-  // √2 construction
-  initSqrt2();
-
-  // Square root spiral
-  initSpiral();
-
   // Successive magnification zoom
   initZoom();
 
   // Venn diagram
   initVenn();
-
-  // Count quiz questions per test
-  [1, 2, 3, 4].forEach(function(n) {
-    var cont = document.getElementById('test' + n + '-container');
-    if (!cont) return;
-    var qs = cont.querySelectorAll('.quiz-question');
-    if (n === 1) t1total = qs.length;
-    if (n === 2) t2total = qs.length;
-    if (n === 3) t3total = qs.length;
-    if (n === 4) t4total = qs.length;
-  });
-  updateT1Score(); updateT2Score(); updateT3Score(); updateT4Score();
 
   // Toggle solution panels
   document.querySelectorAll('.toggle-sol').forEach(function(btn) {
