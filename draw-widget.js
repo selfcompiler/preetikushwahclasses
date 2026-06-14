@@ -543,71 +543,108 @@
     var dx1 = s1.b.x - s1.a.x, dy1 = s1.b.y - s1.a.y;
     var dx2 = s2.b.x - s2.a.x, dy2 = s2.b.y - s2.a.y;
     var denom = dx1 * dy2 - dy1 * dx2;
-    if (Math.abs(denom) < 0.001) return null;
+    if (Math.abs(denom) < 0.0001) return null;
     var t = ((s2.a.x - s1.a.x) * dy2 - (s2.a.y - s1.a.y) * dx2) / denom;
     var u = ((s2.a.x - s1.a.x) * dy1 - (s2.a.y - s1.a.y) * dx1) / denom;
-    if (t < -0.02 || t > 1.02 || u < -0.02 || u > 1.02) return null;
+    if (t < -0.05 || t > 1.05 || u < -0.05 || u > 1.05) return null;
     return { x: s1.a.x + t * dx1, y: s1.a.y + t * dy1 };
+  }
+
+  function ptToSegDist(p, seg) {
+    var dx = seg.b.x - seg.a.x, dy = seg.b.y - seg.a.y;
+    var len2 = dx * dx + dy * dy;
+    if (len2 < 0.01) return dist(p, seg.a);
+    var t = Math.max(0, Math.min(1, ((p.x - seg.a.x) * dx + (p.y - seg.a.y) * dy) / len2));
+    return dist(p, { x: seg.a.x + t * dx, y: seg.a.y + t * dy });
+  }
+
+  function segDirection(seg) {
+    return Math.atan2(seg.b.y - seg.a.y, seg.b.x - seg.a.x);
   }
 
   function findNearestIntersection(click) {
     var segs = getSegments();
-    var best = null, bestDist = 25;
+    if (segs.length < 2) return null;
+    var RADIUS = 40;
+    var best = null, bestDist = RADIUS;
+
+    // Pass 1: exact segment intersections near click
     for (var i = 0; i < segs.length; i++) {
       for (var j = i + 1; j < segs.length; j++) {
         var ip = segIntersect(segs[i], segs[j]);
-        if (!ip) {
-          var ep = closestEndpointMeet(segs[i], segs[j]);
-          if (ep) ip = ep;
-          else continue;
-        }
-        var d = dist(click, ip);
-        if (d < bestDist) {
-          bestDist = d;
-          best = { point: ip, seg1: segs[i], seg2: segs[j] };
+        if (ip) {
+          var d = dist(click, ip);
+          if (d < bestDist) { bestDist = d; best = { point: ip, seg1: segs[i], seg2: segs[j] }; }
         }
       }
     }
-    if (!best) return null;
-    var rays = [
-      Math.atan2(best.seg1.a.y - best.point.y, best.seg1.a.x - best.point.x),
-      Math.atan2(best.seg1.b.y - best.point.y, best.seg1.b.x - best.point.x),
-      Math.atan2(best.seg2.a.y - best.point.y, best.seg2.a.x - best.point.x),
-      Math.atan2(best.seg2.b.y - best.point.y, best.seg2.b.x - best.point.x)
-    ];
-    var minAng = Infinity, r1 = 0, r2 = 2;
-    for (var ri = 0; ri < 2; ri++) {
-      for (var rj = 2; rj < 4; rj++) {
-        if (dist(best.point, ri === 0 ? best.seg1.a : best.seg1.b) < 2) continue;
-        if (dist(best.point, rj === 2 ? best.seg2.a : best.seg2.b) < 2) continue;
-        var ad = Math.abs(rays[ri] - rays[rj]);
-        if (ad > Math.PI) ad = 2 * Math.PI - ad;
-        if (ad < minAng) { minAng = ad; r1 = ri; r2 = rj; }
-      }
-    }
-    if (minAng === Infinity) {
-      for (var ri = 0; ri < 2; ri++) {
-        for (var rj = 2; rj < 4; rj++) {
-          var ad = Math.abs(rays[ri] - rays[rj]);
-          if (ad > Math.PI) ad = 2 * Math.PI - ad;
-          if (ad < minAng) { minAng = ad; r1 = ri; r2 = rj; }
-        }
-      }
-    }
-    best.angleDeg = Math.round(minAng * 180 / Math.PI);
-    best.ray1 = rays[r1];
-    best.ray2 = rays[r2];
-    return best;
-  }
 
-  function closestEndpointMeet(s1, s2) {
-    var pairs = [[s1.a, s2.a], [s1.a, s2.b], [s1.b, s2.a], [s1.b, s2.b]];
-    for (var k = 0; k < pairs.length; k++) {
-      if (dist(pairs[k][0], pairs[k][1]) < 8) {
-        return { x: (pairs[k][0].x + pairs[k][1].x) / 2, y: (pairs[k][0].y + pairs[k][1].y) / 2 };
+    // Pass 2: shared or nearby endpoints
+    if (!best) {
+      bestDist = RADIUS;
+      for (var i = 0; i < segs.length; i++) {
+        for (var j = i + 1; j < segs.length; j++) {
+          var pts = [segs[i].a, segs[i].b];
+          var pts2 = [segs[j].a, segs[j].b];
+          for (var a = 0; a < 2; a++) {
+            for (var b = 0; b < 2; b++) {
+              var ep = { x: (pts[a].x + pts2[b].x) / 2, y: (pts[a].y + pts2[b].y) / 2 };
+              if (dist(pts[a], pts2[b]) < 20) {
+                var d = dist(click, ep);
+                if (d < bestDist) { bestDist = d; best = { point: ep, seg1: segs[i], seg2: segs[j] }; }
+              }
+            }
+          }
+        }
       }
     }
-    return null;
+
+    // Pass 3: two nearest lines to click (even if they don't intersect)
+    if (!best) {
+      var nearby = [];
+      for (var i = 0; i < segs.length; i++) {
+        var d = ptToSegDist(click, segs[i]);
+        if (d < RADIUS) nearby.push({ seg: segs[i], d: d });
+      }
+      nearby.sort(function(a, b) { return a.d - b.d; });
+      if (nearby.length >= 2) {
+        best = { point: click, seg1: nearby[0].seg, seg2: nearby[1].seg };
+      }
+    }
+
+    if (!best) return null;
+
+    // Compute angle between the two segments
+    var dir1 = segDirection(best.seg1);
+    var dir2 = segDirection(best.seg2);
+
+    // For segments where the intersection is near an endpoint, use direction AWAY from endpoint
+    var d1a = dist(best.point, best.seg1.a), d1b = dist(best.point, best.seg1.b);
+    var d2a = dist(best.point, best.seg2.a), d2b = dist(best.point, best.seg2.b);
+    var ray1, ray2;
+
+    if (d1a < d1b) {
+      ray1 = Math.atan2(best.seg1.b.y - best.seg1.a.y, best.seg1.b.x - best.seg1.a.x);
+    } else {
+      ray1 = Math.atan2(best.seg1.a.y - best.seg1.b.y, best.seg1.a.x - best.seg1.b.x);
+    }
+    if (d2a < d2b) {
+      ray2 = Math.atan2(best.seg2.b.y - best.seg2.a.y, best.seg2.b.x - best.seg2.a.x);
+    } else {
+      ray2 = Math.atan2(best.seg2.a.y - best.seg2.b.y, best.seg2.a.x - best.seg2.b.x);
+    }
+
+    var diff = Math.abs(ray1 - ray2);
+    if (diff > Math.PI) diff = 2 * Math.PI - diff;
+    if (diff > Math.PI / 2) {
+      diff = Math.PI - diff;
+      ray2 = ray2 + Math.PI;
+    }
+
+    best.angleDeg = Math.round(diff * 180 / Math.PI);
+    best.ray1 = ray1;
+    best.ray2 = ray2;
+    return best;
   }
 
   function drawAngleMark(s) {
