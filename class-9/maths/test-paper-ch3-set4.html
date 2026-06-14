@@ -992,8 +992,8 @@ function _h(s){var h=5381;for(var i=0;i<s.length;i++){h=((h<<5)+h)+s.charCodeAt(
 function unlockTestSol() {
   var code = document.getElementById('testSolCode').value.trim().toUpperCase();
   var msg = document.getElementById('testSolMsg');
-  var validHashes = [2089432502];
-  if (validHashes.indexOf(_h(code)) !== -1) {
+  
+  if (code === "PREETI7") {
     document.getElementById('testSolBlock').classList.add('unlocked');
     document.getElementById('testSolLock').style.display = 'none';
     msg.className = 'sol-success';
@@ -1015,7 +1015,7 @@ function shareSolutions() {
     var code = prompt('Enter access code to unlock solutions first:');
     if (!code) return;
     code = code.trim().toUpperCase();
-    if ([2089432502].indexOf(_h(code)) === -1) { alert('Incorrect code.'); return; }
+    if (code !== "PREETI7") { alert('Incorrect code.'); return; }
     sol.classList.add('unlocked');
     document.getElementById('testSolLock').style.display = 'none';
   }

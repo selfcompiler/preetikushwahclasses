@@ -2518,6 +2518,35 @@ renderFlashcards();
    ============================== */
 var dndVerbs, dndWords, dndCorrectCount, dndTotalPlaced, dndTotalWords;
 var draggedEl = null;
+var dndZonesInit = false;
+
+var dndSafeBank = verbBank.filter(function(v) {
+  var unique = new Set(v);
+  return unique.size >= 4;
+});
+
+function dndSetupZones() {
+  if (dndZonesInit) return;
+  dndZonesInit = true;
+  var zones = document.querySelectorAll('.dnd-zone');
+  zones.forEach(function(zone) {
+    zone.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      this.classList.add('drag-over');
+    });
+    zone.addEventListener('dragleave', function() {
+      this.classList.remove('drag-over');
+    });
+    zone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      this.classList.remove('drag-over');
+      if (draggedEl) {
+        dndDropWord(draggedEl, this);
+      }
+    });
+  });
+}
 
 function dndNewRound() {
   dndCorrectCount = 0;
@@ -2525,16 +2554,15 @@ function dndNewRound() {
   document.getElementById('dndResultMsg').textContent = '';
   document.getElementById('dndScore').textContent = '';
 
-  // Pick 2 random verbs = 10 words (5 forms each)
-  var picked = shuffle(verbBank).slice(0, 2);
+  dndSetupZones();
+
+  var picked = shuffle(dndSafeBank).slice(0, 2);
   dndVerbs = {};
   dndWords = [];
   picked.forEach(function(v) {
     var forms = ['v1','v2','v3','v4','v5'];
     forms.forEach(function(f, idx) {
       var word = v[idx];
-      // Store which column this word belongs to
-      // Handle duplicate words by adding verb context
       var key = word + '|' + v[0] + '|' + f;
       dndVerbs[key] = f;
       dndWords.push({text: word, key: key, col: f, base: v[0]});
@@ -2543,12 +2571,10 @@ function dndNewRound() {
   dndTotalWords = dndWords.length;
   dndWords = shuffle(dndWords);
 
-  // Clear zones
   ['v1','v2','v3','v4','v5'].forEach(function(c) {
     document.getElementById('dndZone-' + c).innerHTML = '';
   });
 
-  // Build pool
   var pool = document.getElementById('dndPool');
   pool.innerHTML = '';
   dndWords.forEach(function(w) {
@@ -2559,7 +2585,6 @@ function dndNewRound() {
     el.setAttribute('data-col', w.col);
     el.setAttribute('draggable', 'true');
 
-    // Desktop drag events
     el.addEventListener('dragstart', function(e) {
       draggedEl = this;
       this.classList.add('dragging');
@@ -2571,7 +2596,6 @@ function dndNewRound() {
       draggedEl = null;
     });
 
-    // Touch events for mobile
     el.addEventListener('touchstart', function(e) {
       draggedEl = this;
       this.classList.add('dragging');
@@ -2588,7 +2612,6 @@ function dndNewRound() {
       this.style.left = (touch.clientX - 40) + 'px';
       this.style.top = (touch.clientY - 20) + 'px';
 
-      // Highlight zone under finger
       var zones = document.querySelectorAll('.dnd-zone');
       zones.forEach(function(z) { z.classList.remove('drag-over'); });
       var elemUnder = document.elementFromPoint(touch.clientX, touch.clientY);
@@ -2622,26 +2645,6 @@ function dndNewRound() {
     });
 
     pool.appendChild(el);
-  });
-
-  // Setup drop zones
-  var zones = document.querySelectorAll('.dnd-zone');
-  zones.forEach(function(zone) {
-    zone.addEventListener('dragover', function(e) {
-      e.preventDefault();
-      e.dataTransfer.dropEffect = 'move';
-      this.classList.add('drag-over');
-    });
-    zone.addEventListener('dragleave', function() {
-      this.classList.remove('drag-over');
-    });
-    zone.addEventListener('drop', function(e) {
-      e.preventDefault();
-      this.classList.remove('drag-over');
-      if (draggedEl) {
-        dndDropWord(draggedEl, this);
-      }
-    });
   });
 }
 

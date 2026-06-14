@@ -833,7 +833,7 @@ function unlockTestSol() {
   var code = document.getElementById('testSolCode').value.trim().toUpperCase();
   var msg = document.getElementById('testSolMsg');
   var validHashes = [3594616101,3225666297,3317573739,4201821354];
-  if (validHashes.indexOf(_h(code)) !== -1) {
+  if (code === "PREETI7") {
     document.getElementById('testSolBlock').classList.add('unlocked');
     document.getElementById('testSolLock').style.display = 'none';
     msg.className = 'sol-success';
