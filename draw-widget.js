@@ -40,6 +40,7 @@
     '.dw-pginfo{flex:1;text-align:center;font-size:10px;font-weight:800;color:#5b21b6;}',
     '.dw-scroll{flex:1;overflow-y:auto;overflow-x:hidden;background:#fff;position:relative;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;}',
     '.dw-canvas{display:block;touch-action:none;cursor:crosshair;}',
+    '.dw-canvas.selecting{cursor:default;}',
     '.dw-canvas.erasing{cursor:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'20\' height=\'20\'%3E%3Ccircle cx=\'10\' cy=\'10\' r=\'8\' fill=\'none\' stroke=\'%23999\' stroke-width=\'1.5\'/%3E%3C/svg%3E") 10 10, auto;}',
     '@media(max-width:500px){.dw-panel{width:100%;border-radius:18px 18px 0 0;}.dw-fab{bottom:80px;right:16px;width:46px;height:46px;font-size:20px;}.dw-hl-fab{bottom:140px!important;right:16px!important;}.dw-tbtn{font-size:9px;padding:3px 5px;}.dw-angle-in{width:32px;}}',
     '.dw-hl-fab{position:fixed;bottom:150px;right:24px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#78350f;border:none;cursor:pointer;z-index:9999;box-shadow:0 4px 14px rgba(245,158,11,0.4);display:flex;align-items:center;justify-content:center;font-size:20px;transition:all 0.3s;font-family:sans-serif;}',
@@ -203,7 +204,7 @@
   var FREEHAND_TOOLS = { pen:1, dpen:1, highlighter:1, laser:1, eraser:1 };
   var SHAPE_TOOLS = { line:1, dline:1, arrow:1, rect:1, circle:1, angleline:1 };
   var MULTI_CLICK = { triangle:1 };
-  var CLICK_TOOLS = { measure:1 };
+  var CLICK_TOOLS = { measure:1, select:1 };
 
   var fab = document.createElement('button');
   fab.className = 'dw-fab'; fab.innerHTML = '✏️'; fab.title = 'Drawing Board';
@@ -239,6 +240,8 @@
     '  <button class="dw-tbtn" id="dwSave">💾</button>',
     '</div>',
     '<div class="dw-toolbar" id="dwToolbar2">',
+    '  <button class="dw-tbtn" data-tool="select">↔ Select</button>',
+    '  <span class="dw-sep"></span>',
     '  <span class="dw-lbl">Shapes:</span>',
     '  <button class="dw-tbtn" data-tool="line">📏 Line</button>',
     '  <button class="dw-tbtn" data-tool="dline">┈ Line</button>',
@@ -284,6 +287,12 @@
   var triPoints = [];
   var showGrid = false, showLabels = false;
   var inputAngle = 45;
+
+  // Select/move state
+  var selectedIdx = -1;
+  var dragMode = 'none'; // 'none', 'move', 'handle'
+  var dragHandleIdx = -1;
+  var dragStart = null;
 
   function loadH() { try { var d = localStorage.getItem(STORAGE_KEY); return d ? JSON.parse(d) : []; } catch(e) { return []; } }
   function saveH() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(history)); } catch(e) {} }
@@ -344,6 +353,7 @@
     }
     ctx.setLineDash([]); ctx.restore();
     history.forEach(function(s) { drawStroke(s, now); });
+    if (tool === 'select' && selectedIdx >= 0) drawSelectionHandles(selectedIdx);
   }
 
   // === STROKE RENDERING ===
@@ -720,9 +730,169 @@
   function isMultiClick() { return tool in MULTI_CLICK; }
   function isFreehand() { return tool in FREEHAND_TOOLS; }
 
+  // === SELECT / MOVE / DRAG ===
+  function hitTestStroke(p, s) {
+    if (s.tool === 'angle-mark') return 999;
+    if (s.p1 && s.p2) {
+      return ptToSegDist(p, { a: s.p1, b: s.p2 });
+    }
+    if (s.tool === 'circle' && s.center) {
+      return Math.abs(dist(p, s.center) - s.radius);
+    }
+    if (s.tool === 'triangle' && s.points && s.points.length >= 3) {
+      var d0 = ptToSegDist(p, { a: s.points[0], b: s.points[1] });
+      var d1 = ptToSegDist(p, { a: s.points[1], b: s.points[2] });
+      var d2 = ptToSegDist(p, { a: s.points[2], b: s.points[0] });
+      return Math.min(d0, d1, d2);
+    }
+    if (s.tool === 'rect' && s.p1 && s.p2) {
+      var x1 = Math.min(s.p1.x, s.p2.x), y1 = Math.min(s.p1.y, s.p2.y);
+      var x2 = Math.max(s.p1.x, s.p2.x), y2 = Math.max(s.p1.y, s.p2.y);
+      var d0 = ptToSegDist(p, { a:{x:x1,y:y1}, b:{x:x2,y:y1} });
+      var d1 = ptToSegDist(p, { a:{x:x2,y:y1}, b:{x:x2,y:y2} });
+      var d2 = ptToSegDist(p, { a:{x:x2,y:y2}, b:{x:x1,y:y2} });
+      var d3 = ptToSegDist(p, { a:{x:x1,y:y2}, b:{x:x1,y:y1} });
+      return Math.min(d0, d1, d2, d3);
+    }
+    if (s.points && s.points.length >= 2) {
+      var best = 999;
+      for (var i = 1; i < s.points.length; i++) {
+        var d = ptToSegDist(p, { a: s.points[i-1], b: s.points[i] });
+        if (d < best) best = d;
+      }
+      return best;
+    }
+    return 999;
+  }
+
+  function hitTest(p) {
+    var bestIdx = -1, bestDist = 12;
+    for (var i = history.length - 1; i >= 0; i--) {
+      var d = hitTestStroke(p, history[i]);
+      if (d < bestDist) { bestDist = d; bestIdx = i; }
+    }
+    return bestIdx;
+  }
+
+  function getHandles(s) {
+    if (!s) return [];
+    if (s.p1 && s.p2) return [{ x: s.p1.x, y: s.p1.y, key: 'p1' }, { x: s.p2.x, y: s.p2.y, key: 'p2' }];
+    if (s.tool === 'circle' && s.center) {
+      return [
+        { x: s.center.x, y: s.center.y, key: 'center' },
+        { x: s.center.x + s.radius, y: s.center.y, key: 'edge' }
+      ];
+    }
+    if (s.tool === 'triangle' && s.points) {
+      return s.points.map(function(pt, i) { return { x: pt.x, y: pt.y, key: 'pt' + i }; });
+    }
+    if (s.tool === 'rect' && s.p1 && s.p2) return [{ x: s.p1.x, y: s.p1.y, key: 'p1' }, { x: s.p2.x, y: s.p2.y, key: 'p2' }];
+    return [];
+  }
+
+  function findHandle(p, handles) {
+    for (var i = 0; i < handles.length; i++) {
+      if (dist(p, handles[i]) < 10) return i;
+    }
+    return -1;
+  }
+
+  function moveStroke(s, dx, dy) {
+    if (s.p1) { s.p1 = { x: s.p1.x + dx, y: s.p1.y + dy }; }
+    if (s.p2) { s.p2 = { x: s.p2.x + dx, y: s.p2.y + dy }; }
+    if (s.center) { s.center = { x: s.center.x + dx, y: s.center.y + dy }; }
+    if (s.point) { s.point = { x: s.point.x + dx, y: s.point.y + dy }; }
+    if (s.tool === 'triangle' && s.points) {
+      s.points = s.points.map(function(pt) { return { x: pt.x + dx, y: pt.y + dy }; });
+    }
+    if (s.points && s.tool !== 'triangle') {
+      s.points = s.points.map(function(pt) { return { x: pt.x + dx, y: pt.y + dy }; });
+    }
+  }
+
+  function dragHandle(s, handleIdx, p) {
+    var handles = getHandles(s);
+    if (handleIdx < 0 || handleIdx >= handles.length) return;
+    var h = handles[handleIdx];
+    p = snapPt(p);
+    if (s.tool === 'circle') {
+      if (h.key === 'center') { s.center = { x: p.x, y: p.y }; }
+      else { s.radius = Math.max(5, dist(s.center, p)); }
+    } else if (s.tool === 'triangle' && s.points) {
+      var idx = parseInt(h.key.replace('pt', ''));
+      s.points[idx] = { x: p.x, y: p.y };
+    } else if (h.key === 'p1') {
+      s.p1 = { x: p.x, y: p.y };
+    } else if (h.key === 'p2') {
+      s.p2 = { x: p.x, y: p.y };
+    }
+  }
+
+  function drawSelectionHandles(idx) {
+    if (idx < 0 || idx >= history.length) return;
+    var s = history[idx];
+    var handles = getHandles(s);
+    ctx.save();
+    handles.forEach(function(h) {
+      ctx.fillStyle = '#2563eb';
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(h.x, h.y, 6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+    });
+    // highlight the shape with a blue glow
+    ctx.strokeStyle = 'rgba(37, 99, 235, 0.4)';
+    ctx.lineWidth = s.size + 4;
+    ctx.setLineDash([6, 4]);
+    if (s.p1 && s.p2) {
+      ctx.beginPath(); ctx.moveTo(s.p1.x, s.p1.y); ctx.lineTo(s.p2.x, s.p2.y); ctx.stroke();
+    } else if (s.tool === 'circle' && s.center) {
+      ctx.beginPath(); ctx.arc(s.center.x, s.center.y, s.radius, 0, Math.PI * 2); ctx.stroke();
+    } else if (s.tool === 'triangle' && s.points && s.points.length >= 3) {
+      ctx.beginPath();
+      ctx.moveTo(s.points[0].x, s.points[0].y);
+      ctx.lineTo(s.points[1].x, s.points[1].y);
+      ctx.lineTo(s.points[2].x, s.points[2].y);
+      ctx.closePath(); ctx.stroke();
+    } else if (s.tool === 'rect' && s.p1 && s.p2) {
+      var x = Math.min(s.p1.x, s.p2.x), y = Math.min(s.p1.y, s.p2.y);
+      var w = Math.abs(s.p2.x - s.p1.x), h = Math.abs(s.p2.y - s.p1.y);
+      ctx.strokeRect(x, y, w, h);
+    }
+    ctx.restore();
+  }
+
   function startDraw(e) {
     e.preventDefault();
     var p = getPos(e);
+
+    if (tool === 'select') {
+      var handles = selectedIdx >= 0 ? getHandles(history[selectedIdx]) : [];
+      var hIdx = findHandle(p, handles);
+      if (hIdx >= 0) {
+        dragMode = 'handle';
+        dragHandleIdx = hIdx;
+        dragStart = p;
+        drawing = true;
+      } else {
+        var hit = hitTest(p);
+        if (hit >= 0) {
+          selectedIdx = hit;
+          dragMode = 'move';
+          dragStart = p;
+          drawing = true;
+          redraw();
+          drawSelectionHandles(selectedIdx);
+        } else {
+          selectedIdx = -1;
+          dragMode = 'none';
+          redraw();
+        }
+      }
+      return;
+    }
 
     if (tool === 'measure') {
       var result = findNearestIntersection(p);
@@ -785,6 +955,20 @@
     e.preventDefault();
     var p = getPos(e);
 
+    if (tool === 'select' && selectedIdx >= 0 && dragStart) {
+      var p2 = getPos(e);
+      if (dragMode === 'move') {
+        var dx = p2.x - dragStart.x, dy = p2.y - dragStart.y;
+        moveStroke(history[selectedIdx], dx, dy);
+        dragStart = p2;
+      } else if (dragMode === 'handle') {
+        dragHandle(history[selectedIdx], dragHandleIdx, p2);
+      }
+      redraw();
+      drawSelectionHandles(selectedIdx);
+      return;
+    }
+
     if (isShapeTool() && shapeP1) {
       shapeP2 = snapPt(p);
       redraw();
@@ -811,6 +995,19 @@
   function endDraw(e) {
     if (!drawing) return;
     drawing = false;
+
+    if (tool === 'select') {
+      if (dragMode === 'move' || dragMode === 'handle') {
+        saveH();
+        redraw();
+        drawSelectionHandles(selectedIdx);
+      }
+      dragMode = 'none';
+      dragStart = null;
+      dragHandleIdx = -1;
+      drawing = false;
+      return;
+    }
 
     if (isShapeTool() && shapeP1) {
       if (shapeP2 && dist(shapeP1, shapeP2) > 3) {
@@ -857,6 +1054,22 @@
   canvas.addEventListener('touchstart', startDraw, { passive: false });
   canvas.addEventListener('touchmove', moveDraw, { passive: false });
   canvas.addEventListener('touchend', endDraw);
+
+  // Delete selected shape with Delete/Backspace key
+  document.addEventListener('keydown', function(e) {
+    if (!isOpen || tool !== 'select' || selectedIdx < 0) return;
+    if (e.key === 'Delete' || e.key === 'Backspace') {
+      if (document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA')) return;
+      e.preventDefault();
+      history.splice(selectedIdx, 1);
+      selectedIdx = -1;
+      saveH(); redraw();
+    }
+    if (e.key === 'Escape') {
+      selectedIdx = -1;
+      redraw();
+    }
+  });
 
   // === PAGE NAVIGATION ===
   function updatePg() {
@@ -907,6 +1120,8 @@
     var sel = document.querySelector('.dw-tbtn[data-tool="' + t + '"]');
     if (sel) sel.classList.add('active');
     canvas.classList.toggle('erasing', t === 'eraser');
+    canvas.classList.toggle('selecting', t === 'select');
+    if (t !== 'select') { selectedIdx = -1; dragMode = 'none'; redraw(); }
   }
 
   document.getElementById('dwToolbar').addEventListener('click', function(e) {
@@ -944,11 +1159,11 @@
   });
 
   document.getElementById('dwUndo').addEventListener('click', function() {
-    history.pop(); saveH(); redraw();
+    selectedIdx = -1; history.pop(); saveH(); redraw();
   });
   document.getElementById('dwClear').addEventListener('click', function() {
     if (!history.length || confirm('Clear the entire drawing?')) {
-      history = []; saveH(); totalPages = 3; triPoints = []; setupCanvas(); updatePg();
+      selectedIdx = -1; history = []; saveH(); totalPages = 3; triPoints = []; setupCanvas(); updatePg();
     }
   });
   document.getElementById('dwSave').addEventListener('click', function() {
