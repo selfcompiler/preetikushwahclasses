@@ -203,6 +203,7 @@
   var FREEHAND_TOOLS = { pen:1, dpen:1, highlighter:1, laser:1, eraser:1 };
   var SHAPE_TOOLS = { line:1, dline:1, arrow:1, rect:1, circle:1, angleline:1 };
   var MULTI_CLICK = { triangle:1 };
+  var CLICK_TOOLS = { measure:1 };
 
   var fab = document.createElement('button');
   fab.className = 'dw-fab'; fab.innerHTML = '✏️'; fab.title = 'Drawing Board';
@@ -252,6 +253,8 @@
     '  <span class="dw-lbl">Angle:</span>',
     '  <input type="number" class="dw-angle-in" id="dwAngle" min="0" max="360" value="45">',
     '  <button class="dw-tbtn" data-tool="angleline">⦟°</button>',
+    '  <span class="dw-sep"></span>',
+    '  <button class="dw-tbtn" data-tool="measure">⦟ Measure</button>',
     '</div>',
     '<div class="dw-pager">',
     '  <button class="dw-pgbtn" id="dwPrevPg" disabled>⬆ Prev</button>',
@@ -351,6 +354,7 @@
     else if (s.tool === 'rect') drawRect(s);
     else if (s.tool === 'circle') drawCircle(s);
     else if (s.tool === 'triangle') drawTriangle(s);
+    else if (s.tool === 'angle-mark') drawAngleMark(s);
     else drawFreehand(s, now);
   }
 
@@ -513,6 +517,133 @@
     drawProtractor(p1, p2, color);
   }
 
+  // === ANGLE MEASUREMENT BETWEEN INTERSECTING LINES ===
+  function getSegments() {
+    var segs = [];
+    history.forEach(function(s) {
+      if ((s.tool === 'line' || s.tool === 'dline' || s.tool === 'arrow' || s.tool === 'angleline') && s.p1 && s.p2) {
+        segs.push({ a: s.p1, b: s.p2 });
+      } else if (s.tool === 'rect' && s.p1 && s.p2) {
+        var x1 = Math.min(s.p1.x, s.p2.x), y1 = Math.min(s.p1.y, s.p2.y);
+        var x2 = Math.max(s.p1.x, s.p2.x), y2 = Math.max(s.p1.y, s.p2.y);
+        segs.push({ a:{x:x1,y:y1}, b:{x:x2,y:y1} });
+        segs.push({ a:{x:x2,y:y1}, b:{x:x2,y:y2} });
+        segs.push({ a:{x:x2,y:y2}, b:{x:x1,y:y2} });
+        segs.push({ a:{x:x1,y:y2}, b:{x:x1,y:y1} });
+      } else if (s.tool === 'triangle' && s.points && s.points.length >= 3) {
+        segs.push({ a:s.points[0], b:s.points[1] });
+        segs.push({ a:s.points[1], b:s.points[2] });
+        segs.push({ a:s.points[2], b:s.points[0] });
+      }
+    });
+    return segs;
+  }
+
+  function segIntersect(s1, s2) {
+    var dx1 = s1.b.x - s1.a.x, dy1 = s1.b.y - s1.a.y;
+    var dx2 = s2.b.x - s2.a.x, dy2 = s2.b.y - s2.a.y;
+    var denom = dx1 * dy2 - dy1 * dx2;
+    if (Math.abs(denom) < 0.001) return null;
+    var t = ((s2.a.x - s1.a.x) * dy2 - (s2.a.y - s1.a.y) * dx2) / denom;
+    var u = ((s2.a.x - s1.a.x) * dy1 - (s2.a.y - s1.a.y) * dx1) / denom;
+    if (t < -0.02 || t > 1.02 || u < -0.02 || u > 1.02) return null;
+    return { x: s1.a.x + t * dx1, y: s1.a.y + t * dy1 };
+  }
+
+  function findNearestIntersection(click) {
+    var segs = getSegments();
+    var best = null, bestDist = 25;
+    for (var i = 0; i < segs.length; i++) {
+      for (var j = i + 1; j < segs.length; j++) {
+        var ip = segIntersect(segs[i], segs[j]);
+        if (!ip) {
+          var ep = closestEndpointMeet(segs[i], segs[j]);
+          if (ep) ip = ep;
+          else continue;
+        }
+        var d = dist(click, ip);
+        if (d < bestDist) {
+          bestDist = d;
+          best = { point: ip, seg1: segs[i], seg2: segs[j] };
+        }
+      }
+    }
+    if (!best) return null;
+    var rays = [
+      Math.atan2(best.seg1.a.y - best.point.y, best.seg1.a.x - best.point.x),
+      Math.atan2(best.seg1.b.y - best.point.y, best.seg1.b.x - best.point.x),
+      Math.atan2(best.seg2.a.y - best.point.y, best.seg2.a.x - best.point.x),
+      Math.atan2(best.seg2.b.y - best.point.y, best.seg2.b.x - best.point.x)
+    ];
+    var minAng = Infinity, r1 = 0, r2 = 2;
+    for (var ri = 0; ri < 2; ri++) {
+      for (var rj = 2; rj < 4; rj++) {
+        if (dist(best.point, ri === 0 ? best.seg1.a : best.seg1.b) < 2) continue;
+        if (dist(best.point, rj === 2 ? best.seg2.a : best.seg2.b) < 2) continue;
+        var ad = Math.abs(rays[ri] - rays[rj]);
+        if (ad > Math.PI) ad = 2 * Math.PI - ad;
+        if (ad < minAng) { minAng = ad; r1 = ri; r2 = rj; }
+      }
+    }
+    if (minAng === Infinity) {
+      for (var ri = 0; ri < 2; ri++) {
+        for (var rj = 2; rj < 4; rj++) {
+          var ad = Math.abs(rays[ri] - rays[rj]);
+          if (ad > Math.PI) ad = 2 * Math.PI - ad;
+          if (ad < minAng) { minAng = ad; r1 = ri; r2 = rj; }
+        }
+      }
+    }
+    best.angleDeg = Math.round(minAng * 180 / Math.PI);
+    best.ray1 = rays[r1];
+    best.ray2 = rays[r2];
+    return best;
+  }
+
+  function closestEndpointMeet(s1, s2) {
+    var pairs = [[s1.a, s2.a], [s1.a, s2.b], [s1.b, s2.a], [s1.b, s2.b]];
+    for (var k = 0; k < pairs.length; k++) {
+      if (dist(pairs[k][0], pairs[k][1]) < 8) {
+        return { x: (pairs[k][0].x + pairs[k][1].x) / 2, y: (pairs[k][0].y + pairs[k][1].y) / 2 };
+      }
+    }
+    return null;
+  }
+
+  function drawAngleMark(s) {
+    if (!s.point) return;
+    var r = 22;
+    ctx.save();
+    ctx.strokeStyle = s.color || '#dc2626';
+    ctx.lineWidth = 2;
+    ctx.globalAlpha = 0.85;
+    var sa = s.ray1, ea = s.ray2;
+    var diff = ea - sa;
+    if (diff < -Math.PI) diff += 2 * Math.PI;
+    if (diff > Math.PI) diff -= 2 * Math.PI;
+    if (s.angleDeg === 90) {
+      var sq = 14;
+      var mx = Math.cos(sa), my = Math.sin(sa);
+      var nx = Math.cos(ea), ny = Math.sin(ea);
+      ctx.beginPath();
+      ctx.moveTo(s.point.x + sq * mx, s.point.y + sq * my);
+      ctx.lineTo(s.point.x + sq * mx + sq * nx, s.point.y + sq * my + sq * ny);
+      ctx.lineTo(s.point.x + sq * nx, s.point.y + sq * ny);
+      ctx.stroke();
+    } else {
+      ctx.beginPath();
+      if (diff > 0) ctx.arc(s.point.x, s.point.y, r, sa, sa + diff);
+      else ctx.arc(s.point.x, s.point.y, r, ea, ea - diff);
+      ctx.stroke();
+    }
+    ctx.font = 'bold 11px sans-serif';
+    ctx.fillStyle = s.color || '#dc2626';
+    ctx.globalAlpha = 1;
+    var mid = sa + diff / 2;
+    ctx.fillText(s.angleDeg + '°', s.point.x + (r + 8) * Math.cos(mid) - 8, s.point.y + (r + 8) * Math.sin(mid) + 4);
+    ctx.restore();
+  }
+
   // === LASER FADE ===
   function startLaserFade() {
     if (laserTimer) return;
@@ -544,6 +675,19 @@
   function startDraw(e) {
     e.preventDefault();
     var p = getPos(e);
+
+    if (tool === 'measure') {
+      var result = findNearestIntersection(p);
+      if (result) {
+        history.push({
+          tool: 'angle-mark', point: result.point,
+          angleDeg: result.angleDeg, ray1: result.ray1, ray2: result.ray2,
+          color: color, size: size
+        });
+        saveH(); redraw();
+      }
+      return;
+    }
 
     if (isMultiClick()) {
       p = snapPt(p);
