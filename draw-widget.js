@@ -599,7 +599,7 @@
       }
     }
 
-    // Pass 3: two nearest lines to click (even if they don't intersect)
+    // Pass 3: two nearest lines to click
     if (!best) {
       var nearby = [];
       for (var i = 0; i < segs.length; i++) {
@@ -614,52 +614,58 @@
 
     if (!best) return null;
 
-    // Compute angle between the two segments
-    var dir1 = segDirection(best.seg1);
-    var dir2 = segDirection(best.seg2);
+    // Get the 4 rays from intersection point (2 per line)
+    var s1 = best.seg1, s2 = best.seg2, pt = best.point;
+    var r1a = Math.atan2(s1.a.y - pt.y, s1.a.x - pt.x);
+    var r1b = Math.atan2(s1.b.y - pt.y, s1.b.x - pt.x);
+    var r2a = Math.atan2(s2.a.y - pt.y, s2.a.x - pt.x);
+    var r2b = Math.atan2(s2.b.y - pt.y, s2.b.x - pt.x);
 
-    // For segments where the intersection is near an endpoint, use direction AWAY from endpoint
-    var d1a = dist(best.point, best.seg1.a), d1b = dist(best.point, best.seg1.b);
-    var d2a = dist(best.point, best.seg2.a), d2b = dist(best.point, best.seg2.b);
-    var ray1, ray2;
+    // Pick one direction per segment (away from the point if at endpoint)
+    var d1a = dist(pt, s1.a), d1b = dist(pt, s1.b);
+    var d2a = dist(pt, s2.a), d2b = dist(pt, s2.b);
+    var dirA = d1a > d1b ? r1a : r1b;
+    var dirB = d1a > d1b ? r1b : r1a;
+    var dirC = d2a > d2b ? r2a : r2b;
+    var dirD = d2a > d2b ? r2b : r2a;
 
-    if (d1a < d1b) {
-      ray1 = Math.atan2(best.seg1.b.y - best.seg1.a.y, best.seg1.b.x - best.seg1.a.x);
-    } else {
-      ray1 = Math.atan2(best.seg1.a.y - best.seg1.b.y, best.seg1.a.x - best.seg1.b.x);
+    // Sort 4 rays clockwise to build the 4 angles
+    var rays = [
+      { a: dirA, from: 1 },
+      { a: dirB, from: 1 },
+      { a: dirC, from: 2 },
+      { a: dirD, from: 2 }
+    ];
+    rays.sort(function(x, y) { return x.a - y.a; });
+
+    // Build all 4 consecutive angles
+    best.angles = [];
+    for (var k = 0; k < 4; k++) {
+      var ra = rays[k].a;
+      var rb = rays[(k + 1) % 4].a;
+      var diff = rb - ra;
+      if (diff < 0) diff += 2 * Math.PI;
+      if (diff < 0.01) continue;
+      var deg = Math.round(diff * 180 / Math.PI);
+      if (deg === 0 || deg === 360) continue;
+      best.angles.push({ ray1: ra, ray2: rb, angleDeg: deg });
     }
-    if (d2a < d2b) {
-      ray2 = Math.atan2(best.seg2.b.y - best.seg2.a.y, best.seg2.b.x - best.seg2.a.x);
-    } else {
-      ray2 = Math.atan2(best.seg2.a.y - best.seg2.b.y, best.seg2.a.x - best.seg2.b.x);
-    }
 
-    var diff = Math.abs(ray1 - ray2);
-    if (diff > Math.PI) diff = 2 * Math.PI - diff;
-    if (diff > Math.PI / 2) {
-      diff = Math.PI - diff;
-      ray2 = ray2 + Math.PI;
-    }
-
-    best.angleDeg = Math.round(diff * 180 / Math.PI);
-    best.ray1 = ray1;
-    best.ray2 = ray2;
     return best;
   }
 
   function drawAngleMark(s) {
     if (!s.point) return;
-    var r = 22;
+    var r = s.arcR || 22;
     ctx.save();
     ctx.strokeStyle = s.color || '#dc2626';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 1.5;
     ctx.globalAlpha = 0.85;
     var sa = s.ray1, ea = s.ray2;
-    var diff = ea - sa;
-    if (diff < -Math.PI) diff += 2 * Math.PI;
-    if (diff > Math.PI) diff -= 2 * Math.PI;
+    var sweep = ea - sa;
+    if (sweep < 0) sweep += 2 * Math.PI;
     if (s.angleDeg === 90) {
-      var sq = 14;
+      var sq = Math.min(r, 14);
       var mx = Math.cos(sa), my = Math.sin(sa);
       var nx = Math.cos(ea), ny = Math.sin(ea);
       ctx.beginPath();
@@ -667,17 +673,22 @@
       ctx.lineTo(s.point.x + sq * mx + sq * nx, s.point.y + sq * my + sq * ny);
       ctx.lineTo(s.point.x + sq * nx, s.point.y + sq * ny);
       ctx.stroke();
+      ctx.fillStyle = s.color || '#dc2626';
+      ctx.beginPath();
+      ctx.arc(s.point.x + sq * mx + sq * nx, s.point.y + sq * my + sq * ny, 1.5, 0, Math.PI * 2);
+      ctx.fill();
     } else {
       ctx.beginPath();
-      if (diff > 0) ctx.arc(s.point.x, s.point.y, r, sa, sa + diff);
-      else ctx.arc(s.point.x, s.point.y, r, ea, ea - diff);
+      ctx.arc(s.point.x, s.point.y, r, sa, sa + sweep);
       ctx.stroke();
     }
-    ctx.font = 'bold 11px sans-serif';
+    var mid = sa + sweep / 2;
+    var labelR = r + 10;
+    ctx.font = 'bold 10px sans-serif';
     ctx.fillStyle = s.color || '#dc2626';
     ctx.globalAlpha = 1;
-    var mid = sa + diff / 2;
-    ctx.fillText(s.angleDeg + '°', s.point.x + (r + 8) * Math.cos(mid) - 8, s.point.y + (r + 8) * Math.sin(mid) + 4);
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(s.angleDeg + '°', s.point.x + labelR * Math.cos(mid), s.point.y + labelR * Math.sin(mid));
     ctx.restore();
   }
 
@@ -715,12 +726,17 @@
 
     if (tool === 'measure') {
       var result = findNearestIntersection(p);
-      if (result) {
-        history.push({
-          tool: 'angle-mark', point: result.point,
-          angleDeg: result.angleDeg, ray1: result.ray1, ray2: result.ray2,
-          color: color, size: size
-        });
+      if (result && result.angles && result.angles.length) {
+        var radii = [18, 24, 30, 36];
+        for (var ai = 0; ai < result.angles.length; ai++) {
+          history.push({
+            tool: 'angle-mark', point: result.point,
+            angleDeg: result.angles[ai].angleDeg,
+            ray1: result.angles[ai].ray1, ray2: result.angles[ai].ray2,
+            arcR: radii[ai % radii.length],
+            color: color, size: size
+          });
+        }
         saveH(); redraw();
       }
       return;
