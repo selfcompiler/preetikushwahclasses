@@ -155,6 +155,33 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);over
 .hl-o{color:#ea580c;text-decoration-color:rgba(234,88,12,.3)}
 .hl-p{color:#7c3aed;text-decoration-color:rgba(124,58,237,.3)}
 
+/* COMPARE TABLES */
+.table-wrap{overflow-x:auto;margin:10px 0;border-radius:14px;border:2px solid rgba(0,0,0,.08)}
+[data-theme="dark"] .table-wrap{border-color:rgba(255,255,255,.1)}
+.v-table{width:100%;border-collapse:collapse;font-size:13px;font-weight:600}
+.v-table thead tr{background:linear-gradient(135deg,#1e293b,#334155)}
+.v-table thead th{color:#fff;padding:12px 14px;text-align:left;font-size:13px;font-weight:800;letter-spacing:.3px}
+.v-table tbody td{padding:10px 14px;border-bottom:1px solid rgba(0,0,0,.06)}
+.v-table tbody tr:hover{filter:brightness(.97)}
+[data-theme="dark"] .v-table thead tr{background:linear-gradient(135deg,#0f172a,#1e293b)}
+[data-theme="dark"] .v-table tbody td{border-bottom-color:rgba(255,255,255,.06)}
+.v-table .row-green{background:linear-gradient(135deg,#f0fdf4,#dcfce7)}
+.v-table .row-red{background:linear-gradient(135deg,#fef2f2,#fee2e2)}
+.v-table .row-blue{background:linear-gradient(135deg,#eff6ff,#dbeafe)}
+.v-table .row-rose{background:linear-gradient(135deg,#fff1f2,#fecdd3)}
+.v-table .row-orange{background:linear-gradient(135deg,#fff7ed,#fed7aa)}
+.v-table .row-teal{background:linear-gradient(135deg,#ecfeff,#cffafe)}
+.v-table .row-fuchsia{background:linear-gradient(135deg,#fdf4ff,#fae8ff)}
+.v-table .row-purple{background:linear-gradient(135deg,#f5f3ff,#ddd6fe)}
+[data-theme="dark"] .v-table .row-green{background:#0a1f0a}
+[data-theme="dark"] .v-table .row-red{background:#1f0a0a}
+[data-theme="dark"] .v-table .row-blue{background:#0a0f1f}
+[data-theme="dark"] .v-table .row-rose{background:#1f0a10}
+[data-theme="dark"] .v-table .row-orange{background:#1f140a}
+[data-theme="dark"] .v-table .row-teal{background:#0a1a1f}
+[data-theme="dark"] .v-table .row-fuchsia{background:#1a0a1f}
+[data-theme="dark"] .v-table .row-purple{background:#120a1f}
+
 /* RULE CARDS */
 .rc{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #86efac;border-radius:14px;padding:14px 18px;margin:10px 0}
 [data-theme="dark"] .rc{background:#1a2a1a;border-color:#166534}
@@ -1016,14 +1043,18 @@ footer{text-align:center;padding:28px 20px;background:linear-gradient(135deg,#88
 <div class="table-wrap"><table class="v-table" style="min-width:700px;">
 <thead><tr><th style="width:22%;">Tense</th><th style="width:26%;">Negative</th><th style="width:26%;">Interrogative (Question)</th><th style="width:26%;">V-Form in Neg/Int</th></tr></thead>
 <tbody>
-<tr><td><strong>Simple Present</strong></td><td>S + do/does + not + <strong>V1</strong></td><td>Do/Does + S + <strong>V1</strong>?</td><td style="color:#16a34a;font-weight:800;">Always V1 (not V5!)</td></tr>
-<tr><td><strong>Simple Past</strong></td><td>S + did + not + <strong>V1</strong></td><td>Did + S + <strong>V1</strong>?</td><td style="color:#16a34a;font-weight:800;">Always V1 (not V2!)</td></tr>
-<tr><td><strong>Simple Future</strong></td><td>S + will + not + <strong>V1</strong></td><td>Will + S + <strong>V1</strong>?</td><td style="color:#16a34a;font-weight:800;">V1</td></tr>
-<tr><td><strong>Present Continuous</strong></td><td>S + is/am/are + not + <strong>V4</strong></td><td>Is/Am/Are + S + <strong>V4</strong>?</td><td style="color:#ea580c;font-weight:800;">V4</td></tr>
-<tr><td><strong>Present Perfect</strong></td><td>S + has/have + not + <strong>V3</strong></td><td>Has/Have + S + <strong>V3</strong>?</td><td style="color:#0d9488;font-weight:800;">V3</td></tr>
-<tr><td><strong>Present Perfect Cont.</strong></td><td>S + has/have + not + been + <strong>V4</strong></td><td>Has/Have + S + been + <strong>V4</strong>?</td><td style="color:#e11d48;font-weight:800;">V4</td></tr>
-<tr><td><strong>Past Perfect Cont.</strong></td><td>S + had + not + been + <strong>V4</strong></td><td>Had + S + been + <strong>V4</strong>?</td><td style="color:#ea580c;font-weight:800;">V4</td></tr>
-<tr><td><strong>Future Perfect Cont.</strong></td><td>S + will + not + have + been + <strong>V4</strong></td><td>Will + S + have + been + <strong>V4</strong>?</td><td style="color:#7c3aed;font-weight:800;">V4</td></tr>
+<tr class="row-green"><td><strong>Simple Present</strong></td><td>S + do/does + not + <strong>V1</strong></td><td>Do/Does + S + <strong>V1</strong>?</td><td style="color:#16a34a;font-weight:800;">Always V1 (not V5!)</td></tr>
+<tr class="row-fuchsia"><td><strong>Present Continuous</strong></td><td>S + is/am/are + not + <strong>V4</strong></td><td>Is/Am/Are + S + <strong>V4</strong>?</td><td style="color:#c026d3;font-weight:800;">V4</td></tr>
+<tr class="row-teal"><td><strong>Present Perfect</strong></td><td>S + has/have + not + <strong>V3</strong></td><td>Has/Have + S + <strong>V3</strong>?</td><td style="color:#0d9488;font-weight:800;">V3</td></tr>
+<tr class="row-rose"><td><strong>Present Perfect Cont.</strong></td><td>S + has/have + not + been + <strong>V4</strong></td><td>Has/Have + S + been + <strong>V4</strong>?</td><td style="color:#e11d48;font-weight:800;">V4</td></tr>
+<tr class="row-red"><td><strong>Simple Past</strong></td><td>S + did + not + <strong>V1</strong></td><td>Did + S + <strong>V1</strong>?</td><td style="color:#dc2626;font-weight:800;">Always V1 (not V2!)</td></tr>
+<tr class="row-fuchsia"><td><strong>Past Continuous</strong></td><td>S + was/were + not + <strong>V4</strong></td><td>Was/Were + S + <strong>V4</strong>?</td><td style="color:#c026d3;font-weight:800;">V4</td></tr>
+<tr class="row-teal"><td><strong>Past Perfect</strong></td><td>S + had + not + <strong>V3</strong></td><td>Had + S + <strong>V3</strong>?</td><td style="color:#0d9488;font-weight:800;">V3</td></tr>
+<tr class="row-orange"><td><strong>Past Perfect Cont.</strong></td><td>S + had + not + been + <strong>V4</strong></td><td>Had + S + been + <strong>V4</strong>?</td><td style="color:#ea580c;font-weight:800;">V4</td></tr>
+<tr class="row-blue"><td><strong>Simple Future</strong></td><td>S + will + not + <strong>V1</strong></td><td>Will + S + <strong>V1</strong>?</td><td style="color:#2563eb;font-weight:800;">V1</td></tr>
+<tr class="row-fuchsia"><td><strong>Future Continuous</strong></td><td>S + will not be + <strong>V4</strong></td><td>Will + S + be + <strong>V4</strong>?</td><td style="color:#c026d3;font-weight:800;">V4</td></tr>
+<tr class="row-teal"><td><strong>Future Perfect</strong></td><td>S + will not have + <strong>V3</strong></td><td>Will + S + have + <strong>V3</strong>?</td><td style="color:#0d9488;font-weight:800;">V3</td></tr>
+<tr class="row-purple"><td><strong>Future Perfect Cont.</strong></td><td>S + will + not + have + been + <strong>V4</strong></td><td>Will + S + have + been + <strong>V4</strong>?</td><td style="color:#7c3aed;font-weight:800;">V4</td></tr>
 </tbody></table></div>
 <div class="tip"><div class="tip-icon">&#9888;&#65039;</div><div class="tip-text"><strong>Common mistake:</strong> In negative and interrogative sentences with do/does/did, ALWAYS use <span class="vf vf-1">V1</span> (base form). Never say "Does she <s>plays</s>?" or "Did he <s>went</s>?" &mdash; say "Does she <strong>play</strong>?" and "Did he <strong>go</strong>?"</div></div>
 
@@ -1032,18 +1063,18 @@ footer{text-align:center;padding:28px 20px;background:linear-gradient(135deg,#88
 <div class="table-wrap"><table class="v-table" style="min-width:650px;">
 <thead><tr><th style="width:40%;">Scenario / Situation</th><th style="width:30%;">Use This Tense</th><th style="width:15%;">V-Form</th><th style="width:15%;">Example</th></tr></thead>
 <tbody>
-<tr><td>Something that happens every day</td><td><strong>Simple Present</strong></td><td style="color:#16a34a;font-weight:800;">V1/V5</td><td>She walks daily.</td></tr>
-<tr><td>Something happening right now</td><td><strong>Present Continuous</strong></td><td style="color:#ea580c;font-weight:800;">V4</td><td>She is walking now.</td></tr>
-<tr><td>Something that just finished</td><td><strong>Present Perfect</strong></td><td style="color:#0d9488;font-weight:800;">V3</td><td>She has walked home.</td></tr>
-<tr><td>Something started in past and is still continuing (emphasis on duration)</td><td><strong>Present Perfect Continuous</strong></td><td style="color:#e11d48;font-weight:800;">V4</td><td>She has been walking for 2 hours.</td></tr>
-<tr><td>Something that happened yesterday</td><td><strong>Simple Past</strong></td><td style="color:#dc2626;font-weight:800;">V2</td><td>She walked yesterday.</td></tr>
-<tr><td>Something was happening when another thing occurred</td><td><strong>Past Continuous</strong></td><td style="color:#ea580c;font-weight:800;">V4</td><td>She was walking when...</td></tr>
-<tr><td>Something completed before another past event</td><td><strong>Past Perfect</strong></td><td style="color:#0d9488;font-weight:800;">V3</td><td>She had walked before...</td></tr>
-<tr><td>Something was ongoing for a duration before another past event</td><td><strong>Past Perfect Continuous</strong></td><td style="color:#ea580c;font-weight:800;">V4</td><td>She had been walking for an hour.</td></tr>
-<tr><td>Something that will happen tomorrow</td><td><strong>Simple Future</strong></td><td style="color:#16a34a;font-weight:800;">V1</td><td>She will walk tomorrow.</td></tr>
-<tr><td>Something that will be in progress at a future time</td><td><strong>Future Continuous</strong></td><td style="color:#ea580c;font-weight:800;">V4</td><td>She will be walking at 5.</td></tr>
-<tr><td>Something that will be completed before a future time</td><td><strong>Future Perfect</strong></td><td style="color:#0d9488;font-weight:800;">V3</td><td>She will have walked by 6.</td></tr>
-<tr><td>Something that will have been ongoing for a duration by a future point</td><td><strong>Future Perfect Continuous</strong></td><td style="color:#7c3aed;font-weight:800;">V4</td><td>She will have been walking for 3 hours.</td></tr>
+<tr class="row-green"><td>Something that happens every day</td><td><strong>Simple Present</strong></td><td style="color:#16a34a;font-weight:800;">V1/V5</td><td>She walks daily.</td></tr>
+<tr class="row-fuchsia"><td>Something happening right now</td><td><strong>Present Continuous</strong></td><td style="color:#c026d3;font-weight:800;">V4</td><td>She is walking now.</td></tr>
+<tr class="row-teal"><td>Something that just finished</td><td><strong>Present Perfect</strong></td><td style="color:#0d9488;font-weight:800;">V3</td><td>She has walked home.</td></tr>
+<tr class="row-rose"><td>Something started in past and is still continuing (emphasis on duration)</td><td><strong>Present Perfect Continuous</strong></td><td style="color:#e11d48;font-weight:800;">V4</td><td>She has been walking for 2 hours.</td></tr>
+<tr class="row-red"><td>Something that happened yesterday</td><td><strong>Simple Past</strong></td><td style="color:#dc2626;font-weight:800;">V2</td><td>She walked yesterday.</td></tr>
+<tr class="row-fuchsia"><td>Something was happening when another thing occurred</td><td><strong>Past Continuous</strong></td><td style="color:#c026d3;font-weight:800;">V4</td><td>She was walking when...</td></tr>
+<tr class="row-teal"><td>Something completed before another past event</td><td><strong>Past Perfect</strong></td><td style="color:#0d9488;font-weight:800;">V3</td><td>She had walked before...</td></tr>
+<tr class="row-orange"><td>Something was ongoing for a duration before another past event</td><td><strong>Past Perfect Continuous</strong></td><td style="color:#ea580c;font-weight:800;">V4</td><td>She had been walking for an hour.</td></tr>
+<tr class="row-blue"><td>Something that will happen tomorrow</td><td><strong>Simple Future</strong></td><td style="color:#2563eb;font-weight:800;">V1</td><td>She will walk tomorrow.</td></tr>
+<tr class="row-fuchsia"><td>Something that will be in progress at a future time</td><td><strong>Future Continuous</strong></td><td style="color:#c026d3;font-weight:800;">V4</td><td>She will be walking at 5.</td></tr>
+<tr class="row-teal"><td>Something that will be completed before a future time</td><td><strong>Future Perfect</strong></td><td style="color:#0d9488;font-weight:800;">V3</td><td>She will have walked by 6.</td></tr>
+<tr class="row-purple"><td>Something that will have been ongoing for a duration by a future point</td><td><strong>Future Perfect Continuous</strong></td><td style="color:#7c3aed;font-weight:800;">V4</td><td>She will have been walking for 3 hours.</td></tr>
 </tbody></table></div>
 </div>
 
