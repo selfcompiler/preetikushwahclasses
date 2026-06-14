@@ -991,6 +991,10 @@ function submitInterestForm(e) {
   var form = document.getElementById('interestForm');
   var formData = new FormData(form);
 
+  if (typeof gtag === 'function') {
+    gtag('event', 'conversion', {'send_to': 'AW-821609162/m8CjCOvrk70cEMqF44cD'});
+  }
+
   fetch('https://docs.google.com/forms/d/e/1FAIpQLScZ4dJwfNKUtVuRhh3mk8WsdeuaJlat1NQBEuqF6Ri46WeZAw/formResponse', {
     method: 'POST',
     body: formData,
