@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 8 Maths Ch 12: Tales by Dots and Lines — Bar graphs, double bar graphs, line graphs, pie charts, misleading graphs, probability basics. Interactive NCERT notes.">
+<meta name="keywords" content="Preeti Kushwah Classes, NCERT notes, CBSE notes, free study material, Class 8 notes, Class 8 NCERT, class 8 study material, Mathematics notes, Class 8 Mathematics, Class 8 Mathematics notes, Class 8 Mathematics NCERT, Tales by Dots and Lines, Class 8 data handling, bar graphs, pie charts, line graphs, probability, maths solutions, maths practice">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-8/maths/tales-by-dots-and-lines.html">
+<meta property="og:title" content="Ch 12: Tales by Dots and Lines — Class 8 Maths Notes">
+<meta property="og:description" content="Interactive NCERT notes — Bar graphs, line graphs, pie charts, probability basics with animations.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preetikushwahclasses.com/class-8/maths/tales-by-dots-and-lines.html">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Tales by Dots and Lines — Class 8 Maths | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:#fffbeb;color:#1c1c2e;overflow-x:hidden;line-height:1.6;}
+
+/* Top Nav */
+.top-nav{background:white;padding:8px 12px;display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,0.06);position:sticky;top:0;z-index:110;overflow-x:auto;}
+.tn-home{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;text-decoration:none;padding:7px 14px;border-radius:12px;font-size:12px;font-weight:800;border:1.5px solid #fbbf24;transition:all 0.2s;white-space:nowrap;}
+.tn-home:hover{background:#fde68a;transform:translateY(-1px);}
+.nav-spacer{flex:1;}
+.tn-share{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;padding:7px 12px;border-radius:12px;border:1.5px solid #fbbf24;font-size:11px;font-weight:800;cursor:pointer;transition:all 0.2s;white-space:nowrap;font-family:'Nunito',sans-serif;}
+.tn-share:hover{background:#fde68a;transform:translateY(-1px);}
+
+/* TOC */
+.toc-bar{background:linear-gradient(135deg,#78350f,#f59e0b);padding:12px 16px;position:sticky;top:44px;z-index:100;overflow-x:auto;white-space:nowrap;}
+.toc-bar a{display:inline-block;background:rgba(255,255,255,0.15);color:white;text-decoration:none;padding:6px 14px;border-radius:18px;font-size:13px;font-weight:700;margin-right:6px;transition:all 0.2s;}
+.toc-bar a:hover{background:rgba(255,255,255,0.35);}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,#78350f 0%,#92400e 30%,#d97706 60%,#fde68a 100%);position:relative;overflow:hidden;min-height:400px;padding-bottom:30px;}
+.hero-content{position:relative;z-index:10;text-align:center;padding:36px 16px 0;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.3);border:2px solid rgba(255,255,255,0.5);border-radius:30px;padding:5px 18px;font-size:11px;font-weight:800;letter-spacing:2px;color:white;text-transform:uppercase;margin-bottom:12px;}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(24px,5vw,48px);color:white;text-shadow:0 3px 12px rgba(0,0,0,0.3);margin-bottom:6px;line-height:1.1;}
+.hero p{color:rgba(255,255,255,0.9);font-size:15px;font-weight:700;margin-bottom:16px;}
+
+/* Container & Sections */
+.container{max-width:1000px;margin:0 auto;padding:36px 16px 60px;}
+.section-block{background:white;border-radius:22px;box-shadow:0 4px 24px rgba(0,0,0,0.08);margin-bottom:36px;overflow:hidden;scroll-margin-top:80px;}
+.section-hd{padding:22px 28px;display:flex;align-items:center;gap:14px;color:white;font-family:'Fredoka One',cursive;font-size:24px;line-height:1.2;}
+.section-hd .icon{font-size:32px;}
+.section-bd{padding:28px;}
+.section-bd > p{margin-bottom:14px;}
+
+/* Gradients */
+.g-amber{background:linear-gradient(135deg,#78350f,#f59e0b);}
+.g-orange{background:linear-gradient(135deg,#9a3412,#fb923c);}
+.g-indigo{background:linear-gradient(135deg,#312e81,#818cf8);}
+.g-blue{background:linear-gradient(135deg,#1e40af,#38bdf8);}
+.g-purple{background:linear-gradient(135deg,#5b21b6,#a78bfa);}
+.g-teal{background:linear-gradient(135deg,#134e4a,#2dd4bf);}
+.g-green{background:linear-gradient(135deg,#166534,#22c55e);}
+.g-slate{background:linear-gradient(135deg,#1e293b,#64748b);}
+.g-red{background:linear-gradient(135deg,#991b1b,#f87171);}
+.g-rose{background:linear-gradient(135deg,#881337,#fb7185);}
+.g-pink{background:linear-gradient(135deg,#9d174d,#ec4899);}
+
+/* Content elements */
+.subtitle{font-family:'Fredoka One',cursive;color:#78350f;font-size:20px;margin:22px 0 12px;display:flex;align-items:center;gap:8px;}
+.kt{display:inline-block;background:#fde047;color:#713f12;border-radius:7px;padding:1px 9px;font-weight:800;font-size:13px;}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:16px 0;}
+.info-card{border-radius:14px;padding:16px 18px;font-size:14px;}
+.info-card h4{font-weight:800;margin-bottom:6px;font-size:15px;}
+.ic-blue{background:#eff6ff;border-left:5px solid #3b82f6;}
+.ic-indigo{background:#eef2ff;border-left:5px solid #818cf8;}
+.ic-teal{background:#f0fdfa;border-left:5px solid #14b8a6;}
+.ic-purple{background:#faf5ff;border-left:5px solid #a78bfa;}
+.ic-green{background:#f0fdf4;border-left:5px solid #22c55e;}
+.ic-orange{background:#fff7ed;border-left:5px solid #fb923c;}
+.ic-yellow{background:#fefce8;border-left:5px solid #facc15;}
+.ic-red{background:#fef2f2;border-left:5px solid #f87171;}
+.ic-pink{background:#fdf2f8;border-left:5px solid #ec4899;}
+.ic-amber{background:#fffbeb;border-left:5px solid #f59e0b;}
+.trick{background:linear-gradient(135deg,#fef9c3,#fde68a);border:2px solid #f59e0b;border-radius:14px;padding:14px 18px;font-size:14px;margin:16px 0;}
+.trick strong{color:#78350f;}
+.note-box{background:#fffbeb;border-left:5px solid #f59e0b;border-radius:10px;padding:12px 16px;margin:14px 0;font-size:14px;}
+.formula-box{background:linear-gradient(135deg,#fffbeb,#fde68a);border:2px solid #f59e0b;border-radius:12px;padding:14px 18px;text-align:center;font-family:'Fredoka One',cursive;font-size:18px;color:#78350f;margin:12px 0;}
+.formula-box small{font-family:'Nunito',sans-serif;font-weight:600;font-size:13px;display:block;margin-top:4px;color:#92400e;}
+
+/* Tables */
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0;}
+th{background:#78350f;color:white;padding:12px 14px;text-align:left;font-weight:800;font-size:13px;}
+td{padding:11px 14px;border-bottom:1px solid #fde68a;font-size:13.5px;}
+tr:nth-child(even) td{background:#fffbeb;}
+
+/* Worked example */
+.worked-example{background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:18px;margin:16px 0;}
+.worked-example h4{font-family:'Fredoka One',cursive;color:#78350f;font-size:16px;margin-bottom:8px;}
+.we-step{background:white;border-radius:10px;padding:12px 16px;margin:8px 0;border-left:4px solid #f59e0b;font-size:14px;}
+
+/* MCQ */
+.mcq-list{list-style:none;padding:0;}
+.mcq-item{background:white;border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
+.mcq-q{font-weight:700;font-size:14.5px;margin-bottom:10px;color:#78350f;}
+.mcq-options{list-style:none;padding:0;}
+.mcq-options li{background:#fffbeb;border-radius:8px;padding:7px 12px;margin-bottom:5px;font-size:13.5px;cursor:pointer;transition:all 0.2s;border:1.5px solid transparent;}
+.mcq-options li:hover{background:#fde68a;border-color:#f59e0b;}
+.mcq-options li.correct{background:#d1fae5!important;border-color:#22c55e;font-weight:700;color:#14532d;}
+.mcq-options li.wrong{background:#fee2e2!important;border-color:#ef4444;font-weight:700;color:#991b1b;}
+.mcq-ans{font-size:12.5px;color:#16a34a;font-weight:700;margin-top:6px;display:none;}
+.mcq-item.show-ans .mcq-ans{display:block;}
+
+/* Short Q */
+.short-q-list{list-style:none;padding:0;}
+.short-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #d97706;}
+.short-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
+.short-a{font-size:13.5px;color:#374151;}
+.short-a strong{color:#78350f;}
+
+/* Long Q */
+.long-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
+.long-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
+.long-a{font-size:13.5px;color:#374151;}
+.long-a strong{color:#78350f;}
+
+/* Fun facts */
+.fun-fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0;}
+.fun-fact-card{background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fbbf24;border-radius:14px;padding:16px 18px;font-size:14px;}
+.fun-fact-card h4{font-weight:800;font-size:15px;color:#92400e;margin-bottom:6px;}
+
+/* Bottom nav */
+.bottom-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:30px 0;}
+.bottom-nav-full{grid-column:1/-1;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.bottom-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:800;font-size:14px;text-decoration:none;color:white;transition:all 0.2s;}
+.bottom-btn:hover{transform:translateY(-2px);}
+.bottom-btn.home-btn{background:linear-gradient(135deg,#78350f,#f59e0b);}
+
+/* Share */
+.float-share-btn{position:fixed;bottom:24px;right:24px;width:52px;height:52px;background:linear-gradient(135deg,#92400e,#f59e0b);border-radius:50%;border:none;color:white;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(146,64,14,0.4);z-index:90;display:flex;align-items:center;justify-content:center;transition:all 0.3s;}
+.float-share-btn:hover{transform:scale(1.1);}
+.share-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;justify-content:center;align-items:center;}
+.share-overlay.active{display:flex;}
+.share-popup{background:white;border-radius:22px;padding:28px;max-width:360px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);text-align:center;}
+.share-popup h3{font-family:'Fredoka One',cursive;color:#78350f;font-size:20px;margin-bottom:16px;}
+.share-btn-row{display:flex;flex-direction:column;gap:10px;}
+.share-action-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;border:none;font-size:14px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:white;transition:all 0.2s;}
+.share-wa{background:#25d366;}
+.share-copy{background:#d97706;}
+.share-native{background:#f59e0b;color:#78350f;}
+.share-close-btn{margin-top:14px;background:#e2e8f0;color:#475569;border:none;padding:8px 20px;border-radius:10px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+.share-action-btn:hover{opacity:0.9;transform:translateY(-1px);}
+.share-close-btn:hover{background:#cbd5e1;}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Footer */
+footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#78350f,#f59e0b);color:white;font-size:14px;font-weight:700;}
+
+/* Graph visual helpers */
+.graph-wrap{background:linear-gradient(135deg,#f8fafc,#e2e8f0);border-radius:18px;padding:24px;margin:20px 0;text-align:center;}
+.graph-canvas{display:block;margin:10px auto;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.1);background:white;}
+
+/* Scrollbar styling */
+::-webkit-scrollbar{height:4px;width:4px;}
+::-webkit-scrollbar-thumb{background:#f59e0b;border-radius:4px;}
+
+/* Hero bar animation */
+@keyframes barGrow{0%{height:0;}100%{height:var(--bar-h);}}
+.hero-bar{position:absolute;bottom:0;border-radius:4px 4px 0 0;animation:barGrow 1.5s ease-out forwards;}
+
+/* Unordered list styling inside section-bd */
+.section-bd ul{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ul li{margin-bottom:6px;}
+.section-bd ol{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ol li{margin-bottom:6px;}
+
+/* Pie slice colors in CSS graphs */
+.pie-legend{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px;}
+.pie-legend-item{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;}
+.pie-legend-dot{width:14px;height:14px;border-radius:50%;}
+
+@media(max-width:600px){
+  .section-bd{padding:18px;}
+  .section-hd{padding:16px 20px;font-size:19px;}
+  .hero{min-height:340px;}
+  .toc-bar{top:40px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== TOP NAV ========== -->
+<div class="top-nav">
+  <a href="../../index.html" class="tn-home">&#127968; Home</a>
+  <div class="nav-spacer"></div>
+  <button class="tn-share" onclick="openSharePopup()">&#128228; Share</button>
+</div>
+
+<!-- ========== TABLE OF CONTENTS BAR ========== -->
+<div class="toc-bar">
+  <a href="#intro">&#128208; Intro</a>
+  <a href="#tables">&#128203; Tables</a>
+  <a href="#bargraphs">&#128202; Bar Graphs</a>
+  <a href="#doublebargraphs">&#128200; Double Bar</a>
+  <a href="#linegraphs">&#128201; Line Graphs</a>
+  <a href="#piecharts">&#127856; Pie Charts</a>
+  <a href="#misleading">&#9888;&#65039; Misleading</a>
+  <a href="#probability">&#127922; Probability</a>
+  <a href="#worked">&#9999;&#65039; Examples</a>
+  <a href="#summary">&#128202; Summary</a>
+  <a href="#mcq">&#129504; MCQs</a>
+  <a href="#ncert-qa">&#128214; NCERT Q&amp;A</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">&#128202; Chapter 12 &middot; NCERT 2025-26</div>
+    <h1>&#128202; Tales by Dots and Lines</h1>
+    <p>Data Tables &middot; Bar Graphs &middot; Line Graphs &middot; Pie Charts &middot; Probability</p>
+  </div>
+  <!-- Animated bar graph in hero -->
+  <div style="position:relative;max-width:320px;height:180px;margin:20px auto 0;">
+    <div class="hero-bar" style="--bar-h:120px;left:15%;width:30px;background:#fde68a;animation-delay:0s;"></div>
+    <div class="hero-bar" style="--bar-h:80px;left:30%;width:30px;background:#fbbf24;animation-delay:0.2s;"></div>
+    <div class="hero-bar" style="--bar-h:150px;left:45%;width:30px;background:#f59e0b;animation-delay:0.4s;"></div>
+    <div class="hero-bar" style="--bar-h:60px;left:60%;width:30px;background:#d97706;animation-delay:0.6s;"></div>
+    <div class="hero-bar" style="--bar-h:100px;left:75%;width:30px;background:#b45309;animation-delay:0.8s;"></div>
+    <!-- Dots for line graph overlay -->
+    <div style="position:absolute;width:8px;height:8px;background:white;border-radius:50%;bottom:120px;left:calc(15% + 11px);animation:barGrow 1.5s ease-out forwards;"></div>
+    <div style="position:absolute;width:8px;height:8px;background:white;border-radius:50%;bottom:80px;left:calc(30% + 11px);animation:barGrow 1.5s ease-out forwards;animation-delay:0.2s;"></div>
+    <div style="position:absolute;width:8px;height:8px;background:white;border-radius:50%;bottom:150px;left:calc(45% + 11px);animation:barGrow 1.5s ease-out forwards;animation-delay:0.4s;"></div>
+    <div style="position:absolute;width:8px;height:8px;background:white;border-radius:50%;bottom:60px;left:calc(60% + 11px);animation:barGrow 1.5s ease-out forwards;animation-delay:0.6s;"></div>
+    <div style="position:absolute;width:8px;height:8px;background:white;border-radius:50%;bottom:100px;left:calc(75% + 11px);animation:barGrow 1.5s ease-out forwards;animation-delay:0.8s;"></div>
+  </div>
+</div>
+
+<!-- ========== MAIN CONTAINER ========== -->
+<div class="container">
+
+  <!-- =====================================================
+       SECTION 1: INTRODUCTION
+       ===================================================== -->
+  <div class="section-block reveal" id="intro">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128208;</span>
+      Introduction &mdash; Why Data Matters
+    </div>
+    <div class="section-bd">
+
+      <p>Every day, we are surrounded by data &mdash; the runs scored by a cricket team, the temperature recorded each day, the marks obtained by students, the rainfall in different cities. But raw numbers by themselves are hard to understand. That is why we use <span class="kt">graphs</span> and <span class="kt">charts</span> to turn boring numbers into visual stories.</p>
+
+      <p>In this chapter, <strong>"Tales by Dots and Lines"</strong>, we learn how dots (data points) and lines (connections between data points) can tell powerful stories. A single glance at a well-drawn graph can reveal trends, patterns, and comparisons that would take minutes to understand from a table of numbers.</p>
+
+      <div class="subtitle">&#127758; Real-World Applications</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#127951;&#65039; Weather Forecasting</h4>
+          Meteorologists use line graphs to show temperature changes over a week. A rising line means warming, a falling line means cooling. One glance tells you more than seven numbers.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128200; Stock Markets</h4>
+          Every stock price chart is a line graph with time on the x-axis and price on the y-axis. Investors make million-rupee decisions based on the shape of these lines!
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#127951;&#65039; Census &amp; Surveys</h4>
+          The Government of India uses bar graphs and pie charts to show population distribution, literacy rates, and economic data. The Census 2021 data is presented using these very graphs.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128202; School Reports</h4>
+          Your school report card, performance graphs, and attendance records all use data handling concepts from this chapter.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128218; Chapter Overview</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th>Key Concepts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Organising Data in Tables</td>
+              <td>Tally marks, frequency tables, grouped data</td>
+            </tr>
+            <tr>
+              <td>Bar Graphs</td>
+              <td>Vertical and horizontal bar graphs, reading and drawing</td>
+            </tr>
+            <tr>
+              <td>Double Bar Graphs</td>
+              <td>Comparing two data sets side by side</td>
+            </tr>
+            <tr>
+              <td>Line Graphs</td>
+              <td>Showing change over time, interpreting trends</td>
+            </tr>
+            <tr>
+              <td>Pie Charts / Circle Graphs</td>
+              <td>Representing parts of a whole, angle calculations</td>
+            </tr>
+            <tr>
+              <td>Misleading Graphs</td>
+              <td>How scale, origin, and design can mislead readers</td>
+            </tr>
+            <tr>
+              <td>Probability Basics</td>
+              <td>Chance, outcomes, events, experimental probability</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Study Tip:</strong> This chapter is very visual. Practise drawing graphs neatly with a ruler and pencil. In exams, graphs are often worth 3&ndash;5 marks and require proper labelling, title, and scale.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 2: ORGANISING DATA IN TABLES
+       ===================================================== -->
+  <div class="section-block reveal" id="tables">
+    <div class="section-hd g-orange">
+      <span class="icon">&#128203;</span>
+      Organising Data in Tables
+    </div>
+    <div class="section-bd">
+
+      <p>Before we can draw any graph, we must first <strong>organise</strong> the raw data into a clear and systematic format. The most common way to do this is by creating a <span class="kt">frequency table</span>.</p>
+
+      <div class="subtitle">&#128221; What is a Frequency Table?</div>
+
+      <p>A <strong>frequency table</strong> shows how often each value or category appears in a data set. The word "frequency" simply means "how many times."</p>
+
+      <div class="worked-example">
+        <h4>Example 1: Creating a Frequency Table</h4>
+        <div class="we-step">
+          <strong>Data:</strong> The favourite fruits of 20 students are: Apple, Mango, Banana, Apple, Mango, Orange, Banana, Apple, Mango, Mango, Apple, Orange, Mango, Banana, Apple, Mango, Orange, Apple, Mango, Banana.
+        </div>
+        <div class="we-step">
+          <strong>Step 1: List all categories.</strong><br>
+          Apple, Mango, Banana, Orange
+        </div>
+        <div class="we-step">
+          <strong>Step 2: Count using tally marks.</strong>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Fruit</th>
+              <th>Tally Marks</th>
+              <th>Frequency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Apple</td>
+              <td>&#9475;&#9475;&#9475;&#9475; &#9475;</td>
+              <td><strong>6</strong></td>
+            </tr>
+            <tr>
+              <td>Mango</td>
+              <td>&#9475;&#9475;&#9475;&#9475; &#9475;&#9475;</td>
+              <td><strong>7</strong></td>
+            </tr>
+            <tr>
+              <td>Banana</td>
+              <td>&#9475;&#9475;&#9475;&#9475;</td>
+              <td><strong>4</strong></td>
+            </tr>
+            <tr>
+              <td>Orange</td>
+              <td>&#9475;&#9475;&#9475;</td>
+              <td><strong>3</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Total</strong></td>
+              <td></td>
+              <td><strong>20</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Tally Mark Rule:</strong> Draw four vertical lines, then cross them with a fifth diagonal line to make a group of 5. This makes counting by fives very easy: &#9475;&#9475;&#9475;&#9475; = 5, then continue.
+      </div>
+
+      <div class="subtitle">&#128203; Grouped Frequency Table</div>
+
+      <p>When data has many different values (like marks from 0 to 100), we group them into <span class="kt">class intervals</span> to make the table simpler.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Marks Range</th>
+              <th>Number of Students</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>0 &ndash; 20</td><td>3</td></tr>
+            <tr><td>20 &ndash; 40</td><td>8</td></tr>
+            <tr><td>40 &ndash; 60</td><td>12</td></tr>
+            <tr><td>60 &ndash; 80</td><td>10</td></tr>
+            <tr><td>80 &ndash; 100</td><td>7</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>40</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128218; Class Interval</h4>
+          Each group (e.g. 0&ndash;20, 20&ndash;40) is called a <strong>class interval</strong>. The difference between upper and lower limits is the <strong>class size</strong> (here, 20).
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#128203; Upper &amp; Lower Class Limit</h4>
+          In the interval 20&ndash;40, <strong>20</strong> is the lower class limit and <strong>40</strong> is the upper class limit. The upper limit of one class equals the lower limit of the next.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Always Check:</strong> The total of all frequencies should equal the total number of data values. If they don't match, you've made a counting error!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 3: BAR GRAPHS
+       ===================================================== -->
+  <div class="section-block reveal" id="bargraphs">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128202;</span>
+      Bar Graphs
+    </div>
+    <div class="section-bd">
+
+      <p>A <span class="kt">bar graph</span> (or bar chart) uses rectangular bars to represent data. The length or height of each bar corresponds to the value it represents. Bars are of <strong>equal width</strong> and are separated by <strong>equal gaps</strong>.</p>
+
+      <div class="subtitle">&#128203; Parts of a Bar Graph</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128204; Title</h4>
+          Every graph must have a clear <strong>title</strong> at the top that tells what the graph is about.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#10145;&#65039; X-axis (Horizontal)</h4>
+          Usually shows the <strong>categories</strong> (e.g., fruits, months, cities). Label it clearly.
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#11014;&#65039; Y-axis (Vertical)</h4>
+          Usually shows the <strong>values/frequency</strong> (e.g., number of students, temperature). Must start from 0 with a consistent scale.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128207; Bars</h4>
+          Equal width, equal spacing. Height represents the value. Can be vertical or horizontal.
+        </div>
+      </div>
+
+      <div class="subtitle">&#9999;&#65039; How to Draw a Bar Graph</div>
+
+      <ol>
+        <li>Draw the x-axis and y-axis on graph paper.</li>
+        <li>Label the x-axis with the categories.</li>
+        <li>Choose a suitable <strong>scale</strong> for the y-axis (e.g., 1 cm = 10 students).</li>
+        <li>Mark the scale on the y-axis, starting from <strong>0</strong>.</li>
+        <li>Draw bars of equal width for each category, with the height matching the value.</li>
+        <li>Leave equal gaps between bars.</li>
+        <li>Give the graph a title.</li>
+      </ol>
+
+      <div class="worked-example">
+        <h4>Example 2: Draw a bar graph for the favourite fruits data.</h4>
+        <div class="we-step">
+          <strong>Data:</strong> Apple = 6, Mango = 7, Banana = 4, Orange = 3
+        </div>
+        <div class="we-step">
+          <strong>Scale:</strong> y-axis: 1 unit = 1 student (since values are small). x-axis: fruits.
+        </div>
+        <div class="we-step">
+          <strong>Draw bars:</strong> Apple bar reaches 6, Mango bar reaches 7, Banana bar reaches 4, Orange bar reaches 3.
+        </div>
+        <div class="we-step">
+          <strong>Observation:</strong> Mango is the most popular fruit (tallest bar), while Orange is the least popular (shortest bar).
+        </div>
+      </div>
+
+      <!-- Visual Bar Graph using CSS -->
+      <div class="graph-wrap">
+        <p style="font-weight:800;color:#78350f;margin-bottom:10px;font-size:15px;">Favourite Fruits of 20 Students</p>
+        <div style="display:flex;align-items:flex-end;justify-content:center;gap:24px;height:200px;padding:10px 0;">
+          <div style="text-align:center;">
+            <div style="width:50px;height:120px;background:linear-gradient(180deg,#ef4444,#fca5a5);border-radius:6px 6px 0 0;margin-bottom:6px;"></div>
+            <div style="font-weight:800;font-size:12px;color:#78350f;">Apple</div>
+            <div style="font-weight:800;font-size:11px;color:#92400e;">6</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:50px;height:140px;background:linear-gradient(180deg,#f59e0b,#fde68a);border-radius:6px 6px 0 0;margin-bottom:6px;"></div>
+            <div style="font-weight:800;font-size:12px;color:#78350f;">Mango</div>
+            <div style="font-weight:800;font-size:11px;color:#92400e;">7</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:50px;height:80px;background:linear-gradient(180deg,#fbbf24,#fef3c7);border-radius:6px 6px 0 0;margin-bottom:6px;"></div>
+            <div style="font-weight:800;font-size:12px;color:#78350f;">Banana</div>
+            <div style="font-weight:800;font-size:11px;color:#92400e;">4</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:50px;height:60px;background:linear-gradient(180deg,#fb923c,#fed7aa);border-radius:6px 6px 0 0;margin-bottom:6px;"></div>
+            <div style="font-weight:800;font-size:12px;color:#78350f;">Orange</div>
+            <div style="font-weight:800;font-size:11px;color:#92400e;">3</div>
+          </div>
+        </div>
+        <p style="font-size:12px;color:#475569;margin-top:4px;">Y-axis: Number of Students &nbsp;|&nbsp; X-axis: Fruits</p>
+      </div>
+
+      <div class="subtitle">&#128260; Horizontal Bar Graphs</div>
+
+      <p>In a <strong>horizontal bar graph</strong>, the bars extend from left to right. The categories are on the y-axis and the values are on the x-axis. This is useful when category names are long (e.g., city names, book titles).</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-orange">
+          <h4>&#128205; When to Use Vertical?</h4>
+          When category names are short and you want to emphasise the <strong>height</strong> (value) of each bar. Most common for comparing quantities.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#128205; When to Use Horizontal?</h4>
+          When category names are long, or when you have many categories. Population bar charts and survey results often use horizontal bars.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Reading a Bar Graph:</strong> To read the value of a bar, trace a horizontal line from the top of the bar to the y-axis (or vertical line to x-axis for horizontal bars). The point where it meets the scale axis gives you the value.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 4: DOUBLE BAR GRAPHS
+       ===================================================== -->
+  <div class="section-block reveal" id="doublebargraphs">
+    <div class="section-hd g-teal">
+      <span class="icon">&#128200;</span>
+      Double Bar Graphs
+    </div>
+    <div class="section-bd">
+
+      <p>A <span class="kt">double bar graph</span> uses two bars for each category to compare <strong>two related data sets</strong> side by side. Each set of bars is shown in a different colour, and a <strong>legend</strong> explains which colour represents which data set.</p>
+
+      <div class="subtitle">&#128203; When to Use a Double Bar Graph?</div>
+
+      <ul>
+        <li>Comparing marks of a student in two different exams</li>
+        <li>Comparing sales of two products across months</li>
+        <li>Comparing boys and girls in each class</li>
+        <li>Comparing rainfall in two different years</li>
+      </ul>
+
+      <div class="worked-example">
+        <h4>Example 3: Marks of Riya in Mid-term vs Final Exam</h4>
+        <div class="we-step">
+          <strong>Data:</strong><br>
+          English: Mid-term = 65, Final = 78<br>
+          Hindi: Mid-term = 72, Final = 80<br>
+          Maths: Mid-term = 58, Final = 85<br>
+          Science: Mid-term = 70, Final = 76<br>
+          SST: Mid-term = 68, Final = 74
+        </div>
+        <div class="we-step">
+          <strong>Observation from graph:</strong> Riya improved in <strong>every subject</strong> from mid-term to final exam. The biggest improvement was in <strong>Maths</strong> (58 to 85, a jump of 27 marks). The least improvement was in <strong>SST</strong> (68 to 74, a jump of 6 marks).
+        </div>
+      </div>
+
+      <!-- Visual Double Bar Graph using CSS -->
+      <div class="graph-wrap">
+        <p style="font-weight:800;color:#78350f;margin-bottom:6px;font-size:15px;">Riya's Marks: Mid-term vs Final</p>
+        <div style="display:flex;gap:4px;justify-content:center;margin-bottom:10px;">
+          <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;"><span style="width:14px;height:14px;background:#60a5fa;border-radius:3px;display:inline-block;"></span> Mid-term</span>
+          <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;"><span style="width:14px;height:14px;background:#f59e0b;border-radius:3px;display:inline-block;"></span> Final</span>
+        </div>
+        <div style="display:flex;align-items:flex-end;justify-content:center;gap:20px;height:200px;padding:10px 0;">
+          <div style="text-align:center;">
+            <div style="display:flex;align-items:flex-end;gap:3px;justify-content:center;">
+              <div style="width:22px;height:130px;background:#60a5fa;border-radius:4px 4px 0 0;"></div>
+              <div style="width:22px;height:156px;background:#f59e0b;border-radius:4px 4px 0 0;"></div>
+            </div>
+            <div style="font-weight:800;font-size:11px;color:#78350f;margin-top:4px;">Eng</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="display:flex;align-items:flex-end;gap:3px;justify-content:center;">
+              <div style="width:22px;height:144px;background:#60a5fa;border-radius:4px 4px 0 0;"></div>
+              <div style="width:22px;height:160px;background:#f59e0b;border-radius:4px 4px 0 0;"></div>
+            </div>
+            <div style="font-weight:800;font-size:11px;color:#78350f;margin-top:4px;">Hindi</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="display:flex;align-items:flex-end;gap:3px;justify-content:center;">
+              <div style="width:22px;height:116px;background:#60a5fa;border-radius:4px 4px 0 0;"></div>
+              <div style="width:22px;height:170px;background:#f59e0b;border-radius:4px 4px 0 0;"></div>
+            </div>
+            <div style="font-weight:800;font-size:11px;color:#78350f;margin-top:4px;">Maths</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="display:flex;align-items:flex-end;gap:3px;justify-content:center;">
+              <div style="width:22px;height:140px;background:#60a5fa;border-radius:4px 4px 0 0;"></div>
+              <div style="width:22px;height:152px;background:#f59e0b;border-radius:4px 4px 0 0;"></div>
+            </div>
+            <div style="font-weight:800;font-size:11px;color:#78350f;margin-top:4px;">Science</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="display:flex;align-items:flex-end;gap:3px;justify-content:center;">
+              <div style="width:22px;height:136px;background:#60a5fa;border-radius:4px 4px 0 0;"></div>
+              <div style="width:22px;height:148px;background:#f59e0b;border-radius:4px 4px 0 0;"></div>
+            </div>
+            <div style="font-weight:800;font-size:11px;color:#78350f;margin-top:4px;">SST</div>
+          </div>
+        </div>
+        <p style="font-size:12px;color:#475569;margin-top:4px;">Scale: Height proportional to marks (max 100)</p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#9989; Key Features of Double Bar Graphs</h4>
+          &bull; Two bars per category, drawn side by side<br>
+          &bull; Different colours/patterns for each data set<br>
+          &bull; A <strong>legend</strong> (key) identifying which colour represents which data set<br>
+          &bull; Same scale for both data sets for fair comparison
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128161; Reading Tips</h4>
+          &bull; Compare bar heights within each category to see which is greater<br>
+          &bull; Look across categories to spot overall trends<br>
+          &bull; The gap between bars in a pair shows the difference between the two values
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Exam Tip:</strong> When drawing a double bar graph, always include a <strong>legend</strong> (colour key). Without a legend, the examiner cannot tell which bar represents which data set, and you may lose marks!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 5: LINE GRAPHS
+       ===================================================== -->
+  <div class="section-block reveal" id="linegraphs">
+    <div class="section-hd g-blue">
+      <span class="icon">&#128201;</span>
+      Line Graphs
+    </div>
+    <div class="section-bd">
+
+      <p>A <span class="kt">line graph</span> shows data points connected by straight lines. It is especially useful for showing how data <strong>changes over time</strong> (a trend). Each point on the graph represents a value, and the line connecting them shows the overall direction of change.</p>
+
+      <div class="subtitle">&#128203; When to Use a Line Graph?</div>
+
+      <ul>
+        <li>When data changes <strong>over time</strong> (temperature, population, stock prices)</li>
+        <li>When you want to show a <strong>trend</strong> (increasing, decreasing, or constant)</li>
+        <li>When the data is <strong>continuous</strong> (the quantity exists at all times, not just at specific points)</li>
+      </ul>
+
+      <div class="subtitle">&#128201; Interpreting Line Graphs</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#8599;&#65039; Rising Line</h4>
+          A line going <strong>upward from left to right</strong> indicates the value is <strong>increasing</strong>. Example: temperature rising from morning to afternoon.
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#8600;&#65039; Falling Line</h4>
+          A line going <strong>downward from left to right</strong> indicates the value is <strong>decreasing</strong>. Example: price of a product dropping during a sale.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#10145;&#65039; Flat Line</h4>
+          A <strong>horizontal (flat) line</strong> indicates the value is <strong>constant</strong> &mdash; there is no change. Example: temperature remaining steady overnight.
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#9889; Steep vs Gentle</h4>
+          A <strong>steep</strong> line means <strong>rapid change</strong>. A <strong>gentle</strong> (nearly flat) line means <strong>slow change</strong>. The steeper the slope, the faster the rate of change.
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 4: Temperature of a City Over a Week</h4>
+        <div class="we-step">
+          <strong>Data:</strong><br>
+          Monday: 28&deg;C, Tuesday: 30&deg;C, Wednesday: 33&deg;C, Thursday: 35&deg;C, Friday: 32&deg;C, Saturday: 29&deg;C, Sunday: 27&deg;C
+        </div>
+        <div class="we-step">
+          <strong>Reading the graph:</strong><br>
+          &bull; Temperature <strong>increased</strong> from Monday to Thursday (line goes up).<br>
+          &bull; The <strong>highest temperature</strong> was on Thursday (35&deg;C) &mdash; this is the peak.<br>
+          &bull; Temperature <strong>decreased</strong> from Thursday to Sunday (line goes down).<br>
+          &bull; The <strong>steepest rise</strong> was Tuesday to Wednesday (3&deg;C jump).<br>
+          &bull; The <strong>steepest fall</strong> was Friday to Saturday (3&deg;C drop).
+        </div>
+      </div>
+
+      <!-- Visual Line Graph using CSS -->
+      <div class="graph-wrap">
+        <p style="font-weight:800;color:#78350f;margin-bottom:10px;font-size:15px;">Temperature Over a Week (&deg;C)</p>
+        <svg viewBox="0 0 400 220" style="max-width:400px;width:100%;" xmlns="http://www.w3.org/2000/svg">
+          <!-- Grid lines -->
+          <line x1="50" y1="20" x2="50" y2="180" stroke="#e5e7eb" stroke-width="1"/>
+          <line x1="50" y1="180" x2="380" y2="180" stroke="#78350f" stroke-width="2"/>
+          <line x1="50" y1="20" x2="50" y2="180" stroke="#78350f" stroke-width="2"/>
+          <!-- Y-axis labels -->
+          <text x="40" y="180" fill="#78350f" font-size="10" text-anchor="end" font-weight="700">25</text>
+          <text x="40" y="140" fill="#78350f" font-size="10" text-anchor="end" font-weight="700">30</text>
+          <text x="40" y="100" fill="#78350f" font-size="10" text-anchor="end" font-weight="700">35</text>
+          <!-- Horizontal gridlines -->
+          <line x1="50" y1="140" x2="380" y2="140" stroke="#fde68a" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="50" y1="100" x2="380" y2="100" stroke="#fde68a" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="50" y1="60" x2="380" y2="60" stroke="#fde68a" stroke-width="1" stroke-dasharray="4"/>
+          <!-- Data points: 28, 30, 33, 35, 32, 29, 27 mapped: y = 180 - (temp-25)*8 -->
+          <!-- Mon=28 -> y=156, Tue=30 -> y=140, Wed=33 -> y=116, Thu=35 -> y=100, Fri=32 -> y=124, Sat=29 -> y=148, Sun=27 -> y=164 -->
+          <polyline points="80,156 130,140 180,116 230,100 280,124 330,148 370,164" fill="none" stroke="#d97706" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="80" cy="156" r="5" fill="#d97706"/>
+          <circle cx="130" cy="140" r="5" fill="#d97706"/>
+          <circle cx="180" cy="116" r="5" fill="#d97706"/>
+          <circle cx="230" cy="100" r="6" fill="#ef4444" stroke="white" stroke-width="2"/>
+          <circle cx="280" cy="124" r="5" fill="#d97706"/>
+          <circle cx="330" cy="148" r="5" fill="#d97706"/>
+          <circle cx="370" cy="164" r="5" fill="#d97706"/>
+          <!-- X-axis labels -->
+          <text x="80" y="198" fill="#78350f" font-size="10" text-anchor="middle" font-weight="700">Mon</text>
+          <text x="130" y="198" fill="#78350f" font-size="10" text-anchor="middle" font-weight="700">Tue</text>
+          <text x="180" y="198" fill="#78350f" font-size="10" text-anchor="middle" font-weight="700">Wed</text>
+          <text x="230" y="198" fill="#78350f" font-size="10" text-anchor="middle" font-weight="700">Thu</text>
+          <text x="280" y="198" fill="#78350f" font-size="10" text-anchor="middle" font-weight="700">Fri</text>
+          <text x="330" y="198" fill="#78350f" font-size="10" text-anchor="middle" font-weight="700">Sat</text>
+          <text x="370" y="198" fill="#78350f" font-size="10" text-anchor="middle" font-weight="700">Sun</text>
+          <!-- Peak label -->
+          <text x="230" y="92" fill="#ef4444" font-size="10" text-anchor="middle" font-weight="800">35&deg;C (Peak)</text>
+          <!-- Value labels -->
+          <text x="80" y="150" fill="#92400e" font-size="9" text-anchor="middle" font-weight="700">28</text>
+          <text x="130" y="134" fill="#92400e" font-size="9" text-anchor="middle" font-weight="700">30</text>
+          <text x="180" y="110" fill="#92400e" font-size="9" text-anchor="middle" font-weight="700">33</text>
+          <text x="280" y="118" fill="#92400e" font-size="9" text-anchor="middle" font-weight="700">32</text>
+          <text x="330" y="142" fill="#92400e" font-size="9" text-anchor="middle" font-weight="700">29</text>
+          <text x="370" y="158" fill="#92400e" font-size="9" text-anchor="middle" font-weight="700">27</text>
+          <!-- Axis titles -->
+          <text x="215" y="215" fill="#78350f" font-size="11" text-anchor="middle" font-weight="800">Days of the Week</text>
+          <text x="14" y="100" fill="#78350f" font-size="11" text-anchor="middle" font-weight="800" transform="rotate(-90,14,100)">Temp (&deg;C)</text>
+        </svg>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 5: Company Profit Over 5 Years (in Lakhs)</h4>
+        <div class="we-step">
+          <strong>Data:</strong> 2020: 15, 2021: 22, 2022: 18, 2023: 30, 2024: 35
+        </div>
+        <div class="we-step">
+          <strong>Observations:</strong><br>
+          &bull; Overall <strong>upward trend</strong> from 2020 to 2024 (profit growing).<br>
+          &bull; There was a <strong>dip</strong> in 2022 (from 22 to 18) &mdash; the line goes down.<br>
+          &bull; <strong>Steepest rise</strong> was 2022 to 2023 (18 to 30, a jump of 12 lakhs).<br>
+          &bull; Despite the dip, the company recovered and grew further in 2023&ndash;2024.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Key Difference:</strong> Bar graphs compare <strong>different categories</strong> (fruits, cities). Line graphs show <strong>change over time</strong> (temperature over a week, sales over months). If the x-axis represents time, a line graph is almost always the better choice.
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Important:</strong> A line graph only makes sense when the data between the plotted points is meaningful. For example, temperature at 2:30 PM exists even if we only measured at 2 PM and 3 PM. But "favourite colour" data is not continuous &mdash; there is no "between" red and blue. So a line graph would not be appropriate for that kind of data.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 6: PIE CHARTS
+       ===================================================== -->
+  <div class="section-block reveal" id="piecharts">
+    <div class="section-hd g-purple">
+      <span class="icon">&#127856;</span>
+      Pie Charts (Circle Graphs)
+    </div>
+    <div class="section-bd">
+
+      <p>A <span class="kt">pie chart</span> (also called a circle graph) is a circle divided into sectors (slices), where each sector represents a <strong>part of the whole</strong>. The size of each sector is proportional to the fraction or percentage it represents.</p>
+
+      <div class="subtitle">&#128203; Key Concepts</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128992; The Whole Circle</h4>
+          The entire pie represents the <strong>total</strong> (100% or 360&deg;). Every data category gets a sector whose angle is proportional to its value.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128313; Angle Calculation</h4>
+          <strong>Central angle</strong> of a category = (Value of category / Total) &times; 360&deg;<br>
+          Alternatively: (Percentage / 100) &times; 360&deg;
+        </div>
+      </div>
+
+      <div class="formula-box">
+        Central Angle = (Value / Total) &times; 360&deg;
+        <small>The fundamental formula for drawing a pie chart</small>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 6: Monthly Spending of a Family (Total = &#8377;36,000)</h4>
+        <div class="we-step">
+          <strong>Data:</strong><br>
+          Food: &#8377;10,800 &nbsp;|&nbsp; Rent: &#8377;9,000 &nbsp;|&nbsp; Education: &#8377;7,200 &nbsp;|&nbsp; Transport: &#8377;3,600 &nbsp;|&nbsp; Savings: &#8377;5,400
+        </div>
+        <div class="we-step">
+          <strong>Step 1: Calculate each percentage.</strong><br>
+          Food = (10800/36000) &times; 100 = <strong>30%</strong><br>
+          Rent = (9000/36000) &times; 100 = <strong>25%</strong><br>
+          Education = (7200/36000) &times; 100 = <strong>20%</strong><br>
+          Transport = (3600/36000) &times; 100 = <strong>10%</strong><br>
+          Savings = (5400/36000) &times; 100 = <strong>15%</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 2: Calculate the central angle for each sector.</strong><br>
+          Food = (30/100) &times; 360&deg; = <strong>108&deg;</strong><br>
+          Rent = (25/100) &times; 360&deg; = <strong>90&deg;</strong><br>
+          Education = (20/100) &times; 360&deg; = <strong>72&deg;</strong><br>
+          Transport = (10/100) &times; 360&deg; = <strong>36&deg;</strong><br>
+          Savings = (15/100) &times; 360&deg; = <strong>54&deg;</strong>
+        </div>
+        <div class="we-step">
+          <strong>Verification:</strong> 108&deg; + 90&deg; + 72&deg; + 36&deg; + 54&deg; = <strong>360&deg;</strong> &#9989;
+        </div>
+      </div>
+
+      <!-- Visual Pie Chart using SVG -->
+      <div class="graph-wrap">
+        <p style="font-weight:800;color:#78350f;margin-bottom:10px;font-size:15px;">Monthly Spending Breakdown</p>
+        <svg viewBox="0 0 260 260" style="max-width:260px;width:100%;" xmlns="http://www.w3.org/2000/svg">
+          <!-- Pie sectors using stroke-dasharray trick on circles -->
+          <!-- Food: 108/360 = 30%, Rent: 90/360 = 25%, Education: 72/360 = 20%, Transport: 36/360 = 10%, Savings: 54/360 = 15% -->
+          <!-- Using conic-gradient approach with SVG paths -->
+          <!-- Food sector: 0 to 108 deg -->
+          <path d="M130,130 L130,10 A120,120 0 0,1 233.9,75.9 Z" fill="#ef4444"/>
+          <!-- Rent sector: 108 to 198 deg -->
+          <path d="M130,130 L233.9,75.9 A120,120 0 0,1 193.9,238.5 Z" fill="#3b82f6"/>
+          <!-- Education sector: 198 to 270 deg -->
+          <path d="M130,130 L193.9,238.5 A120,120 0 0,1 130,250 Z" fill="#a78bfa"/>
+          <!-- Transport sector: 270 to 306 deg -->
+          <path d="M130,130 L130,250 A120,120 0 0,1 59.4,218.5 Z" fill="#22c55e"/>
+          <!-- Savings sector: 306 to 360 deg -->
+          <path d="M130,130 L59.4,218.5 A120,120 0 0,1 130,10 Z" fill="#f59e0b"/>
+          <!-- Labels -->
+          <text x="175" y="55" fill="white" font-size="11" font-weight="800" text-anchor="middle">Food 30%</text>
+          <text x="215" y="155" fill="white" font-size="10" font-weight="800" text-anchor="middle">Rent 25%</text>
+          <text x="165" y="230" fill="white" font-size="10" font-weight="800" text-anchor="middle">Edu 20%</text>
+          <text x="85" y="230" fill="white" font-size="9" font-weight="800" text-anchor="middle">Trans 10%</text>
+          <text x="70" y="130" fill="white" font-size="10" font-weight="800" text-anchor="middle">Save 15%</text>
+        </svg>
+        <div class="pie-legend">
+          <div class="pie-legend-item"><div class="pie-legend-dot" style="background:#ef4444;"></div>Food (30%)</div>
+          <div class="pie-legend-item"><div class="pie-legend-dot" style="background:#3b82f6;"></div>Rent (25%)</div>
+          <div class="pie-legend-item"><div class="pie-legend-dot" style="background:#a78bfa;"></div>Education (20%)</div>
+          <div class="pie-legend-item"><div class="pie-legend-dot" style="background:#22c55e;"></div>Transport (10%)</div>
+          <div class="pie-legend-item"><div class="pie-legend-dot" style="background:#f59e0b;"></div>Savings (15%)</div>
+        </div>
+      </div>
+
+      <div class="subtitle">&#9999;&#65039; Steps to Draw a Pie Chart</div>
+
+      <ol>
+        <li>Calculate the <strong>central angle</strong> for each category using the formula.</li>
+        <li>Draw a circle using a compass.</li>
+        <li>Draw a radius (a line from the centre to the edge).</li>
+        <li>Using a protractor, measure and mark the first angle from the radius.</li>
+        <li>Draw the second radius to create the first sector.</li>
+        <li>Repeat for each category, measuring angles from the previous boundary.</li>
+        <li>Label each sector with its category name and percentage.</li>
+        <li>Colour or shade each sector differently.</li>
+        <li>Add a title and legend.</li>
+      </ol>
+
+      <div class="subtitle">&#128203; Reading a Pie Chart</div>
+
+      <div class="worked-example">
+        <h4>Example 7: Reading a Pie Chart</h4>
+        <div class="we-step">
+          <strong>Given:</strong> A pie chart shows the mode of transport used by 1200 students. The sector for "bus" has a central angle of 120&deg;. How many students use the bus?
+        </div>
+        <div class="we-step">
+          <strong>Solution:</strong><br>
+          Number of bus students = (120&deg; / 360&deg;) &times; 1200 = (1/3) &times; 1200 = <strong>400 students</strong>
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Verification Trick:</strong> The sum of all central angles in a pie chart must always equal <strong>360&deg;</strong>. If they don't add up, check your calculations. Also, all percentages must add up to 100%.
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Pie Chart vs Bar Graph:</strong> Use a pie chart when you want to show <strong>parts of a whole</strong> (how a total is divided). Use a bar graph when you want to <strong>compare individual values</strong>. Both can represent the same data, but they tell slightly different stories.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 7: MISLEADING GRAPHS
+       ===================================================== -->
+  <div class="section-block reveal" id="misleading">
+    <div class="section-hd g-red">
+      <span class="icon">&#9888;&#65039;</span>
+      Misleading Graphs &mdash; Beware!
+    </div>
+    <div class="section-bd">
+
+      <p>Not all graphs tell the truth! Sometimes, graphs are drawn in ways that can <strong>mislead</strong> the reader into drawing incorrect conclusions. It is important to learn how to spot misleading graphs.</p>
+
+      <div class="subtitle">&#128683; Common Ways Graphs Mislead</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-red">
+          <h4>&#9888;&#65039; 1. Broken Y-axis (Not Starting from 0)</h4>
+          If the y-axis does not start from 0, small differences look enormous. A bar of height 98 and one of height 102 might look like a 5x difference if the axis starts at 95!
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#9888;&#65039; 2. Unequal Scale</h4>
+          If the scale changes partway through the axis (e.g., 1 cm = 10, then suddenly 1 cm = 50), the graph becomes distorted and comparisons become unfair.
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#9888;&#65039; 3. Unequal Bar Widths</h4>
+          If one bar is drawn wider than others, it looks more important even if its value is not higher. Fair bar graphs have <strong>equal widths</strong>.
+        </div>
+        <div class="info-card ic-pink">
+          <h4>&#9888;&#65039; 4. Cherry-Picking Data</h4>
+          Showing only selected data points (e.g., showing only the good months) can make a declining trend look like growth. Always check if the data is complete.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#9888;&#65039; 5. 3D Effects</h4>
+          Three-dimensional bar graphs or pie charts can distort perception. A pie slice in the front looks bigger than one at the back, even if they represent the same value.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#9888;&#65039; 6. Misleading Pictograms</h4>
+          If a pictogram doubles both width and height to show a 2x increase, the area actually becomes 4x &mdash; making the increase look much bigger than it really is.
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 8: Spotting a Misleading Graph</h4>
+        <div class="we-step">
+          <strong>Scenario:</strong> A company's profit graph shows the y-axis starting at &#8377;95 lakhs (instead of 0). The bars show: Year 1 = &#8377;98 lakhs, Year 2 = &#8377;102 lakhs.
+        </div>
+        <div class="we-step">
+          <strong>Misleading view:</strong> The Year 2 bar appears to be about 2.5 times the height of the Year 1 bar, suggesting massive growth.
+        </div>
+        <div class="we-step">
+          <strong>Truth:</strong> The actual increase is only &#8377;4 lakhs out of &#8377;98 lakhs, which is roughly 4% growth &mdash; not the dramatic jump the graph suggests.
+        </div>
+        <div class="we-step">
+          <strong>How to fix it:</strong> Start the y-axis from 0, or clearly mark the break in the axis with a zigzag symbol (~) so the reader knows the scale is not starting from 0.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Critical Thinking Checklist for Graphs:</strong><br>
+        &#9745; Does the y-axis start from 0? If not, is the break clearly marked?<br>
+        &#9745; Is the scale consistent (same spacing throughout)?<br>
+        &#9745; Are the bars of equal width?<br>
+        &#9745; Is all the relevant data shown, or only selective data?<br>
+        &#9745; Does the title accurately describe the data?<br>
+        &#9745; Are 3D effects distorting the perception?
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 8: PROBABILITY BASICS
+       ===================================================== -->
+  <div class="section-block reveal" id="probability">
+    <div class="section-hd g-green">
+      <span class="icon">&#127922;</span>
+      Probability Basics
+    </div>
+    <div class="section-bd">
+
+      <p>What is the chance of rain tomorrow? What is the likelihood of getting a 6 when you roll a die? <span class="kt">Probability</span> is the branch of mathematics that deals with <strong>chance</strong> and <strong>likelihood</strong>.</p>
+
+      <div class="subtitle">&#128218; Key Terms</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#127922; Experiment</h4>
+          An action or process whose result is not known in advance. Example: tossing a coin, rolling a die, picking a card.
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#127919; Outcome</h4>
+          A possible result of an experiment. When you toss a coin, the outcomes are <strong>Head (H)</strong> and <strong>Tail (T)</strong>.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128203; Sample Space</h4>
+          The set of <strong>all possible outcomes</strong> of an experiment. For a die: {1, 2, 3, 4, 5, 6}. For a coin: {H, T}.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#127775; Event</h4>
+          A specific outcome or a set of outcomes we are interested in. "Getting an even number on a die" is an event = {2, 4, 6}.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128203; Experimental Probability</div>
+
+      <p>The <strong>experimental probability</strong> (also called <em>empirical probability</em>) of an event is calculated by actually performing the experiment many times and recording the results.</p>
+
+      <div class="formula-box">
+        P(Event) = Number of times the event occurred / Total number of trials
+        <small>Experimental Probability Formula</small>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example: Tossing a Coin 50 Times</h4>
+        <div class="we-step">
+          <strong>Experiment:</strong> A coin was tossed 50 times. Heads appeared 28 times and Tails appeared 22 times.
+        </div>
+        <div class="we-step">
+          <strong>P(Head)</strong> = 28/50 = <strong>0.56</strong> or <strong>56%</strong>
+        </div>
+        <div class="we-step">
+          <strong>P(Tail)</strong> = 22/50 = <strong>0.44</strong> or <strong>44%</strong>
+        </div>
+        <div class="we-step">
+          <strong>Check:</strong> P(Head) + P(Tail) = 0.56 + 0.44 = <strong>1.00</strong> &#9989;<br>
+          The sum of probabilities of all outcomes always equals 1.
+        </div>
+      </div>
+
+      <div class="subtitle">&#127922; Theoretical Probability</div>
+
+      <p>When all outcomes are <strong>equally likely</strong>, we can calculate the <span class="kt">theoretical probability</span> without performing the experiment:</p>
+
+      <div class="formula-box">
+        P(Event) = Number of favourable outcomes / Total number of possible outcomes
+        <small>Theoretical Probability Formula (when all outcomes are equally likely)</small>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#127922; Rolling a Die &mdash; P(6)</h4>
+          Favourable outcomes: {6} &rarr; 1<br>
+          Total outcomes: {1,2,3,4,5,6} &rarr; 6<br>
+          P(6) = 1/6 &asymp; <strong>0.167</strong>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#127922; Rolling a Die &mdash; P(even)</h4>
+          Favourable outcomes: {2, 4, 6} &rarr; 3<br>
+          Total outcomes: 6<br>
+          P(even) = 3/6 = <strong>1/2</strong>
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#127183; Drawing a Card &mdash; P(King)</h4>
+          Favourable outcomes: 4 kings<br>
+          Total outcomes: 52 cards<br>
+          P(King) = 4/52 = <strong>1/13</strong>
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#127922; Rolling a Die &mdash; P(7)</h4>
+          Favourable outcomes: 0 (impossible)<br>
+          Total outcomes: 6<br>
+          P(7) = 0/6 = <strong>0</strong> (impossible event)
+        </div>
+      </div>
+
+      <div class="subtitle">&#128203; Properties of Probability</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Statement</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Range</td>
+              <td>0 &le; P(E) &le; 1</td>
+              <td>Probability is always between 0 and 1</td>
+            </tr>
+            <tr>
+              <td>Certain Event</td>
+              <td>P(certain event) = 1</td>
+              <td>P(getting a number &le; 6 on a die) = 1</td>
+            </tr>
+            <tr>
+              <td>Impossible Event</td>
+              <td>P(impossible event) = 0</td>
+              <td>P(getting 7 on a standard die) = 0</td>
+            </tr>
+            <tr>
+              <td>Complement</td>
+              <td>P(not E) = 1 &minus; P(E)</td>
+              <td>P(not getting 6) = 1 &minus; 1/6 = 5/6</td>
+            </tr>
+            <tr>
+              <td>Sum of all outcomes</td>
+              <td>Sum of probabilities of all outcomes = 1</td>
+              <td>P(H) + P(T) = 1 for a fair coin</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Important:</strong> As the number of trials increases, the experimental probability gets closer to the theoretical probability. This is called the <strong>Law of Large Numbers</strong>. If you toss a coin 10 times, you might get 7 heads. But if you toss it 10,000 times, you will get very close to 5,000 heads (50%).
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Common Misconception:</strong> "If I got 5 heads in a row, the next toss must be tails." This is <strong>wrong</strong>! Each coin toss is <strong>independent</strong>. The coin has no memory. The probability of head on the next toss is still 1/2, regardless of what happened before. This misconception is called the <strong>Gambler's Fallacy</strong>.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 9: WORKED EXAMPLES (NCERT STYLE)
+       ===================================================== -->
+  <div class="section-block reveal" id="worked">
+    <div class="section-hd g-orange">
+      <span class="icon">&#9999;&#65039;</span>
+      NCERT-Style Worked Examples
+    </div>
+    <div class="section-bd">
+
+      <!-- Problem 1 -->
+      <div class="worked-example">
+        <h4>Problem 1: The runs scored by a batsman in 6 innings are: 45, 67, 38, 72, 55, 90. (a) Draw a bar graph. (b) In which inning did he score the most? (c) What is the difference between the highest and lowest scores?</h4>
+        <div class="we-step">
+          <strong>(a)</strong> Draw the x-axis with Innings 1 to 6. Y-axis with runs (scale: 1 cm = 10 runs). Draw bars of heights: 45, 67, 38, 72, 55, 90.
+        </div>
+        <div class="we-step">
+          <strong>(b)</strong> The tallest bar is for Inning 6 with 90 runs. So the batsman scored the most in <strong>Inning 6</strong>.
+        </div>
+        <div class="we-step">
+          <strong>(c)</strong> Highest score = 90, Lowest score = 38.<br>
+          Difference = 90 &minus; 38 = <strong>52 runs</strong>.
+        </div>
+      </div>
+
+      <!-- Problem 2 -->
+      <div class="worked-example">
+        <h4>Problem 2: The following table shows the number of bicycles sold by a shop over 5 months. Draw a line graph and identify the trend.</h4>
+        <div class="we-step">
+          <strong>Data:</strong> Jan = 40, Feb = 55, Mar = 45, Apr = 70, May = 65
+        </div>
+        <div class="we-step">
+          <strong>Drawing:</strong> Plot points (Jan, 40), (Feb, 55), (Mar, 45), (Apr, 70), (May, 65) and connect with straight lines.
+        </div>
+        <div class="we-step">
+          <strong>Trend Analysis:</strong><br>
+          &bull; Sales <strong>rose</strong> from Jan to Feb (40 to 55).<br>
+          &bull; Sales <strong>dipped</strong> in Mar (55 to 45).<br>
+          &bull; Sales <strong>peaked</strong> in Apr at 70.<br>
+          &bull; Sales <strong>slightly declined</strong> in May (70 to 65).<br>
+          &bull; Overall trend: <strong>generally upward</strong> despite fluctuations.
+        </div>
+      </div>
+
+      <!-- Problem 3 -->
+      <div class="worked-example">
+        <h4>Problem 3: A survey of 720 students on their favourite sport gave: Cricket = 300, Football = 180, Badminton = 120, Tennis = 60, Others = 60. Draw a pie chart.</h4>
+        <div class="we-step">
+          <strong>Step 1: Calculate central angles.</strong><br>
+          Cricket = (300/720) &times; 360&deg; = <strong>150&deg;</strong><br>
+          Football = (180/720) &times; 360&deg; = <strong>90&deg;</strong><br>
+          Badminton = (120/720) &times; 360&deg; = <strong>60&deg;</strong><br>
+          Tennis = (60/720) &times; 360&deg; = <strong>30&deg;</strong><br>
+          Others = (60/720) &times; 360&deg; = <strong>30&deg;</strong>
+        </div>
+        <div class="we-step">
+          <strong>Verification:</strong> 150&deg; + 90&deg; + 60&deg; + 30&deg; + 30&deg; = <strong>360&deg;</strong> &#9989;
+        </div>
+        <div class="we-step">
+          <strong>Observation:</strong> Cricket is the most popular sport (largest sector, 150&deg;), followed by Football (90&deg;). Together they account for 240&deg; out of 360&deg;, meaning two-thirds of the students prefer either Cricket or Football.
+        </div>
+      </div>
+
+      <!-- Problem 4 -->
+      <div class="worked-example">
+        <h4>Problem 4: A bag contains 5 red balls, 3 blue balls, and 2 green balls. A ball is drawn at random. Find: (a) P(red) (b) P(blue) (c) P(not green) (d) P(yellow)</h4>
+        <div class="we-step">
+          <strong>Total balls</strong> = 5 + 3 + 2 = <strong>10</strong>
+        </div>
+        <div class="we-step">
+          <strong>(a) P(red)</strong> = 5/10 = <strong>1/2</strong>
+        </div>
+        <div class="we-step">
+          <strong>(b) P(blue)</strong> = 3/10 = <strong>3/10</strong>
+        </div>
+        <div class="we-step">
+          <strong>(c) P(not green)</strong> = 1 &minus; P(green) = 1 &minus; 2/10 = <strong>8/10 = 4/5</strong>
+        </div>
+        <div class="we-step">
+          <strong>(d) P(yellow)</strong> = 0/10 = <strong>0</strong> (There are no yellow balls, so it is an impossible event.)
+        </div>
+      </div>
+
+      <!-- Problem 5 -->
+      <div class="worked-example">
+        <h4>Problem 5: The pie chart of a student's daily routine shows: Sleep = 120&deg;, School = 90&deg;, Homework = 60&deg;, Play = 45&deg;, Others = 45&deg;. If the total day is 24 hours, find the hours spent in each activity.</h4>
+        <div class="we-step">
+          <strong>Formula:</strong> Hours = (Angle / 360&deg;) &times; 24
+        </div>
+        <div class="we-step">
+          Sleep = (120/360) &times; 24 = <strong>8 hours</strong><br>
+          School = (90/360) &times; 24 = <strong>6 hours</strong><br>
+          Homework = (60/360) &times; 24 = <strong>4 hours</strong><br>
+          Play = (45/360) &times; 24 = <strong>3 hours</strong><br>
+          Others = (45/360) &times; 24 = <strong>3 hours</strong>
+        </div>
+        <div class="we-step">
+          <strong>Check:</strong> 8 + 6 + 4 + 3 + 3 = <strong>24 hours</strong> &#9989;
+        </div>
+      </div>
+
+      <!-- Problem 6 -->
+      <div class="worked-example">
+        <h4>Problem 6: Two dice are thrown together. What is the probability of getting a sum of 7?</h4>
+        <div class="we-step">
+          <strong>Total outcomes</strong> when two dice are thrown = 6 &times; 6 = <strong>36</strong>
+        </div>
+        <div class="we-step">
+          <strong>Favourable outcomes</strong> (sum = 7):<br>
+          (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) = <strong>6 outcomes</strong>
+        </div>
+        <div class="we-step">
+          <strong>P(sum = 7)</strong> = 6/36 = <strong>1/6</strong>
+        </div>
+      </div>
+
+      <!-- Problem 7 -->
+      <div class="worked-example">
+        <h4>Problem 7: The marks of 30 students are given in a grouped frequency table. Draw a double bar graph to compare boys' and girls' marks.</h4>
+        <div class="we-step">
+          <strong>Data:</strong>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Marks Range</th>
+              <th>Boys</th>
+              <th>Girls</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>0 &ndash; 20</td><td>2</td><td>1</td></tr>
+            <tr><td>20 &ndash; 40</td><td>4</td><td>3</td></tr>
+            <tr><td>40 &ndash; 60</td><td>5</td><td>6</td></tr>
+            <tr><td>60 &ndash; 80</td><td>3</td><td>4</td></tr>
+            <tr><td>80 &ndash; 100</td><td>1</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="worked-example" style="border:none;background:transparent;padding:0;margin-top:0;">
+        <div class="we-step">
+          <strong>Observations from the double bar graph:</strong><br>
+          &bull; In the 40&ndash;60 range, girls (6) outnumber boys (5).<br>
+          &bull; In the 20&ndash;40 range, boys (4) outnumber girls (3).<br>
+          &bull; In the 80&ndash;100 range, both groups have equal numbers (1 each).<br>
+          &bull; Most students (both boys and girls) scored in the 40&ndash;60 range.
+        </div>
+      </div>
+
+      <!-- Problem 8 -->
+      <div class="worked-example">
+        <h4>Problem 8: A spinner has 8 equal sections numbered 1 to 8. Find: (a) P(prime number) (b) P(multiple of 3) (c) P(number > 5)</h4>
+        <div class="we-step">
+          <strong>Total outcomes</strong> = 8 (numbers 1 to 8)
+        </div>
+        <div class="we-step">
+          <strong>(a) Prime numbers</strong> from 1 to 8: {2, 3, 5, 7} = 4 outcomes<br>
+          P(prime) = 4/8 = <strong>1/2</strong>
+        </div>
+        <div class="we-step">
+          <strong>(b) Multiples of 3</strong> from 1 to 8: {3, 6} = 2 outcomes<br>
+          P(multiple of 3) = 2/8 = <strong>1/4</strong>
+        </div>
+        <div class="we-step">
+          <strong>(c) Numbers greater than 5:</strong> {6, 7, 8} = 3 outcomes<br>
+          P(number > 5) = 3/8 = <strong>3/8</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 10: SUMMARY
+       ===================================================== -->
+  <div class="section-block reveal" id="summary">
+    <div class="section-hd g-slate">
+      <span class="icon">&#128202;</span>
+      Chapter Summary
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128203; Key Formulas &amp; Concepts at a Glance</div>
+
+      <div class="formula-box">
+        Central Angle = (Value / Total) &times; 360&deg;
+        <small>For drawing pie charts</small>
+      </div>
+
+      <div class="formula-box">
+        P(Event) = Favourable Outcomes / Total Outcomes
+        <small>Theoretical probability when all outcomes are equally likely</small>
+      </div>
+
+      <div class="formula-box">
+        P(not E) = 1 &minus; P(E)
+        <small>Complementary probability</small>
+      </div>
+
+      <div class="subtitle">&#128218; Types of Graphs &mdash; Quick Comparison</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Graph Type</th>
+              <th>Best Used For</th>
+              <th>Key Feature</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Bar Graph</strong></td>
+              <td>Comparing categories</td>
+              <td>Equal-width bars, equal gaps</td>
+            </tr>
+            <tr>
+              <td><strong>Double Bar Graph</strong></td>
+              <td>Comparing two data sets</td>
+              <td>Two bars per category + legend</td>
+            </tr>
+            <tr>
+              <td><strong>Line Graph</strong></td>
+              <td>Change over time (trends)</td>
+              <td>Points connected by lines</td>
+            </tr>
+            <tr>
+              <td><strong>Pie Chart</strong></td>
+              <td>Parts of a whole</td>
+              <td>Circle divided into sectors (360&deg;)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subtitle">&#9888;&#65039; Common Mistakes to Avoid</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-red">
+          <h4>&#10060; Not starting y-axis from 0</h4>
+          Always start the y-axis from 0 in bar graphs unless you clearly mark the break.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#10060; Forgetting the title &amp; labels</h4>
+          Every graph needs a title, axis labels, and a scale. Missing labels = lost marks in exams!
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#10060; Angles not adding to 360&deg;</h4>
+          In pie charts, always verify that all central angles sum to 360&deg;. A rounding error can cause issues.
+        </div>
+        <div class="info-card ic-pink">
+          <h4>&#10060; Confusing P(event) range</h4>
+          Probability is always between 0 and 1 (inclusive). If your answer is negative or greater than 1, something is wrong.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128221; Quick Reference: Probability Facts</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Fact</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>P(certain event)</td><td>1</td></tr>
+            <tr><td>P(impossible event)</td><td>0</td></tr>
+            <tr><td>P(E) + P(not E)</td><td>1</td></tr>
+            <tr><td>Outcomes of a coin toss</td><td>{H, T} &mdash; 2 outcomes</td></tr>
+            <tr><td>Outcomes of a die roll</td><td>{1, 2, 3, 4, 5, 6} &mdash; 6 outcomes</td></tr>
+            <tr><td>Outcomes of two dice</td><td>6 &times; 6 = 36 outcomes</td></tr>
+            <tr><td>Cards in a standard deck</td><td>52 (4 suits &times; 13 cards)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Exam Day Checklist:</strong><br>
+        &#9989; Use a ruler and pencil for all graphs.<br>
+        &#9989; Write the title above every graph.<br>
+        &#9989; Label both axes and mention the scale.<br>
+        &#9989; Verify: bar widths are equal, gaps are equal.<br>
+        &#9989; Verify: pie chart angles sum to 360&deg;.<br>
+        &#9989; Verify: 0 &le; probability &le; 1.<br>
+        &#9989; Show all working &mdash; marks are given for steps.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 11: MCQs (10 Questions)
+       ===================================================== -->
+  <div class="section-block reveal" id="mcq">
+    <div class="section-hd g-amber">
+      <span class="icon">&#129504;</span>
+      Multiple Choice Questions (10 MCQs)
+    </div>
+    <div class="section-bd">
+
+      <p>Click on an option to see if your answer is correct. The correct option will turn green.</p>
+
+      <ul class="mcq-list">
+
+        <!-- MCQ 1 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q1. The sum of all central angles in a pie chart is:</div>
+          <ul class="mcq-options">
+            <li>a) 180&deg;</li>
+            <li data-correct>b) 360&deg;</li>
+            <li>c) 90&deg;</li>
+            <li>d) 270&deg;</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 360&deg; &mdash; A pie chart is a full circle, and a full circle has 360 degrees.</div>
+        </li>
+
+        <!-- MCQ 2 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q2. Which type of graph is best for showing change over time?</div>
+          <ul class="mcq-options">
+            <li>a) Bar graph</li>
+            <li>b) Pie chart</li>
+            <li data-correct>c) Line graph</li>
+            <li>d) Pictogram</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) Line graph &mdash; Line graphs connect data points over time, making trends visible at a glance.</div>
+        </li>
+
+        <!-- MCQ 3 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q3. A die is rolled. What is the probability of getting an even number?</div>
+          <ul class="mcq-options">
+            <li>a) 1/6</li>
+            <li>b) 1/3</li>
+            <li data-correct>c) 1/2</li>
+            <li>d) 2/3</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 1/2 &mdash; Even numbers on a die: {2, 4, 6} = 3 outcomes out of 6 total. P = 3/6 = 1/2.</div>
+        </li>
+
+        <!-- MCQ 4 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q4. In a bar graph, the bars must have:</div>
+          <ul class="mcq-options">
+            <li>a) Unequal widths</li>
+            <li>b) No gaps between them</li>
+            <li data-correct>c) Equal widths and equal gaps</li>
+            <li>d) Different colours only</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) Equal widths and equal gaps &mdash; This ensures a fair visual comparison between categories.</div>
+        </li>
+
+        <!-- MCQ 5 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q5. If 25% of a pie chart represents "Food," what is the central angle for "Food"?</div>
+          <ul class="mcq-options">
+            <li data-correct>a) 90&deg;</li>
+            <li>b) 25&deg;</li>
+            <li>c) 180&deg;</li>
+            <li>d) 45&deg;</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (a) 90&deg; &mdash; Central angle = (25/100) &times; 360&deg; = 90&deg;.</div>
+        </li>
+
+        <!-- MCQ 6 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q6. The probability of an impossible event is:</div>
+          <ul class="mcq-options">
+            <li data-correct>a) 0</li>
+            <li>b) 1</li>
+            <li>c) 0.5</li>
+            <li>d) &minus;1</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (a) 0 &mdash; An event that cannot happen has zero probability. Example: rolling a 7 on a standard die.</div>
+        </li>
+
+        <!-- MCQ 7 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q7. A double bar graph is used to:</div>
+          <ul class="mcq-options">
+            <li>a) Show parts of a whole</li>
+            <li>b) Show change over time</li>
+            <li data-correct>c) Compare two related data sets</li>
+            <li>d) Show the probability of events</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) Compare two related data sets &mdash; Double bar graphs show two bars per category for side-by-side comparison.</div>
+        </li>
+
+        <!-- MCQ 8 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q8. A bag has 4 red, 3 blue, and 3 white balls. What is the probability of drawing a blue ball?</div>
+          <ul class="mcq-options">
+            <li>a) 4/10</li>
+            <li data-correct>b) 3/10</li>
+            <li>c) 3/7</li>
+            <li>d) 1/3</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 3/10 &mdash; Total balls = 4 + 3 + 3 = 10. P(blue) = 3/10.</div>
+        </li>
+
+        <!-- MCQ 9 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q9. A graph that can mislead the reader by not starting the y-axis from 0 is called a:</div>
+          <ul class="mcq-options">
+            <li>a) Pie chart</li>
+            <li data-correct>b) Misleading graph</li>
+            <li>c) Line graph</li>
+            <li>d) Double bar graph</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) Misleading graph &mdash; A broken y-axis (not starting from 0) can exaggerate differences and mislead readers.</div>
+        </li>
+
+        <!-- MCQ 10 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q10. P(E) + P(not E) equals:</div>
+          <ul class="mcq-options">
+            <li>a) 0</li>
+            <li>b) 0.5</li>
+            <li data-correct>c) 1</li>
+            <li>d) 2</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 1 &mdash; The probability of an event and its complement always add up to 1.</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 12: NCERT Q&A
+       ===================================================== -->
+  <div class="section-block reveal" id="ncert-qa">
+    <div class="section-hd g-orange">
+      <span class="icon">&#128214;</span>
+      NCERT Questions &amp; Answers
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#9997;&#65039; Short Answer Questions</div>
+
+      <ul class="short-q-list">
+
+        <li class="short-q-item">
+          <div class="short-q">Q1. What is a frequency table? Why is it useful?</div>
+          <div class="short-a">A <strong>frequency table</strong> organises raw data by listing each category (or value) along with the number of times it occurs (its frequency). It is useful because it converts a messy list of data into a clear, organised format that makes it easy to compare values, spot the most/least common items, and prepare data for drawing graphs.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q2. What is the difference between a bar graph and a line graph?</div>
+          <div class="short-a">A <strong>bar graph</strong> uses rectangular bars to compare different categories (like favourite fruits, cities, or subjects). A <strong>line graph</strong> uses points connected by lines to show how data changes over <strong>time</strong> (like temperature, sales, or population). Bar graphs compare values at a point; line graphs show <strong>trends</strong> over a continuous period.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q3. Define: (a) Outcome (b) Sample Space (c) Event</div>
+          <div class="short-a"><strong>(a) Outcome:</strong> A possible result of a random experiment. E.g., getting "Head" when tossing a coin.<br>
+          <strong>(b) Sample Space:</strong> The set of all possible outcomes. For a die: {1, 2, 3, 4, 5, 6}.<br>
+          <strong>(c) Event:</strong> A specific outcome or set of outcomes of interest. E.g., "getting an even number" = {2, 4, 6}.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q4. How do you calculate the central angle of a sector in a pie chart?</div>
+          <div class="short-a"><strong>Central angle</strong> = (Value of the category / Total of all values) &times; 360&deg;. For example, if Food costs &#8377;9000 out of a total budget of &#8377;36000, the central angle for Food = (9000/36000) &times; 360&deg; = 90&deg;.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q5. A coin is tossed 100 times. It lands on heads 58 times. What is the experimental probability of getting tails?</div>
+          <div class="short-a">Number of tails = 100 &minus; 58 = 42.<br>
+          P(Tails) = 42/100 = <strong>0.42</strong> or <strong>42%</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q6. Name three ways in which a graph can be misleading.</div>
+          <div class="short-a">(1) <strong>Not starting the y-axis from 0</strong> &mdash; makes small differences look large.<br>
+          (2) <strong>Unequal bar widths</strong> &mdash; wider bars appear more important than they are.<br>
+          (3) <strong>Cherry-picking data</strong> &mdash; showing only selected data points to present a biased picture.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q7. What is a double bar graph? Give an example of when you would use one.</div>
+          <div class="short-a">A <strong>double bar graph</strong> uses two bars for each category to compare two related data sets. For example, comparing the <strong>mid-term and final exam marks</strong> of a student in different subjects. Each subject gets a pair of bars (one for mid-term, one for final), with different colours and a legend.</div>
+        </li>
+
+      </ul>
+
+      <div class="subtitle">&#128214; Long Answer Questions</div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q1. The following data shows the production of wheat (in thousand tonnes) in India over 5 years: 2019 = 100, 2020 = 108, 2021 = 110, 2022 = 106, 2023 = 115. Draw a line graph and answer: (i) In which year was production highest? (ii) Was there a year when production decreased? (iii) Describe the overall trend.</div>
+        <div class="long-a">
+          <strong>Drawing the line graph:</strong> Plot points (2019, 100), (2020, 108), (2021, 110), (2022, 106), (2023, 115) on graph paper. X-axis = Years, Y-axis = Production in thousand tonnes (scale: 1 cm = 5 thousand tonnes, starting from 95 with a break mark, or from 0).<br><br>
+
+          <strong>(i)</strong> Production was highest in <strong>2023</strong> at 115 thousand tonnes (highest point on the line).<br><br>
+
+          <strong>(ii)</strong> Yes, production decreased from <strong>2021 to 2022</strong> (110 to 106, a drop of 4 thousand tonnes). This is shown by the line going downward.<br><br>
+
+          <strong>(iii) Overall trend:</strong> The overall trend is <strong>upward</strong> (increasing production). Despite a dip in 2022, production recovered and reached a new high in 2023. The steepest rise was from 2022 to 2023 (9 thousand tonnes increase).
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q2. In a class of 40 students, the data about their favourite subjects is: Maths = 12, Science = 8, English = 6, Social Studies = 10, Hindi = 4. (a) Calculate the central angle for each subject. (b) Draw a pie chart. (c) Which subject is most popular? (d) What fraction of students prefer Maths?</div>
+        <div class="long-a">
+          <strong>(a) Central angles:</strong><br>
+          Maths = (12/40) &times; 360&deg; = <strong>108&deg;</strong><br>
+          Science = (8/40) &times; 360&deg; = <strong>72&deg;</strong><br>
+          English = (6/40) &times; 360&deg; = <strong>54&deg;</strong><br>
+          Social Studies = (10/40) &times; 360&deg; = <strong>90&deg;</strong><br>
+          Hindi = (4/40) &times; 360&deg; = <strong>36&deg;</strong><br>
+          Verification: 108 + 72 + 54 + 90 + 36 = 360&deg; &#9989;<br><br>
+
+          <strong>(b)</strong> Draw a circle. Use a protractor to mark sectors of 108&deg;, 72&deg;, 54&deg;, 90&deg;, and 36&deg; consecutively. Label and colour each sector. Add title: "Favourite Subjects of Class 8 Students."<br><br>
+
+          <strong>(c)</strong> <strong>Maths</strong> is the most popular subject (largest sector, 108&deg;, 12 students out of 40).<br><br>
+
+          <strong>(d)</strong> Fraction of students who prefer Maths = 12/40 = <strong>3/10</strong>.
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q3. A box contains 15 balls numbered 1 to 15. A ball is drawn at random. Find the probability that the number on the ball is: (a) a prime number (b) a multiple of 4 (c) an odd number (d) greater than 10 (e) divisible by both 2 and 3.</div>
+        <div class="long-a">
+          <strong>Total outcomes</strong> = 15 (balls numbered 1 to 15)<br><br>
+
+          <strong>(a) Prime numbers</strong> from 1 to 15: {2, 3, 5, 7, 11, 13} = 6 numbers<br>
+          P(prime) = 6/15 = <strong>2/5</strong><br><br>
+
+          <strong>(b) Multiples of 4</strong> from 1 to 15: {4, 8, 12} = 3 numbers<br>
+          P(multiple of 4) = 3/15 = <strong>1/5</strong><br><br>
+
+          <strong>(c) Odd numbers</strong> from 1 to 15: {1, 3, 5, 7, 9, 11, 13, 15} = 8 numbers<br>
+          P(odd) = 8/15 = <strong>8/15</strong><br><br>
+
+          <strong>(d) Numbers greater than 10:</strong> {11, 12, 13, 14, 15} = 5 numbers<br>
+          P(> 10) = 5/15 = <strong>1/3</strong><br><br>
+
+          <strong>(e) Divisible by both 2 and 3</strong> (i.e., divisible by 6): {6, 12} = 2 numbers<br>
+          P(divisible by 6) = 2/15 = <strong>2/15</strong>
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q4. Explain with examples how graphs can be misleading. Why is it important to carefully examine the scale and axes of any graph before drawing conclusions?</div>
+        <div class="long-a">
+          Graphs can mislead in several ways:<br><br>
+
+          <strong>1. Broken Y-axis:</strong> If a bar graph shows Company A's profit as &#8377;98 lakh and Company B's as &#8377;102 lakh, but the y-axis starts at 95 instead of 0, Company B's bar will look about 2&ndash;3 times taller than Company A's bar. In reality, the difference is only 4%, but the graph makes it look enormous.<br><br>
+
+          <strong>2. Unequal scale:</strong> If one part of the y-axis uses 1 cm = 10 units and another part uses 1 cm = 50 units, the graph distorts the visual comparison. A sharp rise might look gentle, or a small change might look dramatic.<br><br>
+
+          <strong>3. Pictogram distortion:</strong> If a pictogram uses a picture of a car to represent car sales, and doubles both the width and height of the car to show a 2x increase, the area of the car becomes 4x &mdash; making the increase look twice as large as it actually is.<br><br>
+
+          <strong>4. Cherry-picking:</strong> A company might show only the months when sales were high and hide the months when sales were low, creating a false impression of constant growth.<br><br>
+
+          <strong>Why it matters:</strong> Graphs are powerful communication tools used in newspapers, advertisements, reports, and social media. If we blindly trust a graph without examining its scale, origin, labels, and completeness, we can be manipulated into false beliefs. A critical reader always checks: Does the y-axis start from 0? Is the scale uniform? Is all the data shown? Are the bars equally wide? This kind of <strong>data literacy</strong> is essential in the modern world.
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q5. Compare bar graphs, line graphs, and pie charts. For each, give one situation where it would be the most appropriate choice and one situation where it would be inappropriate.</div>
+        <div class="long-a">
+          <strong>Bar Graph:</strong><br>
+          &bull; <strong>Appropriate:</strong> Comparing the number of students in five different clubs (Drama, Music, Dance, Sports, Art). Each club is a separate category &mdash; perfect for bars.<br>
+          &bull; <strong>Inappropriate:</strong> Showing temperature changes every hour over 24 hours. The data is continuous over time, so a line graph is better.<br><br>
+
+          <strong>Line Graph:</strong><br>
+          &bull; <strong>Appropriate:</strong> Showing a patient's body temperature recorded every 2 hours for a day. Temperature changes continuously, and the line shows the trend clearly.<br>
+          &bull; <strong>Inappropriate:</strong> Showing favourite ice cream flavours of a class. "Flavour" is not a continuous or time-based variable &mdash; a bar graph or pie chart would be better.<br><br>
+
+          <strong>Pie Chart:</strong><br>
+          &bull; <strong>Appropriate:</strong> Showing how a student's 24-hour day is divided among sleep, study, play, meals, and other activities. The whole circle (24 hours = 100%) is divided into parts.<br>
+          &bull; <strong>Inappropriate:</strong> Comparing the marks of 10 students. A pie chart is about "parts of a whole," but here we want to compare individual values &mdash; a bar graph works better.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       FUN FACTS
+       ===================================================== -->
+  <div class="section-block reveal" id="funfacts">
+    <div class="section-hd g-green">
+      <span class="icon">&#127775;</span>
+      Fun Facts &amp; Did You Know?
+    </div>
+    <div class="section-bd">
+
+      <div class="fun-fact-grid">
+
+        <div class="fun-fact-card">
+          <h4>&#128202; First Bar Graph in History</h4>
+          The first bar graph was created by Scottish engineer <strong>William Playfair</strong> in 1786 in his book <em>The Commercial and Political Atlas</em>. Before Playfair, data was only shown in boring tables!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#127856; Why "Pie" Chart?</h4>
+          The pie chart gets its name because it looks like a <strong>pie</strong> cut into slices! Playfair also invented the pie chart in 1801. The biggest "slice" usually catches your eye first &mdash; which is exactly the point.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#127922; Dice Have Been Around for 5000 Years!</h4>
+          Archaeological evidence shows that dice were used in ancient Mesopotamia around <strong>3000 BCE</strong>. The study of probability itself began much later, in the 1600s, when mathematicians Blaise Pascal and Pierre de Fermat exchanged famous letters about gambling problems.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#127470;&#127475; India &amp; Data Science</h4>
+          India is one of the world's largest producers of data scientists! Data handling &mdash; the very skill you are learning in this chapter &mdash; is the foundation of modern fields like <strong>data science</strong>, <strong>artificial intelligence</strong>, and <strong>machine learning</strong>.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128200; Florence Nightingale &amp; Graphs</h4>
+          The famous nurse <strong>Florence Nightingale</strong> used innovative pie charts (called "rose diagrams") to show that more soldiers were dying from diseases than from battle wounds. Her graphs convinced the British government to improve hospital conditions!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128201; IPL Uses Data Graphs</h4>
+          Every IPL match broadcast shows live line graphs of run rates, bar graphs of batsman comparisons, and pie charts of run distribution (boundaries, singles, extras). The analysis desk relies entirely on data handling concepts!
+        </div>
+
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Think About It:</strong> The next time you see a graph in a newspaper, an ad, or social media, ask yourself: Is this graph telling the truth? Does the y-axis start from 0? Is the data complete? You now have the tools to be a <strong>critical data reader</strong> &mdash; a superpower in today's information-rich world!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       QUICK REVISION FLASHCARDS
+       ===================================================== -->
+  <div class="section-block reveal" id="revision">
+    <div class="section-hd g-rose">
+      <span class="icon">&#127183;</span>
+      Quick Revision Flashcards
+    </div>
+    <div class="section-bd">
+
+      <p>Use these flashcards for last-minute revision before your exam. Read the question, try to answer mentally, then check!</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>Q: What is a frequency table?</h4>
+          A: A table showing how many times each value/category appears in a data set.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Q: Central angle formula for pie charts?</h4>
+          A: (Value / Total) &times; <strong>360&deg;</strong>
+        </div>
+        <div class="info-card ic-teal">
+          <h4>Q: Bar graph vs Line graph?</h4>
+          A: Bar = compare categories. Line = show trend over <strong>time</strong>.
+        </div>
+        <div class="info-card ic-green">
+          <h4>Q: P(impossible event)?</h4>
+          A: <strong>0</strong>. P(certain event) = <strong>1</strong>.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>Q: P(E) + P(not E)?</h4>
+          A: Always equals <strong>1</strong>.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>Q: Sum of all pie chart angles?</h4>
+          A: <strong>360&deg;</strong> (a complete circle).
+        </div>
+        <div class="info-card ic-pink">
+          <h4>Q: What makes a graph misleading?</h4>
+          A: Y-axis not starting from 0, unequal scale, unequal bar widths, cherry-picked data.
+        </div>
+        <div class="info-card ic-amber">
+          <h4>Q: P(even) on a die?</h4>
+          A: {2,4,6} = 3 out of 6 = <strong>1/2</strong>.
+        </div>
+        <div class="info-card ic-red">
+          <h4>Q: When to use a double bar graph?</h4>
+          A: To compare <strong>two related data sets</strong> side by side.
+        </div>
+        <div class="info-card ic-indigo">
+          <h4>Q: Who invented the bar graph?</h4>
+          A: <strong>William Playfair</strong> in 1786.
+        </div>
+        <div class="info-card ic-green">
+          <h4>Q: Probability range?</h4>
+          A: Always between <strong>0 and 1</strong> (inclusive).
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Q: Outcomes of two dice thrown together?</h4>
+          A: 6 &times; 6 = <strong>36</strong> total outcomes.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Final Revision Mantra:</strong><br>
+        &bull; <strong>Tables</strong> &rarr; Tally marks, frequency, total must match.<br>
+        &bull; <strong>Bar graphs</strong> &rarr; Equal width, equal gaps, start from 0.<br>
+        &bull; <strong>Double bar</strong> &rarr; Two bars + legend. Compare side by side.<br>
+        &bull; <strong>Line graphs</strong> &rarr; Dots + lines. Rising = increasing. Falling = decreasing.<br>
+        &bull; <strong>Pie charts</strong> &rarr; Angle = (Value/Total) &times; 360&deg;. Must sum to 360&deg;.<br>
+        &bull; <strong>Misleading</strong> &rarr; Check axis, scale, widths, data completeness.<br>
+        &bull; <strong>Probability</strong> &rarr; 0 &le; P &le; 1. P(E) + P(not E) = 1.<br>
+        <br>
+        You have mastered the art of reading data stories! &#128170;
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       BOTTOM NAVIGATION
+       ===================================================== -->
+  <div class="bottom-nav">
+    <div class="bottom-nav-full">
+      <a href="../../index.html" class="bottom-btn home-btn">&#127968; Back to Home</a>
+      <a href="index.html" class="bottom-btn" style="background:linear-gradient(135deg,#92400e,#f59e0b);">&#128218; All Maths Chapters</a>
+    </div>
+  </div>
+
+</div>
+<!-- End Container -->
+
+<!-- ========== SHARE POPUP ========== -->
+<div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeSharePopup()">
+  <div class="share-popup">
+    <h3>&#128228; Share This Page</h3>
+    <p style="font-size:14px;color:#475569;margin-bottom:16px;">Help your classmates ace Tales by Dots and Lines!</p>
+    <div class="share-btn-row">
+      <button class="share-action-btn share-wa" onclick="shareWhatsApp()">&#128172; Share on WhatsApp</button>
+      <button class="share-action-btn share-copy" onclick="copyLink()">&#128203; Copy Link</button>
+      <button class="share-action-btn share-native" onclick="shareNative()">&#128228; Share via Apps</button>
+    </div>
+    <button class="share-close-btn" onclick="closeSharePopup()">Close</button>
+  </div>
+</div>
+
+<!-- ========== FLOATING SHARE BUTTON ========== -->
+<button class="float-share-btn" onclick="openSharePopup()" title="Share this page">&#128228;</button>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <p>Preeti Kushwah Classes &mdash; Making Maths Fun &amp; Easy &#128155;</p>
+  <p style="font-size:12px;margin-top:6px;opacity:0.8;">NCERT Class 8 Maths &middot; Ganita &middot; Chapter 12 &middot; New Syllabus 2025-26</p>
+  <p style="font-size:11px;margin-top:8px;opacity:0.6;">&copy; 2025 Preeti Kushwah Classes. All rights reserved.</p>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// Scroll Reveal Animation
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) {
+  obs.observe(el);
+});
+
+// MCQ Click Handler
+document.querySelectorAll('.mcq-item').forEach(function(item) {
+  item.querySelectorAll('.mcq-options li').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      if (item.classList.contains('show-ans')) return;
+      item.classList.add('show-ans');
+      if (!opt.hasAttribute('data-correct')) opt.classList.add('wrong');
+      item.querySelectorAll('.mcq-options li[data-correct]').forEach(function(c) {
+        c.classList.add('correct');
+      });
+    });
+  });
+});
+
+// Share Functions
+function openSharePopup() {
+  document.getElementById('shareOverlay').classList.add('active');
+}
+
+function closeSharePopup() {
+  document.getElementById('shareOverlay').classList.remove('active');
+}
+
+function shareWhatsApp() {
+  window.open('https://wa.me/?text=' + encodeURIComponent('Check out these Tales by Dots and Lines notes for Class 8 Maths (NCERT 2025-26)! ' + window.location.href));
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    alert('Link copied to clipboard!');
+  });
+}
+
+function shareNative() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Tales by Dots and Lines — Class 8 Maths | Preeti Kushwah Classes',
+      text: 'NCERT Class 8 Maths Chapter 12 — Bar Graphs, Line Graphs, Pie Charts, Probability',
+      url: window.location.href
+    });
+  } else {
+    copyLink();
+  }
+}
+
+// Smooth scroll for TOC links
+document.querySelectorAll('.toc-bar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    var targetId = this.getAttribute('href');
+    if (targetId && targetId.startsWith('#')) {
+      e.preventDefault();
+      var target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../chapter-features.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
+</body>
+</html>

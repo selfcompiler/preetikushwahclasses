@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 8 Maths Ch 11: Exploring Some Geometric Themes — Symmetry, tessellations, congruence, constructions, 3D shapes, Euler's formula. Interactive NCERT notes.">
+<meta name="keywords" content="Preeti Kushwah Classes, NCERT notes, CBSE notes, free study material, Class 8 notes, Class 8 NCERT, class 8 study material, Mathematics notes, Class 8 Mathematics, Class 8 Mathematics notes, Class 8 Mathematics NCERT, Exploring Geometric Themes, Class 8 Geometry, symmetry, tessellations, congruence, Euler formula, maths solutions, maths practice">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-8/maths/exploring-geometric-themes.html">
+<meta property="og:title" content="Ch 11: Exploring Some Geometric Themes — Class 8 Maths Notes">
+<meta property="og:description" content="Interactive NCERT notes — Symmetry, tessellations, congruence, constructions &amp; 3D shapes with SVG diagrams.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preetikushwahclasses.com/class-8/maths/exploring-geometric-themes.html">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Exploring Geometric Themes — Class 8 Maths | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:#fffbeb;color:#1c1c2e;overflow-x:hidden;line-height:1.6;}
+
+/* Top Nav */
+.top-nav{background:white;padding:8px 12px;display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,0.06);position:sticky;top:0;z-index:110;overflow-x:auto;}
+.tn-home{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;text-decoration:none;padding:7px 14px;border-radius:12px;font-size:12px;font-weight:800;border:1.5px solid #fbbf24;transition:all 0.2s;white-space:nowrap;}
+.tn-home:hover{background:#fde68a;transform:translateY(-1px);}
+.nav-spacer{flex:1;}
+.tn-share{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;padding:7px 12px;border-radius:12px;border:1.5px solid #fbbf24;font-size:11px;font-weight:800;cursor:pointer;transition:all 0.2s;white-space:nowrap;font-family:'Nunito',sans-serif;}
+.tn-share:hover{background:#fde68a;transform:translateY(-1px);}
+
+/* TOC */
+.toc-bar{background:linear-gradient(135deg,#78350f,#f59e0b);padding:12px 16px;position:sticky;top:44px;z-index:100;overflow-x:auto;white-space:nowrap;}
+.toc-bar a{display:inline-block;background:rgba(255,255,255,0.15);color:white;text-decoration:none;padding:6px 14px;border-radius:18px;font-size:13px;font-weight:700;margin-right:6px;transition:all 0.2s;}
+.toc-bar a:hover{background:rgba(255,255,255,0.35);}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,#78350f 0%,#92400e 30%,#d97706 60%,#fde68a 100%);position:relative;overflow:hidden;min-height:400px;padding-bottom:30px;}
+.hero-content{position:relative;z-index:10;text-align:center;padding:36px 16px 0;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.3);border:2px solid rgba(255,255,255,0.5);border-radius:30px;padding:5px 18px;font-size:11px;font-weight:800;letter-spacing:2px;color:white;text-transform:uppercase;margin-bottom:12px;}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(24px,5vw,48px);color:white;text-shadow:0 3px 12px rgba(0,0,0,0.3);margin-bottom:6px;line-height:1.1;}
+.hero p{color:rgba(255,255,255,0.9);font-size:15px;font-weight:700;margin-bottom:16px;}
+
+/* Container & Sections */
+.container{max-width:1000px;margin:0 auto;padding:36px 16px 60px;}
+.section-block{background:white;border-radius:22px;box-shadow:0 4px 24px rgba(0,0,0,0.08);margin-bottom:36px;overflow:hidden;scroll-margin-top:80px;}
+.section-hd{padding:22px 28px;display:flex;align-items:center;gap:14px;color:white;font-family:'Fredoka One',cursive;font-size:24px;line-height:1.2;}
+.section-hd .icon{font-size:32px;}
+.section-bd{padding:28px;}
+.section-bd > p{margin-bottom:14px;}
+
+/* Gradients */
+.g-amber{background:linear-gradient(135deg,#78350f,#f59e0b);}
+.g-orange{background:linear-gradient(135deg,#9a3412,#fb923c);}
+.g-yellow{background:linear-gradient(135deg,#713f12,#fbbf24);}
+.g-teal{background:linear-gradient(135deg,#134e4a,#2dd4bf);}
+.g-green{background:linear-gradient(135deg,#166534,#22c55e);}
+.g-blue{background:linear-gradient(135deg,#1e40af,#38bdf8);}
+.g-purple{background:linear-gradient(135deg,#5b21b6,#a78bfa);}
+.g-slate{background:linear-gradient(135deg,#1e293b,#64748b);}
+.g-red{background:linear-gradient(135deg,#991b1b,#f87171);}
+.g-rose{background:linear-gradient(135deg,#881337,#fb7185);}
+.g-indigo{background:linear-gradient(135deg,#312e81,#818cf8);}
+
+/* Content elements */
+.subtitle{font-family:'Fredoka One',cursive;color:#78350f;font-size:20px;margin:22px 0 12px;display:flex;align-items:center;gap:8px;}
+.kt{display:inline-block;background:#fde047;color:#713f12;border-radius:7px;padding:1px 9px;font-weight:800;font-size:13px;}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:16px 0;}
+.info-card{border-radius:14px;padding:16px 18px;font-size:14px;}
+.info-card h4{font-weight:800;margin-bottom:6px;font-size:15px;}
+.ic-blue{background:#eff6ff;border-left:5px solid #3b82f6;}
+.ic-indigo{background:#eef2ff;border-left:5px solid #818cf8;}
+.ic-teal{background:#f0fdfa;border-left:5px solid #14b8a6;}
+.ic-purple{background:#faf5ff;border-left:5px solid #a78bfa;}
+.ic-green{background:#f0fdf4;border-left:5px solid #22c55e;}
+.ic-orange{background:#fff7ed;border-left:5px solid #fb923c;}
+.ic-yellow{background:#fefce8;border-left:5px solid #facc15;}
+.ic-red{background:#fef2f2;border-left:5px solid #f87171;}
+.ic-pink{background:#fdf2f8;border-left:5px solid #ec4899;}
+.ic-amber{background:#fffbeb;border-left:5px solid #f59e0b;}
+.trick{background:linear-gradient(135deg,#fef9c3,#fde68a);border:2px solid #f59e0b;border-radius:14px;padding:14px 18px;font-size:14px;margin:16px 0;}
+.trick strong{color:#78350f;}
+.note-box{background:#fffbeb;border-left:5px solid #f59e0b;border-radius:10px;padding:12px 16px;margin:14px 0;font-size:14px;}
+.formula-box{background:linear-gradient(135deg,#fffbeb,#fde68a);border:2px solid #f59e0b;border-radius:12px;padding:14px 18px;text-align:center;font-family:'Fredoka One',cursive;font-size:18px;color:#78350f;margin:12px 0;}
+.formula-box small{font-family:'Nunito',sans-serif;font-weight:600;font-size:13px;display:block;margin-top:4px;color:#92400e;}
+
+/* Tables */
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0;}
+th{background:#78350f;color:white;padding:12px 14px;text-align:left;font-weight:800;font-size:13px;}
+td{padding:11px 14px;border-bottom:1px solid #fde68a;font-size:13.5px;}
+tr:nth-child(even) td{background:#fffbeb;}
+
+/* Worked example */
+.worked-example{background:#fffbeb;border:2px solid #fde68a;border-radius:14px;padding:18px;margin:16px 0;}
+.worked-example h4{font-family:'Fredoka One',cursive;color:#78350f;font-size:16px;margin-bottom:8px;}
+.we-step{background:white;border-radius:10px;padding:12px 16px;margin:8px 0;border-left:4px solid #f59e0b;font-size:14px;}
+
+/* MCQ */
+.mcq-list{list-style:none;padding:0;}
+.mcq-item{background:white;border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
+.mcq-q{font-weight:700;font-size:14.5px;margin-bottom:10px;color:#78350f;}
+.mcq-options{list-style:none;padding:0;}
+.mcq-options li{background:#fffbeb;border-radius:8px;padding:7px 12px;margin-bottom:5px;font-size:13.5px;cursor:pointer;transition:all 0.2s;border:1.5px solid transparent;}
+.mcq-options li:hover{background:#fde68a;border-color:#f59e0b;}
+.mcq-options li.correct{background:#d1fae5!important;border-color:#22c55e;font-weight:700;color:#14532d;}
+.mcq-options li.wrong{background:#fee2e2!important;border-color:#ef4444;font-weight:700;color:#991b1b;}
+.mcq-ans{font-size:12.5px;color:#16a34a;font-weight:700;margin-top:6px;display:none;}
+.mcq-item.show-ans .mcq-ans{display:block;}
+
+/* Short Q */
+.short-q-list{list-style:none;padding:0;}
+.short-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #3b82f6;}
+.short-q{font-weight:700;font-size:14px;color:#1e40af;margin-bottom:6px;}
+.short-a{font-size:13.5px;color:#374151;}
+.short-a strong{color:#78350f;}
+
+/* Long Q */
+.long-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #d97706;}
+.long-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
+.long-a{font-size:13.5px;color:#374151;}
+.long-a strong{color:#78350f;}
+
+/* Fun facts */
+.fun-fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0;}
+.fun-fact-card{background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fbbf24;border-radius:14px;padding:16px 18px;font-size:14px;}
+.fun-fact-card h4{font-weight:800;font-size:15px;color:#92400e;margin-bottom:6px;}
+
+/* Bottom nav */
+.bottom-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:30px 0;}
+.bottom-nav-full{grid-column:1/-1;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.bottom-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:800;font-size:14px;text-decoration:none;color:white;transition:all 0.2s;}
+.bottom-btn:hover{transform:translateY(-2px);}
+.bottom-btn.home-btn{background:linear-gradient(135deg,#92400e,#f59e0b);}
+
+/* Share */
+.float-share-btn{position:fixed;bottom:24px;right:24px;width:52px;height:52px;background:linear-gradient(135deg,#92400e,#f59e0b);border-radius:50%;border:none;color:white;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(146,64,14,0.4);z-index:90;display:flex;align-items:center;justify-content:center;transition:all 0.3s;}
+.float-share-btn:hover{transform:scale(1.1);}
+.share-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;justify-content:center;align-items:center;}
+.share-overlay.active{display:flex;}
+.share-popup{background:white;border-radius:22px;padding:28px;max-width:360px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);text-align:center;}
+.share-popup h3{font-family:'Fredoka One',cursive;color:#78350f;font-size:20px;margin-bottom:16px;}
+.share-btn-row{display:flex;flex-direction:column;gap:10px;}
+.share-action-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;border:none;font-size:14px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:white;transition:all 0.2s;}
+.share-wa{background:#25d366;}
+.share-copy{background:#3b82f6;}
+.share-native{background:#f59e0b;color:#78350f;}
+.share-close-btn{margin-top:14px;background:#fde68a;color:#78350f;border:none;padding:8px 20px;border-radius:10px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+.share-action-btn:hover{opacity:0.9;transform:translateY(-1px);}
+.share-close-btn:hover{background:#fbbf24;}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Footer */
+footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#78350f,#f59e0b);color:white;font-size:14px;font-weight:700;}
+
+/* SVG diagrams */
+.svg-wrap{text-align:center;margin:16px 0;}
+.svg-wrap svg{max-width:100%;height:auto;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08);background:white;}
+
+/* Scrollbar styling */
+::-webkit-scrollbar{height:4px;width:4px;}
+::-webkit-scrollbar-thumb{background:#f59e0b;border-radius:4px;}
+
+/* Highlight animation for hero */
+@keyframes heroShape{0%,100%{transform:rotate(0deg) scale(1);opacity:0.7;}50%{transform:rotate(180deg) scale(1.2);opacity:1;}}
+@keyframes heroPulse{0%,100%{transform:scale(1);opacity:0.8;}50%{transform:scale(1.3);opacity:1;}}
+
+/* Unordered list styling inside section-bd */
+.section-bd ul{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ul li{margin-bottom:6px;}
+.section-bd ol{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ol li{margin-bottom:6px;}
+
+@media(max-width:600px){
+  .section-bd{padding:18px;}
+  .section-hd{padding:16px 20px;font-size:19px;}
+  .hero{min-height:340px;}
+  .toc-bar{top:40px;}
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] body{background:#1a1207;color:#fde68a;}
+[data-theme="dark"] .top-nav{background:#292013;box-shadow:0 2px 8px rgba(0,0,0,0.3);}
+[data-theme="dark"] .tn-home{background:linear-gradient(135deg,#422006,#78350f);color:#fde68a;border-color:#92400e;}
+[data-theme="dark"] .tn-share{background:linear-gradient(135deg,#422006,#78350f);color:#fde68a;border-color:#92400e;}
+[data-theme="dark"] .section-block{background:#292013;box-shadow:0 4px 24px rgba(0,0,0,0.3);}
+[data-theme="dark"] .section-bd > p{color:#fde68a;}
+[data-theme="dark"] .info-card{color:#fde68a;}
+[data-theme="dark"] .ic-blue{background:#1e293b;}
+[data-theme="dark"] .ic-indigo{background:#1e1b4b;}
+[data-theme="dark"] .ic-teal{background:#134e4a;}
+[data-theme="dark"] .ic-purple{background:#2e1065;}
+[data-theme="dark"] .ic-green{background:#14532d;}
+[data-theme="dark"] .ic-orange{background:#431407;}
+[data-theme="dark"] .ic-yellow{background:#422006;}
+[data-theme="dark"] .ic-amber{background:#422006;}
+[data-theme="dark"] .ic-red{background:#450a0a;}
+[data-theme="dark"] .ic-pink{background:#500724;}
+[data-theme="dark"] .trick{background:linear-gradient(135deg,#422006,#78350f);color:#fde68a;border-color:#92400e;}
+[data-theme="dark"] .note-box{background:#292013;border-color:#92400e;color:#fde68a;}
+[data-theme="dark"] .formula-box{background:linear-gradient(135deg,#422006,#78350f);border-color:#92400e;color:#fde68a;}
+[data-theme="dark"] .formula-box small{color:#fbbf24;}
+[data-theme="dark"] .worked-example{background:#1a1207;border-color:#78350f;}
+[data-theme="dark"] .worked-example h4{color:#fbbf24;}
+[data-theme="dark"] .we-step{background:#292013;color:#fde68a;border-color:#d97706;}
+[data-theme="dark"] .mcq-item{background:#292013;border-color:#d97706;}
+[data-theme="dark"] .mcq-q{color:#fbbf24;}
+[data-theme="dark"] .mcq-options li{background:#1a1207;color:#fde68a;}
+[data-theme="dark"] .mcq-options li:hover{background:#422006;border-color:#d97706;}
+[data-theme="dark"] .short-q-item{background:#292013;}
+[data-theme="dark"] .short-q{color:#fbbf24;}
+[data-theme="dark"] .short-a{color:#fde68a;}
+[data-theme="dark"] .long-q-item{background:#292013;}
+[data-theme="dark"] .long-q{color:#fbbf24;}
+[data-theme="dark"] .long-a{color:#fde68a;}
+[data-theme="dark"] .fun-fact-card{background:linear-gradient(135deg,#422006,#78350f);color:#fde68a;border-color:#92400e;}
+[data-theme="dark"] .fun-fact-card h4{color:#fbbf24;}
+[data-theme="dark"] .share-popup{background:#292013;}
+[data-theme="dark"] .share-popup h3{color:#fbbf24;}
+[data-theme="dark"] .share-close-btn{background:#78350f;color:#fde68a;}
+[data-theme="dark"] table th{background:#422006;}
+[data-theme="dark"] table td{border-color:#78350f;color:#fde68a;}
+[data-theme="dark"] tr:nth-child(even) td{background:#1a1207;}
+[data-theme="dark"] .subtitle{color:#fbbf24;}
+[data-theme="dark"] .svg-wrap svg{background:#292013;}
+</style>
+</head>
+<body>
+
+<!-- ========== TOP NAV ========== -->
+<div class="top-nav">
+  <a href="../../index.html" class="tn-home">&#127968; Home</a>
+  <div class="nav-spacer"></div>
+  <button class="tn-share" onclick="openSharePopup()">&#128228; Share</button>
+</div>
+
+<!-- ========== TABLE OF CONTENTS BAR ========== -->
+<div class="toc-bar">
+  <a href="#intro">&#128208; Intro</a>
+  <a href="#symmetry">&#128300; Symmetry</a>
+  <a href="#tessellations">&#129513; Tessellations</a>
+  <a href="#congruence">&#128311; Congruence</a>
+  <a href="#constructions">&#128207; Constructions</a>
+  <a href="#triangles">&#128314; Triangles</a>
+  <a href="#3dshapes">&#129513; 3D Shapes</a>
+  <a href="#nets">&#128230; Nets</a>
+  <a href="#worked">&#9999;&#65039; Examples</a>
+  <a href="#summary">&#128202; Summary</a>
+  <a href="#mcq">&#129504; MCQs</a>
+  <a href="#short">&#9997;&#65039; Short Q&amp;A</a>
+  <a href="#long">&#128214; Long Q&amp;A</a>
+  <a href="#funfacts">&#127775; Fun Facts</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Chapter 11 &middot; NCERT 2025-26</div>
+    <h1>&#128310; Exploring Some<br>Geometric Themes</h1>
+    <p>Symmetry &middot; Tessellations &middot; Congruence &middot; Constructions &middot; 3D Shapes</p>
+  </div>
+  <!-- Animated geometric shapes in hero -->
+  <div style="position:relative;max-width:320px;height:200px;margin:20px auto 0;">
+    <div style="position:absolute;width:40px;height:40px;border:3px solid rgba(255,255,255,0.6);top:15%;left:15%;animation:heroShape 6s ease-in-out infinite;"></div>
+    <div style="position:absolute;width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:35px solid rgba(255,255,255,0.5);top:20%;left:65%;animation:heroShape 6s ease-in-out infinite 1s;"></div>
+    <div style="position:absolute;width:30px;height:30px;background:rgba(255,255,255,0.4);border-radius:50%;top:55%;left:35%;animation:heroPulse 3s ease-in-out infinite;"></div>
+    <div style="position:absolute;width:35px;height:35px;border:3px solid rgba(255,255,255,0.5);transform:rotate(45deg);top:60%;left:70%;animation:heroShape 6s ease-in-out infinite 2s;"></div>
+    <div style="position:absolute;width:25px;height:25px;background:rgba(255,255,255,0.3);top:35%;left:50%;clip-path:polygon(50% 0%,0% 100%,100% 100%);animation:heroPulse 3s ease-in-out infinite 1.5s;"></div>
+  </div>
+</div>
+
+<!-- ========== MAIN CONTAINER ========== -->
+<div class="container">
+
+  <!-- =====================================================
+       SECTION 1: INTRODUCTION
+       ===================================================== -->
+  <div class="section-block reveal" id="intro">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128208;</span>
+      Introduction
+    </div>
+    <div class="section-bd">
+
+      <p>Geometry surrounds us everywhere &mdash; from the honeycomb pattern of a beehive to the symmetrical wings of a butterfly, from the tiled floors in our homes to the three-dimensional shapes of buildings and boxes. In this chapter, we embark on a fascinating exploration of several geometric themes that connect the flat world of 2D shapes with the solid world of 3D objects.</p>
+
+      <p>The <span class="kt">NCERT Ganita 2025-26</span> textbook brings together multiple geometric ideas under one roof, helping you see how symmetry, tessellations, congruence, constructions, and 3D geometry are all interconnected. Understanding these themes builds a strong foundation for higher-level geometry in Classes 9 and 10.</p>
+
+      <div class="subtitle">&#128218; Chapter Overview: What You Will Learn</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th>Key Concepts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Symmetry</td>
+              <td>Line symmetry, rotational symmetry, order of rotation</td>
+            </tr>
+            <tr>
+              <td>Tessellations</td>
+              <td>Tiling patterns, regular and semi-regular tessellations</td>
+            </tr>
+            <tr>
+              <td>Congruence of Triangles</td>
+              <td>SSS, SAS, ASA, RHS criteria</td>
+            </tr>
+            <tr>
+              <td>Geometric Constructions</td>
+              <td>Bisecting angles, perpendicular bisector</td>
+            </tr>
+            <tr>
+              <td>Properties of Triangles</td>
+              <td>Angle sum property, exterior angle theorem</td>
+            </tr>
+            <tr>
+              <td>3D Shapes</td>
+              <td>Faces, edges, vertices, Euler's formula</td>
+            </tr>
+            <tr>
+              <td>Nets of 3D Shapes</td>
+              <td>Unfolding solids, visualizing 3D in 2D</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Why This Chapter Matters:</strong> Geometry is not just about formulas &mdash; it trains your brain to think logically, visualize spatially, and solve problems creatively. Architects, engineers, artists, game developers, and scientists all rely on the geometric concepts you will learn here!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 2: LINE SYMMETRY & ROTATIONAL SYMMETRY
+       ===================================================== -->
+  <div class="section-block reveal" id="symmetry">
+    <div class="section-hd g-orange">
+      <span class="icon">&#128300;</span>
+      Symmetry &mdash; Line &amp; Rotational
+    </div>
+    <div class="section-bd">
+
+      <p>A figure has <span class="kt">line symmetry</span> if there is a line (called the <strong>line of symmetry</strong> or <strong>axis of symmetry</strong>) that divides the figure into two parts such that one part is the mirror image of the other. When you fold the figure along this line, the two halves match exactly.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128300; Line Symmetry</h4>
+          A figure has line symmetry if a line can divide it into two identical mirror-image halves. A figure can have <strong>zero, one, or many</strong> lines of symmetry.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128260; Rotational Symmetry</h4>
+          A figure has rotational symmetry if it looks exactly the same after being rotated (less than 360&deg;) about its centre. The number of times it matches in one full rotation is the <strong>order of rotation</strong>.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128310; Lines of Symmetry in Common Shapes</div>
+
+      <!-- SVG: Lines of symmetry examples -->
+      <div class="svg-wrap">
+        <svg viewBox="0 0 600 200" width="600" height="200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Equilateral Triangle -->
+          <g transform="translate(80,100)">
+            <polygon points="0,-60 -52,30 52,30" fill="none" stroke="#d97706" stroke-width="2.5"/>
+            <line x1="0" y1="-60" x2="0" y2="30" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="-52" y1="30" x2="26" y2="-15" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="52" y1="30" x2="-26" y2="-15" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <text x="0" y="55" text-anchor="middle" font-size="11" font-weight="700" fill="#78350f">Equil. Triangle</text>
+            <text x="0" y="68" text-anchor="middle" font-size="10" fill="#92400e">3 lines</text>
+          </g>
+          <!-- Square -->
+          <g transform="translate(220,100)">
+            <rect x="-40" y="-40" width="80" height="80" fill="none" stroke="#d97706" stroke-width="2.5"/>
+            <line x1="0" y1="-40" x2="0" y2="40" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="-40" y1="0" x2="40" y2="0" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="-40" y1="-40" x2="40" y2="40" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="40" y1="-40" x2="-40" y2="40" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <text x="0" y="55" text-anchor="middle" font-size="11" font-weight="700" fill="#78350f">Square</text>
+            <text x="0" y="68" text-anchor="middle" font-size="10" fill="#92400e">4 lines</text>
+          </g>
+          <!-- Regular Pentagon -->
+          <g transform="translate(360,100)">
+            <polygon points="0,-50 47.6,-15.5 29.4,40.5 -29.4,40.5 -47.6,-15.5" fill="none" stroke="#d97706" stroke-width="2.5"/>
+            <line x1="0" y1="-50" x2="0" y2="40.5" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <text x="0" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#78350f">Pentagon</text>
+            <text x="0" y="73" text-anchor="middle" font-size="10" fill="#92400e">5 lines</text>
+          </g>
+          <!-- Circle -->
+          <g transform="translate(500,100)">
+            <circle cx="0" cy="0" r="40" fill="none" stroke="#d97706" stroke-width="2.5"/>
+            <line x1="0" y1="-40" x2="0" y2="40" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="-40" y1="0" x2="40" y2="0" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="-28" y1="-28" x2="28" y2="28" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <text x="0" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#78350f">Circle</text>
+            <text x="0" y="73" text-anchor="middle" font-size="10" fill="#92400e">Infinite lines</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="subtitle">&#128260; Rotational Symmetry</div>
+
+      <p>A figure has <span class="kt">rotational symmetry of order n</span> if it maps onto itself exactly <strong>n times</strong> during a full 360&deg; rotation. The angle of rotation is 360&deg; &divide; n.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Shape</th><th>Lines of Symmetry</th><th>Rotational Order</th><th>Angle of Rotation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Equilateral Triangle</td><td>3</td><td>3</td><td>120&deg;</td></tr>
+            <tr><td>Square</td><td>4</td><td>4</td><td>90&deg;</td></tr>
+            <tr><td>Regular Pentagon</td><td>5</td><td>5</td><td>72&deg;</td></tr>
+            <tr><td>Regular Hexagon</td><td>6</td><td>6</td><td>60&deg;</td></tr>
+            <tr><td>Circle</td><td>Infinite</td><td>Infinite</td><td>Any angle</td></tr>
+            <tr><td>Parallelogram (non-rectangle)</td><td>0</td><td>2</td><td>180&deg;</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Key Rule:</strong> A regular polygon with <strong>n</strong> sides always has exactly <strong>n</strong> lines of symmetry and rotational symmetry of order <strong>n</strong>. The angle of rotation = 360&deg; &divide; n.
+      </div>
+
+      <div class="trick">
+        <strong>&#9997;&#65039; Remember:</strong> A parallelogram has rotational symmetry of order 2 but <strong>no line of symmetry</strong> (unless it is a rectangle or rhombus). This is a common exam trap!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 3: TESSELLATIONS
+       ===================================================== -->
+  <div class="section-block reveal" id="tessellations">
+    <div class="section-hd g-yellow">
+      <span class="icon">&#129513;</span>
+      Tessellations &amp; Tiling Patterns
+    </div>
+    <div class="section-bd">
+
+      <p>A <span class="kt">tessellation</span> (or tiling) is a pattern of shapes that covers a flat surface completely <strong>without any gaps or overlaps</strong>. You see tessellations everywhere &mdash; in bathroom tiles, brick walls, honeycomb structures, and decorative art.</p>
+
+      <div class="subtitle">&#128310; Which Regular Polygons Can Tessellate?</div>
+
+      <p>For a regular polygon to tessellate the plane by itself, its interior angle must be a factor of 360&deg;. Let us check:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Regular Polygon</th><th>Interior Angle</th><th>360&deg; &divide; Angle</th><th>Can Tessellate?</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Equilateral Triangle</td><td>60&deg;</td><td>6 (whole number)</td><td><strong style="color:#16a34a;">Yes</strong></td></tr>
+            <tr><td>Square</td><td>90&deg;</td><td>4 (whole number)</td><td><strong style="color:#16a34a;">Yes</strong></td></tr>
+            <tr><td>Regular Pentagon</td><td>108&deg;</td><td>3.33... (not whole)</td><td><strong style="color:#ef4444;">No</strong></td></tr>
+            <tr><td>Regular Hexagon</td><td>120&deg;</td><td>3 (whole number)</td><td><strong style="color:#16a34a;">Yes</strong></td></tr>
+            <tr><td>Regular Heptagon</td><td>128.57&deg;</td><td>2.8 (not whole)</td><td><strong style="color:#ef4444;">No</strong></td></tr>
+            <tr><td>Regular Octagon</td><td>135&deg;</td><td>2.67 (not whole)</td><td><strong style="color:#ef4444;">No</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SVG: Tessellation patterns -->
+      <div class="svg-wrap">
+        <svg viewBox="0 0 540 180" width="540" height="180" xmlns="http://www.w3.org/2000/svg">
+          <!-- Triangle tessellation -->
+          <g transform="translate(10,10)">
+            <rect x="0" y="0" width="160" height="140" rx="8" fill="#fffbeb" stroke="#fde68a" stroke-width="1.5"/>
+            <g transform="translate(10,10)" fill="none" stroke="#d97706" stroke-width="1.2">
+              <polygon points="0,120 25,76.7 50,120"/>
+              <polygon points="25,76.7 50,120 75,76.7"/>
+              <polygon points="50,120 75,76.7 100,120"/>
+              <polygon points="75,76.7 100,120 125,76.7"/>
+              <polygon points="100,120 125,76.7 140,120"/>
+              <polygon points="0,120 25,76.7 -10,76.7"/>
+              <polygon points="25,76.7 0,33.4 50,33.4"/>
+              <polygon points="25,76.7 50,33.4 50,120" fill="#fef3c7"/>
+              <polygon points="50,33.4 75,76.7 100,33.4"/>
+              <polygon points="75,76.7 100,33.4 100,76.7" fill="#fef3c7"/>
+              <polygon points="100,33.4 125,76.7 140,33.4"/>
+              <polygon points="25,76.7 50,33.4 75,76.7" fill="#fff7ed"/>
+            </g>
+            <text x="80" y="155" text-anchor="middle" font-size="10" font-weight="700" fill="#78350f">Triangles</text>
+          </g>
+          <!-- Square tessellation -->
+          <g transform="translate(190,10)">
+            <rect x="0" y="0" width="160" height="140" rx="8" fill="#fffbeb" stroke="#fde68a" stroke-width="1.5"/>
+            <g transform="translate(10,10)">
+              <rect x="0" y="0" width="35" height="35" fill="#fef3c7" stroke="#d97706" stroke-width="1.2"/>
+              <rect x="35" y="0" width="35" height="35" fill="#fff7ed" stroke="#d97706" stroke-width="1.2"/>
+              <rect x="70" y="0" width="35" height="35" fill="#fef3c7" stroke="#d97706" stroke-width="1.2"/>
+              <rect x="105" y="0" width="35" height="35" fill="#fff7ed" stroke="#d97706" stroke-width="1.2"/>
+              <rect x="0" y="35" width="35" height="35" fill="#fff7ed" stroke="#d97706" stroke-width="1.2"/>
+              <rect x="35" y="35" width="35" height="35" fill="#fef3c7" stroke="#d97706" stroke-width="1.2"/>
+              <rect x="70" y="35" width="35" height="35" fill="#fff7ed" stroke="#d97706" stroke-width="1.2"/>
+              <rect x="105" y="35" width="35" height="35" fill="#fef3c7" stroke="#d97706" stroke-width="1.2"/>
+              <rect x="0" y="70" width="35" height="35" fill="#fef3c7" stroke="#d97706" stroke-width="1.2"/>
+              <rect x="35" y="70" width="35" height="35" fill="#fff7ed" stroke="#d97706" stroke-width="1.2"/>
+              <rect x="70" y="70" width="35" height="35" fill="#fef3c7" stroke="#d97706" stroke-width="1.2"/>
+              <rect x="105" y="70" width="35" height="35" fill="#fff7ed" stroke="#d97706" stroke-width="1.2"/>
+            </g>
+            <text x="80" y="155" text-anchor="middle" font-size="10" font-weight="700" fill="#78350f">Squares</text>
+          </g>
+          <!-- Hexagon tessellation -->
+          <g transform="translate(370,10)">
+            <rect x="0" y="0" width="160" height="140" rx="8" fill="#fffbeb" stroke="#fde68a" stroke-width="1.5"/>
+            <g transform="translate(15,20)" fill="none" stroke="#d97706" stroke-width="1.2">
+              <polygon points="20,0 40,0 50,17.3 40,34.6 20,34.6 10,17.3" fill="#fef3c7"/>
+              <polygon points="60,0 80,0 90,17.3 80,34.6 60,34.6 50,17.3" fill="#fff7ed"/>
+              <polygon points="100,0 120,0 130,17.3 120,34.6 100,34.6 90,17.3" fill="#fef3c7"/>
+              <polygon points="0,34.6 20,34.6 30,51.9 20,69.2 0,69.2 -10,51.9" fill="#fff7ed"/>
+              <polygon points="40,34.6 60,34.6 70,51.9 60,69.2 40,69.2 30,51.9" fill="#fef3c7"/>
+              <polygon points="80,34.6 100,34.6 110,51.9 100,69.2 80,69.2 70,51.9" fill="#fff7ed"/>
+              <polygon points="20,69.2 40,69.2 50,86.5 40,103.8 20,103.8 10,86.5" fill="#fef3c7"/>
+              <polygon points="60,69.2 80,69.2 90,86.5 80,103.8 60,103.8 50,86.5" fill="#fff7ed"/>
+              <polygon points="100,69.2 120,69.2 130,86.5 120,103.8 100,103.8 90,86.5" fill="#fef3c7"/>
+            </g>
+            <text x="80" y="155" text-anchor="middle" font-size="10" font-weight="700" fill="#78350f">Hexagons</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="formula-box">
+        Only 3 regular polygons tessellate by themselves: <strong>Triangle, Square, Hexagon</strong>
+        <small>At each vertex, the angles must add up to exactly 360&deg;</small>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Semi-Regular Tessellations:</strong> When you combine two or more types of regular polygons to tile the plane (with the same arrangement at every vertex), you get a <strong>semi-regular tessellation</strong>. For example, regular octagons and squares can tile the plane together (each octagon is surrounded by squares filling the gaps). There are exactly 8 semi-regular tessellations.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 4: CONGRUENCE OF TRIANGLES
+       ===================================================== -->
+  <div class="section-block reveal" id="congruence">
+    <div class="section-hd g-teal">
+      <span class="icon">&#128311;</span>
+      Congruence of Triangles
+    </div>
+    <div class="section-bd">
+
+      <p>Two triangles are said to be <span class="kt">congruent</span> if they have exactly the same shape and size. When two triangles are congruent, all their corresponding sides are equal and all their corresponding angles are equal. We write &#9651;ABC &cong; &#9651;DEF.</p>
+
+      <p>However, we do <strong>not</strong> need to check all six measurements (3 sides + 3 angles). There are shortcut rules called <strong>congruence criteria</strong>:</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-teal">
+          <h4>&#9654; SSS (Side-Side-Side)</h4>
+          If all <strong>three sides</strong> of one triangle are equal to the three sides of another triangle, the triangles are congruent.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#9654; SAS (Side-Angle-Side)</h4>
+          If <strong>two sides</strong> and the <strong>included angle</strong> (the angle between them) of one triangle equal those of another, the triangles are congruent.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#9654; ASA (Angle-Side-Angle)</h4>
+          If <strong>two angles</strong> and the <strong>included side</strong> (the side between them) of one triangle equal those of another, the triangles are congruent.
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#9654; RHS (Right-Hypotenuse-Side)</h4>
+          If the <strong>hypotenuse</strong> and one <strong>side</strong> of a right triangle equal those of another right triangle, the triangles are congruent.
+        </div>
+      </div>
+
+      <!-- SVG: SAS Congruence Diagram -->
+      <div class="subtitle">&#128310; SAS Congruence Illustrated</div>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 500 200" width="500" height="200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Triangle 1 -->
+          <g transform="translate(20,20)">
+            <polygon points="10,160 130,160 70,30" fill="none" stroke="#d97706" stroke-width="2.5"/>
+            <text x="5" y="175" font-size="13" font-weight="700" fill="#78350f">A</text>
+            <text x="132" y="175" font-size="13" font-weight="700" fill="#78350f">B</text>
+            <text x="64" y="25" font-size="13" font-weight="700" fill="#78350f">C</text>
+            <!-- Side labels -->
+            <text x="60" y="172" text-anchor="middle" font-size="10" fill="#92400e" font-weight="700">5 cm</text>
+            <text x="28" y="95" text-anchor="middle" font-size="10" fill="#92400e" font-weight="700" transform="rotate(-60,28,95)">6 cm</text>
+            <!-- Angle arc at A -->
+            <path d="M 30,160 A 20,20 0 0,1 22,145" fill="none" stroke="#ef4444" stroke-width="2"/>
+            <text x="38" y="148" font-size="9" fill="#ef4444" font-weight="700">50&deg;</text>
+          </g>
+          <!-- Equals sign -->
+          <g transform="translate(210,90)">
+            <text x="0" y="0" font-size="28" font-weight="900" fill="#d97706">&cong;</text>
+          </g>
+          <!-- Triangle 2 -->
+          <g transform="translate(260,20)">
+            <polygon points="10,160 130,160 70,30" fill="none" stroke="#d97706" stroke-width="2.5"/>
+            <text x="5" y="175" font-size="13" font-weight="700" fill="#78350f">D</text>
+            <text x="132" y="175" font-size="13" font-weight="700" fill="#78350f">E</text>
+            <text x="64" y="25" font-size="13" font-weight="700" fill="#78350f">F</text>
+            <!-- Side labels -->
+            <text x="60" y="172" text-anchor="middle" font-size="10" fill="#92400e" font-weight="700">5 cm</text>
+            <text x="28" y="95" text-anchor="middle" font-size="10" fill="#92400e" font-weight="700" transform="rotate(-60,28,95)">6 cm</text>
+            <!-- Angle arc at D -->
+            <path d="M 30,160 A 20,20 0 0,1 22,145" fill="none" stroke="#ef4444" stroke-width="2"/>
+            <text x="38" y="148" font-size="9" fill="#ef4444" font-weight="700">50&deg;</text>
+          </g>
+        </svg>
+      </div>
+      <p style="text-align:center;font-size:13px;color:#92400e;font-weight:700;margin-top:-8px;">SAS: Two sides (5 cm, 6 cm) and the included angle (50&deg;) are equal &rArr; &#9651;ABC &cong; &#9651;DEF</p>
+
+      <div class="trick">
+        <strong>&#128680; Common Mistake:</strong> SSA (Side-Side-Angle) is <strong>NOT</strong> a valid congruence criterion! If the angle is not the included angle (between the two sides), two different triangles can be formed. This is often called the "ambiguous case."
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; CPCT:</strong> Once you prove two triangles are congruent, you can state that all <strong>Corresponding Parts of Congruent Triangles</strong> are equal. This powerful idea (abbreviated CPCT) is used extensively in proofs.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 5: GEOMETRIC CONSTRUCTIONS
+       ===================================================== -->
+  <div class="section-block reveal" id="constructions">
+    <div class="section-hd g-blue">
+      <span class="icon">&#128207;</span>
+      Geometric Constructions
+    </div>
+    <div class="section-bd">
+
+      <p>Geometric constructions are drawings made using only a <span class="kt">compass</span> and a <span class="kt">straight edge</span> (unmarked ruler). No measurements are read from the ruler &mdash; we only use it to draw straight lines. This ancient practice trains precision and logical thinking.</p>
+
+      <div class="subtitle">&#9999;&#65039; Construction 1: Bisecting an Angle</div>
+
+      <p>To bisect angle &ang;ABC means to draw a ray BD that divides the angle into two equal parts, so &ang;ABD = &ang;DBC.</p>
+
+      <!-- SVG: Angle Bisector Construction -->
+      <div class="svg-wrap">
+        <svg viewBox="0 0 400 250" width="400" height="250" xmlns="http://www.w3.org/2000/svg">
+          <!-- Angle rays -->
+          <line x1="60" y1="200" x2="350" y2="200" stroke="#78350f" stroke-width="2"/>
+          <line x1="60" y1="200" x2="230" y2="40" stroke="#78350f" stroke-width="2"/>
+          <!-- Arc from B -->
+          <path d="M 140,200 A 80,80 0 0,1 112,140" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5,3"/>
+          <!-- Arc from P -->
+          <path d="M 140,200 A 60,60 0 0,1 125,155" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+          <!-- Arc from Q -->
+          <path d="M 112,140 A 60,60 0 0,0 125,155" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+          <!-- Bisector -->
+          <line x1="60" y1="200" x2="260" y2="90" stroke="#ef4444" stroke-width="2" stroke-dasharray="8,4"/>
+          <!-- Labels -->
+          <text x="50" y="215" font-size="14" font-weight="700" fill="#78350f">B</text>
+          <text x="350" y="215" font-size="14" font-weight="700" fill="#78350f">C</text>
+          <text x="230" y="35" font-size="14" font-weight="700" fill="#78350f">A</text>
+          <text x="265" y="85" font-size="14" font-weight="700" fill="#ef4444">D</text>
+          <circle cx="140" cy="200" r="3" fill="#d97706"/>
+          <text x="143" y="195" font-size="10" fill="#d97706" font-weight="700">P</text>
+          <circle cx="112" cy="140" r="3" fill="#d97706"/>
+          <text x="100" y="136" font-size="10" fill="#d97706" font-weight="700">Q</text>
+          <circle cx="125" cy="155" r="3" fill="#3b82f6"/>
+          <!-- Angle marks -->
+          <path d="M 90,200 A 30,30 0 0,1 82,185" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+          <path d="M 82,185 A 30,30 0 0,1 80,175" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+          <!-- Steps annotation -->
+          <text x="200" y="165" font-size="10" fill="#3b82f6" font-weight="600">Equal arcs from P &amp; Q</text>
+          <text x="200" y="180" font-size="10" fill="#3b82f6" font-weight="600">meet to fix bisector</text>
+        </svg>
+      </div>
+
+      <div class="worked-example">
+        <h4>&#9999;&#65039; Steps to Bisect an Angle</h4>
+        <div class="we-step"><strong>Step 1:</strong> With B as centre, draw an arc that cuts both arms of the angle at points P and Q.</div>
+        <div class="we-step"><strong>Step 2:</strong> With P as centre, draw an arc inside the angle (radius more than half of PQ).</div>
+        <div class="we-step"><strong>Step 3:</strong> With Q as centre and same radius, draw another arc intersecting the first arc at point R.</div>
+        <div class="we-step"><strong>Step 4:</strong> Draw the ray BR. This ray bisects &ang;ABC, i.e., &ang;ABR = &ang;RBC.</div>
+      </div>
+
+      <div class="subtitle">&#9999;&#65039; Construction 2: Perpendicular Bisector of a Line Segment</div>
+
+      <p>The <span class="kt">perpendicular bisector</span> of a line segment AB is a line that passes through the midpoint of AB and is perpendicular to it. Every point on this line is equidistant from A and B.</p>
+
+      <!-- SVG: Perpendicular Bisector Construction -->
+      <div class="svg-wrap">
+        <svg viewBox="0 0 400 280" width="400" height="280" xmlns="http://www.w3.org/2000/svg">
+          <!-- Line segment AB -->
+          <line x1="80" y1="160" x2="320" y2="160" stroke="#78350f" stroke-width="2.5"/>
+          <!-- Arcs from A -->
+          <path d="M 200,70 A 140,140 0 0,0 200,250" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6"/>
+          <!-- Arcs from B -->
+          <path d="M 200,70 A 140,140 0 0,1 200,250" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6"/>
+          <!-- Perpendicular bisector -->
+          <line x1="200" y1="50" x2="200" y2="270" stroke="#ef4444" stroke-width="2" stroke-dasharray="8,4"/>
+          <!-- Right angle mark -->
+          <rect x="200" y="150" width="10" height="10" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+          <!-- Points -->
+          <circle cx="80" cy="160" r="4" fill="#78350f"/>
+          <circle cx="320" cy="160" r="4" fill="#78350f"/>
+          <circle cx="200" cy="160" r="4" fill="#ef4444"/>
+          <circle cx="200" cy="70" r="3" fill="#d97706"/>
+          <circle cx="200" cy="250" r="3" fill="#d97706"/>
+          <!-- Labels -->
+          <text x="68" y="178" font-size="14" font-weight="700" fill="#78350f">A</text>
+          <text x="322" y="178" font-size="14" font-weight="700" fill="#78350f">B</text>
+          <text x="205" y="175" font-size="12" font-weight="700" fill="#ef4444">M</text>
+          <text x="205" y="65" font-size="12" font-weight="700" fill="#d97706">P</text>
+          <text x="205" y="266" font-size="12" font-weight="700" fill="#d97706">Q</text>
+          <!-- Measurement -->
+          <text x="140" y="150" text-anchor="middle" font-size="10" fill="#92400e" font-weight="600">equal</text>
+          <text x="260" y="150" text-anchor="middle" font-size="10" fill="#92400e" font-weight="600">equal</text>
+        </svg>
+      </div>
+
+      <div class="worked-example">
+        <h4>&#9999;&#65039; Steps for Perpendicular Bisector</h4>
+        <div class="we-step"><strong>Step 1:</strong> Open the compass to more than half the length of AB.</div>
+        <div class="we-step"><strong>Step 2:</strong> With A as centre, draw arcs above and below the line segment.</div>
+        <div class="we-step"><strong>Step 3:</strong> With B as centre and same radius, draw arcs that intersect the first arcs at points P and Q.</div>
+        <div class="we-step"><strong>Step 4:</strong> Draw line PQ. This line is the perpendicular bisector of AB, crossing it at midpoint M.</div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Property:</strong> Every point on the perpendicular bisector of a segment AB is equidistant from A and B. This property is extremely useful in locating the circumcentre of a triangle (the point equidistant from all three vertices).
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 6: PROPERTIES OF TRIANGLES
+       ===================================================== -->
+  <div class="section-block reveal" id="triangles">
+    <div class="section-hd g-green">
+      <span class="icon">&#128314;</span>
+      Properties of Triangles
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128310; Angle Sum Property</div>
+
+      <p>The sum of the three interior angles of any triangle is always <span class="kt">180&deg;</span>. This is one of the most fundamental results in Euclidean geometry.</p>
+
+      <div class="formula-box">
+        &ang;A + &ang;B + &ang;C = 180&deg;
+        <small>Angle Sum Property of a Triangle</small>
+      </div>
+
+      <!-- SVG: Angle Sum Property -->
+      <div class="svg-wrap">
+        <svg viewBox="0 0 400 220" width="400" height="220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Triangle -->
+          <polygon points="200,30 50,180 350,180" fill="none" stroke="#d97706" stroke-width="2.5"/>
+          <!-- Angle arcs -->
+          <path d="M 200,60 A 30,30 0 0,1 185,55" fill="none" stroke="#ef4444" stroke-width="2"/>
+          <path d="M 75,180 A 25,25 0 0,0 60,165" fill="none" stroke="#3b82f6" stroke-width="2"/>
+          <path d="M 325,180 A 25,25 0 0,1 338,167" fill="none" stroke="#22c55e" stroke-width="2"/>
+          <!-- Angle labels -->
+          <text x="195" y="75" text-anchor="middle" font-size="12" font-weight="700" fill="#ef4444">&ang;A</text>
+          <text x="82" y="172" font-size="12" font-weight="700" fill="#3b82f6">&ang;B</text>
+          <text x="312" y="172" font-size="12" font-weight="700" fill="#22c55e">&ang;C</text>
+          <!-- Vertex labels -->
+          <text x="200" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#78350f">A</text>
+          <text x="38" y="192" font-size="14" font-weight="700" fill="#78350f">B</text>
+          <text x="354" y="192" font-size="14" font-weight="700" fill="#78350f">C</text>
+          <!-- Formula -->
+          <text x="200" y="210" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">&ang;A + &ang;B + &ang;C = 180&deg;</text>
+        </svg>
+      </div>
+
+      <div class="subtitle">&#128310; Exterior Angle Theorem</div>
+
+      <p>An <span class="kt">exterior angle</span> of a triangle is formed by one side of the triangle and the extension of an adjacent side. The Exterior Angle Theorem states:</p>
+
+      <div class="formula-box">
+        Exterior Angle = Sum of the two non-adjacent interior angles
+        <small>If &ang;ACD is exterior at C, then &ang;ACD = &ang;A + &ang;B</small>
+      </div>
+
+      <!-- SVG: Exterior Angle Theorem -->
+      <div class="svg-wrap">
+        <svg viewBox="0 0 450 200" width="450" height="200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Triangle -->
+          <polygon points="180,30 50,160 300,160" fill="none" stroke="#d97706" stroke-width="2.5"/>
+          <!-- Extended side -->
+          <line x1="300" y1="160" x2="420" y2="160" stroke="#d97706" stroke-width="2.5" stroke-dasharray="6,3"/>
+          <!-- Interior angle arcs -->
+          <path d="M 180,56 A 26,26 0 0,1 165,52" fill="none" stroke="#3b82f6" stroke-width="2"/>
+          <path d="M 74,160 A 24,24 0 0,0 62,147" fill="none" stroke="#3b82f6" stroke-width="2"/>
+          <!-- Exterior angle arc -->
+          <path d="M 280,160 A 20,20 0 0,0 294,148" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+          <!-- Labels -->
+          <text x="180" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#78350f">A</text>
+          <text x="36" y="170" font-size="14" font-weight="700" fill="#78350f">B</text>
+          <text x="300" y="178" font-size="14" font-weight="700" fill="#78350f">C</text>
+          <text x="424" y="168" font-size="14" font-weight="700" fill="#78350f">D</text>
+          <!-- Angle values -->
+          <text x="170" y="70" font-size="11" font-weight="700" fill="#3b82f6">40&deg;</text>
+          <text x="82" y="152" font-size="11" font-weight="700" fill="#3b82f6">60&deg;</text>
+          <text x="320" y="148" font-size="12" font-weight="800" fill="#ef4444">100&deg;</text>
+          <!-- Equation -->
+          <text x="225" y="195" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">&ang;ACD = &ang;A + &ang;B = 40&deg; + 60&deg; = 100&deg;</text>
+        </svg>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Quick Check:</strong> An exterior angle of a triangle is always <strong>greater</strong> than either of the non-adjacent interior angles. This is because it equals their sum!
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#128314; Triangle Inequality</h4>
+          The sum of any two sides of a triangle must be <strong>greater</strong> than the third side. For sides a, b, c: a + b &gt; c, b + c &gt; a, and a + c &gt; b.
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#128314; Isosceles Triangle</h4>
+          In an isosceles triangle, the angles opposite to the equal sides are also equal. Conversely, if two angles are equal, the sides opposite them are equal.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 7: 3D SHAPES — FACES, EDGES, VERTICES
+       ===================================================== -->
+  <div class="section-block reveal" id="3dshapes">
+    <div class="section-hd g-purple">
+      <span class="icon">&#129513;</span>
+      3D Shapes &mdash; Faces, Edges, Vertices
+    </div>
+    <div class="section-bd">
+
+      <p>A <span class="kt">3D shape</span> (solid) has three dimensions &mdash; length, width, and height. Every polyhedron (a solid with flat faces) has <strong>faces</strong> (flat surfaces), <strong>edges</strong> (line segments where two faces meet), and <strong>vertices</strong> (corner points where edges meet).</p>
+
+      <div class="subtitle">&#128310; Euler's Formula</div>
+
+      <p>The great mathematician Leonhard Euler discovered a beautiful relationship connecting faces (F), vertices (V), and edges (E) of any convex polyhedron:</p>
+
+      <div class="formula-box">
+        F + V &minus; E = 2
+        <small>Euler's Formula for Polyhedra</small>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>3D Shape</th><th>Faces (F)</th><th>Vertices (V)</th><th>Edges (E)</th><th>F + V &minus; E</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Tetrahedron</td><td>4</td><td>4</td><td>6</td><td>4 + 4 &minus; 6 = <strong>2</strong></td></tr>
+            <tr><td>Cube</td><td>6</td><td>8</td><td>12</td><td>6 + 8 &minus; 12 = <strong>2</strong></td></tr>
+            <tr><td>Triangular Prism</td><td>5</td><td>6</td><td>9</td><td>5 + 6 &minus; 9 = <strong>2</strong></td></tr>
+            <tr><td>Square Pyramid</td><td>5</td><td>5</td><td>8</td><td>5 + 5 &minus; 8 = <strong>2</strong></td></tr>
+            <tr><td>Pentagonal Prism</td><td>7</td><td>10</td><td>15</td><td>7 + 10 &minus; 15 = <strong>2</strong></td></tr>
+            <tr><td>Octahedron</td><td>8</td><td>6</td><td>12</td><td>8 + 6 &minus; 12 = <strong>2</strong></td></tr>
+            <tr><td>Dodecahedron</td><td>12</td><td>20</td><td>30</td><td>12 + 20 &minus; 30 = <strong>2</strong></td></tr>
+            <tr><td>Icosahedron</td><td>20</td><td>12</td><td>30</td><td>20 + 12 &minus; 30 = <strong>2</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SVG: 3D Shapes -->
+      <div class="subtitle">&#128310; Common 3D Shapes</div>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 600 220" width="600" height="220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Tetrahedron -->
+          <g transform="translate(60,110)">
+            <polygon points="0,-70 -55,40 55,40" fill="none" stroke="#d97706" stroke-width="2"/>
+            <line x1="0" y1="-70" x2="15" y2="15" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="-55" y1="40" x2="15" y2="15" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="55" y1="40" x2="15" y2="15" stroke="#d97706" stroke-width="2"/>
+            <circle cx="15" cy="15" r="2.5" fill="#d97706"/>
+            <text x="0" y="65" text-anchor="middle" font-size="11" font-weight="700" fill="#78350f">Tetrahedron</text>
+            <text x="0" y="78" text-anchor="middle" font-size="9" fill="#92400e">F=4, V=4, E=6</text>
+          </g>
+          <!-- Cube -->
+          <g transform="translate(190,110)">
+            <rect x="-35" y="-35" width="70" height="70" fill="none" stroke="#d97706" stroke-width="2"/>
+            <rect x="-20" y="-55" width="70" height="70" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="-35" y1="-35" x2="-20" y2="-55" stroke="#d97706" stroke-width="1.5"/>
+            <line x1="35" y1="-35" x2="50" y2="-55" stroke="#d97706" stroke-width="2"/>
+            <line x1="35" y1="35" x2="50" y2="15" stroke="#d97706" stroke-width="2"/>
+            <line x1="-35" y1="35" x2="-20" y2="15" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <text x="0" y="65" text-anchor="middle" font-size="11" font-weight="700" fill="#78350f">Cube</text>
+            <text x="0" y="78" text-anchor="middle" font-size="9" fill="#92400e">F=6, V=8, E=12</text>
+          </g>
+          <!-- Triangular Prism -->
+          <g transform="translate(330,110)">
+            <polygon points="-40,40 0,-50 40,40" fill="none" stroke="#d97706" stroke-width="2"/>
+            <polygon points="-20,50 20,-40 60,50" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="-40" y1="40" x2="-20" y2="50" stroke="#d97706" stroke-width="2"/>
+            <line x1="0" y1="-50" x2="20" y2="-40" stroke="#d97706" stroke-width="2"/>
+            <line x1="40" y1="40" x2="60" y2="50" stroke="#d97706" stroke-width="2"/>
+            <text x="10" y="75" text-anchor="middle" font-size="11" font-weight="700" fill="#78350f">Tri. Prism</text>
+            <text x="10" y="88" text-anchor="middle" font-size="9" fill="#92400e">F=5, V=6, E=9</text>
+          </g>
+          <!-- Square Pyramid -->
+          <g transform="translate(490,110)">
+            <rect x="-40" y="-10" width="80" height="55" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,3" transform="skewX(-10)"/>
+            <polygon points="-40,-10 40,-10 50,45 -30,45" fill="none" stroke="#d97706" stroke-width="2"/>
+            <line x1="-40" y1="-10" x2="5" y2="-70" stroke="#d97706" stroke-width="2"/>
+            <line x1="40" y1="-10" x2="5" y2="-70" stroke="#d97706" stroke-width="2"/>
+            <line x1="50" y1="45" x2="5" y2="-70" stroke="#d97706" stroke-width="2"/>
+            <line x1="-30" y1="45" x2="5" y2="-70" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <circle cx="5" cy="-70" r="3" fill="#d97706"/>
+            <text x="5" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="#78350f">Sq. Pyramid</text>
+            <text x="5" y="85" text-anchor="middle" font-size="9" fill="#92400e">F=5, V=5, E=8</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Memory Trick for Euler's Formula:</strong> Think <strong>"FaVE = 2"</strong> &mdash; <strong>F</strong>aces plus <strong>V</strong>ertices minus <strong>E</strong>dges always equals <strong>2</strong> for any convex polyhedron. If you know any two of F, V, E, you can always find the third!
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Platonic Solids:</strong> There are exactly <strong>5 Platonic solids</strong> &mdash; regular polyhedra where every face is the same regular polygon and the same number of faces meet at each vertex. They are: Tetrahedron (4 faces), Cube (6), Octahedron (8), Dodecahedron (12), and Icosahedron (20).
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 8: NETS OF 3D SHAPES
+       ===================================================== -->
+  <div class="section-block reveal" id="nets">
+    <div class="section-hd g-slate">
+      <span class="icon">&#128230;</span>
+      Nets of 3D Shapes &amp; Visualizing 3D in 2D
+    </div>
+    <div class="section-bd">
+
+      <p>A <span class="kt">net</span> is a 2D pattern that can be folded to form a 3D shape. Imagine cutting open a cardboard box and laying it flat &mdash; that flat layout is the net of the box. Nets help us understand how 3D shapes are constructed from flat surfaces.</p>
+
+      <div class="subtitle">&#128230; Net of a Cube</div>
+
+      <!-- SVG: Net of a Cube -->
+      <div class="svg-wrap">
+        <svg viewBox="0 0 400 300" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+          <!-- Cross-shaped cube net -->
+          <rect x="120" y="10" width="60" height="60" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+          <text x="150" y="45" text-anchor="middle" font-size="10" font-weight="700" fill="#78350f">Top</text>
+          <rect x="120" y="70" width="60" height="60" fill="#fff7ed" stroke="#d97706" stroke-width="2"/>
+          <text x="150" y="105" text-anchor="middle" font-size="10" font-weight="700" fill="#78350f">Front</text>
+          <rect x="60" y="70" width="60" height="60" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+          <text x="90" y="105" text-anchor="middle" font-size="10" font-weight="700" fill="#78350f">Left</text>
+          <rect x="180" y="70" width="60" height="60" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+          <text x="210" y="105" text-anchor="middle" font-size="10" font-weight="700" fill="#78350f">Right</text>
+          <rect x="240" y="70" width="60" height="60" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+          <text x="270" y="105" text-anchor="middle" font-size="10" font-weight="700" fill="#78350f">Back</text>
+          <rect x="120" y="130" width="60" height="60" fill="#fff7ed" stroke="#d97706" stroke-width="2"/>
+          <text x="150" y="165" text-anchor="middle" font-size="10" font-weight="700" fill="#78350f">Bottom</text>
+          <!-- Fold lines -->
+          <text x="150" y="215" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">Net of a Cube (cross shape)</text>
+          <text x="150" y="232" text-anchor="middle" font-size="10" fill="#78350f">6 square faces &mdash; fold along edges to form the cube</text>
+        </svg>
+      </div>
+
+      <div class="subtitle">&#128230; Net of a Triangular Prism</div>
+
+      <!-- SVG: Net of a Triangular Prism -->
+      <div class="svg-wrap">
+        <svg viewBox="0 0 400 250" width="400" height="250" xmlns="http://www.w3.org/2000/svg">
+          <!-- Three rectangles -->
+          <rect x="50" y="60" width="80" height="100" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+          <text x="90" y="115" text-anchor="middle" font-size="9" font-weight="700" fill="#78350f">Face 1</text>
+          <rect x="130" y="60" width="80" height="100" fill="#fff7ed" stroke="#d97706" stroke-width="2"/>
+          <text x="170" y="115" text-anchor="middle" font-size="9" font-weight="700" fill="#78350f">Face 2</text>
+          <rect x="210" y="60" width="80" height="100" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+          <text x="250" y="115" text-anchor="middle" font-size="9" font-weight="700" fill="#78350f">Face 3</text>
+          <!-- Top triangle -->
+          <polygon points="130,60 170,15 210,60" fill="#fef9c3" stroke="#d97706" stroke-width="2"/>
+          <text x="170" y="50" text-anchor="middle" font-size="9" font-weight="700" fill="#78350f">Top</text>
+          <!-- Bottom triangle -->
+          <polygon points="130,160 170,205 210,160" fill="#fef9c3" stroke="#d97706" stroke-width="2"/>
+          <text x="170" y="185" text-anchor="middle" font-size="9" font-weight="700" fill="#78350f">Base</text>
+          <text x="170" y="235" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">Net of a Triangular Prism</text>
+        </svg>
+      </div>
+
+      <div class="subtitle">&#128065;&#65039; Visualizing 3D Shapes in 2D</div>
+
+      <p>When we draw a 3D shape on paper (a 2D surface), we use techniques to give the illusion of depth:</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-blue">
+          <h4>&#128206; Oblique Sketches</h4>
+          One face is drawn as a true shape (e.g., a square for a cube), and the depth is shown by parallel lines drawn at an angle (usually 45&deg;).
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128206; Isometric Sketches</h4>
+          All three axes are drawn at equal angles (120&deg; apart). This gives a more realistic 3D appearance. Isometric dot paper helps draw these accurately.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#128206; Cross-Sections</h4>
+          A cross-section is the shape you get when you slice a 3D object with a plane. For example, slicing a cylinder parallel to its base gives a <strong>circle</strong>; slicing it vertically gives a <strong>rectangle</strong>.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Multiple Nets:</strong> A single 3D shape can have multiple different nets. For example, a cube has <strong>11 different nets</strong>! However, not every arrangement of 6 squares is a valid net of a cube &mdash; the squares must be arranged so they fold into a closed box without overlapping.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 9: WORKED EXAMPLES
+       ===================================================== -->
+  <div class="section-block reveal" id="worked">
+    <div class="section-hd g-amber">
+      <span class="icon">&#9999;&#65039;</span>
+      Worked Examples
+    </div>
+    <div class="section-bd">
+
+      <!-- Example 1 -->
+      <div class="worked-example">
+        <h4>Example 1: Finding Lines of Symmetry</h4>
+        <p>How many lines of symmetry does a regular hexagon have? What is its order of rotational symmetry?</p>
+        <div class="we-step"><strong>Step 1:</strong> A regular hexagon has 6 equal sides and 6 equal angles.</div>
+        <div class="we-step"><strong>Step 2:</strong> For a regular polygon with n sides, the number of lines of symmetry = n. So a regular hexagon has <strong>6 lines of symmetry</strong>.</div>
+        <div class="we-step"><strong>Step 3:</strong> The order of rotational symmetry = n = <strong>6</strong>.</div>
+        <div class="we-step"><strong>Step 4:</strong> Angle of rotation = 360&deg; &divide; 6 = <strong>60&deg;</strong>. The hexagon maps onto itself every 60&deg; of rotation.</div>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="worked-example">
+        <h4>Example 2: Tessellation Check</h4>
+        <p>Can regular octagons alone tessellate the plane?</p>
+        <div class="we-step"><strong>Step 1:</strong> Interior angle of a regular octagon = (8 &minus; 2) &times; 180&deg; &divide; 8 = 1080&deg; &divide; 8 = <strong>135&deg;</strong>.</div>
+        <div class="we-step"><strong>Step 2:</strong> Check if 360&deg; is divisible by 135&deg;: 360 &divide; 135 = 2.667... (not a whole number).</div>
+        <div class="we-step"><strong>Step 3:</strong> Since we cannot fit a whole number of octagons around a point, regular octagons <strong>cannot tessellate alone</strong>.</div>
+        <div class="we-step"><strong>Step 4:</strong> However, octagons + squares can tile together (each gap between octagons is a square with angle 90&deg;, and 135 + 135 + 90 = 360&deg;). This is a famous semi-regular tessellation.</div>
+      </div>
+
+      <!-- SVG for Example 2 -->
+      <div class="svg-wrap">
+        <svg viewBox="0 0 300 180" width="300" height="180" xmlns="http://www.w3.org/2000/svg">
+          <!-- Octagon + square tessellation snippet -->
+          <g transform="translate(150,90)">
+            <!-- Central octagon -->
+            <polygon points="30,12.4 12.4,30 -12.4,30 -30,12.4 -30,-12.4 -12.4,-30 12.4,-30 30,-12.4" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+            <!-- Square at top right -->
+            <rect x="12.4" y="-30" width="17.6" height="17.6" fill="#fff7ed" stroke="#92400e" stroke-width="1"/>
+            <!-- Square at bottom left -->
+            <rect x="-30" y="12.4" width="17.6" height="17.6" fill="#fff7ed" stroke="#92400e" stroke-width="1"/>
+          </g>
+          <text x="150" y="170" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">Octagon + Square semi-regular tessellation</text>
+        </svg>
+      </div>
+
+      <!-- Example 3 -->
+      <div class="worked-example">
+        <h4>Example 3: Congruence by SAS</h4>
+        <p>In &#9651;ABC and &#9651;DEF, AB = DE = 5 cm, BC = EF = 7 cm, and &ang;B = &ang;E = 60&deg;. Are the triangles congruent?</p>
+        <div class="we-step"><strong>Step 1:</strong> We have two sides and the included angle equal in both triangles.</div>
+        <div class="we-step"><strong>Step 2:</strong> AB = DE (5 cm), &ang;B = &ang;E (60&deg;), BC = EF (7 cm).</div>
+        <div class="we-step"><strong>Step 3:</strong> By the <strong>SAS criterion</strong>, &#9651;ABC &cong; &#9651;DEF.</div>
+        <div class="we-step"><strong>Step 4:</strong> By CPCT, we can also conclude: AC = DF, &ang;A = &ang;D, and &ang;C = &ang;F.</div>
+      </div>
+
+      <!-- Example 4 -->
+      <div class="worked-example">
+        <h4>Example 4: Using the Angle Sum Property</h4>
+        <p>In &#9651;PQR, &ang;P = 45&deg; and &ang;Q = 70&deg;. Find &ang;R and the exterior angle at R.</p>
+        <div class="we-step"><strong>Step 1:</strong> By the angle sum property: &ang;P + &ang;Q + &ang;R = 180&deg;.</div>
+        <div class="we-step"><strong>Step 2:</strong> 45&deg; + 70&deg; + &ang;R = 180&deg;, so &ang;R = 180&deg; &minus; 115&deg; = <strong>65&deg;</strong>.</div>
+        <div class="we-step"><strong>Step 3:</strong> Exterior angle at R = &ang;P + &ang;Q = 45&deg; + 70&deg; = <strong>115&deg;</strong>.</div>
+        <div class="we-step"><strong>Step 4:</strong> Verification: Interior &ang;R + Exterior &ang;R = 65&deg; + 115&deg; = 180&deg; &#10004; (linear pair).</div>
+      </div>
+
+      <!-- Example 5 -->
+      <div class="worked-example">
+        <h4>Example 5: Euler's Formula Application</h4>
+        <p>A polyhedron has 8 faces and 6 vertices. How many edges does it have?</p>
+        <div class="we-step"><strong>Step 1:</strong> Apply Euler's formula: F + V &minus; E = 2.</div>
+        <div class="we-step"><strong>Step 2:</strong> Substitute: 8 + 6 &minus; E = 2.</div>
+        <div class="we-step"><strong>Step 3:</strong> 14 &minus; E = 2, so E = <strong>12</strong>.</div>
+        <div class="we-step"><strong>Step 4:</strong> This matches an octahedron (8 triangular faces, 6 vertices, 12 edges). &#10004;</div>
+      </div>
+
+      <!-- Example 6 -->
+      <div class="worked-example">
+        <h4>Example 6: Congruence by RHS</h4>
+        <p>In right triangles &#9651;ABC and &#9651;PQR, &ang;B = &ang;Q = 90&deg;, hypotenuse AC = PR = 10 cm, and AB = PQ = 6 cm. Prove congruence.</p>
+        <div class="we-step"><strong>Step 1:</strong> Both triangles are right-angled (&ang;B = &ang;Q = 90&deg;).</div>
+        <div class="we-step"><strong>Step 2:</strong> Hypotenuse: AC = PR = 10 cm.</div>
+        <div class="we-step"><strong>Step 3:</strong> One side: AB = PQ = 6 cm.</div>
+        <div class="we-step"><strong>Step 4:</strong> By the <strong>RHS criterion</strong>, &#9651;ABC &cong; &#9651;PQR.</div>
+        <div class="we-step"><strong>Step 5:</strong> By CPCT: BC = QR. Using Pythagoras: BC = &radic;(10&sup2; &minus; 6&sup2;) = &radic;(100 &minus; 36) = &radic;64 = <strong>8 cm</strong>.</div>
+      </div>
+
+      <!-- SVG for Example 6 -->
+      <div class="svg-wrap">
+        <svg viewBox="0 0 480 180" width="480" height="180" xmlns="http://www.w3.org/2000/svg">
+          <!-- Triangle 1 -->
+          <g transform="translate(40,10)">
+            <polygon points="0,150 0,0 120,150" fill="none" stroke="#d97706" stroke-width="2.5"/>
+            <rect x="0" y="138" width="12" height="12" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+            <text x="-12" y="158" font-size="12" font-weight="700" fill="#78350f">B</text>
+            <text x="-12" y="8" font-size="12" font-weight="700" fill="#78350f">A</text>
+            <text x="124" y="158" font-size="12" font-weight="700" fill="#78350f">C</text>
+            <text x="-18" y="80" font-size="10" fill="#92400e" font-weight="700">6 cm</text>
+            <text x="60" y="145" font-size="10" fill="#92400e" font-weight="700">8 cm</text>
+            <text x="72" y="70" font-size="10" fill="#ef4444" font-weight="700">10 cm</text>
+          </g>
+          <!-- Equals -->
+          <text x="220" y="90" font-size="24" font-weight="900" fill="#d97706">&cong;</text>
+          <!-- Triangle 2 -->
+          <g transform="translate(280,10)">
+            <polygon points="0,150 0,0 120,150" fill="none" stroke="#d97706" stroke-width="2.5"/>
+            <rect x="0" y="138" width="12" height="12" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+            <text x="-12" y="158" font-size="12" font-weight="700" fill="#78350f">Q</text>
+            <text x="-12" y="8" font-size="12" font-weight="700" fill="#78350f">P</text>
+            <text x="124" y="158" font-size="12" font-weight="700" fill="#78350f">R</text>
+            <text x="-18" y="80" font-size="10" fill="#92400e" font-weight="700">6 cm</text>
+            <text x="60" y="145" font-size="10" fill="#92400e" font-weight="700">8 cm</text>
+            <text x="72" y="70" font-size="10" fill="#ef4444" font-weight="700">10 cm</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Example 7 -->
+      <div class="worked-example">
+        <h4>Example 7: Identifying Nets</h4>
+        <p>Which of the following arrangements of 6 squares is a valid net of a cube: (i) a straight row of 6 squares, or (ii) a cross-shaped arrangement (1-4-1)?</p>
+        <div class="we-step"><strong>Step 1:</strong> A row of 6 squares in a straight line: when folded, the last two squares would overlap with the first two. <strong>Not a valid net.</strong></div>
+        <div class="we-step"><strong>Step 2:</strong> A cross shape (1 on top, 4 in a row, 1 on bottom from the 2nd position): fold the top square to become the top face, the bottom square becomes the base, and the remaining 4 fold into the sides. <strong>Valid net!</strong></div>
+        <div class="we-step"><strong>Step 3:</strong> A cube has exactly <strong>11 different nets</strong>. The cross shape is one of them.</div>
+      </div>
+
+      <!-- Example 8 -->
+      <div class="worked-example">
+        <h4>Example 8: Rotational Symmetry of a Parallelogram</h4>
+        <p>Does a parallelogram (that is not a rectangle) have line symmetry? What about rotational symmetry?</p>
+        <div class="we-step"><strong>Step 1:</strong> A parallelogram has opposite sides parallel and equal, but adjacent sides are generally different lengths, and angles are not 90&deg;.</div>
+        <div class="we-step"><strong>Step 2:</strong> If we try to fold along any line, the two halves do not match. <strong>No line of symmetry.</strong></div>
+        <div class="we-step"><strong>Step 3:</strong> However, if we rotate the parallelogram 180&deg; about its centre, it maps onto itself.</div>
+        <div class="we-step"><strong>Step 4:</strong> It also maps onto itself at 360&deg; (trivially). So it matches 2 times in a full rotation.</div>
+        <div class="we-step"><strong>Step 5:</strong> Therefore, a parallelogram has <strong>rotational symmetry of order 2</strong> with angle of rotation = 180&deg;, but <strong>no line symmetry</strong>.</div>
+      </div>
+
+      <!-- SVG for Example 8 -->
+      <div class="svg-wrap">
+        <svg viewBox="0 0 400 150" width="400" height="150" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(60,20)">
+            <polygon points="30,100 0,0 100,0 130,100" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+            <circle cx="65" cy="50" r="3" fill="#ef4444"/>
+            <text x="65" y="45" text-anchor="middle" font-size="9" fill="#ef4444" font-weight="700">Centre</text>
+            <!-- Rotation arrow -->
+            <path d="M 90,30 A 35,35 0 0,1 40,70" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+            <defs><marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6"/></marker></defs>
+            <text x="95" y="55" font-size="10" fill="#3b82f6" font-weight="700">180&deg;</text>
+          </g>
+          <g transform="translate(230,20)">
+            <line x1="0" y1="50" x2="160" y2="50" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <text x="170" y="54" font-size="10" fill="#ef4444" font-weight="700">No line of</text>
+            <text x="170" y="66" font-size="10" fill="#ef4444" font-weight="700">symmetry</text>
+            <polygon points="30,100 0,0 100,0 130,100" fill="none" stroke="#d97706" stroke-width="2"/>
+            <line x1="65" y1="-10" x2="65" y2="110" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Example 9 -->
+      <div class="worked-example">
+        <h4>Example 9: Cross-Section of a Cylinder</h4>
+        <p>What shapes can you get by slicing a cylinder with a flat plane?</p>
+        <div class="we-step"><strong>Horizontal cut (parallel to base):</strong> You get a <strong>circle</strong> (same size as the base).</div>
+        <div class="we-step"><strong>Vertical cut (perpendicular to base, through axis):</strong> You get a <strong>rectangle</strong> whose height is the cylinder's height and width is the diameter.</div>
+        <div class="we-step"><strong>Diagonal cut (at an angle):</strong> You get an <strong>ellipse</strong> &mdash; a stretched circle.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 10: SUMMARY
+       ===================================================== -->
+  <div class="section-block reveal" id="summary">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128202;</span>
+      Chapter Summary
+    </div>
+    <div class="section-bd">
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128300; Symmetry</h4>
+          <strong>Line symmetry:</strong> A line divides the figure into mirror-image halves. <strong>Rotational symmetry:</strong> Figure maps onto itself when rotated by less than 360&deg;. A regular n-gon has n lines of symmetry and rotational order n.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#129513; Tessellations</h4>
+          Only equilateral triangles, squares, and regular hexagons can tessellate the plane by themselves (interior angles must divide 360&deg; exactly). Semi-regular tessellations use combinations of regular polygons.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#128311; Congruence Criteria</h4>
+          SSS, SAS, ASA, and RHS are the four valid criteria to prove two triangles are congruent. SSA is <strong>not valid</strong>. CPCT lets you deduce equality of remaining parts after proving congruence.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128207; Constructions</h4>
+          Using only compass and straight edge: bisect an angle (equal arcs method) and construct the perpendicular bisector (intersecting arcs from both endpoints).
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#128314; Triangle Properties</h4>
+          Angle sum = 180&deg;. Exterior angle = sum of two non-adjacent interior angles. Triangle inequality: sum of any two sides &gt; third side.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#129513; 3D Shapes &amp; Euler's Formula</h4>
+          F + V &minus; E = 2 for all convex polyhedra. Five Platonic solids exist. Nets unfold 3D shapes into 2D. Cross-sections reveal hidden 2D shapes inside 3D objects.
+        </div>
+      </div>
+
+      <div class="formula-box">
+        Key Formulas: &nbsp; Angle Sum = 180&deg; &nbsp; | &nbsp; Ext. Angle = Sum of remote interior angles &nbsp; | &nbsp; F + V &minus; E = 2
+        <small>Interior angle of regular n-gon = (n &minus; 2) &times; 180&deg; &divide; n</small>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 11: MCQ QUIZ (10 Questions)
+       ===================================================== -->
+  <div class="section-block reveal" id="mcq">
+    <div class="section-hd g-orange">
+      <span class="icon">&#129504;</span>
+      MCQ Quiz &mdash; Test Your Understanding
+    </div>
+    <div class="section-bd">
+
+      <ul class="mcq-list">
+        <!-- Q1 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q1. How many lines of symmetry does a regular pentagon have?</div>
+          <ul class="mcq-options">
+            <li>a) 3</li>
+            <li>b) 4</li>
+            <li data-correct>c) 5</li>
+            <li>d) 10</li>
+          </ul>
+          <div class="mcq-ans">&#10004; (c) A regular polygon with n sides has n lines of symmetry. Pentagon has 5 sides, so 5 lines of symmetry.</div>
+        </li>
+
+        <!-- Q2 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q2. Which of the following regular polygons CANNOT tessellate the plane by itself?</div>
+          <ul class="mcq-options">
+            <li>a) Equilateral triangle</li>
+            <li data-correct>b) Regular pentagon</li>
+            <li>c) Square</li>
+            <li>d) Regular hexagon</li>
+          </ul>
+          <div class="mcq-ans">&#10004; (b) A regular pentagon has an interior angle of 108&deg;, and 360 &divide; 108 is not a whole number, so it cannot tessellate alone.</div>
+        </li>
+
+        <!-- Q3 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q3. By which congruence criterion can we prove that two right triangles are congruent if their hypotenuse and one side are equal?</div>
+          <ul class="mcq-options">
+            <li>a) SSS</li>
+            <li>b) SAS</li>
+            <li>c) ASA</li>
+            <li data-correct>d) RHS</li>
+          </ul>
+          <div class="mcq-ans">&#10004; (d) RHS (Right angle-Hypotenuse-Side) is the criterion specifically for right triangles with equal hypotenuse and one side.</div>
+        </li>
+
+        <!-- Q4 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q4. What is the sum of interior angles of a triangle?</div>
+          <ul class="mcq-options">
+            <li>a) 90&deg;</li>
+            <li data-correct>b) 180&deg;</li>
+            <li>c) 270&deg;</li>
+            <li>d) 360&deg;</li>
+          </ul>
+          <div class="mcq-ans">&#10004; (b) The angle sum property of a triangle states that the three interior angles always add up to 180&deg;.</div>
+        </li>
+
+        <!-- Q5 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q5. A polyhedron has 6 faces and 8 vertices. How many edges does it have?</div>
+          <ul class="mcq-options">
+            <li>a) 10</li>
+            <li data-correct>b) 12</li>
+            <li>c) 14</li>
+            <li>d) 8</li>
+          </ul>
+          <div class="mcq-ans">&#10004; (b) By Euler's formula: F + V &minus; E = 2 &rArr; 6 + 8 &minus; E = 2 &rArr; E = 12. This is a cube!</div>
+        </li>
+
+        <!-- Q6 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q6. The exterior angle of a triangle is 120&deg;. If one of the non-adjacent interior angles is 45&deg;, what is the other non-adjacent interior angle?</div>
+          <ul class="mcq-options">
+            <li>a) 60&deg;</li>
+            <li data-correct>b) 75&deg;</li>
+            <li>c) 45&deg;</li>
+            <li>d) 135&deg;</li>
+          </ul>
+          <div class="mcq-ans">&#10004; (b) Exterior angle = sum of two non-adjacent interior angles. So 120&deg; = 45&deg; + x, giving x = 75&deg;.</div>
+        </li>
+
+        <!-- Q7 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q7. What is the order of rotational symmetry of a square?</div>
+          <ul class="mcq-options">
+            <li>a) 1</li>
+            <li>b) 2</li>
+            <li data-correct>c) 4</li>
+            <li>d) 8</li>
+          </ul>
+          <div class="mcq-ans">&#10004; (c) A square maps onto itself at 90&deg;, 180&deg;, 270&deg;, and 360&deg; &mdash; that is 4 times, so order = 4.</div>
+        </li>
+
+        <!-- Q8 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q8. Which of these is NOT a valid congruence criterion for triangles?</div>
+          <ul class="mcq-options">
+            <li>a) SSS</li>
+            <li data-correct>b) SSA</li>
+            <li>c) SAS</li>
+            <li>d) ASA</li>
+          </ul>
+          <div class="mcq-ans">&#10004; (b) SSA (Side-Side-Angle) is not a valid criterion because the angle is not included between the two sides, leading to the ambiguous case.</div>
+        </li>
+
+        <!-- Q9 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q9. How many faces does a triangular prism have?</div>
+          <ul class="mcq-options">
+            <li>a) 4</li>
+            <li data-correct>b) 5</li>
+            <li>c) 6</li>
+            <li>d) 3</li>
+          </ul>
+          <div class="mcq-ans">&#10004; (b) A triangular prism has 2 triangular faces (top and base) + 3 rectangular faces (sides) = 5 faces total.</div>
+        </li>
+
+        <!-- Q10 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q10. The perpendicular bisector of a line segment AB passes through which special point?</div>
+          <ul class="mcq-options">
+            <li>a) Point A</li>
+            <li>b) Point B</li>
+            <li data-correct>c) The midpoint of AB</li>
+            <li>d) Any point on AB</li>
+          </ul>
+          <div class="mcq-ans">&#10004; (c) The perpendicular bisector always passes through the midpoint of the segment and is perpendicular to it. Every point on it is equidistant from A and B.</div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 12: SHORT Q&A
+       ===================================================== -->
+  <div class="section-block reveal" id="short">
+    <div class="section-hd g-blue">
+      <span class="icon">&#9997;&#65039;</span>
+      Short Answer Questions (NCERT)
+    </div>
+    <div class="section-bd">
+
+      <ul class="short-q-list">
+        <li class="short-q-item">
+          <div class="short-q">Q1. What is a line of symmetry? Give an example of a shape with exactly 2 lines of symmetry.</div>
+          <div class="short-a">A <strong>line of symmetry</strong> is a line that divides a figure into two congruent halves that are mirror images of each other. A <strong>rectangle</strong> (that is not a square) has exactly 2 lines of symmetry &mdash; one horizontal and one vertical through the centre.</div>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">Q2. State Euler's formula. Verify it for a cube.</div>
+          <div class="short-a"><strong>Euler's formula:</strong> F + V &minus; E = 2, where F = faces, V = vertices, E = edges. For a cube: F = 6, V = 8, E = 12. Check: 6 + 8 &minus; 12 = <strong>2</strong>. Verified!</div>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">Q3. What are the four congruence criteria for triangles?</div>
+          <div class="short-a">The four valid criteria are: <strong>SSS</strong> (Side-Side-Side), <strong>SAS</strong> (Side-Angle-Side), <strong>ASA</strong> (Angle-Side-Angle), and <strong>RHS</strong> (Right angle-Hypotenuse-Side). Note that SSA is not a valid criterion.</div>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">Q4. Name the three regular polygons that can tessellate the plane by themselves.</div>
+          <div class="short-a">The three regular polygons that tessellate alone are: <strong>Equilateral triangle</strong> (60&deg;), <strong>Square</strong> (90&deg;), and <strong>Regular hexagon</strong> (120&deg;). In each case, the interior angle divides 360&deg; exactly.</div>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">Q5. State the Exterior Angle Theorem for a triangle.</div>
+          <div class="short-a">The <strong>Exterior Angle Theorem</strong> states that an exterior angle of a triangle equals the <strong>sum of the two non-adjacent (remote) interior angles</strong>. For example, if the exterior angle is formed at vertex C, then Exterior &ang;C = &ang;A + &ang;B.</div>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">Q6. How many lines of symmetry does a circle have?</div>
+          <div class="short-a">A circle has <strong>infinitely many</strong> lines of symmetry. Any diameter of the circle is a line of symmetry, and there are infinitely many diameters.</div>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">Q7. What is the net of a 3D shape?</div>
+          <div class="short-a">A <strong>net</strong> is a 2D pattern (flat layout) of shapes that can be folded along edges to form the 3D shape. For example, the net of a cube consists of 6 connected squares that, when folded, form the cube.</div>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">Q8. A polyhedron has 12 edges and 8 vertices. How many faces does it have?</div>
+          <div class="short-a">Using Euler's formula: F + V &minus; E = 2 &rArr; F + 8 &minus; 12 = 2 &rArr; F = <strong>6</strong>. This polyhedron has 6 faces (it is a cube or a cuboid).</div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 13: LONG Q&A
+       ===================================================== -->
+  <div class="section-block reveal" id="long">
+    <div class="section-hd g-rose">
+      <span class="icon">&#128214;</span>
+      Long Answer Questions (NCERT)
+    </div>
+    <div class="section-bd">
+
+      <div class="long-q-item">
+        <div class="long-q">Q1. Explain the four congruence criteria (SSS, SAS, ASA, RHS) with one example for each. Why is SSA not a valid criterion?</div>
+        <div class="long-a">
+          <p><strong>SSS (Side-Side-Side):</strong> If all three sides of one triangle are equal to the three sides of another, the triangles are congruent. Example: &#9651;ABC with AB = 3 cm, BC = 4 cm, CA = 5 cm, and &#9651;DEF with DE = 3 cm, EF = 4 cm, FD = 5 cm. By SSS, &#9651;ABC &cong; &#9651;DEF.</p>
+          <p><strong>SAS (Side-Angle-Side):</strong> If two sides and the included angle of one triangle equal those of another, the triangles are congruent. Example: AB = DE = 5 cm, &ang;A = &ang;D = 60&deg;, AC = DF = 7 cm. By SAS, &#9651;ABC &cong; &#9651;DEF.</p>
+          <p><strong>ASA (Angle-Side-Angle):</strong> If two angles and the included side of one triangle equal those of another, the triangles are congruent. Example: &ang;B = &ang;E = 50&deg;, BC = EF = 6 cm, &ang;C = &ang;F = 70&deg;. By ASA, &#9651;ABC &cong; &#9651;DEF.</p>
+          <p><strong>RHS (Right-Hypotenuse-Side):</strong> If both triangles are right-angled, and the hypotenuse and one side of one triangle equal those of the other, the triangles are congruent. Example: &ang;B = &ang;Q = 90&deg;, AC = PR = 13 cm, BC = QR = 5 cm. By RHS, &#9651;ABC &cong; &#9651;PQR.</p>
+          <p><strong>Why SSA is not valid:</strong> When you know two sides and a non-included angle, two different triangles can sometimes be formed (the ambiguous case). The third vertex can be at two different positions, creating two non-congruent triangles with the same SSA measurements.</p>
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q2. Prove that the sum of interior angles of a triangle is 180&deg;.</div>
+        <div class="long-a">
+          <p><strong>Given:</strong> &#9651;ABC with interior angles &ang;A, &ang;B, and &ang;C.</p>
+          <p><strong>To Prove:</strong> &ang;A + &ang;B + &ang;C = 180&deg;.</p>
+          <p><strong>Construction:</strong> Through vertex A, draw a line PQ parallel to BC (PQ &parallel; BC).</p>
+          <p><strong>Proof:</strong></p>
+          <p>Since PQ &parallel; BC and AB is a transversal:</p>
+          <p>&ang;PAB = &ang;B (alternate interior angles) ... (i)</p>
+          <p>Since PQ &parallel; BC and AC is a transversal:</p>
+          <p>&ang;QAC = &ang;C (alternate interior angles) ... (ii)</p>
+          <p>Now, &ang;PAB + &ang;BAC + &ang;QAC = 180&deg; (angles on a straight line PQ)</p>
+          <p>Substituting from (i) and (ii): &ang;B + &ang;A + &ang;C = 180&deg;.</p>
+          <p><strong>Hence proved:</strong> &ang;A + &ang;B + &ang;C = <strong>180&deg;</strong>.</p>
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q3. Explain Euler's formula with examples. How can you use it to find a missing value?</div>
+        <div class="long-a">
+          <p><strong>Euler's formula:</strong> For any convex polyhedron, F + V &minus; E = 2, where F = number of faces, V = number of vertices, and E = number of edges.</p>
+          <p><strong>Example 1 (Tetrahedron):</strong> F = 4, V = 4, E = 6. Check: 4 + 4 &minus; 6 = 2 &#10004;</p>
+          <p><strong>Example 2 (Cube):</strong> F = 6, V = 8, E = 12. Check: 6 + 8 &minus; 12 = 2 &#10004;</p>
+          <p><strong>Example 3 (Square Pyramid):</strong> F = 5, V = 5, E = 8. Check: 5 + 5 &minus; 8 = 2 &#10004;</p>
+          <p><strong>Finding a missing value:</strong> If a polyhedron has 20 faces and 12 vertices, find E. Using F + V &minus; E = 2: 20 + 12 &minus; E = 2, so E = 30. This is an <strong>icosahedron</strong>.</p>
+          <p>Euler's formula is powerful because knowing any two of F, V, E lets you calculate the third. It holds for all convex polyhedra but may fail for shapes with holes (non-convex or non-simply-connected solids).</p>
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q4. Describe the steps to construct the perpendicular bisector of a line segment. Why is every point on the perpendicular bisector equidistant from the two endpoints?</div>
+        <div class="long-a">
+          <p><strong>Steps to construct the perpendicular bisector of segment AB:</strong></p>
+          <p>1. Open the compass to more than half the length of AB.</p>
+          <p>2. With A as centre, draw arcs above and below the line.</p>
+          <p>3. Without changing the compass width, with B as centre, draw arcs intersecting the first arcs at points P and Q.</p>
+          <p>4. Draw the straight line through P and Q. This is the perpendicular bisector of AB.</p>
+          <p><strong>Why every point on it is equidistant from A and B:</strong></p>
+          <p>Let M be the midpoint of AB (where the perpendicular bisector meets AB), and let X be any point on the perpendicular bisector.</p>
+          <p>In &#9651;XMA and &#9651;XMB:</p>
+          <p>&bull; XM = XM (common side)</p>
+          <p>&bull; MA = MB (M is the midpoint)</p>
+          <p>&bull; &ang;XMA = &ang;XMB = 90&deg; (perpendicular bisector)</p>
+          <p>By <strong>SAS criterion</strong>, &#9651;XMA &cong; &#9651;XMB.</p>
+          <p>By CPCT, <strong>XA = XB</strong>. Hence every point on the perpendicular bisector is equidistant from A and B.</p>
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q5. Explain tessellations. Why can only three regular polygons tessellate the plane by themselves? Give examples of semi-regular tessellations.</div>
+        <div class="long-a">
+          <p>A <strong>tessellation</strong> is a pattern of one or more shapes that covers a plane completely without gaps or overlaps.</p>
+          <p><strong>Why only three regular polygons work alone:</strong></p>
+          <p>At each vertex of a tessellation, the angles meeting at that point must sum to exactly 360&deg;. For a regular polygon to tessellate by itself, its interior angle must divide 360&deg; exactly (giving a whole number of polygons at each vertex).</p>
+          <p>&bull; Equilateral triangle: 60&deg; &rarr; 360/60 = 6 triangles at each vertex &#10004;</p>
+          <p>&bull; Square: 90&deg; &rarr; 360/90 = 4 squares at each vertex &#10004;</p>
+          <p>&bull; Regular hexagon: 120&deg; &rarr; 360/120 = 3 hexagons at each vertex &#10004;</p>
+          <p>&bull; Regular pentagon: 108&deg; &rarr; 360/108 = 3.33... &#10008;</p>
+          <p>&bull; Regular heptagon: 128.57&deg; &rarr; 360/128.57 = 2.8 &#10008;</p>
+          <p>For polygons with more than 6 sides, the interior angle exceeds 120&deg;, and you cannot fit even 3 of them around a point (3 &times; 120 = 360, 3 &times; 121 &gt; 360).</p>
+          <p><strong>Semi-regular tessellations</strong> use two or more types of regular polygons, arranged so the same pattern of polygons surrounds every vertex. Examples: (i) Octagons + squares (135 + 135 + 90 = 360); (ii) Hexagons + triangles (120 + 60 + 60 + 60 + 60 = 360). There are exactly <strong>8</strong> semi-regular tessellations.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 14: FUN FACTS
+       ===================================================== -->
+  <div class="section-block reveal" id="funfacts">
+    <div class="section-hd g-amber">
+      <span class="icon">&#127775;</span>
+      Fun Facts &amp; Did You Know?
+    </div>
+    <div class="section-bd">
+
+      <div class="fun-fact-grid">
+        <div class="fun-fact-card">
+          <h4>&#127891; Honeycomb Magic</h4>
+          Bees build hexagonal cells because the regular hexagon is the most efficient tessellating shape &mdash; it covers the most area with the least perimeter (least wax needed). Nature is a master geometer!
+        </div>
+        <div class="fun-fact-card">
+          <h4>&#127758; Euler Was a Genius</h4>
+          Leonhard Euler (1707&ndash;1783) is one of the most productive mathematicians in history. Despite going blind in his later years, he continued to produce brilliant mathematical work. His formula F + V &minus; E = 2 is considered one of the most elegant results in all of mathematics.
+        </div>
+        <div class="fun-fact-card">
+          <h4>&#127912; Islamic Geometric Art</h4>
+          The stunning geometric patterns in Islamic architecture (like the Alhambra in Spain) use complex tessellations created centuries ago. Mathematicians have shown that artisans used all 17 possible wallpaper symmetry groups &mdash; a classification that was not formally proven until the 19th century!
+        </div>
+        <div class="fun-fact-card">
+          <h4>&#128142; Football Geometry</h4>
+          A classic football (soccer ball) is a <strong>truncated icosahedron</strong> &mdash; it has 12 regular pentagons (black) and 20 regular hexagons (white), giving it 32 faces, 60 vertices, and 90 edges. Check Euler's formula: 32 + 60 &minus; 90 = 2 &#10004;
+        </div>
+        <div class="fun-fact-card">
+          <h4>&#129516; Penrose Tiles</h4>
+          In the 1970s, mathematician Roger Penrose discovered tiles that can cover a plane but <strong>never repeat</strong> (no translational symmetry). These &ldquo;aperiodic&rdquo; tilings have been found in the atomic structure of quasicrystals, which won Dan Shechtman the 2011 Nobel Prize in Chemistry!
+        </div>
+        <div class="fun-fact-card">
+          <h4>&#128205; India's Geometric Heritage</h4>
+          The <strong>Sulbasutras</strong> (800&ndash;500 BCE), part of Vedic literature, contain detailed geometric constructions for building fire altars &mdash; including methods to bisect angles, construct perpendicular bisectors, and transform shapes. These are among the earliest known geometric constructions in human history!
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       BOTTOM NAVIGATION
+       ===================================================== -->
+  <div class="bottom-nav">
+    <div class="bottom-nav-full">
+      <a href="../index.html" class="bottom-btn home-btn">&#128218; All Class 8 Chapters</a>
+      <a href="../../index.html" class="bottom-btn" style="background:linear-gradient(135deg,#78350f,#d97706);">&#127968; Home</a>
+    </div>
+  </div>
+
+</div>
+<!-- End Container -->
+
+<!-- ========== SHARE POPUP ========== -->
+<div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeSharePopup()">
+  <div class="share-popup">
+    <h3>&#128228; Share This Page</h3>
+    <p style="font-size:14px;color:#475569;margin-bottom:16px;">Help your classmates ace Geometric Themes!</p>
+    <div class="share-btn-row">
+      <button class="share-action-btn share-wa" onclick="shareWhatsApp()">&#128172; Share on WhatsApp</button>
+      <button class="share-action-btn share-copy" onclick="copyLink()">&#128203; Copy Link</button>
+      <button class="share-action-btn share-native" onclick="shareNative()">&#128228; Share via Apps</button>
+    </div>
+    <button class="share-close-btn" onclick="closeSharePopup()">Close</button>
+  </div>
+</div>
+
+<!-- ========== FLOATING SHARE BUTTON ========== -->
+<button class="float-share-btn" onclick="openSharePopup()" title="Share this page">&#128228;</button>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <p>Preeti Kushwah Classes &mdash; Making Maths Fun &amp; Easy &#128155;</p>
+  <p style="font-size:12px;margin-top:6px;opacity:0.8;">NCERT Class 8 Maths &middot; Ganita &middot; Chapter 11 &middot; New Syllabus 2025-26</p>
+  <p style="font-size:11px;margin-top:8px;opacity:0.6;">&copy; 2025 Preeti Kushwah Classes. All rights reserved.</p>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// Scroll Reveal Animation
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) {
+  obs.observe(el);
+});
+
+// MCQ Click Handler
+document.querySelectorAll('.mcq-item').forEach(function(item) {
+  item.querySelectorAll('.mcq-options li').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      if (item.classList.contains('show-ans')) return;
+      item.classList.add('show-ans');
+      if (!opt.hasAttribute('data-correct')) opt.classList.add('wrong');
+      item.querySelectorAll('.mcq-options li[data-correct]').forEach(function(c) {
+        c.classList.add('correct');
+      });
+    });
+  });
+});
+
+// Share Functions
+function openSharePopup() {
+  document.getElementById('shareOverlay').classList.add('active');
+}
+
+function closeSharePopup() {
+  document.getElementById('shareOverlay').classList.remove('active');
+}
+
+function shareWhatsApp() {
+  window.open('https://wa.me/?text=' + encodeURIComponent('Check out these Exploring Geometric Themes notes for Class 8 Maths (NCERT Ganita 2025-26)! ' + window.location.href));
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    alert('Link copied to clipboard!');
+  });
+}
+
+function shareNative() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Exploring Geometric Themes — Class 8 Maths | Preeti Kushwah Classes',
+      text: 'NCERT Class 8 Maths — Chapter 11: Exploring Some Geometric Themes',
+      url: window.location.href
+    });
+  } else {
+    copyLink();
+  }
+}
+
+// Smooth scroll for TOC links
+document.querySelectorAll('.toc-bar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    var targetId = this.getAttribute('href');
+    if (targetId && targetId.startsWith('#')) {
+      e.preventDefault();
+      var target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../chapter-features.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
+</body>
+</html>

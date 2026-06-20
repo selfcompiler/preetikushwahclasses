@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 8 Maths Ch 9: The Baudhayana–Pythagoras Theorem — ancient Indian origin, statement & proof, Pythagorean triples, converse, real-world applications. Interactive NCERT Ganita notes.">
+<meta name="keywords" content="Preeti Kushwah Classes, NCERT notes, CBSE notes, free study material, Class 8 notes, Class 8 NCERT, class 8 study material, Mathematics notes, Class 8 Mathematics, Class 8 Mathematics notes, Class 8 Mathematics NCERT, Baudhayana Pythagoras Theorem, Pythagorean theorem, Pythagorean triples, right triangle, maths solutions, maths practice">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-8/maths/baudhayana-pythagoras-theorem.html">
+<meta property="og:title" content="Ch 9: The Baudhayana–Pythagoras Theorem — Class 8 Maths Notes">
+<meta property="og:description" content="Interactive NCERT notes — Baudhayana Sulba Sutra, Pythagorean theorem, triples, converse & applications with worked examples.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preetikushwahclasses.com/class-8/maths/baudhayana-pythagoras-theorem.html">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>The Baudhayana&ndash;Pythagoras Theorem &mdash; Class 8 Maths | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:#fffbeb;color:#1c1c2e;overflow-x:hidden;line-height:1.6;}
+
+/* Top Nav */
+.top-nav{background:white;padding:8px 12px;display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,0.06);position:sticky;top:0;z-index:110;overflow-x:auto;}
+.tn-home{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;text-decoration:none;padding:7px 14px;border-radius:12px;font-size:12px;font-weight:800;border:1.5px solid #fbbf24;transition:all 0.2s;white-space:nowrap;}
+.tn-home:hover{background:#fde68a;transform:translateY(-1px);}
+.nav-spacer{flex:1;}
+.tn-share{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;padding:7px 12px;border-radius:12px;border:1.5px solid #fbbf24;font-size:11px;font-weight:800;cursor:pointer;transition:all 0.2s;white-space:nowrap;font-family:'Nunito',sans-serif;}
+.tn-share:hover{background:#fde68a;transform:translateY(-1px);}
+
+/* TOC */
+.toc-bar{background:linear-gradient(135deg,#78350f,#f59e0b);padding:12px 16px;position:sticky;top:44px;z-index:100;overflow-x:auto;white-space:nowrap;}
+.toc-bar a{display:inline-block;background:rgba(255,255,255,0.15);color:white;text-decoration:none;padding:6px 14px;border-radius:18px;font-size:13px;font-weight:700;margin-right:6px;transition:all 0.2s;}
+.toc-bar a:hover{background:rgba(255,255,255,0.35);}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,#78350f 0%,#92400e 20%,#d97706 50%,#f59e0b 75%,#fde68a 100%);position:relative;overflow:hidden;min-height:400px;padding-bottom:30px;}
+.hero-content{position:relative;z-index:10;text-align:center;padding:36px 16px 0;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.3);border:2px solid rgba(255,255,255,0.5);border-radius:30px;padding:5px 18px;font-size:11px;font-weight:800;letter-spacing:2px;color:white;text-transform:uppercase;margin-bottom:12px;}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(24px,5vw,48px);color:white;text-shadow:0 3px 12px rgba(0,0,0,0.3);margin-bottom:6px;line-height:1.1;}
+.hero p{color:rgba(255,255,255,0.9);font-size:15px;font-weight:700;margin-bottom:16px;}
+
+/* Container & Sections */
+.container{max-width:1000px;margin:0 auto;padding:36px 16px 60px;}
+.section-block{background:white;border-radius:22px;box-shadow:0 4px 24px rgba(0,0,0,0.08);margin-bottom:36px;overflow:hidden;scroll-margin-top:80px;}
+.section-hd{padding:22px 28px;display:flex;align-items:center;gap:14px;color:white;font-family:'Fredoka One',cursive;font-size:24px;line-height:1.2;}
+.section-hd .icon{font-size:32px;}
+.section-bd{padding:28px;}
+.section-bd > p{margin-bottom:14px;}
+
+/* Gradients */
+.g-amber{background:linear-gradient(135deg,#78350f,#f59e0b);}
+.g-orange{background:linear-gradient(135deg,#9a3412,#fb923c);}
+.g-yellow{background:linear-gradient(135deg,#713f12,#facc15);}
+.g-teal{background:linear-gradient(135deg,#134e4a,#2dd4bf);}
+.g-green{background:linear-gradient(135deg,#166534,#22c55e);}
+.g-blue{background:linear-gradient(135deg,#1e40af,#38bdf8);}
+.g-indigo{background:linear-gradient(135deg,#312e81,#818cf8);}
+.g-purple{background:linear-gradient(135deg,#5b21b6,#a78bfa);}
+.g-slate{background:linear-gradient(135deg,#1e293b,#64748b);}
+.g-red{background:linear-gradient(135deg,#991b1b,#f87171);}
+.g-rose{background:linear-gradient(135deg,#881337,#fb7185);}
+
+/* Content elements */
+.subtitle{font-family:'Fredoka One',cursive;color:#78350f;font-size:20px;margin:22px 0 12px;display:flex;align-items:center;gap:8px;}
+.kt{display:inline-block;background:#fde047;color:#713f12;border-radius:7px;padding:1px 9px;font-weight:800;font-size:13px;}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:16px 0;}
+.info-card{border-radius:14px;padding:16px 18px;font-size:14px;}
+.info-card h4{font-weight:800;margin-bottom:6px;font-size:15px;}
+.ic-blue{background:#eff6ff;border-left:5px solid #3b82f6;}
+.ic-indigo{background:#eef2ff;border-left:5px solid #818cf8;}
+.ic-teal{background:#f0fdfa;border-left:5px solid #14b8a6;}
+.ic-purple{background:#faf5ff;border-left:5px solid #a78bfa;}
+.ic-green{background:#f0fdf4;border-left:5px solid #22c55e;}
+.ic-orange{background:#fff7ed;border-left:5px solid #fb923c;}
+.ic-yellow{background:#fefce8;border-left:5px solid #facc15;}
+.ic-red{background:#fef2f2;border-left:5px solid #f87171;}
+.ic-pink{background:#fdf2f8;border-left:5px solid #ec4899;}
+.ic-amber{background:#fffbeb;border-left:5px solid #f59e0b;}
+.trick{background:linear-gradient(135deg,#fef9c3,#fde68a);border:2px solid #f59e0b;border-radius:14px;padding:14px 18px;font-size:14px;margin:16px 0;}
+.trick strong{color:#78350f;}
+.note-box{background:#fffbeb;border-left:5px solid #f59e0b;border-radius:10px;padding:12px 16px;margin:14px 0;font-size:14px;}
+.formula-box{background:linear-gradient(135deg,#fffbeb,#fde68a);border:2px solid #f59e0b;border-radius:12px;padding:14px 18px;text-align:center;font-family:'Fredoka One',cursive;font-size:18px;color:#78350f;margin:12px 0;}
+.formula-box small{font-family:'Nunito',sans-serif;font-weight:600;font-size:13px;display:block;margin-top:4px;color:#92400e;}
+
+/* Tables */
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0;}
+th{background:#78350f;color:white;padding:12px 14px;text-align:left;font-weight:800;font-size:13px;}
+td{padding:11px 14px;border-bottom:1px solid #fde68a;font-size:13.5px;}
+tr:nth-child(even) td{background:#fffbeb;}
+
+/* Worked example */
+.worked-example{background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:18px;margin:16px 0;}
+.worked-example h4{font-family:'Fredoka One',cursive;color:#78350f;font-size:16px;margin-bottom:8px;}
+.we-step{background:white;border-radius:10px;padding:12px 16px;margin:8px 0;border-left:4px solid #f59e0b;font-size:14px;}
+
+/* MCQ */
+.mcq-list{list-style:none;padding:0;}
+.mcq-item{background:white;border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
+.mcq-q{font-weight:700;font-size:14.5px;margin-bottom:10px;color:#78350f;}
+.mcq-options{list-style:none;padding:0;}
+.mcq-options li{background:#fffbeb;border-radius:8px;padding:7px 12px;margin-bottom:5px;font-size:13.5px;cursor:pointer;transition:all 0.2s;border:1.5px solid transparent;}
+.mcq-options li:hover{background:#fde68a;border-color:#f59e0b;}
+.mcq-options li.correct{background:#d1fae5!important;border-color:#22c55e;font-weight:700;color:#14532d;}
+.mcq-options li.wrong{background:#fee2e2!important;border-color:#ef4444;font-weight:700;color:#991b1b;}
+.mcq-ans{font-size:12.5px;color:#16a34a;font-weight:700;margin-top:6px;display:none;}
+.mcq-item.show-ans .mcq-ans{display:block;}
+
+/* Short Q */
+.short-q-list{list-style:none;padding:0;}
+.short-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #d97706;}
+.short-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
+.short-a{font-size:13.5px;color:#374151;}
+.short-a strong{color:#78350f;}
+
+/* Long Q */
+.long-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
+.long-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
+.long-a{font-size:13.5px;color:#374151;}
+.long-a strong{color:#78350f;}
+
+/* Fun facts */
+.fun-fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0;}
+.fun-fact-card{background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fbbf24;border-radius:14px;padding:16px 18px;font-size:14px;}
+.fun-fact-card h4{font-weight:800;font-size:15px;color:#92400e;margin-bottom:6px;}
+
+/* Bottom nav */
+.bottom-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:30px 0;}
+.bottom-nav-full{grid-column:1/-1;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.bottom-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:800;font-size:14px;text-decoration:none;color:white;transition:all 0.2s;}
+.bottom-btn:hover{transform:translateY(-2px);}
+.bottom-btn.home-btn{background:linear-gradient(135deg,#92400e,#f59e0b);}
+
+/* Share */
+.float-share-btn{position:fixed;bottom:24px;right:24px;width:52px;height:52px;background:linear-gradient(135deg,#92400e,#f59e0b);border-radius:50%;border:none;color:white;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(146,64,14,0.4);z-index:90;display:flex;align-items:center;justify-content:center;transition:all 0.3s;}
+.float-share-btn:hover{transform:scale(1.1);}
+.share-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;justify-content:center;align-items:center;}
+.share-overlay.active{display:flex;}
+.share-popup{background:white;border-radius:22px;padding:28px;max-width:360px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);text-align:center;}
+.share-popup h3{font-family:'Fredoka One',cursive;color:#78350f;font-size:20px;margin-bottom:16px;}
+.share-btn-row{display:flex;flex-direction:column;gap:10px;}
+.share-action-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;border:none;font-size:14px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:white;transition:all 0.2s;}
+.share-wa{background:#25d366;}
+.share-copy{background:#3b82f6;}
+.share-native{background:#f59e0b;color:#78350f;}
+.share-close-btn{margin-top:14px;background:#e2e8f0;color:#475569;border:none;padding:8px 20px;border-radius:10px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+.share-action-btn:hover{opacity:0.9;transform:translateY(-1px);}
+.share-close-btn:hover{background:#cbd5e1;}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Footer */
+footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#78350f,#f59e0b);color:white;font-size:14px;font-weight:700;}
+
+/* SVG diagram styling */
+.triangle-wrap{background:linear-gradient(135deg,#f8fafc,#e2e8f0);border-radius:18px;padding:24px;margin:20px 0;text-align:center;}
+.triangle-svg{max-width:400px;width:100%;height:auto;}
+
+/* Interactive Activity Styles */
+.activity-wrap{background:linear-gradient(135deg,#fffbeb,#fef3c7);border:2px solid #fbbf24;border-radius:18px;padding:24px;margin:20px 0;text-align:center;}
+.activity-title{font-family:'Fredoka One',cursive;color:#92400e;font-size:18px;margin-bottom:6px;}
+.activity-desc{font-size:13px;color:#475569;margin-bottom:14px;}
+.activity-canvas-wrap{position:relative;display:inline-block;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.1);background:white;touch-action:none;max-width:420px;width:100%;}
+.activity-canvas{display:block;cursor:crosshair;width:100%;height:auto;}
+.activity-controls{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.act-btn{padding:8px 18px;border-radius:10px;border:none;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;cursor:pointer;transition:all 0.2s;color:white;}
+.act-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+.act-btn-amber{background:linear-gradient(135deg,#d97706,#fbbf24);color:#78350f;}
+.act-btn-red{background:linear-gradient(135deg,#dc2626,#f87171);}
+.act-btn-green{background:linear-gradient(135deg,#16a34a,#22c55e);}
+.act-btn-blue{background:linear-gradient(135deg,#2563eb,#3b82f6);}
+.activity-result{background:white;border-radius:12px;padding:14px 18px;margin-top:14px;font-size:14px;text-align:left;border:2px solid #e2e8f0;min-height:40px;}
+.activity-result strong{color:#78350f;}
+.activity-result .step{margin:4px 0;padding:4px 10px;background:#fffbeb;border-radius:6px;border-left:3px solid #f59e0b;font-size:13px;}
+.activity-status{font-size:12px;color:#64748b;margin-top:8px;font-weight:700;}
+
+/* Scrollbar styling */
+::-webkit-scrollbar{height:4px;width:4px;}
+::-webkit-scrollbar-thumb{background:#f59e0b;border-radius:4px;}
+
+/* Hero animation */
+@keyframes heroTriPulse{0%,100%{transform:scale(1);opacity:0.7;}50%{transform:scale(1.15);opacity:1;}}
+
+/* Unordered list styling inside section-bd */
+.section-bd ul{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ul li{margin-bottom:6px;}
+.section-bd ol{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ol li{margin-bottom:6px;}
+
+@media(max-width:600px){
+  .section-bd{padding:18px;}
+  .section-hd{padding:16px 20px;font-size:19px;}
+  .hero{min-height:340px;}
+  .toc-bar{top:40px;}
+}
+
+/* Dark mode */
+[data-theme="dark"] body{background:#1c1917;color:#fef3c7;}
+[data-theme="dark"] .top-nav{background:#292524;}
+[data-theme="dark"] .section-block{background:#292524;box-shadow:0 4px 24px rgba(0,0,0,0.3);}
+[data-theme="dark"] .section-bd > p, [data-theme="dark"] .section-bd{color:#fef3c7;}
+[data-theme="dark"] .subtitle{color:#fbbf24;}
+[data-theme="dark"] .note-box{background:#292524;border-left-color:#d97706;}
+[data-theme="dark"] .formula-box{background:linear-gradient(135deg,#292524,#44403c);border-color:#d97706;color:#fbbf24;}
+[data-theme="dark"] .formula-box small{color:#fde68a;}
+[data-theme="dark"] .worked-example{background:#1c1917;border-color:#44403c;}
+[data-theme="dark"] .worked-example h4{color:#fbbf24;}
+[data-theme="dark"] .we-step{background:#292524;color:#fef3c7;}
+[data-theme="dark"] table td{border-bottom-color:#44403c;color:#fef3c7;}
+[data-theme="dark"] tr:nth-child(even) td{background:#1c1917;}
+[data-theme="dark"] .info-card{background:#1c1917;color:#fef3c7;}
+[data-theme="dark"] .trick{background:linear-gradient(135deg,#292524,#44403c);border-color:#d97706;color:#fef3c7;}
+[data-theme="dark"] .trick strong{color:#fbbf24;}
+[data-theme="dark"] .mcq-item{background:#1c1917;box-shadow:0 2px 10px rgba(0,0,0,0.3);}
+[data-theme="dark"] .mcq-q{color:#fbbf24;}
+[data-theme="dark"] .mcq-options li{background:#292524;color:#fef3c7;}
+[data-theme="dark"] .mcq-options li:hover{background:#44403c;border-color:#d97706;}
+[data-theme="dark"] .short-q-item, [data-theme="dark"] .long-q-item{background:#1c1917;box-shadow:0 2px 10px rgba(0,0,0,0.3);}
+[data-theme="dark"] .short-q{color:#fbbf24;}
+[data-theme="dark"] .short-a, [data-theme="dark"] .long-a{color:#fef3c7;}
+[data-theme="dark"] .short-a strong, [data-theme="dark"] .long-a strong{color:#fbbf24;}
+[data-theme="dark"] .long-q{color:#fbbf24;}
+[data-theme="dark"] .fun-fact-card{background:linear-gradient(135deg,#292524,#44403c);border-color:#d97706;color:#fef3c7;}
+[data-theme="dark"] .fun-fact-card h4{color:#fbbf24;}
+[data-theme="dark"] .share-popup{background:#292524;}
+[data-theme="dark"] .share-popup h3{color:#fbbf24;}
+[data-theme="dark"] .share-popup p{color:#a8a29e;}
+[data-theme="dark"] .triangle-wrap{background:linear-gradient(135deg,#1c1917,#292524);}
+[data-theme="dark"] .activity-wrap{background:linear-gradient(135deg,#1c1917,#292524);border-color:#d97706;}
+[data-theme="dark"] .activity-result{background:#292524;border-color:#44403c;color:#fef3c7;}
+</style>
+</head>
+<body>
+
+<!-- ========== TOP NAV ========== -->
+<div class="top-nav">
+  <a href="../../index.html" class="tn-home">&#127968; Home</a>
+  <div class="nav-spacer"></div>
+  <button class="tn-share" onclick="openSharePopup()">&#128228; Share</button>
+</div>
+
+<!-- ========== TABLE OF CONTENTS BAR ========== -->
+<div class="toc-bar">
+  <a href="#history">&#128220; History</a>
+  <a href="#theorem">&#128208; Theorem</a>
+  <a href="#proof">&#128300; Proof</a>
+  <a href="#converse">&#128260; Converse</a>
+  <a href="#triples">&#128290; Triples</a>
+  <a href="#worked">&#9999;&#65039; Examples</a>
+  <a href="#applications">&#127959;&#65039; Applications</a>
+  <a href="#interactive">&#127919; Interactive</a>
+  <a href="#summary">&#128202; Summary</a>
+  <a href="#mcq">&#129504; MCQs</a>
+  <a href="#short">&#9997;&#65039; Short Q&amp;A</a>
+  <a href="#long">&#128214; Long Q&amp;A</a>
+  <a href="#funfacts">&#127775; Fun Facts</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Chapter 9 &middot; NCERT 2025-26</div>
+    <h1>&#128208; The Baudhayana&ndash;Pythagoras Theorem</h1>
+    <p>Ancient Indian Roots &middot; a&sup2; + b&sup2; = c&sup2; &middot; Pythagorean Triples &middot; Real-World Applications</p>
+  </div>
+  <!-- Animated right triangle in hero -->
+  <div style="position:relative;max-width:300px;height:200px;margin:20px auto 0;">
+    <svg viewBox="0 0 300 200" style="width:100%;height:100%;">
+      <polygon points="40,170 260,170 260,50" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="3" stroke-linejoin="round"/>
+      <rect x="244" y="154" width="16" height="16" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+      <text x="150" y="192" fill="rgba(255,255,255,0.8)" font-size="14" font-weight="800" text-anchor="middle" font-family="Nunito,sans-serif">a</text>
+      <text x="272" y="115" fill="rgba(255,255,255,0.8)" font-size="14" font-weight="800" text-anchor="middle" font-family="Nunito,sans-serif">b</text>
+      <text x="140" y="105" fill="rgba(255,255,255,0.9)" font-size="16" font-weight="800" text-anchor="middle" font-family="Fredoka One,cursive">c</text>
+      <circle cx="40" cy="170" r="5" fill="#fde047" opacity="0.8" style="animation:heroTriPulse 3s ease-in-out infinite;"/>
+      <circle cx="260" cy="170" r="5" fill="#34d399" opacity="0.8" style="animation:heroTriPulse 3s ease-in-out infinite 0.5s;"/>
+      <circle cx="260" cy="50" r="5" fill="#f87171" opacity="0.8" style="animation:heroTriPulse 3s ease-in-out infinite 1s;"/>
+      <text x="150" y="140" fill="white" font-size="18" font-weight="900" text-anchor="middle" font-family="Fredoka One,cursive" opacity="0.9">a&sup2; + b&sup2; = c&sup2;</text>
+    </svg>
+  </div>
+</div>
+
+<!-- ========== MAIN CONTAINER ========== -->
+<div class="container">
+
+  <!-- =====================================================
+       SECTION 1: HISTORICAL CONTEXT
+       ===================================================== -->
+  <div class="section-block reveal" id="history">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128220;</span>
+      Historical Context &amp; Indian Heritage
+    </div>
+    <div class="section-bd">
+
+      <p>The relationship between the sides of a right-angled triangle is one of the most important discoveries in all of mathematics. While this theorem is widely known as the "Pythagorean Theorem" after the Greek mathematician Pythagoras (c. 570&ndash;495 BCE), the truth is that this knowledge was recorded in India <strong>centuries earlier</strong>.</p>
+
+      <div class="subtitle">&#127470;&#127475; Baudhayana &amp; the Sulba Sutras</div>
+
+      <p>Around <strong>800 BCE</strong>, the Indian mathematician and Vedic priest <strong>Baudhayana</strong> composed the <span class="kt">Baudhayana Sulba Sutra</span>, one of the oldest mathematical texts in the world. The Sulba Sutras (literally "rope rules") were manuals for constructing fire altars of precise geometric shapes required for Vedic rituals.</p>
+
+      <p>In the Baudhayana Sulba Sutra (verse 1.48), we find this remarkable statement:</p>
+
+      <div class="formula-box">
+        "The diagonal of a rectangle produces both areas which its length and breadth produce separately."
+        <small>Baudhayana Sulba Sutra, ~800 BCE &mdash; the earliest known statement of the theorem</small>
+      </div>
+
+      <p>In modern language, this means: <em>The square on the diagonal of a rectangle equals the sum of the squares on its two sides.</em> This is exactly the theorem we study today!</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128220; Baudhayana (~800 BCE)</h4>
+          Composed the Sulba Sutras containing the first recorded statement of the theorem about right triangles. He also gave an approximation of &radic;2 as 1 + 1/3 + 1/(3&times;4) &minus; 1/(3&times;4&times;34) = 1.4142156..., which is accurate to 5 decimal places!
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128220; Apastamba (~600 BCE)</h4>
+          Another Indian mathematician who independently stated the theorem and provided numerical examples of Pythagorean triples, including (3, 4, 5), (5, 12, 13), (8, 15, 17), and (12, 35, 37).
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#127464;&#127475; Ancient China (~1100 BCE)</h4>
+          The Chinese text <em>Zhoubi Suanjing</em> contains a similar statement and a visual proof of the 3-4-5 triangle, showing that knowledge of this theorem was widespread in the ancient world.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#127468;&#127479; Pythagoras (~570 BCE)</h4>
+          The Greek mathematician Pythagoras and his school are credited with providing a formal proof of the theorem around 500 BCE. The theorem is named after him in Western tradition, though the knowledge predates him.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Why "Baudhayana&ndash;Pythagoras"?</strong> The NCERT Ganita textbook (2025-26) uses the name <strong>Baudhayana&ndash;Pythagoras Theorem</strong> to honour the Indian mathematician Baudhayana who described this relationship approximately 300 years before Pythagoras. This acknowledges India's significant contribution to world mathematics.
+      </div>
+
+      <div class="subtitle">&#128218; The Sulba Sutras &mdash; Mathematical Treasure</div>
+
+      <p>The Sulba Sutras are remarkable not just for the theorem but for several other mathematical achievements:</p>
+
+      <ul>
+        <li><strong>Pythagorean triples:</strong> Baudhayana listed several sets of numbers satisfying a&sup2; + b&sup2; = c&sup2;</li>
+        <li><strong>Approximation of &radic;2:</strong> Accurate to 5 decimal places &mdash; an extraordinary achievement for 800 BCE</li>
+        <li><strong>Geometric constructions:</strong> Methods for constructing squares equal in area to rectangles, circles equal in area to squares, and other transformations</li>
+        <li><strong>Irrational numbers:</strong> Implicit awareness that &radic;2 cannot be expressed as a simple fraction</li>
+      </ul>
+
+      <div class="trick">
+        <strong>&#128161; Remember:</strong> Baudhayana (~800 BCE) came approximately <strong>300 years before</strong> Pythagoras (~500 BCE). When you see "Baudhayana&ndash;Pythagoras Theorem" in your NCERT textbook, recall that India contributed this knowledge to the world long before it was formalised in Greece.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 2: STATEMENT OF THE THEOREM
+       ===================================================== -->
+  <div class="section-block reveal" id="theorem">
+    <div class="section-hd g-orange">
+      <span class="icon">&#128208;</span>
+      Statement of the Theorem
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128272; The Baudhayana&ndash;Pythagoras Theorem</div>
+
+      <p>In a <strong>right-angled triangle</strong>, the square of the <span class="kt">hypotenuse</span> (the side opposite the right angle) is equal to the sum of the squares of the other two sides (called <span class="kt">legs</span> or <span class="kt">perpendicular sides</span>).</p>
+
+      <div class="formula-box">
+        a&sup2; + b&sup2; = c&sup2;
+        <small>where c is the hypotenuse and a, b are the two legs of the right triangle</small>
+      </div>
+
+      <!-- SVG Right Triangle Diagram -->
+      <div class="triangle-wrap">
+        <p style="font-weight:800;color:#78350f;margin-bottom:10px;font-size:15px;">Right Triangle with Squares on Each Side</p>
+        <svg viewBox="0 0 500 400" class="triangle-svg">
+          <!-- Square on side a (bottom) -->
+          <rect x="80" y="280" width="160" height="160" fill="#fef3c7" stroke="#d97706" stroke-width="2" rx="3" opacity="0.6"/>
+          <text x="160" y="370" fill="#92400e" font-size="16" font-weight="800" text-anchor="middle" font-family="Nunito,sans-serif">a&sup2;</text>
+
+          <!-- Square on side b (right) -->
+          <rect x="240" y="100" width="120" height="120" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="3" opacity="0.6"/>
+          <text x="300" y="168" fill="#1e40af" font-size="16" font-weight="800" text-anchor="middle" font-family="Nunito,sans-serif">b&sup2;</text>
+
+          <!-- Square on hypotenuse c (tilted visual representation shown as label) -->
+          <rect x="20" y="20" width="130" height="30" fill="#dcfce7" stroke="#22c55e" stroke-width="2" rx="8"/>
+          <text x="85" y="41" fill="#166534" font-size="14" font-weight="800" text-anchor="middle" font-family="Nunito,sans-serif">c&sup2; = a&sup2; + b&sup2;</text>
+
+          <!-- The right triangle -->
+          <polygon points="80,280 240,280 240,160" fill="rgba(249,115,22,0.12)" stroke="#78350f" stroke-width="3" stroke-linejoin="round"/>
+
+          <!-- Right angle square marker -->
+          <rect x="224" y="264" width="16" height="16" fill="none" stroke="#78350f" stroke-width="2"/>
+
+          <!-- Labels -->
+          <text x="160" y="272" fill="#d97706" font-size="18" font-weight="900" text-anchor="middle" font-family="Fredoka One,cursive">a</text>
+          <text x="252" y="224" fill="#3b82f6" font-size="18" font-weight="900" text-anchor="middle" font-family="Fredoka One,cursive">b</text>
+          <text x="148" y="216" fill="#22c55e" font-size="18" font-weight="900" text-anchor="middle" font-family="Fredoka One,cursive">c (hypotenuse)</text>
+
+          <!-- Vertex labels -->
+          <text x="68" y="280" fill="#78350f" font-size="14" font-weight="800" text-anchor="middle" font-family="Nunito,sans-serif">A</text>
+          <text x="240" y="294" fill="#78350f" font-size="14" font-weight="800" text-anchor="middle" font-family="Nunito,sans-serif">B</text>
+          <text x="252" y="154" fill="#78350f" font-size="14" font-weight="800" text-anchor="middle" font-family="Nunito,sans-serif">C</text>
+        </svg>
+        <p style="font-size:13px;color:#475569;margin-top:8px;">In right triangle ABC with the right angle at B: AB&sup2; + BC&sup2; = AC&sup2;</p>
+      </div>
+
+      <div class="subtitle">&#128218; Key Terminology</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Term</th>
+              <th>Definition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Right-angled triangle</strong></td>
+              <td>A triangle in which one angle is exactly 90&deg;</td>
+            </tr>
+            <tr>
+              <td><strong>Hypotenuse</strong></td>
+              <td>The longest side of a right triangle, opposite the right angle</td>
+            </tr>
+            <tr>
+              <td><strong>Legs (Perpendicular sides)</strong></td>
+              <td>The two sides that form the right angle</td>
+            </tr>
+            <tr>
+              <td><strong>Pythagorean triple</strong></td>
+              <td>A set of three positive integers (a, b, c) such that a&sup2; + b&sup2; = c&sup2;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subtitle">&#128270; Understanding the Theorem Visually</div>
+
+      <p>The theorem has a beautiful visual interpretation. If you draw <strong>squares</strong> on each side of a right triangle, the area of the square on the hypotenuse equals the <strong>sum of the areas</strong> of the squares on the other two sides.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128311; Example: 3-4-5 Triangle</h4>
+          Square on side 3: area = 3&sup2; = <strong>9</strong><br>
+          Square on side 4: area = 4&sup2; = <strong>16</strong><br>
+          Square on hypotenuse 5: area = 5&sup2; = <strong>25</strong><br>
+          Check: 9 + 16 = <strong>25</strong> &#9989;
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128311; Example: 5-12-13 Triangle</h4>
+          Square on side 5: area = 5&sup2; = <strong>25</strong><br>
+          Square on side 12: area = 12&sup2; = <strong>144</strong><br>
+          Square on hypotenuse 13: area = 13&sup2; = <strong>169</strong><br>
+          Check: 25 + 144 = <strong>169</strong> &#9989;
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Key Fact:</strong> The hypotenuse is <em>always</em> the longest side of a right triangle. It is always opposite to the 90&deg; angle. When using the theorem, always identify the hypotenuse first!
+      </div>
+
+      <div class="subtitle">&#128290; Three Forms of the Formula</div>
+
+      <p>Depending on which side is unknown, the formula can be rearranged:</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>Finding Hypotenuse c</h4>
+          c = &radic;(a&sup2; + b&sup2;)<br>
+          <em>Use when both legs are known.</em>
+        </div>
+        <div class="info-card ic-green">
+          <h4>Finding Leg a</h4>
+          a = &radic;(c&sup2; &minus; b&sup2;)<br>
+          <em>Use when hypotenuse and one leg are known.</em>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Finding Leg b</h4>
+          b = &radic;(c&sup2; &minus; a&sup2;)<br>
+          <em>Use when hypotenuse and one leg are known.</em>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 3: VISUAL PROOF
+       ===================================================== -->
+  <div class="section-block reveal" id="proof">
+    <div class="section-hd g-teal">
+      <span class="icon">&#128300;</span>
+      Proof of the Theorem
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128218; Proof by Rearrangement (Area Method)</div>
+
+      <p>This is one of the most elegant and visual proofs of the Baudhayana&ndash;Pythagoras theorem. There are over 400 known proofs, but this area-based proof is perhaps the most intuitive.</p>
+
+      <div class="worked-example">
+        <h4>Proof: Using a Large Square with Side (a + b)</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Take a right triangle with legs <strong>a</strong> and <strong>b</strong> and hypotenuse <strong>c</strong>. Make four identical copies of this triangle.
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Arrange the four triangles inside a large square of side <strong>(a + b)</strong>. Place them so their hypotenuses form a tilted square of side <strong>c</strong> in the centre.
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Calculate the area of the large square in two ways:<br>
+          <strong>Method 1:</strong> Area = (a + b)&sup2; = a&sup2; + 2ab + b&sup2;<br>
+          <strong>Method 2:</strong> Area = 4 triangles + inner square = 4 &times; (&frac12;ab) + c&sup2; = 2ab + c&sup2;
+        </div>
+        <div class="we-step">
+          <strong>Step 4:</strong> Set the two expressions equal:<br>
+          a&sup2; + 2ab + b&sup2; = 2ab + c&sup2;
+        </div>
+        <div class="we-step">
+          <strong>Step 5:</strong> Subtract 2ab from both sides:<br>
+          <strong>a&sup2; + b&sup2; = c&sup2;</strong> &#9989;<br><br>
+          This completes the proof!
+        </div>
+      </div>
+
+      <div class="subtitle">&#128300; Bhaskara's Proof (Indian, 12th Century)</div>
+
+      <p>The great Indian mathematician <strong>Bhaskaracharya</strong> (Bhaskara II, 1114&ndash;1185 CE) gave one of the most famous proofs in history. He drew a diagram of a square with side <strong>c</strong> and inscribed a smaller square with side <strong>(a &minus; b)</strong> inside it using four right triangles. He wrote just one word alongside his diagram:</p>
+
+      <div class="formula-box">
+        "Behold!"
+        <small>Bhaskara's famous one-word proof &mdash; the diagram speaks for itself</small>
+      </div>
+
+      <p>In Bhaskara's proof, a square of side c is divided into 4 right triangles (each with area &frac12;ab) and one inner square of side (a &minus; b) with area (a &minus; b)&sup2;:</p>
+
+      <div class="worked-example">
+        <h4>Bhaskara's Calculation</h4>
+        <div class="we-step">
+          Area of large square = c&sup2;
+        </div>
+        <div class="we-step">
+          Area of 4 triangles + inner square = 4 &times; (&frac12;ab) + (a &minus; b)&sup2; = 2ab + a&sup2; &minus; 2ab + b&sup2; = a&sup2; + b&sup2;
+        </div>
+        <div class="we-step">
+          Therefore: <strong>c&sup2; = a&sup2; + b&sup2;</strong> &#9989;
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Exam Tip:</strong> You do not need to memorise all proofs for the exam. The area method proof (using a large square of side a+b) is the most commonly asked. Understand it step by step and you can reproduce it easily.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 4: CONVERSE OF THE THEOREM
+       ===================================================== -->
+  <div class="section-block reveal" id="converse">
+    <div class="section-hd g-purple">
+      <span class="icon">&#128260;</span>
+      Converse of the Theorem
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128218; The Converse Statement</div>
+
+      <p>The <strong>converse</strong> of the Baudhayana&ndash;Pythagoras theorem is equally important:</p>
+
+      <div class="formula-box">
+        If a&sup2; + b&sup2; = c&sup2; for the sides of a triangle, then the triangle is right-angled, and the right angle is opposite to the longest side c.
+        <small>Converse of the Baudhayana&ndash;Pythagoras Theorem</small>
+      </div>
+
+      <p>In simple words: <strong>if the square of the longest side equals the sum of the squares of the other two sides, then the triangle is right-angled.</strong></p>
+
+      <div class="subtitle">&#128270; How to Use the Converse</div>
+
+      <ol>
+        <li>Given three sides of a triangle, first identify the <strong>longest side</strong> (potential hypotenuse).</li>
+        <li>Square all three sides.</li>
+        <li>Check: Does (longest side)&sup2; = (side 1)&sup2; + (side 2)&sup2;?</li>
+        <li>If <strong>yes</strong>, the triangle is right-angled.</li>
+        <li>If <strong>no</strong>, the triangle is not right-angled.</li>
+      </ol>
+
+      <div class="subtitle">&#9999;&#65039; Worked Examples</div>
+
+      <div class="worked-example">
+        <h4>Example 1: Is a triangle with sides 6, 8, 10 a right triangle?</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Identify the longest side: 10 (potential hypotenuse).
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Check: 6&sup2; + 8&sup2; = 36 + 64 = 100. And 10&sup2; = 100.
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Since 6&sup2; + 8&sup2; = 10&sup2;, the triangle is <strong>right-angled</strong>. &#9989;<br>
+          The right angle is opposite the side of length 10.
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 2: Is a triangle with sides 5, 7, 9 a right triangle?</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Longest side = 9. Check: 5&sup2; + 7&sup2; = 25 + 49 = 74.
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> 9&sup2; = 81. Since 74 &ne; 81, this is <strong>not a right triangle</strong>. &#10060;
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 3: Is a triangle with sides 7, 24, 25 a right triangle?</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Longest side = 25. Check: 7&sup2; + 24&sup2; = 49 + 576 = 625.
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> 25&sup2; = 625. Since 7&sup2; + 24&sup2; = 25&sup2;, the triangle is <strong>right-angled</strong>. &#9989;
+        </div>
+      </div>
+
+      <div class="subtitle">&#128202; Acute vs Obtuse Triangle Check</div>
+
+      <p>The Baudhayana&ndash;Pythagoras theorem can also help classify triangles even when they are not right-angled:</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#9989; Right Triangle</h4>
+          a&sup2; + b&sup2; = c&sup2;<br>
+          The triangle has a 90&deg; angle.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128310; Acute Triangle</h4>
+          a&sup2; + b&sup2; > c&sup2;<br>
+          All angles are less than 90&deg;.
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#128308; Obtuse Triangle</h4>
+          a&sup2; + b&sup2; < c&sup2;<br>
+          One angle is greater than 90&deg;.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Quick Check Mantra:</strong> Square the longest side. Square and add the other two. <br>
+        &bull; <strong>Equal?</strong> &rarr; Right triangle<br>
+        &bull; <strong>Sum is bigger?</strong> &rarr; Acute triangle<br>
+        &bull; <strong>Sum is smaller?</strong> &rarr; Obtuse triangle
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 5: PYTHAGOREAN TRIPLES
+       ===================================================== -->
+  <div class="section-block reveal" id="triples">
+    <div class="section-hd g-blue">
+      <span class="icon">&#128290;</span>
+      Pythagorean Triples
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128218; What Are Pythagorean Triples?</div>
+
+      <p>A <span class="kt">Pythagorean triple</span> is a set of three <strong>positive integers</strong> (a, b, c) such that a&sup2; + b&sup2; = c&sup2;. These represent the sides of a right triangle where all side lengths are whole numbers.</p>
+
+      <div class="subtitle">&#128202; Common Pythagorean Triples</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Triple (a, b, c)</th>
+              <th>a&sup2;</th>
+              <th>b&sup2;</th>
+              <th>c&sup2;</th>
+              <th>a&sup2; + b&sup2; = c&sup2;?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>(3, 4, 5)</strong></td>
+              <td>9</td>
+              <td>16</td>
+              <td>25</td>
+              <td>9 + 16 = 25 &#9989;</td>
+            </tr>
+            <tr>
+              <td><strong>(5, 12, 13)</strong></td>
+              <td>25</td>
+              <td>144</td>
+              <td>169</td>
+              <td>25 + 144 = 169 &#9989;</td>
+            </tr>
+            <tr>
+              <td><strong>(8, 15, 17)</strong></td>
+              <td>64</td>
+              <td>225</td>
+              <td>289</td>
+              <td>64 + 225 = 289 &#9989;</td>
+            </tr>
+            <tr>
+              <td><strong>(7, 24, 25)</strong></td>
+              <td>49</td>
+              <td>576</td>
+              <td>625</td>
+              <td>49 + 576 = 625 &#9989;</td>
+            </tr>
+            <tr>
+              <td><strong>(9, 40, 41)</strong></td>
+              <td>81</td>
+              <td>1600</td>
+              <td>1681</td>
+              <td>81 + 1600 = 1681 &#9989;</td>
+            </tr>
+            <tr>
+              <td><strong>(11, 60, 61)</strong></td>
+              <td>121</td>
+              <td>3600</td>
+              <td>3721</td>
+              <td>121 + 3600 = 3721 &#9989;</td>
+            </tr>
+            <tr>
+              <td><strong>(20, 21, 29)</strong></td>
+              <td>400</td>
+              <td>441</td>
+              <td>841</td>
+              <td>400 + 441 = 841 &#9989;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subtitle">&#128290; Generating Pythagorean Triples</div>
+
+      <p><strong>Method 1: Scaling.</strong> If (a, b, c) is a Pythagorean triple, then so is (ka, kb, kc) for any positive integer k.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>Scaling (3, 4, 5)</h4>
+          k=2: (6, 8, 10) &#9989;<br>
+          k=3: (9, 12, 15) &#9989;<br>
+          k=4: (12, 16, 20) &#9989;<br>
+          k=5: (15, 20, 25) &#9989;
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Scaling (5, 12, 13)</h4>
+          k=2: (10, 24, 26) &#9989;<br>
+          k=3: (15, 36, 39) &#9989;<br>
+          k=4: (20, 48, 52) &#9989;
+        </div>
+      </div>
+
+      <p><strong>Method 2: Using m and n (m > n > 0).</strong></p>
+
+      <div class="formula-box">
+        a = m&sup2; &minus; n&sup2;, &ensp; b = 2mn, &ensp; c = m&sup2; + n&sup2;
+        <small>This generates all primitive Pythagorean triples when m and n have no common factor and are not both odd</small>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example: Generate a triple with m = 3, n = 2</h4>
+        <div class="we-step">
+          a = m&sup2; &minus; n&sup2; = 9 &minus; 4 = <strong>5</strong>
+        </div>
+        <div class="we-step">
+          b = 2mn = 2 &times; 3 &times; 2 = <strong>12</strong>
+        </div>
+        <div class="we-step">
+          c = m&sup2; + n&sup2; = 9 + 4 = <strong>13</strong>
+        </div>
+        <div class="we-step">
+          Triple: <strong>(5, 12, 13)</strong> &#9989; &mdash; Verify: 25 + 144 = 169 = 13&sup2;
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example: Generate a triple with m = 4, n = 1</h4>
+        <div class="we-step">
+          a = 16 &minus; 1 = <strong>15</strong>, &ensp; b = 2 &times; 4 &times; 1 = <strong>8</strong>, &ensp; c = 16 + 1 = <strong>17</strong>
+        </div>
+        <div class="we-step">
+          Triple: <strong>(8, 15, 17)</strong> &#9989; &mdash; Verify: 64 + 225 = 289 = 17&sup2;
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Must-Know Triples for Exams:</strong> Memorise at least the first four: <strong>(3,4,5)</strong>, <strong>(5,12,13)</strong>, <strong>(8,15,17)</strong>, <strong>(7,24,25)</strong>. Also remember that any multiple of a triple is also a triple. For example, (6,8,10) = 2 &times; (3,4,5).
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 6: WORKED EXAMPLES
+       ===================================================== -->
+  <div class="section-block reveal" id="worked">
+    <div class="section-hd g-amber">
+      <span class="icon">&#9999;&#65039;</span>
+      Worked Examples (12 Examples)
+    </div>
+    <div class="section-bd">
+
+      <p>Here are detailed worked examples covering all types of problems you will encounter in your exam.</p>
+
+      <!-- Example 1 -->
+      <div class="worked-example">
+        <h4>Example 1: Find the hypotenuse of a right triangle with legs 6 cm and 8 cm.</h4>
+        <div class="we-step">
+          <strong>Given:</strong> a = 6 cm, b = 8 cm, c = ?
+        </div>
+        <div class="we-step">
+          <strong>Using:</strong> c&sup2; = a&sup2; + b&sup2; = 6&sup2; + 8&sup2; = 36 + 64 = 100
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> c = &radic;100 = <strong>10 cm</strong>
+        </div>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="worked-example">
+        <h4>Example 2: The hypotenuse of a right triangle is 13 cm and one leg is 5 cm. Find the other leg.</h4>
+        <div class="we-step">
+          <strong>Given:</strong> c = 13 cm, a = 5 cm, b = ?
+        </div>
+        <div class="we-step">
+          <strong>Using:</strong> b&sup2; = c&sup2; &minus; a&sup2; = 169 &minus; 25 = 144
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> b = &radic;144 = <strong>12 cm</strong>
+        </div>
+      </div>
+
+      <!-- Example 3 -->
+      <div class="worked-example">
+        <h4>Example 3: A ladder 10 m long is placed against a wall. The foot of the ladder is 6 m from the wall. How high up the wall does the ladder reach?</h4>
+        <div class="we-step">
+          <strong>Identify:</strong> The ladder is the hypotenuse (c = 10 m). The ground distance is one leg (a = 6 m). The wall height is the other leg (b = ?).
+        </div>
+        <div class="we-step">
+          <strong>Using:</strong> b&sup2; = c&sup2; &minus; a&sup2; = 100 &minus; 36 = 64
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> b = &radic;64 = <strong>8 m</strong>. The ladder reaches 8 m up the wall.
+        </div>
+      </div>
+
+      <!-- Example 4 -->
+      <div class="worked-example">
+        <h4>Example 4: Find the diagonal of a rectangle with length 12 cm and breadth 5 cm.</h4>
+        <div class="we-step">
+          <strong>Key insight:</strong> The diagonal of a rectangle divides it into two right triangles. The diagonal is the hypotenuse.
+        </div>
+        <div class="we-step">
+          <strong>Using:</strong> d&sup2; = 12&sup2; + 5&sup2; = 144 + 25 = 169
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> d = &radic;169 = <strong>13 cm</strong>
+        </div>
+      </div>
+
+      <!-- Example 5 -->
+      <div class="worked-example">
+        <h4>Example 5: A ship sails 9 km due East and then 12 km due North. How far is the ship from its starting point?</h4>
+        <div class="we-step">
+          <strong>Identify:</strong> East and North are perpendicular directions, forming a right triangle. The distance from start is the hypotenuse.
+        </div>
+        <div class="we-step">
+          <strong>Using:</strong> d&sup2; = 9&sup2; + 12&sup2; = 81 + 144 = 225
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> d = &radic;225 = <strong>15 km</strong>
+        </div>
+      </div>
+
+      <!-- Example 6 -->
+      <div class="worked-example">
+        <h4>Example 6: Two poles of heights 6 m and 11 m stand 12 m apart. Find the distance between their tops.</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> The difference in heights = 11 &minus; 6 = 5 m (vertical leg). The horizontal distance = 12 m (horizontal leg).
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> d&sup2; = 12&sup2; + 5&sup2; = 144 + 25 = 169
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> d = &radic;169 = <strong>13 m</strong>
+        </div>
+      </div>
+
+      <!-- Example 7 -->
+      <div class="worked-example">
+        <h4>Example 7: Check whether a triangle with sides 9, 12, and 15 is right-angled.</h4>
+        <div class="we-step">
+          <strong>Longest side:</strong> 15. Check: 9&sup2; + 12&sup2; = 81 + 144 = 225.
+        </div>
+        <div class="we-step">
+          15&sup2; = 225. Since 9&sup2; + 12&sup2; = 15&sup2;, the triangle is <strong>right-angled</strong>. &#9989;<br>
+          <em>Note: This is 3 &times; (3, 4, 5).</em>
+        </div>
+      </div>
+
+      <!-- Example 8 -->
+      <div class="worked-example">
+        <h4>Example 8: A 15 m long ladder reaches a window 12 m high. How far is the foot of the ladder from the wall? If the ladder is moved to reach a window 9 m high, how far will the foot be now?</h4>
+        <div class="we-step">
+          <strong>Part 1:</strong> a&sup2; = 15&sup2; &minus; 12&sup2; = 225 &minus; 144 = 81 &rarr; a = <strong>9 m</strong>
+        </div>
+        <div class="we-step">
+          <strong>Part 2:</strong> a&sup2; = 15&sup2; &minus; 9&sup2; = 225 &minus; 81 = 144 &rarr; a = <strong>12 m</strong>
+        </div>
+      </div>
+
+      <!-- Example 9 -->
+      <div class="worked-example">
+        <h4>Example 9: In a right triangle, if the two legs are in the ratio 3:4 and the hypotenuse is 20 cm, find the legs.</h4>
+        <div class="we-step">
+          <strong>Let</strong> legs = 3x and 4x. Then: (3x)&sup2; + (4x)&sup2; = 20&sup2;
+        </div>
+        <div class="we-step">
+          9x&sup2; + 16x&sup2; = 400 &rarr; 25x&sup2; = 400 &rarr; x&sup2; = 16 &rarr; x = 4
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> Legs = 3(4) = <strong>12 cm</strong> and 4(4) = <strong>16 cm</strong>
+        </div>
+      </div>
+
+      <!-- Example 10 -->
+      <div class="worked-example">
+        <h4>Example 10: The sides of a triangle are 20 cm, 21 cm, and 29 cm. Is it right-angled? If yes, find its area.</h4>
+        <div class="we-step">
+          <strong>Check:</strong> Longest side = 29. 20&sup2; + 21&sup2; = 400 + 441 = 841. And 29&sup2; = 841. &#9989; It is right-angled.
+        </div>
+        <div class="we-step">
+          <strong>Area</strong> = &frac12; &times; 20 &times; 21 = <strong>210 cm&sup2;</strong>
+        </div>
+      </div>
+
+      <!-- Example 11 -->
+      <div class="worked-example">
+        <h4>Example 11: Find the length of the altitude from the vertex to the base of an isosceles triangle with equal sides 13 cm and base 10 cm.</h4>
+        <div class="we-step">
+          <strong>Key insight:</strong> In an isosceles triangle, the altitude from the apex to the base bisects the base. So the altitude creates two right triangles, each with hypotenuse 13 and base 5.
+        </div>
+        <div class="we-step">
+          h&sup2; = 13&sup2; &minus; 5&sup2; = 169 &minus; 25 = 144
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> h = &radic;144 = <strong>12 cm</strong>
+        </div>
+      </div>
+
+      <!-- Example 12 -->
+      <div class="worked-example">
+        <h4>Example 12: A field is in the shape of a right triangle with the two perpendicular sides 48 m and 14 m. Find the length of the third side and the cost of fencing it at &#8377;50 per metre.</h4>
+        <div class="we-step">
+          <strong>Third side (hypotenuse):</strong> c&sup2; = 48&sup2; + 14&sup2; = 2304 + 196 = 2500 &rarr; c = <strong>50 m</strong>
+        </div>
+        <div class="we-step">
+          <strong>Perimeter:</strong> 48 + 14 + 50 = <strong>112 m</strong>
+        </div>
+        <div class="we-step">
+          <strong>Cost of fencing:</strong> 112 &times; 50 = <strong>&#8377;5,600</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 7: REAL-WORLD APPLICATIONS
+       ===================================================== -->
+  <div class="section-block reveal" id="applications">
+    <div class="section-hd g-green">
+      <span class="icon">&#127959;&#65039;</span>
+      Real-World Applications
+    </div>
+    <div class="section-bd">
+
+      <p>The Baudhayana&ndash;Pythagoras theorem is not just an abstract mathematical idea &mdash; it is used everywhere in the real world. Here are some important applications:</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128684; Ladders &amp; Heights</h4>
+          Whenever a ladder is placed against a wall, it forms a right triangle with the wall and the ground. You can calculate how high the ladder reaches or how far its base should be from the wall.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128507;&#65039; Navigation &amp; Distance</h4>
+          Ships and aircraft use the theorem to calculate the shortest distance between two points when they have travelled in perpendicular directions (e.g., North then East).
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#127959;&#65039; Construction &amp; Architecture</h4>
+          Builders use the 3-4-5 rule to check if walls are perpendicular. They measure 3 units along one wall, 4 units along the other, and check if the diagonal is 5 units. If yes, the corner is exactly 90&deg;.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128225; Diagonal of Screens</h4>
+          TV and phone screens are measured diagonally. If a TV screen is 48 inches wide and 36 inches tall, the diagonal (screen size) = &radic;(48&sup2; + 36&sup2;) = &radic;(2304 + 1296) = &radic;3600 = 60 inches.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128506;&#65039; Maps &amp; GPS</h4>
+          Finding the straight-line distance between two points on a map uses the Pythagorean theorem (via the distance formula). Your phone's GPS does this calculation millions of times!
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#9917;&#65039; Sports</h4>
+          In cricket or baseball, the distance the ball travels diagonally across the field is calculated using this theorem. A rectangular field's diagonal gives the maximum straight-line distance.
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Real-World Example: The 3-4-5 Rule in Construction</h4>
+        <div class="we-step">
+          <strong>Problem:</strong> A builder wants to check if the corner of a room is a perfect 90&deg; angle.
+        </div>
+        <div class="we-step">
+          <strong>Method:</strong> Measure 3 metres along one wall from the corner and mark it. Measure 4 metres along the other wall from the corner and mark it. Now measure the diagonal between the two marks.
+        </div>
+        <div class="we-step">
+          <strong>Result:</strong> If the diagonal is exactly 5 metres, the corner is a perfect right angle! This works because (3, 4, 5) is a Pythagorean triple: 3&sup2; + 4&sup2; = 9 + 16 = 25 = 5&sup2;.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Real-Life Tip:</strong> The 3-4-5 method (or any scaled version like 6-8-10 or 30-40-50) is used by carpenters, masons, and builders all around the world to check right angles. It is the simplest practical application of the theorem!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 8: INTERACTIVE SVG RIGHT TRIANGLE
+       ===================================================== -->
+  <div class="section-block reveal" id="interactive">
+    <div class="section-hd g-orange">
+      <span class="icon">&#127919;</span>
+      Interactive: Explore the Theorem
+    </div>
+    <div class="section-bd">
+      <p>Enter values for two sides of a right triangle and see the third side calculated instantly. Watch the theorem in action!</p>
+
+      <div class="activity-wrap">
+        <div class="activity-title">&#128290; Right Triangle Calculator</div>
+        <div class="activity-desc">Enter any two values and click "Calculate" to find the third side.</div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:16px 0;">
+          <div style="text-align:center;">
+            <label style="font-weight:800;font-size:13px;color:#92400e;display:block;margin-bottom:4px;">Side a</label>
+            <input type="number" id="sideA" placeholder="e.g. 3" style="width:90px;padding:8px 12px;border-radius:10px;border:2px solid #fbbf24;font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;text-align:center;">
+          </div>
+          <div style="text-align:center;">
+            <label style="font-weight:800;font-size:13px;color:#92400e;display:block;margin-bottom:4px;">Side b</label>
+            <input type="number" id="sideB" placeholder="e.g. 4" style="width:90px;padding:8px 12px;border-radius:10px;border:2px solid #fbbf24;font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;text-align:center;">
+          </div>
+          <div style="text-align:center;">
+            <label style="font-weight:800;font-size:13px;color:#92400e;display:block;margin-bottom:4px;">Hypotenuse c</label>
+            <input type="number" id="sideC" placeholder="e.g. 5" style="width:90px;padding:8px 12px;border-radius:10px;border:2px solid #fbbf24;font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;text-align:center;">
+          </div>
+        </div>
+
+        <div class="activity-controls">
+          <button class="act-btn act-btn-amber" onclick="calcTriangle()">&#128290; Calculate</button>
+          <button class="act-btn act-btn-red" onclick="clearTriangle()">&#128465; Clear</button>
+        </div>
+
+        <div class="activity-result" id="triResult">Enter any two sides and click Calculate to find the third!</div>
+
+        <!-- SVG Triangle Visualization -->
+        <div style="margin-top:16px;">
+          <svg id="triSvg" viewBox="0 0 420 320" style="max-width:420px;width:100%;height:auto;background:#fffbeb;border-radius:12px;border:2px solid #fde68a;">
+            <!-- Triangle -->
+            <polygon id="triPoly" points="60,260 340,260 340,80" fill="rgba(217,119,6,0.1)" stroke="#d97706" stroke-width="3" stroke-linejoin="round"/>
+            <!-- Right angle marker -->
+            <rect id="triSq" x="322" y="242" width="18" height="18" fill="none" stroke="#78350f" stroke-width="2"/>
+            <!-- Side labels -->
+            <text id="labelA" x="200" y="280" fill="#d97706" font-size="18" font-weight="900" text-anchor="middle" font-family="Fredoka One,cursive">a</text>
+            <text id="labelB" x="355" y="175" fill="#3b82f6" font-size="18" font-weight="900" text-anchor="middle" font-family="Fredoka One,cursive">b</text>
+            <text id="labelC" x="185" y="165" fill="#22c55e" font-size="18" font-weight="900" text-anchor="middle" font-family="Fredoka One,cursive">c</text>
+            <!-- Squares on sides (shown when calculated) -->
+            <rect id="sqA" x="60" y="260" width="0" height="0" fill="rgba(217,119,6,0.08)" stroke="#d97706" stroke-width="1" stroke-dasharray="6,4" rx="2"/>
+            <rect id="sqB" x="340" y="80" width="0" height="0" fill="rgba(59,130,246,0.08)" stroke="#3b82f6" stroke-width="1" stroke-dasharray="6,4" rx="2"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="subtitle">&#128300; Check if Three Sides Form a Right Triangle</div>
+
+      <div class="activity-wrap">
+        <div class="activity-title">&#128260; Right Triangle Checker</div>
+        <div class="activity-desc">Enter all three sides to check if they form a right triangle.</div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:16px 0;">
+          <div style="text-align:center;">
+            <label style="font-weight:800;font-size:13px;color:#92400e;display:block;margin-bottom:4px;">Side 1</label>
+            <input type="number" id="chk1" placeholder="e.g. 5" style="width:90px;padding:8px 12px;border-radius:10px;border:2px solid #fbbf24;font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;text-align:center;">
+          </div>
+          <div style="text-align:center;">
+            <label style="font-weight:800;font-size:13px;color:#92400e;display:block;margin-bottom:4px;">Side 2</label>
+            <input type="number" id="chk2" placeholder="e.g. 12" style="width:90px;padding:8px 12px;border-radius:10px;border:2px solid #fbbf24;font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;text-align:center;">
+          </div>
+          <div style="text-align:center;">
+            <label style="font-weight:800;font-size:13px;color:#92400e;display:block;margin-bottom:4px;">Side 3</label>
+            <input type="number" id="chk3" placeholder="e.g. 13" style="width:90px;padding:8px 12px;border-radius:10px;border:2px solid #fbbf24;font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;text-align:center;">
+          </div>
+        </div>
+
+        <div class="activity-controls">
+          <button class="act-btn act-btn-green" onclick="checkTriangle()">&#128260; Check</button>
+          <button class="act-btn act-btn-red" onclick="clearChecker()">&#128465; Clear</button>
+        </div>
+
+        <div class="activity-result" id="chkResult">Enter three side lengths and click Check!</div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Try These:</strong> Enter 3, 4, 5 in the calculator to verify. Then try 8, 15, 17. Now try 5, 7, 9 in the checker &mdash; is it a right triangle?
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 9: SUMMARY
+       ===================================================== -->
+  <div class="section-block reveal" id="summary">
+    <div class="section-hd g-slate">
+      <span class="icon">&#128202;</span>
+      Chapter Summary
+    </div>
+    <div class="section-bd">
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128220; History</h4>
+          Baudhayana (~800 BCE) stated the theorem in the Sulba Sutras. Pythagoras (~500 BCE) later provided a formal proof. The NCERT textbook calls it the Baudhayana&ndash;Pythagoras Theorem.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128208; The Theorem</h4>
+          In a right triangle: <strong>a&sup2; + b&sup2; = c&sup2;</strong>, where c is the hypotenuse (longest side, opposite the right angle).
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#128300; The Proof</h4>
+          Can be proved using the area method: arrange 4 copies of the triangle in a square of side (a+b), compare areas to get a&sup2; + b&sup2; = c&sup2;.
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#128260; The Converse</h4>
+          If a&sup2; + b&sup2; = c&sup2; for three sides of a triangle, it must be right-angled (right angle opposite the longest side).
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128290; Pythagorean Triples</h4>
+          Integer triples satisfying the theorem: (3,4,5), (5,12,13), (8,15,17), (7,24,25). Any multiple also works.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#127959;&#65039; Applications</h4>
+          Ladders, navigation, diagonals of rectangles, construction (3-4-5 rule), screen sizes, distance calculations.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128202; Quick Reference Table</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>To Find</th>
+              <th>Formula</th>
+              <th>When to Use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hypotenuse c</td>
+              <td>c = &radic;(a&sup2; + b&sup2;)</td>
+              <td>Both legs known</td>
+            </tr>
+            <tr>
+              <td>Leg a</td>
+              <td>a = &radic;(c&sup2; &minus; b&sup2;)</td>
+              <td>Hypotenuse and one leg known</td>
+            </tr>
+            <tr>
+              <td>Leg b</td>
+              <td>b = &radic;(c&sup2; &minus; a&sup2;)</td>
+              <td>Hypotenuse and one leg known</td>
+            </tr>
+            <tr>
+              <td>Right angle check</td>
+              <td>Is a&sup2; + b&sup2; = c&sup2;?</td>
+              <td>All three sides known &mdash; checking if right-angled</td>
+            </tr>
+            <tr>
+              <td>Diagonal of rectangle</td>
+              <td>d = &radic;(l&sup2; + w&sup2;)</td>
+              <td>Length and width known</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Final Revision Mantra:</strong><br>
+        &bull; <strong>Theorem:</strong> a&sup2; + b&sup2; = c&sup2; (in a right triangle)<br>
+        &bull; <strong>Hypotenuse:</strong> Always the longest side, opposite the right angle<br>
+        &bull; <strong>Converse:</strong> If a&sup2; + b&sup2; = c&sup2;, the triangle is right-angled<br>
+        &bull; <strong>Key triples:</strong> 3-4-5, 5-12-13, 8-15-17, 7-24-25<br>
+        &bull; <strong>Heritage:</strong> Baudhayana (800 BCE) &rarr; Pythagoras (500 BCE)<br>
+        &bull; <strong>Steps:</strong> Identify hypotenuse &rarr; Apply formula &rarr; Solve &rarr; Check!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 10: MCQs (10 Questions)
+       ===================================================== -->
+  <div class="section-block reveal" id="mcq">
+    <div class="section-hd g-amber">
+      <span class="icon">&#129504;</span>
+      Multiple Choice Questions (10 MCQs)
+    </div>
+    <div class="section-bd">
+
+      <p>Click on an option to see if your answer is correct. The correct option will turn green.</p>
+
+      <ul class="mcq-list">
+
+        <!-- MCQ 1 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q1. In a right-angled triangle, the side opposite to the right angle is called the:</div>
+          <ul class="mcq-options">
+            <li>a) Base</li>
+            <li>b) Perpendicular</li>
+            <li data-correct>c) Hypotenuse</li>
+            <li>d) Median</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) Hypotenuse &mdash; The side opposite the right angle is always the longest side, called the hypotenuse.</div>
+        </li>
+
+        <!-- MCQ 2 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q2. If the two legs of a right triangle are 3 cm and 4 cm, the hypotenuse is:</div>
+          <ul class="mcq-options">
+            <li>a) 7 cm</li>
+            <li data-correct>b) 5 cm</li>
+            <li>c) 12 cm</li>
+            <li>d) 25 cm</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 5 cm &mdash; c = &radic;(9 + 16) = &radic;25 = 5 cm.</div>
+        </li>
+
+        <!-- MCQ 3 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q3. Which of the following is a Pythagorean triple?</div>
+          <ul class="mcq-options">
+            <li>a) (2, 3, 4)</li>
+            <li>b) (4, 5, 6)</li>
+            <li data-correct>c) (5, 12, 13)</li>
+            <li>d) (6, 7, 8)</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) (5, 12, 13) &mdash; 5&sup2; + 12&sup2; = 25 + 144 = 169 = 13&sup2;.</div>
+        </li>
+
+        <!-- MCQ 4 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q4. The Baudhayana Sulba Sutra, which contains the earliest statement of the theorem, dates to approximately:</div>
+          <ul class="mcq-options">
+            <li>a) 200 BCE</li>
+            <li>b) 500 BCE</li>
+            <li data-correct>c) 800 BCE</li>
+            <li>d) 1200 CE</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 800 BCE &mdash; Baudhayana composed the Sulba Sutras around 800 BCE, about 300 years before Pythagoras.</div>
+        </li>
+
+        <!-- MCQ 5 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q5. A ladder of length 17 m reaches a wall at a height of 15 m. The distance of the foot of the ladder from the wall is:</div>
+          <ul class="mcq-options">
+            <li>a) 2 m</li>
+            <li data-correct>b) 8 m</li>
+            <li>c) 10 m</li>
+            <li>d) 12 m</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 8 m &mdash; d = &radic;(17&sup2; &minus; 15&sup2;) = &radic;(289 &minus; 225) = &radic;64 = 8 m.</div>
+        </li>
+
+        <!-- MCQ 6 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q6. If the sides of a triangle are 6, 8, and 10, then the triangle is:</div>
+          <ul class="mcq-options">
+            <li>a) Equilateral</li>
+            <li>b) Isosceles</li>
+            <li data-correct>c) Right-angled</li>
+            <li>d) Obtuse</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) Right-angled &mdash; 6&sup2; + 8&sup2; = 36 + 64 = 100 = 10&sup2;. This is a right triangle (it is 2 &times; (3,4,5)).</div>
+        </li>
+
+        <!-- MCQ 7 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q7. The diagonal of a rectangle with sides 9 cm and 40 cm is:</div>
+          <ul class="mcq-options">
+            <li>a) 49 cm</li>
+            <li>b) 31 cm</li>
+            <li data-correct>c) 41 cm</li>
+            <li>d) 45 cm</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 41 cm &mdash; d = &radic;(81 + 1600) = &radic;1681 = 41 cm. Note: (9, 40, 41) is a Pythagorean triple!</div>
+        </li>
+
+        <!-- MCQ 8 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q8. In the converse of the Baudhayana&ndash;Pythagoras theorem, if a&sup2; + b&sup2; = c&sup2;, then the triangle is:</div>
+          <ul class="mcq-options">
+            <li>a) Equilateral</li>
+            <li>b) Isosceles</li>
+            <li>c) Obtuse-angled</li>
+            <li data-correct>d) Right-angled</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (d) Right-angled &mdash; The converse states that if the square of the longest side equals the sum of squares of the other two, the triangle must be right-angled.</div>
+        </li>
+
+        <!-- MCQ 9 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q9. If (k, 24, 25) is a Pythagorean triple, then k equals:</div>
+          <ul class="mcq-options">
+            <li data-correct>a) 7</li>
+            <li>b) 10</li>
+            <li>c) 12</li>
+            <li>d) 15</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (a) 7 &mdash; k&sup2; + 576 = 625, so k&sup2; = 49, k = 7.</div>
+        </li>
+
+        <!-- MCQ 10 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q10. A ship travels 24 km due North and then 10 km due East. Its distance from the starting point is:</div>
+          <ul class="mcq-options">
+            <li>a) 34 km</li>
+            <li data-correct>b) 26 km</li>
+            <li>c) 14 km</li>
+            <li>d) 20 km</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 26 km &mdash; d = &radic;(576 + 100) = &radic;676 = 26 km.</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 11: SHORT Q&A (10 Questions)
+       ===================================================== -->
+  <div class="section-block reveal" id="short">
+    <div class="section-hd g-orange">
+      <span class="icon">&#9997;&#65039;</span>
+      Short Answer Questions (10)
+    </div>
+    <div class="section-bd">
+
+      <ul class="short-q-list">
+
+        <li class="short-q-item">
+          <div class="short-q">Q1. State the Baudhayana&ndash;Pythagoras theorem.</div>
+          <div class="short-a">In a <strong>right-angled triangle</strong>, the square of the <strong>hypotenuse</strong> (the side opposite the right angle) is equal to the sum of the squares of the other two sides. If the legs are a and b and the hypotenuse is c, then <strong>a&sup2; + b&sup2; = c&sup2;</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q2. Who first described the theorem, and when?</div>
+          <div class="short-a"><strong>Baudhayana</strong>, an ancient Indian mathematician, first described the theorem around <strong>800 BCE</strong> in the <em>Baudhayana Sulba Sutra</em>. This was approximately 300 years before the Greek mathematician Pythagoras (c. 570&ndash;495 BCE).</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q3. Find the hypotenuse of a right triangle with legs 5 cm and 12 cm.</div>
+          <div class="short-a">c&sup2; = 5&sup2; + 12&sup2; = 25 + 144 = 169. Therefore, c = &radic;169 = <strong>13 cm</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q4. The hypotenuse of a right triangle is 25 cm and one leg is 7 cm. Find the other leg.</div>
+          <div class="short-a">b&sup2; = 25&sup2; &minus; 7&sup2; = 625 &minus; 49 = 576. Therefore, b = &radic;576 = <strong>24 cm</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q5. State the converse of the Baudhayana&ndash;Pythagoras theorem.</div>
+          <div class="short-a">If in a triangle, the square of the longest side is equal to the sum of the squares of the other two sides, then the triangle is <strong>right-angled</strong>, and the right angle is opposite the longest side.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q6. Check whether a triangle with sides 11, 60, and 61 is right-angled.</div>
+          <div class="short-a">Longest side = 61. Check: 11&sup2; + 60&sup2; = 121 + 3600 = 3721. And 61&sup2; = 3721. Since 11&sup2; + 60&sup2; = 61&sup2;, the triangle is <strong>right-angled</strong>. &#9989;</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q7. Write three Pythagorean triples.</div>
+          <div class="short-a"><strong>(3, 4, 5)</strong>: 9 + 16 = 25 &#9989;<br>
+          <strong>(5, 12, 13)</strong>: 25 + 144 = 169 &#9989;<br>
+          <strong>(8, 15, 17)</strong>: 64 + 225 = 289 &#9989;</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q8. A pole 24 m tall casts a shadow 7 m long. Find the distance from the top of the pole to the tip of the shadow.</div>
+          <div class="short-a">The pole and its shadow form a right angle (pole is vertical, shadow is horizontal). Distance = &radic;(24&sup2; + 7&sup2;) = &radic;(576 + 49) = &radic;625 = <strong>25 m</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q9. Find the diagonal of a square whose side is 10 cm.</div>
+          <div class="short-a">The diagonal of a square forms a right triangle with two sides. d&sup2; = 10&sup2; + 10&sup2; = 100 + 100 = 200. Therefore, d = &radic;200 = 10&radic;2 &asymp; <strong>14.14 cm</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q10. If (3k, 4k, 5k) is a Pythagorean triple for any positive integer k, verify for k = 3.</div>
+          <div class="short-a">For k = 3: the triple is (9, 12, 15). Check: 9&sup2; + 12&sup2; = 81 + 144 = 225. And 15&sup2; = 225. Since 225 = 225, it is a <strong>valid Pythagorean triple</strong>. &#9989;</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 12: LONG Q&A (5 Questions)
+       ===================================================== -->
+  <div class="section-block reveal" id="long">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128214;</span>
+      Long Answer Questions (5)
+    </div>
+    <div class="section-bd">
+
+      <div class="long-q-item">
+        <div class="long-q">Q1. Prove the Baudhayana&ndash;Pythagoras theorem using the area method. Use a large square of side (a + b).</div>
+        <div class="long-a">
+          <strong>Proof:</strong><br>
+          Consider a right triangle with legs <strong>a</strong> and <strong>b</strong> and hypotenuse <strong>c</strong>. Make 4 identical copies.<br><br>
+
+          <strong>Step 1:</strong> Arrange the 4 triangles inside a large square of side (a + b). Place them so their hypotenuses face inward, forming a tilted square of side c in the centre.<br><br>
+
+          <strong>Step 2:</strong> Area of the large square = (a + b)&sup2; = a&sup2; + 2ab + b&sup2;<br><br>
+
+          <strong>Step 3:</strong> The same large square is also composed of 4 right triangles + the inner square:<br>
+          = 4 &times; (&frac12;ab) + c&sup2;<br>
+          = 2ab + c&sup2;<br><br>
+
+          <strong>Step 4:</strong> Equating the two expressions:<br>
+          a&sup2; + 2ab + b&sup2; = 2ab + c&sup2;<br><br>
+
+          <strong>Step 5:</strong> Subtracting 2ab from both sides:<br>
+          <strong>a&sup2; + b&sup2; = c&sup2;</strong><br><br>
+
+          Hence proved. &#9989;
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q2. Two poles of heights 9 m and 16 m stand on a flat ground 12 m apart. Find the distance between their tops. Also, a wire is stretched from the top of the shorter pole to the top of the taller pole. Find the length of the wire.</div>
+        <div class="long-a">
+          <strong>Step 1:</strong> The difference in heights = 16 &minus; 9 = 7 m.<br><br>
+
+          <strong>Step 2:</strong> The tops of the poles and the horizontal form a right triangle with vertical side = 7 m and horizontal side = 12 m.<br><br>
+
+          <strong>Step 3:</strong> Distance between tops = &radic;(12&sup2; + 7&sup2;) = &radic;(144 + 49) = &radic;193<br><br>
+
+          <strong>Step 4:</strong> &radic;193 &asymp; <strong>13.89 m</strong><br><br>
+
+          The length of the wire stretched between the tops is also &radic;193 &asymp; <strong>13.89 m</strong>, as the wire follows the straight-line distance between the two tops.
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q3. A man walks 40 m due East from a point A and reaches point B. He then turns and walks 30 m due North to reach point C. Find: (i) the distance AC, (ii) if he walks from C, 20 m due West to point D, find the distance AD.</div>
+        <div class="long-a">
+          <strong>(i) Finding AC:</strong><br>
+          AB = 40 m (East), BC = 30 m (North). ABC is a right triangle at B.<br>
+          AC = &radic;(40&sup2; + 30&sup2;) = &radic;(1600 + 900) = &radic;2500 = <strong>50 m</strong><br><br>
+
+          <strong>(ii) Finding AD:</strong><br>
+          D is 20 m West of C. So D is at (40 &minus; 20, 30) = (20, 30) relative to A.<br>
+          AD = &radic;(20&sup2; + 30&sup2;) = &radic;(400 + 900) = &radic;1300 = 10&radic;13 &asymp; <strong>36.06 m</strong>
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q4. In an isosceles triangle ABC, AB = AC = 17 cm and BC = 16 cm. Find the altitude from A to BC and hence find the area of the triangle.</div>
+        <div class="long-a">
+          <strong>Step 1:</strong> Let the altitude from A to BC meet BC at point D. Since the triangle is isosceles (AB = AC), D is the midpoint of BC.<br>
+          BD = DC = 16/2 = <strong>8 cm</strong><br><br>
+
+          <strong>Step 2:</strong> In right triangle ABD:<br>
+          AD&sup2; = AB&sup2; &minus; BD&sup2; = 17&sup2; &minus; 8&sup2; = 289 &minus; 64 = 225<br>
+          AD = &radic;225 = <strong>15 cm</strong><br><br>
+
+          <strong>Step 3:</strong> Area of triangle ABC = &frac12; &times; BC &times; AD = &frac12; &times; 16 &times; 15 = <strong>120 cm&sup2;</strong>
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q5. Explain the historical significance of the Baudhayana Sulba Sutra in the context of the Pythagorean theorem. How did ancient Indian mathematicians contribute to the development of this fundamental theorem? Also verify whether (20, 21, 29) is a Pythagorean triple.</div>
+        <div class="long-a">
+          <strong>Historical Significance:</strong><br>
+          The Baudhayana Sulba Sutra (c. 800 BCE) is one of the oldest mathematical texts in the world. It was composed by the Vedic scholar <strong>Baudhayana</strong> as part of the Sulba Sutras &mdash; manuals for constructing geometrically precise fire altars for Vedic rituals.<br><br>
+
+          In verse 1.48, Baudhayana states: <em>"The diagonal of a rectangle produces both areas which its length and breadth produce separately."</em> This is the earliest known statement of the theorem that the square on the diagonal equals the sum of squares on the two sides.<br><br>
+
+          <strong>Indian Contributions:</strong><br>
+          &bull; <strong>Baudhayana</strong> (~800 BCE): First statement of the theorem, approximation of &radic;2<br>
+          &bull; <strong>Apastamba</strong> (~600 BCE): Listed several Pythagorean triples<br>
+          &bull; <strong>Brahmagupta</strong> (598&ndash;668 CE): Rules for zero and negative numbers, essential for algebraic development<br>
+          &bull; <strong>Bhaskaracharya</strong> (1114&ndash;1185 CE): Famous one-word proof ("Behold!") using area decomposition<br><br>
+
+          These contributions predate Greek mathematics and demonstrate India's foundational role in the development of geometry.<br><br>
+
+          <strong>Verification of (20, 21, 29):</strong><br>
+          20&sup2; + 21&sup2; = 400 + 441 = 841<br>
+          29&sup2; = 841<br>
+          Since 20&sup2; + 21&sup2; = 29&sup2;, <strong>(20, 21, 29) is a Pythagorean triple</strong>. &#9989;
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 13: FUN FACTS
+       ===================================================== -->
+  <div class="section-block reveal" id="funfacts">
+    <div class="section-hd g-amber">
+      <span class="icon">&#127775;</span>
+      Fun Facts &amp; Did You Know?
+    </div>
+    <div class="section-bd">
+
+      <div class="fun-fact-grid">
+
+        <div class="fun-fact-card">
+          <h4>&#127470;&#127475; India Was First!</h4>
+          Baudhayana stated the theorem around 800 BCE &mdash; roughly 300 years before Pythagoras was born. The NCERT textbook recognises this by calling it the Baudhayana&ndash;Pythagoras Theorem.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128290; Over 400 Proofs!</h4>
+          The Pythagorean theorem has more known proofs than any other theorem in mathematics &mdash; over 400! Even US President James Garfield published a proof in 1876.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128220; Rope Geometry</h4>
+          "Sulba" means "rope" in Sanskrit. Ancient Indian priests used ropes of precise lengths to construct perfectly shaped altars. A rope with 12 equally spaced knots could make a 3-4-5 triangle!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128171; Bhaskara's "Behold!"</h4>
+          The great Indian mathematician Bhaskaracharya (12th century) gave one of history's most elegant proofs, accompanied by just one word: "Behold!" The diagram was so clear it needed no explanation.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#127959;&#65039; Ancient Builders</h4>
+          Egyptian pyramid builders used ropes with knots to create right angles using the 3-4-5 method, over 4000 years ago. The Pyramids of Giza demonstrate perfect right angles.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128640; Into Space</h4>
+          NASA and ISRO use the 3D version of the Pythagorean theorem (d = &radic;(x&sup2; + y&sup2; + z&sup2;)) to calculate distances between spacecraft and planets. The Chandrayaan mission used this extensively!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#127912; Spiralling Squares</h4>
+          If you draw right triangles with legs of 1 unit each, then use the hypotenuse of one as the leg of the next, you create a beautiful spiral called the "Spiral of Theodorus" or the "Square Root Spiral."
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128187; Digital Screens</h4>
+          When you see "55-inch TV," that 55 inches is the <em>diagonal</em> measurement. It is calculated using the Pythagorean theorem from the width and height of the screen!
+        </div>
+
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Think About It:</strong> The Baudhayana&ndash;Pythagoras theorem connects the ancient Vedic fire altars of India to modern space missions. A mathematical truth discovered over 2800 years ago is still used every day in construction, navigation, gaming, and space exploration. That is the timeless power of mathematics!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       QUICK REVISION FLASHCARDS
+       ===================================================== -->
+  <div class="section-block reveal" id="revision">
+    <div class="section-hd g-rose">
+      <span class="icon">&#127183;</span>
+      Quick Revision Flashcards
+    </div>
+    <div class="section-bd">
+
+      <p>Use these flashcards for last-minute revision before your exam. Read the question, try to answer mentally, then check!</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>Q: State the theorem.</h4>
+          A: In a right triangle, <strong>a&sup2; + b&sup2; = c&sup2;</strong>, where c is the hypotenuse.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>Q: Who stated it first?</h4>
+          A: <strong>Baudhayana</strong> (~800 BCE) in the Sulba Sutras.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>Q: What is a Pythagorean triple?</h4>
+          A: Three positive integers (a, b, c) satisfying a&sup2; + b&sup2; = c&sup2;. E.g., (3, 4, 5).
+        </div>
+        <div class="info-card ic-green">
+          <h4>Q: Hypotenuse of 5, 12?</h4>
+          A: c = &radic;(25 + 144) = &radic;169 = <strong>13</strong>.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Q: Is (7, 24, 25) a Pythagorean triple?</h4>
+          A: 49 + 576 = 625 = 25&sup2;. <strong>Yes!</strong> &#9989;
+        </div>
+        <div class="info-card ic-purple">
+          <h4>Q: How to check for right angle?</h4>
+          A: If a&sup2; + b&sup2; = c&sup2; (converse), the triangle is right-angled.
+        </div>
+        <div class="info-card ic-red">
+          <h4>Q: Diagonal of 8 &times; 6 rectangle?</h4>
+          A: d = &radic;(64 + 36) = &radic;100 = <strong>10</strong>.
+        </div>
+        <div class="info-card ic-amber">
+          <h4>Q: What does "Sulba" mean?</h4>
+          A: <strong>Rope</strong>. The Sulba Sutras were guides for rope-based geometric constructions.
+        </div>
+        <div class="info-card ic-green">
+          <h4>Q: Is 6, 8, 11 a right triangle?</h4>
+          A: 36 + 64 = 100 &ne; 121. <strong>No!</strong> &#10060;
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Q: Name 4 Pythagorean triples.</h4>
+          A: (3,4,5), (5,12,13), (8,15,17), (7,24,25).
+        </div>
+        <div class="info-card ic-orange">
+          <h4>Q: Missing leg if c=10, a=6?</h4>
+          A: b = &radic;(100 &minus; 36) = &radic;64 = <strong>8</strong>.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>Q: Who gave the "Behold!" proof?</h4>
+          A: <strong>Bhaskaracharya</strong> (Bhaskara II, 12th century).
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Final Revision Mantra:</strong><br>
+        &bull; <strong>Theorem:</strong> a&sup2; + b&sup2; = c&sup2; (c is always the hypotenuse &mdash; the longest side)<br>
+        &bull; <strong>Converse:</strong> If the equation holds, the triangle is right-angled<br>
+        &bull; <strong>Triples:</strong> 3-4-5, 5-12-13, 8-15-17, 7-24-25 (and their multiples)<br>
+        &bull; <strong>Heritage:</strong> Baudhayana (800 BCE) came before Pythagoras (500 BCE)<br>
+        &bull; <strong>Steps:</strong> Identify the right angle &rarr; Find the hypotenuse &rarr; Apply formula &rarr; Solve<br>
+        <br>
+        You've got this! Go ace that exam! &#128170;
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       BOTTOM NAVIGATION
+       ===================================================== -->
+  <div class="bottom-nav">
+    <div class="bottom-nav-full">
+      <a href="../../index.html" class="bottom-btn home-btn">&#127968; Back to Home</a>
+      <a href="index.html" class="bottom-btn" style="background:linear-gradient(135deg,#9a3412,#fb923c);">&#128218; All Maths Chapters</a>
+    </div>
+  </div>
+
+</div>
+<!-- End Container -->
+
+<!-- ========== SHARE POPUP ========== -->
+<div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeSharePopup()">
+  <div class="share-popup">
+    <h3>&#128228; Share This Page</h3>
+    <p style="font-size:14px;color:#475569;margin-bottom:16px;">Help your classmates ace the Baudhayana&ndash;Pythagoras Theorem!</p>
+    <div class="share-btn-row">
+      <button class="share-action-btn share-wa" onclick="shareWhatsApp()">&#128172; Share on WhatsApp</button>
+      <button class="share-action-btn share-copy" onclick="copyLink()">&#128203; Copy Link</button>
+      <button class="share-action-btn share-native" onclick="shareNative()">&#128228; Share via Apps</button>
+    </div>
+    <button class="share-close-btn" onclick="closeSharePopup()">Close</button>
+  </div>
+</div>
+
+<!-- ========== FLOATING SHARE BUTTON ========== -->
+<button class="float-share-btn" onclick="openSharePopup()" title="Share this page">&#128228;</button>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <p>Preeti Kushwah Classes &mdash; Making Maths Fun &amp; Easy &#128155;</p>
+  <p style="font-size:12px;margin-top:6px;opacity:0.8;">NCERT Class 8 Maths &middot; Ganita &middot; Chapter 9 &middot; New Syllabus 2025-26</p>
+  <p style="font-size:11px;margin-top:8px;opacity:0.6;">&copy; 2026 Preeti Kushwah Classes. All rights reserved.</p>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// Scroll Reveal Animation
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) {
+  obs.observe(el);
+});
+
+// MCQ Click Handler
+document.querySelectorAll('.mcq-item').forEach(function(item) {
+  item.querySelectorAll('.mcq-options li').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      if (item.classList.contains('show-ans')) return;
+      item.classList.add('show-ans');
+      if (!opt.hasAttribute('data-correct')) opt.classList.add('wrong');
+      item.querySelectorAll('.mcq-options li[data-correct]').forEach(function(c) {
+        c.classList.add('correct');
+      });
+    });
+  });
+});
+
+// Share Functions
+function openSharePopup() {
+  document.getElementById('shareOverlay').classList.add('active');
+}
+
+function closeSharePopup() {
+  document.getElementById('shareOverlay').classList.remove('active');
+}
+
+function shareWhatsApp() {
+  window.open('https://wa.me/?text=' + encodeURIComponent('Check out these Baudhayana–Pythagoras Theorem notes for Class 8 Maths (NCERT Ganita)! ' + window.location.href));
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    alert('Link copied to clipboard!');
+  });
+}
+
+function shareNative() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'The Baudhayana–Pythagoras Theorem — Class 8 Maths | Preeti Kushwah Classes',
+      text: 'NCERT Class 8 Maths Chapter 9 — The Baudhayana–Pythagoras Theorem notes',
+      url: window.location.href
+    });
+  } else {
+    copyLink();
+  }
+}
+
+// Smooth scroll for TOC links
+document.querySelectorAll('.toc-bar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    var targetId = this.getAttribute('href');
+    if (targetId && targetId.startsWith('#')) {
+      e.preventDefault();
+      var target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
+
+// =============================================
+// INTERACTIVE: RIGHT TRIANGLE CALCULATOR
+// =============================================
+function calcTriangle() {
+  var aVal = document.getElementById('sideA').value;
+  var bVal = document.getElementById('sideB').value;
+  var cVal = document.getElementById('sideC').value;
+  var res = document.getElementById('triResult');
+  var a = aVal ? parseFloat(aVal) : null;
+  var b = bVal ? parseFloat(bVal) : null;
+  var c = cVal ? parseFloat(cVal) : null;
+  var filled = (a !== null ? 1 : 0) + (b !== null ? 1 : 0) + (c !== null ? 1 : 0);
+
+  if (filled < 2) {
+    res.innerHTML = '<strong style="color:#dc2626;">Please enter exactly two values to calculate the third!</strong>';
+    return;
+  }
+  if (filled === 3) {
+    res.innerHTML = '<strong style="color:#dc2626;">Enter only two values. Leave one blank to calculate it!</strong>';
+    return;
+  }
+
+  var html = '<strong>Step-by-Step Calculation:</strong><br>';
+
+  if (c === null) {
+    // Find hypotenuse
+    if (a <= 0 || b <= 0) { res.innerHTML = '<strong style="color:#dc2626;">Side lengths must be positive!</strong>'; return; }
+    var c2 = a * a + b * b;
+    c = Math.sqrt(c2);
+    html += '<div class="step"><strong>Given:</strong> a = ' + a + ', b = ' + b + ', c = ?</div>';
+    html += '<div class="step"><strong>Formula:</strong> c² = a² + b²</div>';
+    html += '<div class="step"><strong>Calculate:</strong> c² = ' + a + '² + ' + b + '² = ' + (a*a) + ' + ' + (b*b) + ' = ' + c2 + '</div>';
+    html += '<div class="step"><strong>Answer:</strong> c = √' + c2 + ' = <strong style="color:#16a34a;font-size:16px;">' + fmtN(c) + ' units</strong></div>';
+    document.getElementById('sideC').value = fmtN(c);
+    updateSvgLabels(a, b, c);
+  } else if (a === null) {
+    // Find leg a
+    if (b <= 0 || c <= 0 || c <= b) { res.innerHTML = '<strong style="color:#dc2626;">Hypotenuse must be greater than the leg!</strong>'; return; }
+    var a2 = c * c - b * b;
+    if (a2 < 0) { res.innerHTML = '<strong style="color:#dc2626;">Invalid! Hypotenuse must be the longest side.</strong>'; return; }
+    a = Math.sqrt(a2);
+    html += '<div class="step"><strong>Given:</strong> a = ?, b = ' + b + ', c = ' + c + '</div>';
+    html += '<div class="step"><strong>Formula:</strong> a² = c² − b²</div>';
+    html += '<div class="step"><strong>Calculate:</strong> a² = ' + c + '² − ' + b + '² = ' + (c*c) + ' − ' + (b*b) + ' = ' + a2 + '</div>';
+    html += '<div class="step"><strong>Answer:</strong> a = √' + a2 + ' = <strong style="color:#16a34a;font-size:16px;">' + fmtN(a) + ' units</strong></div>';
+    document.getElementById('sideA').value = fmtN(a);
+    updateSvgLabels(a, b, c);
+  } else {
+    // Find leg b
+    if (a <= 0 || c <= 0 || c <= a) { res.innerHTML = '<strong style="color:#dc2626;">Hypotenuse must be greater than the leg!</strong>'; return; }
+    var b2 = c * c - a * a;
+    if (b2 < 0) { res.innerHTML = '<strong style="color:#dc2626;">Invalid! Hypotenuse must be the longest side.</strong>'; return; }
+    b = Math.sqrt(b2);
+    html += '<div class="step"><strong>Given:</strong> a = ' + a + ', b = ?, c = ' + c + '</div>';
+    html += '<div class="step"><strong>Formula:</strong> b² = c² − a²</div>';
+    html += '<div class="step"><strong>Calculate:</strong> b² = ' + c + '² − ' + a + '² = ' + (c*c) + ' − ' + (a*a) + ' = ' + b2 + '</div>';
+    html += '<div class="step"><strong>Answer:</strong> b = √' + b2 + ' = <strong style="color:#16a34a;font-size:16px;">' + fmtN(b) + ' units</strong></div>';
+    document.getElementById('sideB').value = fmtN(b);
+    updateSvgLabels(a, b, c);
+  }
+
+  html += '<div class="step" style="border-left-color:#22c55e;"><strong>Verify:</strong> ' + fmtN(a) + '² + ' + fmtN(b) + '² = ' + fmtN(a*a) + ' + ' + fmtN(b*b) + ' = ' + fmtN(a*a + b*b) + ' = ' + fmtN(c) + '² ✅</div>';
+  res.innerHTML = html;
+}
+
+function updateSvgLabels(a, b, c) {
+  document.getElementById('labelA').textContent = 'a = ' + fmtN(a);
+  document.getElementById('labelB').textContent = 'b = ' + fmtN(b);
+  document.getElementById('labelC').textContent = 'c = ' + fmtN(c);
+}
+
+function clearTriangle() {
+  document.getElementById('sideA').value = '';
+  document.getElementById('sideB').value = '';
+  document.getElementById('sideC').value = '';
+  document.getElementById('triResult').innerHTML = 'Enter any two sides and click Calculate to find the third!';
+  document.getElementById('labelA').textContent = 'a';
+  document.getElementById('labelB').textContent = 'b';
+  document.getElementById('labelC').textContent = 'c';
+}
+
+// =============================================
+// INTERACTIVE: RIGHT TRIANGLE CHECKER
+// =============================================
+function checkTriangle() {
+  var s1 = parseFloat(document.getElementById('chk1').value);
+  var s2 = parseFloat(document.getElementById('chk2').value);
+  var s3 = parseFloat(document.getElementById('chk3').value);
+  var res = document.getElementById('chkResult');
+
+  if (isNaN(s1) || isNaN(s2) || isNaN(s3) || s1 <= 0 || s2 <= 0 || s3 <= 0) {
+    res.innerHTML = '<strong style="color:#dc2626;">Please enter three positive numbers!</strong>';
+    return;
+  }
+
+  // Sort to find the longest side
+  var sides = [s1, s2, s3].sort(function(a, b) { return a - b; });
+  var a = sides[0], b = sides[1], c = sides[2];
+  var a2 = a * a, b2 = b * b, c2 = c * c;
+  var sum = a2 + b2;
+
+  var html = '<strong>Analysis:</strong><br>';
+  html += '<div class="step"><strong>Sides (sorted):</strong> ' + fmtN(a) + ', ' + fmtN(b) + ', ' + fmtN(c) + ' (longest = ' + fmtN(c) + ')</div>';
+  html += '<div class="step"><strong>Check:</strong> ' + fmtN(a) + '² + ' + fmtN(b) + '² = ' + fmtN(a2) + ' + ' + fmtN(b2) + ' = <strong>' + fmtN(sum) + '</strong></div>';
+  html += '<div class="step"><strong>Compare:</strong> ' + fmtN(c) + '² = <strong>' + fmtN(c2) + '</strong></div>';
+
+  if (Math.abs(sum - c2) < 0.001) {
+    html += '<div class="step" style="border-left-color:#22c55e;background:#f0fdf4;"><strong style="color:#16a34a;font-size:16px;">✅ YES! This is a RIGHT TRIANGLE.</strong><br>' + fmtN(a) + '² + ' + fmtN(b) + '² = ' + fmtN(c) + '²</div>';
+    // Check if it's a known triple
+    if (Number.isInteger(a) && Number.isInteger(b) && Number.isInteger(c)) {
+      html += '<div class="step" style="border-left-color:#f59e0b;"><strong>Pythagorean Triple:</strong> (' + a + ', ' + b + ', ' + c + ') ✅</div>';
+    }
+  } else if (sum > c2) {
+    html += '<div class="step" style="border-left-color:#3b82f6;background:#eff6ff;"><strong style="color:#1e40af;">ℹ️ This is an ACUTE triangle.</strong><br>' + fmtN(sum) + ' > ' + fmtN(c2) + ' (sum of squares is GREATER than the square of the longest side)</div>';
+  } else {
+    html += '<div class="step" style="border-left-color:#ef4444;background:#fef2f2;"><strong style="color:#991b1b;">❌ This is an OBTUSE triangle.</strong><br>' + fmtN(sum) + ' < ' + fmtN(c2) + ' (sum of squares is LESS than the square of the longest side)</div>';
+  }
+
+  res.innerHTML = html;
+}
+
+function clearChecker() {
+  document.getElementById('chk1').value = '';
+  document.getElementById('chk2').value = '';
+  document.getElementById('chk3').value = '';
+  document.getElementById('chkResult').innerHTML = 'Enter three side lengths and click Check!';
+}
+
+function fmtN(n) {
+  if (n === undefined || n === null) return '?';
+  return Number.isInteger(n) ? n.toString() : parseFloat(n.toFixed(4)).toString();
+}
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../chapter-features.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
+</body>
+</html>
