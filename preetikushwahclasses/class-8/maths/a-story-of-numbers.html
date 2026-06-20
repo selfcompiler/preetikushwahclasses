@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 8 Maths Ch 3: A Story of Numbers — Natural numbers, whole numbers, integers, rational numbers, irrational numbers, real number system. Interactive NCERT Ganita notes.">
+<meta name="keywords" content="Preeti Kushwah Classes, NCERT notes, CBSE notes, free study material, Class 8 notes, Class 8 NCERT, class 8 study material, Mathematics notes, Class 8 Mathematics, Class 8 Mathematics notes, Class 8 Mathematics NCERT, A Story of Numbers, rational numbers, irrational numbers, real numbers, number system, maths solutions, maths practice">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-8/maths/a-story-of-numbers.html">
+<meta property="og:title" content="Ch 3: A Story of Numbers — Class 8 Maths Notes">
+<meta property="og:description" content="Interactive NCERT notes — Natural numbers to real numbers, rational &amp; irrational numbers with animations.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preetikushwahclasses.com/class-8/maths/a-story-of-numbers.html">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>A Story of Numbers — Class 8 Maths | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:#fffbeb;color:#1c1c2e;overflow-x:hidden;line-height:1.6;}
+
+/* Top Nav */
+.top-nav{background:white;padding:8px 12px;display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,0.06);position:sticky;top:0;z-index:110;overflow-x:auto;}
+.tn-home{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;text-decoration:none;padding:7px 14px;border-radius:12px;font-size:12px;font-weight:800;border:1.5px solid #fbbf24;transition:all 0.2s;white-space:nowrap;}
+.tn-home:hover{background:#fde68a;transform:translateY(-1px);}
+.tn-chap{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fff7ed,#fed7aa);color:#9a3412;text-decoration:none;padding:7px 14px;border-radius:12px;font-size:12px;font-weight:800;border:1.5px solid #fb923c;transition:all 0.2s;white-space:nowrap;}
+.tn-chap:hover{background:#fed7aa;transform:translateY(-1px);}
+.nav-spacer{flex:1;}
+.tn-share{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;padding:7px 12px;border-radius:12px;border:1.5px solid #fbbf24;font-size:11px;font-weight:800;cursor:pointer;transition:all 0.2s;white-space:nowrap;font-family:'Nunito',sans-serif;}
+.tn-share:hover{background:#fde68a;transform:translateY(-1px);}
+
+/* TOC */
+.toc-bar{background:linear-gradient(135deg,#78350f,#f59e0b);padding:12px 16px;position:sticky;top:44px;z-index:100;overflow-x:auto;white-space:nowrap;}
+.toc-bar a{display:inline-block;background:rgba(255,255,255,0.15);color:white;text-decoration:none;padding:6px 14px;border-radius:18px;font-size:13px;font-weight:700;margin-right:6px;transition:all 0.2s;}
+.toc-bar a:hover{background:rgba(255,255,255,0.35);}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,#78350f 0%,#92400e 25%,#d97706 55%,#f59e0b 80%,#fde68a 100%);position:relative;overflow:hidden;min-height:400px;padding-bottom:30px;}
+.hero-content{position:relative;z-index:10;text-align:center;padding:36px 16px 0;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.3);border:2px solid rgba(255,255,255,0.5);border-radius:30px;padding:5px 18px;font-size:11px;font-weight:800;letter-spacing:2px;color:white;text-transform:uppercase;margin-bottom:12px;}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(24px,5vw,48px);color:white;text-shadow:0 3px 12px rgba(0,0,0,0.3);margin-bottom:6px;line-height:1.1;}
+.hero p{color:rgba(255,255,255,0.9);font-size:15px;font-weight:700;margin-bottom:16px;}
+
+/* Container & Sections */
+.container{max-width:1000px;margin:0 auto;padding:36px 16px 60px;}
+.section-block{background:white;border-radius:22px;box-shadow:0 4px 24px rgba(0,0,0,0.08);margin-bottom:36px;overflow:hidden;scroll-margin-top:80px;}
+.section-hd{padding:22px 28px;display:flex;align-items:center;gap:14px;color:white;font-family:'Fredoka One',cursive;font-size:24px;line-height:1.2;}
+.section-hd .icon{font-size:32px;}
+.section-bd{padding:28px;}
+.section-bd > p{margin-bottom:14px;}
+
+/* Gradients */
+.g-amber{background:linear-gradient(135deg,#78350f,#f59e0b);}
+.g-orange{background:linear-gradient(135deg,#9a3412,#fb923c);}
+.g-brown{background:linear-gradient(135deg,#78350f,#d97706);}
+.g-yellow{background:linear-gradient(135deg,#713f12,#facc15);}
+.g-teal{background:linear-gradient(135deg,#134e4a,#2dd4bf);}
+.g-green{background:linear-gradient(135deg,#166534,#22c55e);}
+.g-blue{background:linear-gradient(135deg,#1e40af,#38bdf8);}
+.g-indigo{background:linear-gradient(135deg,#312e81,#818cf8);}
+.g-purple{background:linear-gradient(135deg,#5b21b6,#a78bfa);}
+.g-slate{background:linear-gradient(135deg,#1e293b,#64748b);}
+.g-red{background:linear-gradient(135deg,#991b1b,#f87171);}
+.g-rose{background:linear-gradient(135deg,#881337,#fb7185);}
+
+/* Content elements */
+.subtitle{font-family:'Fredoka One',cursive;color:#78350f;font-size:20px;margin:22px 0 12px;display:flex;align-items:center;gap:8px;}
+.kt{display:inline-block;background:#fde047;color:#713f12;border-radius:7px;padding:1px 9px;font-weight:800;font-size:13px;}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:16px 0;}
+.info-card{border-radius:14px;padding:16px 18px;font-size:14px;}
+.info-card h4{font-weight:800;margin-bottom:6px;font-size:15px;}
+.ic-blue{background:#eff6ff;border-left:5px solid #3b82f6;}
+.ic-indigo{background:#eef2ff;border-left:5px solid #818cf8;}
+.ic-teal{background:#f0fdfa;border-left:5px solid #14b8a6;}
+.ic-purple{background:#faf5ff;border-left:5px solid #a78bfa;}
+.ic-green{background:#f0fdf4;border-left:5px solid #22c55e;}
+.ic-orange{background:#fff7ed;border-left:5px solid #fb923c;}
+.ic-yellow{background:#fefce8;border-left:5px solid #facc15;}
+.ic-red{background:#fef2f2;border-left:5px solid #f87171;}
+.ic-pink{background:#fdf2f8;border-left:5px solid #ec4899;}
+.ic-amber{background:#fffbeb;border-left:5px solid #f59e0b;}
+.trick{background:linear-gradient(135deg,#fef9c3,#fde68a);border:2px solid #f59e0b;border-radius:14px;padding:14px 18px;font-size:14px;margin:16px 0;}
+.trick strong{color:#78350f;}
+.note-box{background:#fffbeb;border-left:5px solid #f59e0b;border-radius:10px;padding:12px 16px;margin:14px 0;font-size:14px;}
+.formula-box{background:linear-gradient(135deg,#fffbeb,#fde68a);border:2px solid #f59e0b;border-radius:12px;padding:14px 18px;text-align:center;font-family:'Fredoka One',cursive;font-size:18px;color:#78350f;margin:12px 0;}
+.formula-box small{font-family:'Nunito',sans-serif;font-weight:600;font-size:13px;display:block;margin-top:4px;color:#92400e;}
+
+/* Tables */
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0;}
+th{background:#78350f;color:white;padding:12px 14px;text-align:left;font-weight:800;font-size:13px;}
+td{padding:11px 14px;border-bottom:1px solid #fde68a;font-size:13.5px;}
+tr:nth-child(even) td{background:#fffbeb;}
+
+/* Worked example */
+.worked-example{background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:18px;margin:16px 0;}
+.worked-example h4{font-family:'Fredoka One',cursive;color:#78350f;font-size:16px;margin-bottom:8px;}
+.we-step{background:white;border-radius:10px;padding:12px 16px;margin:8px 0;border-left:4px solid #f59e0b;font-size:14px;}
+
+/* MCQ */
+.mcq-list{list-style:none;padding:0;}
+.mcq-item{background:white;border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
+.mcq-q{font-weight:700;font-size:14.5px;margin-bottom:10px;color:#78350f;}
+.mcq-options{list-style:none;padding:0;}
+.mcq-options li{background:#fffbeb;border-radius:8px;padding:7px 12px;margin-bottom:5px;font-size:13.5px;cursor:pointer;transition:all 0.2s;border:1.5px solid transparent;}
+.mcq-options li:hover{background:#fde68a;border-color:#f59e0b;}
+.mcq-options li.correct{background:#d1fae5!important;border-color:#22c55e;font-weight:700;color:#14532d;}
+.mcq-options li.wrong{background:#fee2e2!important;border-color:#ef4444;font-weight:700;color:#991b1b;}
+.mcq-ans{font-size:12.5px;color:#16a34a;font-weight:700;margin-top:6px;display:none;}
+.mcq-item.show-ans .mcq-ans{display:block;}
+
+/* Fill in blanks */
+.fib-list{list-style:none;padding:0;}
+.fib-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #d97706;}
+.fib-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
+.fib-a{font-size:13.5px;color:#374151;}
+.fib-a strong{color:#78350f;}
+
+/* True/False */
+.tf-list{list-style:none;padding:0;}
+.tf-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #fb923c;}
+.tf-q{font-weight:700;font-size:14px;color:#9a3412;margin-bottom:6px;}
+.tf-a{font-size:13.5px;color:#374151;}
+.tf-a strong{color:#78350f;}
+
+/* Short Q */
+.short-q-list{list-style:none;padding:0;}
+.short-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #3b82f6;}
+.short-q{font-weight:700;font-size:14px;color:#1e40af;margin-bottom:6px;}
+.short-a{font-size:13.5px;color:#374151;}
+.short-a strong{color:#78350f;}
+
+/* Long Q */
+.long-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
+.long-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
+.long-a{font-size:13.5px;color:#374151;}
+.long-a strong{color:#78350f;}
+
+/* Fun facts */
+.fun-fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0;}
+.fun-fact-card{background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fbbf24;border-radius:14px;padding:16px 18px;font-size:14px;}
+.fun-fact-card h4{font-weight:800;font-size:15px;color:#92400e;margin-bottom:6px;}
+
+/* Bottom nav */
+.bottom-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:30px 0;}
+.bottom-nav-full{grid-column:1/-1;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.bottom-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:800;font-size:14px;text-decoration:none;color:white;transition:all 0.2s;}
+.bottom-btn:hover{transform:translateY(-2px);}
+.bottom-btn.home-btn{background:linear-gradient(135deg,#78350f,#d97706);}
+
+/* Share */
+.float-share-btn{position:fixed;bottom:24px;right:24px;width:52px;height:52px;background:linear-gradient(135deg,#92400e,#f59e0b);border-radius:50%;border:none;color:white;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(146,64,14,0.4);z-index:90;display:flex;align-items:center;justify-content:center;transition:all 0.3s;}
+.float-share-btn:hover{transform:scale(1.1);}
+.share-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;justify-content:center;align-items:center;}
+.share-overlay.active{display:flex;}
+.share-popup{background:white;border-radius:22px;padding:28px;max-width:360px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);text-align:center;}
+.share-popup h3{font-family:'Fredoka One',cursive;color:#78350f;font-size:20px;margin-bottom:16px;}
+.share-btn-row{display:flex;flex-direction:column;gap:10px;}
+.share-action-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;border:none;font-size:14px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:white;transition:all 0.2s;}
+.share-wa{background:#25d366;}
+.share-copy{background:#3b82f6;}
+.share-native{background:#f59e0b;color:#78350f;}
+.share-close-btn{margin-top:14px;background:#e2e8f0;color:#475569;border:none;padding:8px 20px;border-radius:10px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+.share-action-btn:hover{opacity:0.9;transform:translateY(-1px);}
+.share-close-btn:hover{background:#cbd5e1;}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Footer */
+footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#78350f,#f59e0b);color:white;font-size:14px;font-weight:700;}
+
+/* Number line animation */
+.nline-wrap{background:linear-gradient(135deg,#f8fafc,#e2e8f0);border-radius:18px;padding:24px;margin:20px 0;text-align:center;}
+.nline-box{position:relative;width:100%;max-width:500px;height:80px;margin:10px auto;background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.1);}
+
+/* Scrollbar styling */
+::-webkit-scrollbar{height:4px;width:4px;}
+::-webkit-scrollbar-thumb{background:#f59e0b;border-radius:4px;}
+
+/* Highlight animation for hero */
+@keyframes heroPt{0%,100%{transform:scale(1);opacity:0.8;}50%{transform:scale(1.5);opacity:1;}}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+
+/* Unordered list styling inside section-bd */
+.section-bd ul{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ul li{margin-bottom:6px;}
+.section-bd ol{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ol li{margin-bottom:6px;}
+
+@media(max-width:600px){
+  .section-bd{padding:18px;}
+  .section-hd{padding:16px 20px;font-size:19px;}
+  .hero{min-height:340px;}
+  .toc-bar{top:40px;}
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] body{background:#1c1917;color:#fef3c7;}
+[data-theme="dark"] .top-nav{background:#292524;box-shadow:0 2px 8px rgba(0,0,0,0.3);}
+[data-theme="dark"] .section-block{background:#292524;box-shadow:0 4px 24px rgba(0,0,0,0.3);}
+[data-theme="dark"] .mcq-item{background:#292524;}
+[data-theme="dark"] .mcq-options li{background:#1c1917;color:#fef3c7;}
+[data-theme="dark"] .mcq-options li:hover{background:#44403c;border-color:#f59e0b;}
+[data-theme="dark"] .short-q-item,.long-q-item,.fib-item,.tf-item{background:#292524;}
+[data-theme="dark"] .worked-example{background:#1c1917;border-color:#44403c;}
+[data-theme="dark"] .we-step{background:#292524;}
+[data-theme="dark"] .note-box{background:#292524;}
+[data-theme="dark"] .trick{background:linear-gradient(135deg,#292524,#44403c);border-color:#d97706;}
+[data-theme="dark"] .info-card{background:#1c1917!important;}
+[data-theme="dark"] .formula-box{background:linear-gradient(135deg,#292524,#44403c);border-color:#d97706;}
+[data-theme="dark"] .fun-fact-card{background:linear-gradient(135deg,#292524,#44403c);border-color:#d97706;}
+[data-theme="dark"] td{border-bottom-color:#44403c;}
+[data-theme="dark"] tr:nth-child(even) td{background:#1c1917;}
+[data-theme="dark"] .share-popup{background:#292524;}
+[data-theme="dark"] .share-popup h3{color:#f59e0b;}
+[data-theme="dark"] .nline-wrap{background:linear-gradient(135deg,#1c1917,#292524);}
+</style>
+</head>
+<body>
+
+<!-- ========== TOP NAV ========== -->
+<div class="top-nav">
+  <a href="../../index.html" class="tn-home">&#127968; Home</a>
+  <a href="index.html" class="tn-chap">&#128218; All Chapters</a>
+  <div class="nav-spacer"></div>
+  <button class="tn-share" onclick="openSharePopup()">&#128228; Share</button>
+</div>
+
+<!-- ========== TABLE OF CONTENTS BAR ========== -->
+<div class="toc-bar">
+  <a href="#intro">&#128208; Intro</a>
+  <a href="#natural">&#128290; Natural</a>
+  <a href="#whole">&#128993; Whole</a>
+  <a href="#integers">&#128309; Integers</a>
+  <a href="#rational">&#128310; Rational</a>
+  <a href="#numline">&#128207; Number Line</a>
+  <a href="#operations">&#128736; Operations</a>
+  <a href="#irrational">&#127775; Irrational</a>
+  <a href="#reals">&#128200; Real Numbers</a>
+  <a href="#examples">&#9999;&#65039; Examples</a>
+  <a href="#summary">&#128202; Summary</a>
+  <a href="#mcq">&#129504; MCQs</a>
+  <a href="#fib">&#9997;&#65039; Fill Blanks</a>
+  <a href="#tf">&#9989; True/False</a>
+  <a href="#short">&#128221; Short Q&amp;A</a>
+  <a href="#long">&#128214; Long Q&amp;A</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Chapter 3 &middot; NCERT 2025-26</div>
+    <h1>&#128290; A Story of Numbers</h1>
+    <p>Natural Numbers &middot; Integers &middot; Rationals &middot; Irrationals &middot; Real Numbers</p>
+  </div>
+  <!-- Animated number symbols in hero -->
+  <div style="position:relative;max-width:340px;height:160px;margin:20px auto 0;">
+    <div style="position:absolute;font-size:28px;font-weight:900;color:rgba(255,255,255,0.7);top:10%;left:15%;animation:float 3s ease-in-out infinite;">&#8469;</div>
+    <div style="position:absolute;font-size:26px;font-weight:900;color:rgba(255,255,255,0.6);top:50%;left:5%;animation:float 3s ease-in-out infinite 0.5s;">&#8484;</div>
+    <div style="position:absolute;font-size:30px;font-weight:900;color:rgba(255,255,255,0.8);top:20%;left:50%;animation:float 3s ease-in-out infinite 1s;">&#8474;</div>
+    <div style="position:absolute;font-size:24px;font-weight:900;color:rgba(255,255,255,0.6);top:60%;left:75%;animation:float 3s ease-in-out infinite 1.5s;">&#8477;</div>
+    <div style="position:absolute;font-size:22px;font-weight:900;color:rgba(255,255,255,0.5);top:5%;right:10%;animation:float 3s ease-in-out infinite 2s;">&pi;</div>
+    <div style="position:absolute;font-size:20px;font-weight:900;color:rgba(255,255,255,0.5);top:70%;left:35%;animation:float 3s ease-in-out infinite 2.5s;">&radic;2</div>
+    <div style="position:absolute;width:10px;height:10px;background:#fde047;border-radius:50%;top:35%;left:85%;animation:heroPt 3s ease-in-out infinite;"></div>
+    <div style="position:absolute;width:8px;height:8px;background:#34d399;border-radius:50%;top:80%;left:55%;animation:heroPt 3s ease-in-out infinite 0.7s;"></div>
+  </div>
+</div>
+
+<!-- ========== MAIN CONTAINER ========== -->
+<div class="container">
+
+  <!-- =====================================================
+       SECTION 1: INTRODUCTION
+       ===================================================== -->
+  <div class="section-block reveal" id="intro">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128208;</span>
+      Introduction: The Story Begins
+    </div>
+    <div class="section-bd">
+
+      <p>Numbers are the oldest and most fundamental invention of mathematics. Long before humans built cities or invented writing, they needed to count &mdash; how many sheep in the herd, how many days till the next full moon, how many seeds to plant. This chapter tells the remarkable <strong>story of numbers</strong> &mdash; how humanity started with simple counting and gradually discovered an entire universe of numbers that stretches to infinity and beyond.</p>
+
+      <p>Each time humans encountered a problem that existing numbers could not solve, they <strong>invented</strong> a new type of number. Cannot subtract a larger number from a smaller one? Invent <strong>negative numbers</strong>. Cannot divide 3 by 7 exactly? Invent <strong>fractions (rational numbers)</strong>. Cannot find the exact length of a diagonal? Discover <strong>irrational numbers</strong>. This chapter traces that journey from the simplest counting numbers all the way to the <strong>real number system</strong>.</p>
+
+      <div class="subtitle">&#127470;&#127475; Indian Mathematical Heritage</div>
+
+      <p>India played a central role in the development of the number system that the entire world uses today.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128290; The Decimal System</h4>
+          The <strong>Hindu-Arabic numeral system</strong> (0, 1, 2, ..., 9) with place values based on powers of 10 was developed in India. It reached the Arab world by the 8th century and then spread to Europe. Every calculator, computer, and phone in the world uses this system.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128992; Zero &mdash; Brahmagupta (628 CE)</h4>
+          <strong>Brahmagupta</strong> was the first mathematician to formally define zero as a number and give rules for arithmetic involving zero and negative numbers. Without zero, our entire number system would collapse.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#128309; Negative Numbers</h4>
+          Indian mathematicians, especially Brahmagupta, were the first to treat negative numbers as legitimate quantities. He called positive numbers "fortunes" and negative numbers "debts" &mdash; a very practical way of thinking about them.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#127775; Baudhayana &amp; &radic;2</h4>
+          The <strong>Baudhayana Sulbasutras</strong> (~800 BCE) contain a remarkably accurate approximation of &radic;2 as 1.4142156..., which is correct to five decimal places. This shows that ancient Indians were already grappling with irrational numbers.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Did You Know?</strong> The word "zero" comes from the Sanskrit word <em>shunya</em> (meaning "void" or "empty"). The concept travelled from India to the Arab world (where it became <em>sifr</em>) and then to Europe (where it became <em>zero</em>). Every time you write 0, you are using an Indian invention!
+      </div>
+
+      <div class="subtitle">&#128218; Chapter Overview</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th>Key Concepts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Natural Numbers</td>
+              <td>Counting numbers: 1, 2, 3, ...</td>
+            </tr>
+            <tr>
+              <td>Whole Numbers</td>
+              <td>Natural numbers + zero: 0, 1, 2, 3, ...</td>
+            </tr>
+            <tr>
+              <td>Integers</td>
+              <td>..., &minus;3, &minus;2, &minus;1, 0, 1, 2, 3, ...</td>
+            </tr>
+            <tr>
+              <td>Rational Numbers</td>
+              <td>Numbers of the form p/q (q &ne; 0); properties and operations</td>
+            </tr>
+            <tr>
+              <td>Number Line</td>
+              <td>Representation of numbers; density of rationals</td>
+            </tr>
+            <tr>
+              <td>Irrational Numbers</td>
+              <td>Numbers that cannot be expressed as p/q; examples like &radic;2, &pi;</td>
+            </tr>
+            <tr>
+              <td>Real Numbers</td>
+              <td>Union of rational and irrational numbers</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 2: NATURAL NUMBERS
+       ===================================================== -->
+  <div class="section-block reveal" id="natural">
+    <div class="section-hd g-orange">
+      <span class="icon">&#128290;</span>
+      Natural Numbers
+    </div>
+    <div class="section-bd">
+
+      <p>The <span class="kt">natural numbers</span> are the most basic numbers we learn as children: <strong>1, 2, 3, 4, 5, ...</strong> They are the numbers we use for counting objects. The set of natural numbers is denoted by the symbol <strong>&#8469;</strong> (or sometimes <strong>N</strong>).</p>
+
+      <div class="formula-box">
+        &#8469; = {1, 2, 3, 4, 5, 6, 7, ...}
+        <small>The set of Natural Numbers &mdash; starts from 1, goes on forever</small>
+      </div>
+
+      <div class="subtitle">&#128161; Key Properties of Natural Numbers</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#9989; Closure under Addition</h4>
+          Adding any two natural numbers always gives a natural number. Example: 3 + 5 = 8 (natural). <strong>Closed.</strong>
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#9989; Closure under Multiplication</h4>
+          Multiplying any two natural numbers gives a natural number. Example: 4 &times; 7 = 28 (natural). <strong>Closed.</strong>
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#10060; Not Closed under Subtraction</h4>
+          Subtracting may give a non-natural result. Example: 3 &minus; 5 = &minus;2 (not a natural number). <strong>Not closed.</strong>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#10060; Not Closed under Division</h4>
+          Dividing may give a non-natural result. Example: 5 &divide; 2 = 2.5 (not a natural number). <strong>Not closed.</strong>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Important:</strong> The smallest natural number is <strong>1</strong>. There is <strong>no largest</strong> natural number &mdash; for any natural number <em>n</em>, <em>n</em> + 1 is also a natural number. The set is <strong>infinite</strong>.
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Memory Aid:</strong> <strong>N</strong>atural = <strong>N</strong>umbers you <strong>N</strong>aturally use for counting. Start from 1, and keep going. No zero, no negatives, no fractions.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 3: WHOLE NUMBERS
+       ===================================================== -->
+  <div class="section-block reveal" id="whole">
+    <div class="section-hd g-yellow">
+      <span class="icon">&#128993;</span>
+      Whole Numbers
+    </div>
+    <div class="section-bd">
+
+      <p>When we include <strong>zero</strong> along with the natural numbers, we get the <span class="kt">whole numbers</span>. The set of whole numbers is denoted by <strong>W</strong>.</p>
+
+      <div class="formula-box">
+        W = {0, 1, 2, 3, 4, 5, 6, ...}
+        <small>Whole Numbers = Natural Numbers + Zero</small>
+      </div>
+
+      <p>Why did we need zero? Imagine counting your apples. If you have some, natural numbers work fine. But what if you have <em>none</em>? You need a number to represent "nothing" &mdash; that number is <strong>zero</strong>. Zero is also essential for our <strong>place-value system</strong>: without it, we could not distinguish between 12 and 102 and 120.</p>
+
+      <div class="subtitle">&#128161; Relationship Between N and W</div>
+
+      <p>Every natural number is a whole number, but not every whole number is a natural number (because 0 is a whole number but not a natural number).</p>
+
+      <div class="formula-box">
+        &#8469; &sub; W
+        <small>Natural numbers are a subset of whole numbers</small>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Key Difference:</strong> The smallest <strong>natural number</strong> is 1. The smallest <strong>whole number</strong> is 0.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 4: INTEGERS
+       ===================================================== -->
+  <div class="section-block reveal" id="integers">
+    <div class="section-hd g-blue">
+      <span class="icon">&#128309;</span>
+      Integers
+    </div>
+    <div class="section-bd">
+
+      <p>Natural numbers cannot handle subtraction like 3 &minus; 5. To solve this problem, we extend our number system to include <strong>negative numbers</strong>. The collection of all positive whole numbers, negative whole numbers, and zero is called the set of <span class="kt">integers</span>, denoted by <strong>&#8484;</strong> (or <strong>Z</strong>, from the German word <em>Zahlen</em> meaning "numbers").</p>
+
+      <div class="formula-box">
+        &#8484; = {..., &minus;3, &minus;2, &minus;1, 0, 1, 2, 3, ...}
+        <small>Integers extend infinitely in both directions</small>
+      </div>
+
+      <div class="subtitle">&#128161; Types of Integers</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#10133; Positive Integers</h4>
+          1, 2, 3, 4, 5, ... (same as natural numbers)
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#10134; Negative Integers</h4>
+          &minus;1, &minus;2, &minus;3, &minus;4, &minus;5, ...
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#128992; Zero</h4>
+          0 is an integer that is neither positive nor negative.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128736; Closure Properties of Integers</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Operation</th>
+              <th>Closed?</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Addition</td>
+              <td><strong>Yes</strong></td>
+              <td>&minus;3 + 5 = 2 (integer)</td>
+            </tr>
+            <tr>
+              <td>Subtraction</td>
+              <td><strong>Yes</strong></td>
+              <td>3 &minus; 7 = &minus;4 (integer)</td>
+            </tr>
+            <tr>
+              <td>Multiplication</td>
+              <td><strong>Yes</strong></td>
+              <td>&minus;2 &times; 6 = &minus;12 (integer)</td>
+            </tr>
+            <tr>
+              <td>Division</td>
+              <td><strong>No</strong></td>
+              <td>7 &divide; 3 = 7/3 (not an integer)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Why Not Closed under Division?</strong> Because dividing two integers does not always give an integer. For example, 1 &divide; 2 = 0.5, which is not an integer. This limitation led to the invention of the next type of number &mdash; <strong>rational numbers</strong>.
+      </div>
+
+      <div class="formula-box">
+        &#8469; &sub; W &sub; &#8484;
+        <small>Natural numbers &sub; Whole numbers &sub; Integers</small>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 5: RATIONAL NUMBERS
+       ===================================================== -->
+  <div class="section-block reveal" id="rational">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128310;</span>
+      Rational Numbers
+    </div>
+    <div class="section-bd">
+
+      <p>A <span class="kt">rational number</span> is any number that can be expressed in the form <strong>p/q</strong>, where <strong>p</strong> and <strong>q</strong> are integers and <strong>q &ne; 0</strong>. The set of rational numbers is denoted by <strong>&#8474;</strong> (from "quotient").</p>
+
+      <div class="formula-box">
+        &#8474; = { p/q : p, q &isin; &#8484;, q &ne; 0 }
+        <small>Rational numbers &mdash; all numbers expressible as a fraction of two integers</small>
+      </div>
+
+      <div class="subtitle">&#128221; Examples of Rational Numbers</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128290; Fractions</h4>
+          1/2, 3/4, &minus;5/7, 22/7 &mdash; these are obviously rational (already in p/q form).
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#128290; Integers</h4>
+          Every integer is rational! For example, 5 = 5/1, &minus;3 = &minus;3/1, 0 = 0/1.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128290; Terminating Decimals</h4>
+          0.25 = 1/4, 3.5 = 7/2, &minus;0.8 = &minus;4/5 &mdash; all terminating decimals are rational.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128290; Repeating Decimals</h4>
+          0.333... = 1/3, 0.142857142857... = 1/7 &mdash; all repeating (recurring) decimals are rational.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128161; Properties of Rational Numbers</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Addition</th>
+              <th>Multiplication</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Closure</strong></td>
+              <td>Yes: p/q + r/s is rational</td>
+              <td>Yes: (p/q) &times; (r/s) is rational</td>
+            </tr>
+            <tr>
+              <td><strong>Commutative</strong></td>
+              <td>Yes: a + b = b + a</td>
+              <td>Yes: a &times; b = b &times; a</td>
+            </tr>
+            <tr>
+              <td><strong>Associative</strong></td>
+              <td>Yes: (a + b) + c = a + (b + c)</td>
+              <td>Yes: (a &times; b) &times; c = a &times; (b &times; c)</td>
+            </tr>
+            <tr>
+              <td><strong>Identity</strong></td>
+              <td>0 (additive identity): a + 0 = a</td>
+              <td>1 (multiplicative identity): a &times; 1 = a</td>
+            </tr>
+            <tr>
+              <td><strong>Inverse</strong></td>
+              <td>Additive inverse of a is &minus;a</td>
+              <td>Multiplicative inverse of a/b is b/a (a &ne; 0)</td>
+            </tr>
+            <tr>
+              <td><strong>Distributive</strong></td>
+              <td colspan="2">a &times; (b + c) = a &times; b + a &times; c</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subtitle">&#9999;&#65039; Equivalent Rational Numbers</div>
+
+      <p>A rational number has <strong>infinitely many equivalent forms</strong>. For example:</p>
+
+      <div class="formula-box">
+        1/2 = 2/4 = 3/6 = 4/8 = 5/10 = ...
+        <small>Multiply (or divide) both numerator and denominator by the same non-zero number</small>
+      </div>
+
+      <p>The <strong>standard form</strong> (or lowest terms) of a rational number is when p and q have no common factor other than 1, and q is positive. For example, the standard form of &minus;6/8 is <strong>&minus;3/4</strong>.</p>
+
+      <div class="trick">
+        <strong>&#128161; Quick Test:</strong> Is a number rational? Ask: "Can I write it as a fraction of two integers?" If yes, it is rational. If the decimal terminates or repeats, it is rational. If the decimal goes on forever without repeating, it is <strong>not</strong> rational.
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Zero in Denominator:</strong> Division by zero is <strong>undefined</strong>. The expression 5/0 is meaningless. Always ensure q &ne; 0 in p/q. This is not just a rule &mdash; it reflects the fact that you cannot divide something into zero groups.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 6: NUMBER LINE
+       ===================================================== -->
+  <div class="section-block reveal" id="numline">
+    <div class="section-hd g-teal">
+      <span class="icon">&#128207;</span>
+      Representation on the Number Line
+    </div>
+    <div class="section-bd">
+
+      <p>Every rational number can be represented as a unique point on the <span class="kt">number line</span>. Conversely, every point on the number line whose position can be described by a terminating or repeating decimal corresponds to a rational number.</p>
+
+      <div class="subtitle">&#128205; Plotting Rational Numbers</div>
+
+      <p>To plot a fraction like <strong>3/4</strong> on the number line:</p>
+
+      <ol>
+        <li>Identify between which two consecutive integers the number lies. Since 0 &lt; 3/4 &lt; 1, it lies between 0 and 1.</li>
+        <li>Divide the segment from 0 to 1 into <strong>4 equal parts</strong> (because the denominator is 4).</li>
+        <li>Count <strong>3 parts</strong> from 0 to the right (because the numerator is 3).</li>
+        <li>Mark and label the point as 3/4.</li>
+      </ol>
+
+      <div class="worked-example">
+        <h4>Example: Plot &minus;5/3 on the number line.</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Since &minus;5/3 = &minus;1.666..., it lies between &minus;2 and &minus;1.
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Divide the segment from &minus;2 to &minus;1 into 3 equal parts.
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> From &minus;2, count 1 part to the right (towards &minus;1). That point is &minus;5/3.
+        </div>
+        <div class="we-step">
+          <strong>Alternative:</strong> From &minus;1, go 2/3 of a unit to the left. This also gives &minus;5/3.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128161; Between Any Two Rational Numbers: Infinitely Many!</div>
+
+      <p>One of the most remarkable properties of rational numbers is their <strong>density</strong>: between any two distinct rational numbers, there exist <strong>infinitely many</strong> other rational numbers.</p>
+
+      <div class="formula-box">
+        Between a/b and c/d, the number (a/b + c/d) / 2 always lies in between.
+        <small>The average of two rationals is always rational and lies between them</small>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example: Find 3 rational numbers between 1/3 and 1/2.</h4>
+        <div class="we-step">
+          <strong>Method 1 (Averaging):</strong><br>
+          Between 1/3 and 1/2: average = (1/3 + 1/2)/2 = (2/6 + 3/6)/2 = (5/6)/2 = <strong>5/12</strong>
+        </div>
+        <div class="we-step">
+          <strong>Continue:</strong> Between 1/3 and 5/12: average = (4/12 + 5/12)/2 = (9/12)/2 = <strong>9/24 = 3/8</strong>
+        </div>
+        <div class="we-step">
+          <strong>Continue:</strong> Between 5/12 and 1/2: average = (5/12 + 6/12)/2 = (11/12)/2 = <strong>11/24</strong>
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> Three rational numbers between 1/3 and 1/2 are <strong>3/8, 5/12, and 11/24</strong>.
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example: Find 5 rational numbers between 1/4 and 1/3.</h4>
+        <div class="we-step">
+          <strong>Method 2 (Equivalent fractions):</strong><br>
+          Write 1/4 and 1/3 with a common denominator having enough gap.<br>
+          1/4 = 6/24 and 1/3 = 8/24. Only one integer (7) between 6 and 8 &mdash; not enough!
+        </div>
+        <div class="we-step">
+          <strong>Use a larger denominator:</strong> 1/4 = 60/240 and 1/3 = 80/240.<br>
+          Now we can pick: <strong>61/240, 65/240 = 13/48, 70/240 = 7/24, 75/240 = 5/16, 79/240</strong>.
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> Five rational numbers between 1/4 and 1/3 are <strong>61/240, 13/48, 7/24, 5/16, 79/240</strong>.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Quick Method:</strong> To find <em>n</em> rational numbers between two fractions a/b and c/d, multiply both numerator and denominator by (n + 1) to create enough "room" between them. Then simply pick integers in between.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 7: OPERATIONS ON RATIONAL NUMBERS
+       ===================================================== -->
+  <div class="section-block reveal" id="operations">
+    <div class="section-hd g-brown">
+      <span class="icon">&#128736;</span>
+      Operations on Rational Numbers
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#10133; Addition of Rational Numbers</div>
+
+      <div class="formula-box">
+        a/b + c/d = (ad + bc) / bd
+        <small>Cross-multiply numerators, multiply denominators</small>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 1: Add 2/3 + 4/5</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> LCM of 3 and 5 = 15.
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> 2/3 = 10/15, and 4/5 = 12/15.
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> 10/15 + 12/15 = <strong>22/15</strong>.
+        </div>
+      </div>
+
+      <div class="subtitle">&#10134; Subtraction of Rational Numbers</div>
+
+      <div class="formula-box">
+        a/b &minus; c/d = (ad &minus; bc) / bd
+        <small>Same as addition, but subtract the cross products</small>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 2: Subtract &minus;3/7 from 5/14</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> 5/14 &minus; (&minus;3/7) = 5/14 + 3/7
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> LCM of 14 and 7 = 14. So 3/7 = 6/14.
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> 5/14 + 6/14 = <strong>11/14</strong>.
+        </div>
+      </div>
+
+      <div class="subtitle">&#10006; Multiplication of Rational Numbers</div>
+
+      <div class="formula-box">
+        (a/b) &times; (c/d) = (a &times; c) / (b &times; d)
+        <small>Multiply numerators together and denominators together</small>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 3: Multiply &minus;2/5 &times; 3/4</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> (&minus;2 &times; 3) / (5 &times; 4) = &minus;6/20
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Simplify: &minus;6/20 = <strong>&minus;3/10</strong>.
+        </div>
+      </div>
+
+      <div class="subtitle">&#10135; Division of Rational Numbers</div>
+
+      <div class="formula-box">
+        (a/b) &divide; (c/d) = (a/b) &times; (d/c) = (ad) / (bc)
+        <small>To divide by a fraction, multiply by its reciprocal (flip and multiply)</small>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 4: Divide 7/9 by &minus;2/3</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> 7/9 &divide; (&minus;2/3) = 7/9 &times; 3/(&minus;2) = 7/9 &times; (&minus;3/2)
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> = (7 &times; &minus;3) / (9 &times; 2) = &minus;21/18
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Simplify: &minus;21/18 = <strong>&minus;7/6</strong>.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; "KFC" Rule for Division:</strong><br>
+        <strong>K</strong>eep the first fraction &rarr; <strong>F</strong>lip the second fraction &rarr; <strong>C</strong>hange division to multiplication.<br>
+        That is all division of fractions is!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 8: IRRATIONAL NUMBERS
+       ===================================================== -->
+  <div class="section-block reveal" id="irrational">
+    <div class="section-hd g-purple">
+      <span class="icon">&#127775;</span>
+      Introduction to Irrational Numbers
+    </div>
+    <div class="section-bd">
+
+      <p>Despite the richness of rational numbers, they do <strong>not</strong> fill up the entire number line. There are points on the number line that do not correspond to any rational number. The numbers that occupy these "gaps" are called <span class="kt">irrational numbers</span>.</p>
+
+      <div class="formula-box">
+        An irrational number CANNOT be expressed as p/q for any integers p and q (q &ne; 0).
+        <small>Irrational = "not a ratio" of integers</small>
+      </div>
+
+      <div class="subtitle">&#128161; How to Recognise an Irrational Number</div>
+
+      <p>The decimal expansion of an irrational number is <strong>non-terminating</strong> and <strong>non-repeating</strong>. It goes on forever without ever settling into a repeating pattern.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-purple">
+          <h4>&radic;2 = 1.41421356...</h4>
+          The most famous irrational number. It is the length of the diagonal of a unit square. The ancient Greeks proved it cannot be expressed as a fraction.
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&radic;3 = 1.73205080...</h4>
+          The height of an equilateral triangle with side 2 units. Non-terminating, non-repeating.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&pi; = 3.14159265...</h4>
+          The ratio of a circle's circumference to its diameter. Known to trillions of digits, never repeats.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&radic;5 = 2.23606797...</h4>
+          Appears in the golden ratio: &phi; = (1 + &radic;5)/2 &asymp; 1.618. Found throughout nature and art.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128218; Proof that &radic;2 is Irrational (Outline)</div>
+
+      <p>This is one of the most beautiful proofs in all of mathematics. It uses a method called <strong>proof by contradiction</strong>.</p>
+
+      <div class="worked-example">
+        <h4>Proof: &radic;2 is irrational</h4>
+        <div class="we-step">
+          <strong>Assume the opposite:</strong> Suppose &radic;2 is rational. Then we can write &radic;2 = p/q where p and q are integers with no common factor (i.e., the fraction is in lowest terms) and q &ne; 0.
+        </div>
+        <div class="we-step">
+          <strong>Square both sides:</strong> 2 = p&sup2;/q&sup2;, which gives <strong>p&sup2; = 2q&sup2;</strong>.
+        </div>
+        <div class="we-step">
+          <strong>Conclusion 1:</strong> Since p&sup2; = 2q&sup2;, p&sup2; is even. Therefore <strong>p must be even</strong> (because the square of an odd number is odd). Let p = 2k for some integer k.
+        </div>
+        <div class="we-step">
+          <strong>Substitute:</strong> (2k)&sup2; = 2q&sup2; &rarr; 4k&sup2; = 2q&sup2; &rarr; <strong>q&sup2; = 2k&sup2;</strong>.
+        </div>
+        <div class="we-step">
+          <strong>Conclusion 2:</strong> Since q&sup2; = 2k&sup2;, q&sup2; is even. Therefore <strong>q must be even</strong>.
+        </div>
+        <div class="we-step">
+          <strong>Contradiction!</strong> Both p and q are even, so they have a common factor of 2. But we assumed p/q was in lowest terms (no common factors). This is a contradiction. Therefore, our assumption was wrong, and <strong>&radic;2 is irrational</strong>.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128290; Which Square Roots are Irrational?</div>
+
+      <div class="note-box">
+        <strong>&#128161; Key Rule:</strong> &radic;n is irrational if and only if <em>n</em> is <strong>not a perfect square</strong>.<br>
+        &bull; &radic;4 = 2 (rational, since 4 = 2&sup2;)<br>
+        &bull; &radic;9 = 3 (rational, since 9 = 3&sup2;)<br>
+        &bull; &radic;2, &radic;3, &radic;5, &radic;6, &radic;7, &radic;8, &radic;10, ... are all irrational.
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Quick Test for Irrationality:</strong> If the number under the square root sign is NOT a perfect square (1, 4, 9, 16, 25, 36, ...), then the square root is irrational. Works for cube roots too: &radic;[3]{n} is irrational if n is not a perfect cube.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 9: REAL NUMBERS
+       ===================================================== -->
+  <div class="section-block reveal" id="reals">
+    <div class="section-hd g-slate">
+      <span class="icon">&#128200;</span>
+      The Real Number System
+    </div>
+    <div class="section-bd">
+
+      <p>When we combine <strong>all rational numbers</strong> and <strong>all irrational numbers</strong> together, we get the complete set of <span class="kt">real numbers</span>, denoted by <strong>&#8477;</strong> (or <strong>R</strong>).</p>
+
+      <div class="formula-box">
+        &#8477; = &#8474; &cup; (Irrational Numbers)
+        <small>Real Numbers = Rational Numbers + Irrational Numbers</small>
+      </div>
+
+      <p>Every point on the number line corresponds to exactly one real number, and every real number corresponds to exactly one point on the number line. This is why the number line is sometimes called the <strong>real number line</strong>.</p>
+
+      <div class="subtitle">&#128202; The Number System Hierarchy</div>
+
+      <div class="formula-box">
+        &#8469; &sub; W &sub; &#8484; &sub; &#8474; &sub; &#8477;
+        <small>Natural &sub; Whole &sub; Integer &sub; Rational &sub; Real</small>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#128290; Natural Numbers &#8469;</h4>
+          1, 2, 3, 4, 5, ...<br>
+          <em>Counting numbers. The innermost set.</em>
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#128993; Whole Numbers W</h4>
+          0, 1, 2, 3, 4, ...<br>
+          <em>Natural numbers + zero.</em>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128309; Integers &#8484;</h4>
+          ..., &minus;2, &minus;1, 0, 1, 2, ...<br>
+          <em>Whole numbers + negatives.</em>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128310; Rational Numbers &#8474;</h4>
+          All p/q where q &ne; 0.<br>
+          <em>Includes all integers + fractions.</em>
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#127775; Irrational Numbers</h4>
+          &radic;2, &pi;, &radic;3, e, ...<br>
+          <em>Non-terminating, non-repeating decimals.</em>
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#128200; Real Numbers &#8477;</h4>
+          Every number on the number line.<br>
+          <em>Rational + Irrational = Real.</em>
+        </div>
+      </div>
+
+      <div class="subtitle">&#9888;&#65039; Rational vs Irrational &mdash; Key Differences</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Rational Numbers</th>
+              <th>Irrational Numbers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Form</strong></td>
+              <td>Can be written as p/q (q &ne; 0)</td>
+              <td>Cannot be written as p/q</td>
+            </tr>
+            <tr>
+              <td><strong>Decimal</strong></td>
+              <td>Terminating or repeating</td>
+              <td>Non-terminating, non-repeating</td>
+            </tr>
+            <tr>
+              <td><strong>Examples</strong></td>
+              <td>1/2, 0.75, &minus;3, 0.333...</td>
+              <td>&radic;2, &pi;, &radic;5, e</td>
+            </tr>
+            <tr>
+              <td><strong>On number line</strong></td>
+              <td>Yes (dense, but with gaps)</td>
+              <td>Yes (fills the gaps)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; The Big Picture:</strong> Think of the number line as a road. The rational numbers are like all the houses with proper addresses (fractions). The irrational numbers are like the spaces between houses &mdash; they are there, they have locations, but they cannot be described by a simple fraction. Together, they fill the entire road with no gaps at all.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 10: WORKED EXAMPLES
+       ===================================================== -->
+  <div class="section-block reveal" id="examples">
+    <div class="section-hd g-orange">
+      <span class="icon">&#9999;&#65039;</span>
+      NCERT-Style Worked Examples
+    </div>
+    <div class="section-bd">
+
+      <!-- Example 1 -->
+      <div class="worked-example">
+        <h4>Example 1: Classify the following numbers as rational or irrational: (a) &radic;25, (b) &radic;7, (c) 0.3333..., (d) 1.41421356..., (e) 22/7.</h4>
+        <div class="we-step">
+          <strong>(a) &radic;25 = 5</strong> &rarr; 5 is an integer, hence <strong>rational</strong>.
+        </div>
+        <div class="we-step">
+          <strong>(b) &radic;7</strong> &rarr; 7 is not a perfect square, so &radic;7 is <strong>irrational</strong>.
+        </div>
+        <div class="we-step">
+          <strong>(c) 0.3333...</strong> &rarr; This is a repeating decimal = 1/3, so it is <strong>rational</strong>.
+        </div>
+        <div class="we-step">
+          <strong>(d) 1.41421356...</strong> &rarr; This is &radic;2, a non-terminating non-repeating decimal, so it is <strong>irrational</strong>.
+        </div>
+        <div class="we-step">
+          <strong>(e) 22/7</strong> &rarr; This is a fraction of two integers (p = 22, q = 7), so it is <strong>rational</strong>. (Note: 22/7 is NOT equal to &pi;; it is only an approximation.)
+        </div>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="worked-example">
+        <h4>Example 2: Find the additive inverse and multiplicative inverse of &minus;3/5.</h4>
+        <div class="we-step">
+          <strong>Additive inverse:</strong> The number that gives 0 when added.<br>
+          &minus;3/5 + ? = 0 &rarr; ? = <strong>3/5</strong>.
+        </div>
+        <div class="we-step">
+          <strong>Multiplicative inverse (reciprocal):</strong> The number that gives 1 when multiplied.<br>
+          (&minus;3/5) &times; ? = 1 &rarr; ? = <strong>&minus;5/3</strong>.
+        </div>
+      </div>
+
+      <!-- Example 3 -->
+      <div class="worked-example">
+        <h4>Example 3: Verify the distributive property: &minus;3/4 &times; (2/3 + &minus;5/6).</h4>
+        <div class="we-step">
+          <strong>LHS:</strong> First compute the sum inside: 2/3 + (&minus;5/6) = 4/6 &minus; 5/6 = &minus;1/6.<br>
+          Then: &minus;3/4 &times; (&minus;1/6) = 3/24 = <strong>1/8</strong>.
+        </div>
+        <div class="we-step">
+          <strong>RHS:</strong> &minus;3/4 &times; 2/3 + (&minus;3/4) &times; (&minus;5/6)<br>
+          = &minus;6/12 + 15/24 = &minus;1/2 + 5/8 = &minus;4/8 + 5/8 = <strong>1/8</strong>.
+        </div>
+        <div class="we-step">
+          <strong>Since LHS = RHS = 1/8,</strong> the distributive property is verified. &#9989;
+        </div>
+      </div>
+
+      <!-- Example 4 -->
+      <div class="worked-example">
+        <h4>Example 4: Represent 3/5 and &minus;3/5 on the number line.</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> 3/5 lies between 0 and 1. Divide the segment [0, 1] into 5 equal parts.
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Count 3 parts from 0 to the right. Mark this point as 3/5.
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> &minus;3/5 lies between &minus;1 and 0. Divide the segment [&minus;1, 0] into 5 equal parts.
+        </div>
+        <div class="we-step">
+          <strong>Step 4:</strong> Count 3 parts from 0 to the left. Mark this point as &minus;3/5.
+        </div>
+        <div class="we-step">
+          <strong>Note:</strong> 3/5 and &minus;3/5 are equidistant from 0, on opposite sides. They are additive inverses of each other.
+        </div>
+      </div>
+
+      <!-- Example 5 -->
+      <div class="worked-example">
+        <h4>Example 5: Find 5 rational numbers between &minus;1 and 1.</h4>
+        <div class="we-step">
+          <strong>Method:</strong> Write &minus;1 and 1 with a denominator of 6: &minus;1 = &minus;6/6 and 1 = 6/6.
+        </div>
+        <div class="we-step">
+          <strong>Pick integers between &minus;6 and 6:</strong> &minus;5/6, &minus;2/6, 0/6, 1/6, 4/6
+        </div>
+        <div class="we-step">
+          <strong>Simplify:</strong> <strong>&minus;5/6, &minus;1/3, 0, 1/6, 2/3</strong>.
+        </div>
+      </div>
+
+      <!-- Example 6 -->
+      <div class="worked-example">
+        <h4>Example 6: Express 0.overline{6} (0.666...) as a fraction.</h4>
+        <div class="we-step">
+          <strong>Let x = 0.666...</strong>
+        </div>
+        <div class="we-step">
+          <strong>Multiply by 10:</strong> 10x = 6.666...
+        </div>
+        <div class="we-step">
+          <strong>Subtract:</strong> 10x &minus; x = 6.666... &minus; 0.666... &rarr; 9x = 6 &rarr; x = 6/9 = <strong>2/3</strong>.
+        </div>
+      </div>
+
+      <!-- Example 7 -->
+      <div class="worked-example">
+        <h4>Example 7: Show that 0.101001000100001... is irrational.</h4>
+        <div class="we-step">
+          <strong>Observe:</strong> The pattern is 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, ...
+        </div>
+        <div class="we-step">
+          <strong>Key point:</strong> Although there is a pattern (increasing number of zeros between successive 1s), the decimal <strong>never repeats a fixed block</strong>.
+        </div>
+        <div class="we-step">
+          <strong>Conclusion:</strong> Since the decimal is non-terminating and non-repeating, this number is <strong>irrational</strong>.
+        </div>
+      </div>
+
+      <!-- Example 8 -->
+      <div class="worked-example">
+        <h4>Example 8: Using the number line, show that every natural number is a rational number but not every rational number is a natural number.</h4>
+        <div class="we-step">
+          <strong>Part 1:</strong> Any natural number n can be written as n/1, which is of the form p/q with q &ne; 0. So every natural number is rational.
+        </div>
+        <div class="we-step">
+          <strong>Part 2:</strong> Consider the rational number 1/2. This is not a natural number because it is not a positive integer. On the number line, 1/2 lies between 0 and 1, not at any natural number position.
+        </div>
+        <div class="we-step">
+          <strong>Similarly:</strong> &minus;3 is rational (= &minus;3/1) but not natural (negatives are not natural). 0 is rational (= 0/1) but not natural.
+        </div>
+        <div class="we-step">
+          <strong>Conclusion:</strong> &#8469; &sub; &#8474; but &#8474; &nsub; &#8469;. The set of rationals is strictly larger than the set of naturals.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 11: SUMMARY
+       ===================================================== -->
+  <div class="section-block reveal" id="summary">
+    <div class="section-hd g-slate">
+      <span class="icon">&#128202;</span>
+      Chapter Summary
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128203; Key Formulas &amp; Facts</div>
+
+      <div class="formula-box">
+        &#8469; &sub; W &sub; &#8484; &sub; &#8474; &sub; &#8477;
+        <small>The complete hierarchy of number systems</small>
+      </div>
+
+      <div class="formula-box">
+        Rational: p/q (q &ne; 0) &mdash; terminates or repeats<br>
+        Irrational: NOT p/q &mdash; non-terminating, non-repeating
+        <small>The two types of real numbers</small>
+      </div>
+
+      <div class="subtitle">&#128218; Quick Reference Table</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Number Type</th>
+              <th>Symbol</th>
+              <th>Examples</th>
+              <th>Closed Under</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Natural</td>
+              <td>&#8469;</td>
+              <td>1, 2, 3, 4, ...</td>
+              <td>+ , &times;</td>
+            </tr>
+            <tr>
+              <td>Whole</td>
+              <td>W</td>
+              <td>0, 1, 2, 3, ...</td>
+              <td>+ , &times;</td>
+            </tr>
+            <tr>
+              <td>Integer</td>
+              <td>&#8484;</td>
+              <td>..., &minus;2, &minus;1, 0, 1, 2, ...</td>
+              <td>+ , &minus; , &times;</td>
+            </tr>
+            <tr>
+              <td>Rational</td>
+              <td>&#8474;</td>
+              <td>1/2, &minus;3/7, 0.75, 0.333...</td>
+              <td>+ , &minus; , &times; , &divide; (except by 0)</td>
+            </tr>
+            <tr>
+              <td>Irrational</td>
+              <td>&mdash;</td>
+              <td>&radic;2, &pi;, &radic;3, e</td>
+              <td>Not closed under any operation</td>
+            </tr>
+            <tr>
+              <td>Real</td>
+              <td>&#8477;</td>
+              <td>All of the above</td>
+              <td>+ , &minus; , &times; , &divide; (except by 0)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subtitle">&#9888;&#65039; Common Mistakes to Avoid</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-red">
+          <h4>&#10060; Thinking 22/7 = &pi;</h4>
+          22/7 is only an approximation. 22/7 is rational (it is a fraction), but &pi; is irrational. They are close but NOT equal.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#10060; Saying &radic;4 is irrational</h4>
+          &radic;4 = 2, which is a natural number (and hence rational). Only square roots of non-perfect-squares are irrational.
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#10060; Dividing by zero</h4>
+          5/0 is undefined, not infinity or zero. Division by zero has no meaning in mathematics.
+        </div>
+        <div class="info-card ic-pink">
+          <h4>&#10060; Confusing "non-terminating" with "irrational"</h4>
+          0.333... is non-terminating but repeating, so it IS rational (= 1/3). A number is irrational only if it is non-terminating AND non-repeating.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Revision Mantra:</strong><br>
+        &bull; <strong>Natural</strong> &rarr; Counting from 1.<br>
+        &bull; <strong>Whole</strong> &rarr; Natural + 0.<br>
+        &bull; <strong>Integer</strong> &rarr; Whole + negatives.<br>
+        &bull; <strong>Rational</strong> &rarr; p/q, q &ne; 0 (terminates or repeats).<br>
+        &bull; <strong>Irrational</strong> &rarr; NOT p/q (never terminates, never repeats).<br>
+        &bull; <strong>Real</strong> &rarr; Rational + Irrational = everything on the number line.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 12: MCQs (10 Questions)
+       ===================================================== -->
+  <div class="section-block reveal" id="mcq">
+    <div class="section-hd g-amber">
+      <span class="icon">&#129504;</span>
+      Multiple Choice Questions (10 MCQs)
+    </div>
+    <div class="section-bd">
+
+      <p>Click on an option to see if your answer is correct. The correct option will turn green.</p>
+
+      <ul class="mcq-list">
+
+        <!-- MCQ 1 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q1. Every natural number is a:</div>
+          <ul class="mcq-options">
+            <li>a) Whole number but not an integer</li>
+            <li>b) Integer but not a rational number</li>
+            <li data-correct>c) Rational number</li>
+            <li>d) Irrational number</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) Every natural number n can be written as n/1, making it rational.</div>
+        </li>
+
+        <!-- MCQ 2 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q2. Which of the following is irrational?</div>
+          <ul class="mcq-options">
+            <li>a) &radic;9</li>
+            <li data-correct>b) &radic;10</li>
+            <li>c) &radic;16</li>
+            <li>d) &radic;49</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 10 is not a perfect square, so &radic;10 is irrational. The others simplify to 3, 4, and 7.</div>
+        </li>
+
+        <!-- MCQ 3 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q3. The decimal expansion of a rational number is always:</div>
+          <ul class="mcq-options">
+            <li>a) Terminating only</li>
+            <li>b) Non-terminating and non-repeating</li>
+            <li data-correct>c) Either terminating or non-terminating repeating</li>
+            <li>d) Non-terminating only</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) Rational numbers have decimals that either terminate (like 0.25) or repeat (like 0.333...).</div>
+        </li>
+
+        <!-- MCQ 4 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q4. The additive identity for rational numbers is:</div>
+          <ul class="mcq-options">
+            <li data-correct>a) 0</li>
+            <li>b) 1</li>
+            <li>c) &minus;1</li>
+            <li>d) 1/2</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (a) Adding 0 to any rational number gives the same number: a + 0 = a.</div>
+        </li>
+
+        <!-- MCQ 5 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q5. The multiplicative inverse of &minus;2/7 is:</div>
+          <ul class="mcq-options">
+            <li>a) 2/7</li>
+            <li data-correct>b) &minus;7/2</li>
+            <li>c) 7/2</li>
+            <li>d) &minus;2/7</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) (&minus;2/7) &times; (&minus;7/2) = 14/14 = 1. The reciprocal keeps the sign.</div>
+        </li>
+
+        <!-- MCQ 6 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q6. Between any two rational numbers, there are:</div>
+          <ul class="mcq-options">
+            <li>a) Exactly one rational number</li>
+            <li>b) Exactly ten rational numbers</li>
+            <li>c) No rational numbers</li>
+            <li data-correct>d) Infinitely many rational numbers</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (d) This is the density property of rational numbers &mdash; between any two, infinitely many exist.</div>
+        </li>
+
+        <!-- MCQ 7 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q7. Which of the following is NOT a rational number?</div>
+          <ul class="mcq-options">
+            <li>a) 0</li>
+            <li>b) &minus;17</li>
+            <li>c) 22/7</li>
+            <li data-correct>d) &pi;</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (d) &pi; is irrational. Note: 22/7 is rational (it is a fraction), but &pi; &ne; 22/7.</div>
+        </li>
+
+        <!-- MCQ 8 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q8. The smallest whole number is:</div>
+          <ul class="mcq-options">
+            <li data-correct>a) 0</li>
+            <li>b) 1</li>
+            <li>c) &minus;1</li>
+            <li>d) There is no smallest</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (a) The set of whole numbers W = {0, 1, 2, 3, ...} starts at 0.</div>
+        </li>
+
+        <!-- MCQ 9 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q9. The product of a non-zero rational number and an irrational number is always:</div>
+          <ul class="mcq-options">
+            <li>a) Rational</li>
+            <li data-correct>b) Irrational</li>
+            <li>c) Zero</li>
+            <li>d) An integer</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) For example, 2 &times; &radic;3 = 2&radic;3, which is irrational. A non-zero rational times an irrational is always irrational.</div>
+        </li>
+
+        <!-- MCQ 10 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q10. Which Indian mathematician first formally defined rules for zero and negative numbers?</div>
+          <ul class="mcq-options">
+            <li>a) Aryabhata</li>
+            <li data-correct>b) Brahmagupta</li>
+            <li>c) Baudhayana</li>
+            <li>d) Bhaskaracharya</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) Brahmagupta (628 CE) in his work Brahmasphutasiddhanta was the first to give formal rules for arithmetic with zero and negative numbers.</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 13: FILL IN THE BLANKS
+       ===================================================== -->
+  <div class="section-block reveal" id="fib">
+    <div class="section-hd g-brown">
+      <span class="icon">&#9997;&#65039;</span>
+      Fill in the Blanks (8 Questions)
+    </div>
+    <div class="section-bd">
+
+      <ul class="fib-list">
+
+        <li class="fib-item">
+          <div class="fib-q">1. The collection of numbers 1, 2, 3, 4, ... is called __________ numbers.</div>
+          <div class="fib-a"><strong>Natural</strong> numbers.</div>
+        </li>
+
+        <li class="fib-item">
+          <div class="fib-q">2. A number that can be expressed in the form p/q, where p and q are integers and q &ne; 0, is called a __________ number.</div>
+          <div class="fib-a"><strong>Rational</strong> number.</div>
+        </li>
+
+        <li class="fib-item">
+          <div class="fib-q">3. The additive inverse of &minus;7/3 is __________.</div>
+          <div class="fib-a"><strong>7/3</strong> (because &minus;7/3 + 7/3 = 0).</div>
+        </li>
+
+        <li class="fib-item">
+          <div class="fib-q">4. The multiplicative identity for rational numbers is __________.</div>
+          <div class="fib-a"><strong>1</strong> (because a &times; 1 = a for any rational a).</div>
+        </li>
+
+        <li class="fib-item">
+          <div class="fib-q">5. &radic;2 is an example of a(n) __________ number.</div>
+          <div class="fib-a"><strong>Irrational</strong> number.</div>
+        </li>
+
+        <li class="fib-item">
+          <div class="fib-q">6. Between any two rational numbers, there exist __________ many rational numbers.</div>
+          <div class="fib-a"><strong>Infinitely</strong> many rational numbers.</div>
+        </li>
+
+        <li class="fib-item">
+          <div class="fib-q">7. The decimal expansion of an irrational number is __________ and __________.</div>
+          <div class="fib-a"><strong>Non-terminating</strong> and <strong>non-repeating</strong>.</div>
+        </li>
+
+        <li class="fib-item">
+          <div class="fib-q">8. The set of all rational and irrational numbers together forms the __________ numbers.</div>
+          <div class="fib-a"><strong>Real</strong> numbers.</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 14: TRUE/FALSE
+       ===================================================== -->
+  <div class="section-block reveal" id="tf">
+    <div class="section-hd g-orange">
+      <span class="icon">&#9989;</span>
+      True or False (8 Questions)
+    </div>
+    <div class="section-bd">
+
+      <ul class="tf-list">
+
+        <li class="tf-item">
+          <div class="tf-q">1. Every integer is a rational number.</div>
+          <div class="tf-a"><strong>True.</strong> Any integer n can be written as n/1.</div>
+        </li>
+
+        <li class="tf-item">
+          <div class="tf-q">2. Zero is a natural number.</div>
+          <div class="tf-a"><strong>False.</strong> Zero is a whole number but not a natural number. Natural numbers start from 1.</div>
+        </li>
+
+        <li class="tf-item">
+          <div class="tf-q">3. The sum of two irrational numbers is always irrational.</div>
+          <div class="tf-a"><strong>False.</strong> Counter-example: (2 + &radic;3) + (2 &minus; &radic;3) = 4, which is rational.</div>
+        </li>
+
+        <li class="tf-item">
+          <div class="tf-q">4. &radic;16 is an irrational number.</div>
+          <div class="tf-a"><strong>False.</strong> &radic;16 = 4, which is a natural number and hence rational.</div>
+        </li>
+
+        <li class="tf-item">
+          <div class="tf-q">5. Every rational number has a multiplicative inverse.</div>
+          <div class="tf-a"><strong>False.</strong> Zero is a rational number but has no multiplicative inverse (there is no number x such that 0 &times; x = 1).</div>
+        </li>
+
+        <li class="tf-item">
+          <div class="tf-q">6. The number 0.10110111011110... is irrational.</div>
+          <div class="tf-a"><strong>True.</strong> This decimal is non-terminating and non-repeating (the pattern of 1s changes), so it is irrational.</div>
+        </li>
+
+        <li class="tf-item">
+          <div class="tf-q">7. Between 0 and 1, there are only finitely many rational numbers.</div>
+          <div class="tf-a"><strong>False.</strong> Between any two rational numbers (including 0 and 1), there are infinitely many rational numbers.</div>
+        </li>
+
+        <li class="tf-item">
+          <div class="tf-q">8. The product of two rational numbers is always rational.</div>
+          <div class="tf-a"><strong>True.</strong> If a/b and c/d are rational (b, d &ne; 0), then (a/b) &times; (c/d) = ac/bd, which is also rational (bd &ne; 0).</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 15: SHORT Q&A
+       ===================================================== -->
+  <div class="section-block reveal" id="short">
+    <div class="section-hd g-blue">
+      <span class="icon">&#128221;</span>
+      Short Answer Questions (8)
+    </div>
+    <div class="section-bd">
+
+      <ul class="short-q-list">
+
+        <li class="short-q-item">
+          <div class="short-q">Q1. Define rational numbers. Give two examples.</div>
+          <div class="short-a">A <strong>rational number</strong> is any number that can be expressed in the form p/q, where p and q are integers and q &ne; 0. Examples: <strong>3/4</strong> and <strong>&minus;5/2</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q2. Is &radic;3 rational or irrational? Justify.</div>
+          <div class="short-a"><strong>&radic;3 is irrational.</strong> Since 3 is not a perfect square, &radic;3 cannot be expressed as p/q for any integers p and q. Its decimal expansion (1.7320508...) is non-terminating and non-repeating.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q3. Find the multiplicative inverse of &minus;5/8.</div>
+          <div class="short-a">The multiplicative inverse of &minus;5/8 is <strong>&minus;8/5</strong>, because (&minus;5/8) &times; (&minus;8/5) = 40/40 = 1.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q4. Find three rational numbers between 2/5 and 3/5.</div>
+          <div class="short-a">Write with a larger denominator: 2/5 = 8/20 and 3/5 = 12/20. Three rational numbers between them: <strong>9/20, 10/20 (= 1/2), 11/20</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q5. What is the difference between terminating and non-terminating repeating decimals?</div>
+          <div class="short-a">A <strong>terminating decimal</strong> has a finite number of digits after the decimal point (e.g., 0.75). A <strong>non-terminating repeating decimal</strong> goes on forever but has a block of digits that repeats (e.g., 0.333... where "3" repeats). Both represent rational numbers.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q6. Express 0.overline{12} (0.121212...) as a fraction.</div>
+          <div class="short-a">Let x = 0.121212...<br>
+          100x = 12.121212...<br>
+          100x &minus; x = 12 &rarr; 99x = 12 &rarr; x = <strong>12/99 = 4/33</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q7. State the closure property for integers under subtraction with an example.</div>
+          <div class="short-a">The set of integers is <strong>closed under subtraction</strong>: if a and b are integers, then a &minus; b is also an integer. Example: 5 &minus; 8 = &minus;3 (an integer). This property does NOT hold for natural numbers (5 &minus; 8 = &minus;3, not natural).</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q8. Why is the set of natural numbers not closed under subtraction? Give an example.</div>
+          <div class="short-a">Because subtracting a larger natural number from a smaller one gives a <strong>negative number</strong>, which is not a natural number. Example: 3 &minus; 7 = &minus;4. Since &minus;4 is not in the set {1, 2, 3, ...}, natural numbers are not closed under subtraction.</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 16: LONG Q&A
+       ===================================================== -->
+  <div class="section-block reveal" id="long">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128214;</span>
+      Long Answer Questions (5)
+    </div>
+    <div class="section-bd">
+
+      <!-- Long Q1 -->
+      <div class="long-q-item">
+        <div class="long-q">Q1. Explain the hierarchy of number systems from natural numbers to real numbers. For each set, give its definition, symbol, examples, and state which operations it is closed under.</div>
+        <div class="long-a">
+          <strong>1. Natural Numbers (&#8469;):</strong> {1, 2, 3, 4, ...} &mdash; counting numbers. Closed under addition and multiplication. Not closed under subtraction (3 &minus; 5 = &minus;2 &notin; &#8469;) or division (5 &divide; 2 &notin; &#8469;).<br><br>
+
+          <strong>2. Whole Numbers (W):</strong> {0, 1, 2, 3, ...} &mdash; natural numbers plus zero. Closed under addition and multiplication. Not closed under subtraction or division.<br><br>
+
+          <strong>3. Integers (&#8484;):</strong> {..., &minus;2, &minus;1, 0, 1, 2, ...} &mdash; whole numbers plus negatives. Closed under addition, subtraction, and multiplication. Not closed under division (7 &divide; 3 &notin; &#8484;).<br><br>
+
+          <strong>4. Rational Numbers (&#8474;):</strong> All p/q where p, q &isin; &#8484; and q &ne; 0. Examples: 1/2, &minus;3/7, 5 (= 5/1). Closed under all four operations (except division by zero). Decimal expansion is either terminating or repeating.<br><br>
+
+          <strong>5. Irrational Numbers:</strong> Numbers that cannot be written as p/q. Examples: &radic;2, &pi;, &radic;5. Decimal expansion is non-terminating and non-repeating. Not closed under any arithmetic operation (e.g., &radic;2 &times; &radic;2 = 2, which is rational).<br><br>
+
+          <strong>6. Real Numbers (&#8477;):</strong> &#8474; &cup; Irrationals. Every point on the number line is a real number. Closed under addition, subtraction, multiplication, and division (except by 0).<br><br>
+
+          <strong>Hierarchy:</strong> &#8469; &sub; W &sub; &#8484; &sub; &#8474; &sub; &#8477;. Each set is a <strong>proper subset</strong> of the next, meaning each extension adds new numbers to solve problems the previous set could not handle.
+        </div>
+      </div>
+
+      <!-- Long Q2 -->
+      <div class="long-q-item">
+        <div class="long-q">Q2. State and verify all the properties of rational numbers (closure, commutativity, associativity, identity, inverse, distributive) with respect to addition and multiplication. Give one example for each.</div>
+        <div class="long-a">
+          <strong>(i) Closure:</strong><br>
+          Addition: 2/3 + 4/5 = 22/15 (rational) &#9989;<br>
+          Multiplication: 2/3 &times; 4/5 = 8/15 (rational) &#9989;<br><br>
+
+          <strong>(ii) Commutativity:</strong><br>
+          Addition: 1/2 + 3/4 = 5/4 = 3/4 + 1/2 &#9989;<br>
+          Multiplication: 2/3 &times; 5/7 = 10/21 = 5/7 &times; 2/3 &#9989;<br><br>
+
+          <strong>(iii) Associativity:</strong><br>
+          Addition: (1/2 + 1/3) + 1/4 = 5/6 + 1/4 = 13/12 = 1/2 + (1/3 + 1/4) = 1/2 + 7/12 = 13/12 &#9989;<br>
+          Multiplication: (1/2 &times; 2/3) &times; 3/4 = 1/3 &times; 3/4 = 1/4 = 1/2 &times; (2/3 &times; 3/4) = 1/2 &times; 1/2 = 1/4 &#9989;<br><br>
+
+          <strong>(iv) Identity:</strong><br>
+          Additive identity: 3/7 + 0 = 3/7 &#9989; (identity element is 0)<br>
+          Multiplicative identity: 3/7 &times; 1 = 3/7 &#9989; (identity element is 1)<br><br>
+
+          <strong>(v) Inverse:</strong><br>
+          Additive inverse of 5/9 is &minus;5/9: 5/9 + (&minus;5/9) = 0 &#9989;<br>
+          Multiplicative inverse of 5/9 is 9/5: 5/9 &times; 9/5 = 1 &#9989;<br><br>
+
+          <strong>(vi) Distributive (multiplication over addition):</strong><br>
+          1/2 &times; (3/4 + 1/4) = 1/2 &times; 1 = 1/2<br>
+          1/2 &times; 3/4 + 1/2 &times; 1/4 = 3/8 + 1/8 = 4/8 = 1/2 &#9989;<br>
+          LHS = RHS, so the distributive property holds.
+        </div>
+      </div>
+
+      <!-- Long Q3 -->
+      <div class="long-q-item">
+        <div class="long-q">Q3. Prove that &radic;2 is irrational. Also explain why &radic;4 is NOT irrational.</div>
+        <div class="long-a">
+          <strong>Proof that &radic;2 is irrational (by contradiction):</strong><br><br>
+
+          Assume &radic;2 is rational. Then &radic;2 = p/q, where p and q are co-prime integers (no common factor &gt; 1) and q &ne; 0.<br><br>
+
+          Squaring: 2 = p&sup2;/q&sup2; &rarr; <strong>p&sup2; = 2q&sup2;</strong>.<br><br>
+
+          Since p&sup2; is even (divisible by 2), p itself must be even (the square of an odd number is odd). Let p = 2m.<br><br>
+
+          Substituting: (2m)&sup2; = 2q&sup2; &rarr; 4m&sup2; = 2q&sup2; &rarr; <strong>q&sup2; = 2m&sup2;</strong>.<br><br>
+
+          Since q&sup2; is even, q is also even. But now both p and q are even, meaning they share a common factor of 2. This <strong>contradicts</strong> our assumption that p/q is in lowest terms.<br><br>
+
+          Therefore, &radic;2 is <strong>irrational</strong>.<br><br>
+
+          <strong>Why &radic;4 is NOT irrational:</strong><br>
+          &radic;4 = 2, because 2 &times; 2 = 4. The number 2 is an integer, which can be written as 2/1 (a fraction of two integers). Therefore, &radic;4 is <strong>rational</strong>. In general, &radic;n is rational if and only if n is a perfect square.
+        </div>
+      </div>
+
+      <!-- Long Q4 -->
+      <div class="long-q-item">
+        <div class="long-q">Q4. Find 6 rational numbers between 3/5 and 4/5. Explain the method you used and why infinitely many rational numbers exist between any two given rational numbers.</div>
+        <div class="long-a">
+          <strong>Method:</strong> To find 6 rational numbers between 3/5 and 4/5, we write equivalent fractions with a larger denominator.<br><br>
+
+          Multiply numerator and denominator of both fractions by 7 (which is 6 + 1):<br>
+          3/5 = 21/35 and 4/5 = 28/35.<br><br>
+
+          Now we need 6 integers between 21 and 28: 22, 23, 24, 25, 26, 27.<br><br>
+
+          The 6 rational numbers are: <strong>22/35, 23/35, 24/35, 25/35 (= 5/7), 26/35, 27/35</strong>.<br><br>
+
+          <strong>Why infinitely many exist:</strong> We could repeat this process between any two adjacent numbers we found. For example, between 22/35 and 23/35, we can find more by writing them as 220/350 and 230/350, then picking 221/350, 222/350, etc. This process can be repeated indefinitely. Mathematically, between any two rationals a and b (a &lt; b), the number (a + b)/2 is also rational and lies strictly between them. Applying this repeatedly generates infinitely many distinct rational numbers.
+        </div>
+      </div>
+
+      <!-- Long Q5 -->
+      <div class="long-q-item">
+        <div class="long-q">Q5. Describe the contribution of Indian mathematicians to the development of the number system. Include at least three mathematicians and their specific contributions.</div>
+        <div class="long-a">
+          India has made foundational contributions to the number system that the entire world uses today:<br><br>
+
+          <strong>1. Baudhayana (~800 BCE):</strong> In the <em>Baudhayana Sulbasutras</em>, he gave remarkably accurate approximations of &radic;2 (correct to 5 decimal places: 1.4142156...). This shows awareness of irrational numbers nearly 2,300 years before European mathematicians formally recognised them. His work on the relationship between the diagonal and sides of a rectangle (Baudhayana-Pythagoras theorem) is foundational to the concept of irrational numbers arising from geometry.<br><br>
+
+          <strong>2. Brahmagupta (598&ndash;668 CE):</strong> In his <em>Brahmasphutasiddhanta</em> (628 CE), he was the <strong>first mathematician in history</strong> to formally define zero as a number and give rules for arithmetic with zero. He also gave rules for negative numbers, calling positive numbers "fortunes" and negative numbers "debts." Without zero and negative numbers, the integer system (&#8484;) and our place-value numeral system would not exist. He also stated rules like: "A debt subtracted from zero is a fortune" (&minus;(&minus;a) = a).<br><br>
+
+          <strong>3. Aryabhata (476&ndash;550 CE):</strong> In his work <em>Aryabhatiya</em>, Aryabhata gave the approximate value of &pi; as 3.1416, which is accurate to four decimal places. He introduced efficient algorithms for arithmetic using the decimal place-value system and contributed to algebra and astronomy. His work demonstrates early engagement with the concept of irrational numbers (&pi; being irrational).<br><br>
+
+          <strong>4. Bhaskaracharya (1114&ndash;1185 CE):</strong> Also known as Bhaskara II, he wrote <em>Lilavati</em> (on arithmetic) and <em>Bijaganita</em> (on algebra). He explored solutions to equations involving surds (square roots), showed properties of zero including that a/0 is infinite, and worked extensively with rational and irrational quantities. His work anticipated many concepts that were rediscovered in Europe centuries later.<br><br>
+
+          <strong>The Hindu-Arabic Numeral System:</strong> The decimal positional system using digits 0&ndash;9 was developed in India, transmitted to the Arab world via traders and scholars (especially through the work of Al-Khwarizmi, who acknowledged the Indian origin), and then spread to Europe. This system is the most important contribution of India to world mathematics &mdash; it is the basis of all modern computing and science.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       QUICK REVISION FLASHCARDS
+       ===================================================== -->
+  <div class="section-block reveal" id="revision">
+    <div class="section-hd g-rose">
+      <span class="icon">&#127183;</span>
+      Quick Revision Flashcards
+    </div>
+    <div class="section-bd">
+
+      <p>Use these flashcards for last-minute revision before your exam. Read the question, try to answer mentally, then check!</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>Q: What are natural numbers?</h4>
+          A: Counting numbers: <strong>1, 2, 3, 4, ...</strong>
+        </div>
+        <div class="info-card ic-green">
+          <h4>Q: Smallest whole number?</h4>
+          A: <strong>0</strong>.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Q: Is 0 an integer?</h4>
+          A: <strong>Yes.</strong> 0 is an integer (neither positive nor negative).
+        </div>
+        <div class="info-card ic-purple">
+          <h4>Q: Is &radic;5 rational?</h4>
+          A: <strong>No.</strong> 5 is not a perfect square, so &radic;5 is irrational.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>Q: Additive inverse of 3/7?</h4>
+          A: <strong>&minus;3/7</strong> (because 3/7 + (&minus;3/7) = 0).
+        </div>
+        <div class="info-card ic-teal">
+          <h4>Q: Multiplicative inverse of &minus;4?</h4>
+          A: <strong>&minus;1/4</strong> (because &minus;4 &times; &minus;1/4 = 1).
+        </div>
+        <div class="info-card ic-red">
+          <h4>Q: Is 22/7 equal to &pi;?</h4>
+          A: <strong>No!</strong> 22/7 is rational; &pi; is irrational. 22/7 &asymp; &pi; but 22/7 &ne; &pi;.
+        </div>
+        <div class="info-card ic-pink">
+          <h4>Q: How many rationals between 1/3 and 1/2?</h4>
+          A: <strong>Infinitely many.</strong>
+        </div>
+        <div class="info-card ic-indigo">
+          <h4>Q: Who invented zero?</h4>
+          A: <strong>Brahmagupta</strong> (628 CE, India).
+        </div>
+        <div class="info-card ic-amber">
+          <h4>Q: &#8469; &sub; W &sub; &#8484; &sub; &#8474; &sub; &#8477; means?</h4>
+          A: Natural &sub; Whole &sub; Integer &sub; Rational &sub; Real.
+        </div>
+        <div class="info-card ic-green">
+          <h4>Q: 0.9999... = ?</h4>
+          A: <strong>1.</strong> This is a repeating decimal equal to 1 exactly.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Q: Is &radic;2 + &radic;2 rational?</h4>
+          A: <strong>No.</strong> 2&radic;2 is still irrational.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Final Revision Mantra:</strong><br>
+        &bull; <strong>Natural</strong> &rarr; Start from 1, count up.<br>
+        &bull; <strong>Whole</strong> &rarr; Add 0 to naturals.<br>
+        &bull; <strong>Integer</strong> &rarr; Add negatives to whole numbers.<br>
+        &bull; <strong>Rational</strong> &rarr; p/q; terminates or repeats.<br>
+        &bull; <strong>Irrational</strong> &rarr; Cannot be p/q; never terminates, never repeats.<br>
+        &bull; <strong>Real</strong> &rarr; All of the above combined.<br>
+        &bull; <strong>Density</strong> &rarr; Infinitely many rationals between any two rationals.<br>
+        <br>
+        You have got this! Go ace that exam! &#128170;
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       BOTTOM NAVIGATION
+       ===================================================== -->
+  <div class="bottom-nav">
+    <div class="bottom-nav-full">
+      <a href="../../index.html" class="bottom-btn home-btn">&#127968; Back to Home</a>
+      <a href="index.html" class="bottom-btn" style="background:linear-gradient(135deg,#9a3412,#fb923c);">&#128218; All Maths Chapters</a>
+    </div>
+  </div>
+
+</div>
+<!-- End Container -->
+
+<!-- ========== SHARE POPUP ========== -->
+<div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeSharePopup()">
+  <div class="share-popup">
+    <h3>&#128228; Share This Page</h3>
+    <p style="font-size:14px;color:#475569;margin-bottom:16px;">Help your classmates master A Story of Numbers!</p>
+    <div class="share-btn-row">
+      <button class="share-action-btn share-wa" onclick="shareWhatsApp()">&#128172; Share on WhatsApp</button>
+      <button class="share-action-btn share-copy" onclick="copyLink()">&#128203; Copy Link</button>
+      <button class="share-action-btn share-native" onclick="shareNative()">&#128228; Share via Apps</button>
+    </div>
+    <button class="share-close-btn" onclick="closeSharePopup()">Close</button>
+  </div>
+</div>
+
+<!-- ========== FLOATING SHARE BUTTON ========== -->
+<button class="float-share-btn" onclick="openSharePopup()" title="Share this page">&#128228;</button>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <p>Preeti Kushwah Classes &mdash; Making Maths Fun &amp; Easy &#128155;</p>
+  <p style="font-size:12px;margin-top:6px;opacity:0.8;">NCERT Class 8 Maths &middot; Ganita &middot; Chapter 3 &middot; New Syllabus 2025-26</p>
+  <p style="font-size:11px;margin-top:8px;opacity:0.6;">&copy; 2026 Preeti Kushwah Classes. All rights reserved.</p>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// Scroll Reveal Animation
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) {
+  obs.observe(el);
+});
+
+// MCQ Click Handler
+document.querySelectorAll('.mcq-item').forEach(function(item) {
+  item.querySelectorAll('.mcq-options li').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      if (item.classList.contains('show-ans')) return;
+      item.classList.add('show-ans');
+      if (!opt.hasAttribute('data-correct')) opt.classList.add('wrong');
+      item.querySelectorAll('.mcq-options li[data-correct]').forEach(function(c) {
+        c.classList.add('correct');
+      });
+    });
+  });
+});
+
+// Share Functions
+function openSharePopup() {
+  document.getElementById('shareOverlay').classList.add('active');
+}
+
+function closeSharePopup() {
+  document.getElementById('shareOverlay').classList.remove('active');
+}
+
+function shareWhatsApp() {
+  window.open('https://wa.me/?text=' + encodeURIComponent('Check out these A Story of Numbers notes for Class 8 Maths (NCERT Ganita)! ' + window.location.href));
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    alert('Link copied to clipboard!');
+  });
+}
+
+function shareNative() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'A Story of Numbers — Class 8 Maths | Preeti Kushwah Classes',
+      text: 'NCERT Class 8 Maths — A Story of Numbers — Chapter 3',
+      url: window.location.href
+    });
+  } else {
+    copyLink();
+  }
+}
+
+// Smooth scroll for TOC links
+document.querySelectorAll('.toc-bar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    var targetId = this.getAttribute('href');
+    if (targetId && targetId.startsWith('#')) {
+      e.preventDefault();
+      var target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../chapter-features.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
+</body>
+</html>

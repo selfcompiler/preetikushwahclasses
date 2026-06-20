@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 8 Maths Ch 13: Algebra Play — Factorisation, division of algebraic expressions, linear equations in one variable. Interactive NCERT notes.">
+<meta name="keywords" content="Preeti Kushwah Classes, NCERT notes, CBSE notes, free study material, Class 8 notes, Class 8 NCERT, class 8 study material, Mathematics notes, Class 8 Mathematics, Class 8 Mathematics notes, Class 8 Mathematics NCERT, Algebra Play, Class 8 Algebra, factorisation, linear equations, maths solutions, maths practice">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-8/maths/algebra-play.html">
+<meta property="og:title" content="Ch 13: Algebra Play — Class 8 Maths Notes">
+<meta property="og:description" content="Interactive NCERT notes — Factorisation, division of algebraic expressions &amp; linear equations with worked examples.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preetikushwahclasses.com/class-8/maths/algebra-play.html">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Algebra Play — Class 8 Maths | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:#fffbeb;color:#1c1c2e;overflow-x:hidden;line-height:1.6;}
+
+/* Top Nav */
+.top-nav{background:white;padding:8px 12px;display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,0.06);position:sticky;top:0;z-index:110;overflow-x:auto;}
+.tn-home{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;text-decoration:none;padding:7px 14px;border-radius:12px;font-size:12px;font-weight:800;border:1.5px solid #fbbf24;transition:all 0.2s;white-space:nowrap;}
+.tn-home:hover{background:#fde68a;transform:translateY(-1px);}
+.nav-spacer{flex:1;}
+.tn-share{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;padding:7px 12px;border-radius:12px;border:1.5px solid #fbbf24;font-size:11px;font-weight:800;cursor:pointer;transition:all 0.2s;white-space:nowrap;font-family:'Nunito',sans-serif;}
+.tn-share:hover{background:#fde68a;transform:translateY(-1px);}
+
+/* TOC */
+.toc-bar{background:linear-gradient(135deg,#78350f,#f59e0b);padding:12px 16px;position:sticky;top:44px;z-index:100;overflow-x:auto;white-space:nowrap;}
+.toc-bar a{display:inline-block;background:rgba(255,255,255,0.15);color:white;text-decoration:none;padding:6px 14px;border-radius:18px;font-size:13px;font-weight:700;margin-right:6px;transition:all 0.2s;}
+.toc-bar a:hover{background:rgba(255,255,255,0.35);}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,#78350f 0%,#92400e 20%,#d97706 50%,#f59e0b 75%,#fde68a 100%);position:relative;overflow:hidden;min-height:400px;padding-bottom:30px;}
+.hero-content{position:relative;z-index:10;text-align:center;padding:36px 16px 0;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.3);border:2px solid rgba(255,255,255,0.5);border-radius:30px;padding:5px 18px;font-size:11px;font-weight:800;letter-spacing:2px;color:white;text-transform:uppercase;margin-bottom:12px;}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(24px,5vw,48px);color:white;text-shadow:0 3px 12px rgba(0,0,0,0.3);margin-bottom:6px;line-height:1.1;}
+.hero p{color:rgba(255,255,255,0.9);font-size:15px;font-weight:700;margin-bottom:16px;}
+
+/* Container & Sections */
+.container{max-width:1000px;margin:0 auto;padding:36px 16px 60px;}
+.section-block{background:white;border-radius:22px;box-shadow:0 4px 24px rgba(0,0,0,0.08);margin-bottom:36px;overflow:hidden;scroll-margin-top:80px;}
+.section-hd{padding:22px 28px;display:flex;align-items:center;gap:14px;color:white;font-family:'Fredoka One',cursive;font-size:24px;line-height:1.2;}
+.section-hd .icon{font-size:32px;}
+.section-bd{padding:28px;}
+.section-bd > p{margin-bottom:14px;}
+
+/* Gradients */
+.g-amber{background:linear-gradient(135deg,#78350f,#f59e0b);}
+.g-orange{background:linear-gradient(135deg,#9a3412,#fb923c);}
+.g-indigo{background:linear-gradient(135deg,#312e81,#818cf8);}
+.g-blue{background:linear-gradient(135deg,#1e40af,#38bdf8);}
+.g-purple{background:linear-gradient(135deg,#5b21b6,#a78bfa);}
+.g-teal{background:linear-gradient(135deg,#134e4a,#2dd4bf);}
+.g-green{background:linear-gradient(135deg,#166534,#22c55e);}
+.g-slate{background:linear-gradient(135deg,#1e293b,#64748b);}
+.g-red{background:linear-gradient(135deg,#991b1b,#f87171);}
+.g-rose{background:linear-gradient(135deg,#881337,#fb7185);}
+.g-pink{background:linear-gradient(135deg,#9d174d,#ec4899);}
+
+/* Content elements */
+.subtitle{font-family:'Fredoka One',cursive;color:#78350f;font-size:20px;margin:22px 0 12px;display:flex;align-items:center;gap:8px;}
+.kt{display:inline-block;background:#fde047;color:#713f12;border-radius:7px;padding:1px 9px;font-weight:800;font-size:13px;}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:16px 0;}
+.info-card{border-radius:14px;padding:16px 18px;font-size:14px;}
+.info-card h4{font-weight:800;margin-bottom:6px;font-size:15px;}
+.ic-blue{background:#eff6ff;border-left:5px solid #3b82f6;}
+.ic-indigo{background:#eef2ff;border-left:5px solid #818cf8;}
+.ic-teal{background:#f0fdfa;border-left:5px solid #14b8a6;}
+.ic-purple{background:#faf5ff;border-left:5px solid #a78bfa;}
+.ic-green{background:#f0fdf4;border-left:5px solid #22c55e;}
+.ic-orange{background:#fff7ed;border-left:5px solid #fb923c;}
+.ic-yellow{background:#fefce8;border-left:5px solid #facc15;}
+.ic-red{background:#fef2f2;border-left:5px solid #f87171;}
+.ic-pink{background:#fdf2f8;border-left:5px solid #ec4899;}
+.ic-amber{background:#fffbeb;border-left:5px solid #f59e0b;}
+.trick{background:linear-gradient(135deg,#fef9c3,#fde68a);border:2px solid #f59e0b;border-radius:14px;padding:14px 18px;font-size:14px;margin:16px 0;}
+.trick strong{color:#78350f;}
+.note-box{background:#fffbeb;border-left:5px solid #f59e0b;border-radius:10px;padding:12px 16px;margin:14px 0;font-size:14px;}
+.formula-box{background:linear-gradient(135deg,#fffbeb,#fde68a);border:2px solid #f59e0b;border-radius:12px;padding:14px 18px;text-align:center;font-family:'Fredoka One',cursive;font-size:18px;color:#78350f;margin:12px 0;}
+.formula-box small{font-family:'Nunito',sans-serif;font-weight:600;font-size:13px;display:block;margin-top:4px;color:#92400e;}
+
+/* Tables */
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0;}
+th{background:#78350f;color:white;padding:12px 14px;text-align:left;font-weight:800;font-size:13px;}
+td{padding:11px 14px;border-bottom:1px solid #fde68a;font-size:13.5px;}
+tr:nth-child(even) td{background:#fffbeb;}
+
+/* Worked example */
+.worked-example{background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:18px;margin:16px 0;}
+.worked-example h4{font-family:'Fredoka One',cursive;color:#78350f;font-size:16px;margin-bottom:8px;}
+.we-step{background:white;border-radius:10px;padding:12px 16px;margin:8px 0;border-left:4px solid #f59e0b;font-size:14px;}
+
+/* MCQ */
+.mcq-list{list-style:none;padding:0;}
+.mcq-item{background:white;border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
+.mcq-q{font-weight:700;font-size:14.5px;margin-bottom:10px;color:#78350f;}
+.mcq-options{list-style:none;padding:0;}
+.mcq-options li{background:#fffbeb;border-radius:8px;padding:7px 12px;margin-bottom:5px;font-size:13.5px;cursor:pointer;transition:all 0.2s;border:1.5px solid transparent;}
+.mcq-options li:hover{background:#fde68a;border-color:#f59e0b;}
+.mcq-options li.correct{background:#d1fae5!important;border-color:#22c55e;font-weight:700;color:#14532d;}
+.mcq-options li.wrong{background:#fee2e2!important;border-color:#ef4444;font-weight:700;color:#991b1b;}
+.mcq-ans{font-size:12.5px;color:#16a34a;font-weight:700;margin-top:6px;display:none;}
+.mcq-item.show-ans .mcq-ans{display:block;}
+
+/* Short Q */
+.short-q-list{list-style:none;padding:0;}
+.short-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #d97706;}
+.short-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
+.short-a{font-size:13.5px;color:#374151;}
+.short-a strong{color:#78350f;}
+
+/* Long Q */
+.long-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
+.long-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
+.long-a{font-size:13.5px;color:#374151;}
+.long-a strong{color:#78350f;}
+
+/* Fun facts */
+.fun-fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0;}
+.fun-fact-card{background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fbbf24;border-radius:14px;padding:16px 18px;font-size:14px;}
+.fun-fact-card h4{font-weight:800;font-size:15px;color:#92400e;margin-bottom:6px;}
+
+/* Bottom nav */
+.bottom-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:30px 0;}
+.bottom-nav-full{grid-column:1/-1;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.bottom-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:800;font-size:14px;text-decoration:none;color:white;transition:all 0.2s;}
+.bottom-btn:hover{transform:translateY(-2px);}
+.bottom-btn.home-btn{background:linear-gradient(135deg,#78350f,#f59e0b);}
+
+/* Share */
+.float-share-btn{position:fixed;bottom:24px;right:24px;width:52px;height:52px;background:linear-gradient(135deg,#92400e,#f59e0b);border-radius:50%;border:none;color:white;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(146,64,14,0.4);z-index:90;display:flex;align-items:center;justify-content:center;transition:all 0.3s;}
+.float-share-btn:hover{transform:scale(1.1);}
+.share-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;justify-content:center;align-items:center;}
+.share-overlay.active{display:flex;}
+.share-popup{background:white;border-radius:22px;padding:28px;max-width:360px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);text-align:center;}
+.share-popup h3{font-family:'Fredoka One',cursive;color:#78350f;font-size:20px;margin-bottom:16px;}
+.share-btn-row{display:flex;flex-direction:column;gap:10px;}
+.share-action-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;border:none;font-size:14px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:white;transition:all 0.2s;}
+.share-wa{background:#25d366;}
+.share-copy{background:#3b82f6;}
+.share-native{background:#f59e0b;color:#78350f;}
+.share-close-btn{margin-top:14px;background:#e2e8f0;color:#475569;border:none;padding:8px 20px;border-radius:10px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+.share-action-btn:hover{opacity:0.9;transform:translateY(-1px);}
+.share-close-btn:hover{background:#cbd5e1;}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Footer */
+footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#78350f,#f59e0b);color:white;font-size:14px;font-weight:700;}
+
+/* Scrollbar styling */
+::-webkit-scrollbar{height:4px;width:4px;}
+::-webkit-scrollbar-thumb{background:#f59e0b;border-radius:4px;}
+
+/* Hero animation */
+@keyframes heroPulse{0%,100%{transform:scale(1);opacity:0.7;}50%{transform:scale(1.4);opacity:1;}}
+
+/* Unordered list styling inside section-bd */
+.section-bd ul{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ul li{margin-bottom:6px;}
+.section-bd ol{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ol li{margin-bottom:6px;}
+
+@media(max-width:600px){
+  .section-bd{padding:18px;}
+  .section-hd{padding:16px 20px;font-size:19px;}
+  .hero{min-height:340px;}
+  .toc-bar{top:40px;}
+}
+
+/* Dark Mode */
+[data-theme="dark"]{--bg:#1a1a2e;--text:#e2e8f0;--card:#252547;}
+[data-theme="dark"] body{background:var(--bg);color:var(--text);}
+[data-theme="dark"] .top-nav{background:#252547;box-shadow:0 2px 8px rgba(0,0,0,.3);}
+[data-theme="dark"] .tn-home{background:#78350f;color:#fde68a;border-color:#d97706;}
+[data-theme="dark"] .tn-share{background:#78350f;color:#fde68a;border-color:#d97706;}
+[data-theme="dark"] .section-block{background:#252547;box-shadow:0 4px 24px rgba(0,0,0,.3);}
+[data-theme="dark"] .section-bd>p,[data-theme="dark"] .section-bd{color:#cbd5e1;}
+[data-theme="dark"] .subtitle{color:#fbbf24;}
+[data-theme="dark"] .info-card{background:#1e1b4b;color:#cbd5e1;}
+[data-theme="dark"] .ic-blue,[data-theme="dark"] .ic-indigo,[data-theme="dark"] .ic-teal,[data-theme="dark"] .ic-purple,[data-theme="dark"] .ic-green,[data-theme="dark"] .ic-orange,[data-theme="dark"] .ic-yellow,[data-theme="dark"] .ic-red,[data-theme="dark"] .ic-pink,[data-theme="dark"] .ic-amber{background:#1e1b4b;}
+[data-theme="dark"] .trick{background:linear-gradient(135deg,#422006,#78350f);border-color:#d97706;color:#fde68a;}
+[data-theme="dark"] .note-box{background:#422006;border-color:#d97706;color:#fde68a;}
+[data-theme="dark"] .formula-box{background:linear-gradient(135deg,#422006,#78350f);border-color:#d97706;color:#fde68a;}
+[data-theme="dark"] .formula-box small{color:#fbbf24;}
+[data-theme="dark"] .worked-example{background:#1e1b4b;border-color:#4c1d95;}
+[data-theme="dark"] .worked-example h4{color:#fbbf24;}
+[data-theme="dark"] .we-step{background:#252547;color:#cbd5e1;border-color:#d97706;}
+[data-theme="dark"] table{color:#cbd5e1;}
+[data-theme="dark"] td{border-color:#4c1d95;}
+[data-theme="dark"] tr:nth-child(even) td{background:#1e1b4b;}
+[data-theme="dark"] .mcq-item{background:#252547;box-shadow:none;border-color:#d97706;}
+[data-theme="dark"] .mcq-q{color:#fbbf24;}
+[data-theme="dark"] .mcq-options li{background:#1e1b4b;color:#cbd5e1;}
+[data-theme="dark"] .mcq-options li:hover{background:#422006;border-color:#d97706;}
+[data-theme="dark"] .short-q-item,[data-theme="dark"] .long-q-item{background:#252547;box-shadow:none;}
+[data-theme="dark"] .short-q{color:#fbbf24;}
+[data-theme="dark"] .long-q{color:#fbbf24;}
+[data-theme="dark"] .short-a,[data-theme="dark"] .long-a{color:#cbd5e1;}
+[data-theme="dark"] .short-a strong,[data-theme="dark"] .long-a strong{color:#fbbf24;}
+[data-theme="dark"] .fun-fact-card{background:linear-gradient(135deg,#422006,#78350f);border-color:#d97706;color:#fde68a;}
+[data-theme="dark"] .fun-fact-card h4{color:#fbbf24;}
+[data-theme="dark"] .share-popup{background:#252547;color:#e2e8f0;}
+[data-theme="dark"] .share-popup h3{color:#fbbf24;}
+[data-theme="dark"] .share-close-btn{background:#4c1d95;color:#e2e8f0;}
+</style>
+</head>
+<body>
+
+<!-- ========== TOP NAV ========== -->
+<div class="top-nav">
+  <a href="../../index.html" class="tn-home">&#127968; Home</a>
+  <div class="nav-spacer"></div>
+  <button class="tn-share" onclick="openSharePopup()">&#128228; Share</button>
+</div>
+
+<!-- ========== TABLE OF CONTENTS BAR ========== -->
+<div class="toc-bar">
+  <a href="#intro">&#128208; Intro</a>
+  <a href="#expressions">&#128290; Expressions</a>
+  <a href="#factorisation">&#128273; Factorisation</a>
+  <a href="#identities">&#128161; Identities</a>
+  <a href="#division">&#10006; Division</a>
+  <a href="#linear-eq">&#9997;&#65039; Linear Eqns</a>
+  <a href="#solving">&#128295; Solving</a>
+  <a href="#word-problems">&#128218; Word Problems</a>
+  <a href="#summary">&#128202; Summary</a>
+  <a href="#mcq">&#129504; MCQs</a>
+  <a href="#short">&#9997;&#65039; Short Q&amp;A</a>
+  <a href="#long">&#128214; Long Q&amp;A</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">&#128208; Chapter 13 &middot; NCERT 2025-26</div>
+    <h1>&#128290; Algebra Play</h1>
+    <p>Factorisation &middot; Division of Expressions &middot; Linear Equations &middot; Word Problems</p>
+  </div>
+  <!-- Animated algebra symbols in hero -->
+  <div style="position:relative;max-width:320px;height:180px;margin:20px auto 0;">
+    <div style="position:absolute;font-family:'Fredoka One',cursive;font-size:28px;color:rgba(255,255,255,0.6);top:15%;left:15%;animation:heroPulse 3s ease-in-out infinite;">x</div>
+    <div style="position:absolute;font-family:'Fredoka One',cursive;font-size:22px;color:rgba(255,255,255,0.5);top:55%;left:70%;animation:heroPulse 3s ease-in-out infinite 0.5s;">y&sup2;</div>
+    <div style="position:absolute;font-family:'Fredoka One',cursive;font-size:32px;color:rgba(255,255,255,0.7);top:30%;left:55%;animation:heroPulse 3s ease-in-out infinite 1s;">=</div>
+    <div style="position:absolute;font-family:'Fredoka One',cursive;font-size:20px;color:rgba(255,255,255,0.5);top:60%;left:25%;animation:heroPulse 3s ease-in-out infinite 1.5s;">a+b</div>
+    <div style="position:absolute;font-family:'Fredoka One',cursive;font-size:18px;color:rgba(255,255,255,0.4);top:10%;left:75%;animation:heroPulse 3s ease-in-out infinite 2s;">3ab</div>
+    <div style="position:absolute;font-family:'Fredoka One',cursive;font-size:24px;color:rgba(255,255,255,0.6);top:70%;left:50%;animation:heroPulse 3s ease-in-out infinite 2.5s;">&divide;</div>
+  </div>
+</div>
+
+<!-- ========== MAIN CONTAINER ========== -->
+<div class="container">
+
+  <!-- =====================================================
+       SECTION 1: INTRODUCTION
+       ===================================================== -->
+  <div class="section-block reveal" id="intro">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128208;</span>
+      Introduction to Algebra Play
+    </div>
+    <div class="section-bd">
+
+      <p>Algebra is the branch of mathematics where we use letters (variables) like <strong>x</strong>, <strong>y</strong>, <strong>a</strong>, <strong>b</strong> to represent unknown numbers and form expressions and equations. In this chapter, we will learn to <strong>factorise</strong> algebraic expressions (break them into simpler parts), <strong>divide</strong> one expression by another, and <strong>solve linear equations</strong> in one variable.</p>
+
+      <p>Think of factorisation as the reverse of multiplication. Just as we can multiply 3 and 5 to get 15, we can factorise 15 back into 3 &times; 5. In algebra, we do the same thing with expressions like 6x&sup2; + 3x = 3x(2x + 1).</p>
+
+      <div class="subtitle">&#127470;&#127475; Indian Mathematical Heritage</div>
+
+      <p>Indian mathematicians made foundational contributions to algebra centuries before the rest of the world. The very word "algebra" comes from the Arabic <em>al-jabr</em>, but many key ideas originated in India.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128220; Brahmagupta (598&ndash;668 CE)</h4>
+          Brahmagupta's <em>Brahmasphutasiddhanta</em> contains the first systematic rules for operating with zero and negative numbers, and solving linear and quadratic equations. He used the concept of factorisation in solving equations centuries before European mathematicians.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#127775; Bhaskaracharya (1114&ndash;1185 CE)</h4>
+          Also known as Bhaskara II, his masterpiece <em>Lilavati</em> and <em>Bijaganita</em> contain elegant methods for solving equations, working with identities, and factorising expressions. Many techniques taught today trace back to his work.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128171; Mahavira (c. 850 CE)</h4>
+          The Jain mathematician Mahavira wrote <em>Ganita Sara Sangraha</em>, which contained advanced algebraic methods including systematic approaches to factorisation and division of expressions.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128218; What You Will Learn</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th>Key Concepts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Algebraic Expressions</td>
+              <td>Terms, factors, coefficients, types of expressions</td>
+            </tr>
+            <tr>
+              <td>Factorisation</td>
+              <td>Common factor, regrouping, using identities</td>
+            </tr>
+            <tr>
+              <td>Division</td>
+              <td>Monomial &divide; monomial, polynomial &divide; monomial</td>
+            </tr>
+            <tr>
+              <td>Linear Equations</td>
+              <td>Solving by transposing, cross-multiplication, word problems</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Why Learn This?</strong> Factorisation and equations are used in physics (calculating forces, speed), economics (profit/loss formulas), engineering (structural design), and computer science (algorithms). Mastering algebra in Class 8 is crucial for Class 9 and 10 mathematics!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 2: ALGEBRAIC EXPRESSIONS REVIEW
+       ===================================================== -->
+  <div class="section-block reveal" id="expressions">
+    <div class="section-hd g-orange">
+      <span class="icon">&#128290;</span>
+      Algebraic Expressions Review
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128218; Key Terminology</div>
+
+      <p>Before we factorise or solve equations, let us revise the basic building blocks of algebra.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128290; Variable</h4>
+          A letter representing an unknown number. Examples: x, y, a, b, p. The value of a variable can change.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128290; Constant</h4>
+          A fixed number that does not change. Examples: 5, &minus;3, &frac12;, &pi;. Constants are the "settled" parts of expressions.
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#128290; Term</h4>
+          A single part of an expression, separated by + or &minus; signs. In 3x&sup2; + 5x &minus; 7, the terms are 3x&sup2;, 5x, and &minus;7.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128290; Coefficient</h4>
+          The numerical part of a term. In 7xy, the coefficient is 7. In &minus;3a&sup2;b, the coefficient is &minus;3.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128221; Types of Algebraic Expressions</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>No. of Terms</th>
+              <th>Examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Monomial</strong></td>
+              <td>1</td>
+              <td>5x, &minus;3a&sup2;b, 7, xy&sup2;z</td>
+            </tr>
+            <tr>
+              <td><strong>Binomial</strong></td>
+              <td>2</td>
+              <td>x + 3, 2a &minus; 5b, x&sup2; + y&sup2;</td>
+            </tr>
+            <tr>
+              <td><strong>Trinomial</strong></td>
+              <td>3</td>
+              <td>x&sup2; + 5x + 6, a + b + c</td>
+            </tr>
+            <tr>
+              <td><strong>Polynomial</strong></td>
+              <td>1 or more</td>
+              <td>Any expression with terms using whole-number exponents</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subtitle">&#128295; Factors of a Term</div>
+
+      <p>Every term in an algebraic expression is a product of its <span class="kt">factors</span>. For example:</p>
+
+      <ul>
+        <li><strong>5xy</strong> = 5 &times; x &times; y (three factors)</li>
+        <li><strong>3a&sup2;b</strong> = 3 &times; a &times; a &times; b (four factors)</li>
+        <li><strong>&minus;2x&sup2;y&sup3;</strong> = &minus;2 &times; x &times; x &times; y &times; y &times; y (six factors)</li>
+      </ul>
+
+      <div class="trick">
+        <strong>&#128161; Memory Tip:</strong> Think of a term like a necklace made of beads. Each bead is a "factor." Breaking the necklace (factorising) means separating it into individual beads. Putting beads together (multiplying) gives back the full necklace.
+      </div>
+
+      <div class="subtitle">&#128203; Like Terms and Unlike Terms</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#9989; Like Terms</h4>
+          Terms that have the <strong>same variable parts</strong> (same letters raised to the same powers). Like terms can be added or subtracted.<br>
+          Example: 3x&sup2; and &minus;7x&sup2; are like terms.
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#10060; Unlike Terms</h4>
+          Terms with <strong>different variable parts</strong>. Unlike terms cannot be combined by addition or subtraction.<br>
+          Example: 3x&sup2; and 5x are unlike terms.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 3: FACTORISATION
+       ===================================================== -->
+  <div class="section-block reveal" id="factorisation">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128273;</span>
+      Factorisation of Algebraic Expressions
+    </div>
+    <div class="section-bd">
+
+      <p><span class="kt">Factorisation</span> means expressing an algebraic expression as a product of two or more simpler expressions (factors). It is the reverse of expansion (multiplication).</p>
+
+      <div class="formula-box">
+        Expansion: a(b + c) = ab + ac<br>
+        Factorisation: ab + ac = a(b + c)
+        <small>Factorisation is the reverse process of expansion</small>
+      </div>
+
+      <div class="subtitle">&#9312; Method 1: Taking Out the Common Factor</div>
+
+      <p>When all terms of an expression share a common factor, we "take it out" (extract it) and write the remaining parts inside brackets.</p>
+
+      <div class="worked-example">
+        <h4>Example 1: Factorise 6x + 12</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Find the HCF of all terms.<br>
+          6x = <strong>6</strong> &times; x<br>
+          12 = <strong>6</strong> &times; 2<br>
+          HCF = <strong>6</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Take out the common factor.<br>
+          6x + 12 = 6(x) + 6(2) = <strong>6(x + 2)</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 2: Factorise 12a&sup2;b + 18ab&sup2;</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Find the HCF of the terms.<br>
+          12a&sup2;b = 2 &times; 2 &times; 3 &times; a &times; a &times; b<br>
+          18ab&sup2; = 2 &times; 3 &times; 3 &times; a &times; b &times; b<br>
+          HCF = 2 &times; 3 &times; a &times; b = <strong>6ab</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Divide each term by 6ab.<br>
+          12a&sup2;b &divide; 6ab = 2a<br>
+          18ab&sup2; &divide; 6ab = 3b
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Write the factorised form.<br>
+          12a&sup2;b + 18ab&sup2; = <strong>6ab(2a + 3b)</strong>
+        </div>
+      </div>
+
+      <div class="subtitle">&#9313; Method 2: Factorisation by Regrouping</div>
+
+      <p>When there is no single common factor for all terms, we <strong>rearrange and group</strong> the terms so that each group has a common factor. Then we factorise each group and look for a common binomial factor.</p>
+
+      <div class="worked-example">
+        <h4>Example 3: Factorise ax + bx + ay + by</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Group the terms in pairs.<br>
+          (ax + bx) + (ay + by)
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Take out the common factor from each group.<br>
+          x(a + b) + y(a + b)
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Take out the common binomial factor (a + b).<br>
+          ax + bx + ay + by = <strong>(a + b)(x + y)</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 4: Factorise 6xy &minus; 4y + 6 &minus; 9x</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Rearrange and group.<br>
+          (6xy &minus; 9x) + (&minus;4y + 6)<br>
+          = (6xy &minus; 9x) &minus; (4y &minus; 6)
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Factor each group.<br>
+          3x(2y &minus; 3) &minus; 2(2y &minus; 3)
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Take out the common factor (2y &minus; 3).<br>
+          6xy &minus; 4y + 6 &minus; 9x = <strong>(2y &minus; 3)(3x &minus; 2)</strong>
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Regrouping Tip:</strong> There may be more than one correct way to group terms. Try different groupings until you find one where a common binomial factor emerges. If one grouping doesn't work, rearrange and try again!
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Verification:</strong> You can always check your factorisation by expanding (multiplying) the factors. If you get back the original expression, your factorisation is correct!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 4: FACTORISATION USING IDENTITIES
+       ===================================================== -->
+  <div class="section-block reveal" id="identities">
+    <div class="section-hd g-purple">
+      <span class="icon">&#128161;</span>
+      Factorisation Using Identities
+    </div>
+    <div class="section-bd">
+
+      <p>Algebraic <span class="kt">identities</span> are equations that are true for all values of the variables. They are powerful shortcuts for factorisation. Let us recall the key identities.</p>
+
+      <div class="subtitle">&#128218; Standard Algebraic Identities</div>
+
+      <div class="formula-box">
+        (a + b)&sup2; = a&sup2; + 2ab + b&sup2;
+        <small>Identity I &mdash; Square of a sum</small>
+      </div>
+
+      <div class="formula-box">
+        (a &minus; b)&sup2; = a&sup2; &minus; 2ab + b&sup2;
+        <small>Identity II &mdash; Square of a difference</small>
+      </div>
+
+      <div class="formula-box">
+        a&sup2; &minus; b&sup2; = (a + b)(a &minus; b)
+        <small>Identity III &mdash; Difference of two squares</small>
+      </div>
+
+      <div class="formula-box">
+        (x + a)(x + b) = x&sup2; + (a + b)x + ab
+        <small>Identity IV &mdash; Product of two binomials</small>
+      </div>
+
+      <div class="subtitle">&#9999;&#65039; Factorisation Using Identity I</div>
+
+      <div class="worked-example">
+        <h4>Example 5: Factorise x&sup2; + 6x + 9</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Compare with a&sup2; + 2ab + b&sup2;.<br>
+          x&sup2; = (x)&sup2; &rarr; a = x<br>
+          9 = (3)&sup2; &rarr; b = 3<br>
+          Check middle term: 2ab = 2(x)(3) = 6x &#9989;
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Apply the identity.<br>
+          x&sup2; + 6x + 9 = (x)&sup2; + 2(x)(3) + (3)&sup2; = <strong>(x + 3)&sup2;</strong>
+        </div>
+      </div>
+
+      <div class="subtitle">&#9999;&#65039; Factorisation Using Identity III</div>
+
+      <div class="worked-example">
+        <h4>Example 6: Factorise 49p&sup2; &minus; 36q&sup2;</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Express as a&sup2; &minus; b&sup2;.<br>
+          49p&sup2; = (7p)&sup2; &rarr; a = 7p<br>
+          36q&sup2; = (6q)&sup2; &rarr; b = 6q
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Apply Identity III: a&sup2; &minus; b&sup2; = (a + b)(a &minus; b).<br>
+          49p&sup2; &minus; 36q&sup2; = <strong>(7p + 6q)(7p &minus; 6q)</strong>
+        </div>
+      </div>
+
+      <div class="subtitle">&#9999;&#65039; Factorisation Using Identity IV</div>
+
+      <div class="worked-example">
+        <h4>Example 7: Factorise x&sup2; + 7x + 12</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Compare with x&sup2; + (a + b)x + ab.<br>
+          We need two numbers whose sum = 7 and product = 12.
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Find the numbers.<br>
+          3 + 4 = 7 &#9989;<br>
+          3 &times; 4 = 12 &#9989;<br>
+          So a = 3, b = 4.
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Write the factorised form.<br>
+          x&sup2; + 7x + 12 = <strong>(x + 3)(x + 4)</strong>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128161; How to Identify Which Identity to Use</h4>
+          &bull; Three terms with a&sup2; + 2ab + b&sup2; pattern &rarr; Identity I<br>
+          &bull; Three terms with a&sup2; &minus; 2ab + b&sup2; pattern &rarr; Identity II<br>
+          &bull; Two terms as difference of squares &rarr; Identity III<br>
+          &bull; x&sup2; + (sum)x + (product) &rarr; Identity IV
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#128295; Quick Check Method</h4>
+          For Identity I or II, check: Is the middle term = 2 &times; (square root of first) &times; (square root of last)?<br>
+          If yes, it fits Identity I (if +) or Identity II (if &minus;).
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Memory Aid for Identity IV:</strong> To factorise x&sup2; + bx + c, think: "What two numbers <strong>add</strong> to give b and <strong>multiply</strong> to give c?" Write them as (x + first number)(x + second number).
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 5: DIVISION OF ALGEBRAIC EXPRESSIONS
+       ===================================================== -->
+  <div class="section-block reveal" id="division">
+    <div class="section-hd g-teal">
+      <span class="icon">&#10006;</span>
+      Division of Algebraic Expressions
+    </div>
+    <div class="section-bd">
+
+      <p>Division of algebraic expressions is the reverse of multiplication. We can divide a monomial by a monomial, or a polynomial by a monomial.</p>
+
+      <div class="subtitle">&#9312; Monomial &divide; Monomial</div>
+
+      <p>To divide one monomial by another, divide the <strong>coefficients</strong> and subtract the <strong>exponents</strong> of like variables.</p>
+
+      <div class="formula-box">
+        a<sup>m</sup> &divide; a<sup>n</sup> = a<sup>m&minus;n</sup>
+        <small>Law of exponents for division (m &ge; n)</small>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 8: Divide 18x&sup3;y&sup2; by 6xy</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Divide coefficients: 18 &divide; 6 = 3
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Divide variable parts using exponent laws.<br>
+          x&sup3; &divide; x = x<sup>3&minus;1</sup> = x&sup2;<br>
+          y&sup2; &divide; y = y<sup>2&minus;1</sup> = y
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> 18x&sup3;y&sup2; &divide; 6xy = <strong>3x&sup2;y</strong>
+        </div>
+      </div>
+
+      <div class="subtitle">&#9313; Polynomial &divide; Monomial</div>
+
+      <p>To divide a polynomial by a monomial, divide <strong>each term</strong> of the polynomial separately by the monomial.</p>
+
+      <div class="formula-box">
+        (a + b + c) &divide; d = a/d + b/d + c/d
+        <small>Divide each term individually</small>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 9: Divide (12x&sup3; + 8x&sup2; &minus; 4x) by 4x</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Divide each term by 4x.<br>
+          12x&sup3; &divide; 4x = 3x&sup2;<br>
+          8x&sup2; &divide; 4x = 2x<br>
+          &minus;4x &divide; 4x = &minus;1
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> (12x&sup3; + 8x&sup2; &minus; 4x) &divide; 4x = <strong>3x&sup2; + 2x &minus; 1</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 10: Divide (15a&sup2;b&sup3; &minus; 10a&sup3;b&sup2; + 25ab) by 5ab</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Divide each term by 5ab.<br>
+          15a&sup2;b&sup3; &divide; 5ab = 3ab&sup2;<br>
+          &minus;10a&sup3;b&sup2; &divide; 5ab = &minus;2a&sup2;b<br>
+          25ab &divide; 5ab = 5
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> (15a&sup2;b&sup3; &minus; 10a&sup3;b&sup2; + 25ab) &divide; 5ab = <strong>3ab&sup2; &minus; 2a&sup2;b + 5</strong>
+        </div>
+      </div>
+
+      <div class="subtitle">&#9314; Division of Polynomial by Polynomial (Using Factorisation)</div>
+
+      <p>To divide one polynomial by another, we first <strong>factorise</strong> both the dividend and divisor, then cancel the common factors.</p>
+
+      <div class="worked-example">
+        <h4>Example 11: Divide (x&sup2; + 5x + 6) by (x + 2)</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Factorise the dividend.<br>
+          x&sup2; + 5x + 6 = (x + 2)(x + 3) [since 2 + 3 = 5 and 2 &times; 3 = 6]
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Divide by cancelling common factors.<br>
+          (x + 2)(x + 3) &divide; (x + 2) = <strong>(x + 3)</strong>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Important Rule:</strong> Division and factorisation work hand in hand. To divide polynomials, always try to factorise first, then cancel common factors. This is much simpler than long division for the expressions in this chapter.
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Quick Check:</strong> After dividing, multiply the quotient by the divisor. You should get back the dividend. This is the best way to verify your answer!<br>
+        Quotient &times; Divisor = Dividend
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 6: LINEAR EQUATIONS IN ONE VARIABLE
+       ===================================================== -->
+  <div class="section-block reveal" id="linear-eq">
+    <div class="section-hd g-blue">
+      <span class="icon">&#9997;&#65039;</span>
+      Linear Equations in One Variable
+    </div>
+    <div class="section-bd">
+
+      <p>A <span class="kt">linear equation in one variable</span> is an equation where the highest power of the variable is 1. The general form is <strong>ax + b = c</strong>, where a, b, c are constants and x is the variable.</p>
+
+      <div class="subtitle">&#128218; Key Concepts</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-blue">
+          <h4>&#128290; What is an Equation?</h4>
+          An equation is a mathematical statement that two expressions are <strong>equal</strong>. It always has an = sign. For example: 2x + 3 = 11.
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#128290; What is a Solution?</h4>
+          The <strong>solution</strong> (or root) of an equation is the value of the variable that makes both sides equal. For 2x + 3 = 11, the solution is x = 4 because 2(4) + 3 = 11.
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#128290; LHS and RHS</h4>
+          <strong>LHS</strong> (Left Hand Side) is the expression on the left of the = sign. <strong>RHS</strong> (Right Hand Side) is the expression on the right. A solution makes LHS = RHS.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128290; Linear vs Non-linear</h4>
+          Linear: highest power = 1 (e.g., 3x + 5 = 20).<br>
+          Non-linear: power &gt; 1 (e.g., x&sup2; + 3 = 12). We only solve linear equations in this chapter.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128203; Examples of Linear Equations</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Equation</th>
+              <th>Linear?</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>3x + 7 = 22</td>
+              <td>&#9989; Yes</td>
+              <td>Highest power of x is 1</td>
+            </tr>
+            <tr>
+              <td>5y &minus; 3 = 2y + 9</td>
+              <td>&#9989; Yes</td>
+              <td>Variables on both sides but all power 1</td>
+            </tr>
+            <tr>
+              <td>x&sup2; + 2x = 8</td>
+              <td>&#10060; No</td>
+              <td>Highest power is 2 (quadratic)</td>
+            </tr>
+            <tr>
+              <td>(x + 3)/2 = 5</td>
+              <td>&#9989; Yes</td>
+              <td>When simplified, x + 3 = 10 &rarr; linear</td>
+            </tr>
+            <tr>
+              <td>1/x + 2 = 5</td>
+              <td>&#10060; No</td>
+              <td>x is in the denominator (power &minus;1)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Golden Rule of Equations:</strong> Whatever you do to one side of an equation, you must do the <strong>same thing</strong> to the other side. Add, subtract, multiply, or divide &mdash; but always on <strong>both sides</strong>!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 7: SOLVING LINEAR EQUATIONS
+       ===================================================== -->
+  <div class="section-block reveal" id="solving">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128295;</span>
+      Solving Linear Equations
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#9312; Method 1: Transposing</div>
+
+      <p><span class="kt">Transposing</span> means moving a term from one side of the equation to the other. When we transpose, the <strong>sign changes</strong>:</p>
+      <ul>
+        <li>+ becomes &minus;</li>
+        <li>&minus; becomes +</li>
+        <li>&times; becomes &divide;</li>
+        <li>&divide; becomes &times;</li>
+      </ul>
+
+      <div class="worked-example">
+        <h4>Example 12: Solve 3x + 5 = 20</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Transpose +5 to RHS (it becomes &minus;5).<br>
+          3x = 20 &minus; 5<br>
+          3x = 15
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Divide both sides by 3.<br>
+          x = 15 &divide; 3 = <strong>5</strong>
+        </div>
+        <div class="we-step">
+          <strong>Verification:</strong> LHS = 3(5) + 5 = 15 + 5 = 20 = RHS &#9989;
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 13: Solve 7x &minus; 4 = 2x + 11</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Transpose 2x to LHS and &minus;4 to RHS.<br>
+          7x &minus; 2x = 11 + 4<br>
+          5x = 15
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Divide both sides by 5.<br>
+          x = 15 &divide; 5 = <strong>3</strong>
+        </div>
+        <div class="we-step">
+          <strong>Verification:</strong> LHS = 7(3) &minus; 4 = 21 &minus; 4 = 17. RHS = 2(3) + 11 = 6 + 11 = 17 &#9989;
+        </div>
+      </div>
+
+      <div class="subtitle">&#9313; Method 2: Cross-Multiplication</div>
+
+      <p>When an equation has fractions on both sides, we use <span class="kt">cross-multiplication</span>.</p>
+
+      <div class="formula-box">
+        If a/b = c/d, then a &times; d = b &times; c
+        <small>Cross-multiplication &mdash; multiply diagonally</small>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 14: Solve (2x + 1)/3 = (x + 4)/5</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Cross-multiply.<br>
+          5(2x + 1) = 3(x + 4)
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Expand both sides.<br>
+          10x + 5 = 3x + 12
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Transpose and solve.<br>
+          10x &minus; 3x = 12 &minus; 5<br>
+          7x = 7<br>
+          x = <strong>1</strong>
+        </div>
+        <div class="we-step">
+          <strong>Verification:</strong> LHS = (2(1) + 1)/3 = 3/3 = 1. RHS = (1 + 4)/5 = 5/5 = 1 &#9989;
+        </div>
+      </div>
+
+      <div class="subtitle">&#9314; Equations with Variables on Both Sides</div>
+
+      <div class="worked-example">
+        <h4>Example 15: Solve 5(x &minus; 2) = 3(x + 4) &minus; 2</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Expand both sides.<br>
+          5x &minus; 10 = 3x + 12 &minus; 2<br>
+          5x &minus; 10 = 3x + 10
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Transpose variable terms to LHS, constants to RHS.<br>
+          5x &minus; 3x = 10 + 10<br>
+          2x = 20
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Solve.<br>
+          x = 20 &divide; 2 = <strong>10</strong>
+        </div>
+        <div class="we-step">
+          <strong>Verification:</strong> LHS = 5(10 &minus; 2) = 5(8) = 40. RHS = 3(10 + 4) &minus; 2 = 3(14) &minus; 2 = 42 &minus; 2 = 40 &#9989;
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128295; Solving Strategy</h4>
+          1. Remove brackets (expand).<br>
+          2. Collect variable terms on LHS.<br>
+          3. Collect constant terms on RHS.<br>
+          4. Simplify both sides.<br>
+          5. Divide to isolate the variable.<br>
+          6. Always verify your answer!
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#9888;&#65039; Common Mistakes</h4>
+          &bull; Forgetting to change sign when transposing.<br>
+          &bull; Not distributing the negative sign correctly: &minus;(2x &minus; 3) = &minus;2x + 3, not &minus;2x &minus; 3.<br>
+          &bull; Dividing only one side of the equation.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Transposing Mantra:</strong> "When a term crosses the equals sign, its sign flips!" Positive becomes negative, multiplication becomes division. Think of the = sign as a mirror that reverses operations.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 8: WORD PROBLEMS
+       ===================================================== -->
+  <div class="section-block reveal" id="word-problems">
+    <div class="section-hd g-green">
+      <span class="icon">&#128218;</span>
+      Word Problems Leading to Linear Equations
+    </div>
+    <div class="section-bd">
+
+      <p>Many real-life problems can be solved by translating them into linear equations. The key is to identify the unknown, represent it as a variable, form an equation, and solve it.</p>
+
+      <div class="subtitle">&#128203; Steps for Solving Word Problems</div>
+
+      <ol>
+        <li><strong>Read</strong> the problem carefully (twice if needed!).</li>
+        <li><strong>Identify</strong> what is unknown &mdash; let it be x (or any variable).</li>
+        <li><strong>Translate</strong> the English sentences into a mathematical equation.</li>
+        <li><strong>Solve</strong> the equation.</li>
+        <li><strong>Check</strong> if the answer makes sense in the context of the problem.</li>
+      </ol>
+
+      <div class="subtitle">&#9999;&#65039; Word Problem Examples</div>
+
+      <div class="worked-example">
+        <h4>Example 16 (Age Problem): The present age of Rohan's mother is three times the present age of Rohan. After 5 years, their ages will add up to 66 years. Find their present ages.</h4>
+        <div class="we-step">
+          <strong>Step 1: Let</strong> Rohan's present age = x years.<br>
+          Then mother's present age = 3x years.
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> After 5 years:<br>
+          Rohan's age = (x + 5) years<br>
+          Mother's age = (3x + 5) years
+        </div>
+        <div class="we-step">
+          <strong>Step 3: Form the equation.</strong><br>
+          (x + 5) + (3x + 5) = 66<br>
+          4x + 10 = 66
+        </div>
+        <div class="we-step">
+          <strong>Step 4: Solve.</strong><br>
+          4x = 66 &minus; 10 = 56<br>
+          x = 56 &divide; 4 = <strong>14</strong>
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> Rohan's age = <strong>14 years</strong>, Mother's age = 3 &times; 14 = <strong>42 years</strong>.<br>
+          <strong>Check:</strong> After 5 years: 19 + 47 = 66 &#9989;
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 17 (Number Problem): The sum of three consecutive even numbers is 78. Find the numbers.</h4>
+        <div class="we-step">
+          <strong>Step 1: Let</strong> the three consecutive even numbers be x, x + 2, and x + 4.
+        </div>
+        <div class="we-step">
+          <strong>Step 2: Form the equation.</strong><br>
+          x + (x + 2) + (x + 4) = 78<br>
+          3x + 6 = 78
+        </div>
+        <div class="we-step">
+          <strong>Step 3: Solve.</strong><br>
+          3x = 78 &minus; 6 = 72<br>
+          x = 72 &divide; 3 = <strong>24</strong>
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> The numbers are <strong>24, 26, and 28</strong>.<br>
+          <strong>Check:</strong> 24 + 26 + 28 = 78 &#9989;
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 18 (Perimeter Problem): The length of a rectangle is 5 cm more than its breadth. If the perimeter is 50 cm, find the length and breadth.</h4>
+        <div class="we-step">
+          <strong>Step 1: Let</strong> breadth = x cm.<br>
+          Then length = (x + 5) cm.
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Perimeter of rectangle = 2(length + breadth).<br>
+          2(x + 5 + x) = 50<br>
+          2(2x + 5) = 50
+        </div>
+        <div class="we-step">
+          <strong>Step 3: Solve.</strong><br>
+          4x + 10 = 50<br>
+          4x = 40<br>
+          x = <strong>10</strong>
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> Breadth = <strong>10 cm</strong>, Length = 10 + 5 = <strong>15 cm</strong>.<br>
+          <strong>Check:</strong> Perimeter = 2(15 + 10) = 2(25) = 50 cm &#9989;
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 19 (Distribution Problem): A sum of &#8377;480 is divided among A, B, and C such that A gets &#8377;20 more than B, and C gets &#8377;40 more than B. Find each person's share.</h4>
+        <div class="we-step">
+          <strong>Step 1: Let</strong> B's share = &#8377;x.<br>
+          A's share = &#8377;(x + 20)<br>
+          C's share = &#8377;(x + 40)
+        </div>
+        <div class="we-step">
+          <strong>Step 2: Form the equation.</strong><br>
+          (x + 20) + x + (x + 40) = 480<br>
+          3x + 60 = 480
+        </div>
+        <div class="we-step">
+          <strong>Step 3: Solve.</strong><br>
+          3x = 480 &minus; 60 = 420<br>
+          x = 420 &divide; 3 = <strong>140</strong>
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> B = &#8377;<strong>140</strong>, A = &#8377;<strong>160</strong>, C = &#8377;<strong>180</strong>.<br>
+          <strong>Check:</strong> 160 + 140 + 180 = 480 &#9989;
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128161; Translation Guide</h4>
+          &bull; "sum of" &rarr; addition (+)<br>
+          &bull; "difference" &rarr; subtraction (&minus;)<br>
+          &bull; "product" &rarr; multiplication (&times;)<br>
+          &bull; "is" / "was" / "will be" &rarr; equals (=)<br>
+          &bull; "more than" &rarr; add<br>
+          &bull; "less than" &rarr; subtract<br>
+          &bull; "times" / "twice" / "thrice" &rarr; multiply
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#128290; Consecutive Numbers</h4>
+          &bull; Consecutive integers: x, x+1, x+2<br>
+          &bull; Consecutive even: x, x+2, x+4<br>
+          &bull; Consecutive odd: x, x+2, x+4<br>
+          (Note: consecutive even AND odd both differ by 2!)
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Word Problem Tip:</strong> If you are stuck, try working backwards. Assume an answer, check if it satisfies all conditions, and adjust. This "guess and check" approach can also help you set up the correct equation.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 9: SUMMARY
+       ===================================================== -->
+  <div class="section-block reveal" id="summary">
+    <div class="section-hd g-slate">
+      <span class="icon">&#128202;</span>
+      Chapter Summary
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128203; All Key Formulas</div>
+
+      <div class="formula-box">
+        (a + b)&sup2; = a&sup2; + 2ab + b&sup2;
+        <small>Identity I</small>
+      </div>
+
+      <div class="formula-box">
+        (a &minus; b)&sup2; = a&sup2; &minus; 2ab + b&sup2;
+        <small>Identity II</small>
+      </div>
+
+      <div class="formula-box">
+        a&sup2; &minus; b&sup2; = (a + b)(a &minus; b)
+        <small>Identity III</small>
+      </div>
+
+      <div class="formula-box">
+        (x + a)(x + b) = x&sup2; + (a + b)x + ab
+        <small>Identity IV</small>
+      </div>
+
+      <div class="subtitle">&#128218; Methods Summary</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>When to Use</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Common Factor</strong></td>
+              <td>All terms share a factor</td>
+              <td>6x + 12 = 6(x + 2)</td>
+            </tr>
+            <tr>
+              <td><strong>Regrouping</strong></td>
+              <td>4 terms, no single common factor</td>
+              <td>ax + bx + ay + by = (a+b)(x+y)</td>
+            </tr>
+            <tr>
+              <td><strong>Identity I</strong></td>
+              <td>a&sup2; + 2ab + b&sup2; pattern</td>
+              <td>x&sup2; + 6x + 9 = (x+3)&sup2;</td>
+            </tr>
+            <tr>
+              <td><strong>Identity III</strong></td>
+              <td>Difference of two perfect squares</td>
+              <td>49 &minus; x&sup2; = (7+x)(7&minus;x)</td>
+            </tr>
+            <tr>
+              <td><strong>Identity IV</strong></td>
+              <td>x&sup2; + bx + c pattern</td>
+              <td>x&sup2; + 7x + 12 = (x+3)(x+4)</td>
+            </tr>
+            <tr>
+              <td><strong>Transposing</strong></td>
+              <td>Solving linear equations</td>
+              <td>3x + 5 = 20 &rarr; x = 5</td>
+            </tr>
+            <tr>
+              <td><strong>Cross-multiplication</strong></td>
+              <td>Equations with fractions</td>
+              <td>a/b = c/d &rarr; ad = bc</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subtitle">&#9888;&#65039; Common Mistakes to Avoid</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-red">
+          <h4>&#10060; Incomplete Factorisation</h4>
+          Always check if factors can be further factorised. For example, 2x(4x&sup2; &minus; 9) should be written as 2x(2x + 3)(2x &minus; 3).
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#10060; Sign Errors in Transposing</h4>
+          When moving a term across =, the sign MUST change. +5 on LHS becomes &minus;5 on RHS. This is the most common error!
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#10060; Forgetting to Distribute</h4>
+          When expanding &minus;2(x &minus; 3), both terms get multiplied: &minus;2x + 6, NOT &minus;2x &minus; 6.
+        </div>
+        <div class="info-card ic-pink">
+          <h4>&#10060; Not Verifying the Answer</h4>
+          Always substitute your answer back into the original equation. It takes 30 seconds and can save you from losing marks!
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Exam Day Checklist:</strong><br>
+        &#9989; For factorisation: Check by expanding your answer.<br>
+        &#9989; For division: Verify that Quotient &times; Divisor = Dividend.<br>
+        &#9989; For equations: Substitute the answer back into the original equation.<br>
+        &#9989; For word problems: Check if the answer makes sense (e.g., age cannot be negative).<br>
+        &#9989; Show all steps &mdash; marks are given for working!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 10: MCQs (10 Questions)
+       ===================================================== -->
+  <div class="section-block reveal" id="mcq">
+    <div class="section-hd g-amber">
+      <span class="icon">&#129504;</span>
+      Multiple Choice Questions (10 MCQs)
+    </div>
+    <div class="section-bd">
+
+      <p>Click on an option to see if your answer is correct. The correct option will turn green.</p>
+
+      <ul class="mcq-list">
+
+        <!-- MCQ 1 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q1. The factorised form of 6x + 18 is:</div>
+          <ul class="mcq-options">
+            <li>a) 2(3x + 18)</li>
+            <li data-correct>b) 6(x + 3)</li>
+            <li>c) 3(2x + 18)</li>
+            <li>d) 6(x + 18)</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 6(x + 3) &mdash; HCF of 6x and 18 is 6. So 6x + 18 = 6(x + 3).</div>
+        </li>
+
+        <!-- MCQ 2 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q2. Which identity is used to factorise x&sup2; &minus; 25?</div>
+          <ul class="mcq-options">
+            <li>a) (a + b)&sup2;</li>
+            <li>b) (a &minus; b)&sup2;</li>
+            <li data-correct>c) a&sup2; &minus; b&sup2; = (a + b)(a &minus; b)</li>
+            <li>d) (x + a)(x + b)</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) a&sup2; &minus; b&sup2; = (a + b)(a &minus; b) &mdash; x&sup2; &minus; 25 = x&sup2; &minus; 5&sup2; = (x + 5)(x &minus; 5).</div>
+        </li>
+
+        <!-- MCQ 3 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q3. The solution of 5x &minus; 3 = 17 is:</div>
+          <ul class="mcq-options">
+            <li>a) x = 3</li>
+            <li data-correct>b) x = 4</li>
+            <li>c) x = 5</li>
+            <li>d) x = 2</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) x = 4 &mdash; 5x = 17 + 3 = 20, so x = 20/5 = 4.</div>
+        </li>
+
+        <!-- MCQ 4 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q4. The factorised form of x&sup2; + 10x + 25 is:</div>
+          <ul class="mcq-options">
+            <li>a) (x + 10)(x + 15)</li>
+            <li>b) (x + 25)&sup2;</li>
+            <li data-correct>c) (x + 5)&sup2;</li>
+            <li>d) (x &minus; 5)&sup2;</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) (x + 5)&sup2; &mdash; Using Identity I: x&sup2; + 2(x)(5) + 5&sup2; = (x + 5)&sup2;.</div>
+        </li>
+
+        <!-- MCQ 5 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q5. 12x&sup3; &divide; 3x equals:</div>
+          <ul class="mcq-options">
+            <li>a) 4x&sup3;</li>
+            <li data-correct>b) 4x&sup2;</li>
+            <li>c) 9x&sup2;</li>
+            <li>d) 4x</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 4x&sup2; &mdash; (12/3)(x&sup3;/x) = 4 &times; x&sup2; = 4x&sup2;.</div>
+        </li>
+
+        <!-- MCQ 6 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q6. The factorised form of x&sup2; &minus; 8x + 16 is:</div>
+          <ul class="mcq-options">
+            <li>a) (x + 4)&sup2;</li>
+            <li data-correct>b) (x &minus; 4)&sup2;</li>
+            <li>c) (x + 4)(x &minus; 4)</li>
+            <li>d) (x &minus; 8)(x &minus; 2)</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) (x &minus; 4)&sup2; &mdash; Using Identity II: x&sup2; &minus; 2(x)(4) + 4&sup2; = (x &minus; 4)&sup2;.</div>
+        </li>
+
+        <!-- MCQ 7 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q7. If 3(x &minus; 2) = 12, then x equals:</div>
+          <ul class="mcq-options">
+            <li>a) 2</li>
+            <li>b) 4</li>
+            <li data-correct>c) 6</li>
+            <li>d) 8</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 6 &mdash; 3x &minus; 6 = 12, so 3x = 18, x = 6.</div>
+        </li>
+
+        <!-- MCQ 8 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q8. The HCF of 8a&sup2;b and 12ab&sup2; is:</div>
+          <ul class="mcq-options">
+            <li>a) 24ab</li>
+            <li data-correct>b) 4ab</li>
+            <li>c) 8ab</li>
+            <li>d) 2ab</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 4ab &mdash; HCF of 8 and 12 is 4. Common variable factors: a (minimum power 1) and b (minimum power 1). So HCF = 4ab.</div>
+        </li>
+
+        <!-- MCQ 9 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q9. The factorised form of x&sup2; + 5x + 6 is:</div>
+          <ul class="mcq-options">
+            <li data-correct>a) (x + 2)(x + 3)</li>
+            <li>b) (x + 1)(x + 6)</li>
+            <li>c) (x + 5)(x + 1)</li>
+            <li>d) (x &minus; 2)(x &minus; 3)</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (a) (x + 2)(x + 3) &mdash; We need two numbers with sum 5 and product 6: 2 + 3 = 5, 2 &times; 3 = 6.</div>
+        </li>
+
+        <!-- MCQ 10 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q10. The sum of three consecutive odd numbers is 51. The middle number is:</div>
+          <ul class="mcq-options">
+            <li>a) 15</li>
+            <li data-correct>b) 17</li>
+            <li>c) 19</li>
+            <li>d) 13</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 17 &mdash; Let the numbers be x, x+2, x+4. Then 3x + 6 = 51, 3x = 45, x = 15. The middle number is 15 + 2 = 17.</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 11: SHORT Q&A
+       ===================================================== -->
+  <div class="section-block reveal" id="short">
+    <div class="section-hd g-orange">
+      <span class="icon">&#9997;&#65039;</span>
+      Short Answer Questions (NCERT Style)
+    </div>
+    <div class="section-bd">
+
+      <ul class="short-q-list">
+
+        <li class="short-q-item">
+          <div class="short-q">Q1. Factorise: 15xy + 25x</div>
+          <div class="short-a">HCF = 5x. So 15xy + 25x = <strong>5x(3y + 5)</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q2. Factorise using an identity: 4x&sup2; &minus; 9</div>
+          <div class="short-a">This is a&sup2; &minus; b&sup2; where a = 2x and b = 3.<br>
+          4x&sup2; &minus; 9 = (2x)&sup2; &minus; (3)&sup2; = <strong>(2x + 3)(2x &minus; 3)</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q3. Divide: (8x&sup2; &minus; 4x) &divide; 2x</div>
+          <div class="short-a">Divide each term by 2x:<br>
+          8x&sup2; &divide; 2x = 4x, and &minus;4x &divide; 2x = &minus;2.<br>
+          Answer: <strong>4x &minus; 2</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q4. Solve: 2x + 7 = 19</div>
+          <div class="short-a">Transpose: 2x = 19 &minus; 7 = 12.<br>
+          x = 12 &divide; 2 = <strong>6</strong>.<br>
+          Check: 2(6) + 7 = 12 + 7 = 19 &#9989;</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q5. Factorise by regrouping: am + bm + an + bn</div>
+          <div class="short-a">Group: (am + bm) + (an + bn) = m(a + b) + n(a + b) = <strong>(a + b)(m + n)</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q6. Solve: (x + 3)/4 = (x &minus; 1)/3</div>
+          <div class="short-a">Cross-multiply: 3(x + 3) = 4(x &minus; 1).<br>
+          3x + 9 = 4x &minus; 4.<br>
+          9 + 4 = 4x &minus; 3x &rarr; x = <strong>13</strong>.<br>
+          Check: LHS = 16/4 = 4, RHS = 12/3 = 4 &#9989;</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q7. Factorise: x&sup2; &minus; 14x + 49</div>
+          <div class="short-a">Using Identity II: x&sup2; &minus; 2(x)(7) + 7&sup2; = <strong>(x &minus; 7)&sup2;</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q8. What is a monomial? Give two examples.</div>
+          <div class="short-a">A <strong>monomial</strong> is an algebraic expression containing only one term. Examples: <strong>5x&sup2;</strong> and <strong>&minus;3ab</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q9. Divide: (x&sup2; &minus; 9) &divide; (x + 3)</div>
+          <div class="short-a">Factorise the numerator: x&sup2; &minus; 9 = (x + 3)(x &minus; 3).<br>
+          (x + 3)(x &minus; 3) &divide; (x + 3) = <strong>(x &minus; 3)</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q10. A number is 12 more than twice another number. If their sum is 45, find the numbers.</div>
+          <div class="short-a">Let the smaller number = x. Then larger = 2x + 12.<br>
+          x + 2x + 12 = 45 &rarr; 3x = 33 &rarr; x = <strong>11</strong>.<br>
+          The numbers are <strong>11</strong> and 2(11) + 12 = <strong>34</strong>.<br>
+          Check: 11 + 34 = 45 &#9989;</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 12: LONG Q&A
+       ===================================================== -->
+  <div class="section-block reveal" id="long">
+    <div class="section-hd g-purple">
+      <span class="icon">&#128214;</span>
+      Long Answer Questions (NCERT Style)
+    </div>
+    <div class="section-bd">
+
+      <div class="long-q-item">
+        <div class="long-q">Q1. Factorise the following expressions completely:<br>(i) 3x&sup2; + 9x + 6 &nbsp;&nbsp; (ii) 2x&sup2; &minus; 8 &nbsp;&nbsp; (iii) x&sup2; &minus; 3x &minus; 10</div>
+        <div class="long-a">
+          <strong>(i) 3x&sup2; + 9x + 6</strong><br>
+          First, take out common factor 3: 3(x&sup2; + 3x + 2).<br>
+          Now factorise x&sup2; + 3x + 2: We need two numbers with sum = 3 and product = 2 &rarr; 1 and 2.<br>
+          x&sup2; + 3x + 2 = (x + 1)(x + 2).<br>
+          Answer: <strong>3(x + 1)(x + 2)</strong>.<br><br>
+
+          <strong>(ii) 2x&sup2; &minus; 8</strong><br>
+          Take out common factor 2: 2(x&sup2; &minus; 4).<br>
+          x&sup2; &minus; 4 = x&sup2; &minus; 2&sup2; = (x + 2)(x &minus; 2) [using Identity III].<br>
+          Answer: <strong>2(x + 2)(x &minus; 2)</strong>.<br><br>
+
+          <strong>(iii) x&sup2; &minus; 3x &minus; 10</strong><br>
+          We need two numbers with sum = &minus;3 and product = &minus;10.<br>
+          &minus;5 + 2 = &minus;3 &#9989; and (&minus;5)(2) = &minus;10 &#9989;<br>
+          Answer: <strong>(x &minus; 5)(x + 2)</strong>.
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q2. The denominator of a fraction is 4 more than the numerator. If 1 is added to both the numerator and denominator, the fraction becomes 1/2. Find the fraction.</div>
+        <div class="long-a">
+          <strong>Let</strong> numerator = x. Then denominator = x + 4.<br>
+          Original fraction = x/(x + 4).<br><br>
+
+          <strong>Given:</strong> (x + 1)/(x + 4 + 1) = 1/2<br>
+          (x + 1)/(x + 5) = 1/2<br><br>
+
+          <strong>Cross-multiply:</strong> 2(x + 1) = 1(x + 5)<br>
+          2x + 2 = x + 5<br>
+          2x &minus; x = 5 &minus; 2<br>
+          x = <strong>3</strong><br><br>
+
+          <strong>Answer:</strong> The fraction is <strong>3/7</strong>.<br>
+          <strong>Check:</strong> Adding 1 to both: 4/8 = 1/2 &#9989;
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q3. Divide (x&sup3; + 2x&sup2; &minus; x &minus; 2) by (x + 1) using factorisation.</div>
+        <div class="long-a">
+          <strong>Step 1:</strong> Factorise the dividend by regrouping.<br>
+          x&sup3; + 2x&sup2; &minus; x &minus; 2<br>
+          = (x&sup3; + 2x&sup2;) + (&minus;x &minus; 2)<br>
+          = x&sup2;(x + 2) &minus; 1(x + 2)<br>
+          = (x + 2)(x&sup2; &minus; 1)<br><br>
+
+          <strong>Step 2:</strong> Further factorise x&sup2; &minus; 1 using Identity III.<br>
+          x&sup2; &minus; 1 = (x + 1)(x &minus; 1)<br><br>
+
+          So the dividend = (x + 2)(x + 1)(x &minus; 1).<br><br>
+
+          <strong>Step 3:</strong> Divide by (x + 1).<br>
+          (x + 2)(x + 1)(x &minus; 1) &divide; (x + 1) = <strong>(x + 2)(x &minus; 1)</strong> = <strong>x&sup2; + x &minus; 2</strong>.<br><br>
+
+          <strong>Verification:</strong> (x&sup2; + x &minus; 2)(x + 1) = x&sup3; + x&sup2; &minus; 2x + x&sup2; + x &minus; 2 = x&sup3; + 2x&sup2; &minus; x &minus; 2 &#9989;
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q4. Explain the four standard algebraic identities with examples of both expansion and factorisation for each.</div>
+        <div class="long-a">
+          <strong>Identity I: (a + b)&sup2; = a&sup2; + 2ab + b&sup2;</strong><br>
+          Expansion: (x + 4)&sup2; = x&sup2; + 2(x)(4) + 16 = x&sup2; + 8x + 16<br>
+          Factorisation: 9x&sup2; + 12x + 4 = (3x)&sup2; + 2(3x)(2) + 2&sup2; = (3x + 2)&sup2;<br><br>
+
+          <strong>Identity II: (a &minus; b)&sup2; = a&sup2; &minus; 2ab + b&sup2;</strong><br>
+          Expansion: (y &minus; 5)&sup2; = y&sup2; &minus; 2(y)(5) + 25 = y&sup2; &minus; 10y + 25<br>
+          Factorisation: 4a&sup2; &minus; 20ab + 25b&sup2; = (2a)&sup2; &minus; 2(2a)(5b) + (5b)&sup2; = (2a &minus; 5b)&sup2;<br><br>
+
+          <strong>Identity III: a&sup2; &minus; b&sup2; = (a + b)(a &minus; b)</strong><br>
+          Expansion: (m + 7)(m &minus; 7) = m&sup2; &minus; 49<br>
+          Factorisation: 16x&sup2; &minus; 81 = (4x)&sup2; &minus; 9&sup2; = (4x + 9)(4x &minus; 9)<br><br>
+
+          <strong>Identity IV: (x + a)(x + b) = x&sup2; + (a + b)x + ab</strong><br>
+          Expansion: (x + 3)(x + 5) = x&sup2; + 8x + 15<br>
+          Factorisation: x&sup2; + 11x + 30 = (x + 5)(x + 6) [since 5 + 6 = 11, 5 &times; 6 = 30]<br><br>
+
+          These identities are powerful tools that allow us to quickly expand and factorise expressions without having to multiply or find factors through trial and error every time.
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q5. A father is 30 years older than his son. In 12 years, the father's age will be twice the son's age. Find their present ages. Also, find the son's age when the father is exactly three times his age.</div>
+        <div class="long-a">
+          <strong>Part 1:</strong><br>
+          Let son's present age = x years. Father's present age = (x + 30) years.<br><br>
+
+          After 12 years:<br>
+          Son's age = (x + 12), Father's age = (x + 30 + 12) = (x + 42).<br><br>
+
+          Given: Father's age = 2 &times; Son's age<br>
+          x + 42 = 2(x + 12)<br>
+          x + 42 = 2x + 24<br>
+          42 &minus; 24 = 2x &minus; x<br>
+          x = <strong>18</strong><br><br>
+
+          <strong>Answer:</strong> Son's present age = <strong>18 years</strong>, Father's present age = 18 + 30 = <strong>48 years</strong>.<br>
+          <strong>Check:</strong> After 12 years: Son = 30, Father = 60 = 2 &times; 30 &#9989;<br><br>
+
+          <strong>Part 2:</strong><br>
+          Let the number of years ago when father was 3 times son's age = y years ago.<br>
+          Father's age y years ago: (48 &minus; y). Son's age: (18 &minus; y).<br>
+          48 &minus; y = 3(18 &minus; y)<br>
+          48 &minus; y = 54 &minus; 3y<br>
+          3y &minus; y = 54 &minus; 48<br>
+          2y = 6 &rarr; y = <strong>3</strong>.<br><br>
+
+          So 3 years ago, son was 18 &minus; 3 = <strong>15 years old</strong> when father was 45 = 3 &times; 15.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       QUICK REVISION FLASHCARDS
+       ===================================================== -->
+  <div class="section-block reveal" id="revision">
+    <div class="section-hd g-rose">
+      <span class="icon">&#127183;</span>
+      Quick Revision Flashcards
+    </div>
+    <div class="section-bd">
+
+      <p>Use these for a quick last-minute revision before your exam!</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>Q: What is factorisation?</h4>
+          A: Expressing an expression as a <strong>product of its factors</strong>. It is the reverse of expansion.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Q: Factorise a&sup2; &minus; b&sup2;</h4>
+          A: <strong>(a + b)(a &minus; b)</strong> &mdash; difference of two squares.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>Q: HCF of 12x&sup2;y and 8xy&sup2;?</h4>
+          A: HCF of 12, 8 = 4. Common vars: xy. Answer: <strong>4xy</strong>.
+        </div>
+        <div class="info-card ic-green">
+          <h4>Q: Solve 4x &minus; 7 = 13</h4>
+          A: 4x = 20, x = <strong>5</strong>.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>Q: What changes when transposing?</h4>
+          A: The <strong>sign changes</strong>. + becomes &minus;, &times; becomes &divide;, and vice versa.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>Q: Expand (a + b)&sup2;</h4>
+          A: <strong>a&sup2; + 2ab + b&sup2;</strong>
+        </div>
+        <div class="info-card ic-pink">
+          <h4>Q: Cross-multiplication rule?</h4>
+          A: If a/b = c/d, then <strong>ad = bc</strong>.
+        </div>
+        <div class="info-card ic-red">
+          <h4>Q: 10x&sup2; &divide; 2x = ?</h4>
+          A: <strong>5x</strong> (divide coefficients, subtract exponents).
+        </div>
+        <div class="info-card ic-amber">
+          <h4>Q: Factorise x&sup2; + 9x + 20</h4>
+          A: 4 + 5 = 9, 4 &times; 5 = 20 &rarr; <strong>(x + 4)(x + 5)</strong>.
+        </div>
+        <div class="info-card ic-indigo">
+          <h4>Q: Consecutive even numbers?</h4>
+          A: x, x + 2, x + 4 (each differs by <strong>2</strong>).
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Final Revision Mantra:</strong><br>
+        &bull; <strong>Factorisation</strong> &rarr; Reverse of expansion. Check: HCF method, regrouping, identities.<br>
+        &bull; <strong>Division</strong> &rarr; Factorise first, then cancel common factors.<br>
+        &bull; <strong>Equations</strong> &rarr; Transpose, simplify, solve, verify.<br>
+        &bull; <strong>Word Problems</strong> &rarr; Read, Let x, Form equation, Solve, Check.<br>
+        &bull; <strong>Identities</strong> &rarr; I: sum squared, II: difference squared, III: diff of squares, IV: split middle term.<br>
+        <br>
+        You've got this! Go ace that exam! &#128170;
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       BOTTOM NAVIGATION
+       ===================================================== -->
+  <div class="bottom-nav">
+    <div class="bottom-nav-full">
+      <a href="../../index.html" class="bottom-btn home-btn">&#127968; Back to Home</a>
+      <a href="index.html" class="bottom-btn" style="background:linear-gradient(135deg,#92400e,#fbbf24);">&#128218; All Maths Chapters</a>
+    </div>
+  </div>
+
+</div>
+<!-- End Container -->
+
+<!-- ========== SHARE POPUP ========== -->
+<div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeSharePopup()">
+  <div class="share-popup">
+    <h3>&#128228; Share This Page</h3>
+    <p style="font-size:14px;color:#475569;margin-bottom:16px;">Help your classmates ace Algebra Play!</p>
+    <div class="share-btn-row">
+      <button class="share-action-btn share-wa" onclick="shareWhatsApp()">&#128172; Share on WhatsApp</button>
+      <button class="share-action-btn share-copy" onclick="copyLink()">&#128203; Copy Link</button>
+      <button class="share-action-btn share-native" onclick="shareNative()">&#128228; Share via Apps</button>
+    </div>
+    <button class="share-close-btn" onclick="closeSharePopup()">Close</button>
+  </div>
+</div>
+
+<!-- ========== FLOATING SHARE BUTTON ========== -->
+<button class="float-share-btn" onclick="openSharePopup()" title="Share this page">&#128228;</button>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <p>Preeti Kushwah Classes &mdash; Making Maths Fun &amp; Easy &#128155;</p>
+  <p style="font-size:12px;margin-top:6px;opacity:0.8;">NCERT Class 8 Maths &middot; Ganita &middot; Chapter 13 &middot; New Syllabus 2025-26</p>
+  <p style="font-size:11px;margin-top:8px;opacity:0.6;">&copy; 2025 Preeti Kushwah Classes. All rights reserved.</p>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// Scroll Reveal Animation
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) {
+  obs.observe(el);
+});
+
+// MCQ Click Handler
+document.querySelectorAll('.mcq-item').forEach(function(item) {
+  item.querySelectorAll('.mcq-options li').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      if (item.classList.contains('show-ans')) return;
+      item.classList.add('show-ans');
+      if (!opt.hasAttribute('data-correct')) opt.classList.add('wrong');
+      item.querySelectorAll('.mcq-options li[data-correct]').forEach(function(c) {
+        c.classList.add('correct');
+      });
+    });
+  });
+});
+
+// Share Functions
+function openSharePopup() {
+  document.getElementById('shareOverlay').classList.add('active');
+}
+
+function closeSharePopup() {
+  document.getElementById('shareOverlay').classList.remove('active');
+}
+
+function shareWhatsApp() {
+  window.open('https://wa.me/?text=' + encodeURIComponent('Check out these Algebra Play notes for Class 8 Maths (NCERT 2025-26)! ' + window.location.href));
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    alert('Link copied to clipboard!');
+  });
+}
+
+function shareNative() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Algebra Play — Class 8 Maths | Preeti Kushwah Classes',
+      text: 'NCERT Class 8 Maths Algebra Play notes — Chapter 13',
+      url: window.location.href
+    });
+  } else {
+    copyLink();
+  }
+}
+
+// Smooth scroll for TOC links
+document.querySelectorAll('.toc-bar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    var targetId = this.getAttribute('href');
+    if (targetId && targetId.startsWith('#')) {
+      e.preventDefault();
+      var target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../chapter-features.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
+</body>
+</html>

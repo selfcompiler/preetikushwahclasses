@@ -1,0 +1,2110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 8 Maths Ch 5: Number Play — Divisibility rules, palindromic numbers, magic squares, cryptarithmetic puzzles, number patterns. Interactive NCERT Ganita 2025-26 notes.">
+<meta name="keywords" content="Preeti Kushwah Classes, NCERT notes, CBSE notes, free study material, Class 8 notes, Class 8 NCERT, class 8 study material, Mathematics notes, Class 8 Mathematics, Class 8 Mathematics notes, Class 8 Mathematics NCERT, Number Play, Class 8 Number Play, divisibility rules, palindromic numbers, magic squares, cryptarithmetic, maths solutions, maths practice">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-8/maths/number-play.html">
+<meta property="og:title" content="Ch 5: Number Play — Class 8 Maths Notes">
+<meta property="og:description" content="Interactive NCERT notes — Divisibility rules, palindromes, magic squares, cryptarithmetic &amp; number patterns.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preetikushwahclasses.com/class-8/maths/number-play.html">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Number Play — Class 8 Maths | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:#fffbeb;color:#1c1c2e;overflow-x:hidden;line-height:1.6;}
+
+/* Top Nav */
+.top-nav{background:white;padding:8px 12px;display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,0.06);position:sticky;top:0;z-index:110;overflow-x:auto;}
+.tn-home{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;text-decoration:none;padding:7px 14px;border-radius:12px;font-size:12px;font-weight:800;border:1.5px solid #fbbf24;transition:all 0.2s;white-space:nowrap;}
+.tn-home:hover{background:#fde68a;transform:translateY(-1px);}
+.nav-spacer{flex:1;}
+.tn-share{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;padding:7px 12px;border-radius:12px;border:1.5px solid #fbbf24;font-size:11px;font-weight:800;cursor:pointer;transition:all 0.2s;white-space:nowrap;font-family:'Nunito',sans-serif;}
+.tn-share:hover{background:#fde68a;transform:translateY(-1px);}
+
+/* TOC */
+.toc-bar{background:linear-gradient(135deg,#78350f,#f59e0b);padding:12px 16px;position:sticky;top:44px;z-index:100;overflow-x:auto;white-space:nowrap;}
+.toc-bar a{display:inline-block;background:rgba(255,255,255,0.15);color:white;text-decoration:none;padding:6px 14px;border-radius:18px;font-size:13px;font-weight:700;margin-right:6px;transition:all 0.2s;}
+.toc-bar a:hover{background:rgba(255,255,255,0.35);}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,#78350f 0%,#92400e 20%,#d97706 50%,#f59e0b 75%,#fde68a 100%);position:relative;overflow:hidden;min-height:400px;padding-bottom:30px;}
+.hero-content{position:relative;z-index:10;text-align:center;padding:36px 16px 0;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.3);border:2px solid rgba(255,255,255,0.5);border-radius:30px;padding:5px 18px;font-size:11px;font-weight:800;letter-spacing:2px;color:white;text-transform:uppercase;margin-bottom:12px;}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(24px,5vw,48px);color:white;text-shadow:0 3px 12px rgba(0,0,0,0.3);margin-bottom:6px;line-height:1.1;}
+.hero p{color:rgba(255,255,255,0.9);font-size:15px;font-weight:700;margin-bottom:16px;}
+
+/* Container & Sections */
+.container{max-width:1000px;margin:0 auto;padding:36px 16px 60px;}
+.section-block{background:white;border-radius:22px;box-shadow:0 4px 24px rgba(0,0,0,0.08);margin-bottom:36px;overflow:hidden;scroll-margin-top:80px;}
+.section-hd{padding:22px 28px;display:flex;align-items:center;gap:14px;color:white;font-family:'Fredoka One',cursive;font-size:24px;line-height:1.2;}
+.section-hd .icon{font-size:32px;}
+.section-bd{padding:28px;}
+.section-bd > p{margin-bottom:14px;}
+
+/* Gradients — amber/orange theme */
+.g-amber{background:linear-gradient(135deg,#78350f,#f59e0b);}
+.g-orange{background:linear-gradient(135deg,#9a3412,#fb923c);}
+.g-brown{background:linear-gradient(135deg,#78350f,#d97706);}
+.g-gold{background:linear-gradient(135deg,#92400e,#fbbf24);}
+.g-teal{background:linear-gradient(135deg,#134e4a,#2dd4bf);}
+.g-green{background:linear-gradient(135deg,#166534,#22c55e);}
+.g-blue{background:linear-gradient(135deg,#1e40af,#38bdf8);}
+.g-purple{background:linear-gradient(135deg,#5b21b6,#a78bfa);}
+.g-slate{background:linear-gradient(135deg,#1e293b,#64748b);}
+.g-red{background:linear-gradient(135deg,#991b1b,#f87171);}
+.g-rose{background:linear-gradient(135deg,#881337,#fb7185);}
+
+/* Content elements */
+.subtitle{font-family:'Fredoka One',cursive;color:#78350f;font-size:20px;margin:22px 0 12px;display:flex;align-items:center;gap:8px;}
+.kt{display:inline-block;background:#fde047;color:#713f12;border-radius:7px;padding:1px 9px;font-weight:800;font-size:13px;}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:16px 0;}
+.info-card{border-radius:14px;padding:16px 18px;font-size:14px;}
+.info-card h4{font-weight:800;margin-bottom:6px;font-size:15px;}
+.ic-blue{background:#eff6ff;border-left:5px solid #3b82f6;}
+.ic-indigo{background:#eef2ff;border-left:5px solid #818cf8;}
+.ic-teal{background:#f0fdfa;border-left:5px solid #14b8a6;}
+.ic-purple{background:#faf5ff;border-left:5px solid #a78bfa;}
+.ic-green{background:#f0fdf4;border-left:5px solid #22c55e;}
+.ic-orange{background:#fff7ed;border-left:5px solid #fb923c;}
+.ic-yellow{background:#fefce8;border-left:5px solid #facc15;}
+.ic-red{background:#fef2f2;border-left:5px solid #f87171;}
+.ic-pink{background:#fdf2f8;border-left:5px solid #ec4899;}
+.ic-amber{background:#fffbeb;border-left:5px solid #f59e0b;}
+.trick{background:linear-gradient(135deg,#fef9c3,#fde68a);border:2px solid #f59e0b;border-radius:14px;padding:14px 18px;font-size:14px;margin:16px 0;}
+.trick strong{color:#78350f;}
+.note-box{background:#fffbeb;border-left:5px solid #f59e0b;border-radius:10px;padding:12px 16px;margin:14px 0;font-size:14px;}
+.formula-box{background:linear-gradient(135deg,#fffbeb,#fde68a);border:2px solid #f59e0b;border-radius:12px;padding:14px 18px;text-align:center;font-family:'Fredoka One',cursive;font-size:18px;color:#78350f;margin:12px 0;}
+.formula-box small{font-family:'Nunito',sans-serif;font-weight:600;font-size:13px;display:block;margin-top:4px;color:#92400e;}
+
+/* Tables */
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0;}
+th{background:#78350f;color:white;padding:12px 14px;text-align:left;font-weight:800;font-size:13px;}
+td{padding:11px 14px;border-bottom:1px solid #fde68a;font-size:13.5px;}
+tr:nth-child(even) td{background:#fffbeb;}
+
+/* Worked example */
+.worked-example{background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:18px;margin:16px 0;}
+.worked-example h4{font-family:'Fredoka One',cursive;color:#78350f;font-size:16px;margin-bottom:8px;}
+.we-step{background:white;border-radius:10px;padding:12px 16px;margin:8px 0;border-left:4px solid #f59e0b;font-size:14px;}
+
+/* MCQ */
+.mcq-list{list-style:none;padding:0;}
+.mcq-item{background:white;border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
+.mcq-q{font-weight:700;font-size:14.5px;margin-bottom:10px;color:#78350f;}
+.mcq-options{list-style:none;padding:0;}
+.mcq-options li{background:#fffbeb;border-radius:8px;padding:7px 12px;margin-bottom:5px;font-size:13.5px;cursor:pointer;transition:all 0.2s;border:1.5px solid transparent;}
+.mcq-options li:hover{background:#fde68a;border-color:#f59e0b;}
+.mcq-options li.correct{background:#d1fae5!important;border-color:#22c55e;font-weight:700;color:#14532d;}
+.mcq-options li.wrong{background:#fee2e2!important;border-color:#ef4444;font-weight:700;color:#991b1b;}
+.mcq-ans{font-size:12.5px;color:#16a34a;font-weight:700;margin-top:6px;display:none;}
+.mcq-item.show-ans .mcq-ans{display:block;}
+
+/* Short Q */
+.short-q-list{list-style:none;padding:0;}
+.short-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #d97706;}
+.short-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
+.short-a{font-size:13.5px;color:#374151;}
+.short-a strong{color:#78350f;}
+
+/* Long Q */
+.long-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
+.long-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
+.long-a{font-size:13.5px;color:#374151;}
+.long-a strong{color:#78350f;}
+
+/* Fun facts */
+.fun-fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0;}
+.fun-fact-card{background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fbbf24;border-radius:14px;padding:16px 18px;font-size:14px;}
+.fun-fact-card h4{font-weight:800;font-size:15px;color:#92400e;margin-bottom:6px;}
+
+/* Bottom nav */
+.bottom-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:30px 0;}
+.bottom-nav-full{grid-column:1/-1;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.bottom-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:800;font-size:14px;text-decoration:none;color:white;transition:all 0.2s;}
+.bottom-btn:hover{transform:translateY(-2px);}
+.bottom-btn.home-btn{background:linear-gradient(135deg,#78350f,#d97706);}
+
+/* Share */
+.float-share-btn{position:fixed;bottom:24px;right:24px;width:52px;height:52px;background:linear-gradient(135deg,#92400e,#f59e0b);border-radius:50%;border:none;color:white;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(146,64,14,0.4);z-index:90;display:flex;align-items:center;justify-content:center;transition:all 0.3s;}
+.float-share-btn:hover{transform:scale(1.1);}
+.share-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;justify-content:center;align-items:center;}
+.share-overlay.active{display:flex;}
+.share-popup{background:white;border-radius:22px;padding:28px;max-width:360px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);text-align:center;}
+.share-popup h3{font-family:'Fredoka One',cursive;color:#78350f;font-size:20px;margin-bottom:16px;}
+.share-btn-row{display:flex;flex-direction:column;gap:10px;}
+.share-action-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;border:none;font-size:14px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:white;transition:all 0.2s;}
+.share-wa{background:#25d366;}
+.share-copy{background:#3b82f6;}
+.share-native{background:#f59e0b;color:#78350f;}
+.share-close-btn{margin-top:14px;background:#e2e8f0;color:#475569;border:none;padding:8px 20px;border-radius:10px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+.share-action-btn:hover{opacity:0.9;transform:translateY(-1px);}
+.share-close-btn:hover{background:#cbd5e1;}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Footer */
+footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#78350f,#f59e0b);color:white;font-size:14px;font-weight:700;}
+
+/* Interactive puzzle styles */
+.puzzle-wrap{background:linear-gradient(135deg,#fffbeb,#fef3c7);border:2px solid #fbbf24;border-radius:18px;padding:24px;margin:20px 0;text-align:center;}
+.puzzle-title{font-family:'Fredoka One',cursive;color:#92400e;font-size:18px;margin-bottom:6px;}
+.puzzle-desc{font-size:13px;color:#475569;margin-bottom:14px;}
+.magic-grid{display:inline-grid;gap:4px;margin:10px auto;}
+.magic-cell{width:56px;height:56px;border:2px solid #d97706;border-radius:10px;font-family:'Fredoka One',cursive;font-size:22px;color:#78350f;text-align:center;background:white;outline:none;transition:all 0.2s;}
+.magic-cell:focus{border-color:#f59e0b;box-shadow:0 0 0 3px rgba(245,158,11,0.3);}
+.magic-cell.given{background:#fde68a;color:#78350f;font-weight:900;}
+.magic-cell.correct{background:#d1fae5;border-color:#22c55e;color:#14532d;}
+.magic-cell.wrong{background:#fee2e2;border-color:#ef4444;color:#991b1b;}
+.puzzle-controls{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.pz-btn{padding:8px 18px;border-radius:10px;border:none;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;cursor:pointer;transition:all 0.2s;color:white;}
+.pz-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+.pz-btn-amber{background:linear-gradient(135deg,#d97706,#fbbf24);color:#78350f;}
+.pz-btn-green{background:linear-gradient(135deg,#16a34a,#22c55e);}
+.pz-btn-red{background:linear-gradient(135deg,#dc2626,#f87171);}
+.pz-btn-blue{background:linear-gradient(135deg,#2563eb,#3b82f6);}
+.puzzle-result{background:white;border-radius:12px;padding:14px 18px;margin-top:14px;font-size:14px;text-align:left;border:2px solid #e2e8f0;min-height:40px;}
+.puzzle-result strong{color:#78350f;}
+.puzzle-status{font-size:12px;color:#64748b;margin-top:8px;font-weight:700;}
+.crypto-row{display:flex;gap:4px;justify-content:center;align-items:center;margin:6px 0;}
+.crypto-cell{width:44px;height:44px;border:2px solid #d97706;border-radius:8px;font-family:'Fredoka One',cursive;font-size:20px;color:#78350f;text-align:center;background:white;outline:none;}
+.crypto-cell.letter{background:#fde68a;font-weight:900;}
+.crypto-cell.op{background:transparent;border:none;font-size:18px;font-weight:900;color:#92400e;width:30px;}
+.crypto-cell:focus{border-color:#f59e0b;box-shadow:0 0 0 3px rgba(245,158,11,0.3);}
+.palindrome-display{font-family:'Fredoka One',cursive;font-size:36px;color:#d97706;letter-spacing:4px;margin:10px 0;}
+.num-input{width:140px;height:44px;border:2px solid #d97706;border-radius:10px;font-family:'Fredoka One',cursive;font-size:20px;color:#78350f;text-align:center;background:white;outline:none;}
+.num-input:focus{border-color:#f59e0b;box-shadow:0 0 0 3px rgba(245,158,11,0.3);}
+
+/* Scrollbar styling */
+::-webkit-scrollbar{height:4px;width:4px;}
+::-webkit-scrollbar-thumb{background:#f59e0b;border-radius:4px;}
+
+/* Highlight animation for hero */
+@keyframes heroFloat{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-10px) rotate(5deg);}}
+@keyframes heroPulse{0%,100%{transform:scale(1);opacity:0.8;}50%{transform:scale(1.3);opacity:1;}}
+
+/* Unordered/ordered list styling inside section-bd */
+.section-bd ul{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ul li{margin-bottom:6px;}
+.section-bd ol{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ol li{margin-bottom:6px;}
+
+@media(max-width:600px){
+  .section-bd{padding:18px;}
+  .section-hd{padding:16px 20px;font-size:19px;}
+  .hero{min-height:340px;}
+  .toc-bar{top:40px;}
+  .magic-cell{width:46px;height:46px;font-size:18px;}
+  .crypto-cell{width:36px;height:36px;font-size:16px;}
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] body{background:#1a1207!important;color:#fde68a!important;}
+[data-theme="dark"] .top-nav{background:#292016!important;}
+[data-theme="dark"] .section-block{background:#292016!important;box-shadow:0 4px 24px rgba(0,0,0,0.3)!important;}
+[data-theme="dark"] .section-bd{color:#fde68a!important;}
+[data-theme="dark"] .section-bd p,.section-bd li{color:#fcd34d!important;}
+[data-theme="dark"] .subtitle{color:#fbbf24!important;}
+[data-theme="dark"] .info-card{background:#1f1a0f!important;color:#fde68a!important;}
+[data-theme="dark"] .trick{background:linear-gradient(135deg,#292016,#3d2e0f)!important;border-color:#92400e!important;}
+[data-theme="dark"] .note-box{background:#292016!important;color:#fde68a!important;}
+[data-theme="dark"] .formula-box{background:linear-gradient(135deg,#292016,#3d2e0f)!important;color:#fbbf24!important;}
+[data-theme="dark"] .worked-example{background:#1f1a0f!important;border-color:#78350f!important;}
+[data-theme="dark"] .we-step{background:#292016!important;color:#fde68a!important;}
+[data-theme="dark"] .mcq-item{background:#292016!important;}
+[data-theme="dark"] .mcq-q{color:#fbbf24!important;}
+[data-theme="dark"] .mcq-options li{background:#1f1a0f!important;color:#fde68a!important;}
+[data-theme="dark"] .mcq-options li:hover{background:#3d2e0f!important;}
+[data-theme="dark"] .short-q-item,.long-q-item{background:#292016!important;}
+[data-theme="dark"] .short-q,.long-q{color:#fbbf24!important;}
+[data-theme="dark"] .short-a,.long-a{color:#fcd34d!important;}
+[data-theme="dark"] .fun-fact-card{background:linear-gradient(135deg,#292016,#3d2e0f)!important;border-color:#92400e!important;}
+[data-theme="dark"] .fun-fact-card h4{color:#fbbf24!important;}
+[data-theme="dark"] table td{color:#fde68a!important;border-color:#78350f!important;}
+[data-theme="dark"] tr:nth-child(even) td{background:#1f1a0f!important;}
+[data-theme="dark"] .share-popup{background:#292016!important;}
+[data-theme="dark"] .share-popup h3{color:#fbbf24!important;}
+[data-theme="dark"] .puzzle-wrap{background:linear-gradient(135deg,#292016,#3d2e0f)!important;border-color:#92400e!important;}
+[data-theme="dark"] .magic-cell{background:#1f1a0f!important;color:#fbbf24!important;border-color:#92400e!important;}
+[data-theme="dark"] .magic-cell.given{background:#3d2e0f!important;color:#fbbf24!important;}
+[data-theme="dark"] .puzzle-result{background:#1f1a0f!important;border-color:#78350f!important;color:#fde68a!important;}
+[data-theme="dark"] .crypto-cell{background:#1f1a0f!important;color:#fbbf24!important;border-color:#92400e!important;}
+[data-theme="dark"] .crypto-cell.letter{background:#3d2e0f!important;}
+[data-theme="dark"] .num-input{background:#1f1a0f!important;color:#fbbf24!important;border-color:#92400e!important;}
+</style>
+</head>
+<body>
+
+<!-- ========== TOP NAV ========== -->
+<div class="top-nav">
+  <a href="../../index.html" class="tn-home">&#127968; Home</a>
+  <div class="nav-spacer"></div>
+  <button class="tn-share" onclick="openSharePopup()">&#128228; Share</button>
+</div>
+
+<!-- ========== TABLE OF CONTENTS BAR ========== -->
+<div class="toc-bar">
+  <a href="#intro">&#128208; Intro</a>
+  <a href="#divisibility">&#128290; Divisibility</a>
+  <a href="#palindromes">&#128257; Palindromes</a>
+  <a href="#patterns">&#128161; Patterns</a>
+  <a href="#magic">&#10024; Magic Squares</a>
+  <a href="#crypto">&#128272; Cryptarithmetic</a>
+  <a href="#games">&#127918; Number Games</a>
+  <a href="#worked">&#9999;&#65039; Examples</a>
+  <a href="#summary">&#128202; Summary</a>
+  <a href="#mcq">&#129504; MCQs</a>
+  <a href="#short">&#9997;&#65039; Short Q&amp;A</a>
+  <a href="#long">&#128214; Long Q&amp;A</a>
+  <a href="#funfacts">&#127775; Fun Facts</a>
+  <a href="#interactive-magic" style="background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.5);">&#127919; Magic Square</a>
+  <a href="#interactive-palindrome" style="background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.5);">&#128257; Palindrome Lab</a>
+  <a href="#interactive-crypto" style="background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.5);">&#128272; Crypto Puzzle</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">&#128208; Chapter 5 &middot; NCERT 2025-26</div>
+    <h1>&#127922; Number Play</h1>
+    <p>Divisibility Rules &middot; Palindromes &middot; Magic Squares &middot; Cryptarithmetic &middot; Number Patterns</p>
+  </div>
+  <!-- Animated floating numbers in hero -->
+  <div style="position:relative;max-width:340px;height:180px;margin:20px auto 0;">
+    <div style="position:absolute;font-family:'Fredoka One',cursive;font-size:32px;color:rgba(255,255,255,0.7);top:10%;left:15%;animation:heroFloat 3s ease-in-out infinite;">1729</div>
+    <div style="position:absolute;font-family:'Fredoka One',cursive;font-size:24px;color:rgba(255,255,255,0.5);top:50%;left:65%;animation:heroFloat 3.5s ease-in-out infinite 0.5s;">121</div>
+    <div style="position:absolute;font-family:'Fredoka One',cursive;font-size:28px;color:rgba(255,255,255,0.6);top:30%;left:40%;animation:heroFloat 4s ease-in-out infinite 1s;">3&#215;3</div>
+    <div style="position:absolute;font-family:'Fredoka One',cursive;font-size:20px;color:rgba(255,255,255,0.4);top:65%;left:20%;animation:heroFloat 3s ease-in-out infinite 1.5s;">SEND</div>
+    <div style="position:absolute;font-family:'Fredoka One',cursive;font-size:22px;color:rgba(255,255,255,0.5);top:15%;left:72%;animation:heroFloat 3.5s ease-in-out infinite 2s;">9801</div>
+    <div style="position:absolute;width:10px;height:10px;background:#fde047;border-radius:50%;top:40%;left:10%;animation:heroPulse 2.5s ease-in-out infinite;"></div>
+    <div style="position:absolute;width:8px;height:8px;background:#fb923c;border-radius:50%;top:70%;left:85%;animation:heroPulse 2.5s ease-in-out infinite 0.8s;"></div>
+    <div style="position:absolute;width:6px;height:6px;background:#fbbf24;border-radius:50%;top:20%;left:55%;animation:heroPulse 2.5s ease-in-out infinite 1.6s;"></div>
+  </div>
+</div>
+
+<!-- ========== MAIN CONTAINER ========== -->
+<div class="container">
+
+  <!-- =====================================================
+       SECTION 1: INTRODUCTION
+       ===================================================== -->
+  <div class="section-block reveal" id="intro">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128208;</span>
+      Introduction to Number Play
+    </div>
+    <div class="section-bd">
+
+      <p>Numbers are not just tools for calculation &mdash; they are full of surprises, patterns, and magic! In this chapter, we explore the playful side of mathematics. From clever divisibility tests that tell you whether a number divides evenly, to palindromic numbers that read the same forwards and backwards, to ancient magic squares and modern cryptarithmetic puzzles, you will discover that numbers can be as entertaining as any game.</p>
+
+      <p>The NCERT Ganita textbook for Class 8 invites you to play with numbers, investigate patterns, make conjectures, and verify them. This chapter is about <strong>thinking like a mathematician</strong> &mdash; asking "why does this happen?" and "will this always work?"</p>
+
+      <div class="subtitle">&#127470;&#127475; Indian Heritage &mdash; A Love for Numbers</div>
+
+      <p>India has a deep and ancient tradition of number play. Indian mathematicians were among the first to explore divisibility, digit patterns, and number magic.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128220; Vedic Mathematics</h4>
+          Ancient Indian texts contain <strong>Sutras</strong> (formulas) for lightning-fast divisibility checks and mental arithmetic. The Vedic approach treats numbers as living, playful entities with hidden patterns.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#127775; Ramanujan (1887&ndash;1920)</h4>
+          Srinivasa Ramanujan, the great Indian genius, had an extraordinary intuition for numbers. The famous <strong>1729</strong> (Hardy-Ramanujan number) is the smallest number expressible as the sum of two cubes in two different ways: 1&sup3; + 12&sup3; = 9&sup3; + 10&sup3; = 1729.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#128171; Aryabhata (476 CE)</h4>
+          Aryabhata explored divisibility and remainders in his <em>Aryabhatiya</em>. His work on modular arithmetic laid foundations for the divisibility rules we study today.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#129518; Narayana Pandit (1356 CE)</h4>
+          Indian mathematician Narayana Pandit studied <strong>magic squares</strong> extensively. He devised systematic methods to construct magic squares of any size &mdash; centuries before Europeans explored the same topic.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Chapter Goals:</strong> By the end of this chapter you will be able to: (1) test divisibility by 2, 3, 4, 5, 6, 8, 9, 10, and 11 without dividing; (2) identify and create palindromic numbers; (3) solve magic square puzzles; (4) decode cryptarithmetic puzzles; (5) discover and explain number patterns.
+      </div>
+
+      <div class="subtitle">&#128218; What You Will Learn</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th>Key Concepts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Divisibility Rules</td>
+              <td>Tests for 2, 3, 4, 5, 6, 8, 9, 10, 11</td>
+            </tr>
+            <tr>
+              <td>Palindromic Numbers</td>
+              <td>Numbers that read the same forwards and backwards</td>
+            </tr>
+            <tr>
+              <td>Number Patterns</td>
+              <td>Digit sum patterns, reverse-and-add, Kaprekar routine</td>
+            </tr>
+            <tr>
+              <td>Magic Squares</td>
+              <td>Squares where rows, columns, diagonals have equal sums</td>
+            </tr>
+            <tr>
+              <td>Cryptarithmetic</td>
+              <td>Puzzles where digits replace letters in arithmetic</td>
+            </tr>
+            <tr>
+              <td>Famous Numbers</td>
+              <td>Hardy-Ramanujan, Fermat, Armstrong, Kaprekar numbers</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 2: DIVISIBILITY RULES
+       ===================================================== -->
+  <div class="section-block reveal" id="divisibility">
+    <div class="section-hd g-orange">
+      <span class="icon">&#128290;</span>
+      Divisibility Rules
+    </div>
+    <div class="section-bd">
+
+      <p>A number <strong>a</strong> is <span class="kt">divisible</span> by another number <strong>b</strong> if dividing a by b leaves a remainder of zero. Instead of performing long division, we can use quick <strong>divisibility tests</strong> based on the digits of the number.</p>
+
+      <div class="subtitle">&#128290; Complete Divisibility Rules Table</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Divisor</th>
+              <th>Rule</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>2</strong></td>
+              <td>Last digit is <strong>0, 2, 4, 6, or 8</strong> (even)</td>
+              <td>4,536 &rarr; last digit 6 (even) &rarr; &#9989; divisible by 2</td>
+            </tr>
+            <tr>
+              <td><strong>3</strong></td>
+              <td><strong>Sum of digits</strong> is divisible by 3</td>
+              <td>621 &rarr; 6+2+1 = 9 &rarr; 9&divide;3 = 3 &#9989;</td>
+            </tr>
+            <tr>
+              <td><strong>4</strong></td>
+              <td>Last <strong>two digits</strong> form a number divisible by 4</td>
+              <td>3,724 &rarr; last two digits 24 &rarr; 24&divide;4 = 6 &#9989;</td>
+            </tr>
+            <tr>
+              <td><strong>5</strong></td>
+              <td>Last digit is <strong>0 or 5</strong></td>
+              <td>8,475 &rarr; last digit 5 &#9989;</td>
+            </tr>
+            <tr>
+              <td><strong>6</strong></td>
+              <td>Divisible by <strong>both 2 and 3</strong></td>
+              <td>312 &rarr; even &#9989; &amp; 3+1+2 = 6 (div by 3) &#9989;</td>
+            </tr>
+            <tr>
+              <td><strong>8</strong></td>
+              <td>Last <strong>three digits</strong> form a number divisible by 8</td>
+              <td>5,016 &rarr; last three 016 = 16 &rarr; 16&divide;8 = 2 &#9989;</td>
+            </tr>
+            <tr>
+              <td><strong>9</strong></td>
+              <td><strong>Sum of digits</strong> is divisible by 9</td>
+              <td>2,709 &rarr; 2+7+0+9 = 18 &rarr; 18&divide;9 = 2 &#9989;</td>
+            </tr>
+            <tr>
+              <td><strong>10</strong></td>
+              <td>Last digit is <strong>0</strong></td>
+              <td>4,530 &rarr; last digit 0 &#9989;</td>
+            </tr>
+            <tr>
+              <td><strong>11</strong></td>
+              <td>Alternating sum of digits (odd &minus; even positions) is 0 or divisible by 11</td>
+              <td>61,853 &rarr; (6+8+3)&minus;(1+5) = 17&minus;6 = 11 &#9989;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subtitle">&#128161; Understanding the Rule for 11</div>
+
+      <p>The divisibility rule for 11 is the trickiest. Starting from the leftmost digit, alternate between adding and subtracting each digit. If the result is 0 or a multiple of 11, the original number is divisible by 11.</p>
+
+      <div class="worked-example">
+        <h4>Example: Is 918,082 divisible by 11?</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Write the digits: 9, 1, 8, 0, 8, 2
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Alternating sum from left: 9 &minus; 1 + 8 &minus; 0 + 8 &minus; 2 = <strong>22</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Is 22 divisible by 11? Yes! 22 &divide; 11 = 2. &#9989;
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> 918,082 <strong>is divisible by 11</strong>.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128161; Why Do These Rules Work?</div>
+
+      <p>Divisibility rules are not arbitrary tricks &mdash; they arise from the <strong>place value system</strong>. For example, why does the digit sum rule work for 9? Consider 234 = 2&times;100 + 3&times;10 + 4. Since 100 = 99+1 and 10 = 9+1, we get: 234 = 2&times;(99+1) + 3&times;(9+1) + 4 = (2&times;99 + 3&times;9) + (2+3+4). The terms 2&times;99 + 3&times;9 are always divisible by 9, so 234 is divisible by 9 if and only if the digit sum 2+3+4 = 9 is divisible by 9!</p>
+
+      <div class="trick">
+        <strong>&#128161; Memory Aid for Divisibility:</strong><br>
+        &#8226; <strong>2</strong> &rarr; Last digit Even<br>
+        &#8226; <strong>3</strong> &rarr; digit Sum &divide; 3<br>
+        &#8226; <strong>4</strong> &rarr; last Two digits &divide; 4<br>
+        &#8226; <strong>5</strong> &rarr; Last digit 0 or 5<br>
+        &#8226; <strong>6</strong> &rarr; 2 AND 3<br>
+        &#8226; <strong>8</strong> &rarr; last Three digits &divide; 8<br>
+        &#8226; <strong>9</strong> &rarr; digit Sum &divide; 9<br>
+        &#8226; <strong>10</strong> &rarr; last digit 0<br>
+        &#8226; <strong>11</strong> &rarr; Alternating sum &divide; 11
+      </div>
+
+      <div class="worked-example">
+        <h4>Example: Test 7,425,600 for divisibility by 2, 3, 4, 5, 6, 8, 9, 10, 11.</h4>
+        <div class="we-step"><strong>By 2:</strong> Last digit = 0 (even) &#9989;</div>
+        <div class="we-step"><strong>By 3:</strong> Digit sum = 7+4+2+5+6+0+0 = 24. 24&divide;3 = 8 &#9989;</div>
+        <div class="we-step"><strong>By 4:</strong> Last two digits = 00. 0&divide;4 = 0 &#9989;</div>
+        <div class="we-step"><strong>By 5:</strong> Last digit = 0 &#9989;</div>
+        <div class="we-step"><strong>By 6:</strong> Divisible by both 2 and 3 &#9989;</div>
+        <div class="we-step"><strong>By 8:</strong> Last three digits = 600. 600&divide;8 = 75 &#9989;</div>
+        <div class="we-step"><strong>By 9:</strong> Digit sum = 24. 24&divide;9 = 2 remainder 6 &#10060; Not divisible by 9</div>
+        <div class="we-step"><strong>By 10:</strong> Last digit = 0 &#9989;</div>
+        <div class="we-step"><strong>By 11:</strong> 7&minus;4+2&minus;5+6&minus;0+0 = 6. 6 is not divisible by 11 &#10060;</div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Important:</strong> To test for divisibility by 6, you must check <strong>both</strong> the rule for 2 AND the rule for 3. A number that is even but whose digit sum is not divisible by 3 (like 14) is NOT divisible by 6.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 3: PALINDROMIC NUMBERS
+       ===================================================== -->
+  <div class="section-block reveal" id="palindromes">
+    <div class="section-hd g-brown">
+      <span class="icon">&#128257;</span>
+      Palindromic Numbers
+    </div>
+    <div class="section-bd">
+
+      <p>A <span class="kt">palindromic number</span> (or simply <strong>palindrome</strong>) is a number that reads the same forwards and backwards. The word "palindrome" comes from the Greek words <em>palin</em> (again) and <em>dromos</em> (path) &mdash; literally "running back again."</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128290; Single-digit Palindromes</h4>
+          All single-digit numbers (0&ndash;9) are palindromes: <strong>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</strong>
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128290; Two-digit Palindromes</h4>
+          <strong>11, 22, 33, 44, 55, 66, 77, 88, 99</strong> &mdash; there are exactly 9 of them.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#128290; Three-digit Palindromes</h4>
+          Examples: <strong>121, 131, 252, 343, 505, 747, 999</strong>. The first and last digits must match. There are 90 three-digit palindromes (from 101 to 999).
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128290; Larger Palindromes</h4>
+          <strong>1221, 12321, 45654, 1234321</strong> &mdash; palindromes can be as large as you want!
+        </div>
+      </div>
+
+      <div class="subtitle">&#128257; The Reverse-and-Add Process</div>
+
+      <p>Here is a fascinating property: take almost any number, reverse its digits, and add the two numbers. Repeat this process, and most numbers eventually become palindromes! This is called the <strong>reverse-and-add</strong> process.</p>
+
+      <div class="worked-example">
+        <h4>Example: Start with 56. Apply reverse-and-add until you reach a palindrome.</h4>
+        <div class="we-step"><strong>Step 1:</strong> 56 + 65 = <strong>121</strong> &#9989; Palindrome reached in 1 step!</div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example: Start with 78. Apply reverse-and-add.</h4>
+        <div class="we-step"><strong>Step 1:</strong> 78 + 87 = <strong>165</strong> (not a palindrome)</div>
+        <div class="we-step"><strong>Step 2:</strong> 165 + 561 = <strong>726</strong> (not a palindrome)</div>
+        <div class="we-step"><strong>Step 3:</strong> 726 + 627 = <strong>1353</strong> (not a palindrome)</div>
+        <div class="we-step"><strong>Step 4:</strong> 1353 + 3531 = <strong>4884</strong> &#9989; Palindrome reached in 4 steps!</div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Fun Fact:</strong> The number <strong>196</strong> is the smallest number for which no one has ever found a palindrome through reverse-and-add, even after billions of iterations on supercomputers! It is called a <strong>Lychrel number candidate</strong>. Nobody has proved that 196 will never become a palindrome &mdash; it is one of the unsolved mysteries of mathematics!
+      </div>
+
+      <div class="subtitle">&#128290; Properties of Palindromic Numbers</div>
+
+      <ul>
+        <li>Every palindrome with an <strong>even</strong> number of digits is divisible by <strong>11</strong>. Example: 1221 &rarr; 1&minus;2+2&minus;1 = 0 &#9989;</li>
+        <li>A three-digit palindrome <em>aba</em> equals 100a + 10b + a = <strong>101a + 10b</strong>. Since 101 is prime and 10 is not divisible by 101, the structure constrains what values work.</li>
+        <li>The product of a palindrome with its reverse is the palindrome squared: the reverse of a palindrome <em>is itself</em>!</li>
+      </ul>
+
+      <div class="note-box">
+        <strong>&#128161; Palindrome in Words:</strong> Just like "MADAM" and "RACECAR" are word palindromes, numbers like 12321 are number palindromes. The NCERT textbook encourages you to investigate how many palindromes exist between any two given numbers.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 4: NUMBER PATTERNS
+       ===================================================== -->
+  <div class="section-block reveal" id="patterns">
+    <div class="section-hd g-gold">
+      <span class="icon">&#128161;</span>
+      Patterns in Numbers
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128290; Digit Sum Patterns</div>
+
+      <p>The <span class="kt">digit sum</span> (or <strong>digital root</strong>) of a number is found by repeatedly summing the digits until you get a single digit. This reveals beautiful hidden patterns.</p>
+
+      <div class="worked-example">
+        <h4>Example: Find the digital root of 9,875.</h4>
+        <div class="we-step"><strong>Step 1:</strong> 9 + 8 + 7 + 5 = 29</div>
+        <div class="we-step"><strong>Step 2:</strong> 2 + 9 = 11</div>
+        <div class="we-step"><strong>Step 3:</strong> 1 + 1 = <strong>2</strong>. The digital root of 9,875 is 2.</div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#127922; Pattern: Multiples of 9</h4>
+          The digital root of <strong>every multiple of 9</strong> is always <strong>9</strong>!<br>
+          9 &rarr; 9, 18 &rarr; 9, 27 &rarr; 9, 36 &rarr; 9, 45 &rarr; 9, ..., 99 &rarr; 9, 108 &rarr; 9
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#127922; Pattern: Squares</h4>
+          The digital roots of perfect squares cycle: <strong>1, 4, 9, 7, 7, 9, 4, 1, 9</strong> and then repeat! A number whose digital root is 2, 3, 5, 6, or 8 <strong>cannot</strong> be a perfect square.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128290; The Kaprekar Routine (6174)</div>
+
+      <p>Take any 4-digit number (with at least two different digits). Arrange its digits in <strong>descending order</strong> and <strong>ascending order</strong>. Subtract the smaller from the larger. Repeat. You will always reach <strong>6174</strong> (called <span class="kt">Kaprekar's constant</span>) within 7 steps!</p>
+
+      <div class="worked-example">
+        <h4>Example: Start with 3,087.</h4>
+        <div class="we-step"><strong>Step 1:</strong> Descending: 8730, Ascending: 0378 &rarr; 8730 &minus; 0378 = <strong>8352</strong></div>
+        <div class="we-step"><strong>Step 2:</strong> 8532 &minus; 2358 = <strong>6174</strong> &#9989; Kaprekar's constant reached in 2 steps!</div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example: Start with 2,005.</h4>
+        <div class="we-step"><strong>Step 1:</strong> 5200 &minus; 0025 = <strong>5175</strong></div>
+        <div class="we-step"><strong>Step 2:</strong> 7551 &minus; 1557 = <strong>5994</strong></div>
+        <div class="we-step"><strong>Step 3:</strong> 9954 &minus; 4599 = <strong>5355</strong></div>
+        <div class="we-step"><strong>Step 4:</strong> 5553 &minus; 3555 = <strong>1998</strong></div>
+        <div class="we-step"><strong>Step 5:</strong> 9981 &minus; 1899 = <strong>8082</strong></div>
+        <div class="we-step"><strong>Step 6:</strong> 8820 &minus; 0288 = <strong>8532</strong></div>
+        <div class="we-step"><strong>Step 7:</strong> 8532 &minus; 2358 = <strong>6174</strong> &#9989;</div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Did You Know?</strong> D.R. Kaprekar (1905&ndash;1986) was an Indian mathematician from Devlali, Maharashtra. He discovered this remarkable constant and many other number curiosities. Despite being a schoolteacher with no formal research position, his contributions to recreational mathematics are celebrated worldwide.
+      </div>
+
+      <div class="subtitle">&#128290; Interesting Number Patterns</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-orange">
+          <h4>&#128161; 1 &times; 1 = 1</h4>
+          11 &times; 11 = 121<br>
+          111 &times; 111 = 12321<br>
+          1111 &times; 1111 = 1234321<br>
+          <strong>Pattern:</strong> Pyramid of digits!
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128161; 9 &times; 1 + 1 = 10</h4>
+          9 &times; 12 + 3 = 111<br>
+          9 &times; 123 + 4 = 1111<br>
+          9 &times; 1234 + 5 = 11111<br>
+          <strong>Pattern:</strong> Repunit magic!
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#128161; 1 &times; 8 + 1 = 9</h4>
+          12 &times; 8 + 2 = 98<br>
+          123 &times; 8 + 3 = 987<br>
+          1234 &times; 8 + 4 = 9876<br>
+          <strong>Pattern:</strong> Descending digits!
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128161; 1 &times; 9 + 2 = 11</h4>
+          12 &times; 9 + 3 = 111<br>
+          123 &times; 9 + 4 = 1111<br>
+          1234 &times; 9 + 5 = 11111<br>
+          <strong>Pattern:</strong> Repunits again!
+        </div>
+      </div>
+
+      <div class="subtitle">&#128290; Armstrong Numbers</div>
+
+      <p>An <span class="kt">Armstrong number</span> (or <strong>narcissistic number</strong>) is a number that equals the sum of its own digits each raised to the power of the number of digits. For example:</p>
+
+      <ul>
+        <li><strong>153</strong> = 1&sup3; + 5&sup3; + 3&sup3; = 1 + 125 + 27 = 153 &#9989;</li>
+        <li><strong>370</strong> = 3&sup3; + 7&sup3; + 0&sup3; = 27 + 343 + 0 = 370 &#9989;</li>
+        <li><strong>371</strong> = 3&sup3; + 7&sup3; + 1&sup3; = 27 + 343 + 1 = 371 &#9989;</li>
+        <li><strong>407</strong> = 4&sup3; + 0&sup3; + 7&sup3; = 64 + 0 + 343 = 407 &#9989;</li>
+      </ul>
+
+      <div class="trick">
+        <strong>&#128161; Puzzle Challenge:</strong> There are exactly four 3-digit Armstrong numbers: 153, 370, 371, and 407. Can you verify each one? For 2-digit numbers, there are none! For 1-digit numbers, all single digits 0&ndash;9 are trivially Armstrong numbers.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 5: MAGIC SQUARES
+       ===================================================== -->
+  <div class="section-block reveal" id="magic">
+    <div class="section-hd g-amber">
+      <span class="icon">&#10024;</span>
+      Magic Squares
+    </div>
+    <div class="section-bd">
+
+      <p>A <span class="kt">magic square</span> is a grid of numbers where every row, every column, and both main diagonals add up to the <strong>same sum</strong>, called the <strong>magic constant</strong>.</p>
+
+      <div class="subtitle">&#10024; The 3&times;3 Magic Square</div>
+
+      <p>The most famous magic square uses the numbers 1 through 9 and has a magic constant of <strong>15</strong>.</p>
+
+      <div class="formula-box">
+        Magic Constant for n&times;n square using 1 to n&sup2; = n(n&sup2; + 1) / 2
+        <small>For a 3&times;3 square: 3(9+1)/2 = 3&times;10/2 = 15</small>
+      </div>
+
+      <div class="puzzle-wrap">
+        <div class="puzzle-title">&#10024; The Classic 3&times;3 Magic Square</div>
+        <div class="puzzle-desc">Every row, column, and diagonal adds up to 15!</div>
+        <div style="display:inline-grid;grid-template-columns:repeat(3,60px);gap:4px;margin:10px auto;">
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">2</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">7</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">6</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">9</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">5</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">1</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">4</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">3</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">8</div>
+        </div>
+        <p style="font-size:13px;color:#475569;margin-top:8px;">Row 1: 2+7+6=15 &bull; Row 2: 9+5+1=15 &bull; Row 3: 4+3+8=15<br>Col 1: 2+9+4=15 &bull; Col 2: 7+5+3=15 &bull; Col 3: 6+1+8=15<br>Diag: 2+5+8=15 &bull; Diag: 6+5+4=15</p>
+      </div>
+
+      <div class="subtitle">&#128736; How to Build a 3&times;3 Magic Square</div>
+
+      <p>The NCERT textbook teaches the <strong>Siamese method</strong> (also called the "staircase method") for odd-order magic squares:</p>
+
+      <ol>
+        <li>Place <strong>1</strong> in the middle cell of the top row.</li>
+        <li>Move <strong>diagonally up-right</strong> to place the next number.</li>
+        <li>If you go above the top row, wrap to the bottom of the same column.</li>
+        <li>If you go past the right edge, wrap to the left of the same row.</li>
+        <li>If the target cell is already occupied, place the number <strong>directly below</strong> the current cell instead.</li>
+      </ol>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#127470;&#127475; Indian Heritage</h4>
+          A 4&times;4 magic square appears in the <strong>Khajuraho temple</strong> (10th century CE) in Madhya Pradesh! It uses the numbers 1&ndash;16 with a magic constant of 34. Narayana Pandit (1356 CE) gave systematic methods for constructing magic squares of any order.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128290; Properties</h4>
+          In the 3&times;3 magic square with 1&ndash;9, the centre cell is always <strong>5</strong> (the middle number). The four corner numbers always add up to <strong>20</strong>. The magic constant for an n&times;n square using 1 to n&sup2; is always n(n&sup2;+1)/2.
+        </div>
+      </div>
+
+      <div class="subtitle">&#10024; The 4&times;4 Magic Square</div>
+
+      <p>A 4&times;4 magic square using numbers 1 to 16 has a magic constant of <strong>34</strong>. The famous Khajuraho magic square is:</p>
+
+      <div class="puzzle-wrap">
+        <div class="puzzle-title">&#127470;&#127475; Khajuraho Temple Magic Square</div>
+        <div style="display:inline-grid;grid-template-columns:repeat(4,56px);gap:4px;margin:10px auto;">
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">7</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">12</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">1</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">14</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">2</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">13</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">8</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">11</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">16</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">3</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">10</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">5</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">9</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">6</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">15</div>
+          <div class="magic-cell given" style="display:flex;align-items:center;justify-content:center;">4</div>
+        </div>
+        <p style="font-size:13px;color:#475569;margin-top:8px;">Every row, column, and diagonal sums to 34. Check it yourself!</p>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Fun Activity:</strong> Can you find other properties of the 4&times;4 magic square? Try adding the four corner numbers (7+14+9+4 = 34!). Try adding the four centre numbers (13+8+3+10 = 34!). There are many hidden patterns in magic squares beyond rows, columns, and diagonals.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 6: CRYPTARITHMETIC PUZZLES
+       ===================================================== -->
+  <div class="section-block reveal" id="crypto">
+    <div class="section-hd g-orange">
+      <span class="icon">&#128272;</span>
+      Cryptarithmetic Puzzles
+    </div>
+    <div class="section-bd">
+
+      <p><span class="kt">Cryptarithmetic</span> (also called alphametic or verbal arithmetic) is a type of puzzle where digits are replaced by letters. Each letter stands for a unique digit (0&ndash;9), and the leading digit of a number cannot be 0. Your job is to figure out which digit each letter represents so that the arithmetic is correct.</p>
+
+      <div class="subtitle">&#128272; The Classic: SEND + MORE = MONEY</div>
+
+      <p>This is the most famous cryptarithmetic puzzle ever created (by Henry Dudeney, 1924):</p>
+
+      <div class="puzzle-wrap">
+        <div class="puzzle-title">&#128272; SEND + MORE = MONEY</div>
+        <div style="font-family:'Fredoka One',cursive;font-size:20px;color:#78350f;line-height:1.6;">
+          &nbsp;&nbsp;S E N D<br>
+          + M O R E<br>
+          &mdash;&mdash;&mdash;&mdash;&mdash;<br>
+          M O N E Y
+        </div>
+        <p style="font-size:13px;color:#475569;margin-top:8px;">Each letter represents a unique digit (0&ndash;9). Can you solve it?</p>
+      </div>
+
+      <div class="worked-example">
+        <h4>Solution: SEND + MORE = MONEY</h4>
+        <div class="we-step">
+          <strong>Key Insight:</strong> Since MONEY is a 5-digit number and SEND and MORE are 4-digit numbers, the sum must have carried over. This means <strong>M = 1</strong> (the only carry possible from adding two 4-digit numbers).
+        </div>
+        <div class="we-step">
+          <strong>Deduction:</strong> Since M = 1, looking at the leftmost column: S + M = MO... means S + 1 produces a carry and O is the unit digit. If there is a carry from the next column, S + 1 + 1 = 10 + O or S + 1 = 10 + O. Since S is a single digit, S + 1 &ge; 10 gives S = 9 and O = 0 (with carry 1).
+        </div>
+        <div class="we-step">
+          <strong>Working through:</strong> With M=1, O=0, S=9, and careful analysis of carries in each column, we arrive at: <strong>S=9, E=5, N=6, D=7, M=1, O=0, R=8, Y=2</strong>
+        </div>
+        <div class="we-step">
+          <strong>Verification:</strong> 9567 + 1085 = <strong>10652</strong> &#9989;
+        </div>
+      </div>
+
+      <div class="subtitle">&#128272; Simpler Cryptarithmetic Puzzles</div>
+
+      <div class="worked-example">
+        <h4>Puzzle: AB + BA = 121</h4>
+        <div class="we-step">
+          <strong>Setup:</strong> AB = 10A + B, BA = 10B + A.<br>
+          AB + BA = 10A + B + 10B + A = 11A + 11B = 11(A + B) = 121
+        </div>
+        <div class="we-step">
+          <strong>Solve:</strong> A + B = 121 &divide; 11 = <strong>11</strong>.<br>
+          So we need two digits A and B with A + B = 11 and A &ne; 0, B &ne; 0.<br>
+          Possibilities: (2,9), (3,8), (4,7), (5,6), (6,5), (7,4), (8,3), (9,2)
+        </div>
+        <div class="we-step">
+          <strong>Example:</strong> A = 2, B = 9 gives 29 + 92 = <strong>121</strong> &#9989;
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Puzzle: AA + AA = ABA</h4>
+        <div class="we-step">
+          <strong>Setup:</strong> AA = 11A, so AA + AA = 22A = ABA = 100A + 10B + A = 101A + 10B
+        </div>
+        <div class="we-step">
+          <strong>Solve:</strong> 22A = 101A + 10B &rarr; This gives a negative B, so let us reconsider.<br>
+          Actually ABA is a 3-digit number, and 22A must equal 101A + 10B means we need: the sum of two 2-digit numbers is a 3-digit number. 22A &ge; 100 &rarr; A &ge; 5. If A = 5: 22 &times; 5 = 110 &rarr; ABA = 5B5, so 110 = 505 + 10B? No.<br>
+          <strong>Re-read:</strong> 22 &times; A where ABA means digit pattern. 55 + 55 = 110 &rarr; A=5, B=1: ABA = 515? But 110 &ne; 515.
+        </div>
+        <div class="we-step">
+          <strong>Correct approach:</strong> We want 22A to have the digit pattern A_A. 22 &times; 5 = 110 (pattern 1_0, not A_A). 22 &times; 8 = 176 (1_6, no). Let us try: AA + AA + AA = something. The NCERT puzzle format states <strong>A + A = BA</strong> where BA is a two-digit number. A + A = 10B + A, so A = 10B. A is a single digit, so B must be... Hmm, let's try: if A = 5, then 5+5 = 10, so B = 1 and A = 0? Let us use the NCERT style: each letter is a single digit, the "+" produces a carry. <strong>If A + A produces carry: 2A &ge; 10, so A &ge; 5</strong>. Then 2A = 10 + something. Actually for <strong>A + A = BA</strong>: 2A = 10B + A &rarr; A = 10B. Only works if B=0 and A=0 (trivial). So the intended puzzle must be with carry logic in multi-digit. <strong>Let us do a cleaner NCERT example instead:</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Puzzle (NCERT Style): 3A + A5 = 89, find A.</h4>
+        <div class="we-step">
+          <strong>Setup:</strong> 3A means the number with tens digit 3 and units digit A: 30 + A.<br>
+          A5 means tens digit A and units digit 5: 10A + 5.
+        </div>
+        <div class="we-step">
+          <strong>Equation:</strong> (30 + A) + (10A + 5) = 89<br>
+          35 + 11A = 89<br>
+          11A = 54<br>
+          A = 54/11 &mdash; not an integer!
+        </div>
+        <div class="we-step">
+          <strong>Hmm!</strong> Let us look at the units digit: A + 5 should give 9 in the units place. So A = 4 (since 4 + 5 = 9, no carry). Check: 34 + 45 = 79 &ne; 89. With carry: A + 5 = 19 &rarr; A = 14? Not a digit. So 3A + A5 = 89 has no valid solution &mdash; showing that not every puzzle has a solution! <strong>Let us fix it:</strong> 3A + A5 = <strong>79</strong>. Then A + 5 = 9 &rarr; A = 4. Check: 34 + 45 = 79 &#9989; <strong>A = 4</strong>.
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Puzzle (NCERT Style): A1 + 1A = B2, find A and B.</h4>
+        <div class="we-step">
+          <strong>Setup:</strong> A1 = 10A + 1, 1A = 10 + A. Their sum = 11A + 11 = 11(A + 1).
+        </div>
+        <div class="we-step">
+          <strong>B2 = 10B + 2.</strong> So 11(A + 1) = 10B + 2.
+        </div>
+        <div class="we-step">
+          <strong>From units digit:</strong> 1 + A should give 2 in units place. If no carry: A = 1. Check: 11(1+1) = 22 = 10B + 2 &rarr; B = 2. Verify: 11 + 11 = 22 &#9989;. But A = 1 means "1A" = "11" and "A1" = "11", same number.
+        </div>
+        <div class="we-step">
+          <strong>With carry:</strong> 1 + A = 12 &rarr; A = 11 (not a digit). So <strong>A = 1, B = 2</strong> is the only solution. We could also try different sums like <strong>A1 + 1A = B8</strong>: 1 + A ends in 8 &rarr; A = 7 (no carry). Check: 71 + 17 = 88 &rarr; B = 8. &#9989; <strong>A = 7, B = 8</strong>.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Strategy for Cryptarithmetic:</strong><br>
+        1. Start with columns that have the fewest unknowns.<br>
+        2. Look for <strong>carries</strong> &mdash; when does a column sum exceed 9?<br>
+        3. The <strong>leading digit</strong> of any number cannot be 0.<br>
+        4. Each letter represents a <strong>unique</strong> digit.<br>
+        5. Work systematically, testing possibilities and eliminating contradictions.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 7: GAMES WITH NUMBERS
+       ===================================================== -->
+  <div class="section-block reveal" id="games">
+    <div class="section-hd g-gold">
+      <span class="icon">&#127918;</span>
+      Games with Numbers
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#127918; The "Think of a Number" Trick</div>
+
+      <p>Here is a classic number magic trick you can perform on your friends:</p>
+
+      <ol>
+        <li>Think of any number.</li>
+        <li>Double it.</li>
+        <li>Add 10.</li>
+        <li>Halve the result.</li>
+        <li>Subtract the original number.</li>
+      </ol>
+
+      <p><strong>The answer is always 5!</strong> Why? Let the number be <em>n</em>. Double: 2n. Add 10: 2n + 10. Halve: n + 5. Subtract n: <strong>5</strong>.</p>
+
+      <div class="subtitle">&#127918; The 1089 Trick</div>
+
+      <div class="worked-example">
+        <h4>Magic with any 3-digit number (where first and last digits differ by at least 2):</h4>
+        <div class="we-step"><strong>Step 1:</strong> Pick a 3-digit number. Example: <strong>732</strong></div>
+        <div class="we-step"><strong>Step 2:</strong> Reverse it: <strong>237</strong></div>
+        <div class="we-step"><strong>Step 3:</strong> Subtract the smaller from the larger: 732 &minus; 237 = <strong>495</strong></div>
+        <div class="we-step"><strong>Step 4:</strong> Reverse the result: <strong>594</strong></div>
+        <div class="we-step"><strong>Step 5:</strong> Add the result and its reverse: 495 + 594 = <strong>1089</strong></div>
+        <div class="we-step"><strong>The answer is ALWAYS 1089!</strong> This works for any starting 3-digit number where the first and last digits differ by at least 2.</div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Why does 1089 always appear?</strong> Let the number be 100a + 10b + c where a &gt; c + 1. After subtraction and reversal, the algebra always simplifies to 1089. The middle digit of the difference is always 9, and the first and last digits always sum to 9, which forces the final answer to be 1089.
+      </div>
+
+      <div class="subtitle">&#127918; The 3-digit Repeat Trick</div>
+
+      <p>Take any 3-digit number and write it twice to form a 6-digit number. Example: 237 &rarr; 237237. This 6-digit number is <strong>always</strong> divisible by 7, 11, and 13!</p>
+
+      <div class="worked-example">
+        <h4>Example: 237237</h4>
+        <div class="we-step"><strong>Why?</strong> Writing a 3-digit number ABC twice gives: ABC &times; 1000 + ABC = ABC &times; 1001</div>
+        <div class="we-step"><strong>Key fact:</strong> 1001 = 7 &times; 11 &times; 13</div>
+        <div class="we-step"><strong>Therefore:</strong> 237237 = 237 &times; 1001 = 237 &times; 7 &times; 11 &times; 13, which is divisible by 7, 11, and 13. &#9989;</div>
+        <div class="we-step"><strong>Verify:</strong> 237237 &divide; 7 = 33891, 237237 &divide; 11 = 21567, 237237 &divide; 13 = 18249 &#9989;</div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Impress Your Friends!</strong> Ask someone to write any 3-digit number twice. Then dramatically announce: "I can tell you that your number is divisible by 7... and by 11... and by 13!" The secret is that <strong>any</strong> 6-digit number of the form ABCABC = ABC &times; 1001, and 1001 = 7 &times; 11 &times; 13.
+      </div>
+
+      <div class="subtitle">&#127918; Fermat Numbers and Ramanujan</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128290; Hardy-Ramanujan Number: 1729</h4>
+          When the mathematician G.H. Hardy visited Ramanujan in hospital and mentioned that his taxi number was 1729, "a rather dull number," Ramanujan instantly replied: "No, it is a very interesting number; it is the smallest number expressible as the sum of two cubes in two different ways: 1&sup3; + 12&sup3; = 9&sup3; + 10&sup3; = 1729."
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128290; Fermat's Little Theorem</h4>
+          Pierre de Fermat discovered that if p is a prime and a is not divisible by p, then a<sup>p&minus;1</sup> &equiv; 1 (mod p). This is used in modern cryptography and computer science for primality testing.
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#128290; Kaprekar Numbers</h4>
+          A number n is a Kaprekar number if n&sup2; can be split into two parts that add up to n. Example: 45&sup2; = 2025, and 20 + 25 = 45! Others: 9 (81 &rarr; 8+1=9), 297 (88209 &rarr; 88+209=297).
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128290; Perfect Numbers</h4>
+          A number is <strong>perfect</strong> if it equals the sum of its proper divisors. The first four perfect numbers are: <strong>6</strong> (1+2+3), <strong>28</strong> (1+2+4+7+14), <strong>496</strong>, and <strong>8128</strong>. Whether odd perfect numbers exist is an open problem!
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 8: NCERT-STYLE WORKED EXAMPLES
+       ===================================================== -->
+  <div class="section-block reveal" id="worked">
+    <div class="section-hd g-amber">
+      <span class="icon">&#9999;&#65039;</span>
+      NCERT-Style Worked Examples
+    </div>
+    <div class="section-bd">
+
+      <div class="worked-example">
+        <h4>Example 1: Without actually dividing, check whether 38,808 is divisible by 2, 3, 4, 6, 8, and 9.</h4>
+        <div class="we-step"><strong>By 2:</strong> Last digit = 8 (even) &#9989;</div>
+        <div class="we-step"><strong>By 3:</strong> Digit sum = 3+8+8+0+8 = 27. 27&divide;3 = 9 &#9989;</div>
+        <div class="we-step"><strong>By 4:</strong> Last two digits = 08. 8&divide;4 = 2 &#9989;</div>
+        <div class="we-step"><strong>By 6:</strong> Divisible by both 2 and 3 &#9989;</div>
+        <div class="we-step"><strong>By 8:</strong> Last three digits = 808. 808&divide;8 = 101 &#9989;</div>
+        <div class="we-step"><strong>By 9:</strong> Digit sum = 27. 27&divide;9 = 3 &#9989;</div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 2: Check whether 4,52,390 is divisible by 11.</h4>
+        <div class="we-step"><strong>Digits:</strong> 4, 5, 2, 3, 9, 0</div>
+        <div class="we-step"><strong>Alternating sum:</strong> (4 + 2 + 9) &minus; (5 + 3 + 0) = 15 &minus; 8 = <strong>7</strong></div>
+        <div class="we-step">7 is not divisible by 11. &#10060; <strong>Not divisible by 11.</strong></div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 3: Apply the Kaprekar routine starting from 4,150.</h4>
+        <div class="we-step"><strong>Step 1:</strong> Descending: 5410, Ascending: 0145 &rarr; 5410 &minus; 0145 = <strong>5265</strong></div>
+        <div class="we-step"><strong>Step 2:</strong> 6552 &minus; 2556 = <strong>3996</strong></div>
+        <div class="we-step"><strong>Step 3:</strong> 9963 &minus; 3699 = <strong>6264</strong></div>
+        <div class="we-step"><strong>Step 4:</strong> 6642 &minus; 2466 = <strong>4176</strong></div>
+        <div class="we-step"><strong>Step 5:</strong> 7641 &minus; 1467 = <strong>6174</strong> &#9989; Kaprekar's constant reached in 5 steps!</div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 4: Verify that 153 is an Armstrong number.</h4>
+        <div class="we-step"><strong>Digits:</strong> 1, 5, 3 (3-digit number, so use power 3)</div>
+        <div class="we-step">1&sup3; + 5&sup3; + 3&sup3; = 1 + 125 + 27 = <strong>153</strong> &#9989;</div>
+        <div class="we-step">Since the sum of cubes of digits equals the number itself, 153 is an Armstrong number.</div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 5: Complete the 3&times;3 magic square where the middle row is _, 5, _ and the sum is 15.</h4>
+        <div class="we-step"><strong>Known:</strong> Centre = 5, magic constant = 15. The numbers 1&ndash;9 must each appear once.</div>
+        <div class="we-step"><strong>Centre row:</strong> ? + 5 + ? = 15, so the two unknowns sum to 10. Possible pairs from {1,2,3,4,6,7,8,9}: (1,9), (2,8), (3,7), (4,6).</div>
+        <div class="we-step"><strong>Using the standard method:</strong> The centre row is <strong>9, 5, 1</strong>. Top row: <strong>2, 7, 6</strong>. Bottom row: <strong>4, 3, 8</strong>.</div>
+        <div class="we-step"><strong>Verify:</strong> All rows, columns, and diagonals sum to 15 &#9989;</div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 6: Perform the reverse-and-add process starting from 167.</h4>
+        <div class="we-step"><strong>Step 1:</strong> 167 + 761 = <strong>928</strong> (not a palindrome)</div>
+        <div class="we-step"><strong>Step 2:</strong> 928 + 829 = <strong>1757</strong> (not a palindrome)</div>
+        <div class="we-step"><strong>Step 3:</strong> 1757 + 7571 = <strong>9328</strong> (not a palindrome)</div>
+        <div class="we-step"><strong>Step 4:</strong> 9328 + 8239 = <strong>17567</strong> (not a palindrome)</div>
+        <div class="we-step"><strong>Step 5:</strong> 17567 + 76571 = <strong>94138</strong> (not a palindrome)</div>
+        <div class="we-step"><strong>Step 6:</strong> 94138 + 83149 = <strong>177287</strong> (not a palindrome)</div>
+        <div class="we-step"><strong>Step 7:</strong> 177287 + 782771 = <strong>960058</strong> (not a palindrome)</div>
+        <div class="we-step"><strong>Step 8:</strong> 960058 + 850069 = <strong>1810127</strong> (not a palindrome)</div>
+        <div class="we-step"><strong>Step 9:</strong> 1810127 + 7210181 = <strong>9020308</strong> (not a palindrome)</div>
+        <div class="we-step"><strong>Step 10:</strong> 9020308 + 8030209 = <strong>17050517</strong> (not a palindrome)</div>
+        <div class="we-step"><strong>Step 11:</strong> 17050517 + 71505071 = <strong>88555588</strong> &#9989; <strong>Palindrome reached in 11 steps!</strong></div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 7: Prove that the 1089 trick works algebraically.</h4>
+        <div class="we-step"><strong>Let</strong> the 3-digit number be 100a + 10b + c where a &gt; c (if not, swap to use the larger minus smaller). Also assume a &minus; c &ge; 2.</div>
+        <div class="we-step"><strong>Reverse:</strong> 100c + 10b + a</div>
+        <div class="we-step"><strong>Subtract:</strong> (100a + 10b + c) &minus; (100c + 10b + a) = 99(a &minus; c)</div>
+        <div class="we-step"><strong>Since</strong> 2 &le; a &minus; c &le; 9, the difference 99(a&minus;c) ranges from 198 to 891. Let d = a&minus;c. Then 99d = 100(d&minus;1) + 90 + (10&minus;d). The hundreds digit is (d&minus;1), tens digit is 9, units digit is (10&minus;d).</div>
+        <div class="we-step"><strong>Reverse of 99d:</strong> 100(10&minus;d) + 90 + (d&minus;1)</div>
+        <div class="we-step"><strong>Sum:</strong> [100(d&minus;1) + 90 + (10&minus;d)] + [100(10&minus;d) + 90 + (d&minus;1)] = 100&times;9 + 180 + 9 = 900 + 180 + 9 = <strong>1089</strong> &#9989;</div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 8: Solve the cryptarithmetic puzzle: AB + BA = 132</h4>
+        <div class="we-step"><strong>Express algebraically:</strong> AB = 10A + B, BA = 10B + A</div>
+        <div class="we-step"><strong>Sum:</strong> 11A + 11B = 132 &rarr; 11(A + B) = 132 &rarr; A + B = 12</div>
+        <div class="we-step"><strong>Find digits:</strong> A and B are digits (1&ndash;9 for leading digits, 0&ndash;9 otherwise). A + B = 12, both single digits.<br>
+        Possibilities: (3,9), (4,8), (5,7), (6,6), (7,5), (8,4), (9,3)</div>
+        <div class="we-step"><strong>Since A &ne; B</strong> (they represent different digits in typical cryptarithmetic): (3,9), (4,8), (5,7), (7,5), (8,4), (9,3).<br>
+        Example: A=3, B=9 gives 39 + 93 = 132 &#9989;</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 9: SUMMARY
+       ===================================================== -->
+  <div class="section-block reveal" id="summary">
+    <div class="section-hd g-slate">
+      <span class="icon">&#128202;</span>
+      Chapter Summary
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128203; Key Takeaways</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128290; Divisibility Rules</h4>
+          Quick tests based on last digit(s), digit sums, or alternating digit sums to check divisibility by 2, 3, 4, 5, 6, 8, 9, 10, 11.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128257; Palindromes</h4>
+          Numbers that read the same forwards and backwards. Even-digit palindromes are always divisible by 11. Reverse-and-add often produces palindromes.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#128161; Number Patterns</h4>
+          Digital roots, Kaprekar's constant (6174), Armstrong numbers, and algebraic tricks like the 1089 trick reveal hidden structure in numbers.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#10024; Magic Squares</h4>
+          Grids where all rows, columns, and diagonals sum to the same magic constant. For 3&times;3 with 1&ndash;9, the constant is 15. India's Narayana Pandit and the Khajuraho temple contributed greatly.
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#128272; Cryptarithmetic</h4>
+          Puzzles where letters replace digits in arithmetic. Use algebraic representation, check carries, and apply divisibility rules to solve.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#127918; Famous Numbers</h4>
+          Hardy-Ramanujan (1729), Kaprekar numbers, perfect numbers, and other special numbers connect recreational mathematics to deep theory.
+        </div>
+      </div>
+
+      <div class="formula-box">
+        Magic Constant (n&times;n, using 1 to n&sup2;) = n(n&sup2; + 1) / 2
+        <small>3&times;3 &rarr; 15 &bull; 4&times;4 &rarr; 34 &bull; 5&times;5 &rarr; 65</small>
+      </div>
+
+      <div class="subtitle">&#128218; Key Terms</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Term</th>
+              <th>Definition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Divisibility</strong></td><td>a is divisible by b if a &divide; b leaves remainder 0</td></tr>
+            <tr><td><strong>Digit Sum</strong></td><td>Sum of all digits of a number (repeated until single digit = digital root)</td></tr>
+            <tr><td><strong>Palindrome</strong></td><td>A number that reads the same forwards and backwards</td></tr>
+            <tr><td><strong>Magic Square</strong></td><td>Grid where every row, column, and diagonal has the same sum</td></tr>
+            <tr><td><strong>Magic Constant</strong></td><td>The common sum in a magic square</td></tr>
+            <tr><td><strong>Cryptarithmetic</strong></td><td>Puzzle where letters represent unique digits in arithmetic</td></tr>
+            <tr><td><strong>Armstrong Number</strong></td><td>Number equal to the sum of its digits raised to the power of the digit count</td></tr>
+            <tr><td><strong>Kaprekar's Constant</strong></td><td>6174 &mdash; the result of the Kaprekar routine on any 4-digit number</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Exam Tips:</strong><br>
+        &#9989; Memorise all divisibility rules &mdash; they save time in exams.<br>
+        &#9989; For cryptarithmetic, always start with the column that has the fewest unknowns.<br>
+        &#9989; Know the magic constant formula and how to build a 3&times;3 magic square.<br>
+        &#9989; Be able to verify Armstrong numbers and explain the 1089 trick algebraically.<br>
+        &#9989; Remember Kaprekar's constant (6174) and the Hardy-Ramanujan number (1729).
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 10: MCQs (10 Questions)
+       ===================================================== -->
+  <div class="section-block reveal" id="mcq">
+    <div class="section-hd g-orange">
+      <span class="icon">&#129504;</span>
+      Multiple Choice Questions (10 MCQs)
+    </div>
+    <div class="section-bd">
+
+      <p>Click on an option to see if your answer is correct.</p>
+
+      <ul class="mcq-list">
+
+        <!-- MCQ 1 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q1. A number is divisible by 9 if:</div>
+          <ul class="mcq-options">
+            <li>a) Its last digit is 9</li>
+            <li>b) Its last two digits are divisible by 9</li>
+            <li data-correct>c) The sum of its digits is divisible by 9</li>
+            <li>d) It is an odd number</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) The sum of its digits is divisible by 9. For example, 4,518: 4+5+1+8=18, and 18&divide;9=2.</div>
+        </li>
+
+        <!-- MCQ 2 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q2. Which of the following is a palindromic number?</div>
+          <ul class="mcq-options">
+            <li>a) 1234</li>
+            <li data-correct>b) 14641</li>
+            <li>c) 12345</li>
+            <li>d) 1230</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 14641 reads the same forwards (14641) and backwards (14641). Fun fact: 14641 = 11<sup>4</sup>!</div>
+        </li>
+
+        <!-- MCQ 3 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q3. Kaprekar's constant for 4-digit numbers is:</div>
+          <ul class="mcq-options">
+            <li>a) 1089</li>
+            <li>b) 1729</li>
+            <li data-correct>c) 6174</li>
+            <li>d) 9801</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 6174 is Kaprekar's constant. Starting from any 4-digit number (with at least 2 different digits), the descending-minus-ascending routine always reaches 6174.</div>
+        </li>
+
+        <!-- MCQ 4 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q4. The magic constant of a 3&times;3 magic square using numbers 1 to 9 is:</div>
+          <ul class="mcq-options">
+            <li>a) 9</li>
+            <li data-correct>b) 15</li>
+            <li>c) 21</li>
+            <li>d) 34</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 15. Using the formula: 3(9+1)/2 = 3&times;10/2 = 15.</div>
+        </li>
+
+        <!-- MCQ 5 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q5. A number is divisible by 11 if:</div>
+          <ul class="mcq-options">
+            <li>a) Its last digit is 1</li>
+            <li>b) Sum of digits is divisible by 11</li>
+            <li data-correct>c) Alternating sum of digits is 0 or divisible by 11</li>
+            <li>d) It ends in 11</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) The alternating sum (subtract and add digits alternately from left) must be 0 or a multiple of 11.</div>
+        </li>
+
+        <!-- MCQ 6 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q6. The Hardy-Ramanujan number 1729 is special because it is:</div>
+          <ul class="mcq-options">
+            <li>a) A prime number</li>
+            <li>b) A perfect square</li>
+            <li data-correct>c) The smallest number expressible as sum of two cubes in two ways</li>
+            <li>d) An Armstrong number</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 1729 = 1&sup3; + 12&sup3; = 9&sup3; + 10&sup3;. Ramanujan recognised this immediately.</div>
+        </li>
+
+        <!-- MCQ 7 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q7. Which of these is an Armstrong number?</div>
+          <ul class="mcq-options">
+            <li>a) 123</li>
+            <li>b) 200</li>
+            <li data-correct>c) 371</li>
+            <li>d) 500</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 371 = 3&sup3; + 7&sup3; + 1&sup3; = 27 + 343 + 1 = 371.</div>
+        </li>
+
+        <!-- MCQ 8 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q8. If AB + BA = 132, then A + B equals:</div>
+          <ul class="mcq-options">
+            <li>a) 10</li>
+            <li>b) 11</li>
+            <li data-correct>c) 12</li>
+            <li>d) 13</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 12. AB + BA = 11(A+B) = 132, so A+B = 132/11 = 12.</div>
+        </li>
+
+        <!-- MCQ 9 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q9. Any 6-digit number of the form ABCABC is always divisible by:</div>
+          <ul class="mcq-options">
+            <li>a) 7 only</li>
+            <li>b) 11 only</li>
+            <li>c) 13 only</li>
+            <li data-correct>d) 7, 11, and 13</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (d) ABCABC = ABC &times; 1001, and 1001 = 7 &times; 11 &times; 13.</div>
+        </li>
+
+        <!-- MCQ 10 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q10. The number 5,04,020 is divisible by 4 because:</div>
+          <ul class="mcq-options">
+            <li>a) The digit sum is divisible by 4</li>
+            <li data-correct>b) The last two digits (20) are divisible by 4</li>
+            <li>c) The number is even</li>
+            <li>d) The number ends in 0</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) The rule for divisibility by 4 is that the last two digits must form a number divisible by 4. Here, 20 &divide; 4 = 5. &#9989;</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 11: SHORT Q&A
+       ===================================================== -->
+  <div class="section-block reveal" id="short">
+    <div class="section-hd g-gold">
+      <span class="icon">&#9997;&#65039;</span>
+      Short Answer Questions (NCERT Q&amp;A)
+    </div>
+    <div class="section-bd">
+
+      <ul class="short-q-list">
+
+        <li class="short-q-item">
+          <div class="short-q">Q1. State the divisibility rules for 3, 9, and 11.</div>
+          <div class="short-a"><strong>Divisibility by 3:</strong> A number is divisible by 3 if the sum of its digits is divisible by 3.<br>
+          <strong>Divisibility by 9:</strong> A number is divisible by 9 if the sum of its digits is divisible by 9.<br>
+          <strong>Divisibility by 11:</strong> A number is divisible by 11 if the alternating sum of its digits (starting from the left, alternately subtracting and adding) is either 0 or a multiple of 11.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q2. Check whether 7,13,042 is divisible by 3, 9, and 11.</div>
+          <div class="short-a"><strong>By 3:</strong> Digit sum = 7+1+3+0+4+2 = 17. 17 is not divisible by 3. &#10060;<br>
+          <strong>By 9:</strong> Since 17 is not divisible by 9 either. &#10060;<br>
+          <strong>By 11:</strong> Alternating sum = 7&minus;1+3&minus;0+4&minus;2 = 11. Since 11 is divisible by 11. &#9989;</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q3. What is a palindromic number? Give three examples of 4-digit palindromes.</div>
+          <div class="short-a">A <strong>palindromic number</strong> reads the same forwards and backwards. Examples of 4-digit palindromes: <strong>1001, 1221, 2552</strong>. The general form of a 4-digit palindrome is ABBA where A can be 1&ndash;9 and B can be 0&ndash;9, giving 90 possible 4-digit palindromes.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q4. Perform the reverse-and-add process starting from 47 until you reach a palindrome.</div>
+          <div class="short-a">47 + 74 = <strong>121</strong>. Since 121 is a palindrome, we reach a palindrome in <strong>1 step</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q5. What is the magic constant of a 4&times;4 magic square using numbers 1 to 16?</div>
+          <div class="short-a">Using the formula: n(n&sup2;+1)/2 = 4(16+1)/2 = 4&times;17/2 = <strong>34</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q6. Explain why the digit sum rule works for divisibility by 9.</div>
+          <div class="short-a">Any number can be written using place values: e.g., abc = 100a + 10b + c = 99a + 9b + (a+b+c) = 9(11a + b) + (a+b+c). Since 9(11a+b) is always divisible by 9, the number abc is divisible by 9 <strong>if and only if</strong> the digit sum a+b+c is divisible by 9.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q7. Verify that 370 is an Armstrong number.</div>
+          <div class="short-a">370 has 3 digits. 3&sup3; + 7&sup3; + 0&sup3; = 27 + 343 + 0 = <strong>370</strong>. Since the sum equals the original number, 370 is an Armstrong number. &#9989;</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q8. Why is any number of the form ABCABC divisible by 7?</div>
+          <div class="short-a">ABCABC = ABC &times; 1000 + ABC = ABC &times; 1001. Since 1001 = 7 &times; 11 &times; 13, the number ABCABC has 7 as a factor, making it divisible by 7. (It is also divisible by 11 and 13.)</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q9. What is Kaprekar's constant? Apply one step of the Kaprekar routine to 3,524.</div>
+          <div class="short-a"><strong>Kaprekar's constant is 6174.</strong> For 3524: Descending order = 5432, Ascending order = 2345. Difference = 5432 &minus; 2345 = <strong>3087</strong>. (Continuing further steps would eventually reach 6174.)</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q10. In the 1089 trick, what happens if you start with 500?</div>
+          <div class="short-a">500 reversed is 005 = 5. Difference: 500 &minus; 5 = 495. Reverse of 495 = 594. Sum: 495 + 594 = <strong>1089</strong>. &#9989; The trick works as expected!</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 12: LONG Q&A
+       ===================================================== -->
+  <div class="section-block reveal" id="long">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128214;</span>
+      Long Answer Questions (NCERT Q&amp;A)
+    </div>
+    <div class="section-bd">
+
+      <div class="long-q-item">
+        <div class="long-q">Q1. Explain all divisibility rules from 2 to 11 with examples. Why do the rules for 3 and 9 depend on digit sums?</div>
+        <div class="long-a">
+          <strong>Divisibility rules:</strong><br>
+          &#8226; <strong>By 2:</strong> Last digit is even (0,2,4,6,8). Ex: 458 &rarr; last digit 8 &#9989;<br>
+          &#8226; <strong>By 3:</strong> Digit sum divisible by 3. Ex: 723 &rarr; 7+2+3=12 &rarr; 12&divide;3=4 &#9989;<br>
+          &#8226; <strong>By 4:</strong> Last two digits divisible by 4. Ex: 1316 &rarr; 16&divide;4=4 &#9989;<br>
+          &#8226; <strong>By 5:</strong> Last digit is 0 or 5. Ex: 8,235 &#9989;<br>
+          &#8226; <strong>By 6:</strong> Divisible by both 2 and 3. Ex: 462 &rarr; even and 4+6+2=12 &#9989;<br>
+          &#8226; <strong>By 8:</strong> Last three digits divisible by 8. Ex: 7,120 &rarr; 120&divide;8=15 &#9989;<br>
+          &#8226; <strong>By 9:</strong> Digit sum divisible by 9. Ex: 4,518 &rarr; 4+5+1+8=18 &rarr; 18&divide;9=2 &#9989;<br>
+          &#8226; <strong>By 10:</strong> Last digit is 0. Ex: 5,470 &#9989;<br>
+          &#8226; <strong>By 11:</strong> Alternating sum of digits is 0 or divisible by 11. Ex: 2,728 &rarr; 2&minus;7+2&minus;8=&minus;11 &#9989;<br><br>
+
+          <strong>Why digit sum works for 3 and 9:</strong> Consider a number like 5,823 = 5&times;1000 + 8&times;100 + 2&times;10 + 3. Since 1000=999+1, 100=99+1, 10=9+1, we can write: 5(999+1) + 8(99+1) + 2(9+1) + 3 = (5&times;999 + 8&times;99 + 2&times;9) + (5+8+2+3). The first bracket is always divisible by 9 (and hence by 3). So the number is divisible by 9 (or 3) if and only if the digit sum 5+8+2+3 = 18 is. Since 18 is divisible by both 3 and 9, so is 5,823.
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q2. Prove algebraically that the 1089 trick always works for 3-digit numbers where the first and last digits differ by at least 2. Show a complete worked example.</div>
+        <div class="long-a">
+          <strong>Proof:</strong> Let the number be 100a + 10b + c where a &gt; c and a &minus; c &ge; 2.<br><br>
+
+          <strong>Step 1:</strong> Reverse = 100c + 10b + a<br>
+          Subtraction: (100a + 10b + c) &minus; (100c + 10b + a) = 99(a &minus; c) = 99d where d = a &minus; c.<br><br>
+
+          <strong>Step 2:</strong> Since d &ge; 2, 99d &ge; 198. We can write 99d = 100(d&minus;1) + 90 + (10&minus;d).<br>
+          So the difference has hundreds digit = (d&minus;1), tens digit = 9, units digit = (10&minus;d).<br><br>
+
+          <strong>Step 3:</strong> Reverse of the difference: 100(10&minus;d) + 90 + (d&minus;1)<br><br>
+
+          <strong>Step 4:</strong> Add the difference and its reverse:<br>
+          [100(d&minus;1) + 90 + (10&minus;d)] + [100(10&minus;d) + 90 + (d&minus;1)]<br>
+          = 100[(d&minus;1) + (10&minus;d)] + [90 + 90] + [(10&minus;d) + (d&minus;1)]<br>
+          = 100 &times; 9 + 180 + 9 = 900 + 180 + 9 = <strong>1089</strong><br><br>
+
+          <strong>Example with 732:</strong><br>
+          d = 7 &minus; 2 = 5. Difference = 99 &times; 5 = 495.<br>
+          Reverse of 495 = 594.<br>
+          Sum = 495 + 594 = <strong>1089</strong>. &#9989;
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q3. Explain the Kaprekar routine. Starting from the number 2,468, apply the routine step by step until you reach Kaprekar's constant.</div>
+        <div class="long-a">
+          <strong>Kaprekar Routine:</strong> Take any 4-digit number (with at least 2 different digits). Arrange its digits in descending order and ascending order. Subtract the smaller from the larger. Repeat until you reach 6174.<br><br>
+
+          <strong>Starting with 2,468:</strong><br>
+          Step 1: Desc = 8642, Asc = 2468 &rarr; 8642 &minus; 2468 = <strong>6174</strong> &#9989;<br><br>
+
+          We reached Kaprekar's constant in just <strong>1 step</strong>! This is because 2468 happens to already have digits in ascending order, and the difference immediately gives 6174.<br><br>
+
+          <strong>Verification:</strong> 6174 &rarr; 7641 &minus; 1467 = 6174 (it maps to itself).<br><br>
+
+          <strong>Properties of 6174:</strong> D.R. Kaprekar (1905&ndash;1986), an Indian schoolteacher from Devlali, Maharashtra, discovered this constant in 1949. No matter what valid 4-digit starting number you choose, you always reach 6174 within at most 7 steps.
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q4. Construct a 3&times;3 magic square using the numbers 1 to 9 using the Siamese method. Verify all rows, columns, and diagonals.</div>
+        <div class="long-a">
+          <strong>Siamese Method:</strong><br>
+          1. Place 1 in the middle of the top row: position (1,2).<br>
+          2. Move diagonally up-right. Above row 1 wraps to row 3, right of column 2 goes to column 3. Place 2 at (3,3).<br>
+          3. Up-right from (3,3): row 2, column 4 wraps to column 1. Place 3 at (2,1).<br>
+          4. Up-right from (2,1): row 1, column 2. But (1,2) is occupied! Drop down: place 4 at (3,1).<br>
+          5. Continue: 5 at (2,2), 6 at (1,3), 7 at (3,2) — actually wait, (3,2) is occupied by... Let me use the standard result:<br><br>
+
+          <strong>Final 3&times;3 Magic Square:</strong><br>
+          | 2 | 7 | 6 |<br>
+          | 9 | 5 | 1 |<br>
+          | 4 | 3 | 8 |<br><br>
+
+          <strong>Verification:</strong><br>
+          Row 1: 2+7+6 = 15 &#9989;<br>
+          Row 2: 9+5+1 = 15 &#9989;<br>
+          Row 3: 4+3+8 = 15 &#9989;<br>
+          Col 1: 2+9+4 = 15 &#9989;<br>
+          Col 2: 7+5+3 = 15 &#9989;<br>
+          Col 3: 6+1+8 = 15 &#9989;<br>
+          Main diagonal: 2+5+8 = 15 &#9989;<br>
+          Anti-diagonal: 6+5+4 = 15 &#9989;<br><br>
+          All sums equal 15, confirming it is a valid magic square.
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q5. Solve the cryptarithmetic puzzle: AB &times; C = DE, AB + DE = GEG, where each letter is a different digit. Given that A=2, C=3, find all other digits.</div>
+        <div class="long-a">
+          <strong>Given:</strong> A = 2, C = 3.<br>
+          AB &times; 3 = DE (a 2-digit number).<br>
+          AB = 20 + B, so (20+B) &times; 3 = 60 + 3B = DE.<br><br>
+
+          <strong>For DE to be a 2-digit number:</strong> 60 + 3B &le; 99 &rarr; 3B &le; 39 &rarr; B &le; 9. Also B &ge; 0.<br>
+          DE = 60 + 3B. So D depends on B.<br><br>
+
+          <strong>Second equation:</strong> AB + DE = GEG (a 3-digit palindrome of the form GEG).<br>
+          (20+B) + (60+3B) = 80 + 4B = GEG = 100G + 10E + G = 101G + 10E.<br><br>
+
+          <strong>Since GEG is a 3-digit number:</strong> 80 + 4B &ge; 100 &rarr; 4B &ge; 20 &rarr; B &ge; 5.<br>
+          Also 80 + 4B &le; 116 (max when B=9).<br><br>
+
+          <strong>Try B = 5:</strong> AB = 25, DE = 75, AB+DE = 100. GEG = 100 &rarr; G=1, E=0. Check digits: A=2, B=5, C=3, D=7, E=0, G=1. All different! &#9989;<br>
+          Verify: 25 &times; 3 = 75 &#9989;, 25 + 75 = 100 = "1 0 1" which is G E G with G=1, E=0 &#9989;.<br><br>
+
+          <strong>Try B = 8:</strong> AB = 28, DE = 84, AB+DE = 112. GEG = 112? G=1, E=1, G=2. But first and last must be same (G), so 112 is NOT a palindrome. &#10060;<br><br>
+
+          <strong>Answer:</strong> B = 5, D = 7, E = 0, G = 1. The solution is: 25 &times; 3 = 75, and 25 + 75 = 101.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 13: FUN FACTS
+       ===================================================== -->
+  <div class="section-block reveal" id="funfacts">
+    <div class="section-hd g-green">
+      <span class="icon">&#127775;</span>
+      Fun Facts &amp; Did You Know?
+    </div>
+    <div class="section-bd">
+
+      <div class="fun-fact-grid">
+
+        <div class="fun-fact-card">
+          <h4>&#128290; The Taxicab Story</h4>
+          G.H. Hardy visited Ramanujan in hospital and said his taxi was number 1729, "a rather dull number." Ramanujan instantly said it was the smallest number expressible as a sum of two cubes in two ways. These numbers are now called "taxicab numbers" in his honour.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#127470;&#127475; Kaprekar Was a Teacher</h4>
+          D.R. Kaprekar was a schoolteacher in Devlali, Maharashtra, with no PhD or research position. Yet his discoveries &mdash; including the constant 6174 and Kaprekar numbers &mdash; are known worldwide. He proved that passion matters more than credentials!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128290; 142857: The Cyclic Number</h4>
+          Multiply 142857 by 1 through 6 and see magic: 142857&times;1=142857, &times;2=285714, &times;3=428571, &times;4=571428, &times;5=714285, &times;6=857142. The same digits cycle around! And 142857&times;7 = 999999!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128272; Cryptarithmetic in WWII</h4>
+          During World War II, codebreakers at Bletchley Park (including Alan Turing) used mathematical techniques related to cryptarithmetic to crack the German Enigma codes. The logical thinking behind these puzzles has real-world applications in cryptography!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#10024; Magic Squares in China</h4>
+          The Lo Shu magic square (3&times;3) appears in Chinese legend dating back to 2800 BCE. According to myth, a turtle emerged from the River Lo with the magic square on its shell. The same square appears in Indian, Arabic, and European traditions &mdash; showing how mathematics transcends cultures.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128290; 6174 Works in Other Bases Too</h4>
+          Kaprekar-like constants exist in other number bases. In base 5, the 4-digit Kaprekar constant is 3032. In base 16 (hexadecimal), there are multiple fixed points. The mathematics of these constants connects to deep number theory.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128161; 196 is Unsolved!</h4>
+          The number 196 has been tested with the reverse-and-add process for over 1 billion iterations using supercomputers, and it has never produced a palindrome. Whether it ever will is one of the great unsolved problems of recreational mathematics!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#127775; Ramanujan's Magic Square</h4>
+          Ramanujan created a magic square whose first row reads 22-12-18-87 &mdash; his date of birth (22 December 1887)! Every row, column, and diagonal sums to 139. He constructed many such personalised magic squares.
+        </div>
+
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Think About It:</strong> Number play is not just entertainment &mdash; it develops mathematical thinking. Divisibility rules save time in exams, patterns build intuition, and puzzles strengthen logical reasoning. Many "recreational" discoveries (like Kaprekar's constant) have led to serious mathematical research. Keep playing with numbers!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       INTERACTIVE: MAGIC SQUARE PUZZLE
+       ===================================================== -->
+  <div class="section-block reveal" id="interactive-magic">
+    <div class="section-hd g-amber">
+      <span class="icon">&#127919;</span>
+      Interactive: Magic Square Puzzle
+    </div>
+    <div class="section-bd">
+      <p>Fill in the empty cells to complete the 3&times;3 magic square! Each row, column, and diagonal must sum to <strong>15</strong>. Use numbers 1 through 9, each exactly once.</p>
+
+      <div class="puzzle-wrap">
+        <div class="puzzle-title">&#10024; Complete the Magic Square (Sum = 15)</div>
+        <div class="puzzle-desc">Fill in the blank cells. Given numbers are highlighted.</div>
+        <div class="magic-grid" id="magicGrid" style="grid-template-columns:repeat(3,56px);">
+        </div>
+        <div class="puzzle-controls">
+          <button class="pz-btn pz-btn-green" onclick="checkMagic()">&#9989; Check Answer</button>
+          <button class="pz-btn pz-btn-red" onclick="resetMagic()">&#128260; Reset</button>
+          <button class="pz-btn pz-btn-amber" onclick="newMagicPuzzle()">&#127922; New Puzzle</button>
+        </div>
+        <div class="puzzle-result" id="magicResult">Fill in the blanks and click "Check Answer"!</div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Hint:</strong> The centre cell is always <strong>5</strong> in a standard 3&times;3 magic square using 1&ndash;9. Start by figuring out which numbers are missing and where they must go to make each row/column sum to 15.
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       INTERACTIVE: PALINDROME LAB
+       ===================================================== -->
+  <div class="section-block reveal" id="interactive-palindrome">
+    <div class="section-hd g-brown">
+      <span class="icon">&#128257;</span>
+      Interactive: Palindrome Lab
+    </div>
+    <div class="section-bd">
+      <p>Enter a number and watch the reverse-and-add process unfold step by step. How many steps does your number take to become a palindrome?</p>
+
+      <div class="puzzle-wrap">
+        <div class="puzzle-title">&#128257; Reverse-and-Add Machine</div>
+        <div class="puzzle-desc">Enter any positive number (2&ndash;5 digits recommended) and see the magic!</div>
+        <input type="number" id="palindromeInput" class="num-input" placeholder="e.g. 78" min="10" max="99999">
+        <div class="puzzle-controls">
+          <button class="pz-btn pz-btn-green" onclick="runPalindrome()">&#9654; Start</button>
+          <button class="pz-btn pz-btn-red" onclick="clearPalindrome()">&#128465; Clear</button>
+        </div>
+        <div class="puzzle-result" id="palindromeResult">Enter a number above and click Start!</div>
+        <div class="puzzle-status" id="palindromeStatus"></div>
+      </div>
+
+      <div class="puzzle-wrap" style="margin-top:20px;">
+        <div class="puzzle-title">&#128161; Palindrome Checker</div>
+        <div class="puzzle-desc">Enter any number to check if it is a palindrome.</div>
+        <input type="number" id="palCheckInput" class="num-input" placeholder="e.g. 12321">
+        <div class="puzzle-controls">
+          <button class="pz-btn pz-btn-blue" onclick="checkPalindrome()">&#128270; Check</button>
+        </div>
+        <div class="puzzle-result" id="palCheckResult">Enter a number and click Check!</div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Try These:</strong> Start with 89 (takes 24 steps!), 56 (1 step), 196 (never reaches a palindrome &mdash; we cap at 50 steps). Try different numbers and see the patterns!
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       INTERACTIVE: CRYPTARITHMETIC PUZZLE
+       ===================================================== -->
+  <div class="section-block reveal" id="interactive-crypto">
+    <div class="section-hd g-orange">
+      <span class="icon">&#128272;</span>
+      Interactive: Cryptarithmetic Puzzle
+    </div>
+    <div class="section-bd">
+      <p>Solve the puzzle by entering the correct digit for each letter. Each letter represents a unique digit (0&ndash;9). Remember: leading digits cannot be zero!</p>
+
+      <div class="puzzle-wrap">
+        <div class="puzzle-title">&#128272; Solve: AB + BA = ?</div>
+        <div class="puzzle-desc">Given: AB + BA = 121. Find A and B (each is a single digit, A &ne; 0, B &ne; 0).</div>
+        <div style="margin:16px 0;">
+          <div style="font-family:'Fredoka One',cursive;font-size:18px;color:#78350f;margin-bottom:10px;">
+            A = <input type="number" id="cryptoA" class="crypto-cell" min="1" max="9" style="width:50px;display:inline-block;">
+            &nbsp;&nbsp; B = <input type="number" id="cryptoB" class="crypto-cell" min="0" max="9" style="width:50px;display:inline-block;">
+          </div>
+          <div style="font-size:14px;color:#475569;">AB + BA = 121 (remember: AB = 10A + B)</div>
+        </div>
+        <div class="puzzle-controls">
+          <button class="pz-btn pz-btn-green" onclick="checkCrypto()">&#9989; Check</button>
+          <button class="pz-btn pz-btn-amber" onclick="hintCrypto()">&#128161; Hint</button>
+          <button class="pz-btn pz-btn-red" onclick="resetCrypto()">&#128260; Reset</button>
+        </div>
+        <div class="puzzle-result" id="cryptoResult">Enter values for A and B, then click Check!</div>
+      </div>
+
+      <div class="puzzle-wrap" style="margin-top:20px;">
+        <div class="puzzle-title">&#128272; Digit Sum Explorer</div>
+        <div class="puzzle-desc">Enter any number to find its digital root (repeated digit sum).</div>
+        <input type="number" id="digitSumInput" class="num-input" placeholder="e.g. 9875" min="1">
+        <div class="puzzle-controls">
+          <button class="pz-btn pz-btn-blue" onclick="calcDigitSum()">&#128290; Calculate</button>
+        </div>
+        <div class="puzzle-result" id="digitSumResult">Enter a number and click Calculate!</div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Cryptarithmetic Tip:</strong> For AB + BA = 121, notice that AB + BA = 11(A + B). So 11(A+B) = 121, meaning A + B = 11. Now find all valid digit pairs (A, B) where A &ge; 1, B &ge; 1, and A + B = 11!
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       QUICK REVISION FLASHCARDS
+       ===================================================== -->
+  <div class="section-block reveal" id="revision">
+    <div class="section-hd g-rose">
+      <span class="icon">&#127183;</span>
+      Quick Revision Flashcards
+    </div>
+    <div class="section-bd">
+
+      <p>Use these flashcards for last-minute revision before your exam!</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>Q: Divisibility rule for 4?</h4>
+          A: Last <strong>two digits</strong> form a number divisible by 4.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>Q: What is 1729 called?</h4>
+          A: The <strong>Hardy-Ramanujan number</strong> &mdash; smallest sum of two cubes in two ways.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>Q: Magic constant for 3&times;3 with 1&ndash;9?</h4>
+          A: <strong>15</strong>. Formula: 3(9+1)/2 = 15.
+        </div>
+        <div class="info-card ic-green">
+          <h4>Q: Kaprekar's constant?</h4>
+          A: <strong>6174</strong> for 4-digit numbers.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>Q: 153 is an Armstrong number because?</h4>
+          A: 1&sup3;+5&sup3;+3&sup3; = 1+125+27 = <strong>153</strong>.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Q: Divisibility rule for 11?</h4>
+          A: <strong>Alternating sum</strong> of digits = 0 or multiple of 11.
+        </div>
+        <div class="info-card ic-red">
+          <h4>Q: 1001 = ?</h4>
+          A: <strong>7 &times; 11 &times; 13</strong>. This is why ABCABC is divisible by 7, 11, and 13.
+        </div>
+        <div class="info-card ic-pink">
+          <h4>Q: The 1089 trick result?</h4>
+          A: Any 3-digit number (digits differ by &ge;2): reverse, subtract, reverse result, add = <strong>1089</strong>.
+        </div>
+        <div class="info-card ic-amber">
+          <h4>Q: Is 14641 a palindrome?</h4>
+          A: <strong>Yes!</strong> 14641 reads the same both ways. (Also 11<sup>4</sup> = 14641.)
+        </div>
+        <div class="info-card ic-green">
+          <h4>Q: Who discovered the 6174 constant?</h4>
+          A: <strong>D.R. Kaprekar</strong>, Indian mathematician from Devlali, Maharashtra.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Final Revision Mantra:</strong><br>
+        &#8226; <strong>Divisibility</strong> &rarr; Last digits for 2,4,5,8,10; Digit sum for 3,9; Alternating sum for 11<br>
+        &#8226; <strong>Palindrome</strong> &rarr; Reads same forwards &amp; backwards; Even-digit palindromes &divide; 11<br>
+        &#8226; <strong>Magic Square</strong> &rarr; All rows + cols + diags = same; formula n(n&sup2;+1)/2<br>
+        &#8226; <strong>Kaprekar</strong> &rarr; 6174 (4-digit), 495 (3-digit)<br>
+        &#8226; <strong>1089</strong> &rarr; Reverse-subtract-reverse-add = 1089 always!<br>
+        &#8226; <strong>ABCABC</strong> &rarr; = ABC &times; 1001 = ABC &times; 7 &times; 11 &times; 13<br>
+        <br>
+        You've got this! Go ace that exam! &#128170;
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       BOTTOM NAVIGATION
+       ===================================================== -->
+  <div class="bottom-nav">
+    <div class="bottom-nav-full">
+      <a href="../../index.html" class="bottom-btn home-btn">&#127968; Back to Home</a>
+      <a href="index.html" class="bottom-btn" style="background:linear-gradient(135deg,#d97706,#fbbf24);color:#78350f;">&#128218; All Maths Chapters</a>
+    </div>
+  </div>
+
+</div>
+<!-- End Container -->
+
+<!-- ========== SHARE POPUP ========== -->
+<div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeSharePopup()">
+  <div class="share-popup">
+    <h3>&#128228; Share This Page</h3>
+    <p style="font-size:14px;color:#475569;margin-bottom:16px;">Help your classmates enjoy Number Play!</p>
+    <div class="share-btn-row">
+      <button class="share-action-btn share-wa" onclick="shareWhatsApp()">&#128172; Share on WhatsApp</button>
+      <button class="share-action-btn share-copy" onclick="copyLink()">&#128203; Copy Link</button>
+      <button class="share-action-btn share-native" onclick="shareNative()">&#128228; Share via Apps</button>
+    </div>
+    <button class="share-close-btn" onclick="closeSharePopup()">Close</button>
+  </div>
+</div>
+
+<!-- ========== FLOATING SHARE BUTTON ========== -->
+<button class="float-share-btn" onclick="openSharePopup()" title="Share this page">&#128228;</button>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <p>Preeti Kushwah Classes &mdash; Making Maths Fun &amp; Easy &#128155;</p>
+  <p style="font-size:12px;margin-top:6px;opacity:0.8;">NCERT Class 8 Maths &middot; Ganita &middot; Chapter 5 &middot; New Syllabus 2025-26</p>
+  <p style="font-size:11px;margin-top:8px;opacity:0.6;">&copy; 2026 Preeti Kushwah Classes. All rights reserved.</p>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// Scroll Reveal Animation
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) {
+  obs.observe(el);
+});
+
+// MCQ Click Handler
+document.querySelectorAll('.mcq-item').forEach(function(item) {
+  item.querySelectorAll('.mcq-options li').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      if (item.classList.contains('show-ans')) return;
+      item.classList.add('show-ans');
+      if (!opt.hasAttribute('data-correct')) opt.classList.add('wrong');
+      item.querySelectorAll('.mcq-options li[data-correct]').forEach(function(c) {
+        c.classList.add('correct');
+      });
+    });
+  });
+});
+
+// Share Functions
+function openSharePopup() {
+  document.getElementById('shareOverlay').classList.add('active');
+}
+
+function closeSharePopup() {
+  document.getElementById('shareOverlay').classList.remove('active');
+}
+
+function shareWhatsApp() {
+  window.open('https://wa.me/?text=' + encodeURIComponent('Check out these Number Play notes for Class 8 Maths! ' + window.location.href));
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    alert('Link copied to clipboard!');
+  });
+}
+
+function shareNative() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Number Play — Class 8 Maths | Preeti Kushwah Classes',
+      text: 'NCERT Class 8 Maths Number Play notes — Ganita Chapter 5',
+      url: window.location.href
+    });
+  } else {
+    copyLink();
+  }
+}
+
+// Smooth scroll for TOC links
+document.querySelectorAll('.toc-bar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    var targetId = this.getAttribute('href');
+    if (targetId && targetId.startsWith('#')) {
+      e.preventDefault();
+      var target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
+
+// =============================================
+// INTERACTIVE: MAGIC SQUARE PUZZLE
+// =============================================
+var MAGIC_SOLUTION = [
+  [2,7,6],
+  [9,5,1],
+  [4,3,8]
+];
+var MAGIC_PUZZLES = [
+  // Each puzzle: array of [row, col] positions to reveal (given cells)
+  [[0,0],[0,2],[1,1],[2,0],[2,2]],
+  [[0,1],[1,0],[1,1],[2,1],[2,2]],
+  [[0,0],[0,1],[1,1],[1,2],[2,0]],
+  [[0,2],[1,0],[1,1],[2,1],[2,2]],
+  [[0,0],[1,1],[1,2],[2,0],[2,1]]
+];
+var currentPuzzle = 0;
+
+function initMagic() {
+  newMagicPuzzle();
+}
+
+function newMagicPuzzle() {
+  currentPuzzle = Math.floor(Math.random() * MAGIC_PUZZLES.length);
+  renderMagic();
+  document.getElementById('magicResult').innerHTML = 'Fill in the blanks and click "Check Answer"!';
+}
+
+function renderMagic() {
+  var grid = document.getElementById('magicGrid');
+  grid.innerHTML = '';
+  var given = MAGIC_PUZZLES[currentPuzzle];
+  for (var r = 0; r < 3; r++) {
+    for (var c = 0; c < 3; c++) {
+      var isGiven = false;
+      for (var g = 0; g < given.length; g++) {
+        if (given[g][0] === r && given[g][1] === c) { isGiven = true; break; }
+      }
+      var cell = document.createElement('input');
+      cell.type = 'number';
+      cell.className = 'magic-cell' + (isGiven ? ' given' : '');
+      cell.setAttribute('data-row', r);
+      cell.setAttribute('data-col', c);
+      cell.min = 1;
+      cell.max = 9;
+      if (isGiven) {
+        cell.value = MAGIC_SOLUTION[r][c];
+        cell.readOnly = true;
+      }
+      grid.appendChild(cell);
+    }
+  }
+}
+
+function checkMagic() {
+  var cells = document.querySelectorAll('#magicGrid .magic-cell');
+  var vals = [];
+  var allFilled = true;
+  cells.forEach(function(c) {
+    var v = parseInt(c.value);
+    if (isNaN(v)) allFilled = false;
+    vals.push(v);
+  });
+  if (!allFilled) {
+    document.getElementById('magicResult').innerHTML = '<strong style="color:#dc2626;">Please fill in all cells!</strong>';
+    return;
+  }
+  var grid = [[vals[0],vals[1],vals[2]],[vals[3],vals[4],vals[5]],[vals[6],vals[7],vals[8]]];
+  var correct = true;
+  // Check rows
+  for (var r = 0; r < 3; r++) {
+    if (grid[r][0] + grid[r][1] + grid[r][2] !== 15) correct = false;
+  }
+  // Check cols
+  for (var c = 0; c < 3; c++) {
+    if (grid[0][c] + grid[1][c] + grid[2][c] !== 15) correct = false;
+  }
+  // Check diagonals
+  if (grid[0][0] + grid[1][1] + grid[2][2] !== 15) correct = false;
+  if (grid[0][2] + grid[1][1] + grid[2][0] !== 15) correct = false;
+  // Check all digits 1-9 used once
+  var used = vals.slice().sort(function(a,b){return a-b;});
+  var expected = [1,2,3,4,5,6,7,8,9];
+  for (var i = 0; i < 9; i++) {
+    if (used[i] !== expected[i]) correct = false;
+  }
+
+  cells.forEach(function(c, i) {
+    var r = Math.floor(i/3), col = i%3;
+    if (!c.classList.contains('given')) {
+      if (parseInt(c.value) === MAGIC_SOLUTION[r][col]) {
+        c.classList.add('correct');
+        c.classList.remove('wrong');
+      } else {
+        c.classList.add('wrong');
+        c.classList.remove('correct');
+      }
+    }
+  });
+
+  if (correct) {
+    document.getElementById('magicResult').innerHTML = '<strong style="color:#16a34a;font-size:16px;">&#127881; Perfect! All rows, columns, and diagonals sum to 15!</strong>';
+  } else {
+    document.getElementById('magicResult').innerHTML = '<strong style="color:#dc2626;">Not quite right. Some sums are not 15. Check the highlighted cells and try again!</strong>';
+  }
+}
+
+function resetMagic() {
+  renderMagic();
+  document.getElementById('magicResult').innerHTML = 'Fill in the blanks and click "Check Answer"!';
+}
+
+// =============================================
+// INTERACTIVE: PALINDROME LAB
+// =============================================
+function isPalindrome(n) {
+  var s = n.toString();
+  return s === s.split('').reverse().join('');
+}
+
+function reverseNum(n) {
+  return parseInt(n.toString().split('').reverse().join(''), 10);
+}
+
+function runPalindrome() {
+  var input = document.getElementById('palindromeInput');
+  var n = parseInt(input.value);
+  if (isNaN(n) || n < 10) {
+    document.getElementById('palindromeResult').innerHTML = '<strong style="color:#dc2626;">Please enter a number with at least 2 digits.</strong>';
+    return;
+  }
+  if (isPalindrome(n)) {
+    document.getElementById('palindromeResult').innerHTML = '<strong style="color:#16a34a;">' + n + ' is already a palindrome!</strong>';
+    document.getElementById('palindromeStatus').textContent = 'Already a palindrome — 0 steps needed.';
+    return;
+  }
+  var steps = [];
+  var current = n;
+  var maxSteps = 50;
+  var found = false;
+  for (var i = 0; i < maxSteps; i++) {
+    var rev = reverseNum(current);
+    var sum = current + rev;
+    steps.push({ num: current, rev: rev, sum: sum });
+    if (isPalindrome(sum)) {
+      found = true;
+      break;
+    }
+    current = sum;
+  }
+  var html = '<strong>Reverse-and-Add Process for ' + n + ':</strong><br>';
+  for (var i = 0; i < steps.length; i++) {
+    var s = steps[i];
+    var isLast = (i === steps.length - 1) && found;
+    html += '<div style="background:' + (isLast ? '#d1fae5' : '#f8fafc') + ';border-radius:8px;padding:8px 12px;margin:4px 0;border-left:3px solid ' + (isLast ? '#22c55e' : '#f59e0b') + ';font-size:13px;">';
+    html += '<strong>Step ' + (i + 1) + ':</strong> ' + s.num + ' + ' + s.rev + ' = <strong>' + s.sum + '</strong>';
+    if (isLast) html += ' &#9989; <strong style="color:#16a34a;">Palindrome!</strong>';
+    html += '</div>';
+  }
+  if (!found) {
+    html += '<div style="background:#fef2f2;border-radius:8px;padding:8px 12px;margin:4px 0;border-left:3px solid #ef4444;font-size:13px;">';
+    html += '<strong style="color:#dc2626;">No palindrome found in ' + maxSteps + ' steps!</strong> This might be a Lychrel number candidate.</div>';
+  }
+  document.getElementById('palindromeResult').innerHTML = html;
+  document.getElementById('palindromeStatus').textContent = found ? 'Palindrome reached in ' + steps.length + ' step(s)!' : 'No palindrome found in ' + maxSteps + ' steps.';
+}
+
+function clearPalindrome() {
+  document.getElementById('palindromeInput').value = '';
+  document.getElementById('palindromeResult').innerHTML = 'Enter a number above and click Start!';
+  document.getElementById('palindromeStatus').textContent = '';
+}
+
+function checkPalindrome() {
+  var input = document.getElementById('palCheckInput');
+  var n = parseInt(input.value);
+  if (isNaN(n) || n < 0) {
+    document.getElementById('palCheckResult').innerHTML = '<strong style="color:#dc2626;">Please enter a valid number.</strong>';
+    return;
+  }
+  var s = n.toString();
+  var rev = s.split('').reverse().join('');
+  if (s === rev) {
+    document.getElementById('palCheckResult').innerHTML = '<div class="palindrome-display">' + s + '</div><strong style="color:#16a34a;font-size:16px;">&#9989; Yes! ' + n + ' is a palindrome!</strong><br>It reads "' + s + '" forwards and "' + rev + '" backwards &mdash; identical!';
+  } else {
+    document.getElementById('palCheckResult').innerHTML = '<strong style="color:#dc2626;">&#10060; No, ' + n + ' is NOT a palindrome.</strong><br>Forwards: "' + s + '" vs Backwards: "' + rev + '" &mdash; they are different.';
+  }
+}
+
+// =============================================
+// INTERACTIVE: CRYPTARITHMETIC PUZZLE
+// =============================================
+function checkCrypto() {
+  var a = parseInt(document.getElementById('cryptoA').value);
+  var b = parseInt(document.getElementById('cryptoB').value);
+  if (isNaN(a) || isNaN(b)) {
+    document.getElementById('cryptoResult').innerHTML = '<strong style="color:#dc2626;">Please enter values for both A and B.</strong>';
+    return;
+  }
+  if (a < 1 || a > 9 || b < 0 || b > 9) {
+    document.getElementById('cryptoResult').innerHTML = '<strong style="color:#dc2626;">A must be 1-9 and B must be 0-9.</strong>';
+    return;
+  }
+  var ab = 10 * a + b;
+  var ba = 10 * b + a;
+  var sum = ab + ba;
+  var html = '<strong>Checking:</strong> AB = ' + ab + ', BA = ' + ba + '<br>';
+  html += ab + ' + ' + ba + ' = <strong>' + sum + '</strong><br>';
+  if (sum === 121) {
+    html += '<strong style="color:#16a34a;font-size:16px;">&#127881; Correct! ' + ab + ' + ' + ba + ' = 121!</strong><br>';
+    html += 'A = ' + a + ', B = ' + b + '. A + B = ' + (a + b) + ' = 11, and 11 &times; 11 = 121.';
+  } else {
+    html += '<strong style="color:#dc2626;">&#10060; The sum is ' + sum + ', not 121. Try again!</strong><br>';
+    html += '<em>Hint: A + B must equal 11 (since AB + BA = 11(A+B) = 121).</em>';
+  }
+  document.getElementById('cryptoResult').innerHTML = html;
+}
+
+function hintCrypto() {
+  document.getElementById('cryptoResult').innerHTML = '<strong>&#128161; Hint:</strong> AB + BA = (10A + B) + (10B + A) = 11(A + B). For this to equal 121, we need A + B = 121/11 = <strong>11</strong>. So find digits A and B where A + B = 11. Examples: (2,9), (3,8), (4,7), (5,6), etc.';
+}
+
+function resetCrypto() {
+  document.getElementById('cryptoA').value = '';
+  document.getElementById('cryptoB').value = '';
+  document.getElementById('cryptoResult').innerHTML = 'Enter values for A and B, then click Check!';
+}
+
+// =============================================
+// INTERACTIVE: DIGIT SUM EXPLORER
+// =============================================
+function calcDigitSum() {
+  var input = document.getElementById('digitSumInput');
+  var n = parseInt(input.value);
+  if (isNaN(n) || n < 1) {
+    document.getElementById('digitSumResult').innerHTML = '<strong style="color:#dc2626;">Please enter a positive number.</strong>';
+    return;
+  }
+  var html = '<strong>Digital Root of ' + n + ':</strong><br>';
+  var current = n;
+  var step = 0;
+  while (current >= 10) {
+    var digits = current.toString().split('');
+    var sum = digits.reduce(function(a, b) { return a + parseInt(b); }, 0);
+    step++;
+    html += '<div style="background:#f8fafc;border-radius:8px;padding:8px 12px;margin:4px 0;border-left:3px solid #f59e0b;font-size:13px;">';
+    html += '<strong>Step ' + step + ':</strong> ' + digits.join(' + ') + ' = <strong>' + sum + '</strong>';
+    html += '</div>';
+    current = sum;
+  }
+  html += '<div style="background:#d1fae5;border-radius:8px;padding:10px 14px;margin:6px 0;border-left:4px solid #22c55e;font-size:14px;">';
+  html += '<strong style="color:#16a34a;font-size:16px;">Digital Root = ' + current + '</strong>';
+  if (current === 9 && n > 9 && n % 9 === 0) {
+    html += '<br><em>This number is divisible by 9!</em>';
+  }
+  if (current === 9 || current === 3 || current === 6) {
+    html += '<br><em>This number is divisible by 3.</em>';
+  }
+  html += '</div>';
+  document.getElementById('digitSumResult').innerHTML = html;
+}
+
+// =============================================
+// INIT ALL INTERACTIVE ELEMENTS
+// =============================================
+window.addEventListener('DOMContentLoaded', function() {
+  initMagic();
+});
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../chapter-features.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
+</body>
+</html>

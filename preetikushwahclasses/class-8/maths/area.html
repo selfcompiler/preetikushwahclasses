@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 8 Maths Ch 14: Area — Trapezium, rhombus, polygon areas, surface area & volume of cube, cuboid, cylinder. Interactive NCERT notes.">
+<meta name="keywords" content="Preeti Kushwah Classes, NCERT notes, CBSE notes, free study material, Class 8 notes, Class 8 NCERT, class 8 study material, Mathematics notes, Class 8 Mathematics, Class 8 Mathematics notes, Class 8 Mathematics NCERT, Area, Class 8 Area, area of trapezium, area of rhombus, surface area, volume, maths solutions, maths practice">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-8/maths/area.html">
+<meta property="og:title" content="Ch 14: Area — Class 8 Maths Notes">
+<meta property="og:description" content="Interactive NCERT notes — Trapezium, rhombus, polygon areas, surface area &amp; volume with SVG diagrams.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preetikushwahclasses.com/class-8/maths/area.html">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Area — Class 8 Maths | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:#fffbeb;color:#1c1c2e;overflow-x:hidden;line-height:1.6;}
+
+/* Top Nav */
+.top-nav{background:white;padding:8px 12px;display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,0.06);position:sticky;top:0;z-index:110;overflow-x:auto;}
+.tn-home{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;text-decoration:none;padding:7px 14px;border-radius:12px;font-size:12px;font-weight:800;border:1.5px solid #fbbf24;transition:all 0.2s;white-space:nowrap;}
+.tn-home:hover{background:#fde68a;transform:translateY(-1px);}
+.nav-spacer{flex:1;}
+.tn-share{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;padding:7px 12px;border-radius:12px;border:1.5px solid #fbbf24;font-size:11px;font-weight:800;cursor:pointer;transition:all 0.2s;white-space:nowrap;font-family:'Nunito',sans-serif;}
+.tn-share:hover{background:#fde68a;transform:translateY(-1px);}
+
+/* TOC */
+.toc-bar{background:linear-gradient(135deg,#78350f,#f59e0b);padding:12px 16px;position:sticky;top:44px;z-index:100;overflow-x:auto;white-space:nowrap;}
+.toc-bar a{display:inline-block;background:rgba(255,255,255,0.15);color:white;text-decoration:none;padding:6px 14px;border-radius:18px;font-size:13px;font-weight:700;margin-right:6px;transition:all 0.2s;}
+.toc-bar a:hover{background:rgba(255,255,255,0.35);}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,#78350f 0%,#92400e 20%,#d97706 50%,#f59e0b 75%,#fde68a 100%);position:relative;overflow:hidden;min-height:400px;padding-bottom:30px;}
+.hero-content{position:relative;z-index:10;text-align:center;padding:36px 16px 0;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.3);border:2px solid rgba(255,255,255,0.5);border-radius:30px;padding:5px 18px;font-size:11px;font-weight:800;letter-spacing:2px;color:white;text-transform:uppercase;margin-bottom:12px;}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(24px,5vw,48px);color:white;text-shadow:0 3px 12px rgba(0,0,0,0.3);margin-bottom:6px;line-height:1.1;}
+.hero p{color:rgba(255,255,255,0.9);font-size:15px;font-weight:700;margin-bottom:16px;}
+
+/* Container & Sections */
+.container{max-width:1000px;margin:0 auto;padding:36px 16px 60px;}
+.section-block{background:white;border-radius:22px;box-shadow:0 4px 24px rgba(0,0,0,0.08);margin-bottom:36px;overflow:hidden;scroll-margin-top:80px;}
+.section-hd{padding:22px 28px;display:flex;align-items:center;gap:14px;color:white;font-family:'Fredoka One',cursive;font-size:24px;line-height:1.2;}
+.section-hd .icon{font-size:32px;}
+.section-bd{padding:28px;}
+.section-bd > p{margin-bottom:14px;}
+
+/* Gradients — amber/orange theme */
+.g-amber{background:linear-gradient(135deg,#78350f,#f59e0b);}
+.g-orange{background:linear-gradient(135deg,#9a3412,#fb923c);}
+.g-brown{background:linear-gradient(135deg,#78350f,#d97706);}
+.g-yellow{background:linear-gradient(135deg,#92400e,#fbbf24);}
+.g-teal{background:linear-gradient(135deg,#134e4a,#2dd4bf);}
+.g-green{background:linear-gradient(135deg,#166534,#22c55e);}
+.g-blue{background:linear-gradient(135deg,#1e40af,#38bdf8);}
+.g-indigo{background:linear-gradient(135deg,#312e81,#818cf8);}
+.g-purple{background:linear-gradient(135deg,#5b21b6,#a78bfa);}
+.g-red{background:linear-gradient(135deg,#991b1b,#f87171);}
+.g-rose{background:linear-gradient(135deg,#881337,#fb7185);}
+.g-slate{background:linear-gradient(135deg,#1e293b,#64748b);}
+
+/* Content elements */
+.subtitle{font-family:'Fredoka One',cursive;color:#92400e;font-size:20px;margin:22px 0 12px;display:flex;align-items:center;gap:8px;}
+.kt{display:inline-block;background:#fde047;color:#713f12;border-radius:7px;padding:1px 9px;font-weight:800;font-size:13px;}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:16px 0;}
+.info-card{border-radius:14px;padding:16px 18px;font-size:14px;}
+.info-card h4{font-weight:800;margin-bottom:6px;font-size:15px;}
+.ic-amber{background:#fffbeb;border-left:5px solid #f59e0b;}
+.ic-orange{background:#fff7ed;border-left:5px solid #fb923c;}
+.ic-yellow{background:#fefce8;border-left:5px solid #facc15;}
+.ic-blue{background:#eff6ff;border-left:5px solid #3b82f6;}
+.ic-indigo{background:#eef2ff;border-left:5px solid #818cf8;}
+.ic-teal{background:#f0fdfa;border-left:5px solid #14b8a6;}
+.ic-purple{background:#faf5ff;border-left:5px solid #a78bfa;}
+.ic-green{background:#f0fdf4;border-left:5px solid #22c55e;}
+.ic-red{background:#fef2f2;border-left:5px solid #f87171;}
+.ic-pink{background:#fdf2f8;border-left:5px solid #ec4899;}
+.trick{background:linear-gradient(135deg,#fef9c3,#fde68a);border:2px solid #f59e0b;border-radius:14px;padding:14px 18px;font-size:14px;margin:16px 0;}
+.trick strong{color:#78350f;}
+.note-box{background:#fffbeb;border-left:5px solid #f59e0b;border-radius:10px;padding:12px 16px;margin:14px 0;font-size:14px;}
+.formula-box{background:linear-gradient(135deg,#fffbeb,#fde68a);border:2px solid #f59e0b;border-radius:12px;padding:14px 18px;text-align:center;font-family:'Fredoka One',cursive;font-size:18px;color:#78350f;margin:12px 0;}
+.formula-box small{font-family:'Nunito',sans-serif;font-weight:600;font-size:13px;display:block;margin-top:4px;color:#92400e;}
+
+/* Tables */
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0;}
+th{background:#92400e;color:white;padding:12px 14px;text-align:left;font-weight:800;font-size:13px;}
+td{padding:11px 14px;border-bottom:1px solid #fde68a;font-size:13.5px;}
+tr:nth-child(even) td{background:#fffbeb;}
+
+/* Worked example */
+.worked-example{background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:18px;margin:16px 0;}
+.worked-example h4{font-family:'Fredoka One',cursive;color:#92400e;font-size:16px;margin-bottom:8px;}
+.we-step{background:white;border-radius:10px;padding:12px 16px;margin:8px 0;border-left:4px solid #f59e0b;font-size:14px;}
+
+/* SVG diagram wrap */
+.diagram-wrap{background:linear-gradient(135deg,#f8fafc,#e2e8f0);border-radius:18px;padding:24px;margin:20px 0;text-align:center;}
+.diagram-wrap svg{max-width:100%;height:auto;}
+.diagram-caption{font-size:13px;color:#64748b;font-weight:700;margin-top:10px;}
+
+/* MCQ */
+.mcq-list{list-style:none;padding:0;}
+.mcq-item{background:white;border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
+.mcq-q{font-weight:700;font-size:14.5px;margin-bottom:10px;color:#92400e;}
+.mcq-options{list-style:none;padding:0;}
+.mcq-options li{background:#fffbeb;border-radius:8px;padding:7px 12px;margin-bottom:5px;font-size:13.5px;cursor:pointer;transition:all 0.2s;border:1.5px solid transparent;}
+.mcq-options li:hover{background:#fde68a;border-color:#f59e0b;}
+.mcq-options li.correct{background:#d1fae5!important;border-color:#22c55e;font-weight:700;color:#14532d;}
+.mcq-options li.wrong{background:#fee2e2!important;border-color:#ef4444;font-weight:700;color:#991b1b;}
+.mcq-ans{font-size:12.5px;color:#16a34a;font-weight:700;margin-top:6px;display:none;}
+.mcq-item.show-ans .mcq-ans{display:block;}
+
+/* Short Q */
+.short-q-list{list-style:none;padding:0;}
+.short-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #d97706;}
+.short-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
+.short-a{font-size:13.5px;color:#374151;}
+.short-a strong{color:#92400e;}
+
+/* Long Q */
+.long-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #fb923c;}
+.long-q{font-weight:700;font-size:14px;color:#9a3412;margin-bottom:6px;}
+.long-a{font-size:13.5px;color:#374151;}
+.long-a strong{color:#92400e;}
+
+/* Fun facts */
+.fun-fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0;}
+.fun-fact-card{background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fbbf24;border-radius:14px;padding:16px 18px;font-size:14px;}
+.fun-fact-card h4{font-weight:800;font-size:15px;color:#92400e;margin-bottom:6px;}
+
+/* Bottom nav */
+.bottom-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:30px 0;}
+.bottom-nav-full{grid-column:1/-1;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.bottom-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:800;font-size:14px;text-decoration:none;color:white;transition:all 0.2s;}
+.bottom-btn:hover{transform:translateY(-2px);}
+.bottom-btn.home-btn{background:linear-gradient(135deg,#92400e,#f59e0b);}
+
+/* Share */
+.float-share-btn{position:fixed;bottom:24px;right:24px;width:52px;height:52px;background:linear-gradient(135deg,#92400e,#f59e0b);border-radius:50%;border:none;color:white;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(146,64,14,0.4);z-index:90;display:flex;align-items:center;justify-content:center;transition:all 0.3s;}
+.float-share-btn:hover{transform:scale(1.1);}
+.share-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;justify-content:center;align-items:center;}
+.share-overlay.active{display:flex;}
+.share-popup{background:white;border-radius:22px;padding:28px;max-width:360px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);text-align:center;}
+.share-popup h3{font-family:'Fredoka One',cursive;color:#92400e;font-size:20px;margin-bottom:16px;}
+.share-btn-row{display:flex;flex-direction:column;gap:10px;}
+.share-action-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;border:none;font-size:14px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:white;transition:all 0.2s;}
+.share-wa{background:#25d366;}
+.share-copy{background:#3b82f6;}
+.share-native{background:#f59e0b;color:#78350f;}
+.share-close-btn{margin-top:14px;background:#e2e8f0;color:#475569;border:none;padding:8px 20px;border-radius:10px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+.share-action-btn:hover{opacity:0.9;transform:translateY(-1px);}
+.share-close-btn:hover{background:#cbd5e1;}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Footer */
+footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#78350f,#f59e0b);color:white;font-size:14px;font-weight:700;}
+
+/* Scrollbar styling */
+::-webkit-scrollbar{height:4px;width:4px;}
+::-webkit-scrollbar-thumb{background:#f59e0b;border-radius:4px;}
+
+/* Highlight animation for hero */
+@keyframes heroFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+@keyframes heroPulse{0%,100%{opacity:0.6;transform:scale(1);}50%{opacity:1;transform:scale(1.1);}}
+
+/* Unordered list styling inside section-bd */
+.section-bd ul{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ul li{margin-bottom:6px;}
+.section-bd ol{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ol li{margin-bottom:6px;}
+
+@media(max-width:600px){
+  .section-bd{padding:18px;}
+  .section-hd{padding:16px 20px;font-size:19px;}
+  .hero{min-height:340px;}
+  .toc-bar{top:40px;}
+  .diagram-wrap{padding:14px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== TOP NAV ========== -->
+<div class="top-nav">
+  <a href="../../index.html" class="tn-home">&#127968; Home</a>
+  <div class="nav-spacer"></div>
+  <button class="tn-share" onclick="openSharePopup()">&#128228; Share</button>
+</div>
+
+<!-- ========== TABLE OF CONTENTS BAR ========== -->
+<div class="toc-bar">
+  <a href="#intro">&#128208; Intro</a>
+  <a href="#trapezium">&#9653; Trapezium</a>
+  <a href="#rhombus">&#9670; Rhombus</a>
+  <a href="#quadrilateral">&#9645; Quadrilateral</a>
+  <a href="#polygon">&#11039; Polygon</a>
+  <a href="#composite">&#128295; Composite</a>
+  <a href="#surface-area">&#128230; Surface Area</a>
+  <a href="#volume">&#127810; Volume</a>
+  <a href="#worked">&#9999;&#65039; Examples</a>
+  <a href="#summary">&#128202; Summary</a>
+  <a href="#mcq">&#129504; MCQs</a>
+  <a href="#short">&#9997;&#65039; Short Q&amp;A</a>
+  <a href="#long">&#128214; Long Q&amp;A</a>
+  <a href="#funfacts">&#127775; Fun Facts</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Chapter 14 &middot; NCERT 2025-26</div>
+    <h1>&#128208; Area</h1>
+    <p>Trapezium &middot; Rhombus &middot; Polygon &middot; Surface Area &middot; Volume</p>
+  </div>
+  <!-- Animated geometric shapes in hero -->
+  <div style="position:relative;max-width:340px;height:180px;margin:20px auto 0;">
+    <!-- Trapezium shape -->
+    <svg style="position:absolute;left:10%;top:10%;animation:heroFloat 4s ease-in-out infinite;" width="80" height="60" viewBox="0 0 80 60">
+      <polygon points="20,5 60,5 75,55 5,55" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5"/>
+    </svg>
+    <!-- Rhombus shape -->
+    <svg style="position:absolute;right:15%;top:15%;animation:heroFloat 4s ease-in-out infinite 1s;" width="60" height="60" viewBox="0 0 60 60">
+      <polygon points="30,2 58,30 30,58 2,30" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2.5"/>
+    </svg>
+    <!-- Cube outline -->
+    <svg style="position:absolute;left:35%;bottom:10%;animation:heroFloat 4s ease-in-out infinite 2s;" width="70" height="70" viewBox="0 0 70 70">
+      <polygon points="15,25 50,25 50,60 15,60" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+      <polygon points="15,25 30,10 65,10 50,25" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+      <polygon points="50,25 65,10 65,45 50,60" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+    </svg>
+    <!-- Cylinder outline -->
+    <svg style="position:absolute;right:5%;bottom:5%;animation:heroPulse 3s ease-in-out infinite 0.5s;" width="50" height="70" viewBox="0 0 50 70">
+      <ellipse cx="25" cy="12" rx="20" ry="10" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+      <line x1="5" y1="12" x2="5" y2="58" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+      <line x1="45" y1="12" x2="45" y2="58" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+      <ellipse cx="25" cy="58" rx="20" ry="10" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+    </svg>
+    <!-- Floating dots -->
+    <div style="position:absolute;width:8px;height:8px;background:#fde047;border-radius:50%;top:5%;left:55%;animation:heroPulse 3s ease-in-out infinite;"></div>
+    <div style="position:absolute;width:6px;height:6px;background:#fbbf24;border-radius:50%;top:50%;left:5%;animation:heroPulse 3s ease-in-out infinite 1.5s;"></div>
+  </div>
+</div>
+
+<!-- ========== MAIN CONTAINER ========== -->
+<div class="container">
+
+  <!-- =====================================================
+       SECTION 1: INTRODUCTION
+       ===================================================== -->
+  <div class="section-block reveal" id="intro">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128208;</span>
+      Introduction to Area
+    </div>
+    <div class="section-bd">
+
+      <p>We already know how to find the area of rectangles, squares, triangles, parallelograms, and circles. In this chapter, we extend those skills to find the areas of more complex shapes: <span class="kt">trapeziums</span>, <span class="kt">rhombuses</span>, <span class="kt">general quadrilaterals</span>, and <span class="kt">polygons</span>. We will also get our first introduction to <strong>surface area</strong> and <strong>volume</strong> of 3D solids.</p>
+
+      <p>The key idea throughout this chapter is <strong>splitting complex shapes into simpler shapes whose areas we already know</strong>. A trapezium can be split into triangles and rectangles. A polygon can be split into triangles. Even the surface of a 3D object can be "unfolded" into flat 2D shapes.</p>
+
+      <div class="subtitle">&#127470;&#127475; Indian Mathematical Heritage</div>
+
+      <p>Ancient Indian mathematicians were pioneers in area computation. The <strong>Sulbasutras</strong> (c. 800 BCE) gave detailed methods for constructing altars of specific areas. <strong>Aryabhata</strong> (476 CE) gave the formula for the area of a triangle as "half the base times the height" in his <em>Aryabhatiya</em>. <strong>Brahmagupta</strong> (628 CE) discovered the formula for the area of a cyclic quadrilateral, a result that was not known in the Western world until much later.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128220; Baudhayana (~800 BCE)</h4>
+          The <strong>Sulbasutras</strong> described how to construct squares equal in area to given rectangles, circles, and other shapes &mdash; essentially performing area transformations thousands of years before modern geometry.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#127775; Brahmagupta (628 CE)</h4>
+          Brahmagupta's formula for the area of a cyclic quadrilateral with sides a, b, c, d is: Area = &radic;[(s&minus;a)(s&minus;b)(s&minus;c)(s&minus;d)] where s is the semi-perimeter. This generalises Heron's formula!
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#128171; Mahavira (c. 850 CE)</h4>
+          Mahavira's <em>Ganitasarasangraha</em> contains formulas for areas of various quadrilaterals and polygons, including practical methods for land measurement that farmers and builders used.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Core Strategy:</strong> To find the area of any complex shape, <strong>split it into simpler shapes</strong> (triangles, rectangles, trapeziums) whose area formulas you know. Then add up the individual areas.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 2: AREA OF TRAPEZIUM
+       ===================================================== -->
+  <div class="section-block reveal" id="trapezium">
+    <div class="section-hd g-orange">
+      <span class="icon">&#9653;</span>
+      Area of a Trapezium
+    </div>
+    <div class="section-bd">
+
+      <p>A <span class="kt">trapezium</span> (called "trapezoid" in some countries) is a quadrilateral with <strong>exactly one pair of parallel sides</strong>. The parallel sides are called the <strong>bases</strong>, and the perpendicular distance between them is the <strong>height</strong>.</p>
+
+      <!-- SVG Diagram: Trapezium -->
+      <div class="diagram-wrap">
+        <svg width="340" height="220" viewBox="0 0 340 220">
+          <!-- Trapezium shape -->
+          <polygon points="90,40 250,40 300,180 40,180" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+          <!-- Height dashed line -->
+          <line x1="170" y1="40" x2="170" y2="180" stroke="#92400e" stroke-width="2" stroke-dasharray="6,4"/>
+          <!-- Height arrow marks -->
+          <line x1="165" y1="45" x2="170" y2="40" stroke="#92400e" stroke-width="2"/>
+          <line x1="175" y1="45" x2="170" y2="40" stroke="#92400e" stroke-width="2"/>
+          <line x1="165" y1="175" x2="170" y2="180" stroke="#92400e" stroke-width="2"/>
+          <line x1="175" y1="175" x2="170" y2="180" stroke="#92400e" stroke-width="2"/>
+          <!-- Labels -->
+          <text x="170" y="30" text-anchor="middle" font-family="Fredoka One" font-size="14" fill="#92400e">a (parallel side 1)</text>
+          <text x="170" y="205" text-anchor="middle" font-family="Fredoka One" font-size="14" fill="#92400e">b (parallel side 2)</text>
+          <text x="185" y="115" font-family="Fredoka One" font-size="14" fill="#78350f">h</text>
+          <!-- Vertex labels -->
+          <text x="80" y="35" font-weight="800" font-size="13" fill="#d97706">A</text>
+          <text x="255" y="35" font-weight="800" font-size="13" fill="#d97706">B</text>
+          <text x="305" y="190" font-weight="800" font-size="13" fill="#d97706">C</text>
+          <text x="25" y="190" font-weight="800" font-size="13" fill="#d97706">D</text>
+          <!-- Right angle mark at height base -->
+          <rect x="170" y="170" width="10" height="10" fill="none" stroke="#92400e" stroke-width="1.5"/>
+        </svg>
+        <div class="diagram-caption">Trapezium ABCD with parallel sides a and b, and height h</div>
+      </div>
+
+      <div class="subtitle">&#128290; Deriving the Formula</div>
+
+      <p>Draw a diagonal of the trapezium to split it into <strong>two triangles</strong>. Both triangles share the same height <em>h</em> (the distance between the parallel sides).</p>
+
+      <ul>
+        <li><strong>Triangle 1</strong> has base = a (top parallel side), height = h</li>
+        <li><strong>Triangle 2</strong> has base = b (bottom parallel side), height = h</li>
+      </ul>
+
+      <p>Area of trapezium = Area of Triangle 1 + Area of Triangle 2</p>
+      <p>= &frac12; &times; a &times; h + &frac12; &times; b &times; h</p>
+      <p>= <strong>&frac12; &times; (a + b) &times; h</strong></p>
+
+      <div class="formula-box">
+        Area of Trapezium = &frac12; &times; (a + b) &times; h
+        <small>where a and b are the parallel sides, and h is the height (perpendicular distance between them)</small>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Memory Trick:</strong> "Half the <strong>sum</strong> of parallel sides, times the <strong>height</strong>." Think of it as the area of a rectangle whose width is the <em>average</em> of the two parallel sides: average width &times; height.
+      </div>
+
+      <!-- Worked Example -->
+      <div class="worked-example">
+        <h4>Example 1: Find the area of a trapezium with parallel sides 8 cm and 12 cm, and height 5 cm.</h4>
+        <div class="we-step">
+          <strong>Given:</strong> a = 8 cm, b = 12 cm, h = 5 cm
+        </div>
+        <div class="we-step">
+          <strong>Formula:</strong> Area = &frac12; &times; (a + b) &times; h
+        </div>
+        <div class="we-step">
+          <strong>Substitute:</strong> Area = &frac12; &times; (8 + 12) &times; 5 = &frac12; &times; 20 &times; 5 = <strong>50 cm&sup2;</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 2: The area of a trapezium is 105 cm&sup2;. Its parallel sides are 9 cm and 12 cm. Find the height.</h4>
+        <div class="we-step">
+          <strong>Given:</strong> Area = 105 cm&sup2;, a = 9 cm, b = 12 cm, h = ?
+        </div>
+        <div class="we-step">
+          <strong>Formula:</strong> 105 = &frac12; &times; (9 + 12) &times; h
+        </div>
+        <div class="we-step">
+          <strong>Solve:</strong> 105 = &frac12; &times; 21 &times; h &rArr; 105 = 10.5h &rArr; h = 105 / 10.5 = <strong>10 cm</strong>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128221; Note:</strong> A parallelogram is a special trapezium where both pairs of opposite sides are parallel. If a = b, then Area = &frac12; &times; (a + a) &times; h = a &times; h, which is the area of a parallelogram!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 3: AREA OF RHOMBUS
+       ===================================================== -->
+  <div class="section-block reveal" id="rhombus">
+    <div class="section-hd g-brown">
+      <span class="icon">&#9670;</span>
+      Area of a Rhombus
+    </div>
+    <div class="section-bd">
+
+      <p>A <span class="kt">rhombus</span> is a quadrilateral with <strong>all four sides equal</strong>. Its diagonals bisect each other at right angles. This special property gives us a neat area formula using the diagonals.</p>
+
+      <!-- SVG Diagram: Rhombus -->
+      <div class="diagram-wrap">
+        <svg width="300" height="240" viewBox="0 0 300 240">
+          <!-- Rhombus shape -->
+          <polygon points="150,20 270,120 150,220 30,120" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+          <!-- Diagonals -->
+          <line x1="150" y1="20" x2="150" y2="220" stroke="#92400e" stroke-width="2" stroke-dasharray="6,4"/>
+          <line x1="30" y1="120" x2="270" y2="120" stroke="#9a3412" stroke-width="2" stroke-dasharray="6,4"/>
+          <!-- Right angle mark at centre -->
+          <rect x="150" y="120" width="10" height="10" fill="none" stroke="#78350f" stroke-width="1.5"/>
+          <!-- Labels -->
+          <text x="158" y="130" font-family="Fredoka One" font-size="14" fill="#78350f">O</text>
+          <text x="115" y="125" font-family="Fredoka One" font-size="13" fill="#9a3412">d&#8322;</text>
+          <text x="155" y="80" font-family="Fredoka One" font-size="13" fill="#92400e">d&#8321;</text>
+          <!-- Vertex labels -->
+          <text x="145" y="14" font-weight="800" font-size="13" fill="#d97706">A</text>
+          <text x="275" y="124" font-weight="800" font-size="13" fill="#d97706">B</text>
+          <text x="145" y="236" font-weight="800" font-size="13" fill="#d97706">C</text>
+          <text x="12" y="124" font-weight="800" font-size="13" fill="#d97706">D</text>
+        </svg>
+        <div class="diagram-caption">Rhombus ABCD with diagonals d&#8321; (AC) and d&#8322; (BD) meeting at O</div>
+      </div>
+
+      <div class="subtitle">&#128290; Deriving the Formula</div>
+
+      <p>The diagonals of a rhombus divide it into <strong>4 right-angled triangles</strong>. Since the diagonals bisect each other:</p>
+      <ul>
+        <li>Each triangle has base = d&#8322;/2 and height = d&#8321;/2</li>
+        <li>Area of one triangle = &frac12; &times; (d&#8322;/2) &times; (d&#8321;/2) = d&#8321;d&#8322;/8</li>
+        <li>Total area = 4 &times; d&#8321;d&#8322;/8 = <strong>&frac12; &times; d&#8321; &times; d&#8322;</strong></li>
+      </ul>
+
+      <div class="formula-box">
+        Area of Rhombus = &frac12; &times; d&#8321; &times; d&#8322;
+        <small>where d&#8321; and d&#8322; are the lengths of the two diagonals</small>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Memory Trick:</strong> "Half the product of diagonals." This formula also works for any <strong>kite</strong> (a quadrilateral with two pairs of consecutive equal sides), since the diagonals of a kite are also perpendicular.
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 3: Find the area of a rhombus whose diagonals are 16 cm and 12 cm.</h4>
+        <div class="we-step">
+          <strong>Given:</strong> d&#8321; = 16 cm, d&#8322; = 12 cm
+        </div>
+        <div class="we-step">
+          <strong>Formula:</strong> Area = &frac12; &times; d&#8321; &times; d&#8322; = &frac12; &times; 16 &times; 12 = <strong>96 cm&sup2;</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 4: The area of a rhombus is 120 cm&sup2; and one diagonal is 15 cm. Find the other diagonal.</h4>
+        <div class="we-step">
+          <strong>Given:</strong> Area = 120 cm&sup2;, d&#8321; = 15 cm, d&#8322; = ?
+        </div>
+        <div class="we-step">
+          <strong>Solve:</strong> 120 = &frac12; &times; 15 &times; d&#8322; &rArr; 120 = 7.5 &times; d&#8322; &rArr; d&#8322; = 120 / 7.5 = <strong>16 cm</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 5: Find the area and side of a rhombus whose diagonals are 24 cm and 10 cm.</h4>
+        <div class="we-step">
+          <strong>Area:</strong> = &frac12; &times; 24 &times; 10 = <strong>120 cm&sup2;</strong>
+        </div>
+        <div class="we-step">
+          <strong>Finding side:</strong> The diagonals bisect each other at right angles. Half-diagonals = 12 cm and 5 cm.
+        </div>
+        <div class="we-step">
+          <strong>Using Pythagoras:</strong> side = &radic;(12&sup2; + 5&sup2;) = &radic;(144 + 25) = &radic;169 = <strong>13 cm</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 4: AREA OF GENERAL QUADRILATERAL
+       ===================================================== -->
+  <div class="section-block reveal" id="quadrilateral">
+    <div class="section-hd g-yellow">
+      <span class="icon">&#9645;</span>
+      Area of a General Quadrilateral
+    </div>
+    <div class="section-bd">
+
+      <p>For a <span class="kt">general quadrilateral</span> (one that is neither a parallelogram, nor a trapezium, nor a rhombus), we use the strategy of <strong>splitting it into two triangles</strong> by drawing one diagonal.</p>
+
+      <!-- SVG Diagram: General Quadrilateral -->
+      <div class="diagram-wrap">
+        <svg width="340" height="260" viewBox="0 0 340 260">
+          <!-- Quadrilateral -->
+          <polygon points="60,50 280,30 300,200 40,220" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+          <!-- Diagonal AC -->
+          <line x1="60" y1="50" x2="300" y2="200" stroke="#92400e" stroke-width="2" stroke-dasharray="6,4"/>
+          <!-- Perpendicular from B to AC -->
+          <line x1="280" y1="30" x2="200" y2="140" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <!-- Perpendicular from D to AC -->
+          <line x1="40" y1="220" x2="130" y2="105" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <!-- Labels -->
+          <text x="45" y="45" font-weight="800" font-size="14" fill="#d97706">A</text>
+          <text x="284" y="25" font-weight="800" font-size="14" fill="#d97706">B</text>
+          <text x="305" y="210" font-weight="800" font-size="14" fill="#d97706">C</text>
+          <text x="20" y="230" font-weight="800" font-size="14" fill="#d97706">D</text>
+          <text x="180" y="100" font-family="Fredoka One" font-size="13" fill="#92400e">d</text>
+          <text x="230" y="75" font-family="Nunito" font-size="12" font-weight="800" fill="#3b82f6">h&#8321;</text>
+          <text x="70" y="170" font-family="Nunito" font-size="12" font-weight="800" fill="#22c55e">h&#8322;</text>
+        </svg>
+        <div class="diagram-caption">Quadrilateral ABCD split into two triangles by diagonal AC = d</div>
+      </div>
+
+      <p>If we draw diagonal AC = d, then:</p>
+      <ul>
+        <li><strong>Triangle ABC</strong> has base d and height h&#8321; (perpendicular distance from B to AC)</li>
+        <li><strong>Triangle ACD</strong> has base d and height h&#8322; (perpendicular distance from D to AC)</li>
+      </ul>
+
+      <div class="formula-box">
+        Area of Quadrilateral = &frac12; &times; d &times; (h&#8321; + h&#8322;)
+        <small>where d is a diagonal, and h&#8321;, h&#8322; are the perpendicular distances from the other two vertices to that diagonal</small>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 6: In quadrilateral ABCD, diagonal AC = 20 cm. The perpendicular distances from B and D to AC are 6 cm and 8 cm respectively. Find the area.</h4>
+        <div class="we-step">
+          <strong>Given:</strong> d = 20 cm, h&#8321; = 6 cm, h&#8322; = 8 cm
+        </div>
+        <div class="we-step">
+          <strong>Area:</strong> = &frac12; &times; 20 &times; (6 + 8) = &frac12; &times; 20 &times; 14 = <strong>140 cm&sup2;</strong>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128221; Note:</strong> This formula is very powerful! It works for <em>any</em> quadrilateral, whether convex or concave. You just need the length of one diagonal and the two perpendicular heights from the opposite vertices.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 5: AREA OF POLYGON
+       ===================================================== -->
+  <div class="section-block reveal" id="polygon">
+    <div class="section-hd g-teal">
+      <span class="icon">&#11039;</span>
+      Area of a Polygon
+    </div>
+    <div class="section-bd">
+
+      <p>To find the area of a <span class="kt">polygon</span> (a closed figure with 5 or more sides), we split it into triangles and/or trapeziums whose areas we can calculate, then add them up.</p>
+
+      <div class="subtitle">&#128295; Method 1: Triangulation from One Vertex</div>
+
+      <p>Choose one vertex and draw diagonals to all non-adjacent vertices. This divides an <em>n</em>-sided polygon into (<em>n</em> &minus; 2) triangles.</p>
+
+      <!-- SVG Diagram: Pentagon triangulated -->
+      <div class="diagram-wrap">
+        <svg width="300" height="240" viewBox="0 0 300 240">
+          <!-- Pentagon -->
+          <polygon points="150,20 270,90 240,210 60,210 30,90" fill="#f0fdfa" stroke="#14b8a6" stroke-width="2.5"/>
+          <!-- Diagonals from A -->
+          <line x1="150" y1="20" x2="240" y2="210" stroke="#d97706" stroke-width="1.5" stroke-dasharray="5,4"/>
+          <line x1="150" y1="20" x2="60" y2="210" stroke="#d97706" stroke-width="1.5" stroke-dasharray="5,4"/>
+          <!-- Labels -->
+          <text x="143" y="14" font-weight="800" font-size="13" fill="#14b8a6">A</text>
+          <text x="275" y="94" font-weight="800" font-size="13" fill="#14b8a6">B</text>
+          <text x="245" y="225" font-weight="800" font-size="13" fill="#14b8a6">C</text>
+          <text x="43" y="225" font-weight="800" font-size="13" fill="#14b8a6">D</text>
+          <text x="12" y="94" font-weight="800" font-size="13" fill="#14b8a6">E</text>
+          <!-- Triangle numbers -->
+          <text x="190" y="100" font-family="Fredoka One" font-size="14" fill="#d97706">I</text>
+          <text x="150" y="170" font-family="Fredoka One" font-size="14" fill="#d97706">II</text>
+          <text x="100" y="100" font-family="Fredoka One" font-size="14" fill="#d97706">III</text>
+        </svg>
+        <div class="diagram-caption">Pentagon ABCDE divided into 3 triangles (5 &minus; 2 = 3) from vertex A</div>
+      </div>
+
+      <p>Area of pentagon = Area(&#9651;ABC) + Area(&#9651;ACD) + Area(&#9651;ADE)</p>
+
+      <div class="subtitle">&#128295; Method 2: Using Trapeziums</div>
+
+      <p>For irregular polygons, another effective method is to draw perpendiculars from each vertex to a fixed base line. This creates a series of trapeziums (and possibly triangles at the ends). Calculate each trapezium area and add/subtract as needed.</p>
+
+      <div class="worked-example">
+        <h4>Example 7: Find the area of a regular hexagon with side 6 cm.</h4>
+        <div class="we-step">
+          <strong>Strategy:</strong> A regular hexagon can be divided into <strong>6 equilateral triangles</strong>, each with side 6 cm.
+        </div>
+        <div class="we-step">
+          <strong>Area of one equilateral triangle:</strong> = (&radic;3/4) &times; side&sup2; = (&radic;3/4) &times; 36 = 9&radic;3 cm&sup2;
+        </div>
+        <div class="we-step">
+          <strong>Area of hexagon:</strong> = 6 &times; 9&radic;3 = 54&radic;3 &asymp; <strong>93.53 cm&sup2;</strong>
+        </div>
+      </div>
+
+      <div class="formula-box">
+        Area of Regular Polygon = n &times; (&frac12; &times; side &times; apothem)
+        <small>where n is the number of sides and the apothem is the perpendicular distance from centre to a side</small>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 6: AREA OF COMPOSITE / COMBINED SHAPES
+       ===================================================== -->
+  <div class="section-block reveal" id="composite">
+    <div class="section-hd g-green">
+      <span class="icon">&#128295;</span>
+      Area of Composite Shapes
+    </div>
+    <div class="section-bd">
+
+      <p><span class="kt">Composite shapes</span> (also called combined shapes) are figures made by joining two or more simple shapes, or by cutting out a shape from a larger one.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#10133; Addition Method</h4>
+          When two or more shapes are <strong>joined together</strong>, the total area = sum of individual areas.<br>
+          <em>Example:</em> An L-shaped room = rectangle 1 + rectangle 2.
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#10134; Subtraction Method</h4>
+          When a shape is <strong>cut out</strong> from a larger shape, the remaining area = area of larger shape &minus; area of cut-out.<br>
+          <em>Example:</em> A ring = area of outer circle &minus; area of inner circle.
+        </div>
+      </div>
+
+      <!-- SVG: Composite shape example (L-shape) -->
+      <div class="diagram-wrap">
+        <svg width="300" height="200" viewBox="0 0 300 200">
+          <!-- L-shape -->
+          <polygon points="30,20 180,20 180,80 120,80 120,180 30,180" fill="#f0fdf4" stroke="#22c55e" stroke-width="2.5"/>
+          <!-- Dashed split line -->
+          <line x1="120" y1="20" x2="120" y2="80" stroke="#d97706" stroke-width="2" stroke-dasharray="5,4"/>
+          <!-- Dimension labels -->
+          <text x="100" y="14" text-anchor="middle" font-size="12" font-weight="800" fill="#22c55e">150 cm</text>
+          <text x="190" y="55" font-size="12" font-weight="800" fill="#3b82f6">60 cm</text>
+          <text x="15" y="105" font-size="12" font-weight="800" fill="#3b82f6">160 cm</text>
+          <text x="72" y="195" font-size="12" font-weight="800" fill="#22c55e">90 cm</text>
+          <!-- Region labels -->
+          <text x="80" y="55" font-family="Fredoka One" font-size="13" fill="#d97706">I</text>
+          <text x="148" y="55" font-family="Fredoka One" font-size="13" fill="#d97706">II</text>
+          <text x="72" y="135" font-family="Fredoka One" font-size="13" fill="#d97706">III</text>
+        </svg>
+        <div class="diagram-caption">L-shaped figure split into simpler rectangles</div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 8: A rectangular garden 50 m &times; 30 m has a circular pond of radius 7 m in the middle. Find the area of the garden excluding the pond. (Use &pi; = 22/7)</h4>
+        <div class="we-step">
+          <strong>Area of garden:</strong> 50 &times; 30 = 1500 m&sup2;
+        </div>
+        <div class="we-step">
+          <strong>Area of pond:</strong> &pi;r&sup2; = (22/7) &times; 7 &times; 7 = 154 m&sup2;
+        </div>
+        <div class="we-step">
+          <strong>Area excluding pond:</strong> 1500 &minus; 154 = <strong>1346 m&sup2;</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 9: A path 2 m wide runs around the outside of a rectangular field 40 m &times; 25 m. Find the area of the path.</h4>
+        <div class="we-step">
+          <strong>Outer dimensions:</strong> (40 + 2 + 2) &times; (25 + 2 + 2) = 44 m &times; 29 m
+        </div>
+        <div class="we-step">
+          <strong>Outer area:</strong> 44 &times; 29 = 1276 m&sup2;
+        </div>
+        <div class="we-step">
+          <strong>Inner area (field):</strong> 40 &times; 25 = 1000 m&sup2;
+        </div>
+        <div class="we-step">
+          <strong>Area of path:</strong> 1276 &minus; 1000 = <strong>276 m&sup2;</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 7: SURFACE AREA
+       ===================================================== -->
+  <div class="section-block reveal" id="surface-area">
+    <div class="section-hd g-blue">
+      <span class="icon">&#128230;</span>
+      Surface Area of 3D Solids
+    </div>
+    <div class="section-bd">
+
+      <p>The <span class="kt">surface area</span> of a 3D solid is the total area of all its outer faces. Think of it as the amount of wrapping paper needed to cover the solid completely. We study three basic solids: <strong>cube</strong>, <strong>cuboid</strong>, and <strong>cylinder</strong>.</p>
+
+      <div class="subtitle">&#128230; Surface Area of a Cuboid</div>
+
+      <!-- SVG: Cuboid -->
+      <div class="diagram-wrap">
+        <svg width="300" height="220" viewBox="0 0 300 220">
+          <!-- Front face -->
+          <polygon points="40,80 180,80 180,190 40,190" fill="#dbeafe" stroke="#1e40af" stroke-width="2"/>
+          <!-- Top face -->
+          <polygon points="40,80 100,30 240,30 180,80" fill="#bfdbfe" stroke="#1e40af" stroke-width="2"/>
+          <!-- Right face -->
+          <polygon points="180,80 240,30 240,140 180,190" fill="#93c5fd" stroke="#1e40af" stroke-width="2"/>
+          <!-- Labels -->
+          <text x="110" y="200" text-anchor="middle" font-family="Fredoka One" font-size="14" fill="#1e40af">l</text>
+          <text x="25" y="140" font-family="Fredoka One" font-size="14" fill="#1e40af">h</text>
+          <text x="220" y="90" font-family="Fredoka One" font-size="14" fill="#1e40af">b</text>
+        </svg>
+        <div class="diagram-caption">Cuboid with length l, breadth b, and height h</div>
+      </div>
+
+      <p>A cuboid has 6 rectangular faces: top &amp; bottom (l &times; b each), front &amp; back (l &times; h each), left &amp; right (b &times; h each).</p>
+
+      <div class="formula-box">
+        Total Surface Area of Cuboid = 2(lb + bh + hl)
+        <small>Lateral Surface Area = 2h(l + b)</small>
+      </div>
+
+      <div class="subtitle">&#128230; Surface Area of a Cube</div>
+
+      <p>A cube is a special cuboid where l = b = h = a (all edges are equal). Each face is a square of side <em>a</em>.</p>
+
+      <!-- SVG: Cube -->
+      <div class="diagram-wrap">
+        <svg width="220" height="220" viewBox="0 0 220 220">
+          <!-- Front face -->
+          <polygon points="30,80 140,80 140,190 30,190" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+          <!-- Top face -->
+          <polygon points="30,80 80,30 190,30 140,80" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+          <!-- Right face -->
+          <polygon points="140,80 190,30 190,140 140,190" fill="#fbbf24" stroke="#d97706" stroke-width="2"/>
+          <!-- Labels -->
+          <text x="85" y="200" text-anchor="middle" font-family="Fredoka One" font-size="14" fill="#92400e">a</text>
+          <text x="16" y="140" font-family="Fredoka One" font-size="14" fill="#92400e">a</text>
+          <text x="175" y="90" font-family="Fredoka One" font-size="14" fill="#92400e">a</text>
+        </svg>
+        <div class="diagram-caption">Cube with edge length a</div>
+      </div>
+
+      <div class="formula-box">
+        Total Surface Area of Cube = 6a&sup2;
+        <small>Lateral Surface Area = 4a&sup2;</small>
+      </div>
+
+      <div class="subtitle">&#128230; Surface Area of a Cylinder</div>
+
+      <!-- SVG: Cylinder -->
+      <div class="diagram-wrap">
+        <svg width="240" height="260" viewBox="0 0 240 260">
+          <!-- Cylinder body -->
+          <rect x="50" y="50" width="140" height="160" fill="#dbeafe" stroke="none"/>
+          <!-- Top ellipse -->
+          <ellipse cx="120" cy="50" rx="70" ry="25" fill="#bfdbfe" stroke="#1e40af" stroke-width="2"/>
+          <!-- Left side -->
+          <line x1="50" y1="50" x2="50" y2="210" stroke="#1e40af" stroke-width="2"/>
+          <!-- Right side -->
+          <line x1="190" y1="50" x2="190" y2="210" stroke="#1e40af" stroke-width="2"/>
+          <!-- Bottom ellipse -->
+          <ellipse cx="120" cy="210" rx="70" ry="25" fill="#93c5fd" stroke="#1e40af" stroke-width="2"/>
+          <!-- Height line -->
+          <line x1="205" y1="50" x2="205" y2="210" stroke="#d97706" stroke-width="2" stroke-dasharray="5,4"/>
+          <text x="215" y="135" font-family="Fredoka One" font-size="14" fill="#d97706">h</text>
+          <!-- Radius line -->
+          <line x1="120" y1="50" x2="190" y2="50" stroke="#d97706" stroke-width="2"/>
+          <text x="150" y="42" font-family="Fredoka One" font-size="14" fill="#d97706">r</text>
+        </svg>
+        <div class="diagram-caption">Cylinder with radius r and height h</div>
+      </div>
+
+      <p>When we "unroll" a cylinder, the curved surface becomes a rectangle with width = circumference = 2&pi;r and height = h.</p>
+
+      <div class="formula-box">
+        Total Surface Area of Cylinder = 2&pi;r(r + h)
+        <small>Curved (Lateral) Surface Area = 2&pi;rh &nbsp;|&nbsp; Two circular bases = 2&pi;r&sup2;</small>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-amber">
+          <h4>&#128230; Cuboid TSA</h4>
+          2(lb + bh + hl)<br>
+          LSA = 2h(l + b)
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128230; Cube TSA</h4>
+          6a&sup2;<br>
+          LSA = 4a&sup2;
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128230; Cylinder TSA</h4>
+          2&pi;r(r + h)<br>
+          CSA = 2&pi;rh
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 10: Find the total surface area of a cuboid 12 cm &times; 8 cm &times; 5 cm.</h4>
+        <div class="we-step">
+          <strong>TSA</strong> = 2(lb + bh + hl) = 2(12&times;8 + 8&times;5 + 5&times;12) = 2(96 + 40 + 60) = 2 &times; 196 = <strong>392 cm&sup2;</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 11: Find the total surface area of a cube with edge 7 cm.</h4>
+        <div class="we-step">
+          <strong>TSA</strong> = 6a&sup2; = 6 &times; 7&sup2; = 6 &times; 49 = <strong>294 cm&sup2;</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 12: A cylindrical pillar has radius 14 cm and height 40 cm. Find the cost of painting its curved surface at &#8377;2 per cm&sup2;. (Use &pi; = 22/7)</h4>
+        <div class="we-step">
+          <strong>CSA</strong> = 2&pi;rh = 2 &times; (22/7) &times; 14 &times; 40 = 2 &times; 22 &times; 2 &times; 40 = <strong>3520 cm&sup2;</strong>
+        </div>
+        <div class="we-step">
+          <strong>Cost</strong> = 3520 &times; 2 = <strong>&#8377;7040</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 8: VOLUME
+       ===================================================== -->
+  <div class="section-block reveal" id="volume">
+    <div class="section-hd g-purple">
+      <span class="icon">&#127810;</span>
+      Volume of 3D Solids
+    </div>
+    <div class="section-bd">
+
+      <p>The <span class="kt">volume</span> of a 3D solid is the amount of space it occupies. We measure volume in cubic units (cm&sup3;, m&sup3;, litres, etc.). Remember: <strong>1 litre = 1000 cm&sup3;</strong> and <strong>1 m&sup3; = 1000 litres</strong>.</p>
+
+      <div class="subtitle">&#128230; Volume of a Cuboid</div>
+
+      <div class="formula-box">
+        Volume of Cuboid = l &times; b &times; h
+        <small>where l is length, b is breadth, and h is height</small>
+      </div>
+
+      <div class="subtitle">&#128230; Volume of a Cube</div>
+
+      <div class="formula-box">
+        Volume of Cube = a&sup3;
+        <small>where a is the edge length</small>
+      </div>
+
+      <div class="subtitle">&#128230; Volume of a Cylinder</div>
+
+      <div class="formula-box">
+        Volume of Cylinder = &pi;r&sup2;h
+        <small>where r is the radius and h is the height</small>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-purple">
+          <h4>&#128230; Cuboid Volume</h4>
+          V = l &times; b &times; h<br>
+          <em>Think of stacking layers of unit cubes.</em>
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#128230; Cube Volume</h4>
+          V = a&sup3;<br>
+          <em>All edges equal, so V = a &times; a &times; a.</em>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128230; Cylinder Volume</h4>
+          V = &pi;r&sup2;h<br>
+          <em>Base area (&pi;r&sup2;) stacked h units high.</em>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 13: A cuboidal water tank is 2.5 m long, 1.5 m wide, and 1.2 m deep. Find its capacity in litres.</h4>
+        <div class="we-step">
+          <strong>Volume</strong> = l &times; b &times; h = 2.5 &times; 1.5 &times; 1.2 = <strong>4.5 m&sup3;</strong>
+        </div>
+        <div class="we-step">
+          <strong>Capacity</strong> = 4.5 &times; 1000 = <strong>4500 litres</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 14: How many cubes of edge 3 cm can fit inside a box 18 cm &times; 12 cm &times; 9 cm?</h4>
+        <div class="we-step">
+          <strong>Volume of box:</strong> 18 &times; 12 &times; 9 = 1944 cm&sup3;
+        </div>
+        <div class="we-step">
+          <strong>Volume of one cube:</strong> 3&sup3; = 27 cm&sup3;
+        </div>
+        <div class="we-step">
+          <strong>Number of cubes:</strong> 1944 / 27 = <strong>72 cubes</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 15: A cylindrical vessel has inner radius 7 cm and height 20 cm. How many litres of milk can it hold? (Use &pi; = 22/7)</h4>
+        <div class="we-step">
+          <strong>Volume</strong> = &pi;r&sup2;h = (22/7) &times; 7&sup2; &times; 20 = (22/7) &times; 49 &times; 20 = 22 &times; 7 &times; 20 = <strong>3080 cm&sup3;</strong>
+        </div>
+        <div class="we-step">
+          <strong>In litres:</strong> 3080 / 1000 = <strong>3.08 litres</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 16: A cuboid has volume 720 cm&sup3;. Its length is 15 cm and breadth is 8 cm. Find its height.</h4>
+        <div class="we-step">
+          <strong>V = l &times; b &times; h</strong> &rArr; 720 = 15 &times; 8 &times; h &rArr; 720 = 120h &rArr; h = 720/120 = <strong>6 cm</strong>
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Unit Conversions:</strong><br>
+        1 m&sup3; = 1,000,000 cm&sup3; &nbsp;|&nbsp; 1 litre = 1000 cm&sup3; &nbsp;|&nbsp; 1 m&sup3; = 1000 litres &nbsp;|&nbsp; 1 mL = 1 cm&sup3;
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 9: MORE WORKED EXAMPLES
+       ===================================================== -->
+  <div class="section-block reveal" id="worked">
+    <div class="section-hd g-orange">
+      <span class="icon">&#9999;&#65039;</span>
+      NCERT-Style Worked Examples
+    </div>
+    <div class="section-bd">
+
+      <div class="worked-example">
+        <h4>Problem 1: A cross-section of a canal is a trapezium with the bottom width 6 m, top width 16 m, and depth 4 m. If the canal is 100 m long, find the volume of earth dug out.</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Area of trapezoidal cross-section = &frac12; &times; (6 + 16) &times; 4 = &frac12; &times; 22 &times; 4 = <strong>44 m&sup2;</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Volume = cross-sectional area &times; length = 44 &times; 100 = <strong>4400 m&sup3;</strong>
+        </div>
+      </div>
+
+      <!-- SVG: Trapezoidal cross-section -->
+      <div class="diagram-wrap">
+        <svg width="320" height="160" viewBox="0 0 320 160">
+          <polygon points="50,30 270,30 300,130 20,130" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+          <line x1="160" y1="30" x2="160" y2="130" stroke="#92400e" stroke-width="2" stroke-dasharray="5,4"/>
+          <rect x="160" y="120" width="10" height="10" fill="none" stroke="#92400e" stroke-width="1.5"/>
+          <text x="160" y="22" text-anchor="middle" font-size="12" font-weight="800" fill="#d97706">16 m</text>
+          <text x="160" y="148" text-anchor="middle" font-size="12" font-weight="800" fill="#d97706">6 m (bottom)</text>
+          <text x="175" y="85" font-size="12" font-weight="800" fill="#92400e">4 m</text>
+        </svg>
+        <div class="diagram-caption">Cross-section of the canal (trapezium)</div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Problem 2: The diagonals of a rhombus are 18 cm and 24 cm. Find its (i) area, (ii) perimeter, (iii) altitude when one side is taken as base.</h4>
+        <div class="we-step">
+          <strong>(i) Area:</strong> = &frac12; &times; 18 &times; 24 = <strong>216 cm&sup2;</strong>
+        </div>
+        <div class="we-step">
+          <strong>(ii) Side:</strong> Half-diagonals = 9 cm and 12 cm. By Pythagoras: side = &radic;(9&sup2; + 12&sup2;) = &radic;(81 + 144) = &radic;225 = <strong>15 cm</strong>
+        </div>
+        <div class="we-step">
+          <strong>Perimeter:</strong> = 4 &times; 15 = <strong>60 cm</strong>
+        </div>
+        <div class="we-step">
+          <strong>(iii) Altitude:</strong> Area = base &times; altitude &rArr; 216 = 15 &times; altitude &rArr; altitude = 216/15 = <strong>14.4 cm</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Problem 3: A room is 12 m long, 9 m wide, and 4 m high. It has 2 doors (2 m &times; 1.5 m each) and 3 windows (1.5 m &times; 1 m each). Find the cost of whitewashing the walls at &#8377;5 per m&sup2;.</h4>
+        <div class="we-step">
+          <strong>Step 1: Lateral surface area of walls:</strong><br>
+          = 2h(l + b) = 2 &times; 4 &times; (12 + 9) = 8 &times; 21 = <strong>168 m&sup2;</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 2: Area of 2 doors:</strong> 2 &times; (2 &times; 1.5) = 6 m&sup2;
+        </div>
+        <div class="we-step">
+          <strong>Step 3: Area of 3 windows:</strong> 3 &times; (1.5 &times; 1) = 4.5 m&sup2;
+        </div>
+        <div class="we-step">
+          <strong>Step 4: Area to be whitewashed:</strong> 168 &minus; 6 &minus; 4.5 = <strong>157.5 m&sup2;</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 5: Cost:</strong> 157.5 &times; 5 = <strong>&#8377;787.50</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Problem 4: A field is in the shape of a trapezium with parallel sides 25 m and 10 m, and the non-parallel sides are 14 m and 13 m. Find the area.</h4>
+
+        <!-- SVG: Trapezium with construction -->
+        <div class="diagram-wrap">
+          <svg width="340" height="200" viewBox="0 0 340 200">
+            <polygon points="80,40 230,40 300,170 30,170" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+            <!-- Construction: drop perpendicular from B, extend base -->
+            <line x1="230" y1="40" x2="230" y2="170" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="80" y1="40" x2="80" y2="170" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <!-- Labels -->
+            <text x="155" y="30" text-anchor="middle" font-size="12" font-weight="800" fill="#d97706">10 m</text>
+            <text x="165" y="188" text-anchor="middle" font-size="12" font-weight="800" fill="#d97706">25 m</text>
+            <text x="40" y="105" font-size="12" font-weight="800" fill="#92400e">14 m</text>
+            <text x="270" y="105" font-size="12" font-weight="800" fill="#92400e">13 m</text>
+          </svg>
+        </div>
+
+        <div class="we-step">
+          <strong>Step 1:</strong> Drop perpendiculars from the ends of the shorter parallel side to the longer one. The base is divided into three parts: let the left part be <em>x</em>, the middle part = 10 m (= top side), and right part = 25 &minus; 10 &minus; x = 15 &minus; x.
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Let height = h. Using Pythagoras in left triangle: x&sup2; + h&sup2; = 14&sup2; = 196. In right triangle: (15 &minus; x)&sup2; + h&sup2; = 13&sup2; = 169.
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Subtract: x&sup2; &minus; (15 &minus; x)&sup2; = 196 &minus; 169 = 27<br>
+          x&sup2; &minus; 225 + 30x &minus; x&sup2; = 27 &rArr; 30x &minus; 225 = 27 &rArr; 30x = 252 &rArr; x = 8.4
+        </div>
+        <div class="we-step">
+          <strong>Step 4:</strong> h&sup2; = 196 &minus; (8.4)&sup2; = 196 &minus; 70.56 = 125.44 &rArr; h = &radic;125.44 &asymp; 11.2 m
+        </div>
+        <div class="we-step">
+          <strong>Step 5:</strong> Area = &frac12;(25 + 10) &times; 11.2 = &frac12; &times; 35 &times; 11.2 = <strong>196 m&sup2;</strong>
+        </div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Problem 5: A closed cylinder has total surface area 462 cm&sup2; and height 7 cm. Find its radius. (&pi; = 22/7)</h4>
+        <div class="we-step">
+          <strong>TSA:</strong> 2&pi;r(r + h) = 462<br>
+          2 &times; (22/7) &times; r &times; (r + 7) = 462
+        </div>
+        <div class="we-step">
+          <strong>Simplify:</strong> (44/7) &times; r(r + 7) = 462 &rArr; r(r + 7) = 462 &times; 7/44 = 73.5
+        </div>
+        <div class="we-step">
+          <strong>Solve:</strong> r&sup2; + 7r &minus; 73.5 = 0. By trial: r = 7 gives 7(7+7) = 98 (too big). r = 5.25 gives too small. Let us check: (44/7) &times; r(r+7) = 462 &rArr; r(r+7) = 73.5. Trying r = 7: 7&times;14 = 98 &ne; 73.5. Trying r = 5.5: 5.5 &times; 12.5 = 68.75. Trying r = 6: 6 &times; 13 = 78. Close! Let us recalculate: 462 &times; 7 = 3234; 3234/44 = 73.5. So r&sup2; + 7r = 73.5. Using formula: r = (&minus;7 + &radic;(49 + 294))/2 = (&minus;7 + &radic;343)/2. &radic;343 = 7&radic;7 &asymp; 18.52. So r &asymp; (18.52 &minus; 7)/2 &asymp; 5.76 cm.
+        </div>
+        <div class="we-step">
+          <strong>Alternative (if radius is a whole number):</strong> Checking: if TSA = 2 &times; (22/7) &times; r(r + 7) = 462, then r(r+7) = 462 &times; 7 / 44 = 73.5. Since 73.5 is not a perfect product, the radius is not a whole number. However, if the problem intends r = 7: TSA = 2&times;(22/7)&times;7&times;14 = 2&times;22&times;14 = <strong>616 cm&sup2;</strong>. So for TSA = 462 with h = 7, <strong>r &asymp; 5.76 cm</strong>.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 10: SUMMARY
+       ===================================================== -->
+  <div class="section-block reveal" id="summary">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128202;</span>
+      Summary &amp; Formula Sheet
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#9653; 2D Area Formulas</div>
+
+      <div class="table-wrap">
+        <table>
+          <tr><th>Shape</th><th>Formula</th><th>Variables</th></tr>
+          <tr><td>Trapezium</td><td>&frac12; &times; (a + b) &times; h</td><td>a, b = parallel sides; h = height</td></tr>
+          <tr><td>Rhombus</td><td>&frac12; &times; d&#8321; &times; d&#8322;</td><td>d&#8321;, d&#8322; = diagonals</td></tr>
+          <tr><td>General Quadrilateral</td><td>&frac12; &times; d &times; (h&#8321; + h&#8322;)</td><td>d = diagonal; h&#8321;, h&#8322; = perpendicular heights</td></tr>
+          <tr><td>Equilateral Triangle</td><td>(&radic;3/4) &times; a&sup2;</td><td>a = side</td></tr>
+          <tr><td>Regular Hexagon</td><td>(3&radic;3/2) &times; a&sup2;</td><td>a = side</td></tr>
+        </table>
+      </div>
+
+      <div class="subtitle">&#128230; Surface Area Formulas</div>
+
+      <div class="table-wrap">
+        <table>
+          <tr><th>Solid</th><th>TSA</th><th>LSA / CSA</th></tr>
+          <tr><td>Cuboid (l, b, h)</td><td>2(lb + bh + hl)</td><td>2h(l + b)</td></tr>
+          <tr><td>Cube (edge a)</td><td>6a&sup2;</td><td>4a&sup2;</td></tr>
+          <tr><td>Cylinder (r, h)</td><td>2&pi;r(r + h)</td><td>2&pi;rh</td></tr>
+        </table>
+      </div>
+
+      <div class="subtitle">&#127810; Volume Formulas</div>
+
+      <div class="table-wrap">
+        <table>
+          <tr><th>Solid</th><th>Volume</th><th>Key Fact</th></tr>
+          <tr><td>Cuboid</td><td>l &times; b &times; h</td><td>1 m&sup3; = 1000 litres</td></tr>
+          <tr><td>Cube</td><td>a&sup3;</td><td>1 litre = 1000 cm&sup3;</td></tr>
+          <tr><td>Cylinder</td><td>&pi;r&sup2;h</td><td>1 mL = 1 cm&sup3;</td></tr>
+        </table>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Quick Recall:</strong>
+        <ul>
+          <li><strong>Trapezium:</strong> "Half the sum of parallels, times the height"</li>
+          <li><strong>Rhombus:</strong> "Half the product of diagonals"</li>
+          <li><strong>Cuboid TSA:</strong> "Two of each pair: lb, bh, hl"</li>
+          <li><strong>Cylinder TSA:</strong> "Two circles + one rectangle (when unrolled)"</li>
+          <li><strong>Volume:</strong> Always "base area &times; height"</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 11: MCQ QUIZ (10 Questions)
+       ===================================================== -->
+  <div class="section-block reveal" id="mcq">
+    <div class="section-hd g-brown">
+      <span class="icon">&#129504;</span>
+      Multiple Choice Questions (10 MCQs)
+    </div>
+    <div class="section-bd">
+
+      <p>Click on an option to see if your answer is correct. The correct option will turn green.</p>
+
+      <ul class="mcq-list">
+
+        <!-- MCQ 1 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q1. The area of a trapezium with parallel sides 10 cm and 14 cm, and height 6 cm is:</div>
+          <ul class="mcq-options">
+            <li>a) 60 cm&sup2;</li>
+            <li data-correct>b) 72 cm&sup2;</li>
+            <li>c) 84 cm&sup2;</li>
+            <li>d) 144 cm&sup2;</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 72 cm&sup2; &mdash; Area = &frac12; &times; (10 + 14) &times; 6 = &frac12; &times; 24 &times; 6 = 72 cm&sup2;.</div>
+        </li>
+
+        <!-- MCQ 2 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q2. The area of a rhombus whose diagonals are 10 cm and 16 cm is:</div>
+          <ul class="mcq-options">
+            <li>a) 160 cm&sup2;</li>
+            <li>b) 26 cm&sup2;</li>
+            <li data-correct>c) 80 cm&sup2;</li>
+            <li>d) 40 cm&sup2;</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 80 cm&sup2; &mdash; Area = &frac12; &times; 10 &times; 16 = 80 cm&sup2;.</div>
+        </li>
+
+        <!-- MCQ 3 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q3. The total surface area of a cube with edge 5 cm is:</div>
+          <ul class="mcq-options">
+            <li>a) 25 cm&sup2;</li>
+            <li>b) 125 cm&sup3;</li>
+            <li data-correct>c) 150 cm&sup2;</li>
+            <li>d) 100 cm&sup2;</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 150 cm&sup2; &mdash; TSA = 6a&sup2; = 6 &times; 25 = 150 cm&sup2;.</div>
+        </li>
+
+        <!-- MCQ 4 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q4. The volume of a cuboid 8 cm &times; 6 cm &times; 5 cm is:</div>
+          <ul class="mcq-options">
+            <li>a) 19 cm&sup3;</li>
+            <li>b) 236 cm&sup2;</li>
+            <li>c) 120 cm&sup3;</li>
+            <li data-correct>d) 240 cm&sup3;</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (d) 240 cm&sup3; &mdash; Volume = 8 &times; 6 &times; 5 = 240 cm&sup3;.</div>
+        </li>
+
+        <!-- MCQ 5 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q5. The curved surface area of a cylinder with radius 7 cm and height 10 cm is (&pi; = 22/7):</div>
+          <ul class="mcq-options">
+            <li data-correct>a) 440 cm&sup2;</li>
+            <li>b) 880 cm&sup2;</li>
+            <li>c) 220 cm&sup2;</li>
+            <li>d) 308 cm&sup2;</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (a) 440 cm&sup2; &mdash; CSA = 2&pi;rh = 2 &times; (22/7) &times; 7 &times; 10 = 440 cm&sup2;.</div>
+        </li>
+
+        <!-- MCQ 6 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q6. If the area of a trapezium is 180 cm&sup2;, height is 12 cm, and one parallel side is 10 cm, the other parallel side is:</div>
+          <ul class="mcq-options">
+            <li>a) 15 cm</li>
+            <li data-correct>b) 20 cm</li>
+            <li>c) 25 cm</li>
+            <li>d) 30 cm</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 20 cm &mdash; 180 = &frac12; &times; (10 + b) &times; 12 &rArr; 30 = 10 + b &rArr; b = 20 cm.</div>
+        </li>
+
+        <!-- MCQ 7 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q7. The lateral surface area of a cuboid 10 cm &times; 8 cm &times; 6 cm is:</div>
+          <ul class="mcq-options">
+            <li>a) 480 cm&sup2;</li>
+            <li>b) 376 cm&sup2;</li>
+            <li data-correct>c) 216 cm&sup2;</li>
+            <li>d) 160 cm&sup2;</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 216 cm&sup2; &mdash; LSA = 2h(l + b) = 2 &times; 6 &times; (10 + 8) = 12 &times; 18 = 216 cm&sup2;.</div>
+        </li>
+
+        <!-- MCQ 8 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q8. How many litres of water can a cuboidal tank 2 m &times; 1 m &times; 0.5 m hold?</div>
+          <ul class="mcq-options">
+            <li>a) 100 litres</li>
+            <li>b) 500 litres</li>
+            <li data-correct>c) 1000 litres</li>
+            <li>d) 2000 litres</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 1000 litres &mdash; Volume = 2 &times; 1 &times; 0.5 = 1 m&sup3; = 1000 litres.</div>
+        </li>
+
+        <!-- MCQ 9 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q9. The area of a quadrilateral with one diagonal 24 cm and the perpendicular distances from the other vertices to it being 5 cm and 7 cm is:</div>
+          <ul class="mcq-options">
+            <li>a) 120 cm&sup2;</li>
+            <li>b) 168 cm&sup2;</li>
+            <li data-correct>c) 144 cm&sup2;</li>
+            <li>d) 288 cm&sup2;</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 144 cm&sup2; &mdash; Area = &frac12; &times; 24 &times; (5 + 7) = &frac12; &times; 24 &times; 12 = 144 cm&sup2;.</div>
+        </li>
+
+        <!-- MCQ 10 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q10. The volume of a cylinder with radius 14 cm and height 10 cm is (&pi; = 22/7):</div>
+          <ul class="mcq-options">
+            <li>a) 880 cm&sup3;</li>
+            <li>b) 4400 cm&sup3;</li>
+            <li data-correct>c) 6160 cm&sup3;</li>
+            <li>d) 3080 cm&sup3;</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 6160 cm&sup3; &mdash; V = &pi;r&sup2;h = (22/7) &times; 196 &times; 10 = 22 &times; 28 &times; 10 = 6160 cm&sup3;.</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 12: SHORT QUESTIONS & ANSWERS
+       ===================================================== -->
+  <div class="section-block reveal" id="short">
+    <div class="section-hd g-orange">
+      <span class="icon">&#9997;&#65039;</span>
+      NCERT Short Answer Questions
+    </div>
+    <div class="section-bd">
+
+      <ul class="short-q-list">
+
+        <li class="short-q-item">
+          <div class="short-q">Q1. What is a trapezium? How is it different from a parallelogram?</div>
+          <div class="short-a">A <strong>trapezium</strong> is a quadrilateral with exactly <strong>one pair of parallel sides</strong>. A parallelogram has <strong>two pairs</strong> of parallel sides. Every parallelogram is a special case of a trapezium, but not vice versa.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q2. Find the area of a trapezium with parallel sides 15 cm and 25 cm, and height 8 cm.</div>
+          <div class="short-a">Area = &frac12; &times; (15 + 25) &times; 8 = &frac12; &times; 40 &times; 8 = <strong>160 cm&sup2;</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q3. The diagonals of a rhombus are 20 cm and 48 cm. Find the side of the rhombus.</div>
+          <div class="short-a">Half-diagonals = 10 cm and 24 cm. Side = &radic;(10&sup2; + 24&sup2;) = &radic;(100 + 576) = &radic;676 = <strong>26 cm</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q4. What is the difference between total surface area and lateral surface area?</div>
+          <div class="short-a"><strong>Total surface area (TSA)</strong> includes all faces of the solid. <strong>Lateral surface area (LSA)</strong> excludes the top and bottom faces — it includes only the "side" faces. For a cylinder, LSA is the curved surface area (CSA).</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q5. Find the volume of a cube whose total surface area is 384 cm&sup2;.</div>
+          <div class="short-a">6a&sup2; = 384 &rArr; a&sup2; = 64 &rArr; a = 8 cm. Volume = 8&sup3; = <strong>512 cm&sup3;</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q6. A cuboid is 20 cm long, 15 cm wide, and 10 cm high. Find the length of its longest diagonal.</div>
+          <div class="short-a">Longest diagonal = &radic;(l&sup2; + b&sup2; + h&sup2;) = &radic;(400 + 225 + 100) = &radic;725 = <strong>5&radic;29 &asymp; 26.93 cm</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q7. Convert 2.5 m&sup3; to litres.</div>
+          <div class="short-a">1 m&sup3; = 1000 litres, so 2.5 m&sup3; = 2.5 &times; 1000 = <strong>2500 litres</strong>.</div>
+        </li>
+
+        <li class="short-q-item">
+          <div class="short-q">Q8. The area of a rhombus is 210 cm&sup2; and one diagonal is 14 cm. Find the other diagonal.</div>
+          <div class="short-a">210 = &frac12; &times; 14 &times; d&#8322; &rArr; d&#8322; = 420/14 = <strong>30 cm</strong>.</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 13: LONG QUESTIONS & ANSWERS
+       ===================================================== -->
+  <div class="section-block reveal" id="long">
+    <div class="section-hd g-yellow">
+      <span class="icon">&#128214;</span>
+      NCERT Long Answer Questions
+    </div>
+    <div class="section-bd">
+
+      <ul class="short-q-list">
+
+        <li class="long-q-item">
+          <div class="long-q">Q1. The parallel sides of a trapezium are 40 cm and 20 cm. Its non-parallel sides are 25 cm and 13 cm. Find the area of the trapezium.</div>
+          <div class="long-a">
+            <strong>Solution:</strong> Let ABCD be the trapezium with AB = 20 cm (top), DC = 40 cm (bottom).<br><br>
+            Drop perpendiculars from A and B to DC. Let AE = h and BF = h. Then EF = AB = 20 cm, so DE + FC = 40 &minus; 20 = 20 cm. Let DE = x, FC = 20 &minus; x.<br><br>
+            In right &triangle;AED: x&sup2; + h&sup2; = 25&sup2; = 625 ... (i)<br>
+            In right &triangle;BFC: (20 &minus; x)&sup2; + h&sup2; = 13&sup2; = 169 ... (ii)<br><br>
+            (i) &minus; (ii): x&sup2; &minus; (20 &minus; x)&sup2; = 625 &minus; 169 = 456<br>
+            x&sup2; &minus; 400 + 40x &minus; x&sup2; = 456<br>
+            40x &minus; 400 = 456 &rArr; 40x = 856 &rArr; x = 21.4<br><br>
+            From (i): h&sup2; = 625 &minus; (21.4)&sup2; = 625 &minus; 457.96 = 167.04<br>
+            h = &radic;167.04 &asymp; 12.92 cm<br><br>
+            Area = &frac12; &times; (40 + 20) &times; 12.92 = &frac12; &times; 60 &times; 12.92 &asymp; <strong>387.6 cm&sup2;</strong>
+          </div>
+        </li>
+
+        <li class="long-q-item">
+          <div class="long-q">Q2. A closed rectangular box 80 cm &times; 60 cm &times; 40 cm is to be made from sheet metal. Find (i) the area of sheet required, (ii) the volume of the box, (iii) how many litres of water it can hold.</div>
+          <div class="long-a">
+            <strong>(i) Area of sheet</strong> = TSA = 2(lb + bh + hl)<br>
+            = 2(80&times;60 + 60&times;40 + 40&times;80)<br>
+            = 2(4800 + 2400 + 3200)<br>
+            = 2 &times; 10400 = <strong>20,800 cm&sup2;</strong><br><br>
+
+            <strong>(ii) Volume</strong> = 80 &times; 60 &times; 40 = <strong>192,000 cm&sup3;</strong><br><br>
+
+            <strong>(iii) Capacity</strong> = 192,000 / 1000 = <strong>192 litres</strong>
+          </div>
+        </li>
+
+        <li class="long-q-item">
+          <div class="long-q">Q3. A field in the shape of a pentagon ABCDE has the following measurements: AC = 18 m, AF = 6 m (perpendicular from B to AC), AG = 8 m (perpendicular from E to AC), and the triangle ACD has base AC = 18 m with height from D = 10 m. Find the area of the field.</div>
+          <div class="long-a">
+            <strong>Solution:</strong> We split the pentagon into triangles using diagonal AC.<br><br>
+            <strong>Area of &triangle;ABC</strong> = &frac12; &times; AC &times; (perp. from B) = &frac12; &times; 18 &times; 6 = 54 m&sup2;<br><br>
+            <strong>Area of &triangle;ACD</strong> = &frac12; &times; AC &times; (perp. from D) = &frac12; &times; 18 &times; 10 = 90 m&sup2;<br><br>
+            <strong>Area of &triangle;ACE</strong> = &frac12; &times; AC &times; (perp. from E) = &frac12; &times; 18 &times; 8 = 72 m&sup2;<br><br>
+            <strong>Total area</strong> = 54 + 90 + 72 = <strong>216 m&sup2;</strong>
+          </div>
+        </li>
+
+        <li class="long-q-item">
+          <div class="long-q">Q4. A cylindrical roller 120 cm long has a radius of 42 cm. How many revolutions does it make to level a playground 264 m &times; 6.6 m? (Use &pi; = 22/7)</div>
+          <div class="long-a">
+            <strong>Solution:</strong><br>
+            <strong>Step 1:</strong> Area covered in 1 revolution = CSA of cylinder<br>
+            = 2&pi;rh = 2 &times; (22/7) &times; 42 &times; 120 = 2 &times; 22 &times; 6 &times; 120 = <strong>31,680 cm&sup2;</strong><br><br>
+            Convert to m&sup2;: 31,680 / 10,000 = <strong>3.168 m&sup2;</strong><br><br>
+            <strong>Step 2:</strong> Area of playground = 264 &times; 6.6 = <strong>1742.4 m&sup2;</strong><br><br>
+            <strong>Step 3:</strong> Number of revolutions = 1742.4 / 3.168 = <strong>550 revolutions</strong>
+          </div>
+        </li>
+
+        <li class="long-q-item">
+          <div class="long-q">Q5. The inner dimensions of a swimming pool are 50 m &times; 20 m &times; 2 m. The walls and floor are to be tiled. The tiles are 20 cm &times; 20 cm. Find the total number of tiles needed and the cost at &#8377;6 per tile.</div>
+          <div class="long-a">
+            <strong>Solution:</strong><br>
+            <strong>Area of floor:</strong> 50 &times; 20 = 1000 m&sup2;<br>
+            <strong>Area of 4 walls (LSA):</strong> 2 &times; 2 &times; (50 + 20) = 4 &times; 70 = 280 m&sup2;<br>
+            <strong>Total area to tile:</strong> 1000 + 280 = <strong>1280 m&sup2;</strong><br><br>
+            <strong>Area of one tile:</strong> 0.2 &times; 0.2 = 0.04 m&sup2;<br>
+            <strong>Number of tiles:</strong> 1280 / 0.04 = <strong>32,000 tiles</strong><br><br>
+            <strong>Cost:</strong> 32,000 &times; 6 = <strong>&#8377;1,92,000</strong>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 14: FUN FACTS
+       ===================================================== -->
+  <div class="section-block reveal" id="funfacts">
+    <div class="section-hd g-amber">
+      <span class="icon">&#127775;</span>
+      Fun Facts &amp; Real-World Connections
+    </div>
+    <div class="section-bd">
+
+      <div class="fun-fact-grid">
+
+        <div class="fun-fact-card">
+          <h4>&#127967; Ancient Land Measurement</h4>
+          The word "geometry" comes from Greek: "geo" (earth) + "metron" (measure). Ancient Egyptians used area formulas to re-measure farmland after the annual flooding of the Nile!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#127919; Trapezium in Architecture</h4>
+          The famous Keystone in an arch is a trapezium shape! Its special shape locks all the other stones in place. The US Pentagon building is a regular pentagon &mdash; its area can be calculated using the polygon methods in this chapter.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#127758; Earth's Surface Area</h4>
+          Earth's total surface area is about 510 million km&sup2;. About 71% (362 million km&sup2;) is water. To calculate the surface area of a sphere, we use 4&pi;r&sup2; &mdash; a formula you will learn in Class 9!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128230; Packaging Science</h4>
+          Companies spend millions optimising the surface area of packaging boxes. A cube gives the least surface area for a given volume among all cuboids &mdash; that is why many products come in nearly cubic boxes!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#127470;&#127475; Sulbasutras Connection</h4>
+          The ancient Indian <strong>Sulbasutras</strong> contain instructions for building fire altars of specific shapes: falcons, tortoises, and chariots. The priests had to calculate the area of these complex shapes &mdash; essentially doing the same polygon decomposition we learn here!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128202; Volume Fun</h4>
+          An Olympic swimming pool holds about 2,500,000 litres (2500 m&sup3;) of water. That is about 2500 cubes of 1 m edge! If it were a cylinder of the same volume, you could calculate its dimensions using V = &pi;r&sup2;h.
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 15: REVISION CHECKLIST
+       ===================================================== -->
+  <div class="section-block reveal" id="revision">
+    <div class="section-hd g-slate">
+      <span class="icon">&#9989;</span>
+      Revision Checklist
+    </div>
+    <div class="section-bd">
+
+      <p>Make sure you can confidently do each of these before the exam:</p>
+
+      <ul>
+        <li>&#9989; State and derive the area formula for a <strong>trapezium</strong></li>
+        <li>&#9989; State and derive the area formula for a <strong>rhombus</strong> using diagonals</li>
+        <li>&#9989; Find the area of a <strong>general quadrilateral</strong> by splitting into triangles</li>
+        <li>&#9989; Find the area of a <strong>polygon</strong> by triangulation or trapezium method</li>
+        <li>&#9989; Solve <strong>composite/combined shape</strong> problems using addition and subtraction</li>
+        <li>&#9989; Calculate <strong>TSA and LSA</strong> of cuboid, cube, and cylinder</li>
+        <li>&#9989; Calculate <strong>volume</strong> of cuboid, cube, and cylinder</li>
+        <li>&#9989; Convert between <strong>m&sup3;, cm&sup3;, and litres</strong></li>
+        <li>&#9989; Solve real-world problems involving <strong>cost of painting, tiling, fencing</strong></li>
+        <li>&#9989; Find missing dimensions given area, surface area, or volume</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       BOTTOM NAVIGATION
+       ===================================================== -->
+  <div class="bottom-nav">
+    <div class="bottom-nav-full">
+      <a href="../../index.html" class="bottom-btn home-btn">&#127968; Back to Home</a>
+      <a href="index.html" class="bottom-btn" style="background:linear-gradient(135deg,#d97706,#fbbf24);color:#78350f;">&#128218; All Maths Chapters</a>
+    </div>
+  </div>
+
+</div>
+<!-- End Container -->
+
+<!-- ========== SHARE POPUP ========== -->
+<div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeSharePopup()">
+  <div class="share-popup">
+    <h3>&#128228; Share This Page</h3>
+    <p style="font-size:14px;color:#475569;margin-bottom:16px;">Help your classmates ace Area &amp; Volume!</p>
+    <div class="share-btn-row">
+      <button class="share-action-btn share-wa" onclick="shareWhatsApp()">&#128172; Share on WhatsApp</button>
+      <button class="share-action-btn share-copy" onclick="copyLink()">&#128203; Copy Link</button>
+      <button class="share-action-btn share-native" onclick="shareNative()">&#128228; Share via Apps</button>
+    </div>
+    <button class="share-close-btn" onclick="closeSharePopup()">Close</button>
+  </div>
+</div>
+
+<!-- ========== FLOATING SHARE BUTTON ========== -->
+<button class="float-share-btn" onclick="openSharePopup()" title="Share this page">&#128228;</button>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <p>Preeti Kushwah Classes &mdash; Making Maths Fun &amp; Easy &#128155;</p>
+  <p style="font-size:12px;margin-top:6px;opacity:0.8;">NCERT Class 8 Maths &middot; Ganita &middot; Chapter 14: Area &middot; New Syllabus 2025-26</p>
+  <p style="font-size:11px;margin-top:8px;opacity:0.6;">&copy; 2026 Preeti Kushwah Classes. All rights reserved.</p>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// Scroll Reveal Animation
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) {
+  obs.observe(el);
+});
+
+// MCQ Click Handler
+document.querySelectorAll('.mcq-item').forEach(function(item) {
+  item.querySelectorAll('.mcq-options li').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      if (item.classList.contains('show-ans')) return;
+      item.classList.add('show-ans');
+      if (!opt.hasAttribute('data-correct')) opt.classList.add('wrong');
+      item.querySelectorAll('.mcq-options li[data-correct]').forEach(function(c) {
+        c.classList.add('correct');
+      });
+    });
+  });
+});
+
+// Share Functions
+function openSharePopup() {
+  document.getElementById('shareOverlay').classList.add('active');
+}
+
+function closeSharePopup() {
+  document.getElementById('shareOverlay').classList.remove('active');
+}
+
+function shareWhatsApp() {
+  window.open('https://wa.me/?text=' + encodeURIComponent('Check out these Area notes for Class 8 Maths (NCERT Ganita 2025-26)! ' + window.location.href));
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    alert('Link copied to clipboard!');
+  });
+}
+
+function shareNative() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Area — Class 8 Maths | Preeti Kushwah Classes',
+      text: 'NCERT Class 8 Maths Chapter 14: Area — Trapezium, Rhombus, Surface Area & Volume',
+      url: window.location.href
+    });
+  } else {
+    copyLink();
+  }
+}
+
+// Smooth scroll for TOC links
+document.querySelectorAll('.toc-bar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    var targetId = this.getAttribute('href');
+    if (targetId && targetId.startsWith('#')) {
+      e.preventDefault();
+      var target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../chapter-features.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
+</body>
+</html>
