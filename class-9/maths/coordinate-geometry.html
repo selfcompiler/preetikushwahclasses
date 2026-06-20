@@ -1,0 +1,2778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 9 Maths Ch 1: Coordinate Geometry — Cartesian system, quadrants, distance formula, midpoint formula. Interactive NCERT notes.">
+<meta name="keywords" content="Preeti Kushwah Classes, NCERT notes, CBSE notes, free study material, Class 9 notes, Class 9 NCERT, class 9 study material, Mathematics notes, Class 9 Mathematics, Class 9 Mathematics notes, Class 9 Mathematics NCERT, Coordinate Geometry, Class 9 Coordinate Geometry, maths solutions, maths practice">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-9/maths/coordinate-geometry.html">
+<meta property="og:title" content="Ch 1: Coordinate Geometry — Class 9 Maths Notes">
+<meta property="og:description" content="Interactive NCERT notes — Cartesian system, distance &amp; midpoint formula with animations.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preetikushwahclasses.com/class-9/maths/coordinate-geometry.html">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Coordinates — Class 9 Maths | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:#eef2ff;color:#1c1c2e;overflow-x:hidden;line-height:1.6;}
+
+/* Top Nav */
+.top-nav{background:white;padding:8px 12px;display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,0.06);position:sticky;top:0;z-index:110;overflow-x:auto;}
+.tn-home{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#f3e8ff,#ede9fe);color:#7c3aed;text-decoration:none;padding:7px 14px;border-radius:12px;font-size:12px;font-weight:800;border:1.5px solid #c4b5fd;transition:all 0.2s;white-space:nowrap;}
+.tn-home:hover{background:#ede9fe;transform:translateY(-1px);}
+.nav-spacer{flex:1;}
+.tn-share{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;padding:7px 12px;border-radius:12px;border:1.5px solid #fbbf24;font-size:11px;font-weight:800;cursor:pointer;transition:all 0.2s;white-space:nowrap;font-family:'Nunito',sans-serif;}
+.tn-share:hover{background:#fde68a;transform:translateY(-1px);}
+
+/* TOC */
+.toc-bar{background:linear-gradient(135deg,#3730a3,#818cf8);padding:12px 16px;position:sticky;top:44px;z-index:100;overflow-x:auto;white-space:nowrap;}
+.toc-bar a{display:inline-block;background:rgba(255,255,255,0.15);color:white;text-decoration:none;padding:6px 14px;border-radius:18px;font-size:13px;font-weight:700;margin-right:6px;transition:all 0.2s;}
+.toc-bar a:hover{background:rgba(255,255,255,0.35);}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,#1e1b4b 0%,#3730a3 30%,#818cf8 60%,#c7d2fe 100%);position:relative;overflow:hidden;min-height:400px;padding-bottom:30px;}
+.hero-content{position:relative;z-index:10;text-align:center;padding:36px 16px 0;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.3);border:2px solid rgba(255,255,255,0.5);border-radius:30px;padding:5px 18px;font-size:11px;font-weight:800;letter-spacing:2px;color:white;text-transform:uppercase;margin-bottom:12px;}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(24px,5vw,48px);color:white;text-shadow:0 3px 12px rgba(0,0,0,0.3);margin-bottom:6px;line-height:1.1;}
+.hero p{color:rgba(255,255,255,0.9);font-size:15px;font-weight:700;margin-bottom:16px;}
+
+/* Container & Sections */
+.container{max-width:1000px;margin:0 auto;padding:36px 16px 60px;}
+.section-block{background:white;border-radius:22px;box-shadow:0 4px 24px rgba(0,0,0,0.08);margin-bottom:36px;overflow:hidden;scroll-margin-top:80px;}
+.section-hd{padding:22px 28px;display:flex;align-items:center;gap:14px;color:white;font-family:'Fredoka One',cursive;font-size:24px;line-height:1.2;}
+.section-hd .icon{font-size:32px;}
+.section-bd{padding:28px;}
+.section-bd > p{margin-bottom:14px;}
+
+/* Gradients */
+.g-indigo{background:linear-gradient(135deg,#312e81,#818cf8);}
+.g-blue{background:linear-gradient(135deg,#1e40af,#38bdf8);}
+.g-purple{background:linear-gradient(135deg,#5b21b6,#a78bfa);}
+.g-teal{background:linear-gradient(135deg,#134e4a,#2dd4bf);}
+.g-green{background:linear-gradient(135deg,#166534,#22c55e);}
+.g-amber{background:linear-gradient(135deg,#78350f,#f59e0b);}
+.g-orange{background:linear-gradient(135deg,#9a3412,#fb923c);}
+.g-slate{background:linear-gradient(135deg,#1e293b,#64748b);}
+.g-red{background:linear-gradient(135deg,#991b1b,#f87171);}
+.g-rose{background:linear-gradient(135deg,#881337,#fb7185);}
+.g-pink{background:linear-gradient(135deg,#9d174d,#ec4899);}
+
+/* Content elements */
+.subtitle{font-family:'Fredoka One',cursive;color:#312e81;font-size:20px;margin:22px 0 12px;display:flex;align-items:center;gap:8px;}
+.kt{display:inline-block;background:#fde047;color:#713f12;border-radius:7px;padding:1px 9px;font-weight:800;font-size:13px;}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:16px 0;}
+.info-card{border-radius:14px;padding:16px 18px;font-size:14px;}
+.info-card h4{font-weight:800;margin-bottom:6px;font-size:15px;}
+.ic-blue{background:#eff6ff;border-left:5px solid #3b82f6;}
+.ic-indigo{background:#eef2ff;border-left:5px solid #818cf8;}
+.ic-teal{background:#f0fdfa;border-left:5px solid #14b8a6;}
+.ic-purple{background:#faf5ff;border-left:5px solid #a78bfa;}
+.ic-green{background:#f0fdf4;border-left:5px solid #22c55e;}
+.ic-orange{background:#fff7ed;border-left:5px solid #fb923c;}
+.ic-yellow{background:#fefce8;border-left:5px solid #facc15;}
+.ic-red{background:#fef2f2;border-left:5px solid #f87171;}
+.ic-pink{background:#fdf2f8;border-left:5px solid #ec4899;}
+.ic-amber{background:#fffbeb;border-left:5px solid #f59e0b;}
+.trick{background:linear-gradient(135deg,#fef9c3,#fde68a);border:2px solid #f59e0b;border-radius:14px;padding:14px 18px;font-size:14px;margin:16px 0;}
+.trick strong{color:#78350f;}
+.note-box{background:#eff6ff;border-left:5px solid #3b82f6;border-radius:10px;padding:12px 16px;margin:14px 0;font-size:14px;}
+.formula-box{background:linear-gradient(135deg,#eef2ff,#c7d2fe);border:2px solid #818cf8;border-radius:12px;padding:14px 18px;text-align:center;font-family:'Fredoka One',cursive;font-size:18px;color:#1e1b4b;margin:12px 0;}
+.formula-box small{font-family:'Nunito',sans-serif;font-weight:600;font-size:13px;display:block;margin-top:4px;color:#4338ca;}
+
+/* Tables */
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0;}
+th{background:#312e81;color:white;padding:12px 14px;text-align:left;font-weight:800;font-size:13px;}
+td{padding:11px 14px;border-bottom:1px solid #c7d2fe;font-size:13.5px;}
+tr:nth-child(even) td{background:#eef2ff;}
+
+/* Worked example */
+.worked-example{background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:18px;margin:16px 0;}
+.worked-example h4{font-family:'Fredoka One',cursive;color:#312e81;font-size:16px;margin-bottom:8px;}
+.we-step{background:white;border-radius:10px;padding:12px 16px;margin:8px 0;border-left:4px solid #818cf8;font-size:14px;}
+
+/* MCQ */
+.mcq-list{list-style:none;padding:0;}
+.mcq-item{background:white;border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #818cf8;}
+.mcq-q{font-weight:700;font-size:14.5px;margin-bottom:10px;color:#312e81;}
+.mcq-options{list-style:none;padding:0;}
+.mcq-options li{background:#eef2ff;border-radius:8px;padding:7px 12px;margin-bottom:5px;font-size:13.5px;cursor:pointer;transition:all 0.2s;border:1.5px solid transparent;}
+.mcq-options li:hover{background:#c7d2fe;border-color:#818cf8;}
+.mcq-options li.correct{background:#d1fae5!important;border-color:#22c55e;font-weight:700;color:#14532d;}
+.mcq-options li.wrong{background:#fee2e2!important;border-color:#ef4444;font-weight:700;color:#991b1b;}
+.mcq-ans{font-size:12.5px;color:#16a34a;font-weight:700;margin-top:6px;display:none;}
+.mcq-item.show-ans .mcq-ans{display:block;}
+
+/* Short Q */
+.short-q-list{list-style:none;padding:0;}
+.short-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #3b82f6;}
+.short-q{font-weight:700;font-size:14px;color:#1e40af;margin-bottom:6px;}
+.short-a{font-size:13.5px;color:#374151;}
+.short-a strong{color:#312e81;}
+
+/* Long Q */
+.long-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
+.long-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
+.long-a{font-size:13.5px;color:#374151;}
+.long-a strong{color:#312e81;}
+
+/* Fun facts */
+.fun-fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0;}
+.fun-fact-card{background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fbbf24;border-radius:14px;padding:16px 18px;font-size:14px;}
+.fun-fact-card h4{font-weight:800;font-size:15px;color:#92400e;margin-bottom:6px;}
+
+/* Bottom nav */
+.bottom-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:30px 0;}
+.bottom-nav-full{grid-column:1/-1;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.bottom-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:800;font-size:14px;text-decoration:none;color:white;transition:all 0.2s;}
+.bottom-btn:hover{transform:translateY(-2px);}
+.bottom-btn.home-btn{background:linear-gradient(135deg,#5b21b6,#a78bfa);}
+
+/* Share */
+.float-share-btn{position:fixed;bottom:24px;right:24px;width:52px;height:52px;background:linear-gradient(135deg,#3730a3,#818cf8);border-radius:50%;border:none;color:white;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(55,48,163,0.4);z-index:90;display:flex;align-items:center;justify-content:center;transition:all 0.3s;}
+.float-share-btn:hover{transform:scale(1.1);}
+.share-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;justify-content:center;align-items:center;}
+.share-overlay.active{display:flex;}
+.share-popup{background:white;border-radius:22px;padding:28px;max-width:360px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);text-align:center;}
+.share-popup h3{font-family:'Fredoka One',cursive;color:#312e81;font-size:20px;margin-bottom:16px;}
+.share-btn-row{display:flex;flex-direction:column;gap:10px;}
+.share-action-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;border:none;font-size:14px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:white;transition:all 0.2s;}
+.share-wa{background:#25d366;}
+.share-copy{background:#3b82f6;}
+.share-native{background:#818cf8;}
+.share-close-btn{margin-top:14px;background:#e2e8f0;color:#475569;border:none;padding:8px 20px;border-radius:10px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+.share-action-btn:hover{opacity:0.9;transform:translateY(-1px);}
+.share-close-btn:hover{background:#cbd5e1;}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Footer */
+footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#312e81,#818cf8);color:white;font-size:14px;font-weight:700;}
+
+/* Coordinate plane animation */
+.coord-wrap{background:linear-gradient(135deg,#f8fafc,#e2e8f0);border-radius:18px;padding:24px;margin:20px 0;text-align:center;}
+.coord-plane{position:relative;width:320px;height:320px;margin:10px auto;background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.1);}
+.coord-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(99,102,241,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,0.08) 1px,transparent 1px);background-size:32px 32px;}
+.coord-x{position:absolute;left:0;right:0;top:50%;height:2px;background:#312e81;}
+.coord-y{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#312e81;}
+.coord-label{position:absolute;font-size:10px;font-weight:800;color:#312e81;}
+.coord-point{position:absolute;width:10px;height:10px;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px currentColor;transform:translate(-50%,-50%);}
+.coord-point.animated{animation:ptPulse 2s ease-in-out infinite;}
+@keyframes ptPulse{0%,100%{transform:translate(-50%,-50%) scale(1);}50%{transform:translate(-50%,-50%) scale(1.3);}}
+.coord-dashed-h,.coord-dashed-v{position:absolute;border:none;}
+.coord-dashed-h{border-top:2px dashed rgba(99,102,241,0.4);height:0;}
+.coord-dashed-v{border-left:2px dashed rgba(99,102,241,0.4);width:0;}
+
+/* Quadrant diagram */
+.quad-diagram{position:relative;width:280px;height:280px;margin:16px auto;border-radius:12px;overflow:hidden;}
+.quad-cell{position:absolute;width:50%;height:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;font-size:13px;}
+.quad-cell.q1{top:0;right:0;background:rgba(34,197,94,0.15);color:#166534;}
+.quad-cell.q2{top:0;left:0;background:rgba(59,130,246,0.15);color:#1e40af;}
+.quad-cell.q3{bottom:0;left:0;background:rgba(239,68,68,0.15);color:#991b1b;}
+.quad-cell.q4{bottom:0;right:0;background:rgba(251,191,36,0.15);color:#92400e;}
+.quad-cell .q-label{font-family:'Fredoka One',cursive;font-size:16px;margin-bottom:4px;}
+.quad-cell .q-signs{font-size:14px;}
+.quad-axis-h,.quad-axis-v{position:absolute;background:#312e81;}
+.quad-axis-h{left:0;right:0;top:50%;height:2px;}
+.quad-axis-v{top:0;bottom:0;left:50%;width:2px;}
+
+/* Scrollbar styling */
+::-webkit-scrollbar{height:4px;width:4px;}
+::-webkit-scrollbar-thumb{background:#818cf8;border-radius:4px;}
+
+/* Highlight animation for hero */
+@keyframes heroPt{0%,100%{transform:scale(1);opacity:0.8;}50%{transform:scale(1.5);opacity:1;}}
+
+/* Unordered list styling inside section-bd */
+.section-bd ul{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ul li{margin-bottom:6px;}
+.section-bd ol{margin:10px 0 10px 20px;font-size:14px;}
+.section-bd ol li{margin-bottom:6px;}
+
+@media(max-width:600px){
+  .section-bd{padding:18px;}
+  .section-hd{padding:16px 20px;font-size:19px;}
+  .coord-plane{width:260px;height:260px;}
+  .hero{min-height:340px;}
+  .toc-bar{top:40px;}
+}
+
+/* Interactive Activity Styles */
+.activity-wrap{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border:2px solid #7dd3fc;border-radius:18px;padding:24px;margin:20px 0;text-align:center;}
+.activity-title{font-family:'Fredoka One',cursive;color:#0369a1;font-size:18px;margin-bottom:6px;}
+.activity-desc{font-size:13px;color:#475569;margin-bottom:14px;}
+.activity-canvas-wrap{position:relative;display:inline-block;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.1);background:white;touch-action:none;max-width:400px;width:100%;}
+.activity-canvas{display:block;cursor:crosshair;width:100%;height:auto;}
+.activity-controls{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.act-btn{padding:8px 18px;border-radius:10px;border:none;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;cursor:pointer;transition:all 0.2s;color:white;}
+.act-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+.act-btn-blue{background:linear-gradient(135deg,#2563eb,#3b82f6);}
+.act-btn-red{background:linear-gradient(135deg,#dc2626,#f87171);}
+.act-btn-green{background:linear-gradient(135deg,#16a34a,#22c55e);}
+.act-btn-purple{background:linear-gradient(135deg,#7c3aed,#a78bfa);}
+.act-btn-amber{background:linear-gradient(135deg,#d97706,#fbbf24);color:#78350f;}
+.activity-result{background:white;border-radius:12px;padding:14px 18px;margin-top:14px;font-size:14px;text-align:left;border:2px solid #e2e8f0;min-height:40px;}
+.activity-result strong{color:#312e81;}
+.activity-result .step{margin:4px 0;padding:4px 10px;background:#f8fafc;border-radius:6px;border-left:3px solid #818cf8;font-size:13px;}
+.activity-status{font-size:12px;color:#64748b;margin-top:8px;font-weight:700;}
+.ratio-controls{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
+.ratio-controls label{font-weight:800;font-size:14px;color:#312e81;}
+.ratio-slider{width:120px;accent-color:#3730a3;}
+.ratio-display{background:#eef2ff;padding:6px 16px;border-radius:10px;font-family:'Fredoka One',cursive;font-size:16px;color:#3730a3;border:2px solid #818cf8;}
+.point-list{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px;}
+.point-tag{background:#eef2ff;border:1.5px solid #818cf8;border-radius:8px;padding:3px 10px;font-size:12px;font-weight:700;color:#3730a3;}
+.distance-tag{background:#f0fdf4;border:1.5px solid #22c55e;border-radius:8px;padding:3px 10px;font-size:12px;font-weight:700;color:#166534;display:inline-block;margin:2px;}
+</style>
+</head>
+<body>
+
+<!-- ========== TOP NAV ========== -->
+<div class="top-nav">
+  <a href="../../index.html" class="tn-home">&#127968; Home</a>
+  <div class="nav-spacer"></div>
+  <button class="tn-share" onclick="openSharePopup()">&#128228; Share</button>
+</div>
+
+<!-- ========== TABLE OF CONTENTS BAR ========== -->
+<div class="toc-bar">
+  <a href="#intro">&#128208; Intro</a>
+  <a href="#cartesian">&#128205; Coordinates</a>
+  <a href="#quadrants">&#11036; Quadrants</a>
+  <a href="#distance">&#128207; Distance</a>
+  <a href="#midpoint">&#9889; Midpoint</a>
+  <a href="#worked">&#9999;&#65039; Examples</a>
+  <a href="#summary">&#128202; Summary</a>
+  <a href="#mcq">&#129504; MCQs</a>
+  <a href="#short">&#9997;&#65039; Short Q&amp;A</a>
+  <a href="#long">&#128214; Long Q&amp;A</a>
+  <a href="#funfacts">&#127775; Fun Facts</a>
+  <a href="#interactive-plot" style="background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.5);">&#127919; Plot Points</a>
+  <a href="#interactive-distance" style="background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.5);">&#128207; Distance Lab</a>
+  <a href="#interactive-midpoint" style="background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.5);">&#9889; Midpoint Lab</a>
+  <a href="#interactive-section" style="background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.5);">&#128208; Section Formula</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">&#128208; CLASS 9 &middot; MATHS &middot; GANITA MANJARI &middot; NEW SYLLABUS 2026-27</div>
+    <h1>&#128208; Orienting Yourself:<br>The Use of Coordinates</h1>
+    <p>Cartesian System &middot; Quadrants &middot; Distance Formula &middot; Midpoint Formula</p>
+  </div>
+  <!-- Animated coordinate points in hero -->
+  <div style="position:relative;max-width:300px;height:200px;margin:20px auto 0;">
+    <div style="position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(255,255,255,0.5);"></div>
+    <div style="position:absolute;top:0;bottom:0;left:50%;width:2px;background:rgba(255,255,255,0.5);"></div>
+    <div style="position:absolute;width:10px;height:10px;background:#fde047;border-radius:50%;top:25%;left:70%;animation:heroPt 3s ease-in-out infinite;"></div>
+    <div style="position:absolute;width:8px;height:8px;background:#34d399;border-radius:50%;top:60%;left:30%;animation:heroPt 3s ease-in-out infinite 0.5s;"></div>
+    <div style="position:absolute;width:8px;height:8px;background:#f87171;border-radius:50%;top:30%;left:25%;animation:heroPt 3s ease-in-out infinite 1s;"></div>
+    <div style="position:absolute;width:8px;height:8px;background:#818cf8;border-radius:50%;top:70%;left:65%;animation:heroPt 3s ease-in-out infinite 1.5s;"></div>
+    <div style="position:absolute;width:6px;height:6px;background:#fbbf24;border-radius:50%;top:40%;left:80%;animation:heroPt 3s ease-in-out infinite 2s;"></div>
+  </div>
+</div>
+
+<!-- ========== MAIN CONTAINER ========== -->
+<div class="container">
+
+  <!-- =====================================================
+       SECTION 1: INTRODUCTION & INDIAN HERITAGE
+       ===================================================== -->
+  <div class="section-block reveal" id="intro">
+    <div class="section-hd g-indigo">
+      <span class="icon">&#128208;</span>
+      Introduction &amp; Indian Heritage
+    </div>
+    <div class="section-bd">
+
+      <p>Have you ever wondered how a pilot finds a tiny airstrip in the vast sky, or how your phone knows exactly where you are on a map? The answer lies in <span class="kt">coordinates</span> &mdash; a system of numbers that describes the exact position of any point on a flat surface (a plane).</p>
+
+      <p>In everyday life, we use coordinates constantly without even realising it. When you say "my house is 3 streets to the right and 2 blocks up from the park," you are already using a coordinate-like system! In mathematics, we formalise this idea using two number lines placed at right angles to each other.</p>
+
+      <div class="subtitle">&#127470;&#127475; Indian Mathematical Heritage</div>
+
+      <p>Long before the French mathematician Ren&eacute; Descartes published his famous work in 1637, Indian scholars had developed profound ideas about geometry and measurement. Let us honour the great Indian mathematicians who laid the groundwork for coordinate-based thinking.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-indigo">
+          <h4>&#128220; Baudhayana (~800 BCE)</h4>
+          The <strong>Baudhayana Sulbasutras</strong> contain the earliest known statement of what we call the "Pythagorean theorem" &mdash; centuries before Pythagoras! Baudhayana described how the diagonal of a rectangle relates to its sides, the very idea behind the distance formula we use today.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#127775; Aryabhata (476&ndash;550 CE)</h4>
+          Aryabhata introduced a coordinate-like system for astronomical calculations. His work <em>Aryabhatiya</em> used perpendicular reference lines to describe planetary positions &mdash; remarkably similar to the Cartesian system that would appear a thousand years later.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#128171; Brahmagupta (598&ndash;668 CE)</h4>
+          Brahmagupta was the first mathematician to fully describe the rules for working with <strong>zero</strong> and <strong>negative numbers</strong>. Without negative numbers, we could not have the four-quadrant coordinate system! He also gave formulas for the area and diagonals of cyclic quadrilaterals.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#129518; Bhaskaracharya (1114&ndash;1185 CE)</h4>
+          Also known as Bhaskara II, he wrote <em>Lilavati</em> and <em>Bijaganita</em>, which contain advanced ideas on algebra and geometry. His work on equations and graphical representation anticipated many modern coordinate geometry concepts.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Did You Know?</strong> Baudhayana stated the theorem about the diagonal of a rectangle around 800 BCE &mdash; nearly <strong>300 years before</strong> Pythagoras (c. 570&ndash;495 BCE)! This is why the NCERT Ganita Manjari textbook refers to it as the <strong>Baudhayana-Pythagoras Theorem</strong>.
+      </div>
+
+      <div class="subtitle">&#128506;&#65039; Ren&eacute; Descartes &amp; the Cartesian System</div>
+
+      <p>In 1637, French philosopher and mathematician <strong>Ren&eacute; Descartes</strong> published <em>La G&eacute;om&eacute;trie</em>, in which he showed that geometry and algebra could be unified. His idea was revolutionary: every point on a plane can be described by a pair of numbers, and every equation can be drawn as a curve. The system is named the <strong>Cartesian system</strong> in his honour (Cartesius is the Latin form of Descartes).</p>
+
+      <p>Before Descartes, geometry (shapes, angles, areas) and algebra (equations, variables, unknowns) were treated as completely separate subjects. Descartes bridged the two by showing that an algebraic equation like y = 2x + 3 can be drawn as a straight line on the coordinate plane, and conversely, any geometric curve can be described by an equation. This unification opened the door to <strong>analytical geometry</strong>, which is the foundation of modern science, engineering, and computer graphics.</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-purple">
+          <h4>&#128214; Key Insight of Descartes</h4>
+          Geometry and algebra are two sides of the same coin. A <strong>point</strong> is a pair of numbers; a <strong>line</strong> is an equation; a <strong>circle</strong> is an equation like x&sup2; + y&sup2; = r&sup2;. This powerful connection allows us to solve geometric problems using algebra and vice versa.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>&#128300; Why It Matters Today</h4>
+          Without analytical geometry, we would not have computer screens (which plot pixels using coordinates), satellite navigation, medical imaging (CT scans, MRI), or any of the technology that relies on describing shapes mathematically.
+        </div>
+      </div>
+
+      <div class="subtitle">&#127758; Real-World Applications</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#128507;&#65039; GPS &amp; Navigation</h4>
+          Every location on Earth is given a latitude and longitude &mdash; essentially an ordered pair of coordinates. Google Maps, GPS devices, and ride-hailing apps all use coordinate geometry to find your position and calculate routes.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#127918; Video Games &amp; Animation</h4>
+          Every pixel, character, and object in a video game is placed using coordinates. Game developers use coordinate geometry to detect collisions, move characters, and render 3D worlds on your screen.
+        </div>
+        <div class="info-card ic-pink">
+          <h4>&#127959;&#65039; Architecture &amp; Engineering</h4>
+          Architects and engineers use coordinate systems to design buildings, bridges, and machines. Computer-Aided Design (CAD) software is built entirely on coordinate geometry.
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#128640; Space Science (ISRO)</h4>
+          India's ISRO uses three-dimensional coordinate systems to plot satellite orbits, plan rocket trajectories, and navigate spacecraft like Chandrayaan and Mangalyaan to their destinations.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Memory Aid:</strong> Think of coordinates like an address system: the <strong>x-coordinate</strong> is the "street number" (horizontal) and the <strong>y-coordinate</strong> is the "floor number" (vertical). Together, (x, y) pinpoints exactly where you are!
+      </div>
+
+      <div class="subtitle">&#128218; Chapter Overview: What You Will Learn</div>
+
+      <p>This chapter covers the following key topics from the NCERT Ganita Manjari textbook (Chapter 1, New Syllabus 2026-27):</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th>Key Concepts</th>
+              <th>Marks Weightage (Approx.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cartesian Coordinate System</td>
+              <td>X-axis, Y-axis, Origin, Ordered Pairs, Abscissa, Ordinate</td>
+              <td>2&ndash;3 marks</td>
+            </tr>
+            <tr>
+              <td>Quadrants</td>
+              <td>Four quadrants, sign conventions, points on axes</td>
+              <td>2&ndash;3 marks</td>
+            </tr>
+            <tr>
+              <td>Distance Formula</td>
+              <td>Derivation, applications, distance from origin</td>
+              <td>4&ndash;5 marks</td>
+            </tr>
+            <tr>
+              <td>Midpoint Formula</td>
+              <td>Finding midpoints, reverse problems, section formula preview</td>
+              <td>3&ndash;4 marks</td>
+            </tr>
+            <tr>
+              <td>Applications</td>
+              <td>Triangle classification, collinearity, proving shapes</td>
+              <td>4&ndash;5 marks</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Study Tip:</strong> This chapter is the foundation for Coordinate Geometry in Class 10, where you will learn the section formula, area of a triangle, and the equation of a straight line. Master these basics now and Class 10 will feel much easier!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 2: THE CARTESIAN COORDINATE SYSTEM
+       ===================================================== -->
+  <div class="section-block reveal" id="cartesian">
+    <div class="section-hd g-blue">
+      <span class="icon">&#128205;</span>
+      The Cartesian Coordinate System
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128290; Number Line Recap</div>
+
+      <p>Recall that a <strong>number line</strong> is a straight line on which every point corresponds to a unique real number. Numbers increase to the right and decrease to the left. The point representing zero is called the <strong>origin</strong>. A number line lets us locate any point in one dimension.</p>
+
+      <p>But what if we want to describe a point on a flat surface &mdash; a two-dimensional plane? A single number is not enough. We need <strong>two</strong> numbers. This is where the Cartesian coordinate system comes in.</p>
+
+      <div class="subtitle">&#10010;&#65039; Two Perpendicular Lines</div>
+
+      <p>The Cartesian coordinate system (also called the <strong>rectangular coordinate system</strong> or the <strong>coordinate plane</strong>) is formed by placing two number lines perpendicular to each other so that they intersect at their zeros.</p>
+
+      <ul>
+        <li>The <strong>horizontal number line</strong> is called the <span class="kt">x-axis</span> (or <em>abscissa axis</em>).</li>
+        <li>The <strong>vertical number line</strong> is called the <span class="kt">y-axis</span> (or <em>ordinate axis</em>).</li>
+        <li>The point where the two axes cross is called the <span class="kt">Origin</span>, denoted <strong>O(0, 0)</strong>.</li>
+        <li>Together, the two axes divide the plane into four regions called <strong>quadrants</strong>.</li>
+      </ul>
+
+      <div class="subtitle">&#128205; Ordered Pairs</div>
+
+      <p>Every point in the plane is represented by an <strong>ordered pair</strong> of numbers written as <strong>(x, y)</strong>.</p>
+
+      <ul>
+        <li>The first number <strong>x</strong> is called the <span class="kt">abscissa</span> (x-coordinate). It tells us the horizontal distance from the y-axis.</li>
+        <li>The second number <strong>y</strong> is called the <span class="kt">ordinate</span> (y-coordinate). It tells us the vertical distance from the x-axis.</li>
+        <li>The pair is <em>ordered</em> because (3, 5) and (5, 3) represent <strong>different</strong> points.</li>
+      </ul>
+
+      <div class="note-box">
+        <strong>&#128161; Important:</strong> Always write the x-coordinate first, then the y-coordinate. The pair (x, y) is called an <strong>ordered pair</strong> because the order matters. (2, 7) &ne; (7, 2).
+      </div>
+
+      <div class="subtitle">&#128073; How to Plot a Point</div>
+
+      <p>To plot the point <strong>P(3, 2)</strong> on the coordinate plane:</p>
+
+      <ol>
+        <li>Start at the <strong>origin O(0, 0)</strong>.</li>
+        <li>Move <strong>3 units to the right</strong> along the x-axis (because x = 3 is positive).</li>
+        <li>From there, move <strong>2 units up</strong> parallel to the y-axis (because y = 2 is positive).</li>
+        <li>Mark the point and label it P(3, 2).</li>
+      </ol>
+
+      <p>If the x-coordinate is negative, move left. If the y-coordinate is negative, move down.</p>
+
+      <div class="subtitle">&#128221; Examples of Plotting Points</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#9989; Plotting (4, 3)</h4>
+          Start at O. Move <strong>4 units right</strong> (x = +4), then <strong>3 units up</strong> (y = +3). This point lies in <strong>Quadrant I</strong> since both coordinates are positive.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128309; Plotting (&minus;2, 5)</h4>
+          Start at O. Move <strong>2 units left</strong> (x = &minus;2), then <strong>5 units up</strong> (y = +5). This point lies in <strong>Quadrant II</strong> since x is negative and y is positive.
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#128308; Plotting (&minus;3, &minus;4)</h4>
+          Start at O. Move <strong>3 units left</strong> (x = &minus;3), then <strong>4 units down</strong> (y = &minus;4). This point lies in <strong>Quadrant III</strong> since both coordinates are negative.
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#128992; Plotting (5, &minus;1)</h4>
+          Start at O. Move <strong>5 units right</strong> (x = +5), then <strong>1 unit down</strong> (y = &minus;1). This point lies in <strong>Quadrant IV</strong> since x is positive and y is negative.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Convention:</strong> When we write (x, y), the x-value tells us the <em>horizontal</em> position (left or right) and the y-value tells us the <em>vertical</em> position (up or down). Think of it as: "Walk first (x), then climb (y)."
+      </div>
+
+      <!-- ANIMATED COORDINATE PLANE -->
+      <div class="coord-wrap">
+        <p style="font-weight:800;color:#312e81;margin-bottom:10px;font-size:15px;">Interactive: Plotting P(3, 2) on the Coordinate Plane</p>
+        <div class="coord-plane">
+          <!-- Grid -->
+          <div class="coord-grid"></div>
+          <!-- Axes -->
+          <div class="coord-x"></div>
+          <div class="coord-y"></div>
+          <!-- Axis Labels -->
+          <span class="coord-label" style="right:6px;top:calc(50% + 4px);">X</span>
+          <span class="coord-label" style="left:calc(50% + 6px);top:6px;">Y</span>
+          <span class="coord-label" style="left:calc(50% + 6px);top:calc(50% + 4px);">O</span>
+          <!-- Number labels on x-axis -->
+          <span class="coord-label" style="left:calc(50% + 32px - 4px);top:calc(50% + 4px);">1</span>
+          <span class="coord-label" style="left:calc(50% + 64px - 4px);top:calc(50% + 4px);">2</span>
+          <span class="coord-label" style="left:calc(50% + 96px - 4px);top:calc(50% + 4px);">3</span>
+          <span class="coord-label" style="left:calc(50% + 128px - 4px);top:calc(50% + 4px);">4</span>
+          <span class="coord-label" style="left:calc(50% - 32px - 6px);top:calc(50% + 4px);">-1</span>
+          <span class="coord-label" style="left:calc(50% - 64px - 6px);top:calc(50% + 4px);">-2</span>
+          <span class="coord-label" style="left:calc(50% - 96px - 6px);top:calc(50% + 4px);">-3</span>
+          <span class="coord-label" style="left:calc(50% - 128px - 6px);top:calc(50% + 4px);">-4</span>
+          <!-- Number labels on y-axis -->
+          <span class="coord-label" style="left:calc(50% + 6px);top:calc(50% - 32px - 6px);">1</span>
+          <span class="coord-label" style="left:calc(50% + 6px);top:calc(50% - 64px - 6px);">2</span>
+          <span class="coord-label" style="left:calc(50% + 6px);top:calc(50% - 96px - 6px);">3</span>
+          <span class="coord-label" style="left:calc(50% + 6px);top:calc(50% - 128px - 6px);">4</span>
+          <span class="coord-label" style="left:calc(50% + 6px);top:calc(50% + 32px - 2px);">-1</span>
+          <span class="coord-label" style="left:calc(50% + 6px);top:calc(50% + 64px - 2px);">-2</span>
+          <span class="coord-label" style="left:calc(50% + 6px);top:calc(50% + 96px - 2px);">-3</span>
+          <span class="coord-label" style="left:calc(50% + 6px);top:calc(50% + 128px - 2px);">-4</span>
+          <!-- Dashed guidelines for P(3,2) -->
+          <!-- Horizontal dashed line from y-axis to point: y = 2 means 50% - 64px, from x = 50% to x = 50%+96px -->
+          <div class="coord-dashed-h" style="top:calc(50% - 64px);left:50%;width:96px;"></div>
+          <!-- Vertical dashed line from x-axis to point: x = 3 means 50%+96px, from y = 50% to y = 50%-64px -->
+          <div class="coord-dashed-v" style="left:calc(50% + 96px);top:calc(50% - 64px);height:64px;"></div>
+          <!-- Point P(3,2) -->
+          <div class="coord-point animated" style="color:#ef4444;background:#ef4444;left:calc(50% + 96px);top:calc(50% - 64px);"></div>
+          <span class="coord-label" style="left:calc(50% + 96px + 8px);top:calc(50% - 64px - 14px);color:#ef4444;font-size:12px;font-weight:900;">P(3, 2)</span>
+        </div>
+        <p style="font-size:13px;color:#475569;margin-top:8px;">The red dashed lines show how we reach P by going 3 units right and 2 units up from O.</p>
+      </div>
+
+      <div class="subtitle">&#128218; Key Terms Table</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Term</th>
+              <th>Symbol / Notation</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Origin</strong></td>
+              <td>O(0, 0)</td>
+              <td>The point where the x-axis and y-axis intersect</td>
+            </tr>
+            <tr>
+              <td><strong>X-axis</strong></td>
+              <td>Horizontal line</td>
+              <td>The horizontal number line; positive to the right, negative to the left</td>
+            </tr>
+            <tr>
+              <td><strong>Y-axis</strong></td>
+              <td>Vertical line</td>
+              <td>The vertical number line; positive upward, negative downward</td>
+            </tr>
+            <tr>
+              <td><strong>Abscissa</strong></td>
+              <td>x-coordinate</td>
+              <td>The first number in the ordered pair; horizontal distance from y-axis</td>
+            </tr>
+            <tr>
+              <td><strong>Ordinate</strong></td>
+              <td>y-coordinate</td>
+              <td>The second number in the ordered pair; vertical distance from x-axis</td>
+            </tr>
+            <tr>
+              <td><strong>Ordered Pair</strong></td>
+              <td>(x, y)</td>
+              <td>A pair of numbers describing a unique point; order matters</td>
+            </tr>
+            <tr>
+              <td><strong>Coordinate Plane</strong></td>
+              <td>xy-plane</td>
+              <td>The flat surface formed by the two perpendicular axes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card ic-blue">
+          <h4>&#10145;&#65039; Points on the X-axis</h4>
+          Any point that lies on the x-axis has a y-coordinate of <strong>0</strong>. It is written as <strong>(a, 0)</strong> where <em>a</em> can be any real number. Examples: (3, 0), (-5, 0), (0, 0).
+        </div>
+        <div class="info-card ic-indigo">
+          <h4>&#11014;&#65039; Points on the Y-axis</h4>
+          Any point that lies on the y-axis has an x-coordinate of <strong>0</strong>. It is written as <strong>(0, b)</strong> where <em>b</em> can be any real number. Examples: (0, 4), (0, -7), (0, 0).
+        </div>
+        <div class="info-card ic-green">
+          <h4>&#127919; The Origin</h4>
+          The origin O(0, 0) is the <strong>only point</strong> that lies on both the x-axis and the y-axis simultaneously. It is the reference point from which all other positions are measured.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128203; Positive &amp; Negative Directions</h4>
+          On the x-axis: right is positive, left is negative. On the y-axis: up is positive, down is negative. This convention is universal and must be followed consistently.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128290; Coordinate vs Cartesian: Are They the Same?</div>
+
+      <p>You may hear the terms "coordinate system," "Cartesian system," and "rectangular coordinate system" used interchangeably. They all refer to the same thing &mdash; the system of perpendicular axes we have been studying. The word "rectangular" emphasises that the axes meet at right angles (90&deg;). There are other coordinate systems (like the polar coordinate system), but those are studied in higher classes.</p>
+
+      <div class="trick">
+        <strong>&#128161; Memory Aid:</strong> To remember which comes first in an ordered pair, think of the word <strong>"x-y"</strong> &mdash; it is in alphabetical order! <strong>x</strong> always comes before <strong>y</strong>, just like <strong>a</strong> comes before <strong>b</strong>: <em>abscissa</em> before <em>ordinate</em>.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 3: QUADRANTS
+       ===================================================== -->
+  <div class="section-block reveal" id="quadrants">
+    <div class="section-hd g-purple">
+      <span class="icon">&#11036;</span>
+      Quadrants of the Coordinate Plane
+    </div>
+    <div class="section-bd">
+
+      <p>The x-axis and y-axis divide the coordinate plane into <strong>four regions</strong> called <span class="kt">quadrants</span>. These are numbered using Roman numerals (I, II, III, IV) in an <strong>anti-clockwise</strong> direction, starting from the upper-right region.</p>
+
+      <!-- QUADRANT DIAGRAM -->
+      <div class="coord-wrap">
+        <p style="font-weight:800;color:#312e81;margin-bottom:10px;font-size:15px;">The Four Quadrants</p>
+        <div class="quad-diagram">
+          <div class="quad-cell q2">
+            <span class="q-label">II</span>
+            <span class="q-signs">(&minus;, +)</span>
+            <span style="font-size:11px;margin-top:4px;">e.g. (&minus;2, 5)</span>
+          </div>
+          <div class="quad-cell q1">
+            <span class="q-label">I</span>
+            <span class="q-signs">(+, +)</span>
+            <span style="font-size:11px;margin-top:4px;">e.g. (3, 4)</span>
+          </div>
+          <div class="quad-cell q3">
+            <span class="q-label">III</span>
+            <span class="q-signs">(&minus;, &minus;)</span>
+            <span style="font-size:11px;margin-top:4px;">e.g. (&minus;3, &minus;4)</span>
+          </div>
+          <div class="quad-cell q4">
+            <span class="q-label">IV</span>
+            <span class="q-signs">(+, &minus;)</span>
+            <span style="font-size:11px;margin-top:4px;">e.g. (5, &minus;2)</span>
+          </div>
+          <div class="quad-axis-h"></div>
+          <div class="quad-axis-v"></div>
+        </div>
+      </div>
+
+      <div class="subtitle">&#128202; Quadrant Sign Table</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Quadrant</th>
+              <th>x-sign</th>
+              <th>y-sign</th>
+              <th>Example Point</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>I (First)</strong></td>
+              <td>+ (positive)</td>
+              <td>+ (positive)</td>
+              <td>(3, 4)</td>
+            </tr>
+            <tr>
+              <td><strong>II (Second)</strong></td>
+              <td>&minus; (negative)</td>
+              <td>+ (positive)</td>
+              <td>(&minus;2, 5)</td>
+            </tr>
+            <tr>
+              <td><strong>III (Third)</strong></td>
+              <td>&minus; (negative)</td>
+              <td>&minus; (negative)</td>
+              <td>(&minus;3, &minus;4)</td>
+            </tr>
+            <tr>
+              <td><strong>IV (Fourth)</strong></td>
+              <td>+ (positive)</td>
+              <td>&minus; (negative)</td>
+              <td>(5, &minus;2)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subtitle">&#128204; Points on the Axes</div>
+
+      <p>Points that lie exactly on one of the axes do <strong>not</strong> belong to any quadrant:</p>
+
+      <ul>
+        <li>A point on the <strong>x-axis</strong> has the form <strong>(a, 0)</strong> and lies on the boundary between quadrants.</li>
+        <li>A point on the <strong>y-axis</strong> has the form <strong>(0, b)</strong> and lies on the boundary between quadrants.</li>
+        <li>The <strong>origin (0, 0)</strong> lies on both axes and belongs to no quadrant.</li>
+      </ul>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#9989; Quadrant I (+, +)</h4>
+          Both coordinates are positive. This is the upper-right region. Example: The point (4, 7) lies here because both 4 and 7 are positive.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128309; Quadrant II (&minus;, +)</h4>
+          The x-coordinate is negative and y-coordinate is positive. This is the upper-left region. Example: (&minus;6, 3) lies here.
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#128308; Quadrant III (&minus;, &minus;)</h4>
+          Both coordinates are negative. This is the lower-left region. Example: (&minus;5, &minus;8) lies here because both values are negative.
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#128992; Quadrant IV (+, &minus;)</h4>
+          The x-coordinate is positive and y-coordinate is negative. This is the lower-right region. Example: (7, &minus;3) lies here.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Memory Trick &mdash; "All Students Take Coffee":</strong><br>
+        Starting from Quadrant I and going anti-clockwise:<br>
+        <strong>A</strong>ll &rarr; Q1: <strong>A</strong>ll positive (+, +)<br>
+        <strong>S</strong>tudents &rarr; Q2: Only <strong>S</strong>ine/y is positive (&minus;, +)<br>
+        <strong>T</strong>ake &rarr; Q3: Only <strong>T</strong>an (both negative = tan positive in trig, but here both are &minus;)<br>
+        <strong>C</strong>offee &rarr; Q4: Only <strong>C</strong>osine/x is positive (+, &minus;)<br>
+        This mnemonic works for both coordinate signs and trigonometry later in higher classes!
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Quick Check:</strong> If someone gives you a point like (&minus;4, &minus;7), you can instantly say "Quadrant III" because both coordinates are negative. If a point is (0, 5), it lies on the y-axis, not in any quadrant.
+      </div>
+
+      <div class="subtitle">&#128203; Mirror Images &amp; Sign Patterns</div>
+
+      <p>Understanding how the signs change across quadrants helps you see beautiful symmetry patterns in the coordinate plane:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Original Point</th>
+              <th>Reflected in x-axis</th>
+              <th>Reflected in y-axis</th>
+              <th>Reflected in both axes (through origin)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(3, 4) &mdash; Q1</td>
+              <td>(3, &minus;4) &mdash; Q4</td>
+              <td>(&minus;3, 4) &mdash; Q2</td>
+              <td>(&minus;3, &minus;4) &mdash; Q3</td>
+            </tr>
+            <tr>
+              <td>(&minus;2, 5) &mdash; Q2</td>
+              <td>(&minus;2, &minus;5) &mdash; Q3</td>
+              <td>(2, 5) &mdash; Q1</td>
+              <td>(2, &minus;5) &mdash; Q4</td>
+            </tr>
+            <tr>
+              <td>(&minus;6, &minus;1) &mdash; Q3</td>
+              <td>(&minus;6, 1) &mdash; Q2</td>
+              <td>(6, &minus;1) &mdash; Q4</td>
+              <td>(6, 1) &mdash; Q1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Key Rule:</strong> Reflection in the <strong>x-axis</strong> changes the sign of the y-coordinate: (a, b) &rarr; (a, &minus;b). Reflection in the <strong>y-axis</strong> changes the sign of the x-coordinate: (a, b) &rarr; (&minus;a, b). Reflection through the <strong>origin</strong> changes both signs: (a, b) &rarr; (&minus;a, &minus;b).
+      </div>
+
+      <div class="subtitle">&#128736;&#65039; Practice: Identify the Quadrant</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>Point (12, 7)</h4>
+          Both positive &rarr; <strong>Quadrant I</strong>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Point (&minus;8, 15)</h4>
+          x negative, y positive &rarr; <strong>Quadrant II</strong>
+        </div>
+        <div class="info-card ic-red">
+          <h4>Point (&minus;100, &minus;50)</h4>
+          Both negative &rarr; <strong>Quadrant III</strong>
+        </div>
+        <div class="info-card ic-amber">
+          <h4>Point (0.5, &minus;3.7)</h4>
+          x positive, y negative &rarr; <strong>Quadrant IV</strong>
+        </div>
+        <div class="info-card ic-indigo">
+          <h4>Point (0, &minus;9)</h4>
+          x is zero &rarr; <strong>On the y-axis</strong> (not in any quadrant)
+        </div>
+        <div class="info-card ic-teal">
+          <h4>Point (6, 0)</h4>
+          y is zero &rarr; <strong>On the x-axis</strong> (not in any quadrant)
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       INTERACTIVE: PLOT POINTS ON CARTESIAN PLANE
+       ===================================================== -->
+  <div class="section-block reveal" id="interactive-plot">
+    <div class="section-hd g-blue">
+      <span class="icon">&#127919;</span>
+      Interactive Activity: Plot Points on the Cartesian Plane
+    </div>
+    <div class="section-bd">
+      <p>Click anywhere on the coordinate plane below to plot points. The system will automatically show you the coordinates and identify which quadrant each point lies in!</p>
+
+      <div class="activity-wrap">
+        <div class="activity-title">&#127919; Click to Plot Points</div>
+        <div class="activity-desc">Tap/click on the plane to place points. See their coordinates and quadrants instantly!</div>
+        <div class="activity-canvas-wrap">
+          <canvas id="plotCanvas" class="activity-canvas" width="400" height="400"></canvas>
+        </div>
+        <div class="activity-controls">
+          <button class="act-btn act-btn-red" onclick="clearPlotCanvas()">&#128465; Clear All</button>
+          <button class="act-btn act-btn-blue" onclick="undoPlotPoint()">&#8617; Undo Last</button>
+        </div>
+        <div class="point-list" id="plotPointsList"></div>
+        <div class="activity-status" id="plotStatus">Click on the plane to plot your first point!</div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Try This:</strong> Plot points in all four quadrants and observe how the signs change. Try plotting points on the axes too &mdash; notice how one coordinate becomes zero! Can you plot a point at the origin?
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 4: DISTANCE FORMULA
+       ===================================================== -->
+  <div class="section-block reveal" id="distance">
+    <div class="section-hd g-teal">
+      <span class="icon">&#128207;</span>
+      The Distance Formula
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128218; Derivation from the Baudhayana-Pythagoras Theorem</div>
+
+      <p>One of the most important applications of coordinates is finding the <strong>distance</strong> between two points. The distance formula is derived directly from the <strong>Baudhayana-Pythagoras Theorem</strong>, which states: <em>In a right-angled triangle, the square of the hypotenuse equals the sum of the squares of the other two sides.</em></p>
+
+      <p>Consider two points A(x<sub>1</sub>, y<sub>1</sub>) and B(x<sub>2</sub>, y<sub>2</sub>) in the coordinate plane. To find the distance AB, we construct a right-angled triangle. If we draw a horizontal line through A and a vertical line through B, they meet at a point C(x<sub>2</sub>, y<sub>1</sub>), forming a right-angled triangle ACB with the right angle at C.</p>
+
+      <p>This construction is the key insight: any diagonal distance on the coordinate plane can be broken into a horizontal component and a vertical component, and then we use the Baudhayana-Pythagoras theorem to combine them.</p>
+
+      <ul>
+        <li>The horizontal side AC has length |x<sub>2</sub> &minus; x<sub>1</sub>|</li>
+        <li>The vertical side BC has length |y<sub>2</sub> &minus; y<sub>1</sub>|</li>
+        <li>The hypotenuse AB is the distance we want to find.</li>
+      </ul>
+
+      <p>By the Baudhayana-Pythagoras theorem:</p>
+
+      <p style="text-align:center;font-weight:700;font-size:15px;margin:12px 0;">AB&sup2; = AC&sup2; + BC&sup2; = (x<sub>2</sub> &minus; x<sub>1</sub>)&sup2; + (y<sub>2</sub> &minus; y<sub>1</sub>)&sup2;</p>
+
+      <div class="formula-box">
+        d = &radic;[(x<sub>2</sub> &minus; x<sub>1</sub>)&sup2; + (y<sub>2</sub> &minus; y<sub>1</sub>)&sup2;]
+        <small>Distance Formula &mdash; derived from the Baudhayana-Pythagoras Theorem</small>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Special Case:</strong> The distance of a point P(x, y) from the <strong>origin O(0, 0)</strong> simplifies to:<br>
+        <strong>d = &radic;(x&sup2; + y&sup2;)</strong><br>
+        This is because x<sub>1</sub> = 0 and y<sub>1</sub> = 0.
+      </div>
+
+      <div class="subtitle">&#9999;&#65039; Worked Examples</div>
+
+      <!-- Example 1 -->
+      <div class="worked-example">
+        <h4>Example 1: Find the distance between A(2, 3) and B(5, 7).</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Identify the coordinates.<br>
+          x<sub>1</sub> = 2, y<sub>1</sub> = 3, x<sub>2</sub> = 5, y<sub>2</sub> = 7
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Substitute into the formula.<br>
+          d = &radic;[(5 &minus; 2)&sup2; + (7 &minus; 3)&sup2;]
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Calculate the differences.<br>
+          d = &radic;[(3)&sup2; + (4)&sup2;] = &radic;[9 + 16]
+        </div>
+        <div class="we-step">
+          <strong>Step 4:</strong> Add and take the square root.<br>
+          d = &radic;25 = <strong>5 units</strong>
+        </div>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="worked-example">
+        <h4>Example 2: Find the distance between P(&minus;1, 4) and Q(3, &minus;2).</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Identify the coordinates.<br>
+          x<sub>1</sub> = &minus;1, y<sub>1</sub> = 4, x<sub>2</sub> = 3, y<sub>2</sub> = &minus;2
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Substitute into the formula.<br>
+          d = &radic;[(3 &minus; (&minus;1))&sup2; + (&minus;2 &minus; 4)&sup2;]
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Calculate the differences.<br>
+          d = &radic;[(3 + 1)&sup2; + (&minus;6)&sup2;] = &radic;[(4)&sup2; + (6)&sup2;]
+        </div>
+        <div class="we-step">
+          <strong>Step 4:</strong> Simplify.<br>
+          d = &radic;[16 + 36] = &radic;52 = &radic;(4 &times; 13) = <strong>2&radic;13 units</strong>
+        </div>
+      </div>
+
+      <!-- Example 3 -->
+      <div class="worked-example">
+        <h4>Example 3: Find the distance from the origin O(0, 0) to the point R(3, 4).</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Using the special case formula: d = &radic;(x&sup2; + y&sup2;)
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Substitute x = 3, y = 4.<br>
+          d = &radic;(3&sup2; + 4&sup2;) = &radic;(9 + 16) = &radic;25 = <strong>5 units</strong>
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Step-by-Step Mantra:</strong> "Subtract, Square, Add, Root!" &mdash; Remember these four steps and you will never go wrong with the distance formula.<br>
+        1. <strong>Subtract</strong> the corresponding coordinates<br>
+        2. <strong>Square</strong> each difference<br>
+        3. <strong>Add</strong> the squares<br>
+        4. Take the square <strong>Root</strong>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Common Mistake:</strong> Students sometimes subtract y from x or mix up coordinates. Always subtract x from x and y from y: (x<sub>2</sub> &minus; x<sub>1</sub>) goes with x, and (y<sub>2</sub> &minus; y<sub>1</sub>) goes with y. Also, it does not matter which point you call "1" or "2" &mdash; the squaring removes any negative sign.
+      </div>
+
+      <div class="subtitle">&#128202; Important Applications of the Distance Formula</div>
+
+      <p>The distance formula is not just for finding lengths. It has several powerful applications in coordinate geometry:</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#128310; Collinearity Check</h4>
+          Three points A, B, C are <strong>collinear</strong> (lie on the same straight line) if the sum of two shorter distances equals the longest distance. That is, AB + BC = AC (or any permutation).
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128311; Triangle Classification</h4>
+          Find all three side lengths using the distance formula, then check:
+          <br>&bull; <strong>Equilateral:</strong> all three sides are equal
+          <br>&bull; <strong>Isosceles:</strong> two sides are equal
+          <br>&bull; <strong>Scalene:</strong> no sides are equal
+          <br>&bull; <strong>Right-angled:</strong> Baudhayana-Pythagoras theorem holds
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128312; Parallelogram / Rhombus</h4>
+          To prove a quadrilateral is a <strong>parallelogram</strong>, show opposite sides are equal. To prove it is a <strong>rhombus</strong>, show all four sides are equal.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128313; Square Test</h4>
+          To prove a quadrilateral is a <strong>square</strong>, show all four sides are equal AND both diagonals are equal.
+        </div>
+      </div>
+
+      <div class="subtitle">&#128290; Distance Between Points on the Same Axis</div>
+
+      <p>When two points share the same x-coordinate or the same y-coordinate, the distance formula simplifies beautifully:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Situation</th>
+              <th>Points</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Same y-coordinate (horizontal distance)</td>
+              <td>(x<sub>1</sub>, k) and (x<sub>2</sub>, k)</td>
+              <td>|x<sub>2</sub> &minus; x<sub>1</sub>|</td>
+            </tr>
+            <tr>
+              <td>Same x-coordinate (vertical distance)</td>
+              <td>(k, y<sub>1</sub>) and (k, y<sub>2</sub>)</td>
+              <td>|y<sub>2</sub> &minus; y<sub>1</sub>|</td>
+            </tr>
+            <tr>
+              <td>Both on x-axis</td>
+              <td>(a, 0) and (b, 0)</td>
+              <td>|b &minus; a|</td>
+            </tr>
+            <tr>
+              <td>Both on y-axis</td>
+              <td>(0, a) and (0, b)</td>
+              <td>|b &minus; a|</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Exam Shortcut:</strong> When two points have the <em>same</em> x-coordinate, the distance is just the absolute difference of the y-coordinates. When they have the <em>same</em> y-coordinate, the distance is the absolute difference of the x-coordinates. No need for the full formula!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       INTERACTIVE: DISTANCE CALCULATOR LAB
+       ===================================================== -->
+  <div class="section-block reveal" id="interactive-distance">
+    <div class="section-hd g-teal">
+      <span class="icon">&#128207;</span>
+      Interactive Activity: Distance Calculator Lab
+    </div>
+    <div class="section-bd">
+      <p>Place points on the coordinate plane and watch the distance formula come alive! See the right triangle construction and step-by-step calculation.</p>
+
+      <div class="subtitle">&#128207; Two-Point Distance Calculator</div>
+      <div class="activity-wrap">
+        <div class="activity-title">&#128207; Click Two Points to Find Distance</div>
+        <div class="activity-desc">Click to place Point A, then click again for Point B. The right triangle and distance will be shown with full working!</div>
+        <div class="activity-canvas-wrap">
+          <canvas id="distCanvas" class="activity-canvas" width="400" height="400"></canvas>
+        </div>
+        <div class="activity-controls">
+          <button class="act-btn act-btn-red" onclick="clearDistCanvas()">&#128465; Clear</button>
+        </div>
+        <div class="activity-result" id="distResult">Click on the plane to place Point A...</div>
+        <div class="activity-status" id="distStatus">Step 1: Click to place Point A</div>
+      </div>
+
+      <div class="subtitle">&#128279; Multi-Point Distance &mdash; Connect &amp; Measure</div>
+      <p>Place multiple points on the plane, then connect them to see the distance between each pair. The total path distance and perimeter are calculated automatically!</p>
+      <div class="activity-wrap">
+        <div class="activity-title">&#128279; Place Points &amp; Connect Them</div>
+        <div class="activity-desc">Click to place points (up to 8). Then click &quot;Connect All&quot; to join them and see all distances!</div>
+        <div class="activity-canvas-wrap">
+          <canvas id="multiDistCanvas" class="activity-canvas" width="400" height="400"></canvas>
+        </div>
+        <div class="activity-controls">
+          <button class="act-btn act-btn-green" onclick="connectMultiPoints()">&#128279; Connect All</button>
+          <button class="act-btn act-btn-purple" onclick="closeMultiShape()">&#128311; Close Shape</button>
+          <button class="act-btn act-btn-red" onclick="clearMultiDist()">&#128465; Clear</button>
+        </div>
+        <div class="point-list" id="multiPointsList"></div>
+        <div class="activity-result" id="multiDistResult">Click on the plane to place points...</div>
+        <div class="activity-status" id="multiDistStatus">Place points on the plane (up to 8 points)</div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Try This:</strong> Place points at (0,0), (3,0), and (3,4) and connect them to see a 3&ndash;4&ndash;5 right triangle! Or place four points to make a square and click &quot;Close Shape&quot; to check if all sides are equal. Can you make an equilateral-looking triangle?
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 5: MIDPOINT FORMULA
+       ===================================================== -->
+  <div class="section-block reveal" id="midpoint">
+    <div class="section-hd g-green">
+      <span class="icon">&#9889;</span>
+      The Midpoint Formula
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128161; Concept: The Point Exactly Halfway</div>
+
+      <p>The <strong>midpoint</strong> of a line segment is the point that divides the segment into two <strong>equal</strong> parts. If you have two endpoints, the midpoint is exactly halfway between them.</p>
+
+      <p>To find the midpoint, we simply take the <strong>average</strong> of the x-coordinates and the <strong>average</strong> of the y-coordinates.</p>
+
+      <div class="formula-box">
+        M = ((x<sub>1</sub> + x<sub>2</sub>) / 2, &nbsp; (y<sub>1</sub> + y<sub>2</sub>) / 2)
+        <small>Midpoint Formula &mdash; The average of the coordinates</small>
+      </div>
+
+      <p>This makes intuitive sense: to find the middle of 2 and 8 on a number line, you compute (2 + 8)/2 = 5. The midpoint formula extends this idea to two dimensions.</p>
+
+      <div class="subtitle">&#128161; Understanding the Midpoint Visually</div>
+
+      <p>Imagine you are standing at point A and your friend is standing at point B. The midpoint M is the spot where you would both meet if you each walked <em>exactly half</em> the distance towards each other. In coordinates, this means:</p>
+
+      <ul>
+        <li>The x-coordinate of M is exactly halfway between the x-coordinates of A and B.</li>
+        <li>The y-coordinate of M is exactly halfway between the y-coordinates of A and B.</li>
+        <li>"Halfway" mathematically means the <strong>arithmetic mean</strong> (average).</li>
+      </ul>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Point A</th>
+              <th>Point B</th>
+              <th>Midpoint M</th>
+              <th>Calculation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(0, 0)</td>
+              <td>(10, 6)</td>
+              <td>(5, 3)</td>
+              <td>((0+10)/2, (0+6)/2)</td>
+            </tr>
+            <tr>
+              <td>(&minus;4, 2)</td>
+              <td>(6, 8)</td>
+              <td>(1, 5)</td>
+              <td>((&minus;4+6)/2, (2+8)/2)</td>
+            </tr>
+            <tr>
+              <td>(3, &minus;7)</td>
+              <td>(&minus;1, 5)</td>
+              <td>(1, &minus;1)</td>
+              <td>((3+(&minus;1))/2, (&minus;7+5)/2)</td>
+            </tr>
+            <tr>
+              <td>(&minus;5, &minus;3)</td>
+              <td>(&minus;1, &minus;9)</td>
+              <td>(&minus;3, &minus;6)</td>
+              <td>((&minus;5+(&minus;1))/2, (&minus;3+(&minus;9))/2)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subtitle">&#9999;&#65039; Worked Examples</div>
+
+      <!-- Example 1 -->
+      <div class="worked-example">
+        <h4>Example 1: Find the midpoint of A(2, 4) and B(6, 8).</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Identify the coordinates.<br>
+          x<sub>1</sub> = 2, y<sub>1</sub> = 4, x<sub>2</sub> = 6, y<sub>2</sub> = 8
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Apply the midpoint formula.<br>
+          M = ((2 + 6)/2, (4 + 8)/2)
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Calculate.<br>
+          M = (8/2, 12/2) = <strong>(4, 6)</strong>
+        </div>
+        <div class="we-step">
+          <strong>Verification:</strong> Distance from A(2, 4) to M(4, 6) = &radic;[(4&minus;2)&sup2;+(6&minus;4)&sup2;] = &radic;[4+4] = &radic;8.<br>
+          Distance from M(4, 6) to B(6, 8) = &radic;[(6&minus;4)&sup2;+(8&minus;6)&sup2;] = &radic;[4+4] = &radic;8. &#9989; Equal!
+        </div>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="worked-example">
+        <h4>Example 2: If the midpoint of A(a, 2) and B(4, 6) is M(3, 4), find the value of <em>a</em>.</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Using the midpoint formula for x-coordinates:<br>
+          (a + 4)/2 = 3
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Solve for <em>a</em>.<br>
+          a + 4 = 6<br>
+          a = 6 &minus; 4 = <strong>2</strong>
+        </div>
+        <div class="we-step">
+          <strong>Verification (y-coordinate):</strong> (2 + 6)/2 = 8/2 = 4 &#9989; This matches the given midpoint y-coordinate.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Bonus: Section Formula (Preview)</strong><br>
+        The midpoint formula is actually a special case of the <strong>section formula</strong>. If a point divides a line segment joining (x<sub>1</sub>, y<sub>1</sub>) and (x<sub>2</sub>, y<sub>2</sub>) in the ratio <strong>m : n</strong>, then the coordinates of that point are:<br><br>
+        <strong>P = ((mx<sub>2</sub> + nx<sub>1</sub>)/(m+n), (my<sub>2</sub> + ny<sub>1</sub>)/(m+n))</strong><br><br>
+        When m = n = 1 (equal division), this simplifies to the midpoint formula. You will study this in detail in Class 10.
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Memory Aid:</strong> Midpoint = "Average Point" &mdash; just average the x's and average the y's. Think of it as "meeting in the middle" for each coordinate separately.
+      </div>
+
+      <div class="subtitle">&#128203; Properties of the Midpoint</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#9989; Equal Division</h4>
+          The midpoint M divides the line segment into two <strong>exactly equal</strong> halves. The distance from the first endpoint to M equals the distance from M to the second endpoint.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#128309; Unique Point</h4>
+          There is exactly <strong>one</strong> midpoint for any given line segment. Every segment has a unique midpoint.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>&#128310; Centroid Connection</h4>
+          The <strong>centroid</strong> (centre of mass) of a triangle is the point where all three medians meet. A median connects a vertex to the <strong>midpoint</strong> of the opposite side. So midpoints are essential for finding the centroid!
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#128311; Reverse Problem</h4>
+          If you know one endpoint and the midpoint, you can find the other endpoint! If M = ((x<sub>1</sub>+x<sub>2</sub>)/2, (y<sub>1</sub>+y<sub>2</sub>)/2) and you know (x<sub>1</sub>, y<sub>1</sub>) and M, just solve for (x<sub>2</sub>, y<sub>2</sub>).
+        </div>
+      </div>
+
+      <div class="subtitle">&#9999;&#65039; Extra Practice Example</div>
+
+      <div class="worked-example">
+        <h4>Example 3: One endpoint of a diameter of a circle is A(2, &minus;3) and the centre (midpoint of diameter) is C(5, 1). Find the other endpoint B.</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> The centre C is the midpoint of the diameter AB.<br>
+          C = ((2 + x<sub>2</sub>)/2, (&minus;3 + y<sub>2</sub>)/2) = (5, 1)
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> Solve for x<sub>2</sub>:<br>
+          (2 + x<sub>2</sub>)/2 = 5 &rarr; 2 + x<sub>2</sub> = 10 &rarr; <strong>x<sub>2</sub> = 8</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Solve for y<sub>2</sub>:<br>
+          (&minus;3 + y<sub>2</sub>)/2 = 1 &rarr; &minus;3 + y<sub>2</sub> = 2 &rarr; <strong>y<sub>2</sub> = 5</strong>
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> The other endpoint of the diameter is <strong>B(8, 5)</strong>.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       INTERACTIVE: MIDPOINT FINDER
+       ===================================================== -->
+  <div class="section-block reveal" id="interactive-midpoint">
+    <div class="section-hd g-green">
+      <span class="icon">&#9889;</span>
+      Interactive Activity: Midpoint Finder
+    </div>
+    <div class="section-bd">
+      <p>Place two points on the coordinate plane and watch the midpoint appear magically between them! See the step-by-step calculation and verify that the midpoint is truly equidistant from both endpoints.</p>
+
+      <div class="activity-wrap">
+        <div class="activity-title">&#9889; Find the Midpoint &mdash; Click Two Points</div>
+        <div class="activity-desc">Click to place Point A and Point B. The midpoint M will be shown with its calculation!</div>
+        <div class="activity-canvas-wrap">
+          <canvas id="midCanvas" class="activity-canvas" width="400" height="400"></canvas>
+        </div>
+        <div class="activity-controls">
+          <button class="act-btn act-btn-red" onclick="clearMidCanvas()">&#128465; Clear</button>
+        </div>
+        <div class="activity-result" id="midResult">Click on the plane to place Point A...</div>
+        <div class="activity-status" id="midStatus">Step 1: Click to place Point A</div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Try This:</strong> Place points at opposite corners like (&minus;4, &minus;3) and (4, 3) &mdash; the midpoint should be at the origin! Also try placing both points on the same axis and see where the midpoint lands.
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       INTERACTIVE: SECTION FORMULA EXPLORER
+       ===================================================== -->
+  <div class="section-block reveal" id="interactive-section">
+    <div class="section-hd g-purple">
+      <span class="icon">&#128208;</span>
+      Section Formula &amp; Interactive Explorer
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128208; What is the Section Formula?</div>
+      <p>The <strong>Section Formula</strong> tells us how to find the coordinates of a point that divides a line segment in a given ratio. If a point P divides the line segment joining A(x<sub>1</sub>, y<sub>1</sub>) and B(x<sub>2</sub>, y<sub>2</sub>) in the ratio <span class="kt">m : n</span> internally, then:</p>
+
+      <div class="formula-box">
+        P = ((mx<sub>2</sub> + nx<sub>1</sub>) / (m+n), &nbsp; (my<sub>2</sub> + ny<sub>1</sub>) / (m+n))
+        <small>Section Formula &mdash; divides AB in the ratio m : n from A</small>
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Special Case:</strong> When m = n = 1 (ratio 1:1), the section formula simplifies to the <strong>Midpoint Formula</strong>!<br>
+        P = ((1&middot;x<sub>2</sub> + 1&middot;x<sub>1</sub>)/2, (1&middot;y<sub>2</sub> + 1&middot;y<sub>1</sub>)/2) = ((x<sub>1</sub>+x<sub>2</sub>)/2, (y<sub>1</sub>+y<sub>2</sub>)/2)
+      </div>
+
+      <div class="subtitle">&#9881; Types of Division</div>
+      <div class="info-grid">
+        <div class="info-card ic-green">
+          <h4>&#9989; Internal Division</h4>
+          Point P lies <strong>between</strong> A and B on the segment. The ratio m:n is positive. This is the most common type tested in exams.
+        </div>
+        <div class="info-card ic-red">
+          <h4>&#10060; External Division</h4>
+          Point P lies <strong>outside</strong> the segment AB (on the line extended). The formula changes to: P = ((mx<sub>2</sub> &minus; nx<sub>1</sub>)/(m&minus;n), (my<sub>2</sub> &minus; ny<sub>1</sub>)/(m&minus;n)). Note the minus signs!
+        </div>
+      </div>
+
+      <div class="subtitle">&#128161; Understanding with an Example</div>
+      <p>Think of the section formula like dividing a chocolate bar. If you divide a bar of length 10 in the ratio 2:3, the break point is at 2/(2+3) &times; 10 = 4 units from one end. The larger part (3) is farther from the dividing point on one side, and the smaller part (2) is closer.</p>
+
+      <div class="subtitle">&#9999;&#65039; Worked Examples</div>
+
+      <div class="worked-example">
+        <h4>Example 1: Find the point that divides the segment joining A(2, 3) and B(8, 9) in the ratio 2:1.</h4>
+        <div class="we-step"><strong>Given:</strong> m = 2, n = 1, A(2, 3) = (x<sub>1</sub>, y<sub>1</sub>), B(8, 9) = (x<sub>2</sub>, y<sub>2</sub>)</div>
+        <div class="we-step"><strong>x =</strong> (2&times;8 + 1&times;2)/(2+1) = (16 + 2)/3 = 18/3 = <strong>6</strong></div>
+        <div class="we-step"><strong>y =</strong> (2&times;9 + 1&times;3)/(2+1) = (18 + 3)/3 = 21/3 = <strong>7</strong></div>
+        <div class="we-step"><strong>Answer:</strong> The required point is <strong>P(6, 7)</strong>.</div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 2: In what ratio does the point (3, 6) divide the segment joining A(1, 2) and B(7, 14)?</h4>
+        <div class="we-step"><strong>Let</strong> the ratio be m : n. Using the x-coordinate: (m&times;7 + n&times;1)/(m+n) = 3</div>
+        <div class="we-step">7m + n = 3m + 3n &rarr; 4m = 2n &rarr; m/n = 1/2</div>
+        <div class="we-step"><strong>Verify with y:</strong> (m&times;14 + n&times;2)/(m+n) = (1&times;14 + 2&times;2)/(1+2) = 18/3 = 6 &#9989;</div>
+        <div class="we-step"><strong>Answer:</strong> The point divides AB in the ratio <strong>1 : 2</strong>.</div>
+      </div>
+
+      <div class="worked-example">
+        <h4>Example 3: Find the coordinates of the centroid of a triangle with vertices A(1, 2), B(5, 4), and C(3, 8).</h4>
+        <div class="we-step"><strong>Centroid formula:</strong> G = ((x<sub>1</sub>+x<sub>2</sub>+x<sub>3</sub>)/3, (y<sub>1</sub>+y<sub>2</sub>+y<sub>3</sub>)/3)</div>
+        <div class="we-step"><strong>x =</strong> (1 + 5 + 3)/3 = 9/3 = <strong>3</strong></div>
+        <div class="we-step"><strong>y =</strong> (2 + 4 + 8)/3 = 14/3 = <strong>4.67</strong></div>
+        <div class="we-step"><strong>Answer:</strong> The centroid is <strong>G(3, 14/3)</strong>.</div>
+      </div>
+
+      <div class="subtitle">&#127918; Interactive: Section Formula Explorer</div>
+      <p>Place two endpoints on the plane, then use the sliders to change the ratio m:n and watch the dividing point move along the line!</p>
+
+      <div class="activity-wrap">
+        <div class="activity-title">&#128208; Drag the Ratio &mdash; Watch the Point Move!</div>
+        <div class="activity-desc">Click to place Point A and Point B, then adjust the m:n ratio with the sliders below.</div>
+        <div class="activity-canvas-wrap">
+          <canvas id="sectionCanvas" class="activity-canvas" width="400" height="400"></canvas>
+        </div>
+        <div class="ratio-controls">
+          <label>m =</label>
+          <input type="range" id="ratioSlider" class="ratio-slider" min="1" max="9" value="1" step="1" oninput="updateSectionFormula()">
+          <label>n =</label>
+          <input type="range" id="ratioSlider2" class="ratio-slider" min="1" max="9" value="1" step="1" oninput="updateSectionFormula()">
+          <div class="ratio-display" id="ratioDisplay">1 : 1</div>
+        </div>
+        <div class="activity-controls">
+          <button class="act-btn act-btn-red" onclick="clearSectionCanvas()">&#128465; Clear</button>
+        </div>
+        <div class="activity-result" id="sectionResult">Click on the plane to place Point A...</div>
+        <div class="activity-status" id="sectionStatus">Step 1: Click to place Point A</div>
+      </div>
+
+      <div class="subtitle">&#128202; Section Formula Summary Table</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Ratio m : n</th>
+              <th>Type</th>
+              <th>x-coordinate</th>
+              <th>y-coordinate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1 : 1</strong></td>
+              <td>Midpoint</td>
+              <td>(x<sub>1</sub> + x<sub>2</sub>) / 2</td>
+              <td>(y<sub>1</sub> + y<sub>2</sub>) / 2</td>
+            </tr>
+            <tr>
+              <td><strong>m : n (internal)</strong></td>
+              <td>Internal Division</td>
+              <td>(mx<sub>2</sub> + nx<sub>1</sub>) / (m+n)</td>
+              <td>(my<sub>2</sub> + ny<sub>1</sub>) / (m+n)</td>
+            </tr>
+            <tr>
+              <td><strong>m : n (external)</strong></td>
+              <td>External Division</td>
+              <td>(mx<sub>2</sub> &minus; nx<sub>1</sub>) / (m&minus;n)</td>
+              <td>(my<sub>2</sub> &minus; ny<sub>1</sub>) / (m&minus;n)</td>
+            </tr>
+            <tr>
+              <td><strong>Centroid (2:1 on median)</strong></td>
+              <td>Centre of triangle</td>
+              <td>(x<sub>1</sub>+x<sub>2</sub>+x<sub>3</sub>) / 3</td>
+              <td>(y<sub>1</sub>+y<sub>2</sub>+y<sub>3</sub>) / 3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Memory Aid &mdash; Section Formula = &quot;Cross Multiply&quot;:</strong><br>
+        If the ratio is m:n, multiply <strong>m with the FARTHER point</strong> (B) and <strong>n with the NEARER point</strong> (A), then divide by (m+n). Think of it as a weighted average &mdash; the larger the weight, the more the result is pulled towards that point.
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Connection to Midpoint:</strong> The midpoint is a special case of the section formula where m = n. Set both sliders to the same value in the interactive above and see &mdash; the point P will always land at the exact midpoint!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 6: WORKED EXAMPLES (NCERT STYLE)
+       ===================================================== -->
+  <div class="section-block reveal" id="worked">
+    <div class="section-hd g-orange">
+      <span class="icon">&#9999;&#65039;</span>
+      NCERT-Style Worked Examples
+    </div>
+    <div class="section-bd">
+
+      <!-- Problem 1 -->
+      <div class="worked-example">
+        <h4>Problem 1: Plot the points A(2, 3), B(&minus;1, 4), C(&minus;3, &minus;2), D(4, &minus;1) on a coordinate plane and identify the quadrant for each.</h4>
+        <div class="we-step">
+          <strong>A(2, 3):</strong> x = 2 (positive), y = 3 (positive) &rarr; Both positive &rarr; <strong>Quadrant I</strong>
+        </div>
+        <div class="we-step">
+          <strong>B(&minus;1, 4):</strong> x = &minus;1 (negative), y = 4 (positive) &rarr; (&minus;, +) &rarr; <strong>Quadrant II</strong>
+        </div>
+        <div class="we-step">
+          <strong>C(&minus;3, &minus;2):</strong> x = &minus;3 (negative), y = &minus;2 (negative) &rarr; (&minus;, &minus;) &rarr; <strong>Quadrant III</strong>
+        </div>
+        <div class="we-step">
+          <strong>D(4, &minus;1):</strong> x = 4 (positive), y = &minus;1 (negative) &rarr; (+, &minus;) &rarr; <strong>Quadrant IV</strong>
+        </div>
+        <div class="we-step">
+          <strong>Note:</strong> To plot each point, start at the origin, move horizontally by the x-value, then vertically by the y-value, and mark the point.
+        </div>
+      </div>
+
+      <!-- Problem 2 -->
+      <div class="worked-example">
+        <h4>Problem 2: Show that the points A(1, 1), B(5, 1), and C(5, 4) form a right-angled triangle.</h4>
+        <div class="we-step">
+          <strong>Step 1: Find AB.</strong><br>
+          AB = &radic;[(5 &minus; 1)&sup2; + (1 &minus; 1)&sup2;] = &radic;[16 + 0] = &radic;16 = <strong>4</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 2: Find BC.</strong><br>
+          BC = &radic;[(5 &minus; 5)&sup2; + (4 &minus; 1)&sup2;] = &radic;[0 + 9] = &radic;9 = <strong>3</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 3: Find AC (the longest side).</strong><br>
+          AC = &radic;[(5 &minus; 1)&sup2; + (4 &minus; 1)&sup2;] = &radic;[16 + 9] = &radic;25 = <strong>5</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 4: Verify using the Baudhayana-Pythagoras theorem.</strong><br>
+          AB&sup2; + BC&sup2; = 16 + 9 = 25 = AC&sup2; &#9989;<br>
+          Since the sum of squares of two sides equals the square of the third side, <strong>triangle ABC is right-angled at B</strong>.
+        </div>
+      </div>
+
+      <!-- Problem 3 -->
+      <div class="worked-example">
+        <h4>Problem 3: Find the point on the x-axis that is equidistant from A(2, 5) and B(&minus;3, 4).</h4>
+        <div class="we-step">
+          <strong>Step 1:</strong> Let the point on the x-axis be <strong>P(x, 0)</strong> (since any point on the x-axis has y = 0).
+        </div>
+        <div class="we-step">
+          <strong>Step 2:</strong> PA = PB (equidistant condition).<br>
+          &radic;[(x &minus; 2)&sup2; + (0 &minus; 5)&sup2;] = &radic;[(x &minus; (&minus;3))&sup2; + (0 &minus; 4)&sup2;]
+        </div>
+        <div class="we-step">
+          <strong>Step 3:</strong> Square both sides to remove the square roots.<br>
+          (x &minus; 2)&sup2; + 25 = (x + 3)&sup2; + 16
+        </div>
+        <div class="we-step">
+          <strong>Step 4:</strong> Expand both sides.<br>
+          x&sup2; &minus; 4x + 4 + 25 = x&sup2; + 6x + 9 + 16<br>
+          x&sup2; &minus; 4x + 29 = x&sup2; + 6x + 25
+        </div>
+        <div class="we-step">
+          <strong>Step 5:</strong> Cancel x&sup2; from both sides and solve.<br>
+          &minus;4x + 29 = 6x + 25<br>
+          29 &minus; 25 = 6x + 4x<br>
+          4 = 10x<br>
+          x = 4/10 = <strong>2/5</strong>
+        </div>
+        <div class="we-step">
+          <strong>Answer:</strong> The required point is <strong>P(2/5, 0)</strong> or equivalently <strong>P(0.4, 0)</strong>.
+        </div>
+      </div>
+
+      <!-- Problem 4 -->
+      <div class="worked-example">
+        <h4>Problem 4: Find the midpoint of the line segment joining A(3, &minus;5) and B(&minus;1, 7), then verify by showing it is equidistant from both endpoints.</h4>
+        <div class="we-step">
+          <strong>Step 1: Find the midpoint M.</strong><br>
+          M = ((3 + (&minus;1))/2, (&minus;5 + 7)/2) = (2/2, 2/2) = <strong>(1, 1)</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 2: Find distance AM.</strong><br>
+          AM = &radic;[(1 &minus; 3)&sup2; + (1 &minus; (&minus;5))&sup2;] = &radic;[(&minus;2)&sup2; + (6)&sup2;] = &radic;[4 + 36] = &radic;40 = <strong>2&radic;10</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 3: Find distance MB.</strong><br>
+          MB = &radic;[(&minus;1 &minus; 1)&sup2; + (7 &minus; 1)&sup2;] = &radic;[(&minus;2)&sup2; + (6)&sup2;] = &radic;[4 + 36] = &radic;40 = <strong>2&radic;10</strong>
+        </div>
+        <div class="we-step">
+          <strong>Verification:</strong> AM = MB = 2&radic;10 &#9989;<br>
+          The midpoint M(1, 1) is equidistant from both A and B, confirming our answer.
+        </div>
+      </div>
+
+      <!-- Problem 5 -->
+      <div class="worked-example">
+        <h4>Problem 5: Prove that the points A(0, 0), B(3, 0), C(3, 3), D(0, 3) form a square. Find the length of its diagonal.</h4>
+        <div class="we-step">
+          <strong>Step 1: Find all side lengths.</strong><br>
+          AB = &radic;[(3&minus;0)&sup2; + (0&minus;0)&sup2;] = &radic;9 = <strong>3</strong><br>
+          BC = &radic;[(3&minus;3)&sup2; + (3&minus;0)&sup2;] = &radic;9 = <strong>3</strong><br>
+          CD = &radic;[(0&minus;3)&sup2; + (3&minus;3)&sup2;] = &radic;9 = <strong>3</strong><br>
+          DA = &radic;[(0&minus;0)&sup2; + (0&minus;3)&sup2;] = &radic;9 = <strong>3</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 2: All four sides are equal (AB = BC = CD = DA = 3).</strong> This means ABCD is either a rhombus or a square.
+        </div>
+        <div class="we-step">
+          <strong>Step 3: Find diagonals to confirm it is a square.</strong><br>
+          AC = &radic;[(3&minus;0)&sup2; + (3&minus;0)&sup2;] = &radic;[9+9] = &radic;18 = <strong>3&radic;2</strong><br>
+          BD = &radic;[(0&minus;3)&sup2; + (3&minus;0)&sup2;] = &radic;[9+9] = &radic;18 = <strong>3&radic;2</strong>
+        </div>
+        <div class="we-step">
+          <strong>Step 4: Conclusion.</strong><br>
+          All four sides are equal AND both diagonals are equal (AC = BD = 3&radic;2). Therefore, ABCD is a <strong>square</strong> with side 3 units and diagonal <strong>3&radic;2 units &asymp; 4.24 units</strong>.
+        </div>
+      </div>
+
+      <!-- Problem 6 -->
+      <div class="worked-example">
+        <h4>Problem 6: Check whether the points A(1, 5), B(2, 3), and C(4, &minus;1) are collinear (lie on the same straight line).</h4>
+        <div class="we-step">
+          <strong>Step 1: Find AB.</strong><br>
+          AB = &radic;[(2&minus;1)&sup2; + (3&minus;5)&sup2;] = &radic;[1 + 4] = &radic;5
+        </div>
+        <div class="we-step">
+          <strong>Step 2: Find BC.</strong><br>
+          BC = &radic;[(4&minus;2)&sup2; + (&minus;1&minus;3)&sup2;] = &radic;[4 + 16] = &radic;20 = 2&radic;5
+        </div>
+        <div class="we-step">
+          <strong>Step 3: Find AC.</strong><br>
+          AC = &radic;[(4&minus;1)&sup2; + (&minus;1&minus;5)&sup2;] = &radic;[9 + 36] = &radic;45 = 3&radic;5
+        </div>
+        <div class="we-step">
+          <strong>Step 4: Check collinearity.</strong><br>
+          AB + BC = &radic;5 + 2&radic;5 = 3&radic;5 = AC &#9989;<br>
+          Since AB + BC = AC, the three points are <strong>collinear</strong> (they lie on the same straight line).
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 7: SUMMARY
+       ===================================================== -->
+  <div class="section-block reveal" id="summary">
+    <div class="section-hd g-slate">
+      <span class="icon">&#128202;</span>
+      Chapter Summary
+    </div>
+    <div class="section-bd">
+
+      <div class="subtitle">&#128203; All Formulas at a Glance</div>
+
+      <div class="formula-box">
+        Distance = &radic;[(x<sub>2</sub> &minus; x<sub>1</sub>)&sup2; + (y<sub>2</sub> &minus; y<sub>1</sub>)&sup2;]
+        <small>Distance between any two points</small>
+      </div>
+
+      <div class="formula-box">
+        Distance from Origin = &radic;(x&sup2; + y&sup2;)
+        <small>Distance from (0, 0) to point (x, y)</small>
+      </div>
+
+      <div class="formula-box">
+        Midpoint = ((x<sub>1</sub> + x<sub>2</sub>) / 2, &nbsp; (y<sub>1</sub> + y<sub>2</sub>) / 2)
+        <small>Midpoint of a line segment</small>
+      </div>
+
+      <div class="subtitle">&#128218; Key Terms Recap</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Term</th>
+              <th>Definition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Coordinate Plane</strong></td>
+              <td>A plane formed by two perpendicular number lines (x-axis and y-axis)</td>
+            </tr>
+            <tr>
+              <td><strong>Origin</strong></td>
+              <td>The intersection point of the axes, O(0, 0)</td>
+            </tr>
+            <tr>
+              <td><strong>Abscissa</strong></td>
+              <td>The x-coordinate (first value in an ordered pair)</td>
+            </tr>
+            <tr>
+              <td><strong>Ordinate</strong></td>
+              <td>The y-coordinate (second value in an ordered pair)</td>
+            </tr>
+            <tr>
+              <td><strong>Quadrant</strong></td>
+              <td>One of four regions formed by the two axes</td>
+            </tr>
+            <tr>
+              <td><strong>Ordered Pair</strong></td>
+              <td>(x, y) &mdash; position matters; (3, 5) &ne; (5, 3)</td>
+            </tr>
+            <tr>
+              <td><strong>Distance Formula</strong></td>
+              <td>Finds the length of the segment joining two points</td>
+            </tr>
+            <tr>
+              <td><strong>Midpoint Formula</strong></td>
+              <td>Finds the point exactly halfway between two points</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subtitle">&#9888;&#65039; Common Mistakes to Avoid</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-red">
+          <h4>&#10060; Writing (y, x) instead of (x, y)</h4>
+          The x-coordinate always comes first. Remember: alphabetical order &mdash; x before y.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>&#10060; Forgetting to square the differences</h4>
+          In the distance formula, you must square (x<sub>2</sub> &minus; x<sub>1</sub>) and (y<sub>2</sub> &minus; y<sub>1</sub>) before adding. Don't add first and then square!
+        </div>
+        <div class="info-card ic-amber">
+          <h4>&#10060; Confusing signs with negative coordinates</h4>
+          When subtracting a negative number, remember: a &minus; (&minus;b) = a + b. Double negatives become positive!
+        </div>
+        <div class="info-card ic-pink">
+          <h4>&#10060; Saying points on axes are in a quadrant</h4>
+          Points like (5, 0) or (0, &minus;3) lie on axes, not in any quadrant. Only points with both non-zero coordinates belong to a quadrant.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Exam Day Checklist:</strong><br>
+        &#9989; Read the question carefully &mdash; is it asking for distance, midpoint, or quadrant?<br>
+        &#9989; Write down the formula before substituting values.<br>
+        &#9989; Show all steps &mdash; marks are given for working, not just the answer.<br>
+        &#9989; Check the sign of your coordinates before identifying the quadrant.<br>
+        &#9989; Verify your answer using a different method if time permits.
+      </div>
+
+      <div class="subtitle">&#128221; Quick Reference: Quadrant Sign Summary</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>x-sign</th>
+              <th>y-sign</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Quadrant I</td>
+              <td>+</td>
+              <td>+</td>
+              <td>(3, 7)</td>
+            </tr>
+            <tr>
+              <td>Quadrant II</td>
+              <td>&minus;</td>
+              <td>+</td>
+              <td>(&minus;4, 2)</td>
+            </tr>
+            <tr>
+              <td>Quadrant III</td>
+              <td>&minus;</td>
+              <td>&minus;</td>
+              <td>(&minus;5, &minus;1)</td>
+            </tr>
+            <tr>
+              <td>Quadrant IV</td>
+              <td>+</td>
+              <td>&minus;</td>
+              <td>(6, &minus;8)</td>
+            </tr>
+            <tr>
+              <td>X-axis</td>
+              <td>any</td>
+              <td>0</td>
+              <td>(3, 0)</td>
+            </tr>
+            <tr>
+              <td>Y-axis</td>
+              <td>0</td>
+              <td>any</td>
+              <td>(0, &minus;5)</td>
+            </tr>
+            <tr>
+              <td>Origin</td>
+              <td>0</td>
+              <td>0</td>
+              <td>(0, 0)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subtitle">&#128240; Chapter Flowchart</div>
+
+      <div class="info-grid">
+        <div class="info-card ic-indigo">
+          <h4>Step 1: Understand the Plane</h4>
+          Two perpendicular axes (x and y) create the coordinate plane. The origin is where they meet.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Step 2: Plot Points</h4>
+          Every point is an ordered pair (x, y). Move horizontally by x, then vertically by y.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>Step 3: Identify Quadrants</h4>
+          Use the signs of x and y to determine which of the four quadrants the point lies in.
+        </div>
+        <div class="info-card ic-green">
+          <h4>Step 4: Calculate Distances</h4>
+          Use d = &radic;[(x<sub>2</sub>&minus;x<sub>1</sub>)&sup2;+(y<sub>2</sub>&minus;y<sub>1</sub>)&sup2;] to find the length between any two points.
+        </div>
+        <div class="info-card ic-purple">
+          <h4>Step 5: Find Midpoints</h4>
+          Use M = ((x<sub>1</sub>+x<sub>2</sub>)/2, (y<sub>1</sub>+y<sub>2</sub>)/2) to find the point halfway between two points.
+        </div>
+        <div class="info-card ic-orange">
+          <h4>Step 6: Apply!</h4>
+          Use these tools to classify triangles, prove shapes are squares/rectangles, check collinearity, and solve real-world problems.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 8: MCQs (15 Questions)
+       ===================================================== -->
+  <div class="section-block reveal" id="mcq">
+    <div class="section-hd g-purple">
+      <span class="icon">&#129504;</span>
+      Multiple Choice Questions (15 MCQs)
+    </div>
+    <div class="section-bd">
+
+      <p>Click on an option to see if your answer is correct. The correct option will turn green.</p>
+
+      <ul class="mcq-list">
+
+        <!-- MCQ 1 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q1. The point (0, 0) is called the:</div>
+          <ul class="mcq-options">
+            <li data-correct>a) Origin</li>
+            <li>b) Vertex</li>
+            <li>c) Centre</li>
+            <li>d) Pole</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (a) Origin &mdash; The point where the x-axis and y-axis intersect is called the origin, denoted O(0, 0).</div>
+        </li>
+
+        <!-- MCQ 2 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q2. The point (&minus;3, 4) lies in which quadrant?</div>
+          <ul class="mcq-options">
+            <li>a) Quadrant I</li>
+            <li data-correct>b) Quadrant II</li>
+            <li>c) Quadrant III</li>
+            <li>d) Quadrant IV</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) Quadrant II &mdash; The x-coordinate is negative and y-coordinate is positive, which places the point in Quadrant II.</div>
+        </li>
+
+        <!-- MCQ 3 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q3. The distance between the points (0, 0) and (3, 4) is:</div>
+          <ul class="mcq-options">
+            <li>a) 7</li>
+            <li>b) 12</li>
+            <li data-correct>c) 5</li>
+            <li>d) 25</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 5 &mdash; d = &radic;(3&sup2; + 4&sup2;) = &radic;(9 + 16) = &radic;25 = 5.</div>
+        </li>
+
+        <!-- MCQ 4 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q4. The abscissa of the point (7, &minus;3) is:</div>
+          <ul class="mcq-options">
+            <li data-correct>a) 7</li>
+            <li>b) &minus;3</li>
+            <li>c) (7, &minus;3)</li>
+            <li>d) 10</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (a) 7 &mdash; The abscissa is the x-coordinate (the first number in the ordered pair).</div>
+        </li>
+
+        <!-- MCQ 5 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q5. A point on the x-axis has its y-coordinate equal to:</div>
+          <ul class="mcq-options">
+            <li>a) 1</li>
+            <li data-correct>b) 0</li>
+            <li>c) &minus;1</li>
+            <li>d) Any value</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 0 &mdash; Every point on the x-axis has the form (a, 0), so the y-coordinate is always 0.</div>
+        </li>
+
+        <!-- MCQ 6 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q6. The midpoint of the segment joining (2, 6) and (8, 10) is:</div>
+          <ul class="mcq-options">
+            <li>a) (10, 16)</li>
+            <li data-correct>b) (5, 8)</li>
+            <li>c) (4, 5)</li>
+            <li>d) (6, 4)</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) (5, 8) &mdash; M = ((2+8)/2, (6+10)/2) = (10/2, 16/2) = (5, 8).</div>
+        </li>
+
+        <!-- MCQ 7 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q7. In which quadrant does the point (&minus;5, &minus;7) lie?</div>
+          <ul class="mcq-options">
+            <li>a) Quadrant I</li>
+            <li>b) Quadrant II</li>
+            <li data-correct>c) Quadrant III</li>
+            <li>d) Quadrant IV</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) Quadrant III &mdash; Both coordinates are negative, which means the point lies in Quadrant III.</div>
+        </li>
+
+        <!-- MCQ 8 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q8. The ordinate of the point (&minus;4, 9) is:</div>
+          <ul class="mcq-options">
+            <li>a) &minus;4</li>
+            <li data-correct>b) 9</li>
+            <li>c) 13</li>
+            <li>d) 5</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 9 &mdash; The ordinate is the y-coordinate (the second number in the ordered pair).</div>
+        </li>
+
+        <!-- MCQ 9 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q9. The distance between (&minus;1, &minus;1) and (2, 3) is:</div>
+          <ul class="mcq-options">
+            <li>a) 4</li>
+            <li data-correct>b) 5</li>
+            <li>c) 6</li>
+            <li>d) &radic;20</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) 5 &mdash; d = &radic;[(2&minus;(&minus;1))&sup2; + (3&minus;(&minus;1))&sup2;] = &radic;[9+16] = &radic;25 = 5.</div>
+        </li>
+
+        <!-- MCQ 10 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q10. The point (0, &minus;8) lies on the:</div>
+          <ul class="mcq-options">
+            <li>a) x-axis</li>
+            <li data-correct>b) y-axis</li>
+            <li>c) Quadrant III</li>
+            <li>d) Quadrant IV</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (b) y-axis &mdash; Since the x-coordinate is 0, the point lies on the y-axis.</div>
+        </li>
+
+        <!-- MCQ 11 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q11. The distance between points (a, 0) and (0, a) is:</div>
+          <ul class="mcq-options">
+            <li>a) a</li>
+            <li>b) 2a</li>
+            <li data-correct>c) a&radic;2</li>
+            <li>d) a&sup2;</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) a&radic;2 &mdash; d = &radic;[(0&minus;a)&sup2; + (a&minus;0)&sup2;] = &radic;[a&sup2;+a&sup2;] = &radic;(2a&sup2;) = a&radic;2.</div>
+        </li>
+
+        <!-- MCQ 12 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q12. The point (4, &minus;6) lies in which quadrant?</div>
+          <ul class="mcq-options">
+            <li>a) Quadrant I</li>
+            <li>b) Quadrant II</li>
+            <li>c) Quadrant III</li>
+            <li data-correct>d) Quadrant IV</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (d) Quadrant IV &mdash; x is positive and y is negative, which corresponds to Quadrant IV.</div>
+        </li>
+
+        <!-- MCQ 13 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q13. If the midpoint of (x, 3) and (5, 7) is (4, 5), then x equals:</div>
+          <ul class="mcq-options">
+            <li>a) 1</li>
+            <li>b) 2</li>
+            <li data-correct>c) 3</li>
+            <li>d) 4</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) 3 &mdash; (x+5)/2 = 4, so x+5 = 8, therefore x = 3.</div>
+        </li>
+
+        <!-- MCQ 14 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q14. The Cartesian coordinate system is named after:</div>
+          <ul class="mcq-options">
+            <li>a) Isaac Newton</li>
+            <li>b) Aryabhata</li>
+            <li data-correct>c) Ren&eacute; Descartes</li>
+            <li>d) Euclid</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (c) Ren&eacute; Descartes &mdash; "Cartesian" comes from "Cartesius," the Latin form of Descartes.</div>
+        </li>
+
+        <!-- MCQ 15 -->
+        <li class="mcq-item">
+          <div class="mcq-q">Q15. The distance between (3, &minus;2) and (3, 4) is:</div>
+          <ul class="mcq-options">
+            <li data-correct>a) 6</li>
+            <li>b) 0</li>
+            <li>c) &radic;40</li>
+            <li>d) 8</li>
+          </ul>
+          <div class="mcq-ans">&#9989; Answer: (a) 6 &mdash; Since both points have the same x-coordinate, the distance is simply |4 &minus; (&minus;2)| = |4 + 2| = 6.</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 9: SHORT Q&A (10 Questions)
+       ===================================================== -->
+  <div class="section-block reveal" id="short">
+    <div class="section-hd g-blue">
+      <span class="icon">&#9997;&#65039;</span>
+      Short Answer Questions (10)
+    </div>
+    <div class="section-bd">
+
+      <ul class="short-q-list">
+
+        <!-- Short Q1 -->
+        <li class="short-q-item">
+          <div class="short-q">Q1. Define the term "ordered pair" and explain why the order matters.</div>
+          <div class="short-a">An <strong>ordered pair</strong> (x, y) is a pair of numbers used to represent a point on the coordinate plane, where the first number is the x-coordinate (abscissa) and the second is the y-coordinate (ordinate). The order matters because <strong>(3, 5) and (5, 3) are different points</strong>. The point (3, 5) is 3 units right and 5 units up, while (5, 3) is 5 units right and 3 units up &mdash; they are at completely different locations on the plane.</div>
+        </li>
+
+        <!-- Short Q2 -->
+        <li class="short-q-item">
+          <div class="short-q">Q2. What are the coordinates of the origin? On which axis/axes does it lie?</div>
+          <div class="short-a">The coordinates of the origin are <strong>(0, 0)</strong>. The origin lies at the intersection of <strong>both the x-axis and the y-axis</strong>. It is the only point in the coordinate plane that lies on both axes simultaneously. The origin does not belong to any quadrant.</div>
+        </li>
+
+        <!-- Short Q3 -->
+        <li class="short-q-item">
+          <div class="short-q">Q3. In which quadrant do the following points lie: (i) (&minus;7, 3), (ii) (4, &minus;9), (iii) (&minus;2, &minus;5)?</div>
+          <div class="short-a"><strong>(i) (&minus;7, 3):</strong> x is negative, y is positive &rarr; <strong>Quadrant II</strong>.<br>
+          <strong>(ii) (4, &minus;9):</strong> x is positive, y is negative &rarr; <strong>Quadrant IV</strong>.<br>
+          <strong>(iii) (&minus;2, &minus;5):</strong> both are negative &rarr; <strong>Quadrant III</strong>.</div>
+        </li>
+
+        <!-- Short Q4 -->
+        <li class="short-q-item">
+          <div class="short-q">Q4. Find the distance between the points (1, 2) and (4, 6).</div>
+          <div class="short-a">Using the distance formula: d = &radic;[(4&minus;1)&sup2; + (6&minus;2)&sup2;] = &radic;[(3)&sup2; + (4)&sup2;] = &radic;[9 + 16] = &radic;25 = <strong>5 units</strong>.</div>
+        </li>
+
+        <!-- Short Q5 -->
+        <li class="short-q-item">
+          <div class="short-q">Q5. What is the difference between "abscissa" and "ordinate"?</div>
+          <div class="short-a">The <strong>abscissa</strong> is the x-coordinate of a point &mdash; it tells the horizontal distance from the y-axis. The <strong>ordinate</strong> is the y-coordinate &mdash; it tells the vertical distance from the x-axis. In the ordered pair (5, &minus;3), the abscissa is 5 and the ordinate is &minus;3.</div>
+        </li>
+
+        <!-- Short Q6 -->
+        <li class="short-q-item">
+          <div class="short-q">Q6. Find the midpoint of the line segment joining (&minus;2, 3) and (6, &minus;1).</div>
+          <div class="short-a">M = ((&minus;2 + 6)/2, (3 + (&minus;1))/2) = (4/2, 2/2) = <strong>(2, 1)</strong>.</div>
+        </li>
+
+        <!-- Short Q7 -->
+        <li class="short-q-item">
+          <div class="short-q">Q7. A point lies on the y-axis and is 6 units above the origin. What are its coordinates?</div>
+          <div class="short-a">Since the point lies on the y-axis, its x-coordinate is 0. Since it is 6 units above the origin, its y-coordinate is 6. The coordinates are <strong>(0, 6)</strong>.</div>
+        </li>
+
+        <!-- Short Q8 -->
+        <li class="short-q-item">
+          <div class="short-q">Q8. Name the Indian mathematician who described the relationship between the diagonal and sides of a rectangle around 800 BCE.</div>
+          <div class="short-a"><strong>Baudhayana</strong>. His work, the <em>Baudhayana Sulbasutras</em> (c. 800 BCE), contains the earliest known statement of what is now called the Pythagorean theorem. The NCERT Ganita Manjari textbook acknowledges this as the Baudhayana-Pythagoras Theorem.</div>
+        </li>
+
+        <!-- Short Q9 -->
+        <li class="short-q-item">
+          <div class="short-q">Q9. If a point P(x, y) is equidistant from A(1, 3) and B(5, 3), and P lies on the x-axis, find P.</div>
+          <div class="short-a">Let P = (x, 0). PA = PB gives:<br>
+          &radic;[(x&minus;1)&sup2; + 9] = &radic;[(x&minus;5)&sup2; + 9]<br>
+          Squaring: (x&minus;1)&sup2; + 9 = (x&minus;5)&sup2; + 9<br>
+          (x&minus;1)&sup2; = (x&minus;5)&sup2;<br>
+          x&sup2; &minus; 2x + 1 = x&sup2; &minus; 10x + 25<br>
+          8x = 24 &rarr; x = 3.<br>
+          Therefore, <strong>P = (3, 0)</strong>.</div>
+        </li>
+
+        <!-- Short Q10 -->
+        <li class="short-q-item">
+          <div class="short-q">Q10. Can two different points have the same distance from the origin? Give an example.</div>
+          <div class="short-a"><strong>Yes.</strong> Many different points can have the same distance from the origin. For example, (3, 4) and (4, 3) both have distance &radic;(9+16) = &radic;25 = 5 from the origin. In fact, all points on a circle of radius <em>r</em> centred at the origin are at distance <em>r</em> from the origin. Similarly, (&minus;3, 4), (3, &minus;4), and (&minus;3, &minus;4) are all at distance 5 from the origin.</div>
+        </li>
+
+        <!-- Short Q11 -->
+        <li class="short-q-item">
+          <div class="short-q">Q11. Write the coordinates of a point that lies in Quadrant III and is 5 units from the origin.</div>
+          <div class="short-a">We need a point (&minus;a, &minus;b) where both a, b > 0 and a&sup2; + b&sup2; = 25. One such point is <strong>(&minus;3, &minus;4)</strong> because (&minus;3)&sup2; + (&minus;4)&sup2; = 9 + 16 = 25, and &radic;25 = 5. Both coordinates are negative, so it lies in Quadrant III. Other valid answers include (&minus;4, &minus;3) or (&minus;5, 0) &mdash; though (&minus;5, 0) is on the x-axis, not strictly in Q3.</div>
+        </li>
+
+        <!-- Short Q12 -->
+        <li class="short-q-item">
+          <div class="short-q">Q12. The three vertices of a rectangle are (1, 2), (7, 2), and (7, 5). Find the fourth vertex.</div>
+          <div class="short-a">A rectangle has opposite sides equal and parallel. The vertices (1, 2) and (7, 2) share y = 2 (bottom side). The vertex (7, 5) is above (7, 2). By the rectangle property, the fourth vertex must be directly above (1, 2) at the same height as (7, 5). So the fourth vertex is <strong>(1, 5)</strong>. We can verify: all angles are 90&deg; and opposite sides are equal (length 6 and 3).</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 10: LONG Q&A (5 Questions)
+       ===================================================== -->
+  <div class="section-block reveal" id="long">
+    <div class="section-hd g-amber">
+      <span class="icon">&#128214;</span>
+      Long Answer Questions (5)
+    </div>
+    <div class="section-bd">
+
+      <!-- Long Q1 -->
+      <div class="long-q-item">
+        <div class="long-q">Q1. Derive the distance formula for two points A(x<sub>1</sub>, y<sub>1</sub>) and B(x<sub>2</sub>, y<sub>2</sub>) in the coordinate plane using the Baudhayana-Pythagoras theorem. Also, use it to show that the points (0, 0), (5, 0), and (0, 12) form a right-angled triangle, and find its area.</div>
+        <div class="long-a">
+          <strong>Derivation:</strong><br>
+          Let A(x<sub>1</sub>, y<sub>1</sub>) and B(x<sub>2</sub>, y<sub>2</sub>) be two points. Draw a horizontal line through A and a vertical line through B. They meet at point C(x<sub>2</sub>, y<sub>1</sub>).<br><br>
+          In right triangle ACB:<br>
+          &bull; AC (horizontal side) = |x<sub>2</sub> &minus; x<sub>1</sub>|<br>
+          &bull; BC (vertical side) = |y<sub>2</sub> &minus; y<sub>1</sub>|<br>
+          &bull; AB (hypotenuse) = distance we want<br><br>
+          By the Baudhayana-Pythagoras theorem:<br>
+          <strong>AB&sup2; = AC&sup2; + BC&sup2;</strong><br>
+          AB&sup2; = (x<sub>2</sub> &minus; x<sub>1</sub>)&sup2; + (y<sub>2</sub> &minus; y<sub>1</sub>)&sup2;<br>
+          <strong>AB = &radic;[(x<sub>2</sub> &minus; x<sub>1</sub>)&sup2; + (y<sub>2</sub> &minus; y<sub>1</sub>)&sup2;]</strong><br><br>
+
+          <strong>Application:</strong> Let P = (0, 0), Q = (5, 0), R = (0, 12).<br>
+          PQ = &radic;[(5&minus;0)&sup2; + (0&minus;0)&sup2;] = &radic;25 = <strong>5</strong><br>
+          PR = &radic;[(0&minus;0)&sup2; + (12&minus;0)&sup2;] = &radic;144 = <strong>12</strong><br>
+          QR = &radic;[(0&minus;5)&sup2; + (12&minus;0)&sup2;] = &radic;[25 + 144] = &radic;169 = <strong>13</strong><br><br>
+
+          Check: PQ&sup2; + PR&sup2; = 25 + 144 = 169 = QR&sup2; &#9989;<br>
+          Since the sum of squares of two sides equals the square of the third, the triangle is <strong>right-angled at P</strong>.<br><br>
+
+          <strong>Area</strong> = (1/2) &times; base &times; height = (1/2) &times; 5 &times; 12 = <strong>30 square units</strong>.
+        </div>
+      </div>
+
+      <!-- Long Q2 -->
+      <div class="long-q-item">
+        <div class="long-q">Q2. Explain the Cartesian coordinate system in detail. Describe the x-axis, y-axis, origin, quadrants, and how to plot points. Also explain the contribution of Indian mathematicians to the development of coordinate-based thinking.</div>
+        <div class="long-a">
+          <strong>The Cartesian Coordinate System:</strong><br>
+          The Cartesian coordinate system (named after Ren&eacute; Descartes, 1637) consists of two perpendicular number lines that intersect at a point called the <strong>origin O(0, 0)</strong>.<br><br>
+
+          <strong>X-axis:</strong> The horizontal number line. Numbers increase to the right (positive direction) and decrease to the left (negative direction).<br><br>
+
+          <strong>Y-axis:</strong> The vertical number line. Numbers increase upward (positive direction) and decrease downward (negative direction).<br><br>
+
+          <strong>Origin:</strong> The point O(0, 0) where the two axes intersect. It is the reference point for all measurements.<br><br>
+
+          <strong>Quadrants:</strong> The axes divide the plane into four regions, numbered anti-clockwise from the upper-right:
+          <br>&bull; Quadrant I: (+, +) &mdash; upper right
+          <br>&bull; Quadrant II: (&minus;, +) &mdash; upper left
+          <br>&bull; Quadrant III: (&minus;, &minus;) &mdash; lower left
+          <br>&bull; Quadrant IV: (+, &minus;) &mdash; lower right<br><br>
+
+          <strong>Plotting Points:</strong> To plot a point (a, b), start at the origin. Move |a| units right (if a > 0) or left (if a < 0). Then move |b| units up (if b > 0) or down (if b < 0). Mark the point.<br><br>
+
+          <strong>Indian Contributions:</strong><br>
+          &bull; <strong>Baudhayana</strong> (c. 800 BCE): His Sulbasutras contain the earliest known statement of the relationship between the diagonal and sides of a rectangle (Baudhayana-Pythagoras theorem), which is the foundation of the distance formula.<br>
+          &bull; <strong>Aryabhata</strong> (476&ndash;550 CE): Used perpendicular reference lines for astronomical calculations in his <em>Aryabhatiya</em>, anticipating coordinate-based systems.<br>
+          &bull; <strong>Brahmagupta</strong> (598&ndash;668 CE): Formalised rules for zero and negative numbers, without which the four-quadrant system could not exist.<br>
+          &bull; <strong>Bhaskaracharya</strong> (1114&ndash;1185 CE): Advanced algebraic and geometric techniques in <em>Lilavati</em> and <em>Bijaganita</em>.<br><br>
+          These Indian mathematicians contributed essential building blocks &mdash; the theorem about diagonals, the concept of zero and negatives, and algebraic methods &mdash; that made the modern coordinate system possible.
+        </div>
+      </div>
+
+      <!-- Long Q3 -->
+      <div class="long-q-item">
+        <div class="long-q">Q3. The vertices of a triangle are A(1, 2), B(5, 2), and C(3, 6). Find: (i) the lengths of all three sides, (ii) whether the triangle is isosceles, (iii) the midpoint of side AC, and (iv) the perimeter of the triangle.</div>
+        <div class="long-a">
+          <strong>(i) Lengths of sides:</strong><br>
+          AB = &radic;[(5&minus;1)&sup2; + (2&minus;2)&sup2;] = &radic;[16 + 0] = &radic;16 = <strong>4</strong><br>
+          BC = &radic;[(3&minus;5)&sup2; + (6&minus;2)&sup2;] = &radic;[4 + 16] = &radic;20 = <strong>2&radic;5</strong><br>
+          AC = &radic;[(3&minus;1)&sup2; + (6&minus;2)&sup2;] = &radic;[4 + 16] = &radic;20 = <strong>2&radic;5</strong><br><br>
+
+          <strong>(ii) Is the triangle isosceles?</strong><br>
+          Yes! Since BC = AC = 2&radic;5, the triangle has <strong>two equal sides</strong>, making it an <strong>isosceles triangle</strong>.<br><br>
+
+          <strong>(iii) Midpoint of AC:</strong><br>
+          M = ((1+3)/2, (2+6)/2) = (4/2, 8/2) = <strong>(2, 4)</strong><br><br>
+
+          <strong>(iv) Perimeter:</strong><br>
+          P = AB + BC + AC = 4 + 2&radic;5 + 2&radic;5 = 4 + 4&radic;5<br>
+          P = 4 + 4(2.236) = 4 + 8.944 &asymp; <strong>12.94 units</strong> (or exactly <strong>4 + 4&radic;5 units</strong>).
+        </div>
+      </div>
+
+      <!-- Long Q4 -->
+      <div class="long-q-item">
+        <div class="long-q">Q4. Show that the points A(&minus;1, &minus;1), B(1, 1), C(&minus;&radic;3, &radic;3) form an equilateral triangle. Also find the midpoint of each side.</div>
+        <div class="long-a">
+          <strong>Finding the lengths of all sides:</strong><br><br>
+
+          AB = &radic;[(1&minus;(&minus;1))&sup2; + (1&minus;(&minus;1))&sup2;] = &radic;[(2)&sup2; + (2)&sup2;] = &radic;[4 + 4] = &radic;8 = <strong>2&radic;2</strong><br><br>
+
+          BC = &radic;[(&minus;&radic;3 &minus; 1)&sup2; + (&radic;3 &minus; 1)&sup2;]<br>
+          = &radic;[(3 + 2&radic;3 + 1) + (3 &minus; 2&radic;3 + 1)]<br>
+          = &radic;[4 + 2&radic;3 + 4 &minus; 2&radic;3] = &radic;8 = <strong>2&radic;2</strong><br><br>
+
+          AC = &radic;[(&minus;&radic;3 &minus; (&minus;1))&sup2; + (&radic;3 &minus; (&minus;1))&sup2;]<br>
+          = &radic;[(1 &minus; &radic;3)&sup2; + (&radic;3 + 1)&sup2;]<br>
+          = &radic;[(1 &minus; 2&radic;3 + 3) + (3 + 2&radic;3 + 1)]<br>
+          = &radic;[4 &minus; 2&radic;3 + 4 + 2&radic;3] = &radic;8 = <strong>2&radic;2</strong><br><br>
+
+          Since AB = BC = AC = 2&radic;2, triangle ABC is <strong>equilateral</strong>. &#9989;<br><br>
+
+          <strong>Midpoints:</strong><br>
+          Midpoint of AB = ((&minus;1+1)/2, (&minus;1+1)/2) = <strong>(0, 0)</strong><br>
+          Midpoint of BC = ((1+(&minus;&radic;3))/2, (1+&radic;3)/2) = <strong>((1&minus;&radic;3)/2, (1+&radic;3)/2)</strong><br>
+          Midpoint of AC = ((&minus;1+(&minus;&radic;3))/2, (&minus;1+&radic;3)/2) = <strong>((&minus;1&minus;&radic;3)/2, (&minus;1+&radic;3)/2)</strong>
+        </div>
+      </div>
+
+      <!-- Long Q5 -->
+      <div class="long-q-item">
+        <div class="long-q">Q5. A point P on the y-axis is equidistant from A(&minus;4, 0) and B(2, 6). Find the coordinates of P. Also, if M is the midpoint of AB, find the distance PM.</div>
+        <div class="long-a">
+          <strong>Finding point P:</strong><br>
+          Since P is on the y-axis, let P = (0, y).<br><br>
+
+          PA = PB (equidistant):<br>
+          &radic;[(0&minus;(&minus;4))&sup2; + (y&minus;0)&sup2;] = &radic;[(0&minus;2)&sup2; + (y&minus;6)&sup2;]<br><br>
+
+          Squaring both sides:<br>
+          16 + y&sup2; = 4 + y&sup2; &minus; 12y + 36<br>
+          16 + y&sup2; = y&sup2; &minus; 12y + 40<br>
+          16 = &minus;12y + 40<br>
+          12y = 24<br>
+          y = 2<br><br>
+
+          Therefore, <strong>P = (0, 2)</strong>.<br><br>
+
+          <strong>Finding midpoint M of AB:</strong><br>
+          M = ((&minus;4+2)/2, (0+6)/2) = (&minus;2/2, 6/2) = <strong>(&minus;1, 3)</strong>.<br><br>
+
+          <strong>Finding distance PM:</strong><br>
+          PM = &radic;[(&minus;1&minus;0)&sup2; + (3&minus;2)&sup2;] = &radic;[1 + 1] = &radic;2 &asymp; <strong>1.414 units</strong> (or exactly <strong>&radic;2 units</strong>).
+        </div>
+      </div>
+
+      <!-- Long Q6 (Bonus) -->
+      <div class="long-q-item">
+        <div class="long-q">Q6. (Bonus HOTS Question) A triangle has vertices at P(2, 1), Q(6, 1), and R(4, 5). Prove that the medians from P and Q meet at a point that divides each median in the ratio 2:1 from the vertex. (Hint: Find the midpoints of the opposite sides first, then use the section formula.)</div>
+        <div class="long-a">
+          <strong>Step 1: Find the midpoints of the sides.</strong><br>
+          Midpoint of QR (let's call it M<sub>1</sub>) = ((6+4)/2, (1+5)/2) = <strong>(5, 3)</strong><br>
+          Midpoint of PR (let's call it M<sub>2</sub>) = ((2+4)/2, (1+5)/2) = <strong>(3, 3)</strong><br>
+          Midpoint of PQ (let's call it M<sub>3</sub>) = ((2+6)/2, (1+1)/2) = <strong>(4, 1)</strong><br><br>
+
+          <strong>Step 2: Find the centroid G using the formula.</strong><br>
+          The centroid (intersection of medians) for any triangle with vertices (x<sub>1</sub>, y<sub>1</sub>), (x<sub>2</sub>, y<sub>2</sub>), (x<sub>3</sub>, y<sub>3</sub>) is:<br>
+          G = ((x<sub>1</sub>+x<sub>2</sub>+x<sub>3</sub>)/3, (y<sub>1</sub>+y<sub>2</sub>+y<sub>3</sub>)/3)<br>
+          G = ((2+6+4)/3, (1+1+5)/3) = (12/3, 7/3) = <strong>(4, 7/3)</strong><br><br>
+
+          <strong>Step 3: Verify using the median from P to M<sub>1</sub>(5, 3).</strong><br>
+          The point dividing PM<sub>1</sub> in ratio 2:1 from P:<br>
+          x = (2&times;5 + 1&times;2)/(2+1) = (10+2)/3 = 12/3 = <strong>4</strong><br>
+          y = (2&times;3 + 1&times;1)/(2+1) = (6+1)/3 = 7/3 = <strong>7/3</strong><br>
+          This gives (4, 7/3) = G &#9989;<br><br>
+
+          <strong>Step 4: Verify using the median from Q to M<sub>2</sub>(3, 3).</strong><br>
+          The point dividing QM<sub>2</sub> in ratio 2:1 from Q:<br>
+          x = (2&times;3 + 1&times;6)/(2+1) = (6+6)/3 = 12/3 = <strong>4</strong><br>
+          y = (2&times;3 + 1&times;1)/(2+1) = (6+1)/3 = 7/3 = <strong>7/3</strong><br>
+          This gives (4, 7/3) = G &#9989;<br><br>
+
+          <strong>Conclusion:</strong> Both medians pass through the same point G(4, 7/3), and G divides each median in the ratio <strong>2:1 from the vertex</strong>. This property holds for <em>every</em> triangle &mdash; the centroid always divides each median in the ratio 2:1.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       SECTION 11: FUN FACTS
+       ===================================================== -->
+  <div class="section-block reveal" id="funfacts">
+    <div class="section-hd g-green">
+      <span class="icon">&#127775;</span>
+      Fun Facts &amp; Did You Know?
+    </div>
+    <div class="section-bd">
+
+      <div class="fun-fact-grid">
+
+        <div class="fun-fact-card">
+          <h4>&#128044; Descartes and the Fly</h4>
+          Legend has it that Ren&eacute; Descartes invented the coordinate system while lying in bed watching a fly crawl on the ceiling. He realised he could describe the fly's exact position using two numbers &mdash; its distance from two walls. Whether or not this story is true, it perfectly captures the idea of coordinates!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#127470;&#127475; Baudhayana Came First</h4>
+          The theorem about the diagonal of a rectangle was stated by the Indian mathematician Baudhayana around 800 BCE in the Sulbasutras &mdash; roughly 300 years before Pythagoras was even born! India's mathematical heritage is among the oldest in the world.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#127758; GPS Uses 3D Coordinates</h4>
+          The GPS system on your phone uses a 3D version of the coordinate system &mdash; latitude, longitude, and altitude. At least 4 satellites must "see" your phone to pinpoint your location. The math behind it is an extension of the distance formula you learned today!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#127918; Minecraft = Coordinates!</h4>
+          In Minecraft, every block in the world has coordinates (x, y, z). Players use the F3 debug screen to see their exact position. The distance formula helps players calculate how far they need to travel between two locations.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128290; Zero &mdash; India's Gift to the World</h4>
+          Without the concept of zero (invented in India), we could not have an origin (0, 0) and the coordinate system would not work. Brahmagupta (628 CE) was the first to define rules for arithmetic with zero and negative numbers &mdash; both essential for the four-quadrant system.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128640; ISRO &amp; Coordinates</h4>
+          India's Mars Orbiter Mission (Mangalyaan, 2014) used coordinate geometry to calculate the spacecraft's trajectory across 680 million kilometres of space! The entire mission cost less than making the movie <em>Gravity</em>, proving that smart math beats big budgets.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#127912; Art Meets Math: Pixel Art</h4>
+          Every image on your phone or computer is made of tiny coloured dots called <strong>pixels</strong>, each located by a coordinate pair. A 1080p screen has 1920 &times; 1080 = over 2 million pixels, each with an (x, y) address. Digital art is literally coordinate geometry in action!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128506;&#65039; The Largest Coordinate System</h4>
+          The entire Earth uses a coordinate system! Lines of <strong>latitude</strong> (horizontal, like the x-axis) and <strong>longitude</strong> (vertical, like the y-axis) divide the planet into a giant grid. The Prime Meridian (0&deg; longitude) and the Equator (0&deg; latitude) serve as the "axes" of this global system.
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#129302; Robots Navigate with Coordinates</h4>
+          Self-driving cars, delivery drones, and warehouse robots all use coordinate systems to navigate. Amazon's warehouse robots know the exact (x, y) position of every shelf and calculate the shortest path using the distance formula &mdash; the same formula you just learned!
+        </div>
+
+        <div class="fun-fact-card">
+          <h4>&#128200; Stock Market Charts</h4>
+          When you see a stock market graph with time on the horizontal axis and price on the vertical axis, you are looking at a coordinate plane! Each data point is an ordered pair (time, price). Financial analysts use coordinate geometry concepts daily.
+        </div>
+
+      </div>
+
+      <div class="note-box">
+        <strong>&#128161; Think About It:</strong> Coordinate geometry is everywhere around you &mdash; from the apps on your phone to the satellites in orbit. Every time you tap a location on Google Maps, play a video game, or even look at a graph in a newspaper, you are using the ideas from this chapter. Mathematics is not just a school subject; it is the language of the modern world!
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       QUICK REVISION FLASHCARDS
+       ===================================================== -->
+  <div class="section-block reveal" id="revision">
+    <div class="section-hd g-rose">
+      <span class="icon">&#127183;</span>
+      Quick Revision Flashcards
+    </div>
+    <div class="section-bd">
+
+      <p>Use these flashcards for last-minute revision before your exam. Read the question, try to answer mentally, then check!</p>
+
+      <div class="info-grid">
+        <div class="info-card ic-indigo">
+          <h4>Q: What is the origin?</h4>
+          A: The point O(0, 0) where the x-axis and y-axis intersect.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Q: What is the abscissa of (5, &minus;3)?</h4>
+          A: The abscissa (x-coordinate) is <strong>5</strong>.
+        </div>
+        <div class="info-card ic-teal">
+          <h4>Q: Point (&minus;4, 7) is in which quadrant?</h4>
+          A: <strong>Quadrant II</strong> (x negative, y positive).
+        </div>
+        <div class="info-card ic-green">
+          <h4>Q: Distance formula?</h4>
+          A: d = &radic;[(x<sub>2</sub>&minus;x<sub>1</sub>)&sup2; + (y<sub>2</sub>&minus;y<sub>1</sub>)&sup2;]
+        </div>
+        <div class="info-card ic-purple">
+          <h4>Q: Midpoint formula?</h4>
+          A: M = ((x<sub>1</sub>+x<sub>2</sub>)/2, (y<sub>1</sub>+y<sub>2</sub>)/2)
+        </div>
+        <div class="info-card ic-orange">
+          <h4>Q: Points on x-axis have y = ?</h4>
+          A: y = <strong>0</strong>. They have the form (a, 0).
+        </div>
+        <div class="info-card ic-pink">
+          <h4>Q: "ASTC" stands for?</h4>
+          A: All, Students, Take, Coffee &mdash; signs in Q1 through Q4.
+        </div>
+        <div class="info-card ic-amber">
+          <h4>Q: Distance from origin to (5, 12)?</h4>
+          A: &radic;(25+144) = &radic;169 = <strong>13</strong>.
+        </div>
+        <div class="info-card ic-red">
+          <h4>Q: Who stated the diagonal theorem before Pythagoras?</h4>
+          A: <strong>Baudhayana</strong> (~800 BCE).
+        </div>
+        <div class="info-card ic-green">
+          <h4>Q: Midpoint of (0,0) and (8,6)?</h4>
+          A: ((0+8)/2, (0+6)/2) = <strong>(4, 3)</strong>.
+        </div>
+        <div class="info-card ic-indigo">
+          <h4>Q: (3, 5) and (5, 3) are the same point?</h4>
+          A: <strong>No!</strong> Order matters. (3, 5) is 3 right, 5 up. (5, 3) is 5 right, 3 up.
+        </div>
+        <div class="info-card ic-blue">
+          <h4>Q: Is (0, &minus;6) on an axis or in a quadrant?</h4>
+          A: On the <strong>y-axis</strong> (x = 0). Not in any quadrant.
+        </div>
+      </div>
+
+      <div class="trick">
+        <strong>&#128161; Final Revision Mantra:</strong><br>
+        &bull; <strong>Coordinates</strong> &rarr; (x, y) &mdash; x first, y second, always.<br>
+        &bull; <strong>Quadrants</strong> &rarr; ASTC: All (+,+), Students (&minus;,+), Take (&minus;,&minus;), Coffee (+,&minus;).<br>
+        &bull; <strong>Distance</strong> &rarr; Subtract, Square, Add, Root.<br>
+        &bull; <strong>Midpoint</strong> &rarr; Average, Average. That's it!<br>
+        &bull; <strong>On x-axis</strong> &rarr; y = 0. <strong>On y-axis</strong> &rarr; x = 0.<br>
+        &bull; <strong>Heritage</strong> &rarr; Baudhayana (800 BCE), Aryabhata, Brahmagupta, Descartes (1637).<br>
+        <br>
+        You've got this! Go ace that exam! &#128170;
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================
+       BOTTOM NAVIGATION
+       ===================================================== -->
+  <div class="bottom-nav">
+    <div class="bottom-nav-full">
+      <a href="../../index.html" class="bottom-btn home-btn">&#127968; Back to Home</a>
+      <a href="index.html" class="bottom-btn" style="background:linear-gradient(135deg,#1e40af,#38bdf8);">&#128218; All Maths Chapters</a>
+    </div>
+  </div>
+
+</div>
+<!-- End Container -->
+
+<!-- ========== SHARE POPUP ========== -->
+<div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeSharePopup()">
+  <div class="share-popup">
+    <h3>&#128228; Share This Page</h3>
+    <p style="font-size:14px;color:#475569;margin-bottom:16px;">Help your classmates ace Coordinate Geometry!</p>
+    <div class="share-btn-row">
+      <button class="share-action-btn share-wa" onclick="shareWhatsApp()">&#128172; Share on WhatsApp</button>
+      <button class="share-action-btn share-copy" onclick="copyLink()">&#128203; Copy Link</button>
+      <button class="share-action-btn share-native" onclick="shareNative()">&#128228; Share via Apps</button>
+    </div>
+    <button class="share-close-btn" onclick="closeSharePopup()">Close</button>
+  </div>
+</div>
+
+<!-- ========== FLOATING SHARE BUTTON ========== -->
+<button class="float-share-btn" onclick="openSharePopup()" title="Share this page">&#128228;</button>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <p>Preeti Kushwah Classes &mdash; Making Maths Fun &amp; Easy &#128155;</p>
+  <p style="font-size:12px;margin-top:6px;opacity:0.8;">NCERT Class 9 Maths &middot; Ganita Manjari &middot; Chapter 1 &middot; New Syllabus 2026-27</p>
+  <p style="font-size:11px;margin-top:8px;opacity:0.6;">&copy; 2026 Preeti Kushwah Classes. All rights reserved.</p>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// Scroll Reveal Animation
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) {
+  obs.observe(el);
+});
+
+// MCQ Click Handler
+document.querySelectorAll('.mcq-item').forEach(function(item) {
+  item.querySelectorAll('.mcq-options li').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      if (item.classList.contains('show-ans')) return;
+      item.classList.add('show-ans');
+      if (!opt.hasAttribute('data-correct')) opt.classList.add('wrong');
+      item.querySelectorAll('.mcq-options li[data-correct]').forEach(function(c) {
+        c.classList.add('correct');
+      });
+    });
+  });
+});
+
+// Share Functions
+function openSharePopup() {
+  document.getElementById('shareOverlay').classList.add('active');
+}
+
+function closeSharePopup() {
+  document.getElementById('shareOverlay').classList.remove('active');
+}
+
+function shareWhatsApp() {
+  window.open('https://wa.me/?text=' + encodeURIComponent('Check out these Coordinate Geometry notes for Class 9 Maths (Ganita Manjari)! ' + window.location.href));
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    alert('Link copied to clipboard!');
+  });
+}
+
+function shareNative() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Coordinates — Class 9 Maths | Preeti Kushwah Classes',
+      text: 'NCERT Class 9 Coordinate Geometry notes — Ganita Manjari Chapter 1',
+      url: window.location.href
+    });
+  } else {
+    copyLink();
+  }
+}
+
+// Smooth scroll for TOC links
+document.querySelectorAll('.toc-bar a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    var targetId = this.getAttribute('href');
+    if (targetId && targetId.startsWith('#')) {
+      e.preventDefault();
+      var target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
+
+// =============================================
+// INTERACTIVE CARTESIAN PLANE ACTIVITIES
+// =============================================
+var GRID=40,CSIZE=400,OX=200,OY=200,MAXC=5;
+var PALETTE=['#ef4444','#3b82f6','#22c55e','#f59e0b','#8b5cf6','#ec4899','#14b8a6','#f97316'];
+
+function m2c(mx,my){return{x:OX+mx*GRID,y:OY-my*GRID};}
+function c2m(cx,cy){return{x:Math.round((cx-OX)/GRID),y:Math.round((OY-cy)/GRID)};}
+
+function drawGrid(ctx){
+  ctx.clearRect(0,0,CSIZE,CSIZE);
+  ctx.fillStyle='#fafbff';ctx.fillRect(0,0,CSIZE,CSIZE);
+  ctx.strokeStyle='rgba(99,102,241,0.1)';ctx.lineWidth=1;
+  for(var i=0;i<=CSIZE;i+=GRID){ctx.beginPath();ctx.moveTo(i,0);ctx.lineTo(i,CSIZE);ctx.stroke();ctx.beginPath();ctx.moveTo(0,i);ctx.lineTo(CSIZE,i);ctx.stroke();}
+  ctx.strokeStyle='#312e81';ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(0,OY);ctx.lineTo(CSIZE,OY);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(OX,0);ctx.lineTo(OX,CSIZE);ctx.stroke();
+  ctx.fillStyle='#312e81';ctx.font='700 10px Nunito,sans-serif';ctx.textAlign='center';ctx.textBaseline='top';
+  for(var n=-MAXC;n<=MAXC;n++){if(n===0)continue;ctx.fillText(n,OX+n*GRID,OY+4);ctx.textBaseline='middle';ctx.fillText(n,OX-14,OY-n*GRID);ctx.textBaseline='top';}
+  ctx.fillText('O',OX-12,OY+4);
+  ctx.font='700 12px Nunito,sans-serif';ctx.fillText('X',CSIZE-12,OY-10);ctx.fillText('Y',OX+12,8);
+  ctx.fillStyle='#312e81';
+  ctx.beginPath();ctx.moveTo(CSIZE-2,OY);ctx.lineTo(CSIZE-9,OY-4);ctx.lineTo(CSIZE-9,OY+4);ctx.fill();
+  ctx.beginPath();ctx.moveTo(OX,2);ctx.lineTo(OX-4,9);ctx.lineTo(OX+4,9);ctx.fill();
+}
+
+function drawPt(ctx,mx,my,col,label,sz){
+  sz=sz||7;var p=m2c(mx,my);
+  ctx.beginPath();ctx.arc(p.x,p.y,sz,0,Math.PI*2);ctx.fillStyle=col;ctx.fill();
+  ctx.strokeStyle='white';ctx.lineWidth=2;ctx.stroke();
+  if(label){ctx.fillStyle=col;ctx.font='800 11px Nunito,sans-serif';ctx.textAlign='left';ctx.textBaseline='bottom';ctx.fillText(label,p.x+sz+3,p.y-sz+2);}
+}
+
+function drawLn(ctx,x1,y1,x2,y2,col,w){
+  var a=m2c(x1,y1),b=m2c(x2,y2);
+  ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=col;ctx.lineWidth=w||2;ctx.stroke();
+}
+
+function drawDash(ctx,x1,y1,x2,y2,col){
+  var a=m2c(x1,y1),b=m2c(x2,y2);
+  ctx.beginPath();ctx.setLineDash([6,4]);ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=col;ctx.lineWidth=1.5;ctx.stroke();ctx.setLineDash([]);
+}
+
+function drawMidLabel(ctx,x1,y1,x2,y2,txt,col){
+  var a=m2c(x1,y1),b=m2c(x2,y2);
+  var mx=(a.x+b.x)/2,my=(a.y+b.y)/2;
+  var dx=b.x-a.x,dy=b.y-a.y,len=Math.sqrt(dx*dx+dy*dy);
+  ctx.fillStyle=col||'#166534';ctx.font='800 10px Nunito,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+  if(len>0){var ox=-dy/len*14,oy=dx/len*14;ctx.fillText(txt,mx+ox,my+oy);}else{ctx.fillText(txt,mx,my-10);}
+}
+
+function getQ(x,y){
+  if(x===0&&y===0)return'Origin';if(x===0)return'Y-axis';if(y===0)return'X-axis';
+  if(x>0&&y>0)return'Q-I (+,+)';if(x<0&&y>0)return'Q-II (−,+)';if(x<0&&y<0)return'Q-III (−,−)';return'Q-IV (+,−)';
+}
+
+function dist(x1,y1,x2,y2){return Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));}
+
+function getCC(canvas,e){
+  var r=canvas.getBoundingClientRect(),sx=canvas.width/r.width,sy=canvas.height/r.height;
+  var cx,cy;if(e.touches){cx=e.touches[0].clientX;cy=e.touches[0].clientY;}else{cx=e.clientX;cy=e.clientY;}
+  return{x:(cx-r.left)*sx,y:(cy-r.top)*sy};
+}
+
+function fmtN(n){return Number.isInteger(n)?n.toString():n.toFixed(2);}
+
+// ========== 1. PLOT CANVAS ==========
+var plotPts=[],plotCv,plotCx;
+function initPlot(){
+  plotCv=document.getElementById('plotCanvas');if(!plotCv)return;
+  plotCx=plotCv.getContext('2d');
+  plotCv.addEventListener('click',onPlotClick);
+  plotCv.addEventListener('touchstart',function(e){e.preventDefault();onPlotClick(e);},{passive:false});
+  drawGrid(plotCx);
+}
+function onPlotClick(e){
+  var c=getCC(plotCv,e),m=c2m(c.x,c.y);
+  if(Math.abs(m.x)>MAXC||Math.abs(m.y)>MAXC)return;
+  plotPts.push(m);redrawPlot();
+}
+function redrawPlot(){
+  drawGrid(plotCx);
+  var html='';
+  for(var i=0;i<plotPts.length;i++){
+    var p=plotPts[i],nm=String.fromCharCode(65+(i%26)),col=PALETTE[i%8];
+    drawPt(plotCx,p.x,p.y,col,nm+'('+p.x+', '+p.y+')');
+    html+='<span class="point-tag">'+nm+'('+p.x+', '+p.y+') — '+getQ(p.x,p.y)+'</span>';
+  }
+  document.getElementById('plotPointsList').innerHTML=html;
+  document.getElementById('plotStatus').textContent=plotPts.length+' point(s) plotted. Click to add more!';
+}
+function clearPlotCanvas(){plotPts=[];drawGrid(plotCx);document.getElementById('plotPointsList').innerHTML='';document.getElementById('plotStatus').textContent='Click on the plane to plot your first point!';}
+function undoPlotPoint(){if(plotPts.length>0){plotPts.pop();redrawPlot();if(plotPts.length===0)clearPlotCanvas();}}
+
+// ========== 2. DISTANCE CANVAS ==========
+var distPts=[],distCv,distCx;
+function initDist(){
+  distCv=document.getElementById('distCanvas');if(!distCv)return;
+  distCx=distCv.getContext('2d');
+  distCv.addEventListener('click',onDistClick);
+  distCv.addEventListener('touchstart',function(e){e.preventDefault();onDistClick(e);},{passive:false});
+  drawGrid(distCx);
+}
+function onDistClick(e){
+  if(distPts.length>=2)return;
+  var c=getCC(distCv,e),m=c2m(c.x,c.y);
+  if(Math.abs(m.x)>MAXC||Math.abs(m.y)>MAXC)return;
+  distPts.push(m);redrawDist();
+}
+function redrawDist(){
+  drawGrid(distCx);
+  var res=document.getElementById('distResult'),st=document.getElementById('distStatus');
+  if(distPts.length===0){res.innerHTML='Click on the plane to place Point A...';st.textContent='Step 1: Click to place Point A';return;}
+  var A=distPts[0];
+  drawPt(distCx,A.x,A.y,'#ef4444','A('+A.x+', '+A.y+')');
+  if(distPts.length===1){res.innerHTML='<strong>Point A = ('+A.x+', '+A.y+')</strong> placed! Now click to place Point B.';st.textContent='Step 2: Click to place Point B';return;}
+  var B=distPts[1];
+  drawPt(distCx,B.x,B.y,'#3b82f6','B('+B.x+', '+B.y+')');
+  drawDash(distCx,A.x,A.y,B.x,A.y,'rgba(239,68,68,0.5)');
+  drawDash(distCx,B.x,A.y,B.x,B.y,'rgba(59,130,246,0.5)');
+  var dx=B.x-A.x,dy=B.y-A.y;
+  if(Math.abs(dx)>0)drawMidLabel(distCx,A.x,A.y,B.x,A.y,'|Δx|='+Math.abs(dx),'#ef4444');
+  if(Math.abs(dy)>0)drawMidLabel(distCx,B.x,A.y,B.x,B.y,'|Δy|='+Math.abs(dy),'#3b82f6');
+  drawLn(distCx,A.x,A.y,B.x,B.y,'#22c55e',2.5);
+  var C=m2c(B.x,A.y),sq=8,sx=A.x<B.x?-sq:sq,sy=A.y<B.y?sq:-sq;
+  if(dx!==0&&dy!==0){distCx.strokeStyle='#64748b';distCx.lineWidth=1.5;distCx.beginPath();distCx.moveTo(C.x+sx,C.y);distCx.lineTo(C.x+sx,C.y+sy);distCx.lineTo(C.x,C.y+sy);distCx.stroke();drawPt(distCx,B.x,A.y,'#94a3b8','C',4);}
+  var d=dist(A.x,A.y,B.x,B.y);
+  drawMidLabel(distCx,A.x,A.y,B.x,B.y,'d='+fmtN(d),'#166534');
+  var d2=dx*dx+dy*dy;
+  var h='<strong>Distance Calculation — Step by Step:</strong><br>';
+  h+='<div class="step"><strong>Points:</strong> A('+A.x+', '+A.y+') and B('+B.x+', '+B.y+')</div>';
+  h+='<div class="step"><strong>Step 1:</strong> d = √[(x₂ − x₁)² + (y₂ − y₁)²]</div>';
+  h+='<div class="step"><strong>Step 2:</strong> d = √[('+B.x+' − '+(A.x<0?'('+A.x+')':A.x)+')² + ('+B.y+' − '+(A.y<0?'('+A.y+')':A.y)+')²]</div>';
+  h+='<div class="step"><strong>Step 3:</strong> d = √[('+dx+')² + ('+dy+')²] = √['+dx*dx+' + '+dy*dy+']</div>';
+  h+='<div class="step"><strong>Step 4:</strong> d = √'+d2+' = <strong style="color:#16a34a;font-size:16px;">'+fmtN(d)+' units</strong></div>';
+  res.innerHTML=h;st.textContent='✅ Distance calculated! Click “Clear” to try another pair.';
+}
+function clearDistCanvas(){distPts=[];drawGrid(distCx);document.getElementById('distResult').innerHTML='Click on the plane to place Point A...';document.getElementById('distStatus').textContent='Step 1: Click to place Point A';}
+
+// ========== 3. MULTI-POINT DISTANCE ==========
+var mPts=[],mConn=false,mClose=false,mCv,mCx;
+function initMulti(){
+  mCv=document.getElementById('multiDistCanvas');if(!mCv)return;
+  mCx=mCv.getContext('2d');
+  mCv.addEventListener('click',onMultiClick);
+  mCv.addEventListener('touchstart',function(e){e.preventDefault();onMultiClick(e);},{passive:false});
+  drawGrid(mCx);
+}
+function onMultiClick(e){
+  if(mPts.length>=8||mConn)return;
+  var c=getCC(mCv,e),m=c2m(c.x,c.y);
+  if(Math.abs(m.x)>MAXC||Math.abs(m.y)>MAXC)return;
+  mPts.push(m);redrawMulti();
+}
+function redrawMulti(){
+  drawGrid(mCx);
+  if(mConn&&mPts.length>=2){
+    var lim=mClose?mPts.length:mPts.length-1;
+    for(var i=0;i<lim;i++){
+      var a=mPts[i],b=mPts[(i+1)%mPts.length],col=PALETTE[i%8];
+      drawLn(mCx,a.x,a.y,b.x,b.y,col,2.5);
+      drawMidLabel(mCx,a.x,a.y,b.x,b.y,fmtN(dist(a.x,a.y,b.x,b.y)),col);
+    }
+  }
+  var html='';
+  for(var i=0;i<mPts.length;i++){
+    var p=mPts[i],nm=String.fromCharCode(65+i);
+    drawPt(mCx,p.x,p.y,PALETTE[i%8],nm+'('+p.x+','+p.y+')');
+    html+='<span class="point-tag">'+nm+'('+p.x+', '+p.y+')</span>';
+  }
+  document.getElementById('multiPointsList').innerHTML=html;
+  var res=document.getElementById('multiDistResult'),st=document.getElementById('multiDistStatus');
+  if(!mConn){res.innerHTML=mPts.length+' point(s) placed. Click “Connect All” to see distances.';st.textContent=mPts.length>=8?'Maximum 8 points reached. Connect them!':'Place more points or click “Connect All”';}
+  else{
+    var rH='<strong>Distances:</strong><br>',total=0,lim=mClose?mPts.length:mPts.length-1;
+    for(var i=0;i<lim;i++){
+      var a=mPts[i],b=mPts[(i+1)%mPts.length],nA=String.fromCharCode(65+i),nB=String.fromCharCode(65+((i+1)%mPts.length));
+      var d=dist(a.x,a.y,b.x,b.y);total+=d;
+      rH+='<span class="distance-tag">'+nA+nB+' = '+fmtN(d)+'</span> ';
+    }
+    rH+='<br><br><strong>Total '+(mClose?'Perimeter':'Path Distance')+': <span style="color:#16a34a;font-size:16px;">'+fmtN(total)+' units</span></strong>';
+    res.innerHTML=rH;st.textContent='✅ All distances calculated!';
+  }
+}
+function connectMultiPoints(){if(mPts.length<2)return;mConn=true;mClose=false;redrawMulti();}
+function closeMultiShape(){if(mPts.length<3)return;mConn=true;mClose=true;redrawMulti();}
+function clearMultiDist(){mPts=[];mConn=false;mClose=false;drawGrid(mCx);document.getElementById('multiPointsList').innerHTML='';document.getElementById('multiDistResult').innerHTML='Click on the plane to place points...';document.getElementById('multiDistStatus').textContent='Place points on the plane (up to 8 points)';}
+
+// ========== 4. MIDPOINT CANVAS ==========
+var midPts=[],midCv,midCx;
+function initMid(){
+  midCv=document.getElementById('midCanvas');if(!midCv)return;
+  midCx=midCv.getContext('2d');
+  midCv.addEventListener('click',onMidClick);
+  midCv.addEventListener('touchstart',function(e){e.preventDefault();onMidClick(e);},{passive:false});
+  drawGrid(midCx);
+}
+function onMidClick(e){
+  if(midPts.length>=2)return;
+  var c=getCC(midCv,e),m=c2m(c.x,c.y);
+  if(Math.abs(m.x)>MAXC||Math.abs(m.y)>MAXC)return;
+  midPts.push(m);redrawMid();
+}
+function redrawMid(){
+  drawGrid(midCx);
+  var res=document.getElementById('midResult'),st=document.getElementById('midStatus');
+  if(midPts.length===0){res.innerHTML='Click on the plane to place Point A...';st.textContent='Step 1: Click to place Point A';return;}
+  var A=midPts[0];
+  drawPt(midCx,A.x,A.y,'#ef4444','A('+A.x+', '+A.y+')');
+  if(midPts.length===1){res.innerHTML='<strong>Point A = ('+A.x+', '+A.y+')</strong> placed! Now click to place Point B.';st.textContent='Step 2: Click to place Point B';return;}
+  var B=midPts[1];
+  drawPt(midCx,B.x,B.y,'#3b82f6','B('+B.x+', '+B.y+')');
+  drawLn(midCx,A.x,A.y,B.x,B.y,'#94a3b8',2);
+  var mx=(A.x+B.x)/2,my=(A.y+B.y)/2;
+  drawDash(midCx,mx,my,mx,0,'rgba(34,197,94,0.4)');
+  drawDash(midCx,mx,my,0,my,'rgba(34,197,94,0.4)');
+  drawPt(midCx,mx,my,'#22c55e','M('+fmtN(mx)+', '+fmtN(my)+')',9);
+  var am=dist(A.x,A.y,mx,my),mb=dist(mx,my,B.x,B.y);
+  drawMidLabel(midCx,A.x,A.y,mx,my,'AM='+fmtN(am),'#ef4444');
+  drawMidLabel(midCx,mx,my,B.x,B.y,'MB='+fmtN(mb),'#3b82f6');
+  var h='<strong>Midpoint Calculation — Step by Step:</strong><br>';
+  h+='<div class="step"><strong>Points:</strong> A('+A.x+', '+A.y+') and B('+B.x+', '+B.y+')</div>';
+  h+='<div class="step"><strong>Formula:</strong> M = ((x₁ + x₂)/2, (y₁ + y₂)/2)</div>';
+  h+='<div class="step"><strong>x:</strong> ('+A.x+' + '+B.x+') / 2 = '+(A.x+B.x)+' / 2 = <strong>'+fmtN(mx)+'</strong></div>';
+  h+='<div class="step"><strong>y:</strong> ('+A.y+' + '+B.y+') / 2 = '+(A.y+B.y)+' / 2 = <strong>'+fmtN(my)+'</strong></div>';
+  h+='<div class="step"><strong>Midpoint:</strong> <strong style="color:#16a34a;font-size:16px;">M('+fmtN(mx)+', '+fmtN(my)+')</strong></div>';
+  h+='<div class="step"><strong>Verify:</strong> AM = '+fmtN(am)+', MB = '+fmtN(mb)+' ✅ Equal!</div>';
+  res.innerHTML=h;st.textContent='✅ Midpoint found! Click “Clear” to try another pair.';
+}
+function clearMidCanvas(){midPts=[];drawGrid(midCx);document.getElementById('midResult').innerHTML='Click on the plane to place Point A...';document.getElementById('midStatus').textContent='Step 1: Click to place Point A';}
+
+// ========== 5. SECTION FORMULA CANVAS ==========
+var secPts=[],secCv,secCx;
+function initSec(){
+  secCv=document.getElementById('sectionCanvas');if(!secCv)return;
+  secCx=secCv.getContext('2d');
+  secCv.addEventListener('click',onSecClick);
+  secCv.addEventListener('touchstart',function(e){e.preventDefault();onSecClick(e);},{passive:false});
+  drawGrid(secCx);
+}
+function onSecClick(e){
+  if(secPts.length>=2)return;
+  var c=getCC(secCv,e),m=c2m(c.x,c.y);
+  if(Math.abs(m.x)>MAXC||Math.abs(m.y)>MAXC)return;
+  secPts.push(m);redrawSec();
+}
+function redrawSec(){
+  drawGrid(secCx);
+  var res=document.getElementById('sectionResult'),st=document.getElementById('sectionStatus');
+  if(secPts.length===0){res.innerHTML='Click on the plane to place Point A...';st.textContent='Step 1: Click to place Point A';return;}
+  var A=secPts[0];
+  drawPt(secCx,A.x,A.y,'#ef4444','A('+A.x+', '+A.y+')');
+  if(secPts.length===1){res.innerHTML='<strong>Point A = ('+A.x+', '+A.y+')</strong> placed! Now click to place Point B.';st.textContent='Step 2: Click to place Point B';return;}
+  var B=secPts[1];
+  drawPt(secCx,B.x,B.y,'#3b82f6','B('+B.x+', '+B.y+')');
+  drawLn(secCx,A.x,A.y,B.x,B.y,'#cbd5e1',2);
+  var m=parseInt(document.getElementById('ratioSlider').value);
+  var n=parseInt(document.getElementById('ratioSlider2').value);
+  var px=(m*B.x+n*A.x)/(m+n),py=(m*B.y+n*A.y)/(m+n);
+  drawLn(secCx,A.x,A.y,px,py,'#ef4444',3);
+  drawLn(secCx,px,py,B.x,B.y,'#3b82f6',3);
+  drawMidLabel(secCx,A.x,A.y,px,py,'m='+m,'#ef4444');
+  drawMidLabel(secCx,px,py,B.x,B.y,'n='+n,'#3b82f6');
+  drawPt(secCx,px,py,'#8b5cf6','P('+fmtN(px)+', '+fmtN(py)+')',9);
+  var h='<strong>Section Formula — Ratio '+m+' : '+n+':</strong><br>';
+  h+='<div class="step"><strong>Points:</strong> A('+A.x+', '+A.y+') and B('+B.x+', '+B.y+')</div>';
+  h+='<div class="step"><strong>Formula:</strong> P = ((m·x₂ + n·x₁)/(m+n), (m·y₂ + n·y₁)/(m+n))</div>';
+  h+='<div class="step"><strong>x:</strong> ('+m+'×'+B.x+' + '+n+'×'+A.x+') / '+(m+n)+' = '+(m*B.x+n*A.x)+' / '+(m+n)+' = <strong>'+fmtN(px)+'</strong></div>';
+  h+='<div class="step"><strong>y:</strong> ('+m+'×'+B.y+' + '+n+'×'+A.y+') / '+(m+n)+' = '+(m*B.y+n*A.y)+' / '+(m+n)+' = <strong>'+fmtN(py)+'</strong></div>';
+  h+='<div class="step"><strong>Point P:</strong> <strong style="color:#7c3aed;font-size:16px;">('+fmtN(px)+', '+fmtN(py)+')</strong></div>';
+  if(m===n)h+='<div class="step" style="border-left-color:#22c55e;"><strong>\u{1F4A1}</strong> When m = n, this is the <strong>midpoint</strong>!</div>';
+  res.innerHTML=h;st.textContent='✅ Adjust the ratio sliders to see how P moves!';
+}
+function updateSectionFormula(){
+  var m=document.getElementById('ratioSlider').value,n=document.getElementById('ratioSlider2').value;
+  document.getElementById('ratioDisplay').textContent=m+' : '+n;
+  if(secPts.length===2)redrawSec();
+}
+function clearSectionCanvas(){
+  secPts=[];document.getElementById('ratioSlider').value=1;document.getElementById('ratioSlider2').value=1;
+  document.getElementById('ratioDisplay').textContent='1 : 1';drawGrid(secCx);
+  document.getElementById('sectionResult').innerHTML='Click on the plane to place Point A...';
+  document.getElementById('sectionStatus').textContent='Step 1: Click to place Point A';
+}
+
+// ========== INIT ALL INTERACTIVE CANVASES ==========
+window.addEventListener('DOMContentLoaded',function(){initPlot();initDist();initMulti();initMid();initSec();});
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
+</body>
+</html>

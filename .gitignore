@@ -1,2 +1,12 @@
 .DS_Store
+<<<<<<< HEAD
 .claude/
+=======
+.vscode/
+.idea/
+*.log
+*.swp
+node_modules/
+.env
+.netlify/
+>>>>>>> 6e88593cc76e1ce0877d956b9782c440df723b8d
