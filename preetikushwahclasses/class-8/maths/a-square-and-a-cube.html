@@ -715,44 +715,44 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#78
         <div class="short-q-list">
           <div class="short-q-item" style="border-left-color:#f59e0b;">
             <div class="short-q">Q1. How many lockers are open after all 100 students have passed?</div>
-            <button onclick="toggleAnswer(this)" style="background:#fde68a;color:#92400e;border:none;padding:6px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;font-size:12px;margin-top:4px;">Show Answer</button>
-            <div class="short-a" style="display:none;margin-top:8px;"><strong>10 lockers</strong> are open. They are: 1, 4, 9, 16, 25, 36, 49, 64, 81, and 100 &mdash; all perfect squares from 1&sup2; to 10&sup2;.</div>
+            <button class="toggle-ans" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="hidden-ans"><div class="short-a"><strong>10 lockers</strong> are open. They are: 1, 4, 9, 16, 25, 36, 49, 64, 81, and 100 &mdash; all perfect squares from 1&sup2; to 10&sup2;.</div></div>
           </div>
 
           <div class="short-q-item" style="border-left-color:#f59e0b;">
             <div class="short-q">Q2. Is locker number 48 open or closed? Why?</div>
-            <button onclick="toggleAnswer(this)" style="background:#fde68a;color:#92400e;border:none;padding:6px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;font-size:12px;margin-top:4px;">Show Answer</button>
-            <div class="short-a" style="display:none;margin-top:8px;"><strong>Closed.</strong> The factors of 48 are 1, 2, 3, 4, 6, 8, 12, 16, 24, 48 &mdash; that&rsquo;s <strong>10 factors</strong> (even). Since 48 is not a perfect square, it has an even number of factors, so it gets toggled an even number of times and ends up closed.</div>
+            <button class="toggle-ans" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="hidden-ans"><div class="short-a"><strong>Closed.</strong> The factors of 48 are 1, 2, 3, 4, 6, 8, 12, 16, 24, 48 &mdash; that&rsquo;s <strong>10 factors</strong> (even). Since 48 is not a perfect square, it has an even number of factors, so it gets toggled an even number of times and ends up closed.</div></div>
           </div>
 
           <div class="short-q-item" style="border-left-color:#f59e0b;">
             <div class="short-q">Q3. Which is the last locker that Student 7 will toggle?</div>
-            <button onclick="toggleAnswer(this)" style="background:#fde68a;color:#92400e;border:none;padding:6px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;font-size:12px;margin-top:4px;">Show Answer</button>
-            <div class="short-a" style="display:none;margin-top:8px;">Student 7 toggles every 7th locker: 7, 14, 21, 28, &hellip;, 91, <strong>98</strong>. The last one is locker <strong>98</strong> (since 98 = 7 &times; 14 and the next multiple 105 &gt; 100).</div>
+            <button class="toggle-ans" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="hidden-ans"><div class="short-a">Student 7 toggles every 7th locker: 7, 14, 21, 28, &hellip;, 91, <strong>98</strong>. The last one is locker <strong>98</strong> (since 98 = 7 &times; 14 and the next multiple 105 &gt; 100).</div></div>
           </div>
 
           <div class="short-q-item" style="border-left-color:#f59e0b;">
             <div class="short-q">Q4. How many students toggle locker number 72?</div>
-            <button onclick="toggleAnswer(this)" style="background:#fde68a;color:#92400e;border:none;padding:6px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;font-size:12px;margin-top:4px;">Show Answer</button>
-            <div class="short-a" style="display:none;margin-top:8px;">Locker 72 is toggled by students whose numbers are <strong>factors of 72</strong>: 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72 &mdash; that&rsquo;s <strong>12 students</strong>. Since 12 is even, locker 72 ends up <strong>closed</strong>.</div>
+            <button class="toggle-ans" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="hidden-ans"><div class="short-a">Locker 72 is toggled by students whose numbers are <strong>factors of 72</strong>: 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72 &mdash; that&rsquo;s <strong>12 students</strong>. Since 12 is even, locker 72 ends up <strong>closed</strong>.</div></div>
           </div>
 
           <div class="short-q-item" style="border-left-color:#f59e0b;">
             <div class="short-q">Q5. Can you explain why the number of open lockers between 1 and 100 is exactly 10?</div>
-            <button onclick="toggleAnswer(this)" style="background:#fde68a;color:#92400e;border:none;padding:6px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;font-size:12px;margin-top:4px;">Show Answer</button>
-            <div class="short-a" style="display:none;margin-top:8px;">Only perfect squares remain open. The perfect squares from 1 to 100 are: 1&sup2; = 1, 2&sup2; = 4, 3&sup2; = 9, 4&sup2; = 16, 5&sup2; = 25, 6&sup2; = 36, 7&sup2; = 49, 8&sup2; = 64, 9&sup2; = 81, 10&sup2; = 100. Since 10&sup2; = 100 &le; 100 and 11&sup2; = 121 &gt; 100, there are exactly <strong>10 perfect squares</strong>, hence <strong>10 open lockers</strong>.</div>
+            <button class="toggle-ans" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="hidden-ans"><div class="short-a">Only perfect squares remain open. The perfect squares from 1 to 100 are: 1&sup2; = 1, 2&sup2; = 4, 3&sup2; = 9, 4&sup2; = 16, 5&sup2; = 25, 6&sup2; = 36, 7&sup2; = 49, 8&sup2; = 64, 9&sup2; = 81, 10&sup2; = 100. Since 10&sup2; = 100 &le; 100 and 11&sup2; = 121 &gt; 100, there are exactly <strong>10 perfect squares</strong>, hence <strong>10 open lockers</strong>.</div></div>
           </div>
 
           <div class="short-q-item" style="border-left-color:#f59e0b;">
             <div class="short-q">Q6. If there were 500 lockers and 500 students instead, how many lockers would be open?</div>
-            <button onclick="toggleAnswer(this)" style="background:#fde68a;color:#92400e;border:none;padding:6px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;font-size:12px;margin-top:4px;">Show Answer</button>
-            <div class="short-a" style="display:none;margin-top:8px;">We need to count perfect squares from 1 to 500. Since 22&sup2; = 484 &le; 500 and 23&sup2; = 529 &gt; 500, there are <strong>22 open lockers</strong> (1&sup2;, 2&sup2;, 3&sup2;, &hellip;, 22&sup2;). In general, for <em>n</em> lockers, the number of open lockers = <strong>&lfloor;&radic;n&rfloor;</strong> (the integer part of &radic;n).</div>
+            <button class="toggle-ans" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="hidden-ans"><div class="short-a">We need to count perfect squares from 1 to 500. Since 22&sup2; = 484 &le; 500 and 23&sup2; = 529 &gt; 500, there are <strong>22 open lockers</strong> (1&sup2;, 2&sup2;, 3&sup2;, &hellip;, 22&sup2;). In general, for <em>n</em> lockers, the number of open lockers = <strong>&lfloor;&radic;n&rfloor;</strong> (the integer part of &radic;n).</div></div>
           </div>
 
           <div class="short-q-item" style="border-left-color:#f59e0b;">
             <div class="short-q">Q7. Locker 81 is open. Which students toggled it? Which was the last student to touch it?</div>
-            <button onclick="toggleAnswer(this)" style="background:#fde68a;color:#92400e;border:none;padding:6px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;font-size:12px;margin-top:4px;">Show Answer</button>
-            <div class="short-a" style="display:none;margin-top:8px;">Factors of 81 = 1, 3, 9, 27, 81. So students <strong>1, 3, 9, 27, and 81</strong> toggled it (5 times, odd, so it ends open). The last student to touch it was <strong>Student 81</strong>.</div>
+            <button class="toggle-ans" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="hidden-ans"><div class="short-a">Factors of 81 = 1, 3, 9, 27, 81. So students <strong>1, 3, 9, 27, and 81</strong> toggled it (5 times, odd, so it ends open). The last student to touch it was <strong>Student 81</strong>.</div></div>
           </div>
         </div>
 
