@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 9 Maths Ch 1 Test Paper Set 4 (Expert) — Coordinate Geometry. 40 marks, challenging practice questions with solutions.">
+<meta name="keywords" content="Preeti Kushwah Classes, NCERT notes, CBSE notes, free study material, Class 9 notes, Class 9 NCERT, class 9 study material, Mathematics notes, Class 9 Mathematics, Class 9 Mathematics notes, Class 9 Mathematics NCERT, test paper, practice questions, MCQ practice, Class 9 test paper, Class 9 Mathematics test, maths solutions, maths practice">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-9/maths/test-paper-ch1-set4.html">
+<meta property="og:title" content="Test Paper Set 4 — Ch 1 Coordinates | Class 9 Maths">
+<meta property="og:description" content="Expert level practice test — 40 marks with solutions. Class 9 Maths Ch 1.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preetikushwahclasses.com/class-9/maths/test-paper-ch1-set4.html">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Test Paper Set 4 — Ch 1: The Use of Coordinates | Class 9 Maths</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple-darkest: #3b0764;
+  --purple-dark: #5b21b6;
+  --purple-mid: #7c3aed;
+  --purple-light: #a78bfa;
+  --purple-pale: #ede9fe;
+  --purple-bg: #faf5ff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #faf5ff;
+  background-image: linear-gradient(180deg, #faf5ff 0%, #fff7ed 50%, #faf5ff 100%);
+  color: #1e1b4b;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ============= TOP NAV ============= */
+.top-nav {
+  background: white;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 110;
+}
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-link.tn-home {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  color: #5b21b6;
+  border: 1px solid #c4b5fd;
+}
+.nav-link.tn-home:hover {
+  background: linear-gradient(135deg, #ddd6fe, #c4b5fd);
+  transform: translateY(-1px);
+}
+.nav-spacer { flex: 1; }
+.nav-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 14px;
+  color: #5b21b6;
+}
+.nav-title small {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+/* ============= HERO ============= */
+.hero {
+  background: linear-gradient(135deg, #3b0764 0%, #5b21b6 50%, #7c3aed 100%);
+  color: white;
+  text-align: center;
+  padding: 48px 20px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.06) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-icon { font-size: 48px; margin-bottom: 12px; }
+.hero h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 30px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.hero .hero-sub {
+  font-size: 15px;
+  opacity: 0.9;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.hero .hero-chapter {
+  font-size: 13px;
+  opacity: 0.75;
+  margin-bottom: 16px;
+}
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.hero-meta span {
+  background: rgba(255,255,255,0.15);
+  padding: 6px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 14px;
+  backdrop-filter: blur(4px);
+}
+
+/* ============= CONTAINER ============= */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* ============= TEST PAPER ============= */
+.test-paper {
+  background: white;
+  border: 2px solid #1e1b4b;
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+.watermark {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none; z-index: 1; overflow: hidden;
+  user-select: none; -webkit-user-select: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='200'%3E%3Ctext x='210' y='110' text-anchor='middle' font-family='sans-serif' font-size='26' font-weight='bold' fill='rgba(0,0,0,0.04)' transform='rotate(-30,210,110)'%3EPreeti Kushwah Classes%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 420px 200px;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.test-header {
+  background: linear-gradient(135deg, #1e1b4b, #3b0764);
+  color: white;
+  text-align: center;
+  padding: 24px 20px 18px;
+  position: relative;
+  z-index: 2;
+}
+.test-header h2 { font-family: 'Fredoka One', cursive; font-size: 22px; margin: 0 0 4px; letter-spacing: 1px; }
+.test-header p { font-size: 13px; opacity: 0.85; margin: 2px 0; }
+.test-header .test-meta {
+  display: flex; justify-content: center; gap: 24px; margin-top: 12px;
+  font-weight: 800; font-size: 14px;
+}
+.test-header .test-meta span { background: rgba(255,255,255,0.15); padding: 4px 14px; border-radius: 8px; }
+.test-body { padding: 24px 20px; position: relative; z-index: 2; }
+.qr-strip {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  padding: 14px 20px; background: #f8fafc; border-top: 1px solid #e2e8f0;
+  position: relative; z-index: 2;
+}
+.qr-strip img { width: 70px; height: 70px; border-radius: 6px; border: 2px solid #e2e8f0; }
+.qr-strip .qr-text { font-size: 11px; color: #64748b; font-weight: 700; line-height: 1.5; }
+.qr-strip .qr-text strong { color: #1e1b4b; font-size: 12px; }
+.test-section-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 16px;
+  color: #5b21b6;
+  border-bottom: 2px solid #ede9fe;
+  padding-bottom: 6px;
+  margin: 28px 0 14px;
+}
+.test-section-title:first-child { margin-top: 0; }
+.test-q {
+  margin-bottom: 18px;
+  padding-left: 4px;
+}
+.test-q .q-num {
+  font-weight: 800;
+  color: #7c3aed;
+  font-size: 14px;
+}
+.test-q .q-text {
+  font-size: 14px;
+  color: #1f2937;
+  margin-top: 4px;
+  line-height: 1.7;
+}
+.test-q .q-marks {
+  display: inline-block;
+  background: #ede9fe;
+  color: #5b21b6;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-left: 6px;
+}
+.test-q table {
+  width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0;
+}
+.test-q table th { background: #f3f4f6; padding: 8px 10px; text-align: left; font-weight: 700; border: 1px solid #d1d5db; }
+.test-q table td { padding: 8px 10px; border: 1px solid #d1d5db; font-family: 'Fredoka One', cursive; font-size: 13px; }
+.test-instructions {
+  background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px;
+  font-size: 13px; color: #92400e; border-radius: 0 10px 10px 0; margin-bottom: 20px; line-height: 1.7;
+}
+
+/* ============= PRINT BUTTON ============= */
+.print-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #7c3aed, #5b21b6);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(124,58,237,0.3);
+}
+.print-btn:hover {
+  background: linear-gradient(135deg, #6d28d9, #4c1d95);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124,58,237,0.4);
+}
+.share-sol-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(5,150,105,0.3);
+}
+.share-sol-btn:hover {
+  background: linear-gradient(135deg, #047857, #059669);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(5,150,105,0.4);
+}
+.pdf-note {
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 8px;
+}
+
+/* ============= SOLUTION UNLOCK ============= */
+.sol-lock-overlay {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border: 2px dashed #a78bfa;
+  border-radius: 14px;
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: 32px;
+}
+.sol-lock-overlay h3 {
+  font-family: 'Fredoka One', cursive; color: #5b21b6; font-size: 18px; margin: 0 0 8px;
+}
+.sol-lock-overlay p { font-size: 13px; color: #6b7280; margin: 0 0 16px; }
+.sol-code-input {
+  padding: 10px 16px;
+  border: 2px solid #c4b5fd;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  width: 200px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.sol-code-input:focus { outline: none; border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,0.15); }
+.sol-unlock-btn {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 10px 22px;
+  background: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sol-unlock-btn:hover { background: #6d28d9; transform: translateY(-1px); }
+.sol-error { color: #dc2626; font-weight: 700; font-size: 13px; margin-top: 10px; }
+.sol-success { color: #059669; font-weight: 700; font-size: 13px; margin-top: 10px; }
+.test-solutions { display: none; margin-top: 24px; }
+.test-solutions.unlocked { display: block; }
+.test-sol-item {
+  background: #f0fdf4;
+  border-left: 4px solid #22c55e;
+  border-radius: 0 12px 12px 0;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+}
+.test-sol-item .sol-num { font-weight: 800; color: #166534; font-size: 14px; }
+.test-sol-item .sol-body { font-size: 13px; color: #374151; margin-top: 6px; line-height: 1.8; }
+.test-sol-item .sol-body strong { color: #5b21b6; }
+
+/* ============= CONFETTI ============= */
+.confetti-piece {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  z-index: 999;
+  pointer-events: none;
+  animation: confettiFall 3s ease-out forwards;
+}
+@keyframes confettiFall {
+  0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+}
+
+/* ============= FOOTER ============= */
+footer {
+  background: linear-gradient(135deg, #3b0764 0%, #1e1b4b 100%);
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 13px;
+  margin-top: 0;
+}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 24px; }
+  .hero-meta { gap: 10px; }
+  .hero-meta span { font-size: 12px; padding: 5px 12px; }
+  .test-header h2 { font-size: 18px; }
+  .test-header .test-meta { gap: 12px; }
+  .test-body { padding: 18px 14px; }
+  .sol-code-input { width: 160px; font-size: 14px; }
+  .sol-unlock-btn { margin-left: 0; margin-top: 10px; display: block; width: 160px; margin-left: auto; margin-right: auto; }
+  .sol-lock-overlay > div { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+}
+
+/* ============= PRINT STYLES ============= */
+@media print {
+  .top-nav, .print-bar, .pdf-note, .sol-lock-overlay, footer, .dm-toggle { display: none !important; }
+  .hero { padding: 20px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: white !important; }
+  .container { padding: 0; max-width: 100%; }
+  .test-paper { border: 1px solid #333; border-radius: 0; }
+  .test-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 16px; }
+  .test-q { page-break-inside: avoid; }
+  .test-sol-item { page-break-inside: avoid; }
+  .test-solutions.unlocked { display: block !important; }
+  .test-solutions { page-break-before: always; }
+  .watermark { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='200'%3E%3Ctext x='210' y='110' text-anchor='middle' font-family='sans-serif' font-size='26' font-weight='bold' fill='rgba(0,0,0,0.06)' transform='rotate(-30,210,110)'%3EPreeti Kushwah Classes%3C/text%3E%3C/svg%3E") !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<div class="top-nav">
+  <a href="index.html" class="nav-link tn-home">&#8592; Back to Maths</a>
+  <span class="nav-spacer"></span>
+  <span class="nav-title">Test Paper Set 4 <small>Ch 1</small></span>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-icon">&#128208;</div>
+  <h1>Chapter Test Paper &#8212; Set 4</h1>
+  <div class="hero-sub">Class 9 Mathematics &#8212; Chapter 1: The Use of Coordinates</div>
+  <div class="hero-chapter">Expert Level &#8212; Preeti Kushwah Classes</div>
+  <div class="hero-meta">
+    <span>&#128203; Total Marks: 40</span>
+    <span>&#9200; Time: 1&#189; Hours</span>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTAINER ===== -->
+<div class="container">
+
+  <!-- Print / PDF Buttons -->
+  <div class="print-bar">
+    <button class="print-btn" onclick="window.print()">&#128424; Print Test Paper</button>
+    <button class="share-sol-btn" onclick="shareSolutions()">&#128228; Share Solutions PDF</button>
+  </div>
+  <div class="pdf-note">&#128161; Print paper or share solutions as PDF via WhatsApp to students.</div>
+
+  <!-- ===== TEST PAPER ===== -->
+  <div class="test-paper">
+    <div class="watermark"></div>
+    <div class="test-header">
+      <h2>CHAPTER 1 &#8212; THE USE OF COORDINATES</h2>
+      <p>Class IX Mathematics &#8212; Coordinate Geometry</p>
+      <p>Preeti Kushwah Classes &#8212; Unit Test (Set 4: Expert)</p>
+      <div class="test-meta">
+        <span>Total Marks: 40</span>
+        <span>Time: 1&#189; Hours</span>
+      </div>
+    </div>
+
+    <div class="test-body">
+
+      <div class="test-instructions">
+        <strong>General Instructions:</strong><br>
+        1. All questions are compulsory.<br>
+        2. Section A has 6 questions of 1 mark each.<br>
+        3. Section B has 5 questions of 2 marks each.<br>
+        4. Section C has 4 questions of 3 marks each.<br>
+        5. Section D has 2 questions of 5 marks each.<br>
+        6. Draw neat figures wherever required. Use graph paper for plotting questions.
+      </div>
+
+      <!-- ===== SECTION A: 1 Mark Each (6 x 1 = 6) ===== -->
+      <div class="test-section-title">Section A &#8212; (1 Mark Each) [6 &#215; 1 = 6]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q1.</span><span class="q-marks">1</span>
+        <div class="q-text">The point dividing the segment joining (1, &minus;2) and (4, 7) in the ratio 2 : 1 internally is ___.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q2.</span><span class="q-marks">1</span>
+        <div class="q-text">If the midpoint of (a, b) and (3, 5) is (2, 3), find the values of a and b.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q3.</span><span class="q-marks">1</span>
+        <div class="q-text">The area of the triangle with vertices (0, 0), (6, 0), (0, 8) is ___ sq units.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q4.</span><span class="q-marks">1</span>
+        <div class="q-text">If the three points (1, 1), (k, 2), (5, 5) are collinear, find the value of k.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q5.</span><span class="q-marks">1</span>
+        <div class="q-text">The point dividing the join of (&minus;1, 7) and (4, &minus;3) in the ratio 2 : 3 is ___.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q6.</span><span class="q-marks">1</span>
+        <div class="q-text">True or False: The points (1, 5), (2, 3), (&minus;2, &minus;1) are collinear.</div>
+      </div>
+
+      <!-- ===== SECTION B: 2 Marks Each (5 x 2 = 10) ===== -->
+      <div class="test-section-title">Section B &#8212; (2 Marks Each) [5 &#215; 2 = 10]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q7.</span><span class="q-marks">2</span>
+        <div class="q-text">Find the trisection points of the line segment joining A(2, &minus;2) and B(&minus;7, 4).</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q8.</span><span class="q-marks">2</span>
+        <div class="q-text">Find the coordinates of the point P that divides the segment joining A(1, &minus;1) and B(4, 5) in the ratio 2 : 1 internally.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q9.</span><span class="q-marks">2</span>
+        <div class="q-text">Show that the points A(&minus;2, &minus;1), B(1, 0), C(4, 3), D(1, 2) form a parallelogram. (Hint: Show that diagonals bisect each other.)</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q10.</span><span class="q-marks">2</span>
+        <div class="q-text">Find the area of the triangle with vertices A(1, 2), B(3, 5), C(&minus;1, 6).</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q11.</span><span class="q-marks">2</span>
+        <div class="q-text">Check whether the points (1, 1), (2, 3), (4, 7) are collinear.</div>
+      </div>
+
+      <!-- ===== SECTION C: 3 Marks Each (4 x 3 = 12) ===== -->
+      <div class="test-section-title">Section C &#8212; (3 Marks Each) [4 &#215; 3 = 12]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q12.</span><span class="q-marks">3</span>
+        <div class="q-text">Find the area of the triangle formed by the midpoints of the sides of the triangle with vertices A(0, 0), B(6, 0), C(0, 8).</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q13.</span><span class="q-marks">3</span>
+        <div class="q-text">Find the ratio in which the point (&minus;3, p) divides the segment joining (&minus;5, &minus;4) and (&minus;2, 3). Also find the value of p.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q14.</span><span class="q-marks">3</span>
+        <div class="q-text">Show that the points A(&minus;1, 0), B(3, 1), C(2, 2), D(&minus;2, 1) form a parallelogram. Find the area of the parallelogram.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q15.</span><span class="q-marks">3</span>
+        <div class="q-text">The midpoints of the sides of a triangle are P(2, 1), Q(5, 3), R(3, 5). Find the coordinates of the vertices of the triangle.</div>
+      </div>
+
+      <!-- ===== SECTION D: 5 Marks Each (2 x 5 = 10) ===== -->
+      <div class="test-section-title">Section D &#8212; (5 Marks Each) [2 &#215; 5 = 10]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q16.</span><span class="q-marks">5</span>
+        <div class="q-text">
+          A park is shaped as a rhombus with vertices A(&minus;6, 0), B(0, 8), C(6, 0), D(0, &minus;8).<br>
+          (a) Plot the rhombus and verify that all sides are equal. [1]<br>
+          (b) Find the length of both diagonals AC and BD. [1]<br>
+          (c) Find the area of the park. [1]<br>
+          (d) A statue is placed at the point dividing AB in the ratio 1 : 3 from A. Find the coordinates of the statue. [1]<br>
+          (e) The boundary path from A to C via B is how much longer than the direct path from A to C? [1]
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q17.</span><span class="q-marks">5</span>
+        <div class="q-text">
+          The vertices of a triangle are A(&minus;3, 2), B(5, 4), C(1, &minus;2).<br>
+          (a) Find the lengths of all three sides. [1]<br>
+          (b) Check whether the triangle is right-angled. [1]<br>
+          (c) Find the midpoints of each side. [1]<br>
+          (d) Find the centroid of the triangle (the point where medians intersect). [1]<br>
+          (e) Verify that the centroid lies on each median by showing that the point dividing each median from vertex to opposite midpoint in ratio 2 : 1 gives the same point. [1]
+        </div>
+      </div>
+
+      <!-- Bonus -->
+      <div class="test-section-title">Bonus Question (Optional) [2 Marks]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q18.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          &#9733; Find the area of the triangle formed by the points (a, b + c), (b, c + a), (c, a + b). What conclusion can you draw?
+        </div>
+      </div>
+
+    </div><!-- end test-body -->
+    <div class="qr-strip">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://www.preetikushwahclasses.com/" alt="QR Code">
+      <div class="qr-text">
+        <strong>Preeti Kushwah Classes</strong><br>
+        Scan for more notes &amp; papers<br>
+        www.preetikushwahclasses.com
+      </div>
+    </div>
+  </div><!-- end test-paper -->
+
+  <!-- ===== SOLUTION UNLOCK ===== -->
+  <div class="sol-lock-overlay" id="testSolLock">
+    <h3>&#128274; Solutions are Locked</h3>
+    <p>Enter the access code provided by your teacher to view solutions with explanations.</p>
+    <div>
+      <input type="password" class="sol-code-input" id="testSolCode" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" maxlength="10" autocomplete="off" onkeydown="if(event.key==='Enter')unlockTestSol()">
+      <button class="sol-unlock-btn" onclick="unlockTestSol()">Unlock</button>
+    </div>
+    <div id="testSolMsg"></div>
+  </div>
+
+  <!-- ===== SOLUTIONS (hidden) ===== -->
+  <div class="test-solutions" id="testSolBlock">
+
+    <div class="test-section-title" style="color:#166534; border-color:#bbf7d0;">Answer Key &amp; Detailed Solutions</div>
+
+    <!-- Q1 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q1. [1 Mark]</div>
+      <div class="sol-body">
+        Using section formula (ratio 2 : 1):<br>
+        x = (2&#215;4 + 1&#215;1)/(2+1) = 9/3 = 3.<br>
+        y = (2&#215;7 + 1&#215;(&minus;2))/(2+1) = 12/3 = 4.<br>
+        <strong>Point = (3, 4).</strong>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q2. [1 Mark]</div>
+      <div class="sol-body">
+        (a + 3)/2 = 2 &#8594; a = 1.<br>
+        (b + 5)/2 = 3 &#8594; b = 1.<br>
+        <strong>So a = 1, b = 1.</strong>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q3. [1 Mark]</div>
+      <div class="sol-body">
+        Area = &frac12; &#215; 6 &#215; 8 = <strong>24 sq units.</strong>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q4. [1 Mark]</div>
+      <div class="sol-body">
+        For collinear points, area of triangle = 0:<br>
+        &frac12;|1(2 &minus; 5) + k(5 &minus; 1) + 5(1 &minus; 2)| = 0<br>
+        &frac12;|&minus;3 + 4k &minus; 5| = 0<br>
+        4k &minus; 8 = 0 &#8594; <strong>k = 2.</strong>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q5. [1 Mark]</div>
+      <div class="sol-body">
+        Using section formula (ratio 2 : 3):<br>
+        x = (2&#215;4 + 3&#215;(&minus;1))/(2+3) = (8&minus;3)/5 = 1.<br>
+        y = (2&#215;(&minus;3) + 3&#215;7)/(2+3) = (&minus;6+21)/5 = 3.<br>
+        <strong>Point = (1, 3).</strong>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q6. [1 Mark]</div>
+      <div class="sol-body">
+        <strong>False.</strong><br>
+        Area = &frac12;|1(3&minus;(&minus;1)) + 2(&minus;1&minus;5) + (&minus;2)(5&minus;3)|<br>
+        = &frac12;|4 &minus; 12 &minus; 4| = &frac12;|&minus;12| = 6 &#8800; 0.<br>
+        Since area is not zero, the points are <strong>NOT collinear.</strong>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q7. [2 Marks]</div>
+      <div class="sol-body">
+        Trisection divides AB in ratios 1 : 2 and 2 : 1.<br><br>
+        <strong>Point P (ratio 1 : 2):</strong> [1 mark]<br>
+        x = (1&#215;(&minus;7) + 2&#215;2)/3 = (&minus;7+4)/3 = &minus;1.<br>
+        y = (1&#215;4 + 2&#215;(&minus;2))/3 = (4&minus;4)/3 = 0.<br>
+        <strong>P = (&minus;1, 0).</strong><br><br>
+        <strong>Point Q (ratio 2 : 1):</strong> [1 mark]<br>
+        x = (2&#215;(&minus;7) + 1&#215;2)/3 = (&minus;14+2)/3 = &minus;4.<br>
+        y = (2&#215;4 + 1&#215;(&minus;2))/3 = (8&minus;2)/3 = 2.<br>
+        <strong>Q = (&minus;4, 2).</strong>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q8. [2 Marks]</div>
+      <div class="sol-body">
+        Ratio 2 : 1 from A(1, &minus;1) to B(4, 5):<br>
+        x = (2&#215;4 + 1&#215;1)/3 = 9/3 = 3.<br>
+        y = (2&#215;5 + 1&#215;(&minus;1))/3 = 9/3 = 3.<br>
+        <strong>P = (3, 3).</strong> [1 mark for formula, 1 mark for answer]
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q9. [2 Marks]</div>
+      <div class="sol-body">
+        If diagonals bisect each other, it&#8217;s a parallelogram.<br><br>
+        Midpoint of diagonal AC: ((&minus;2+4)/2, (&minus;1+3)/2) = <strong>(1, 1).</strong> [1 mark]<br>
+        Midpoint of diagonal BD: ((1+1)/2, (0+2)/2) = <strong>(1, 1).</strong> [&frac12; mark]<br><br>
+        Both midpoints are (1, 1). Diagonals bisect each other.<br>
+        <strong>Hence ABCD is a parallelogram.</strong> [&frac12; mark]
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q10. [2 Marks]</div>
+      <div class="sol-body">
+        Area = &frac12;|x&#8321;(y&#8322; &minus; y&#8323;) + x&#8322;(y&#8323; &minus; y&#8321;) + x&#8323;(y&#8321; &minus; y&#8322;)|<br>
+        = &frac12;|1(5 &minus; 6) + 3(6 &minus; 2) + (&minus;1)(2 &minus; 5)|<br>
+        = &frac12;|&minus;1 + 12 + 3|<br>
+        = &frac12; &#215; 14 = <strong>7 sq units.</strong> [1 mark for formula, 1 mark for calculation]
+      </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q11. [2 Marks]</div>
+      <div class="sol-body">
+        Area = &frac12;|1(3 &minus; 7) + 2(7 &minus; 1) + 4(1 &minus; 3)|<br>
+        = &frac12;|&minus;4 + 12 &minus; 8|<br>
+        = &frac12;|0| = 0. [1 mark]<br><br>
+        Since area = 0, the three points are <strong>collinear.</strong> [1 mark]
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q12. [3 Marks]</div>
+      <div class="sol-body">
+        Midpoints of sides:<br>
+        M&#8321; (midpoint of AB) = ((0+6)/2, (0+0)/2) = <strong>(3, 0).</strong> [&frac12; mark]<br>
+        M&#8322; (midpoint of BC) = ((6+0)/2, (0+8)/2) = <strong>(3, 4).</strong> [&frac12; mark]<br>
+        M&#8323; (midpoint of AC) = ((0+0)/2, (0+8)/2) = <strong>(0, 4).</strong> [&frac12; mark]<br><br>
+        Area of medial triangle = &frac12;|3(4 &minus; 4) + 3(4 &minus; 0) + 0(0 &minus; 4)|<br>
+        = &frac12;|0 + 12 + 0| = <strong>6 sq units.</strong> [1 mark]<br><br>
+        Note: Original triangle area = &frac12; &#215; 6 &#215; 8 = 24. Medial triangle = 24/4 = 6. &#10003; [&frac12; mark]
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q13. [3 Marks]</div>
+      <div class="sol-body">
+        Let the ratio be k : 1.<br>
+        Using section formula for x-coordinate:<br>
+        &minus;3 = (k&#215;(&minus;2) + 1&#215;(&minus;5))/(k + 1)<br>
+        &minus;3(k + 1) = &minus;2k &minus; 5<br>
+        &minus;3k &minus; 3 = &minus;2k &minus; 5<br>
+        &minus;k = &minus;2 &#8594; k = 2. [1 mark]<br><br>
+        <strong>Ratio = 2 : 1.</strong> [&frac12; mark]<br><br>
+        Finding p:<br>
+        p = (2&#215;3 + 1&#215;(&minus;4))/(2 + 1) = (6 &minus; 4)/3 = 2/3. [1 mark]<br>
+        <strong>p = 2/3.</strong> [&frac12; mark]
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q14. [3 Marks]</div>
+      <div class="sol-body">
+        Midpoint of AC = ((&minus;1+2)/2, (0+2)/2) = (1/2, 1) = <strong>(0.5, 1).</strong> [&frac12; mark]<br>
+        Midpoint of BD = ((3+(&minus;2))/2, (1+1)/2) = (1/2, 1) = <strong>(0.5, 1).</strong> [&frac12; mark]<br>
+        Diagonals bisect each other &#8594; <strong>parallelogram.</strong> [&frac12; mark]<br><br>
+        Area = &frac12;|x<sub>A</sub>(y<sub>B</sub> &minus; y<sub>D</sub>) + x<sub>B</sub>(y<sub>C</sub> &minus; y<sub>A</sub>) + x<sub>C</sub>(y<sub>D</sub> &minus; y<sub>B</sub>) + x<sub>D</sub>(y<sub>A</sub> &minus; y<sub>C</sub>)|<br>
+        = &frac12;|(&minus;1)(1 &minus; 1) + 3(2 &minus; 0) + 2(1 &minus; 1) + (&minus;2)(0 &minus; 2)|<br>
+        = &frac12;|0 + 6 + 0 + 4| = &frac12; &#215; 10 = <strong>5 sq units.</strong> [1&frac12; marks]
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q15. [3 Marks]</div>
+      <div class="sol-body">
+        Let the vertices be A, B, C such that P = midpoint of AB, Q = midpoint of BC, R = midpoint of AC.<br><br>
+        A = P + R &minus; Q = (2+3&minus;5, 1+5&minus;3) = <strong>(0, 3).</strong> [1 mark]<br>
+        B = P + Q &minus; R = (2+5&minus;3, 1+3&minus;5) = <strong>(4, &minus;1).</strong> [1 mark]<br>
+        C = Q + R &minus; P = (5+3&minus;2, 3+5&minus;1) = <strong>(6, 7).</strong> [&frac12; mark]<br><br>
+        Verification:<br>
+        Mid of AB = ((0+4)/2, (3+(&minus;1))/2) = (2, 1) = P &#10003;<br>
+        Mid of BC = ((4+6)/2, (&minus;1+7)/2) = (5, 3) = Q &#10003;<br>
+        Mid of AC = ((0+6)/2, (3+7)/2) = (3, 5) = R &#10003; [&frac12; mark]
+      </div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q16. [5 Marks]</div>
+      <div class="sol-body">
+        <strong>(a)</strong> [1 mark]<br>
+        AB = &radic;((0&minus;(&minus;6))&sup2; + (8&minus;0)&sup2;) = &radic;(36+64) = &radic;100 = 10.<br>
+        BC = &radic;((6&minus;0)&sup2; + (0&minus;8)&sup2;) = &radic;(36+64) = 10.<br>
+        CD = &radic;((0&minus;6)&sup2; + (&minus;8&minus;0)&sup2;) = &radic;(36+64) = 10.<br>
+        DA = &radic;((&minus;6&minus;0)&sup2; + (0&minus;(&minus;8))&sup2;) = &radic;(36+64) = 10.<br>
+        <strong>All sides = 10. Rhombus confirmed.</strong><br><br>
+        <strong>(b)</strong> [1 mark]<br>
+        AC = |6&minus;(&minus;6)| = <strong>12 units.</strong><br>
+        BD = |8&minus;(&minus;8)| = <strong>16 units.</strong><br><br>
+        <strong>(c)</strong> [1 mark]<br>
+        Area = &frac12; &#215; d&#8321; &#215; d&#8322; = &frac12; &#215; 12 &#215; 16 = <strong>96 sq units.</strong><br><br>
+        <strong>(d)</strong> [1 mark]<br>
+        Ratio 1 : 3 from A(&minus;6, 0) to B(0, 8):<br>
+        x = (1&#215;0 + 3&#215;(&minus;6))/(1+3) = &minus;18/4 = &minus;4.5.<br>
+        y = (1&#215;8 + 3&#215;0)/(1+3) = 8/4 = 2.<br>
+        <strong>Statue at (&minus;4.5, 2).</strong><br><br>
+        <strong>(e)</strong> [1 mark]<br>
+        Boundary A&#8594;B&#8594;C = AB + BC = 10 + 10 = 20 units.<br>
+        Direct A&#8594;C = AC = 12 units.<br>
+        Difference = 20 &minus; 12 = <strong>8 units longer.</strong>
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q17. [5 Marks]</div>
+      <div class="sol-body">
+        <strong>(a)</strong> [1 mark]<br>
+        AB = &radic;((5&minus;(&minus;3))&sup2; + (4&minus;2)&sup2;) = &radic;(64+4) = &radic;68 = 2&radic;17.<br>
+        BC = &radic;((1&minus;5)&sup2; + (&minus;2&minus;4)&sup2;) = &radic;(16+36) = &radic;52 = 2&radic;13.<br>
+        AC = &radic;((1&minus;(&minus;3))&sup2; + (&minus;2&minus;2)&sup2;) = &radic;(16+16) = &radic;32 = 4&radic;2.<br><br>
+        <strong>(b)</strong> [1 mark]<br>
+        AB&sup2; = 68, BC&sup2; = 52, AC&sup2; = 32.<br>
+        Check: 52 + 32 = 84 &#8800; 68. &nbsp; 68 + 32 = 100 &#8800; 52. &nbsp; 68 + 52 = 120 &#8800; 32.<br>
+        No pair satisfies Pythagoras. <strong>Triangle is NOT right-angled.</strong><br><br>
+        <strong>(c)</strong> [1 mark]<br>
+        Mid AB = ((&minus;3+5)/2, (2+4)/2) = <strong>(1, 3).</strong><br>
+        Mid BC = ((5+1)/2, (4+(&minus;2))/2) = <strong>(3, 1).</strong><br>
+        Mid AC = ((&minus;3+1)/2, (2+(&minus;2))/2) = <strong>(&minus;1, 0).</strong><br><br>
+        <strong>(d)</strong> [1 mark]<br>
+        Centroid = ((&minus;3+5+1)/3, (2+4+(&minus;2))/3) = (3/3, 4/3) = <strong>(1, 4/3).</strong><br><br>
+        <strong>(e)</strong> [1 mark]<br>
+        Median from A(&minus;3, 2) to midpoint of BC (3, 1):<br>
+        Point dividing in 2 : 1 from A = ((2&#215;3+1&#215;(&minus;3))/3, (2&#215;1+1&#215;2)/3) = (3/3, 4/3) = <strong>(1, 4/3)</strong> &#10003;<br><br>
+        Median from B(5, 4) to midpoint of AC (&minus;1, 0):<br>
+        Point dividing in 2 : 1 from B = ((2&#215;(&minus;1)+1&#215;5)/3, (2&#215;0+1&#215;4)/3) = (3/3, 4/3) = <strong>(1, 4/3)</strong> &#10003;<br><br>
+        Median from C(1, &minus;2) to midpoint of AB (1, 3):<br>
+        Point dividing in 2 : 1 from C = ((2&#215;1+1&#215;1)/3, (2&#215;3+1&#215;(&minus;2))/3) = (3/3, 4/3) = <strong>(1, 4/3)</strong> &#10003;<br><br>
+        <strong>All three medians pass through (1, 4/3).</strong>
+      </div>
+    </div>
+
+    <!-- Q18 Bonus -->
+    <div class="test-sol-item">
+      <div class="sol-num">Q18. Bonus [2 Marks]</div>
+      <div class="sol-body">
+        Area = &frac12;|a((c+a) &minus; (a+b)) + b((a+b) &minus; (b+c)) + c((b+c) &minus; (c+a))|<br>
+        = &frac12;|a(c &minus; b) + b(a &minus; c) + c(b &minus; a)|<br>
+        = &frac12;|ac &minus; ab + ab &minus; bc + bc &minus; ac|<br>
+        = &frac12;|0| = <strong>0.</strong> [1 mark]<br><br>
+        <strong>Conclusion:</strong> The area is always zero regardless of the values of a, b, c. This means the three points are <strong>always collinear.</strong> [1 mark]
+      </div>
+    </div>
+
+  </div><!-- end test-solutions -->
+
+</div><!-- end container -->
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div>Preeti Kushwah Classes &middot; Quality Education for Every Student</div>
+  <div style="margin-top:6px;">&copy; 2026 Preeti Kushwah Classes</div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+function fireConfetti() {
+  var colors = ['#7c3aed','#ec4899','#f97316','#fbbf24','#16a34a','#3b82f6','#ef4444'];
+  for (var i = 0; i < 60; i++) {
+    var c = document.createElement('div');
+    c.className = 'confetti-piece';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.top = '-20px';
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.style.width = (6 + Math.random() * 10) + 'px';
+    c.style.height = (6 + Math.random() * 10) + 'px';
+    c.style.animationDelay = (Math.random() * 1.5) + 's';
+    c.style.animationDuration = (2 + Math.random() * 2) + 's';
+    document.body.appendChild(c);
+    (function(el) { setTimeout(function() { el.remove(); }, 5000); })(c);
+  }
+}
+
+function _h(s){var h=5381;for(var i=0;i<s.length;i++){h=((h<<5)+h)+s.charCodeAt(i);}return h>>>0;}
+function unlockTestSol() {
+  var code = document.getElementById('testSolCode').value.trim().toUpperCase();
+  var msg = document.getElementById('testSolMsg');
+  var validHashes = [3594616101,3225666297,3317573739,4201821354];
+  if (code === "PREETI7") {
+    document.getElementById('testSolBlock').classList.add('unlocked');
+    document.getElementById('testSolLock').style.display = 'none';
+    msg.className = 'sol-success';
+    msg.textContent = '';
+    fireConfetti();
+  } else {
+    msg.className = 'sol-error';
+    msg.textContent = 'Incorrect code. Ask your teacher for the access code.';
+    document.getElementById('testSolCode').value = '';
+    document.getElementById('testSolCode').focus();
+  }
+}
+</script>
+
+<script>
+function shareSolutions() {
+  var sol = document.getElementById('testSolBlock');
+  if (!sol.classList.contains('unlocked')) {
+    var code = prompt('Enter access code to unlock solutions first:');
+    if (!code) return;
+    code = code.trim().toUpperCase();
+    if ([3594616101,3225666297,3317573739,4201821354].indexOf(_h(code)) === -1) { alert('Incorrect code.'); return; }
+    sol.classList.add('unlocked');
+    document.getElementById('testSolLock').style.display = 'none';
+  }
+  var win = window.open('', '_blank');
+  win.document.write('<!DOCTYPE html><html><head><title>Solutions - Preeti Kushwah Classes</title>');
+  win.document.write('<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">');
+  win.document.write('<style>*{box-sizing:border-box;margin:0;padding:0;}body{font-family:"Nunito",sans-serif;padding:30px 24px;color:#1e1b4b;line-height:1.7;}');
+  win.document.write('.sol-header{text-align:center;margin-bottom:24px;padding-bottom:16px;border-bottom:3px solid #7c3aed;}');
+  win.document.write('.sol-header h1{font-family:"Fredoka One",cursive;font-size:22px;color:#5b21b6;}');
+  win.document.write('.sol-header p{font-size:13px;color:#6b7280;margin-top:4px;}');
+  win.document.write('.test-sol-item{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 12px 12px 0;padding:14px 18px;margin-bottom:14px;page-break-inside:avoid;}');
+  win.document.write('.test-sol-item .sol-num{font-weight:800;color:#166534;font-size:14px;}');
+  win.document.write('.test-sol-item .sol-body{font-size:13px;color:#374151;margin-top:6px;line-height:1.8;}');
+  win.document.write('.test-sol-item .sol-body strong{color:#5b21b6;}');
+  win.document.write('.qr-footer{text-align:center;margin-top:30px;padding-top:16px;border-top:2px solid #e5e7eb;}');
+  win.document.write('.qr-footer img{width:80px;height:80px;}');
+  win.document.write('.qr-footer p{font-size:11px;color:#6b7280;font-weight:700;margin-top:6px;}');
+  win.document.write('@media print{body{padding:16px;}}');
+  win.document.write('</style></head><body>');
+  win.document.write('<div class="sol-header"><h1>Answer Key & Solutions</h1>');
+  win.document.write('<p>Chapter 1: The Use of Coordinates &mdash; Set 4 &mdash; Preeti Kushwah Classes</p></div>');
+  win.document.write(sol.innerHTML);
+  win.document.write('<div class="qr-footer"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.preetikushwahclasses.com/" alt="QR"><p>www.preetikushwahclasses.com</p></div>');
+  win.document.write('</body></html>');
+  win.document.close();
+  setTimeout(function() { win.print(); }, 600);
+}
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+</body>
+</html>

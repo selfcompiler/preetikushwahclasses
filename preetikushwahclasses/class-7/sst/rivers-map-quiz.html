@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Interactive Rivers Map Quiz for Class 7 SST — explore major Indian and World rivers on real Leaflet maps, play tap-the-river and drag-match quizzes. Ganga, Yamuna, Brahmaputra, Godavari, Krishna, Narmada, Kaveri, Nile, Amazon &amp; more.">
+<meta name="keywords" content="Preeti Kushwah Classes, Rivers of India, World Rivers, Class 7 SST, NCERT, CBSE, Ganga, Yamuna, Brahmaputra, Godavari, Krishna, Narmada, Kaveri, Mahanadi, Sutlej, Indus, Chambal, Tapi, Nile, Amazon, Mississippi, Yangtze, Danube, Congo, Mekong, Rhine, map quiz, interactive quiz, Leaflet map">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-7/sst/rivers-map-quiz.html">
+<meta property="og:title" content="Rivers Map Quiz — Class 7 SST | Preeti Kushwah Classes">
+<meta property="og:description" content="Interactive Leaflet map quiz — explore, identify and learn about India's and the world's major rivers with fun activities.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preetikushwahclasses.com/class-7/sst/rivers-map-quiz.html">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Rivers Map Quiz — Class 7 SST | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+:root{
+  --earth:#92400e;--earth-mid:#d97706;--earth-light:#f59e0b;--earth-pale:#fffbeb;
+  --river-dark:#1e3a5f;--river-mid:#3b82f6;--river-light:#93c5fd;--river-pale:#eff6ff;
+  --text:#1f2937;--card:#ffffff;--bg:#fffbeb;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.7}
+
+/* NAV */
+.top-nav{background:#fff;padding:8px 12px;display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,.06);position:sticky;top:0;z-index:1100;overflow-x:auto;white-space:nowrap}
+.tn-home{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;text-decoration:none;padding:7px 14px;border-radius:12px;font-size:12px;font-weight:800;border:1.5px solid #fbbf24;transition:all .2s;white-space:nowrap}
+.tn-home:hover{background:#fde68a;transform:translateY(-1px);box-shadow:0 2px 8px rgba(245,158,11,.15)}
+.nav-spacer{flex:1;min-width:4px}
+.tn-share{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;padding:7px 12px;border-radius:12px;border:1.5px solid #fbbf24;font-size:11px;font-weight:800;cursor:pointer;transition:all .2s;white-space:nowrap}
+.tn-share:hover{background:#fde68a;transform:translateY(-1px)}
+
+/* TOC */
+.toc-bar{background:linear-gradient(135deg,#92400e,#d97706);padding:10px 16px;position:sticky;top:44px;z-index:1050;box-shadow:0 2px 10px rgba(0,0,0,.2);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+.toc-bar a{display:inline-block;background:rgba(255,255,255,.15);color:#fff;text-decoration:none;padding:5px 12px;border-radius:16px;font-size:12px;font-weight:700;margin-right:5px;transition:all .2s}
+.toc-bar a:hover,.toc-bar a.active{background:rgba(255,255,255,.35);transform:translateY(-1px)}
+
+/* HERO */
+.hero{background:linear-gradient(180deg,#1e3a5f 0%,#2563eb 30%,#3b82f6 55%,#93c5fd 85%,#eff6ff 100%);position:relative;overflow:hidden;min-height:340px;padding-bottom:24px}
+.hero-content{position:relative;z-index:10;text-align:center;padding:32px 16px 0}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.25);border:2px solid rgba(255,255,255,.4);border-radius:30px;padding:4px 16px;font-size:10px;font-weight:800;letter-spacing:2px;color:#fff;text-transform:uppercase;margin-bottom:10px}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(24px,5.5vw,46px);color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.3);margin-bottom:6px;line-height:1.15}
+.hero p{color:rgba(255,255,255,.9);font-size:14px;font-weight:700;margin-bottom:14px}
+.hero-waves{position:relative;width:100%;height:80px;margin-top:10px}
+.hero-waves svg{position:absolute;bottom:0;width:100%;height:80px}
+
+/* SECTIONS */
+.section{padding:32px 16px;max-width:900px;margin:0 auto}
+.sec-head{font-family:'Fredoka One',cursive;font-size:clamp(22px,4vw,32px);margin-bottom:6px;line-height:1.2;color:#1e3a5f}
+.sec-sub{font-size:13px;color:#6b7280;font-weight:700;margin-bottom:20px}
+
+/* CARDS */
+.card{background:#fff;border-radius:16px;padding:20px;box-shadow:0 3px 14px rgba(0,0,0,.06);margin-bottom:16px;border-left:5px solid #3b82f6}
+.card h3{font-family:'Fredoka One',cursive;font-size:17px;margin-bottom:8px}
+.card p,.card li{font-size:14px;margin-bottom:6px}
+.card ul{padding-left:20px}
+.card li{list-style:disc}
+
+/* MAP */
+.map-wrap{background:#fff;border-radius:16px;padding:16px;box-shadow:0 3px 14px rgba(0,0,0,.06);margin:16px 0;overflow:hidden;position:relative}
+.map-wrap h4{font-family:'Fredoka One',cursive;font-size:15px;margin-bottom:10px;text-align:center;color:#1e3a5f}
+.map-instruction{text-align:center;font-size:12px;font-weight:600;color:#6b7280;margin-bottom:8px}
+.leaflet-map{width:100%;height:500px;border-radius:12px;z-index:1}
+@media(max-width:600px){
+  .leaflet-map{height:380px}
+}
+
+.map-info{background:#f9fafb;border:1.5px solid #e5e7eb;border-radius:12px;padding:16px;margin-top:12px;font-size:13px;min-height:80px;transition:all .3s}
+.map-info h5{font-family:'Fredoka One',cursive;font-size:16px;margin-bottom:6px;color:#1e3a5f}
+.map-info .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-top:8px}
+.map-info .info-item{font-size:13px}
+.map-info .info-label{font-weight:800;color:#92400e;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+.map-info .info-val{font-weight:600;color:#374151}
+.map-info .fun-fact{grid-column:1/-1;margin-top:6px;padding:10px;background:#eff6ff;border-radius:10px;font-size:12px;font-weight:600;color:#1e3a5f;border-left:4px solid #3b82f6}
+
+.river-legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;justify-content:center}
+.river-legend span{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:8px;background:#f9fafb;border:1px solid #e5e7eb;cursor:pointer;transition:all .2s}
+.river-legend span:hover{background:#eff6ff;border-color:#93c5fd}
+.river-legend span .dot{width:12px;height:4px;border-radius:2px;display:inline-block}
+
+/* QUIZ SECTION */
+.quiz-section{background:linear-gradient(135deg,#fef3c7,#fff7ed);border-radius:20px;padding:24px 18px;margin:24px auto;max-width:900px;border:2px solid #fbbf24}
+.quiz-section h3{font-family:'Fredoka One',cursive;font-size:20px;color:#92400e;text-align:center;margin-bottom:16px}
+.q-card{background:#fff;border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.q-card .q-text{font-size:14px;font-weight:800;margin-bottom:10px;color:#1f2937}
+.q-card .q-num{font-size:11px;font-weight:800;color:#d97706;margin-bottom:4px}
+.q-opts label{display:block;padding:10px 14px;margin:4px 0;border-radius:10px;border:1.5px solid #e5e7eb;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+.q-opts label:hover{border-color:#f59e0b;background:#fffbeb}
+.q-opts input{margin-right:8px;accent-color:#f59e0b}
+.q-opts label.correct{background:#dcfce7;border-color:#22c55e;color:#166534}
+.q-opts label.wrong{background:#fef2f2;border-color:#ef4444;color:#991b1b}
+.q-explain{display:none;padding:10px 14px;margin-top:8px;background:#eff6ff;border-radius:10px;font-size:12px;font-weight:600;color:#1e3a5f;border-left:4px solid #3b82f6}
+.quiz-btn{display:block;margin:16px auto 0;padding:12px 32px;border-radius:14px;border:none;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;font-size:15px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s}
+.quiz-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(217,119,6,.3)}
+.quiz-score{text-align:center;font-family:'Fredoka One',cursive;font-size:24px;color:#166534;margin-top:12px;display:none}
+
+/* MAP QUIZ (TAP) */
+.tap-quiz-wrap{background:#fff;border-radius:16px;padding:20px;box-shadow:0 3px 14px rgba(0,0,0,.06);margin:16px 0}
+.tap-quiz-wrap h4{font-family:'Fredoka One',cursive;font-size:18px;color:#1e3a5f;text-align:center;margin-bottom:6px}
+.tap-prompt{text-align:center;font-size:16px;font-weight:800;color:#92400e;margin:10px 0;min-height:28px}
+.tap-score{text-align:center;font-size:14px;font-weight:800;color:#6b7280;margin-bottom:10px}
+.tap-feedback{text-align:center;font-size:14px;font-weight:800;min-height:24px;margin:8px 0;transition:all .3s}
+.tap-feedback.correct-fb{color:#166534}
+.tap-feedback.wrong-fb{color:#dc2626}
+.tap-restart{display:block;margin:12px auto 0;padding:10px 24px;border-radius:12px;border:2px solid #3b82f6;background:#eff6ff;color:#1e3a5f;font-size:13px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s}
+.tap-restart:hover{background:#3b82f6;color:#fff}
+
+/* MATCH ACTIVITY */
+.match-wrap{background:#fff;border-radius:16px;padding:20px;box-shadow:0 3px 14px rgba(0,0,0,.06);margin:16px 0}
+.match-wrap h4{font-family:'Fredoka One',cursive;font-size:18px;color:#1e3a5f;margin-bottom:6px;text-align:center}
+.match-sub{font-size:13px;color:#6b7280;font-weight:700;margin-bottom:14px;text-align:center}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.match-item{padding:10px 12px;border-radius:10px;border:1.5px solid #e5e7eb;font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;text-align:center;user-select:none}
+.match-item:hover{border-color:#3b82f6;background:#eff6ff}
+.match-item.selected{background:#dbeafe;border-color:#3b82f6}
+.match-item.matched{background:#dcfce7;border-color:#22c55e;pointer-events:none}
+.match-item.wrong-flash{background:#fef2f2;border-color:#ef4444;animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.match-result{text-align:center;font-family:'Fredoka One',cursive;font-size:18px;margin-top:10px;min-height:28px}
+.match-restart{display:block;margin:10px auto 0;padding:8px 20px;border-radius:10px;border:1.5px solid #d97706;background:#fffbeb;color:#92400e;font-size:12px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s}
+.match-restart:hover{background:#fde68a}
+
+/* FOOTER */
+footer{text-align:center;padding:24px;background:#92400e;color:#fff;font-size:13px;font-weight:700;margin-top:40px}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(16px);transition:all .5s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .section{padding:24px 12px}
+  .map-info .info-grid{grid-template-columns:1fr}
+  .match-grid{grid-template-columns:1fr}
+  .hero{min-height:280px}
+}
+
+/* DARK MODE */
+[data-theme="dark"]{--bg:#1a1a2e;--text:#e5e7eb;--card:#2d2d44}
+[data-theme="dark"] body{background:var(--bg);color:var(--text)}
+[data-theme="dark"] .card,[data-theme="dark"] .map-wrap,[data-theme="dark"] .tap-quiz-wrap,[data-theme="dark"] .match-wrap,[data-theme="dark"] .q-card{background:var(--card);color:var(--text)}
+[data-theme="dark"] .top-nav{background:#2d2d44}
+[data-theme="dark"] .map-info{background:#1a1a2e;border-color:#4b5563;color:var(--text)}
+[data-theme="dark"] .map-info h5{color:#93c5fd}
+[data-theme="dark"] .map-info .info-val{color:#d1d5db}
+[data-theme="dark"] .river-legend span{background:#2d2d44;border-color:#4b5563;color:var(--text)}
+[data-theme="dark"] .match-item{background:var(--card);color:var(--text);border-color:#4b5563}
+[data-theme="dark"] .match-item:hover{background:#3d3d5c;border-color:#93c5fd}
+[data-theme="dark"] .quiz-section{background:linear-gradient(135deg,#2d2d44,#1a1a2e);border-color:#d97706}
+[data-theme="dark"] .q-card{background:#2d2d44}
+[data-theme="dark"] .q-opts label{border-color:#4b5563;color:var(--text)}
+[data-theme="dark"] .q-opts label:hover{border-color:#f59e0b;background:#3d3d5c}
+[data-theme="dark"] .q-explain{background:#1a1a2e;color:#93c5fd}
+[data-theme="dark"] .fun-fact{background:#1a1a2e !important;color:#93c5fd !important}
+[data-theme="dark"] .tap-prompt{color:#fbbf24}
+[data-theme="dark"] .sec-head{color:#93c5fd}
+[data-theme="dark"] .map-wrap h4{color:#93c5fd}
+[data-theme="dark"] .map-instruction{color:#9ca3af}
+[data-theme="dark"] .tap-quiz-wrap h4{color:#93c5fd}
+[data-theme="dark"] .match-wrap h4{color:#93c5fd}
+
+/* Leaflet overrides for z-index */
+.leaflet-container{z-index:1;font-family:'Nunito',sans-serif}
+.leaflet-top,.leaflet-bottom{z-index:2}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <a href="index.html" class="tn-home">&#127757; Class 7 &middot; SST</a>
+  <span class="nav-spacer"></span>
+  <button class="tn-share" onclick="if(navigator.share)navigator.share({title:document.title,url:location.href}).catch(function(){});else{navigator.clipboard.writeText(location.href);this.textContent='Link Copied!';var b=this;setTimeout(function(){b.textContent='&#128228; Share'},1500)}">&#128228; Share</button>
+</nav>
+
+<!-- TOC -->
+<div class="toc-bar" id="tocBar">
+  <a href="#mapExplore">India Map</a>
+  <a href="#worldMapSec">World Map</a>
+  <a href="#riverQuizSec">MCQ Quiz</a>
+  <a href="#tapQuizSec">Tap the River</a>
+  <a href="#matchSec">Match Game</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Interactive Activity &middot; SST</div>
+    <h1>Rivers of India &amp; the World &mdash; Map Quiz</h1>
+    <p>Explore, identify, and master the world's lifeline rivers on real maps</p>
+  </div>
+  <div class="hero-waves">
+    <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+      <path d="M0,40 C150,80 350,0 600,40 C850,80 1050,0 1200,40 L1200,80 L0,80Z" fill="rgba(255,255,255,.12)"/>
+      <path d="M0,50 C200,20 400,70 600,50 C800,30 1000,70 1200,50 L1200,80 L0,80Z" fill="rgba(255,255,255,.08)"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ========== SECTION 1: Indian Rivers — Interactive Map ========== -->
+<section class="section" id="mapExplore">
+  <h2 class="sec-head fade-in">&#127758; Interactive River Map of India</h2>
+  <p class="sec-sub fade-in">Click on any river to learn about it. Use the legend below to highlight a specific river.</p>
+
+  <div class="map-wrap fade-in">
+    <h4>Major Rivers of India</h4>
+    <p class="map-instruction">Pinch to zoom. Click a river to learn about it.</p>
+    <div id="indiaMap" class="leaflet-map"></div>
+
+    <!-- Legend -->
+    <div class="river-legend" id="riverLegend"></div>
+
+    <!-- Info Box -->
+    <div class="map-info" id="mapInfo">
+      <h5>&#128161; Click a river on the map</h5>
+      <p style="font-size:13px;font-weight:600;color:#6b7280;">Tap on any highlighted river to see details about its origin, the states it flows through, its length, and a fun fact.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SECTION 2: World Rivers — Interactive Map ========== -->
+<section class="section" id="worldMapSec">
+  <h2 class="sec-head fade-in">&#127758; World Rivers — Interactive Map</h2>
+  <p class="sec-sub fade-in">Explore the great rivers of the world! Click on any river to learn about it.</p>
+
+  <div class="map-wrap fade-in">
+    <h4>Major Rivers of the World</h4>
+    <p class="map-instruction">Pinch to zoom. Click a river to learn about it.</p>
+    <div id="worldMap" class="leaflet-map" style="height:450px"></div>
+
+    <!-- Legend -->
+    <div class="river-legend" id="worldRiverLegend"></div>
+
+    <!-- Info Box -->
+    <div class="map-info" id="worldMapInfo">
+      <h5>&#128161; Click a river on the map</h5>
+      <p style="font-size:13px;font-weight:600;color:#6b7280;">Tap on any highlighted river to see details about its origin, countries it flows through, length, and a fun fact.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SECTION 3: MCQ Quiz ========== -->
+<section id="riverQuizSec">
+  <div class="quiz-section">
+    <h3>&#127919; Rivers &mdash; MCQ Quiz</h3>
+    <p style="text-align:center;font-size:13px;font-weight:600;color:#6b7280;margin-bottom:16px">Test your knowledge about India's and the world's major rivers!</p>
+    <div id="riverQuizQs"></div>
+    <button class="quiz-btn" onclick="checkQuiz('riverQuiz')">Check My Answers</button>
+    <div class="quiz-score" id="riverQuizScore"></div>
+  </div>
+</section>
+
+<!-- ========== SECTION 4: Tap the River Quiz ========== -->
+<section class="section" id="tapQuizSec">
+  <h2 class="sec-head fade-in">&#128073; Tap the River Quiz</h2>
+  <p class="sec-sub fade-in">A question appears below — find and tap the correct river on the map!</p>
+
+  <div class="tap-quiz-wrap fade-in">
+    <h4>Find the River!</h4>
+    <div class="tap-score" id="tapScore">Score: 0 / 10</div>
+    <div class="tap-prompt" id="tapPrompt">Loading...</div>
+    <div class="tap-feedback" id="tapFeedback"></div>
+    <p class="map-instruction">Pinch to zoom. Click a river to learn about it.</p>
+    <div id="tapMap" class="leaflet-map" style="height:500px"></div>
+    <button class="tap-restart" id="tapRestart" onclick="startTapQuiz()" style="display:none">Restart Tap Quiz</button>
+  </div>
+</section>
+
+<!-- ========== SECTION 5: Match Game ========== -->
+<section class="section" id="matchSec">
+  <h2 class="sec-head fade-in">&#128279; Which State? &mdash; Match Game</h2>
+  <p class="sec-sub fade-in">Click a river name, then click the state where it originates.</p>
+
+  <div class="match-wrap fade-in">
+    <h4>Match River to Origin State</h4>
+    <p class="match-sub">Click a river, then click its origin state</p>
+    <div class="match-grid" id="matchGrid"></div>
+    <div class="match-result" id="matchResult"></div>
+    <button class="match-restart" onclick="setupMatchGame()">Restart Match</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>Preeti Kushwah Classes &middot; Quality Education for Every Student</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+/* =========================================================
+   HELPERS
+   ========================================================= */
+function shuffleArray(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+var lightTiles = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+var darkTiles = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+var tileAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>';
+
+function getTileUrl() {
+  return isDark ? darkTiles : lightTiles;
+}
+
+/* Track all tile layers so dark mode toggle can update them */
+var allTileLayers = [];
+
+function createTileLayer() {
+  var layer = L.tileLayer(getTileUrl(), { attribution: tileAttribution, maxZoom: 18 });
+  allTileLayers.push(layer);
+  return layer;
+}
+
+/* Dark mode observer */
+var dmObserver = new MutationObserver(function(mutations) {
+  mutations.forEach(function(m) {
+    if (m.attributeName === 'data-theme') {
+      isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      allTileLayers.forEach(function(tl) {
+        tl.setUrl(getTileUrl());
+      });
+    }
+  });
+});
+dmObserver.observe(document.documentElement, { attributes: true });
+
+/* =========================================================
+   INDIAN RIVER DATA
+   ========================================================= */
+var riverData = {
+  ganga: {
+    name: 'Ganga',
+    color: '#0ea5e9',
+    weight: 3.5,
+    coords: [[30.99,78.93],[30.5,78.5],[29.95,78.16],[29.45,78.0],[28.68,77.7],[27.88,78.58],[27.18,79.42],[26.85,80.91],[25.43,81.85],[25.32,83.01],[25.6,84.62],[25.61,85.14],[25.37,86.12],[24.75,87.95],[23.2,88.2],[22.08,88.33]],
+    origin: 'Gangotri Glacier (Gaumukh), Uttarakhand (3,892 m)',
+    states: 'Uttarakhand, Uttar Pradesh, Bihar, Jharkhand, West Bengal',
+    length: '~2,525 km',
+    funFact: 'The Ganga is considered the holiest river in Hinduism. The Ganga-Brahmaputra Delta (Sundarbans) is the largest delta in the world and home to the Royal Bengal Tiger.'
+  },
+  yamuna: {
+    name: 'Yamuna',
+    color: '#3b82f6',
+    weight: 2.8,
+    coords: [[31.01,78.45],[30.72,78.2],[30.38,77.87],[30.32,77.82],[29.95,77.55],[28.95,77.25],[28.61,77.23],[27.18,78.02],[27.17,79.42],[26.85,80.91],[25.43,81.85]],
+    origin: 'Yamunotri Glacier, Uttarakhand (6,387 m)',
+    states: 'Uttarakhand, Haryana, Delhi, Uttar Pradesh',
+    length: '~1,376 km',
+    funFact: 'The Yamuna is the largest tributary of the Ganga. The Taj Mahal in Agra sits on its banks. It merges with the Ganga at Prayagraj (Allahabad) at the famous Triveni Sangam.'
+  },
+  brahmaputra: {
+    name: 'Brahmaputra',
+    color: '#0284c7',
+    weight: 3.5,
+    coords: [[28.2,95.8],[27.9,95.3],[27.5,94.5],[27.3,94.0],[26.9,93.7],[26.6,93.0],[26.2,92.0],[26.1,91.7],[26.19,91.0],[26.1,90.5],[25.9,89.85],[25.2,89.7],[24.0,89.5],[23.5,90.4]],
+    origin: 'Angsi Glacier, Tibet (known as Tsangpo); enters India through Arunachal Pradesh',
+    states: 'Arunachal Pradesh, Assam, (merges into Meghna in Bangladesh near West Bengal)',
+    length: '~2,900 km total; ~916 km in India',
+    funFact: 'The Brahmaputra is one of the few rivers in the world that is male-named (Son of Brahma). Majuli in Assam, the world\'s largest river island, sits in the Brahmaputra.'
+  },
+  godavari: {
+    name: 'Godavari',
+    color: '#0d9488',
+    weight: 3,
+    coords: [[19.99,73.79],[19.8,74.5],[19.5,76.0],[18.8,77.5],[18.4,78.5],[17.8,79.5],[17.4,80.2],[17.0,80.8],[16.8,81.5],[16.94,82.24]],
+    origin: 'Trimbakeshwar, Nasik, Maharashtra (1,067 m)',
+    states: 'Maharashtra, Telangana, Chhattisgarh, Andhra Pradesh',
+    length: '~1,465 km',
+    funFact: 'The Godavari is the longest peninsular river and is called "Dakshin Ganga" (Ganga of the South). It has the second-largest river basin in India after the Ganga.'
+  },
+  krishna: {
+    name: 'Krishna',
+    color: '#14b8a6',
+    weight: 3,
+    coords: [[17.92,73.66],[17.4,74.5],[16.7,75.5],[16.5,76.5],[16.2,77.5],[16.0,78.5],[16.1,79.3],[16.18,80.15],[15.9,80.6],[16.0,81.0]],
+    origin: 'Mahabaleshwar, Maharashtra (1,337 m)',
+    states: 'Maharashtra, Karnataka, Telangana, Andhra Pradesh',
+    length: '~1,400 km',
+    funFact: 'The Krishna is the fourth-longest river in India. The famous Nagarjuna Sagar Dam and Srisailam Dam are built across it. Its tributary Tungabhadra was the lifeline of the Vijayanagara Empire.'
+  },
+  narmada: {
+    name: 'Narmada',
+    color: '#7c3aed',
+    weight: 2.8,
+    coords: [[22.67,81.75],[22.6,80.5],[22.55,79.5],[22.5,78.5],[22.3,77.5],[22.1,76.5],[21.9,75.5],[21.7,74.5],[21.63,73.5],[21.64,72.98]],
+    origin: 'Amarkantak Plateau, Madhya Pradesh (1,057 m)',
+    states: 'Madhya Pradesh, Maharashtra, Gujarat',
+    length: '~1,312 km',
+    funFact: 'The Narmada is one of only three major rivers in India that flows westward (into the Arabian Sea). It flows through a rift valley, unlike most other peninsular rivers which flow through regular valleys.'
+  },
+  tapi: {
+    name: 'Tapi (Tapti)',
+    color: '#8b5cf6',
+    weight: 2.5,
+    coords: [[21.77,78.25],[21.5,77.5],[21.25,76.5],[21.2,75.5],[21.15,74.5],[21.1,73.5],[21.17,72.97]],
+    origin: 'Multai (Satpura Range), Madhya Pradesh',
+    states: 'Madhya Pradesh, Maharashtra, Gujarat',
+    length: '~724 km',
+    funFact: 'The Tapi is the other major westward-flowing river of peninsular India. "Multai" where it originates is believed to be a corrupted form of "Mool Tapi" (origin of Tapi).'
+  },
+  kaveri: {
+    name: 'Kaveri (Cauvery)',
+    color: '#06b6d4',
+    weight: 2.5,
+    coords: [[12.42,75.49],[12.3,76.0],[12.4,76.6],[12.3,77.0],[12.0,77.5],[11.8,77.8],[11.5,78.3],[11.0,78.8],[10.8,79.2],[10.9,79.85]],
+    origin: 'Talakaveri, Brahmagiri Hills, Kodagu, Karnataka (1,341 m)',
+    states: 'Karnataka, Tamil Nadu',
+    length: '~800 km',
+    funFact: 'The Kaveri is called the "Ganga of the South" by some traditions. Kaveri water sharing between Karnataka and Tamil Nadu has been a long-standing dispute.'
+  },
+  mahanadi: {
+    name: 'Mahanadi',
+    color: '#0891b2',
+    weight: 2.5,
+    coords: [[20.77,82.59],[21.0,83.0],[21.2,83.5],[21.1,84.0],[20.8,84.5],[20.5,85.0],[20.3,86.0],[20.32,86.62]],
+    origin: 'Sihawa hills, Dhamtari district, Chhattisgarh',
+    states: 'Chhattisgarh, Odisha',
+    length: '~858 km',
+    funFact: 'Mahanadi means "Great River." The Hirakud Dam on the Mahanadi is the longest earthen dam in the world (25.8 km including dykes).'
+  },
+  sutlej: {
+    name: 'Sutlej',
+    color: '#2563eb',
+    weight: 2.5,
+    coords: [[31.5,78.7],[31.3,78.0],[31.2,77.5],[31.1,77.0],[31.0,76.5],[30.9,76.0],[31.0,75.5],[31.15,75.0]],
+    origin: 'Rakas Lake near Lake Mansarovar, Tibet',
+    states: 'Himachal Pradesh, Punjab',
+    length: '~1,450 km (longest of the five Punjab rivers)',
+    funFact: 'The Sutlej is the longest of the five rivers that give Punjab its name (Punj = five, Ab = water). The Bhakra Nangal Dam on the Sutlej is one of the highest gravity dams in the world.'
+  },
+  indus: {
+    name: 'Indus (Sindhu)',
+    color: '#1d4ed8',
+    weight: 2.5,
+    dashArray: '8,4',
+    coords: [[34.5,77.5],[34.2,77.2],[34.0,76.5],[33.5,76.0],[33.0,75.5]],
+    origin: 'Lake Mansarovar area, Tibet (enters India in Ladakh)',
+    states: 'Ladakh (India portion)',
+    length: '3,180 km total; ~1,114 km in India',
+    funFact: 'India gets its name from the Indus River! The ancient Indus Valley Civilization flourished along its banks around 3300 BCE.'
+  },
+  chambal: {
+    name: 'Chambal',
+    color: '#6366f1',
+    weight: 2.5,
+    coords: [[22.55,75.76],[23.0,76.0],[23.5,76.3],[24.0,76.5],[24.5,76.8],[25.0,77.0],[25.5,77.5],[26.0,78.0],[26.5,78.5],[26.85,79.0]],
+    origin: 'Janapav Hills, Mhow (near Indore), Madhya Pradesh',
+    states: 'Madhya Pradesh, Rajasthan, Uttar Pradesh',
+    length: '~960 km',
+    funFact: 'The Chambal is one of the cleanest rivers in India because its ravines discouraged settlement. It is home to the critically endangered Gharial (fish-eating crocodile) and the Gangetic Dolphin.'
+  }
+};
+
+/* =========================================================
+   WORLD RIVER DATA
+   ========================================================= */
+var worldRiverData = {
+  nile: {
+    name: 'Nile',
+    color: '#1d4ed8',
+    weight: 3,
+    coords: [[-2.0,33.0],[0.5,32.5],[3.5,32.0],[9.5,31.6],[15.5,32.5],[23.5,32.5],[26.2,32.8],[30.0,31.2],[31.2,30.0]],
+    origin: 'Lake Victoria area, Africa',
+    states: 'Burundi, Rwanda, Tanzania, Uganda, South Sudan, Sudan, Egypt',
+    length: '~6,650 km (longest river in Africa, possibly the world)',
+    funFact: 'The Nile flows northward! Ancient Egyptian civilization depended entirely on its annual floods.'
+  },
+  amazon: {
+    name: 'Amazon',
+    color: '#059669',
+    weight: 3.5,
+    coords: [[-10.7,-73.8],[-6.0,-72.0],[-4.5,-69.0],[-3.5,-65.0],[-3.1,-60.0],[-2.2,-55.0],[-1.5,-50.0],[-0.5,-49.0]],
+    origin: 'Andes Mountains, Peru',
+    states: 'Peru, Colombia, Brazil',
+    length: '~6,400 km (carries more water than any other river)',
+    funFact: 'The Amazon carries about 20% of all freshwater that flows into the world\'s oceans!'
+  },
+  mississippi: {
+    name: 'Mississippi',
+    color: '#dc2626',
+    weight: 3,
+    coords: [[47.2,-95.2],[44.9,-93.2],[41.5,-90.6],[38.6,-90.2],[37.0,-89.1],[35.0,-90.0],[33.0,-91.0],[31.0,-91.3],[29.95,-90.07]],
+    origin: 'Lake Itasca, Minnesota, USA',
+    states: 'USA (10 states)',
+    length: '~3,730 km',
+    funFact: 'Together with the Missouri River, it forms the 4th longest river system in the world.'
+  },
+  yangtze: {
+    name: 'Yangtze',
+    color: '#ea580c',
+    weight: 3,
+    coords: [[33.4,91.2],[33.0,93.0],[31.5,97.0],[29.5,100.0],[28.8,104.0],[29.5,106.5],[30.4,108.0],[30.6,111.0],[30.4,114.3],[31.3,117.0],[31.4,121.5]],
+    origin: 'Tanggula Mountains, Tibet',
+    states: 'China',
+    length: '~6,300 km (longest in Asia)',
+    funFact: 'The Three Gorges Dam on the Yangtze is the world\'s largest hydroelectric power station.'
+  },
+  danube: {
+    name: 'Danube',
+    color: '#7c3aed',
+    weight: 2.5,
+    coords: [[48.09,8.15],[48.3,10.0],[48.1,11.5],[48.2,13.0],[48.2,14.3],[48.15,16.37],[47.5,17.5],[47.5,19.04],[44.8,20.46],[44.4,22.5],[44.1,24.0],[44.2,26.0],[44.4,28.7],[45.15,29.65]],
+    origin: 'Black Forest, Germany',
+    states: 'Germany, Austria, Slovakia, Hungary, Croatia, Serbia, Romania, Bulgaria, Moldova, Ukraine',
+    length: '~2,850 km',
+    funFact: 'The Danube flows through more countries (10) than any other river in the world!'
+  },
+  congo: {
+    name: 'Congo',
+    color: '#0891b2',
+    weight: 3,
+    coords: [[-8.8,25.0],[-5.0,23.0],[-2.0,18.5],[0.5,18.0],[1.5,19.0],[-0.5,17.5],[-4.3,15.3],[-6.0,12.5]],
+    origin: 'Highlands of northeastern Zambia',
+    states: 'DR Congo, Republic of Congo, Central African Republic, Zambia',
+    length: '~4,700 km (deepest river in the world)',
+    funFact: 'The Congo is the deepest river on Earth, reaching depths of over 220 metres!'
+  },
+  mekong: {
+    name: 'Mekong',
+    color: '#0d9488',
+    weight: 2.5,
+    coords: [[33.5,94.0],[28.0,98.5],[25.0,100.0],[21.5,100.5],[20.0,100.0],[17.5,102.5],[15.5,105.5],[13.5,105.5],[11.5,105.0],[10.0,106.8]],
+    origin: 'Tibetan Plateau',
+    states: 'China, Myanmar, Laos, Thailand, Cambodia, Vietnam',
+    length: '~4,350 km',
+    funFact: 'The Mekong supports one of the most diverse fisheries in the world — over 1,300 species of fish!'
+  },
+  rhine: {
+    name: 'Rhine',
+    color: '#2563eb',
+    weight: 2.5,
+    coords: [[46.63,8.65],[47.5,8.2],[48.5,7.8],[49.5,8.4],[50.5,7.0],[51.0,6.8],[51.8,5.5],[51.9,4.5]],
+    origin: 'Swiss Alps',
+    states: 'Switzerland, Liechtenstein, Austria, Germany, France, Netherlands',
+    length: '~1,230 km',
+    funFact: 'The Rhine is one of the busiest waterways in the world, used for shipping since the Roman Empire.'
+  }
+};
+
+/* =========================================================
+   SECTION 1 — INDIA INTERACTIVE MAP
+   ========================================================= */
+(function(){
+  var indiaMap = L.map('indiaMap', {
+    center: [22.5, 82.0],
+    zoom: 5,
+    scrollWheelZoom: false,
+    tap: true
+  });
+
+  createTileLayer().addTo(indiaMap);
+
+  /* Enable scroll zoom on click */
+  indiaMap.on('click', function() {
+    indiaMap.scrollWheelZoom.enable();
+  });
+  indiaMap.on('mouseout', function() {
+    indiaMap.scrollWheelZoom.disable();
+  });
+
+  var riverPolylines = {};
+  var activeRiverKey = null;
+  var highlightTimeout = null;
+
+  var keys = Object.keys(riverData);
+  keys.forEach(function(k) {
+    var r = riverData[k];
+    var opts = {
+      color: r.color,
+      weight: r.weight || 2.5,
+      opacity: 0.85,
+      smoothFactor: 1.5
+    };
+    if (r.dashArray) opts.dashArray = r.dashArray;
+
+    var polyline = L.polyline(r.coords, opts).addTo(indiaMap);
+    riverPolylines[k] = polyline;
+
+    /* Add river name tooltip at midpoint */
+    var mid = Math.floor(r.coords.length / 2);
+    polyline.bindTooltip(r.name.split(' (')[0], {
+      permanent: false,
+      direction: 'top',
+      className: 'river-tooltip',
+      offset: [0, -8]
+    });
+
+    polyline.on('click', function() {
+      showIndiaRiverInfo(k);
+      highlightIndiaRiver(k);
+    });
+    polyline.on('mouseover', function() {
+      if (activeRiverKey !== k) {
+        this.setStyle({ weight: (r.weight || 2.5) + 2, opacity: 1 });
+      }
+    });
+    polyline.on('mouseout', function() {
+      if (activeRiverKey !== k) {
+        this.setStyle({ weight: r.weight || 2.5, opacity: 0.85 });
+      }
+    });
+  });
+
+  function highlightIndiaRiver(key) {
+    if (highlightTimeout) clearTimeout(highlightTimeout);
+    activeRiverKey = key;
+    keys.forEach(function(k) {
+      var r = riverData[k];
+      if (k === key) {
+        riverPolylines[k].setStyle({ weight: (r.weight || 2.5) + 3, opacity: 1 });
+        riverPolylines[k].bringToFront();
+      } else {
+        riverPolylines[k].setStyle({ weight: r.weight || 2.5, opacity: 0.3 });
+      }
+    });
+    highlightTimeout = setTimeout(function() {
+      activeRiverKey = null;
+      keys.forEach(function(k) {
+        var r = riverData[k];
+        riverPolylines[k].setStyle({ weight: r.weight || 2.5, opacity: 0.85 });
+      });
+    }, 4000);
+  }
+
+  function showIndiaRiverInfo(key) {
+    var r = riverData[key];
+    if (!r) return;
+    var box = document.getElementById('mapInfo');
+    box.innerHTML = '<h5>' + r.name + '</h5>' +
+      '<div class="info-grid">' +
+        '<div class="info-item"><div class="info-label">Origin</div><div class="info-val">' + r.origin + '</div></div>' +
+        '<div class="info-item"><div class="info-label">Length</div><div class="info-val">' + r.length + '</div></div>' +
+        '<div class="info-item" style="grid-column:1/-1"><div class="info-label">States it flows through</div><div class="info-val">' + r.states + '</div></div>' +
+        '<div class="fun-fact"><strong>Fun Fact:</strong> ' + r.funFact + '</div>' +
+      '</div>';
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  /* Build legend */
+  var legend = document.getElementById('riverLegend');
+  var html = '';
+  keys.forEach(function(k) {
+    var r = riverData[k];
+    html += '<span data-river="' + k + '"><span class="dot" style="background:' + r.color + '"></span>' + r.name.split(' (')[0] + '</span>';
+  });
+  legend.innerHTML = html;
+
+  legend.querySelectorAll('span[data-river]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var key = this.getAttribute('data-river');
+      showIndiaRiverInfo(key);
+      highlightIndiaRiver(key);
+      /* Pan map to river */
+      if (riverPolylines[key]) {
+        indiaMap.fitBounds(riverPolylines[key].getBounds(), { padding: [30, 30], maxZoom: 7 });
+      }
+    });
+  });
+})();
+
+/* =========================================================
+   SECTION 2 — WORLD RIVERS MAP
+   ========================================================= */
+(function(){
+  var worldMap = L.map('worldMap', {
+    center: [20, 30],
+    zoom: 2,
+    scrollWheelZoom: false,
+    tap: true
+  });
+
+  createTileLayer().addTo(worldMap);
+
+  worldMap.on('click', function() {
+    worldMap.scrollWheelZoom.enable();
+  });
+  worldMap.on('mouseout', function() {
+    worldMap.scrollWheelZoom.disable();
+  });
+
+  var worldPolylines = {};
+  var activeWorldKey = null;
+  var worldHighlightTimeout = null;
+
+  var wKeys = Object.keys(worldRiverData);
+  wKeys.forEach(function(k) {
+    var r = worldRiverData[k];
+    var opts = {
+      color: r.color,
+      weight: r.weight || 2.5,
+      opacity: 0.85,
+      smoothFactor: 1.5
+    };
+
+    var polyline = L.polyline(r.coords, opts).addTo(worldMap);
+    worldPolylines[k] = polyline;
+
+    polyline.bindTooltip(r.name, {
+      permanent: false,
+      direction: 'top',
+      className: 'river-tooltip',
+      offset: [0, -8]
+    });
+
+    polyline.on('click', function() {
+      showWorldRiverInfo(k);
+      highlightWorldRiver(k);
+    });
+    polyline.on('mouseover', function() {
+      if (activeWorldKey !== k) {
+        this.setStyle({ weight: (r.weight || 2.5) + 2, opacity: 1 });
+      }
+    });
+    polyline.on('mouseout', function() {
+      if (activeWorldKey !== k) {
+        this.setStyle({ weight: r.weight || 2.5, opacity: 0.85 });
+      }
+    });
+  });
+
+  function highlightWorldRiver(key) {
+    if (worldHighlightTimeout) clearTimeout(worldHighlightTimeout);
+    activeWorldKey = key;
+    wKeys.forEach(function(k) {
+      var r = worldRiverData[k];
+      if (k === key) {
+        worldPolylines[k].setStyle({ weight: (r.weight || 2.5) + 3, opacity: 1 });
+        worldPolylines[k].bringToFront();
+      } else {
+        worldPolylines[k].setStyle({ weight: r.weight || 2.5, opacity: 0.3 });
+      }
+    });
+    worldHighlightTimeout = setTimeout(function() {
+      activeWorldKey = null;
+      wKeys.forEach(function(k) {
+        var r = worldRiverData[k];
+        worldPolylines[k].setStyle({ weight: r.weight || 2.5, opacity: 0.85 });
+      });
+    }, 4000);
+  }
+
+  function showWorldRiverInfo(key) {
+    var r = worldRiverData[key];
+    if (!r) return;
+    var box = document.getElementById('worldMapInfo');
+    box.innerHTML = '<h5>' + r.name + '</h5>' +
+      '<div class="info-grid">' +
+        '<div class="info-item"><div class="info-label">Origin</div><div class="info-val">' + r.origin + '</div></div>' +
+        '<div class="info-item"><div class="info-label">Length</div><div class="info-val">' + r.length + '</div></div>' +
+        '<div class="info-item" style="grid-column:1/-1"><div class="info-label">Countries it flows through</div><div class="info-val">' + r.states + '</div></div>' +
+        '<div class="fun-fact"><strong>Fun Fact:</strong> ' + r.funFact + '</div>' +
+      '</div>';
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  /* Build world legend */
+  var wLegend = document.getElementById('worldRiverLegend');
+  var wHtml = '';
+  wKeys.forEach(function(k) {
+    var r = worldRiverData[k];
+    wHtml += '<span data-river="' + k + '"><span class="dot" style="background:' + r.color + '"></span>' + r.name + '</span>';
+  });
+  wLegend.innerHTML = wHtml;
+
+  wLegend.querySelectorAll('span[data-river]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var key = this.getAttribute('data-river');
+      showWorldRiverInfo(key);
+      highlightWorldRiver(key);
+      if (worldPolylines[key]) {
+        worldMap.fitBounds(worldPolylines[key].getBounds(), { padding: [30, 30], maxZoom: 6 });
+      }
+    });
+  });
+})();
+
+/* =========================================================
+   SECTION 3 — MCQ QUIZ
+   ========================================================= */
+var quizData = {
+  riverQuiz: [
+    { q: 'Which river originates from the Gangotri Glacier (Gaumukh)?', opts: ['Yamuna', 'Ganga', 'Brahmaputra', 'Indus'], ans: 1, exp: 'The Ganga originates from the Gangotri Glacier at Gaumukh in Uttarakhand at an elevation of about 3,892 m.' },
+    { q: 'The Godavari is also known as:', opts: ['Ganga of the West', 'Dakshin Ganga (Ganga of the South)', 'Vridha Ganga', 'Chhota Ganga'], ans: 1, exp: 'The Godavari is called "Dakshin Ganga" because it is the longest river of peninsular India (1,465 km).' },
+    { q: 'Which river flows through a rift valley?', opts: ['Ganga', 'Krishna', 'Narmada', 'Mahanadi'], ans: 2, exp: 'The Narmada flows westward through a rift valley between the Vindhya and Satpura ranges, unlike most peninsular rivers that flow eastward.' },
+    { q: 'The longest peninsular river of India is:', opts: ['Krishna', 'Kaveri', 'Narmada', 'Godavari'], ans: 3, exp: 'The Godavari at ~1,465 km is the longest river of peninsular India, followed by the Krishna (~1,400 km).' },
+    { q: 'Which state does the Kaveri NOT flow through?', opts: ['Karnataka', 'Kerala', 'Tamil Nadu', 'None of these — it flows through all'], ans: 1, exp: 'The Kaveri flows through Karnataka and Tamil Nadu. It does not flow through Kerala (though it is close to the Kerala border at its origin in Kodagu).' },
+    { q: 'The Brahmaputra enters India through which state?', opts: ['Assam', 'West Bengal', 'Arunachal Pradesh', 'Meghalaya'], ans: 2, exp: 'The Brahmaputra (called Tsangpo in Tibet and Dihang/Siang in Arunachal Pradesh) enters India through Arunachal Pradesh before flowing into Assam.' },
+    { q: 'Which river forms an important boundary between Karnataka and Tamil Nadu at several points?', opts: ['Krishna', 'Godavari', 'Kaveri', 'Tungabhadra'], ans: 2, exp: 'The Kaveri (Cauvery) forms a natural boundary between Karnataka and Tamil Nadu at certain stretches. Water sharing disputes between these states are well known.' },
+    { q: 'The Narmada flows into which sea?', opts: ['Bay of Bengal', 'Arabian Sea', 'Indian Ocean directly', 'Andaman Sea'], ans: 1, exp: 'The Narmada flows westward and empties into the Arabian Sea through the Gulf of Khambhat (Cambay) near Bharuch, Gujarat.' },
+    { q: 'Which two major rivers flow westward into the Arabian Sea?', opts: ['Ganga and Yamuna', 'Godavari and Krishna', 'Narmada and Tapi', 'Mahanadi and Kaveri'], ans: 2, exp: 'The Narmada and Tapi (Tapti) are the two major peninsular rivers that flow westward into the Arabian Sea. Most others flow eastward into the Bay of Bengal.' },
+    { q: 'The Hirakud Dam, one of the world\'s longest dams, is built across which river?', opts: ['Godavari', 'Krishna', 'Narmada', 'Mahanadi'], ans: 3, exp: 'The Hirakud Dam is built across the Mahanadi in Odisha. At 25.8 km (including dykes), it is the longest earthen dam in the world.' },
+    { q: 'Majuli, the world\'s largest river island, is located in which river?', opts: ['Ganga', 'Brahmaputra', 'Godavari', 'Indus'], ans: 1, exp: 'Majuli island is in the Brahmaputra river in Assam. It is the world\'s largest river island, famous for its Vaishnavite monasteries (Satras).' },
+    { q: 'The name "India" is derived from which river?', opts: ['Ganga', 'Yamuna', 'Indus', 'Saraswati'], ans: 2, exp: 'The name "India" comes from the Indus (Sindhu) river. Greeks called it "Indos" and the land beyond it "India".' },
+    { q: 'Which river\'s tributary is the Chambal?', opts: ['Ganga', 'Yamuna', 'Narmada', 'Godavari'], ans: 1, exp: 'The Chambal is a major tributary of the Yamuna. It originates near Mhow in Madhya Pradesh and joins the Yamuna near Etawah in Uttar Pradesh.' },
+    { q: 'The Sundarbans delta is formed by which rivers?', opts: ['Indus and Sutlej', 'Ganga and Brahmaputra', 'Godavari and Krishna', 'Mahanadi and Kaveri'], ans: 1, exp: 'The Sundarbans, the world\'s largest mangrove forest and delta, is formed where the Ganga and Brahmaputra meet the Bay of Bengal.' },
+    { q: 'The Triveni Sangam at Prayagraj (Allahabad) is the confluence of:', opts: ['Ganga, Yamuna and Saraswati', 'Ganga, Brahmaputra and Meghna', 'Krishna, Godavari and Kaveri', 'Narmada, Tapi and Mahi'], ans: 0, exp: 'The Triveni Sangam at Prayagraj is where the Ganga, Yamuna, and the mythical Saraswati are believed to meet. It is one of the holiest sites in Hinduism.' },
+    { q: 'The longest river in Africa is:', opts: ['Congo', 'Nile', 'Niger', 'Zambezi'], ans: 1, exp: 'The Nile, at ~6,650 km, is the longest river in Africa and one of the longest in the world. It flows northward through 11 countries.' },
+    { q: 'The Amazon river flows through which continent?', opts: ['North America', 'Africa', 'South America', 'Asia'], ans: 2, exp: 'The Amazon flows through South America, primarily through Peru, Colombia, and Brazil. It carries about 20% of all freshwater flowing into the world\'s oceans.' },
+    { q: 'Which river flows through the most countries in the world?', opts: ['Nile', 'Mekong', 'Danube', 'Rhine'], ans: 2, exp: 'The Danube flows through 10 countries (Germany, Austria, Slovakia, Hungary, Croatia, Serbia, Romania, Bulgaria, Moldova, Ukraine) — more than any other river.' },
+    { q: 'The Three Gorges Dam is built on which river?', opts: ['Mekong', 'Mississippi', 'Yangtze', 'Rhine'], ans: 2, exp: 'The Three Gorges Dam on the Yangtze River in China is the world\'s largest hydroelectric power station.' },
+    { q: 'Which is the deepest river in the world?', opts: ['Amazon', 'Nile', 'Congo', 'Yangtze'], ans: 2, exp: 'The Congo is the deepest river on Earth, reaching depths of over 220 metres in some sections.' }
+  ]
+};
+
+function renderQuiz(id) {
+  var container = document.getElementById(id + 'Qs');
+  var qs = quizData[id];
+  var html = '';
+  qs.forEach(function(q, i) {
+    html += '<div class="q-card" data-qi="' + i + '"><div class="q-num">Q' + (i+1) + ' of ' + qs.length + '</div><div class="q-text">' + q.q + '</div><div class="q-opts">';
+    q.opts.forEach(function(o, j) {
+      html += '<label><input type="radio" name="' + id + '_' + i + '" value="' + j + '"> ' + o + '</label>';
+    });
+    html += '</div><div class="q-explain">' + q.exp + '</div></div>';
+  });
+  container.innerHTML = html;
+}
+renderQuiz('riverQuiz');
+
+function checkQuiz(id) {
+  var qs = quizData[id];
+  var score = 0;
+  qs.forEach(function(q, i) {
+    var sel = document.querySelector('input[name="' + id + '_' + i + '"]:checked');
+    var cards = document.querySelectorAll('#' + id + 'Qs .q-card');
+    var card = cards[i];
+    if (!card) return;
+    var labels = card.querySelectorAll('label');
+    var explain = card.querySelector('.q-explain');
+
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (labels[q.ans]) labels[q.ans].classList.add('correct');
+
+    if (sel) {
+      var v = parseInt(sel.value);
+      if (v === q.ans) {
+        score++;
+      } else {
+        sel.parentElement.classList.add('wrong');
+      }
+    }
+    if (explain) explain.style.display = 'block';
+  });
+
+  var scoreEl = document.getElementById(id + 'Score');
+  scoreEl.style.display = 'block';
+  scoreEl.textContent = 'Score: ' + score + ' / ' + qs.length;
+  if (score === qs.length) scoreEl.style.color = '#166534';
+  else if (score >= qs.length * 0.7) scoreEl.style.color = '#d97706';
+  else scoreEl.style.color = '#dc2626';
+}
+
+/* =========================================================
+   SECTION 4 — TAP THE RIVER QUIZ (LEAFLET)
+   ========================================================= */
+var tapMap;
+var tapPolylines = {};
+var tapQuestions = [
+  { river: 'ganga', text: 'Tap on the Ganga river' },
+  { river: 'yamuna', text: 'Tap on the Yamuna river' },
+  { river: 'brahmaputra', text: 'Tap on the Brahmaputra river' },
+  { river: 'godavari', text: 'Tap on the Godavari river' },
+  { river: 'krishna', text: 'Tap on the Krishna river' },
+  { river: 'narmada', text: 'Tap on the Narmada river' },
+  { river: 'tapi', text: 'Tap on the Tapi (Tapti) river' },
+  { river: 'kaveri', text: 'Tap on the Kaveri river' },
+  { river: 'mahanadi', text: 'Tap on the Mahanadi river' },
+  { river: 'chambal', text: 'Tap on the Chambal river' }
+];
+var tapState = { current: 0, score: 0, total: 10, done: false, order: [] };
+
+(function(){
+  tapMap = L.map('tapMap', {
+    center: [22.5, 82.0],
+    zoom: 5,
+    scrollWheelZoom: false,
+    tap: true
+  });
+
+  createTileLayer().addTo(tapMap);
+
+  tapMap.on('click', function() {
+    tapMap.scrollWheelZoom.enable();
+  });
+  tapMap.on('mouseout', function() {
+    tapMap.scrollWheelZoom.disable();
+  });
+
+  /* Draw all rivers in uniform blue so color doesn't give away identity */
+  var tapBlue = '#60a5fa';
+  var keys = Object.keys(riverData);
+  keys.forEach(function(k) {
+    var r = riverData[k];
+    var polyline = L.polyline(r.coords, {
+      color: tapBlue,
+      weight: 4,
+      opacity: 0.8,
+      smoothFactor: 1.5,
+      dashArray: r.dashArray || null
+    }).addTo(tapMap);
+
+    tapPolylines[k] = polyline;
+
+    polyline.on('click', function(e) {
+      L.DomEvent.stopPropagation(e);
+      handleTapClick(k);
+    });
+  });
+})();
+
+function startTapQuiz() {
+  tapState.current = 0;
+  tapState.score = 0;
+  tapState.done = false;
+  tapState.order = shuffleArray(tapQuestions);
+  document.getElementById('tapRestart').style.display = 'none';
+  /* Reset all river styles */
+  var tapBlue = '#60a5fa';
+  Object.keys(tapPolylines).forEach(function(k) {
+    tapPolylines[k].setStyle({ color: tapBlue, weight: 4, opacity: 0.8 });
+  });
+  updateTapUI();
+}
+
+function updateTapUI() {
+  var prompt = document.getElementById('tapPrompt');
+  var score = document.getElementById('tapScore');
+  var feedback = document.getElementById('tapFeedback');
+  score.textContent = 'Score: ' + tapState.score + ' / ' + tapState.total;
+  feedback.textContent = '';
+  feedback.className = 'tap-feedback';
+  if (tapState.done) {
+    prompt.textContent = 'Quiz Complete!';
+    var pct = Math.round(tapState.score / tapState.total * 100);
+    feedback.textContent = 'You scored ' + tapState.score + ' out of ' + tapState.total + ' (' + pct + '%)';
+    feedback.className = 'tap-feedback ' + (tapState.score >= 7 ? 'correct-fb' : 'wrong-fb');
+    document.getElementById('tapRestart').style.display = 'block';
+  } else {
+    prompt.textContent = tapState.order[tapState.current].text;
+  }
+}
+
+function handleTapClick(riverKey) {
+  if (tapState.done) return;
+  var correct = tapState.order[tapState.current].river;
+  var feedback = document.getElementById('tapFeedback');
+  var clickedPolyline = tapPolylines[riverKey];
+
+  if (riverKey === correct) {
+    tapState.score++;
+    if (clickedPolyline) {
+      clickedPolyline.setStyle({ color: '#22c55e', weight: 5, opacity: 1 });
+    }
+    feedback.textContent = 'Correct! That is the ' + riverData[riverKey].name.split(' (')[0] + '.';
+    feedback.className = 'tap-feedback correct-fb';
+    tapState.current++;
+    if (tapState.current >= tapState.total) {
+      tapState.done = true;
+    }
+    setTimeout(updateTapUI, 1200);
+  } else {
+    if (clickedPolyline) {
+      clickedPolyline.setStyle({ color: '#ef4444', weight: 5, opacity: 1 });
+      setTimeout(function() {
+        /* Only reset to blue if not already marked correct */
+        if (clickedPolyline.options.color !== '#22c55e') {
+          clickedPolyline.setStyle({ color: '#60a5fa', weight: 4, opacity: 0.8 });
+        }
+      }, 600);
+    }
+    feedback.textContent = 'That\'s the ' + riverData[riverKey].name.split(' (')[0] + '. Try again!';
+    feedback.className = 'tap-feedback wrong-fb';
+  }
+}
+
+startTapQuiz();
+
+/* =========================================================
+   SECTION 5 — MATCH GAME
+   ========================================================= */
+var matchPairs = [
+  { river: 'Ganga', state: 'Uttarakhand' },
+  { river: 'Yamuna', state: 'Uttarakhand (Yamunotri)' },
+  { river: 'Brahmaputra', state: 'Arunachal Pradesh' },
+  { river: 'Godavari', state: 'Maharashtra (Nasik)' },
+  { river: 'Krishna', state: 'Maharashtra (Mahabaleshwar)' },
+  { river: 'Narmada', state: 'Madhya Pradesh (Amarkantak)' },
+  { river: 'Kaveri', state: 'Karnataka (Kodagu)' },
+  { river: 'Mahanadi', state: 'Chhattisgarh' },
+  { river: 'Chambal', state: 'Madhya Pradesh (Mhow)' },
+  { river: 'Sutlej', state: 'Tibet (enters Himachal)' }
+];
+
+var matchState = { selectedRiver: null, matched: 0 };
+
+function setupMatchGame() {
+  matchState.selectedRiver = null;
+  matchState.matched = 0;
+  document.getElementById('matchResult').textContent = '';
+
+  var rivers = shuffleArray(matchPairs.map(function(p) { return p.river; }));
+  var states = shuffleArray(matchPairs.map(function(p) { return p.state; }));
+
+  var grid = document.getElementById('matchGrid');
+  var html = '';
+  for (var i = 0; i < rivers.length; i++) {
+    html += '<div class="match-item match-river" data-mriver="' + rivers[i] + '">' + rivers[i] + '</div>';
+    html += '<div class="match-item match-state" data-mstate="' + states[i] + '">' + states[i] + '</div>';
+  }
+  grid.innerHTML = html;
+
+  grid.querySelectorAll('.match-river').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (this.classList.contains('matched')) return;
+      grid.querySelectorAll('.match-river').forEach(function(r) { r.classList.remove('selected'); });
+      this.classList.add('selected');
+      matchState.selectedRiver = this.getAttribute('data-mriver');
+    });
+  });
+  grid.querySelectorAll('.match-state').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (this.classList.contains('matched')) return;
+      if (!matchState.selectedRiver) return;
+
+      var correctState = null;
+      matchPairs.forEach(function(p) {
+        if (p.river === matchState.selectedRiver) correctState = p.state;
+      });
+
+      if (this.getAttribute('data-mstate') === correctState) {
+        this.classList.add('matched');
+        var riverEl = grid.querySelector('.match-river.selected');
+        if (riverEl) riverEl.classList.add('matched');
+        matchState.matched++;
+        matchState.selectedRiver = null;
+        if (matchState.matched === matchPairs.length) {
+          document.getElementById('matchResult').textContent = 'All matched! Great job!';
+          document.getElementById('matchResult').style.color = '#166534';
+        }
+      } else {
+        this.classList.add('wrong-flash');
+        var self = this;
+        setTimeout(function() { self.classList.remove('wrong-flash'); }, 500);
+      }
+    });
+  });
+}
+setupMatchGame();
+
+/* =========================================================
+   SCROLL ANIMATIONS
+   ========================================================= */
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in,.sec-head,.sec-sub').forEach(function(el) { obs.observe(el); });
+
+/* =========================================================
+   TOC HIGHLIGHT
+   ========================================================= */
+(function(){
+  var tocLinks = document.querySelectorAll('.toc-bar a');
+  var sections = [];
+  tocLinks.forEach(function(a){
+    var id = a.getAttribute('href').replace('#','');
+    var el = document.getElementById(id);
+    if(el) sections.push({el:el, link:a});
+  });
+  window.addEventListener('scroll', function(){
+    var scrollY = window.scrollY + 120;
+    var active = null;
+    sections.forEach(function(s){
+      if(s.el.offsetTop <= scrollY) active = s;
+    });
+    tocLinks.forEach(function(l){ l.classList.remove('active'); });
+    if(active) active.link.classList.add('active');
+  });
+})();
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
+</body>
+</html>
