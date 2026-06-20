@@ -625,31 +625,31 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#78
     </div>
     <div class="section-bd">
 
-      <p style="font-size:15px;margin-bottom:14px;">Imagine a school hallway with <strong>30 lockers</strong>, all <strong>closed</strong>. 30 students walk past one by one:</p>
+      <p style="font-size:15px;margin-bottom:14px;">Imagine a school hallway with <strong>100 lockers</strong>, all <strong>closed</strong>. 100 students walk past one by one:</p>
 
       <div class="info-grid">
         <div class="info-card ic-amber">
           <h4>Student 1</h4>
-          Toggles <strong>every</strong> locker<br>(opens all of them)
+          Toggles <strong>every</strong> locker<br>(opens all 100)
         </div>
         <div class="info-card ic-orange">
           <h4>Student 2</h4>
-          Toggles every <strong>2nd</strong> locker<br>(2, 4, 6, 8&hellip;)
+          Toggles every <strong>2nd</strong> locker<br>(2, 4, 6, 8&hellip;100)
         </div>
         <div class="info-card ic-green">
           <h4>Student 3</h4>
-          Toggles every <strong>3rd</strong> locker<br>(3, 6, 9, 12&hellip;)
+          Toggles every <strong>3rd</strong> locker<br>(3, 6, 9, 12&hellip;99)
         </div>
         <div class="info-card ic-blue">
           <h4>Student k</h4>
-          Toggles every <strong>k-th</strong> locker<br>(all the way to Student 30)
+          Toggles every <strong>k-th</strong> locker<br>(all the way to Student 100)
         </div>
       </div>
 
-      <p style="margin-top:14px;font-weight:700;color:#92400e;font-size:15px;">&#129300; Which lockers are OPEN at the end? Try it below!</p>
+      <p style="margin-top:14px;font-weight:700;color:#92400e;font-size:15px;">&#129300; After all 100 students are done, which lockers are OPEN? Try it below!</p>
 
       <!-- Locker Grid -->
-      <div id="lockerGrid" style="display:grid;grid-template-columns:repeat(10,1fr);gap:6px;max-width:560px;margin:20px auto;">
+      <div id="lockerGrid" style="display:grid;grid-template-columns:repeat(10,1fr);gap:4px;max-width:520px;margin:20px auto;">
       </div>
 
       <!-- Controls -->
@@ -657,13 +657,21 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#78
         <button onclick="lockerReset()" class="act-btn act-btn-amber" style="padding:8px 18px;border-radius:10px;border:none;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;cursor:pointer;color:#78350f;background:linear-gradient(135deg,#fde68a,#fbbf24);transition:all 0.2s;">&#128260; Reset</button>
         <button onclick="lockerNextStudent()" id="lockerNextBtn" class="act-btn" style="padding:8px 18px;border-radius:10px;border:none;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;cursor:pointer;color:white;background:linear-gradient(135deg,#d97706,#f59e0b);transition:all 0.2s;">&#9654; Next Student</button>
         <button onclick="lockerAutoPlay()" id="lockerAutoBtn" class="act-btn" style="padding:8px 18px;border-radius:10px;border:none;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;cursor:pointer;color:white;background:linear-gradient(135deg,#059669,#34d399);transition:all 0.2s;">&#9654;&#9654; Auto Play</button>
-        <button onclick="lockerSkipToEnd()" class="act-btn" style="padding:8px 18px;border-radius:10px;border:none;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;cursor:pointer;color:white;background:linear-gradient(135deg,#7c3aed,#a78bfa);transition:all 0.2s;">&#9193; Skip to End</button>
+        <button onclick="lockerJump10()" id="lockerJump10Btn" class="act-btn" style="padding:8px 18px;border-radius:10px;border:none;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;cursor:pointer;color:white;background:linear-gradient(135deg,#2563eb,#60a5fa);transition:all 0.2s;">&#9193; +10 Students</button>
+        <button onclick="lockerSkipToEnd()" class="act-btn" style="padding:8px 18px;border-radius:10px;border:none;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;cursor:pointer;color:white;background:linear-gradient(135deg,#7c3aed,#a78bfa);transition:all 0.2s;">&#9193;&#9193; Skip to End</button>
       </div>
 
-      <div id="lockerStatus" style="text-align:center;font-weight:800;font-size:15px;color:#92400e;margin:8px 0;">All 30 lockers are closed. Press "Next Student" to begin!</div>
+      <!-- Speed slider -->
+      <div style="display:flex;align-items:center;gap:8px;justify-content:center;margin:4px 0 10px;font-size:12px;font-weight:700;color:#92400e;">
+        <span>Slow</span>
+        <input type="range" id="lockerSpeed" min="30" max="500" value="120" style="width:120px;accent-color:#d97706;">
+        <span>Fast</span>
+      </div>
+
+      <div id="lockerStatus" style="text-align:center;font-weight:800;font-size:15px;color:#92400e;margin:8px 0;">All 100 lockers are closed. Press "Next Student" to begin!</div>
 
       <!-- Legend -->
-      <div style="display:flex;gap:16px;justify-content:center;margin:10px 0;font-size:12px;font-weight:700;">
+      <div style="display:flex;gap:16px;justify-content:center;margin:10px 0;font-size:12px;font-weight:700;flex-wrap:wrap;">
         <span><span style="display:inline-block;width:16px;height:16px;background:#fbbf24;border-radius:4px;vertical-align:middle;margin-right:4px;border:2px solid #d97706;"></span> OPEN</span>
         <span><span style="display:inline-block;width:16px;height:16px;background:#78350f;border-radius:4px;vertical-align:middle;margin-right:4px;border:2px solid #92400e;"></span> CLOSED</span>
         <span><span style="display:inline-block;width:16px;height:16px;background:#fbbf24;border-radius:4px;vertical-align:middle;margin-right:4px;border:3px solid #16a34a;box-shadow:0 0 6px rgba(22,163,74,0.5);"></span> Perfect Square</span>
@@ -672,11 +680,11 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#78
       <!-- Factors insight -->
       <div id="lockerInsight" style="display:none;margin-top:16px;">
         <div class="note-box" style="border-left-color:#16a34a;">
-          <strong>&#127881; Result:</strong> Only lockers <strong style="color:#16a34a;">1, 4, 9, 16, 25</strong> are open &mdash; these are <strong>perfect squares</strong>!
+          <strong>&#127881; Result:</strong> Only lockers <strong style="color:#16a34a;">1, 4, 9, 16, 25, 36, 49, 64, 81, 100</strong> are open &mdash; exactly <strong>10 lockers</strong>, and they are all <strong>perfect squares</strong>!
         </div>
 
         <div class="subtitle">&#128161; Why Only Perfect Squares?</div>
-        <p>A locker gets <strong>toggled once for each factor</strong> of its number. Look at the factors:</p>
+        <p>A locker gets <strong>toggled once for each factor</strong> of its number. Look at some examples:</p>
 
         <div class="table-wrap">
           <table>
@@ -685,20 +693,69 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#78
               <tr><td><strong>6</strong></td><td>1, 2, 3, 6</td><td>4 (even)</td><td style="color:#dc2626;font-weight:800;">&#128274; CLOSED</td></tr>
               <tr><td><strong>9</strong></td><td>1, 3, <strong>9</strong></td><td>3 (odd)</td><td style="color:#16a34a;font-weight:800;">&#128275; OPEN</td></tr>
               <tr><td><strong>12</strong></td><td>1, 2, 3, 4, 6, 12</td><td>6 (even)</td><td style="color:#dc2626;font-weight:800;">&#128274; CLOSED</td></tr>
-              <tr><td><strong>16</strong></td><td>1, 2, 4, <strong>8, 16</strong></td><td>5 (odd)</td><td style="color:#16a34a;font-weight:800;">&#128275; OPEN</td></tr>
-              <tr><td><strong>20</strong></td><td>1, 2, 4, 5, 10, 20</td><td>6 (even)</td><td style="color:#dc2626;font-weight:800;">&#128274; CLOSED</td></tr>
-              <tr><td><strong>25</strong></td><td>1, 5, <strong>25</strong></td><td>3 (odd)</td><td style="color:#16a34a;font-weight:800;">&#128275; OPEN</td></tr>
+              <tr><td><strong>36</strong></td><td>1, 2, 3, 4, 6, 9, 12, 18, <strong>36</strong></td><td>9 (odd)</td><td style="color:#16a34a;font-weight:800;">&#128275; OPEN</td></tr>
+              <tr><td><strong>50</strong></td><td>1, 2, 5, 10, 25, 50</td><td>6 (even)</td><td style="color:#dc2626;font-weight:800;">&#128274; CLOSED</td></tr>
+              <tr><td><strong>64</strong></td><td>1, 2, 4, 8, 16, 32, <strong>64</strong></td><td>7 (odd)</td><td style="color:#16a34a;font-weight:800;">&#128275; OPEN</td></tr>
+              <tr><td><strong>100</strong></td><td>1, 2, 4, 5, 10, 20, 25, 50, <strong>100</strong></td><td>9 (odd)</td><td style="color:#16a34a;font-weight:800;">&#128275; OPEN</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="trick">
-          <strong>&#128273; The Secret:</strong> Most numbers have factors in <em>pairs</em> (like 12 = 1&times;12, 2&times;6, 3&times;4) giving an <strong>even</strong> count. But perfect squares have one factor that pairs with <em>itself</em> (like 9 = 1&times;9, <strong>3&times;3</strong>) giving an <strong>odd</strong> count. An odd number of toggles means the locker ends up <strong>OPEN</strong>!
+          <strong>&#128273; The Secret:</strong> Most numbers have factors in <em>pairs</em> (like 12 = 1&times;12, 2&times;6, 3&times;4) giving an <strong>even</strong> count. But perfect squares have one factor that pairs with <em>itself</em> (like 36 = 1&times;36, 2&times;18, 3&times;12, 4&times;9, <strong>6&times;6</strong>) giving an <strong>odd</strong> count. An odd number of toggles means the locker ends up <strong>OPEN</strong>!
         </div>
 
         <!-- Click a locker to see its factors -->
         <p style="margin-top:14px;font-weight:700;color:#92400e;">&#128070; Click any locker above to see its factors and toggle history!</p>
         <div id="lockerFactorDetail" style="background:#fffbeb;border:2px solid #fde68a;border-radius:12px;padding:14px 18px;margin-top:10px;font-size:14px;min-height:40px;display:none;"></div>
+
+        <!-- NCERT Book Questions on Locker Puzzle -->
+        <div class="subtitle" style="margin-top:28px;">&#9997;&#65039; Think &amp; Answer — Locker Puzzle Questions</div>
+
+        <div class="short-q-list">
+          <div class="short-q-item" style="border-left-color:#f59e0b;">
+            <div class="short-q">Q1. How many lockers are open after all 100 students have passed?</div>
+            <button onclick="toggleAnswer(this)" style="background:#fde68a;color:#92400e;border:none;padding:6px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;font-size:12px;margin-top:4px;">Show Answer</button>
+            <div class="short-a" style="display:none;margin-top:8px;"><strong>10 lockers</strong> are open. They are: 1, 4, 9, 16, 25, 36, 49, 64, 81, and 100 &mdash; all perfect squares from 1&sup2; to 10&sup2;.</div>
+          </div>
+
+          <div class="short-q-item" style="border-left-color:#f59e0b;">
+            <div class="short-q">Q2. Is locker number 48 open or closed? Why?</div>
+            <button onclick="toggleAnswer(this)" style="background:#fde68a;color:#92400e;border:none;padding:6px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;font-size:12px;margin-top:4px;">Show Answer</button>
+            <div class="short-a" style="display:none;margin-top:8px;"><strong>Closed.</strong> The factors of 48 are 1, 2, 3, 4, 6, 8, 12, 16, 24, 48 &mdash; that&rsquo;s <strong>10 factors</strong> (even). Since 48 is not a perfect square, it has an even number of factors, so it gets toggled an even number of times and ends up closed.</div>
+          </div>
+
+          <div class="short-q-item" style="border-left-color:#f59e0b;">
+            <div class="short-q">Q3. Which is the last locker that Student 7 will toggle?</div>
+            <button onclick="toggleAnswer(this)" style="background:#fde68a;color:#92400e;border:none;padding:6px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;font-size:12px;margin-top:4px;">Show Answer</button>
+            <div class="short-a" style="display:none;margin-top:8px;">Student 7 toggles every 7th locker: 7, 14, 21, 28, &hellip;, 91, <strong>98</strong>. The last one is locker <strong>98</strong> (since 98 = 7 &times; 14 and the next multiple 105 &gt; 100).</div>
+          </div>
+
+          <div class="short-q-item" style="border-left-color:#f59e0b;">
+            <div class="short-q">Q4. How many students toggle locker number 72?</div>
+            <button onclick="toggleAnswer(this)" style="background:#fde68a;color:#92400e;border:none;padding:6px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;font-size:12px;margin-top:4px;">Show Answer</button>
+            <div class="short-a" style="display:none;margin-top:8px;">Locker 72 is toggled by students whose numbers are <strong>factors of 72</strong>: 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72 &mdash; that&rsquo;s <strong>12 students</strong>. Since 12 is even, locker 72 ends up <strong>closed</strong>.</div>
+          </div>
+
+          <div class="short-q-item" style="border-left-color:#f59e0b;">
+            <div class="short-q">Q5. Can you explain why the number of open lockers between 1 and 100 is exactly 10?</div>
+            <button onclick="toggleAnswer(this)" style="background:#fde68a;color:#92400e;border:none;padding:6px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;font-size:12px;margin-top:4px;">Show Answer</button>
+            <div class="short-a" style="display:none;margin-top:8px;">Only perfect squares remain open. The perfect squares from 1 to 100 are: 1&sup2; = 1, 2&sup2; = 4, 3&sup2; = 9, 4&sup2; = 16, 5&sup2; = 25, 6&sup2; = 36, 7&sup2; = 49, 8&sup2; = 64, 9&sup2; = 81, 10&sup2; = 100. Since 10&sup2; = 100 &le; 100 and 11&sup2; = 121 &gt; 100, there are exactly <strong>10 perfect squares</strong>, hence <strong>10 open lockers</strong>.</div>
+          </div>
+
+          <div class="short-q-item" style="border-left-color:#f59e0b;">
+            <div class="short-q">Q6. If there were 500 lockers and 500 students instead, how many lockers would be open?</div>
+            <button onclick="toggleAnswer(this)" style="background:#fde68a;color:#92400e;border:none;padding:6px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;font-size:12px;margin-top:4px;">Show Answer</button>
+            <div class="short-a" style="display:none;margin-top:8px;">We need to count perfect squares from 1 to 500. Since 22&sup2; = 484 &le; 500 and 23&sup2; = 529 &gt; 500, there are <strong>22 open lockers</strong> (1&sup2;, 2&sup2;, 3&sup2;, &hellip;, 22&sup2;). In general, for <em>n</em> lockers, the number of open lockers = <strong>&lfloor;&radic;n&rfloor;</strong> (the integer part of &radic;n).</div>
+          </div>
+
+          <div class="short-q-item" style="border-left-color:#f59e0b;">
+            <div class="short-q">Q7. Locker 81 is open. Which students toggled it? Which was the last student to touch it?</div>
+            <button onclick="toggleAnswer(this)" style="background:#fde68a;color:#92400e;border:none;padding:6px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;font-size:12px;margin-top:4px;">Show Answer</button>
+            <div class="short-a" style="display:none;margin-top:8px;">Factors of 81 = 1, 3, 9, 27, 81. So students <strong>1, 3, 9, 27, and 81</strong> toggled it (5 times, odd, so it ends open). The last student to touch it was <strong>Student 81</strong>.</div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -1974,7 +2031,7 @@ function calcCubeRoot() {
 // =============================================
 // LOCKER PUZZLE INTERACTIVE
 // =============================================
-var LOCKER_COUNT = 30;
+var LOCKER_COUNT = 100;
 var lockers = [];
 var currentStudent = 0;
 var lockerAutoTimer = null;
@@ -1986,10 +2043,11 @@ function lockerInit() {
   currentStudent = 0;
   for (var i = 0; i < LOCKER_COUNT; i++) lockers.push(false);
   lockerRender();
-  document.getElementById('lockerStatus').textContent = 'All ' + LOCKER_COUNT + ' lockers are closed. Press "Next Student" to begin!';
+  document.getElementById('lockerStatus').textContent = 'All 100 lockers are closed. Press "Next Student" to begin!';
   document.getElementById('lockerInsight').style.display = 'none';
   document.getElementById('lockerNextBtn').disabled = false;
   document.getElementById('lockerAutoBtn').disabled = false;
+  document.getElementById('lockerJump10Btn').disabled = false;
   if (document.getElementById('lockerFactorDetail')) {
     document.getElementById('lockerFactorDetail').style.display = 'none';
   }
@@ -1997,7 +2055,7 @@ function lockerInit() {
 
 function lockerRender() {
   var grid = document.getElementById('lockerGrid');
-  var perfectSq = [1,4,9,16,25];
+  var perfectSq = [1,4,9,16,25,36,49,64,81,100];
   var done = currentStudent >= LOCKER_COUNT;
   var html = '';
   for (var i = 0; i < LOCKER_COUNT; i++) {
@@ -2009,8 +2067,8 @@ function lockerRender() {
     var border = isSq ? '3px solid #16a34a' : '2px solid ' + (isOpen ? '#d97706' : '#92400e');
     var shadow = isSq ? 'box-shadow:0 0 8px rgba(22,163,74,0.5);' : '';
     var icon = isOpen ? '&#128275;' : '&#128274;';
-    html += '<div onclick="lockerShowFactors(' + num + ')" style="background:' + bg + ';color:' + color + ';border:' + border + ';border-radius:8px;padding:4px 2px;text-align:center;cursor:pointer;transition:all 0.3s;font-size:11px;font-weight:800;line-height:1.2;' + shadow + '">';
-    html += '<div style="font-size:14px;">' + icon + '</div>';
+    html += '<div onclick="lockerShowFactors(' + num + ')" style="background:' + bg + ';color:' + color + ';border:' + border + ';border-radius:6px;padding:2px 1px;text-align:center;cursor:pointer;transition:all 0.3s;font-size:9px;font-weight:800;line-height:1.2;min-height:36px;display:flex;flex-direction:column;align-items:center;justify-content:center;' + shadow + '">';
+    html += '<div style="font-size:12px;">' + icon + '</div>';
     html += num;
     html += '</div>';
   }
@@ -2042,6 +2100,11 @@ function getOrdinal(n) {
   return 'th';
 }
 
+function lockerGetSpeed() {
+  var slider = document.getElementById('lockerSpeed');
+  return slider ? (530 - parseInt(slider.value)) : 120;
+}
+
 function lockerAutoPlay() {
   if (lockerAutoTimer) {
     clearInterval(lockerAutoTimer);
@@ -2050,7 +2113,7 @@ function lockerAutoPlay() {
     return;
   }
   document.getElementById('lockerAutoBtn').innerHTML = '&#9724; Pause';
-  lockerAutoTimer = setInterval(function() {
+  function tick() {
     if (currentStudent >= LOCKER_COUNT) {
       clearInterval(lockerAutoTimer);
       lockerAutoTimer = null;
@@ -2059,7 +2122,28 @@ function lockerAutoPlay() {
       return;
     }
     lockerNextStudent();
-  }, 250);
+  }
+  lockerAutoTimer = setInterval(tick, lockerGetSpeed());
+}
+
+function lockerJump10() {
+  if (lockerAutoTimer) {
+    clearInterval(lockerAutoTimer);
+    lockerAutoTimer = null;
+    document.getElementById('lockerAutoBtn').innerHTML = '&#9654;&#9654; Auto Play';
+  }
+  var target = Math.min(currentStudent + 10, LOCKER_COUNT);
+  while (currentStudent < target) {
+    currentStudent++;
+    lockerToggleStudent(currentStudent);
+  }
+  lockerRender();
+  if (currentStudent >= LOCKER_COUNT) {
+    lockerFinish();
+  } else {
+    var openCount = lockers.filter(function(v) { return v; }).length;
+    document.getElementById('lockerStatus').innerHTML = 'Jumped to Student <strong>' + currentStudent + '</strong> &nbsp;|&nbsp; Open: <strong>' + openCount + '</strong> &nbsp; Closed: <strong>' + (LOCKER_COUNT - openCount) + '</strong>';
+  }
 }
 
 function lockerSkipToEnd() {
@@ -2081,10 +2165,11 @@ function lockerFinish() {
   for (var i = 0; i < LOCKER_COUNT; i++) {
     if (lockers[i]) openLockers.push(i + 1);
   }
-  document.getElementById('lockerStatus').innerHTML = '&#127881; All 30 students done! Open lockers: <strong style="color:#16a34a;">' + openLockers.join(', ') + '</strong> &mdash; all perfect squares!';
+  document.getElementById('lockerStatus').innerHTML = '&#127881; All 100 students done! <strong>' + openLockers.length + '</strong> lockers open: <strong style="color:#16a34a;">' + openLockers.join(', ') + '</strong> &mdash; all perfect squares!';
   document.getElementById('lockerInsight').style.display = 'block';
   document.getElementById('lockerNextBtn').disabled = true;
   document.getElementById('lockerAutoBtn').disabled = true;
+  document.getElementById('lockerJump10Btn').disabled = true;
   lockerRender();
 }
 
