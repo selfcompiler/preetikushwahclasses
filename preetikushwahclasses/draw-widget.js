@@ -36,6 +36,8 @@
     '.dw-angle-in{width:40px;padding:2px 4px;border:1.5px solid #e5e7eb;border-radius:6px;font-size:10px;font-weight:700;font-family:"Nunito",sans-serif;text-align:center;color:#374151;}',
     '.dw-angle-in:focus{outline:none;border-color:#7c3aed;}',
     '.dw-lbl{font-size:9px;font-weight:700;color:#9ca3af;white-space:nowrap;}',
+    '.dw-size-val{display:inline-block;min-width:16px;text-align:center;font-size:10px;font-weight:800;color:#7c3aed;font-family:"Nunito",sans-serif;}',
+    '.dw-size-grp{display:flex;align-items:center;gap:3px;}',
     '.dw-pager{display:flex;align-items:center;gap:4px;padding:4px 8px;background:linear-gradient(135deg,#f3e8ff,#ede9fe);border-bottom:1px solid #c4b5fd;flex-shrink:0;}',
     '.dw-pgbtn{padding:3px 8px;border-radius:6px;border:1px solid #c4b5fd;background:#fff;cursor:pointer;font-size:10px;font-weight:700;color:#7c3aed;transition:all 0.2s;font-family:"Nunito",sans-serif;}',
     '.dw-pgbtn:hover{background:#ede9fe;}',
@@ -282,9 +284,10 @@
     '  <span class="dw-color" data-color="#7c3aed" style="background:#7c3aed;"></span>',
     '  <span class="dw-color" data-color="#ffffff" style="background:#ffffff;border-color:#aaa;"></span>',
     '  <span class="dw-sep"></span>',
-    '  <input type="range" min="1" max="20" value="3" id="dwSizeSlider" style="width:44px;accent-color:#7c3aed;">',
+    '  <span class="dw-size-grp" id="dwPenSizeGrp"><span class="dw-lbl">✏️</span><input type="range" min="1" max="20" value="3" id="dwSizeSlider" style="width:44px;accent-color:#7c3aed;"><span class="dw-size-val" id="dwSizeVal">3</span></span>',
+    '  <span class="dw-size-grp" id="dwEraserSizeGrp" style="display:none;"><span class="dw-lbl">⬜</span><input type="range" min="1" max="40" value="10" id="dwEraserSlider" style="width:44px;accent-color:#ef4444;"><span class="dw-size-val" id="dwEraserVal" style="color:#ef4444;">10</span></span>',
     '  <span class="dw-sep"></span>',
-    '  <button class="dw-tbtn" id="dwUndo">↩</button>',
+    '  <button class="dw-tbtn" id="dwUndo">↩ Undo</button>',
     '  <button class="dw-tbtn" id="dwClear" style="color:#dc2626;">🗑</button>',
     '  <button class="dw-tbtn" id="dwSave">💾</button>',
     '</div>',
@@ -324,7 +327,7 @@
   var ctx = canvas.getContext('2d');
   var scrollArea = document.getElementById('dwScroll');
   var isOpen = false, isMin = false, drawing = false;
-  var tool = 'pen', color = '#1f2937', size = 3;
+  var tool = 'pen', color = '#1f2937', size = 3, eraserSize = 10;
   var STORAGE_KEY = 'dw_strokes';
   var totalPages = 3, curPage = 1;
   var history = [], currentPath = [];
@@ -778,6 +781,7 @@
   function isShapeTool() { return tool in SHAPE_TOOLS; }
   function isMultiClick() { return tool in MULTI_CLICK; }
   function isFreehand() { return tool in FREEHAND_TOOLS; }
+  function activeSize() { return tool === 'eraser' ? eraserSize : size; }
 
   // === SELECT / MOVE / DRAG ===
   function hitTestStroke(p, s) {
@@ -953,7 +957,7 @@
             angleDeg: result.angles[ai].angleDeg,
             ray1: result.angles[ai].ray1, ray2: result.angles[ai].ray2,
             arcR: radii[ai % radii.length],
-            color: color, size: size
+            color: color, size: activeSize()
           });
         }
         saveH(); redraw();
@@ -973,14 +977,14 @@
       });
       // Draw edges so far
       if (triPoints.length >= 2) {
-        ctx.save(); ctx.strokeStyle = color; ctx.lineWidth = size; ctx.lineCap = 'round';
+        ctx.save(); ctx.strokeStyle = color; ctx.lineWidth = activeSize(); ctx.lineCap = 'round';
         ctx.setLineDash([4, 4]);
         ctx.beginPath(); ctx.moveTo(triPoints[0].x, triPoints[0].y);
         for (var i = 1; i < triPoints.length; i++) ctx.lineTo(triPoints[i].x, triPoints[i].y);
         ctx.stroke(); ctx.restore();
       }
       if (triPoints.length >= 3) {
-        history.push({ tool: 'triangle', color: color, size: size, points: triPoints.slice() });
+        history.push({ tool: 'triangle', color: color, size: activeSize(), points: triPoints.slice() });
         saveH();
         triPoints = [];
         redraw();
@@ -1038,7 +1042,7 @@
     currentPath.push(p);
     if (p.y > totalPages * PAGE_H - 100) { totalPages++; setupCanvas(); }
     redraw();
-    drawStroke({ tool: tool, color: color, size: size, points: currentPath });
+    drawStroke({ tool: tool, color: color, size: activeSize(), points: currentPath });
   }
 
   function endDraw(e) {
@@ -1070,7 +1074,7 @@
 
     // Freehand
     if (currentPath.length > 1) {
-      var stroke = { tool: tool, color: color, size: size, points: currentPath.slice() };
+      var stroke = { tool: tool, color: color, size: activeSize(), points: currentPath.slice() };
       if (tool === 'laser') { stroke.ts = Date.now(); startLaserFade(); }
       history.push(stroke);
       saveH();
@@ -1079,19 +1083,20 @@
   }
 
   function buildShapeStroke(p1, p2) {
-    if (tool === 'line') return { tool: 'line', color: color, size: size, p1: p1, p2: p2 };
-    if (tool === 'dline') return { tool: 'dline', color: color, size: size, p1: p1, p2: p2 };
-    if (tool === 'arrow') return { tool: 'arrow', color: color, size: size, p1: p1, p2: p2 };
+    var s = activeSize();
+    if (tool === 'line') return { tool: 'line', color: color, size: s, p1: p1, p2: p2 };
+    if (tool === 'dline') return { tool: 'dline', color: color, size: s, p1: p1, p2: p2 };
+    if (tool === 'arrow') return { tool: 'arrow', color: color, size: s, p1: p1, p2: p2 };
     if (tool === 'angleline') {
       var rad = inputAngle * Math.PI / 180;
       var len = dist(p1, p2);
       var ep = { x: p1.x + len * Math.cos(rad), y: p1.y - len * Math.sin(rad) };
-      return { tool: 'angleline', color: color, size: size, p1: p1, p2: ep, angleDeg: inputAngle };
+      return { tool: 'angleline', color: color, size: s, p1: p1, p2: ep, angleDeg: inputAngle };
     }
-    if (tool === 'rect') return { tool: 'rect', color: color, size: size, p1: p1, p2: p2 };
+    if (tool === 'rect') return { tool: 'rect', color: color, size: s, p1: p1, p2: p2 };
     if (tool === 'circle') {
       var r = dist(p1, p2);
-      return { tool: 'circle', color: color, size: size, center: p1, radius: r };
+      return { tool: 'circle', color: color, size: s, center: p1, radius: r };
     }
     return null;
   }
@@ -1170,6 +1175,8 @@
     if (sel) sel.classList.add('active');
     canvas.classList.toggle('erasing', t === 'eraser');
     canvas.classList.toggle('selecting', t === 'select');
+    document.getElementById('dwPenSizeGrp').style.display = t === 'eraser' ? 'none' : 'flex';
+    document.getElementById('dwEraserSizeGrp').style.display = t === 'eraser' ? 'flex' : 'none';
     if (t !== 'select') { selectedIdx = -1; dragMode = 'none'; redraw(); }
   }
 
@@ -1189,7 +1196,14 @@
     if (btn) setActiveTool(btn.dataset.tool);
   });
 
-  document.getElementById('dwSizeSlider').addEventListener('input', function() { size = parseInt(this.value); });
+  document.getElementById('dwSizeSlider').addEventListener('input', function() {
+    size = parseInt(this.value);
+    document.getElementById('dwSizeVal').textContent = size;
+  });
+  document.getElementById('dwEraserSlider').addEventListener('input', function() {
+    eraserSize = parseInt(this.value);
+    document.getElementById('dwEraserVal').textContent = eraserSize;
+  });
 
   document.getElementById('dwAngle').addEventListener('input', function() {
     inputAngle = parseInt(this.value) || 0;
