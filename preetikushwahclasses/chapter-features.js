@@ -71,14 +71,15 @@ cards.forEach(function(card){
   var linkEl=card.querySelector('a[href]');
   var chUrl=linkEl?new URL(linkEl.href,location.href).href:location.href;
 
-  var shareMsg=encodeURIComponent('Check out notes for '+chName+' on Preeti Kushwah Classes!\n'+chUrl);
-  var shareBtn=document.createElement('a');
+  var shareText='Check out notes for '+chName+' on Preeti Kushwah Classes!';
+  var shareBtn=document.createElement('button');
   shareBtn.className='ch-share';
-  shareBtn.href='https://wa.me/?text='+shareMsg;
-  shareBtn.target='_blank';
-  shareBtn.rel='noopener';
   shareBtn.textContent='📤 Share';
-  shareBtn.addEventListener('click',function(e){e.stopPropagation();});
+  shareBtn.addEventListener('click',function(e){
+    e.preventDefault();e.stopPropagation();
+    if(navigator.share){navigator.share({title:chName,text:shareText,url:chUrl});}
+    else{navigator.clipboard.writeText(shareText+'\n'+chUrl).then(function(){alert('Link copied!');});}
+  });
   actions.appendChild(shareBtn);
 
   var doneBtn=document.createElement('button');

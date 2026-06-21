@@ -1597,7 +1597,6 @@ input[type="range"] { accent-color: #3730a3; cursor: pointer; flex: 1; min-width
   transition: all 0.2s;
   min-height: 44px;
 }
-.share-wa   { background: #25d366; }
 .share-copy { background: #3b82f6; }
 .share-native { background: #818cf8; }
 .share-action-btn:hover { opacity: 0.9; transform: translateY(-1px); }
@@ -5507,8 +5506,6 @@ button, a, input, select,
     <button class="share-close" onclick="closeShare()" aria-label="Close share dialog">&times;</button>
     <h3>Share This Page</h3>
     <div class="share-buttons">
-      <a id="wa-share-btn" class="share-btn share-wa" href="#" target="_blank" rel="noopener">
-        &#128241; Share on WhatsApp
       </a>
       <button class="share-btn share-copy" onclick="copyLink()">
         &#128279; Copy Link
@@ -5609,14 +5606,6 @@ function clearSVG(svg) {
 function openShare() {
   var overlay = document.getElementById('share-overlay');
   if (!overlay) return;
-  var waBtn = document.getElementById('wa-share-btn');
-  if (waBtn) {
-    var msg = encodeURIComponent(
-      'Check out this Chapter 3 – The World of Numbers page on Preeti Kushwah Classes!\n' +
-      window.location.href
-    );
-    waBtn.href = 'https://wa.me/?text=' + msg;
-  }
   overlay.hidden = false;
   overlay.removeAttribute('hidden');
   document.body.style.overflow = 'hidden';
@@ -6066,7 +6055,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <script src="../../back-to-top.js"></script>
 <script src="../../draw-widget.js"></script>
 <script src="../../ga.js"></script>
-<script src="../../whatsapp-widget.js"></script>
 
 </body>
 </html>

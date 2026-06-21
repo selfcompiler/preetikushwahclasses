@@ -725,7 +725,6 @@ tr:hover { background: #fed7aa44; }
   transition: all 0.2s;
 }
 .share-action-btn:hover { transform: translateY(-2px); }
-.share-wa { background: #25d366; }
 .share-copy { background: #3b82f6; }
 .share-native { background: #8b5cf6; }
 .share-close-btn {
@@ -2450,7 +2449,6 @@ footer {
   <div class="share-popup">
     <h3>&#128228; Share This Chapter</h3>
     <div class="share-btn-row">
-      <button class="share-action-btn share-wa" onclick="shareWhatsApp()">&#128241; Share on WhatsApp</button>
       <button class="share-action-btn share-copy" onclick="copyLink()">&#128203; Copy Link</button>
       <button class="share-action-btn share-native" onclick="shareNative()">&#128228; More Options</button>
     </div>
@@ -2487,10 +2485,6 @@ document.querySelectorAll('.mcq-item').forEach(function(item) {
 // Share functions
 function openSharePopup() { document.getElementById('shareOverlay').classList.add('active'); }
 function closeSharePopup() { document.getElementById('shareOverlay').classList.remove('active'); }
-function shareWhatsApp() {
-  var text = 'Check out these amazing notes on The French Revolution! ' + window.location.href;
-  window.open('https://wa.me/?text=' + encodeURIComponent(text));
-}
 function copyLink() {
   navigator.clipboard.writeText(window.location.href).then(function() { alert('Link copied!'); });
 }
@@ -2504,6 +2498,5 @@ function shareNative() {
 <script src="../../back-to-top.js"></script>
 <script src="../../draw-widget.js"></script>
 <script src="../../ga.js"></script>
-<script src="../../whatsapp-widget.js"></script>
 </body>
 </html>

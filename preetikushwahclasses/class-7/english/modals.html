@@ -709,7 +709,6 @@ tr:nth-child(even) td { background: #fffbeb; }
   justify-content: center;
   flex-wrap: wrap;
 }
-.bnav-home, .bnav-wa {
   display: inline-block;
   padding: 10px 22px;
   border-radius: 20px;
@@ -719,8 +718,6 @@ tr:nth-child(even) td { background: #fffbeb; }
   transition: all 0.2s;
 }
 .bnav-home { background: var(--amber-bg); color: var(--amber-dark); border: 2px solid var(--amber-pale); }
-.bnav-wa { background: #25d366; color: white; }
-.bnav-home:hover, .bnav-wa:hover { transform: translateY(-2px); }
 
 /* ============= FOOTER ============= */
 footer {
@@ -1595,7 +1592,6 @@ footer {
   </div>
   <div class="bnav-bottom">
     <a href="index.html" class="bnav-home">&#128218; All English Topics</a>
-    <a href="https://wa.me/?text=Check%20out%20Modals%20notes%20for%20Class%207%20English%20on%20Preeti%20Kushwah%20Classes!%20https://www.preetikushwahclasses.com/class-7/english/modals.html" target="_blank" rel="noopener" class="bnav-wa">&#128172; Share on WhatsApp</a>
   </div>
 </div>
 
@@ -1606,7 +1602,6 @@ footer {
 <div class="share-overlay" id="shareOverlay">
   <div class="share-box">
     <h3>Share this Topic</h3>
-    <button class="share-opt wa" onclick="shareWA()">&#128172; WhatsApp</button>
     <button class="share-opt copy" onclick="copyLink()">&#128203; Copy Link</button>
     <button class="share-opt native" onclick="nativeShare()">&#128640; More Options</button>
     <div class="copy-feedback" id="copyFeedback">Link copied!</div>
@@ -1624,6 +1619,5 @@ footer {
 <script src="../../chapter-features.js"></script>
 <script src="../../draw-widget.js"></script>
 <script src="../../ga.js"></script>
-<script src="../../whatsapp-widget.js"></script>
 </body>
 </html>

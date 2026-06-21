@@ -139,7 +139,6 @@ tr:nth-child(even) td{background:#fffbeb;}
 .share-popup h3{font-family:'Fredoka One',cursive;color:#78350f;font-size:20px;margin-bottom:16px;}
 .share-btn-row{display:flex;flex-direction:column;gap:10px;}
 .share-action-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;border:none;font-size:14px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:white;transition:all 0.2s;}
-.share-wa{background:#25d366;}
 .share-copy{background:#3b82f6;}
 .share-native{background:#f59e0b;color:#78350f;}
 .share-close-btn{margin-top:14px;background:#e2e8f0;color:#475569;border:none;padding:8px 20px;border-radius:10px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
@@ -1485,7 +1484,6 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#78
     <h3>&#128228; Share This Page</h3>
     <p style="font-size:14px;color:#475569;margin-bottom:16px;">Help your classmates ace Proportional Reasoning!</p>
     <div class="share-btn-row">
-      <button class="share-action-btn share-wa" onclick="shareWhatsApp()">&#128172; Share on WhatsApp</button>
       <button class="share-action-btn share-copy" onclick="copyLink()">&#128203; Copy Link</button>
       <button class="share-action-btn share-native" onclick="shareNative()">&#128228; Share via Apps</button>
     </div>
@@ -1538,9 +1536,6 @@ function closeSharePopup() {
   document.getElementById('shareOverlay').classList.remove('active');
 }
 
-function shareWhatsApp() {
-  window.open('https://wa.me/?text=' + encodeURIComponent('Check out these Proportional Reasoning notes for Class 8 Maths (NCERT Ganita 2025-26)! ' + window.location.href));
-}
 
 function copyLink() {
   navigator.clipboard.writeText(window.location.href).then(function() {
@@ -1579,6 +1574,5 @@ document.querySelectorAll('.toc-bar a').forEach(function(link) {
 <script src="../../chapter-features.js"></script>
 <script src="../../draw-widget.js"></script>
 <script src="../../ga.js"></script>
-<script src="../../whatsapp-widget.js"></script>
 </body>
 </html>

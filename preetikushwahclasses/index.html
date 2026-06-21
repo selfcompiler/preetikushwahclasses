@@ -113,11 +113,11 @@ body {
   background: var(--primary);
   color: white;
 }
-.nav-cta a.whatsapp {
+.nav-cta a.interest {
   background: #25d366;
   color: white;
 }
-.nav-cta a.whatsapp:hover { background: #128c7e; }
+.nav-cta a.interest:hover { background: #128c7e; }
 
 /* ============ HERO ============ */
 .hero {
@@ -500,7 +500,7 @@ body {
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
-.btn.whatsapp { background: #25d366; color: white; }
+.btn.interest { background: #25d366; color: white; }
 .btn.call { background: var(--accent); color: white; }
 
 /* ============ FOOTER ============ */
@@ -726,7 +726,7 @@ footer .copyright {
   </div>
   <div class="nav-cta">
     <a href="#classes">📖 <span>Classes</span></a>
-    <a href="#" onclick="openInterestForm();return false;" class="whatsapp" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#78350f;">✨ <span>Show Interest</span></a>
+    <a href="#" onclick="openInterestForm();return false;" class="interest" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#78350f;">✨ <span>Show Interest</span></a>
   </div>
 </nav>
 
@@ -926,7 +926,7 @@ footer .copyright {
     <div class="modal-body">
       <form id="interestForm" onsubmit="submitInterestForm(event)">
         <input type="text" name="entry.43085631" class="form-input" placeholder="Student's Full Name *" required>
-        <input type="tel" name="entry.1854993535" class="form-input" placeholder="Phone / WhatsApp Number *" required>
+        <input type="tel" name="entry.1854993535" class="form-input" placeholder="Phone Number *" required>
         <input type="email" name="entry.248400848" class="form-input" placeholder="Email Address (optional)">
         <input type="hidden" name="entry.2008437083" id="classInput" required>
 
@@ -1026,6 +1026,5 @@ function submitInterestForm(e) {
 <script src="back-to-top.js"></script>
 <script src="draw-widget.js"></script>
 <script src="ga.js"></script>
-<script src="whatsapp-widget.js"></script>
 </body>
 </html>

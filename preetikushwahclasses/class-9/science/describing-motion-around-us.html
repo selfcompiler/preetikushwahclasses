@@ -306,7 +306,6 @@ tr:nth-child(even) td { background: #eff6ff; }
 .bottom-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 14px; font-weight: 800; font-size: 14px; text-decoration: none; color: white; transition: all 0.2s; }
 .bottom-btn:hover { transform: translateY(-2px); }
 .bottom-btn.home-btn { background: linear-gradient(135deg, #1e40af, #3b82f6); }
-.bottom-btn.wa-btn { background: linear-gradient(135deg, #166534, #22c55e); }
 
 /* Share */
 .float-share-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; background: linear-gradient(135deg, #1e40af, #3b82f6); border-radius: 50%; border: none; color: white; font-size: 22px; cursor: pointer; box-shadow: 0 4px 16px rgba(30,64,175,0.4); z-index: 90; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
@@ -318,7 +317,6 @@ tr:nth-child(even) td { background: #eff6ff; }
 .share-btn-row { display: flex; flex-direction: column; gap: 10px; }
 .share-action-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 16px; border-radius: 12px; border: none; font-size: 14px; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; color: white; transition: all 0.2s; }
 .share-action-btn:hover { transform: translateY(-2px); }
-.share-wa { background: #25d366; }
 .share-copy { background: #3b82f6; }
 .share-native { background: #1e40af; }
 .share-close-btn { margin-top: 14px; background: #e2e8f0; color: #475569; border: none; padding: 8px 20px; border-radius: 10px; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; }
@@ -2936,7 +2934,6 @@ footer { text-align: center; padding: 30px 16px; background: linear-gradient(135
     </a>
     <div class="bottom-nav-full">
       <a href="../../index.html" class="bottom-btn home-btn">&#127968; Home</a>
-      <a href="https://wa.me/?text=Check%20out%20these%20Class%209%20Science%20notes%20-%20Describing%20Motion%20Around%20Us%20(New%20NCERT%202026)!%20Free%20animated%20notes%20with%20MCQs!" class="bottom-btn wa-btn" target="_blank">&#128172; Share on WhatsApp</a>
     </div>
   </div>
 
@@ -2947,7 +2944,6 @@ footer { text-align: center; padding: 30px 16px; background: linear-gradient(135
   <div class="share-popup">
     <h3>&#128228; Share These Notes!</h3>
     <div class="share-btn-row">
-      <button class="share-action-btn share-wa" onclick="shareWhatsApp()">&#128172; Share on WhatsApp</button>
       <button class="share-action-btn share-copy" onclick="copyLink()">&#128203; Copy Link</button>
       <button class="share-action-btn share-native" onclick="shareNative()" id="nativeShareBtn" style="display:none;">&#128228; More Options</button>
     </div>
@@ -2964,7 +2960,6 @@ footer { text-align: center; padding: 30px 16px; background: linear-gradient(135
 <script src="../../chapter-features.js"></script>
 <script src="../../draw-widget.js"></script>
 <script src="../../ga.js"></script>
-<script src="../../whatsapp-widget.js"></script>
 <script>
 document.querySelectorAll('.mcq-options li').forEach(function(li){
   li.addEventListener('click', function(){
@@ -2992,7 +2987,6 @@ window.addEventListener('scroll', checkReveals);
 checkReveals();
 function openSharePopup(){ document.getElementById('shareOverlay').classList.add('active'); if(navigator.share) document.getElementById('nativeShareBtn').style.display='flex'; }
 function closeSharePopup(){ document.getElementById('shareOverlay').classList.remove('active'); }
-function shareWhatsApp(){ window.open('https://wa.me/?text='+encodeURIComponent('Check out these Class 9 Science notes - Describing Motion Around Us (New NCERT 2026)! Free animated notes with equations of motion, graphs & MCQs! '+window.location.href),'_blank'); }
 function copyLink(){ navigator.clipboard.writeText(window.location.href).then(function(){ alert('Link copied!'); }); }
 function shareNative(){ if(navigator.share) navigator.share({title:'Class 9 Science - Describing Motion Around Us',text:'Free animated notes with equations of motion, graphs & MCQs!',url:window.location.href}); }
 document.getElementById('shareOverlay').addEventListener('click',function(e){ if(e.target===this) closeSharePopup(); });

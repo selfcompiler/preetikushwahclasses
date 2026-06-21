@@ -110,6 +110,5 @@ function fireConfetti(){var colors=['#ec4899','#7c3aed','#f97316','#fbbf24','#16
 function unlockSol(){var code=document.getElementById('solCode').value.trim().toUpperCase();var msg=document.getElementById('solMsg');if(code==='PREETI7'){document.getElementById('solContent').classList.add('unlocked');document.getElementById('solLock').style.display='none';fireConfetti();}else{msg.className='sol-error';msg.textContent='Incorrect code. Ask your teacher for the access code.';document.getElementById('solCode').value='';}}
 function shareSolutions(){var s=document.getElementById('solContent');if(!s.classList.contains('unlocked')){var c=prompt('Enter access code:');if(!c)return;if(c.trim().toUpperCase()!=='PREETI7'){alert('Incorrect code.');return;}s.classList.add('unlocked');document.getElementById('solLock').style.display='none';}window.print();}
 </script>
-<script src="../../dark-mode.js"></script><script src="../../back-to-top.js"></script><script src="../../ga.js"></script><script src="../../whatsapp-widget.js"></script>
 </body>
 </html>

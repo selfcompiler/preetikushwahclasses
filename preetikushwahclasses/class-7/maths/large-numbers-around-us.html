@@ -1142,7 +1142,6 @@ tr:nth-child(even) td { background: #faf5ff; }
   justify-content: center;
   flex-wrap: wrap;
 }
-.bnav-home, .bnav-wa {
   display: inline-block;
   padding: 10px 22px;
   border-radius: 20px;
@@ -1152,8 +1151,6 @@ tr:nth-child(even) td { background: #faf5ff; }
   transition: all 0.2s;
 }
 .bnav-home { background: #faf5ff; color: #7c3aed; border: 2px solid #c4b5fd; }
-.bnav-wa { background: #25d366; color: white; }
-.bnav-home:hover, .bnav-wa:hover { transform: translateY(-2px); }
 
 /* ============= FOOTER ============= */
 footer {
@@ -4776,7 +4773,6 @@ footer .footer-interest:hover { background: rgba(255,255,255,0.35); }
   </div>
   <div class="bnav-bottom">
     <a href="../../index.html" class="bnav-home">Home</a>
-    <a href="#" class="bnav-wa" onclick="shareWhatsApp();return false;">Share on WhatsApp</a>
     <a href="#" class="footer-interest" onclick="openInterestForm();return false;">Show Interest</a>
   </div>
 </div>
@@ -6165,12 +6161,6 @@ function openShare() {
 function closeShare() {
   document.getElementById('shareOverlay').classList.remove('active');
 }
-function shareWhatsApp() {
-  var url = window.location.href;
-  var text = encodeURIComponent('Check out these Class 7 Maths notes on Large Numbers Around Us (Ch 1 NCERT Ganita Prakash) from Preeti Kushwah Classes! ' + url);
-  window.open('https://wa.me/?text=' + text, '_blank');
-  closeShare();
-}
 function copyLink() {
   var url = window.location.href;
   if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -6256,7 +6246,6 @@ function submitInterestForm(e) {
 <div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeShare()">
   <div class="share-box">
     <h3>Share These Notes</h3>
-    <button class="share-opt wa" onclick="shareWhatsApp()">WhatsApp</button>
     <button class="share-opt copy" onclick="copyLink()">Copy Link</button>
     <button class="share-opt native" onclick="nativeShare()">Share...</button>
     <button class="share-close" onclick="closeShare()">Close</button>
@@ -6321,6 +6310,5 @@ function submitInterestForm(e) {
 <script src="../../back-to-top.js"></script>
 <script src="../../draw-widget.js"></script>
 <script src="../../ga.js"></script>
-<script src="../../whatsapp-widget.js"></script>
 </body>
 </html>

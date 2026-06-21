@@ -932,7 +932,6 @@ table.indicator-table tr:nth-child(even) td { background: #f0fdf4; }
 }
 .bottom-btn:hover { transform: translateY(-2px); }
 .bottom-btn.home-btn { background: linear-gradient(135deg, #5b21b6, #a78bfa); }
-.bottom-btn.wa-btn { background: linear-gradient(135deg, #166534, #22c55e); }
 
 /* ============= FLOATING SHARE BUTTON ============= */
 .float-share-btn {
@@ -998,7 +997,6 @@ table.indicator-table tr:nth-child(even) td { background: #f0fdf4; }
   transition: all 0.2s;
 }
 .share-action-btn:hover { transform: translateY(-2px); }
-.share-wa { background: #25d366; }
 .share-copy { background: #3b82f6; }
 .share-native { background: #8b5cf6; }
 .share-close-btn {
@@ -3066,7 +3064,7 @@ footer {
     </div>
     <div class="bottom-nav-full">
       <a href="../../index.html" class="bottom-btn home-btn">&#127968; Back to Home</a>
-      <a href="#" onclick="openInterestForm();return false;" class="bottom-btn wa-btn" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">&#128221; Interested? Fill the Form</a>
+      <a href="#" onclick="openInterestForm();return false;" class="bottom-btn" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">&#128221; Interested? Fill the Form</a>
     </div>
   </div>
 
@@ -3087,7 +3085,6 @@ footer {
   <div class="share-popup" onclick="event.stopPropagation()">
     <h3>&#128279; Share These Notes</h3>
     <div class="share-btn-row">
-      <button class="share-action-btn share-wa" onclick="shareWhatsApp()">&#128172; Share on WhatsApp</button>
       <button class="share-action-btn share-copy" id="copyLinkBtn" onclick="copyLink()">&#128203; Copy Link</button>
       <button class="share-action-btn share-native" id="nativeShareBtn" onclick="nativeShare()">&#128241; Share via Device</button>
     </div>
@@ -3145,12 +3142,6 @@ function closeShareOverlay(e) {
   if (e.target === document.getElementById('shareOverlay')) {
     document.getElementById('shareOverlay').classList.remove('active');
   }
-}
-
-function shareWhatsApp() {
-  const url = window.location.href;
-  const message = encodeURIComponent(shareText + '\n' + url);
-  window.open('https://wa.me/?text=' + message, '_blank');
 }
 
 function copyLink() {
@@ -3293,6 +3284,5 @@ function submitInterestForm(e) {
 <script src="../../back-to-top.js"></script>
 <script src="../../draw-widget.js"></script>
 <script src="../../ga.js"></script>
-<script src="../../whatsapp-widget.js"></script>
 </body>
 </html>

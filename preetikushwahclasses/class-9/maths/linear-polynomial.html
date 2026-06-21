@@ -126,7 +126,6 @@ tr:nth-child(even) td{background:#faf5ff;}
 .share-popup h3{font-family:'Fredoka One',cursive;color:#5b21b6;font-size:20px;margin-bottom:16px;}
 .share-btn-row{display:flex;flex-direction:column;gap:10px;}
 .share-action-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;border:none;font-size:14px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;color:white;transition:all 0.2s;}
-.share-wa{background:#25d366;}
 .share-copy{background:#3b82f6;}
 .share-native{background:#a78bfa;}
 .share-close-btn{margin-top:14px;background:#e2e8f0;color:#475569;border:none;padding:8px 20px;border-radius:10px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
@@ -1405,7 +1404,6 @@ footer{text-align:center;padding:30px 16px;background:linear-gradient(135deg,#3b
     <h3>&#128228; Share This Page</h3>
     <p style="font-size:14px;color:#475569;margin-bottom:16px;">Help your classmates ace Linear Polynomials!</p>
     <div class="share-btn-row">
-      <button class="share-action-btn share-wa" onclick="shareWhatsApp()">&#128172; Share on WhatsApp</button>
       <button class="share-action-btn share-copy" onclick="copyLink()">&#128203; Copy Link</button>
       <button class="share-action-btn share-native" onclick="shareNative()">&#128228; Share via Apps</button>
     </div>
@@ -1443,7 +1441,6 @@ document.querySelectorAll('.mcq-item').forEach(function(item){
 // Share
 function openSharePopup(){document.getElementById('shareOverlay').classList.add('active');}
 function closeSharePopup(){document.getElementById('shareOverlay').classList.remove('active');}
-function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent('Check out these Linear Polynomial notes for Class 9 Maths! '+window.location.href));}
 function copyLink(){navigator.clipboard.writeText(window.location.href).then(function(){alert('Link copied!');});}
 function shareNative(){if(navigator.share){navigator.share({title:'Linear Polynomial — Class 9 Maths',text:'NCERT Class 9 Linear Polynomial notes',url:window.location.href});}else{copyLink();}}
 
@@ -1770,6 +1767,5 @@ window.addEventListener('DOMContentLoaded',function(){calcZero();initGraph();ini
 <script src="../../back-to-top.js"></script>
 <script src="../../draw-widget.js"></script>
 <script src="../../ga.js"></script>
-<script src="../../whatsapp-widget.js"></script>
 </body>
 </html>

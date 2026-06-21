@@ -2769,11 +2769,6 @@ function openShare() {
 function closeShare() {
   document.getElementById('shareOverlay').classList.remove('active');
 }
-function shareWhatsApp() {
-  var url = encodeURIComponent(window.location.href);
-  var text = encodeURIComponent('Check out these Class 7 Maths notes on Arithmetic Expressions by Preeti Kushwah Ma\'am! ');
-  window.open('https://wa.me/?text=' + text + url, '_blank');
-}
 function copyLink() {
   navigator.clipboard.writeText(window.location.href).then(function() {
     var fb = document.getElementById('copyFeedback');
@@ -2801,7 +2796,6 @@ function nativeShare() {
 <div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeShare()">
   <div class="share-box">
     <h3>Share These Notes</h3>
-    <button class="share-opt wa" onclick="shareWhatsApp()">WhatsApp</button>
     <button class="share-opt copy" onclick="copyLink()">Copy Link</button>
     <button class="share-opt native" onclick="nativeShare()">Share...</button>
     <button class="share-close" onclick="closeShare()">Close</button>
@@ -2813,6 +2807,5 @@ function nativeShare() {
 <script src="../../back-to-top.js"></script>
 <script src="../../draw-widget.js"></script>
 <script src="../../ga.js"></script>
-<script src="../../whatsapp-widget.js"></script>
 </body>
 </html>
