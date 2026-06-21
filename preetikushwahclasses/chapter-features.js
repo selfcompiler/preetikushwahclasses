@@ -71,16 +71,20 @@ cards.forEach(function(card){
   var linkEl=card.querySelector('a[href]');
   var chUrl=linkEl?new URL(linkEl.href,location.href).href:location.href;
 
-  var shareText='Check out notes for '+chName+' on Preeti Kushwah Classes!';
-  var shareBtn=document.createElement('button');
-  shareBtn.className='ch-share';
-  shareBtn.textContent='📤 Share';
-  shareBtn.addEventListener('click',function(e){
-    e.preventDefault();e.stopPropagation();
-    if(navigator.share){navigator.share({title:chName,text:shareText,url:chUrl});}
-    else{navigator.clipboard.writeText(shareText+'\n'+chUrl).then(function(){alert('Link copied!');});}
-  });
-  actions.appendChild(shareBtn);
+  var siteBase='https://www.preetikushwahclasses.com/';
+  var pathPart=linkEl?linkEl.getAttribute('href'):'';
+  var pagePath=window.location.pathname.replace(/\/[^\/]*$/,'/');
+  var shareUrl=siteBase+pagePath.replace(/.*preetikushwahclasses\//,'')+pathPart;
+  var shareMsg='Check out notes for '+chName+' on Preeti Kushwah Classes!\n'+shareUrl;
+
+  var waBtn=document.createElement('a');
+  waBtn.className='ch-share';
+  waBtn.href='https://wa.me/?text='+encodeURIComponent(shareMsg);
+  waBtn.target='_blank';
+  waBtn.rel='noopener';
+  waBtn.textContent='📤 Share';
+  waBtn.addEventListener('click',function(e){e.stopPropagation();});
+  actions.appendChild(waBtn);
 
   var doneBtn=document.createElement('button');
   doneBtn.className='ch-done-btn'+(completed[id]?' done':'');
