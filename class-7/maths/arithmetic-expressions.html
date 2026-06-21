@@ -1128,11 +1128,11 @@ footer .footer-interest:hover { background: rgba(255,255,255,0.35); }
       <div class="anim-stage" style="flex-direction:column;padding:20px;">
         <div class="bar-compare" id="marbleCompare">
           <div class="bar-row">
-            <div class="bar-label">Raja<br>1023+125</div>
+            <div class="bar-label" id="marbleLabelA">Raja<br>1023+125</div>
             <div class="bar-track"><div class="bar-fill fill-purple" id="barRaja">1148</div></div>
           </div>
           <div class="bar-row">
-            <div class="bar-label">Joy<br>1022+128</div>
+            <div class="bar-label" id="marbleLabelB">Joy<br>1022+128</div>
             <div class="bar-track"><div class="bar-fill fill-pink" id="barJoy">1150</div></div>
           </div>
           <div class="bar-diff-label" id="barDiff">Joy has 2 more marbles!</div>
@@ -2342,15 +2342,35 @@ function resetSameVal() {
   });
 }
 
-// ===== ANIMATION: Marble Bar =====
+// ===== ANIMATION: Marble Bar (Random) =====
 function playMarbleBar() {
   resetMarbleBar();
+  var names = ['Raja','Joy','Anu','Ravi','Priya','Karan','Meera','Arjun','Sita','Dev','Neha','Aman'];
+  var n1 = names[Math.floor(Math.random()*names.length)];
+  var n2; do { n2 = names[Math.floor(Math.random()*names.length)]; } while(n2===n1);
+  var a1 = 100 + Math.floor(Math.random()*900);
+  var b1 = 10 + Math.floor(Math.random()*200);
+  var a2 = a1 + Math.floor(Math.random()*11) - 5;
+  var b2 = b1 + Math.floor(Math.random()*11) - 5;
+  if(a1+b1===a2+b2) b2 += (Math.random()>0.5?1:-1)*(1+Math.floor(Math.random()*5));
+  var v1 = a1+b1, v2 = a2+b2;
+  document.getElementById('marbleLabelA').innerHTML = n1+'<br>'+a1+'+'+b1;
+  document.getElementById('marbleLabelB').innerHTML = n2+'<br>'+a2+'+'+b2;
+  document.getElementById('barRaja').textContent = v1;
+  document.getElementById('barJoy').textContent = v2;
+  var mx = Math.max(v1,v2);
   setTimeout(function() {
-    document.getElementById('barRaja').style.width = '95%';
-    document.getElementById('barJoy').style.width = '95.2%';
+    document.getElementById('barRaja').style.width = (v1/mx*95)+'%';
+    document.getElementById('barJoy').style.width = (v2/mx*95)+'%';
   }, 100);
   setTimeout(function() {
-    document.getElementById('barDiff').classList.add('show');
+    var diff = Math.abs(v1-v2);
+    var sign = v1>v2 ? ' > ' : (v2>v1 ? ' < ' : ' = ');
+    var winner = v1>v2?n1:(v2>v1?n2:'Tie');
+    var msg = v1===v2? 'Both have equal marbles!' : winner+' has '+diff+' more marble'+(diff>1?'s':'')+'!';
+    var el = document.getElementById('barDiff');
+    el.innerHTML = '<span style="font-family:Fredoka One,cursive;font-size:18px;color:#5b21b6;">'+a1+' + '+b1+sign+a2+' + '+b2+'</span><br>'+msg;
+    el.classList.add('show');
   }, 1800);
 }
 function resetMarbleBar() {
@@ -2359,10 +2379,42 @@ function resetMarbleBar() {
   document.getElementById('barDiff').classList.remove('show');
 }
 
-// ===== ANIMATION: Two Paths =====
+// ===== ANIMATION: Two Paths (Random, Multiple Formats) =====
 var tpTimers = [];
 function playTwoPath() {
   resetTwoPath();
+  var pat = Math.floor(Math.random()*4);
+  var a, b, c, expr, wL, wS, wV, cL, cS, cV;
+  if (pat === 0) {
+    a = 10+Math.floor(Math.random()*41); b = 2+Math.floor(Math.random()*9); c = 2+Math.floor(Math.random()*9);
+    expr = a+' + '+b+' × '+c;
+    wL = '('+a+'+'+b+') × '+c; wS = '= '+(a+b)+' × '+c; wV = (a+b)*c;
+    cL = a+' + ('+b+'×'+c+')'; cS = '= '+a+' + '+(b*c); cV = a+b*c;
+  } else if (pat === 1) {
+    b = 2+Math.floor(Math.random()*9); c = 2+Math.floor(Math.random()*9);
+    a = b*c+5+Math.floor(Math.random()*30);
+    expr = a+' − '+b+' × '+c;
+    wL = '('+a+'−'+b+') × '+c; wS = '= '+(a-b)+' × '+c; wV = (a-b)*c;
+    cL = a+' − ('+b+'×'+c+')'; cS = '= '+a+' − '+(b*c); cV = a-b*c;
+  } else if (pat === 2) {
+    a = 2+Math.floor(Math.random()*9); b = 3+Math.floor(Math.random()*12); c = 2+Math.floor(Math.random()*15);
+    expr = a+' × '+b+' + '+c;
+    wL = a+' × ('+b+'+'+c+')'; wS = '= '+a+' × '+(b+c); wV = a*(b+c);
+    cL = '('+a+'×'+b+') + '+c; cS = '= '+(a*b)+' + '+c; cV = a*b+c;
+  } else {
+    a = 2+Math.floor(Math.random()*9); b = 5+Math.floor(Math.random()*12); c = 2+Math.floor(Math.random()*10);
+    if (c >= b) c = b - 1;
+    expr = a+' × '+b+' − '+c;
+    wL = a+' × ('+b+'−'+c+')'; wS = '= '+a+' × '+(b-c); wV = a*(b-c);
+    cL = '('+a+'×'+b+') − '+c; cS = '= '+(a*b)+' − '+c; cV = a*b-c;
+  }
+  document.getElementById('tp0').innerHTML = expr;
+  document.getElementById('tp1').innerHTML = wL;
+  document.getElementById('tp2').innerHTML = wS;
+  document.getElementById('tp3').innerHTML = '= '+wV+' ✘';
+  document.getElementById('tp4').innerHTML = cL;
+  document.getElementById('tp5').innerHTML = cS;
+  document.getElementById('tp6').innerHTML = '= '+cV+' ✔';
   var ids = ['tp0','tp1','tp2','tp3','tp4','tp5','tp6'];
   var delays = [0, 600, 1000, 1400, 600, 1000, 1400];
   ids.forEach(function(id, i) {
@@ -2379,10 +2431,38 @@ function resetTwoPath() {
   });
 }
 
-// ===== ANIMATION: Bracket Resolver =====
+// ===== ANIMATION: Bracket Resolver (Random, Multiple Formats) =====
 var brTimers = [];
 function playBracket() {
   resetBracket();
+  var pat = Math.floor(Math.random()*4);
+  var a, b, c, innerVal, result, line0, line1;
+  if (pat === 0) {
+    a = 50+Math.floor(Math.random()*151); b = 5+Math.floor(Math.random()*40); c = 5+Math.floor(Math.random()*40);
+    innerVal = b+c; result = a-innerVal;
+    line0 = a+' − (<span id="brInner" style="background:#fde047;padding:2px 8px;border-radius:8px;">'+b+' + '+c+'</span>)';
+    line1 = a+' − <span style="background:#86efac;padding:2px 8px;border-radius:8px;">'+innerVal+'</span>';
+  } else if (pat === 1) {
+    b = 10+Math.floor(Math.random()*30); c = 2+Math.floor(Math.random()*Math.min(b-1,15));
+    a = (b-c)+10+Math.floor(Math.random()*50);
+    innerVal = b-c; result = a-innerVal;
+    line0 = a+' − (<span id="brInner" style="background:#fde047;padding:2px 8px;border-radius:8px;">'+b+' − '+c+'</span>)';
+    line1 = a+' − <span style="background:#86efac;padding:2px 8px;border-radius:8px;">'+innerVal+'</span>';
+  } else if (pat === 2) {
+    a = 20+Math.floor(Math.random()*80); b = 5+Math.floor(Math.random()*30); c = 5+Math.floor(Math.random()*30);
+    innerVal = b+c; result = a+innerVal;
+    line0 = a+' + (<span id="brInner" style="background:#fde047;padding:2px 8px;border-radius:8px;">'+b+' + '+c+'</span>)';
+    line1 = a+' + <span style="background:#86efac;padding:2px 8px;border-radius:8px;">'+innerVal+'</span>';
+  } else {
+    c = 2+Math.floor(Math.random()*9); b = c+2+Math.floor(Math.random()*20);
+    a = 2+Math.floor(Math.random()*10);
+    innerVal = b-c; result = a*innerVal;
+    line0 = a+' × (<span id="brInner" style="background:#fde047;padding:2px 8px;border-radius:8px;">'+b+' − '+c+'</span>)';
+    line1 = a+' × <span style="background:#86efac;padding:2px 8px;border-radius:8px;">'+innerVal+'</span>';
+  }
+  document.getElementById('br0').innerHTML = line0;
+  document.getElementById('br1').innerHTML = line1;
+  document.getElementById('br2').innerHTML = '= '+result+' ✔';
   var ids = ['br0','br1','br2'];
   var delays = [0, 1200, 2200];
   ids.forEach(function(id, i) {
@@ -2391,11 +2471,11 @@ function playBracket() {
     }, delays[i]));
   });
   brTimers.push(setTimeout(function() {
-    var inner = document.getElementById('brInner');
-    if (inner) {
-      inner.style.transition = 'all 0.5s';
-      inner.style.background = '#86efac';
-      inner.textContent = '71';
+    var el = document.getElementById('brInner');
+    if (el) {
+      el.style.transition = 'all 0.5s';
+      el.style.background = '#86efac';
+      el.textContent = innerVal;
     }
   }, 800));
 }
@@ -2405,26 +2485,39 @@ function resetBracket() {
   ['br0','br1','br2'].forEach(function(id) {
     document.getElementById(id).classList.remove('show');
   });
-  var inner = document.getElementById('brInner');
-  if (inner) {
-    inner.style.background = '#fde047';
-    inner.textContent = '15 + 56';
-  }
 }
 
-// ===== ANIMATION: Term Identifier =====
+// ===== ANIMATION: Term Identifier (Random) =====
 var tiTimers = [];
 function playTermId() {
   resetTermId();
   var container = document.getElementById('termBlocksDisplay');
-  var terms = [
-    { text: '23', cls: 'tb-purple' },
-    { text: '+', cls: '' },
-    { text: '−2×4', cls: 'tb-red' },
-    { text: '+', cls: '' },
-    { text: '16', cls: 'tb-green' }
-  ];
-  terms.forEach(function(t, i) {
+  var exprEl = document.getElementById('termExprDisplay');
+  var colors = ['tb-purple','tb-pink','tb-green','tb-orange','tb-blue','tb-red'];
+  var numTerms = 2 + Math.floor(Math.random()*2);
+  var parts = [], termBlocks = [];
+  for (var i = 0; i < numTerms; i++) {
+    var hasMul = Math.random() > 0.5 && i > 0;
+    var sign = (i === 0) ? '' : (Math.random() > 0.4 ? ' + ' : ' − ');
+    var neg = (i > 0 && sign === ' − ');
+    var val, termText;
+    if (hasMul) {
+      var m = 2 + Math.floor(Math.random()*9);
+      var n = 2 + Math.floor(Math.random()*9);
+      val = m + '×' + n;
+      termText = (neg ? '−' : '') + val;
+      parts.push(sign + val);
+    } else {
+      var num = 2 + Math.floor(Math.random()*48);
+      val = String(num);
+      termText = (neg ? '−' : '') + val;
+      parts.push(i === 0 ? val : sign + val);
+    }
+    if (i > 0) termBlocks.push({ text: '+', cls: '' });
+    termBlocks.push({ text: termText, cls: colors[i % colors.length] });
+  }
+  exprEl.textContent = parts.join('');
+  termBlocks.forEach(function(t, idx) {
     tiTimers.push(setTimeout(function() {
       if (t.cls === '') {
         var plus = document.createElement('span');
@@ -2439,7 +2532,7 @@ function playTermId() {
         block.style.transform = 'none';
         container.appendChild(block);
       }
-    }, i * 500));
+    }, idx * 500));
   });
 }
 function resetTermId() {
