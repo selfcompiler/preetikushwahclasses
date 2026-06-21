@@ -1043,6 +1043,7 @@
     if (p.y > totalPages * PAGE_H - 100) { totalPages++; setupCanvas(); }
     redraw();
     drawStroke({ tool: tool, color: color, size: activeSize(), points: currentPath });
+    if (showGrid && tool === 'eraser') drawGrid(canvas.width / 2, totalPages * PAGE_H);
   }
 
   function endDraw(e) {
