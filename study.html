@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Study Mode — read NCERT textbook PDF side by side with a drawing board. Annotate, highlight &amp; take notes. Free tool by Preeti Kushwah Classes.">
+<meta name="description" content="Study Mode — read NCERT textbook PDF full screen. Annotate, highlight &amp; take notes. Free tool by Preeti Kushwah Classes.">
 <meta name="keywords" content="Preeti Kushwah Classes, NCERT notes, CBSE notes, free study material, Study">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.preetikushwahclasses.com/study.html">
-<meta property="og:title" content="Study Mode — PDF Viewer + Drawing Board">
-<meta property="og:description" content="Read NCERT textbook PDF side by side with a drawing board. Annotate &amp; take notes.">
+<meta property="og:title" content="Study Mode — PDF Viewer">
+<meta property="og:description" content="Read NCERT textbook PDF full screen. Annotate &amp; take notes.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.preetikushwahclasses.com/study.html">
 <title>Study Mode — Preeti Kushwah Classes</title>
@@ -28,26 +28,8 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
 }
 .sb-back:hover{background:rgba(255,255,255,0.3);}
 .sb-title{flex:1;font-size:13px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.sb-btn{
-  background:rgba(255,255,255,0.15);border:none;color:white;padding:6px 12px;
-  border-radius:10px;font-size:11px;font-weight:700;cursor:pointer;transition:all 0.2s;
-  font-family:'Nunito',sans-serif;white-space:nowrap;
-}
-.sb-btn:hover{background:rgba(255,255,255,0.3);}
-.sb-btn.active{background:rgba(124,58,237,0.5);}
-.sb-divider{width:1px;height:24px;background:rgba(255,255,255,0.2);}
 
-.study-split{display:flex;flex:1;height:calc(100vh - 46px);overflow:hidden;}
-.panel{position:relative;overflow:hidden;display:flex;flex-direction:column;}
-.panel-pdf{flex:1;background:#374151;min-width:200px;}
-.panel-draw{flex:1;background:#f9fafb;min-width:200px;}
-
-.gutter{
-  width:8px;background:#4c1d95;cursor:col-resize;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;transition:background 0.2s;user-select:none;
-}
-.gutter:hover,.gutter.dragging{background:#7c3aed;}
-.gutter::after{content:'⋮';color:rgba(255,255,255,0.6);font-size:16px;font-weight:900;}
+.study-body{flex:1;height:calc(100vh - 46px);overflow:hidden;display:flex;flex-direction:column;}
 
 .pdf-header{
   display:flex;align-items:center;gap:6px;padding:8px 10px;
@@ -99,62 +81,6 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
 .pdf-overlay.active{pointer-events:auto;cursor:crosshair;}
 .pdf-overlay.erasing{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='8' fill='none' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E") 10 10, auto;}
 .pdf-overlay canvas{width:100%;height:100%;display:block;}
-
-.draw-header{
-  display:flex;align-items:center;gap:6px;padding:8px 10px;
-  background:linear-gradient(135deg,#7c3aed,#a78bfa);color:white;flex-shrink:0;
-}
-.draw-header span{font-size:12px;font-weight:800;flex:1;}
-.draw-toolbar{
-  display:flex;gap:4px;padding:6px 10px;background:#f3f4f6;border-bottom:1px solid #e5e7eb;
-  flex-shrink:0;flex-wrap:wrap;align-items:center;
-}
-.dt-btn{
-  padding:4px 10px;border-radius:8px;border:1.5px solid #e5e7eb;background:white;
-  cursor:pointer;font-size:11px;font-weight:700;color:#374151;transition:all 0.2s;
-  font-family:'Nunito',sans-serif;
-}
-.dt-btn:hover{border-color:#a78bfa;background:#faf5ff;}
-.dt-btn.active{background:#7c3aed;color:white;border-color:#7c3aed;}
-.dt-color{width:22px;height:22px;border-radius:50%;border:2.5px solid #e5e7eb;cursor:pointer;transition:all 0.2s;flex-shrink:0;}
-.dt-color:hover{transform:scale(1.15);}
-.dt-color.active{border-color:#1f2937;box-shadow:0 0 0 2px #a78bfa;}
-.dt-sep{width:1px;height:20px;background:#d1d5db;margin:0 3px;flex-shrink:0;}
-
-.draw-pager{
-  display:flex;align-items:center;gap:6px;padding:6px 10px;
-  background:linear-gradient(135deg,#f3e8ff,#ede9fe);border-bottom:1px solid #c4b5fd;flex-shrink:0;
-}
-.dp-btn{
-  padding:5px 12px;border-radius:8px;border:1.5px solid #c4b5fd;background:white;
-  cursor:pointer;font-size:11px;font-weight:700;color:#7c3aed;transition:all 0.2s;
-  font-family:'Nunito',sans-serif;
-}
-.dp-btn:hover{background:#ede9fe;transform:translateY(-1px);box-shadow:0 2px 6px rgba(124,58,237,0.15);}
-.dp-btn:disabled{opacity:0.3;pointer-events:none;}
-.dp-add{background:linear-gradient(135deg,#f0fdf4,#dcfce7);color:#16a34a;border-color:#86efac;}
-.dp-add:hover{background:#dcfce7;box-shadow:0 2px 6px rgba(22,163,74,0.15);}
-.dp-info{
-  flex:1;text-align:center;font-size:12px;font-weight:800;color:#5b21b6;
-}
-.draw-scroll{
-  flex:1;overflow-y:auto;overflow-x:hidden;background:white;position:relative;
-  -webkit-overflow-scrolling:touch;scroll-behavior:smooth;
-}
-.draw-canvas{display:block;touch-action:none;cursor:crosshair;background:white;}
-.draw-canvas.erasing{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='8' fill='none' stroke='%23999' stroke-width='1.5'/%3E%3C/svg%3E") 10 10, auto;}
-.draw-scroll.ruled .draw-canvas{
-  background-image:repeating-linear-gradient(0deg,transparent,transparent 29px,#e5e7eb 29px,#e5e7eb 30px);
-  background-size:100% 30px;
-}
-
-@media(max-width:700px){
-  .study-split{flex-direction:column;}
-  .panel-pdf{flex:none;height:45vh;}
-  .panel-draw{flex:none;height:calc(55vh - 46px);}
-  .gutter{width:100%;height:8px;cursor:row-resize;}
-  .gutter::after{content:'⋯';}
-}
 </style>
 </head>
 <body>
@@ -162,86 +88,45 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
 <div class="study-bar">
   <button class="sb-back" id="backBtn" onclick="goBack()">← Back</button>
   <span class="sb-title" id="studyTitle">Study Mode</span>
-  <div class="sb-divider"></div>
-  <button class="sb-btn" id="toggleRuled" onclick="toggleRuled()">📏 Lines</button>
-  <button class="sb-btn" onclick="toggleLayout()">📐 Swap</button>
-  <button class="sb-btn" onclick="saveDrawing()">💾 Save</button>
 </div>
 
-<div class="study-split" id="studySplit">
-  <div class="panel panel-pdf" id="panelPdf">
-    <div class="pdf-header">
-      <span id="pdfTitle">📖 NCERT Textbook</span>
-      <div class="pdf-nav">
-        <button class="pdf-nav-btn" id="pdfPrev" onclick="pdfGo(-1)" disabled>◀</button>
-        <span class="pdf-pg-info" id="pdfPgInfo">-</span>
-        <button class="pdf-nav-btn" id="pdfNext" onclick="pdfGo(1)">▶</button>
-        <button class="pdf-zoom-btn" onclick="pdfZoom(-0.15)">−</button>
-        <button class="pdf-zoom-btn" onclick="pdfZoom(0.15)">+</button>
-      </div>
-      <button class="pt-btn" id="pdfAnnotateToggle" onclick="togglePdfAnnotate()" style="margin-left:6px;">✏️ Annotate</button>
+<div class="study-body">
+  <div class="pdf-header">
+    <span id="pdfTitle">📖 NCERT Textbook</span>
+    <div class="pdf-nav">
+      <button class="pdf-nav-btn" id="pdfPrev" onclick="pdfGo(-1)" disabled>◀</button>
+      <span class="pdf-pg-info" id="pdfPgInfo">-</span>
+      <button class="pdf-nav-btn" id="pdfNext" onclick="pdfGo(1)">▶</button>
+      <button class="pdf-zoom-btn" onclick="pdfZoom(-0.15)">−</button>
+      <button class="pdf-zoom-btn" onclick="pdfZoom(0.15)">+</button>
     </div>
-    <div class="pdf-body" id="pdfBody">
-      <div class="pdf-placeholder" id="pdfPlaceholder">
-        <p style="font-size:40px;">📚</p>
-        <p style="font-weight:700;font-size:15px;">Loading textbook...</p>
-      </div>
-      <div class="pdf-overlay" id="pdfOverlay">
-        <canvas id="pdfCanvas"></canvas>
-      </div>
+    <button class="pt-btn" id="pdfAnnotateToggle" onclick="togglePdfAnnotate()" style="margin-left:6px;">✏️ Annotate</button>
+  </div>
+  <div class="pdf-body" id="pdfBody">
+    <div class="pdf-placeholder" id="pdfPlaceholder">
+      <p style="font-size:40px;">📚</p>
+      <p style="font-weight:700;font-size:15px;">Loading textbook...</p>
     </div>
-    <div class="pdf-toolbar" id="pdfToolbar" style="display:none;">
-      <button class="pt-btn active" data-ptool="pen" onclick="setPdfTool('pen',this)">✏️ Pen</button>
-      <button class="pt-btn" data-ptool="highlighter" onclick="setPdfTool('highlighter',this)">🖍️ Highlight</button>
-      <button class="pt-btn" data-ptool="eraser" onclick="setPdfTool('eraser',this)">⬜ Eraser</button>
-      <span class="pt-sep"></span>
-      <span class="pt-color active" data-pcolor="#dc2626" style="background:#dc2626;" onclick="setPdfColor('#dc2626',this)"></span>
-      <span class="pt-color" data-pcolor="#f59e0b" style="background:#f59e0b;" onclick="setPdfColor('#f59e0b',this)"></span>
-      <span class="pt-color" data-pcolor="#2563eb" style="background:#2563eb;" onclick="setPdfColor('#2563eb',this)"></span>
-      <span class="pt-color" data-pcolor="#16a34a" style="background:#16a34a;" onclick="setPdfColor('#16a34a',this)"></span>
-      <span class="pt-color" data-pcolor="#1f2937" style="background:#1f2937;" onclick="setPdfColor('#1f2937',this)"></span>
-      <span class="pt-sep"></span>
-      <input type="range" min="1" max="20" value="4" id="pdfSizeSlider" style="width:50px;accent-color:#f59e0b;">
-      <span class="pt-sep"></span>
-      <button class="pt-btn" onclick="pdfAnnotUndo()">↩</button>
-      <button class="pt-btn" style="color:#fca5a5;" onclick="pdfAnnotClear()">🗑</button>
-      <span class="pt-status" id="pdfAnnotStatus">✏️ Draw on the book!</span>
+    <div class="pdf-overlay" id="pdfOverlay">
+      <canvas id="pdfCanvas"></canvas>
     </div>
   </div>
-
-  <div class="gutter" id="gutter"></div>
-
-  <div class="panel panel-draw" id="panelDraw">
-    <div class="draw-header">
-      <span>✏️ Notes — scroll down for infinite space</span>
-    </div>
-    <div class="draw-toolbar" id="drawToolbar">
-      <button class="dt-btn active" data-tool="pen">✏️ Pen</button>
-      <button class="dt-btn" data-tool="highlighter">🖍️ Highlight</button>
-      <button class="dt-btn" data-tool="laser">🔦 Laser</button>
-      <button class="dt-btn" data-tool="eraser">⬜ Eraser</button>
-      <span class="dt-sep"></span>
-      <span class="dt-color active" data-color="#1f2937" style="background:#1f2937;"></span>
-      <span class="dt-color" data-color="#dc2626" style="background:#dc2626;"></span>
-      <span class="dt-color" data-color="#2563eb" style="background:#2563eb;"></span>
-      <span class="dt-color" data-color="#16a34a" style="background:#16a34a;"></span>
-      <span class="dt-color" data-color="#d97706" style="background:#d97706;"></span>
-      <span class="dt-color" data-color="#7c3aed" style="background:#7c3aed;"></span>
-      <span class="dt-sep"></span>
-      <input type="range" min="1" max="20" value="3" id="sizeSlider" style="width:55px;accent-color:#7c3aed;">
-      <span class="dt-sep"></span>
-      <button class="dt-btn" id="undoBtn">↩</button>
-      <button class="dt-btn" style="color:#dc2626;" id="clearBtn">🗑</button>
-    </div>
-    <div class="draw-pager" id="drawPager">
-      <button class="dp-btn" id="prevPageBtn" onclick="goToPage(-1)">⬆ Prev Page</button>
-      <span class="dp-info" id="pageInfo">Page 1 / 3</span>
-      <button class="dp-btn" id="nextPageBtn" onclick="goToPage(1)">⬇ Next Page</button>
-      <button class="dp-btn dp-add" id="addPageBtn" onclick="addPage()">+ Add Page</button>
-    </div>
-    <div class="draw-scroll" id="drawScroll">
-      <canvas class="draw-canvas" id="drawCanvas"></canvas>
-    </div>
+  <div class="pdf-toolbar" id="pdfToolbar" style="display:none;">
+    <button class="pt-btn active" data-ptool="pen" onclick="setPdfTool('pen',this)">✏️ Pen</button>
+    <button class="pt-btn" data-ptool="highlighter" onclick="setPdfTool('highlighter',this)">🖍️ Highlight</button>
+    <button class="pt-btn" data-ptool="eraser" onclick="setPdfTool('eraser',this)">⬜ Eraser</button>
+    <span class="pt-sep"></span>
+    <span class="pt-color active" data-pcolor="#dc2626" style="background:#dc2626;" onclick="setPdfColor('#dc2626',this)"></span>
+    <span class="pt-color" data-pcolor="#f59e0b" style="background:#f59e0b;" onclick="setPdfColor('#f59e0b',this)"></span>
+    <span class="pt-color" data-pcolor="#2563eb" style="background:#2563eb;" onclick="setPdfColor('#2563eb',this)"></span>
+    <span class="pt-color" data-pcolor="#16a34a" style="background:#16a34a;" onclick="setPdfColor('#16a34a',this)"></span>
+    <span class="pt-color" data-pcolor="#1f2937" style="background:#1f2937;" onclick="setPdfColor('#1f2937',this)"></span>
+    <span class="pt-sep"></span>
+    <input type="range" min="1" max="20" value="4" id="pdfSizeSlider" style="width:50px;accent-color:#f59e0b;">
+    <span class="pt-sep"></span>
+    <button class="pt-btn" onclick="pdfAnnotUndo()">↩</button>
+    <button class="pt-btn" style="color:#fca5a5;" onclick="pdfAnnotClear()">🗑</button>
+    <span class="pt-status" id="pdfAnnotStatus">✏️ Draw on the book!</span>
   </div>
 </div>
 
@@ -282,7 +167,6 @@ function loadPdfJs() {
 function initPdf() {
   var ph = document.getElementById('pdfPlaceholder');
 
-  // If running from file://, PDF.js can't fetch local files — use iframe fallback
   if (window.location.protocol === 'file:') {
     ph.style.display = 'none';
     document.getElementById('pdfTitle').textContent = '📖 ' + chapterName;
@@ -323,16 +207,11 @@ function renderPdfPage(num) {
     var scale = fitScale * pdfScale;
     var viewport = page.getViewport({ scale: scale });
 
-    // Remove old page canvases
     body.querySelectorAll('.pdf-page-canvas').forEach(function(c) { c.remove(); });
 
     var cvs = document.createElement('canvas');
     cvs.className = 'pdf-page-canvas';
     var ctx = cvs.getContext('2d');
-    cvs.width = viewport.width;
-    cvs.height = viewport.height;
-    cvs.style.width = (viewport.width / window.devicePixelRatio) + 'px';
-    // For retina: render at full res
     var dpr = window.devicePixelRatio || 1;
     cvs.width = viewport.width * dpr;
     cvs.height = viewport.height * dpr;
@@ -381,259 +260,8 @@ if (!pdfUrl) {
 }
 loadPdfJs();
 
-// ===== GUTTER RESIZE =====
-var gutter = document.getElementById('gutter');
-var pdfPanel = document.getElementById('panelPdf');
-var drawPanel = document.getElementById('panelDraw');
-var splitEl = document.getElementById('studySplit');
-var gutterDragging = false;
-
-function startGutter(e) { gutterDragging = true; gutter.classList.add('dragging'); e.preventDefault(); }
-function moveGutter(e) {
-  if (!gutterDragging) return;
-  var rect = splitEl.getBoundingClientRect();
-  var t = e.touches ? e.touches[0] : e;
-  var isVert = window.innerWidth <= 700;
-  if (isVert) {
-    var pct = Math.max(20, Math.min(80, ((t.clientY - rect.top) / rect.height) * 100));
-    pdfPanel.style.flex = 'none'; pdfPanel.style.height = pct + '%';
-    drawPanel.style.flex = 'none'; drawPanel.style.height = (100 - pct) + '%';
-  } else {
-    var pct = Math.max(20, Math.min(80, ((t.clientX - rect.left) / rect.width) * 100));
-    pdfPanel.style.flex = 'none'; pdfPanel.style.width = pct + '%';
-    drawPanel.style.flex = 'none'; drawPanel.style.width = (100 - pct) + '%';
-  }
-}
-function endGutter() { if (gutterDragging) { gutterDragging = false; gutter.classList.remove('dragging'); resizeCanvas(); } }
-gutter.addEventListener('mousedown', startGutter);
-document.addEventListener('mousemove', moveGutter);
-document.addEventListener('mouseup', endGutter);
-gutter.addEventListener('touchstart', startGutter, {passive:false});
-document.addEventListener('touchmove', function(e) { if (gutterDragging) { e.preventDefault(); moveGutter(e); } }, {passive:false});
-document.addEventListener('touchend', endGutter);
-
-// ===== SWAP LAYOUT =====
-var swapped = false;
-function toggleLayout() {
-  swapped = !swapped;
-  // Reset flex/width so both panels share equally
-  pdfPanel.style.flex = '1'; pdfPanel.style.width = ''; pdfPanel.style.height = '';
-  drawPanel.style.flex = '1'; drawPanel.style.width = ''; drawPanel.style.height = '';
-  if (swapped) {
-    splitEl.insertBefore(drawPanel, splitEl.firstChild);
-    splitEl.insertBefore(gutter, pdfPanel);
-  } else {
-    splitEl.insertBefore(pdfPanel, splitEl.firstChild);
-    splitEl.insertBefore(gutter, drawPanel);
-  }
-  setTimeout(function() { resizeCanvas(); resizePdfCanvas(); }, 50);
-}
-
-// ===== RULED LINES =====
-var ruled = false;
-function toggleRuled() {
-  ruled = !ruled;
-  document.getElementById('drawScroll').classList.toggle('ruled', ruled);
-  document.getElementById('toggleRuled').classList.toggle('active', ruled);
-}
-
-// ========================================
-// ===== INFINITE SCROLLABLE DRAWING =====
-// ========================================
-var canvas = document.getElementById('drawCanvas');
-var ctx = canvas.getContext('2d');
-var scrollArea = document.getElementById('drawScroll');
-var PAGE_H = 800;
-var totalPages = 3;
-var drawTool = 'pen', drawColor = '#1f2937', drawSize = 3;
-var isDrawing = false, curPath = [];
-var SKEY = 'study_' + encodeURIComponent(chapterName);
-var strokes = [];
-var LASER_MS = 5000;
-var studyLaserTimer = null;
-
-// Load saved strokes
-try { var saved = localStorage.getItem(SKEY); if (saved) strokes = JSON.parse(saved); } catch(e) {}
-
-// Figure out how many pages we need from existing strokes
-if (strokes.length) {
-  var maxY = 0;
-  strokes.forEach(function(s) { s.points.forEach(function(p) { if (p.y > maxY) maxY = p.y; }); });
-  totalPages = Math.max(3, Math.ceil((maxY + 200) / PAGE_H));
-}
-
-function saveStrokes() {
-  try { localStorage.setItem(SKEY, JSON.stringify(strokes)); } catch(e) {}
-}
-
-function setupCanvas() {
-  var w = scrollArea.clientWidth || 400;
-  var h = totalPages * PAGE_H;
-  canvas.width = w * 2;
-  canvas.height = h * 2;
-  canvas.style.width = w + 'px';
-  canvas.style.height = h + 'px';
-  ctx.setTransform(2, 0, 0, 2, 0, 0);
-  renderAll();
-}
-
-function renderAll() {
-  var w = canvas.width / 2, h = canvas.height / 2;
-  ctx.clearRect(0, 0, w, h);
-  // Page dividers
-  ctx.save();
-  ctx.strokeStyle = '#e5e7eb'; ctx.lineWidth = 0.5; ctx.setLineDash([5, 5]);
-  for (var i = 1; i < totalPages; i++) {
-    var y = i * PAGE_H;
-    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
-    ctx.fillStyle = '#d1d5db'; ctx.font = '10px Nunito, sans-serif';
-    ctx.fillText('Page ' + (i + 1), 10, y + 14);
-  }
-  ctx.setLineDash([]); ctx.restore();
-  // Draw all strokes
-  var now = Date.now();
-  strokes.forEach(function(s) { renderStroke(s, now); });
-}
-
-function renderStroke(s, now) {
-  if (!s.points || s.points.length < 2) return;
-  var alpha = 1;
-  if (s.tool === 'laser' && s.ts && now) {
-    var age = now - s.ts;
-    if (age >= LASER_MS) return;
-    var fadeStart = LASER_MS * 0.6;
-    if (age > fadeStart) alpha = Math.max(0, 1 - (age - fadeStart) / (LASER_MS - fadeStart));
-  }
-  ctx.save();
-  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-  if (s.tool === 'laser') {
-    ctx.globalAlpha = 0.45 * alpha; ctx.strokeStyle = s.color;
-    ctx.lineWidth = s.size * 5; ctx.shadowColor = s.color; ctx.shadowBlur = 12 * alpha;
-  } else if (s.tool === 'highlighter') { ctx.globalAlpha = 0.3; ctx.strokeStyle = s.color; ctx.lineWidth = s.size * 4; }
-  else if (s.tool === 'eraser') { ctx.globalCompositeOperation = 'destination-out'; ctx.strokeStyle = 'rgba(0,0,0,1)'; ctx.lineWidth = s.size * 5; }
-  else { ctx.globalAlpha = 1; ctx.strokeStyle = s.color; ctx.lineWidth = s.size; }
-  ctx.beginPath();
-  ctx.moveTo(s.points[0].x, s.points[0].y);
-  for (var i = 1; i < s.points.length; i++) {
-    var a = s.points[i - 1], b = s.points[i];
-    ctx.quadraticCurveTo(a.x, a.y, (a.x + b.x) / 2, (a.y + b.y) / 2);
-  }
-  ctx.stroke(); ctx.restore();
-}
-
-function getDrawPos(e) {
-  var rect = canvas.getBoundingClientRect();
-  var sx = (canvas.width / 2) / rect.width;
-  var sy = (canvas.height / 2) / rect.height;
-  var t = e.touches ? e.touches[0] : e;
-  return { x: (t.clientX - rect.left) * sx, y: (t.clientY - rect.top) * sy };
-}
-
-function onDrawStart(e) {
-  e.preventDefault(); isDrawing = true;
-  curPath = [getDrawPos(e)];
-}
-function onDrawMove(e) {
-  if (!isDrawing) return; e.preventDefault();
-  var p = getDrawPos(e);
-  curPath.push(p);
-  // Auto-extend if near bottom
-  var totalH = totalPages * PAGE_H;
-  if (p.y > totalH - 150) { totalPages++; setupCanvas(); }
-  // Live preview
-  renderAll();
-  renderStroke({ tool: drawTool, color: drawColor, size: drawSize, points: curPath });
-}
-function onDrawEnd() {
-  if (!isDrawing) return; isDrawing = false;
-  if (curPath.length > 1) {
-    var stroke = { tool: drawTool, color: drawColor, size: drawSize, points: curPath.slice() };
-    if (drawTool === 'laser') { stroke.ts = Date.now(); startStudyLaserFade(); }
-    strokes.push(stroke);
-    saveStrokes();
-  }
-  curPath = [];
-}
-function startStudyLaserFade() {
-  if (studyLaserTimer) return;
-  studyLaserTimer = setInterval(function() {
-    var now = Date.now();
-    var had = strokes.some(function(s) { return s.tool === 'laser'; });
-    strokes = strokes.filter(function(s) { return s.tool !== 'laser' || (now - s.ts) < LASER_MS; });
-    if (had) { renderAll(); saveStrokes(); }
-    if (!strokes.some(function(s) { return s.tool === 'laser'; })) {
-      clearInterval(studyLaserTimer); studyLaserTimer = null;
-    }
-  }, 200);
-}
-
-canvas.addEventListener('mousedown', onDrawStart);
-canvas.addEventListener('mousemove', onDrawMove);
-canvas.addEventListener('mouseup', onDrawEnd);
-canvas.addEventListener('mouseleave', onDrawEnd);
-canvas.addEventListener('touchstart', onDrawStart, {passive: false});
-canvas.addEventListener('touchmove', onDrawMove, {passive: false});
-canvas.addEventListener('touchend', onDrawEnd);
-
-// Toolbar
-document.getElementById('drawToolbar').addEventListener('click', function(e) {
-  var btn = e.target.closest('[data-tool]');
-  if (btn) {
-    drawTool = btn.dataset.tool;
-    document.querySelectorAll('.dt-btn[data-tool]').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    canvas.classList.toggle('erasing', drawTool === 'eraser');
-  }
-  var col = e.target.closest('[data-color]');
-  if (col) {
-    drawColor = col.dataset.color;
-    document.querySelectorAll('.dt-color').forEach(function(c) { c.classList.remove('active'); });
-    col.classList.add('active');
-  }
-});
-document.getElementById('sizeSlider').addEventListener('input', function() { drawSize = parseInt(this.value); });
-
-document.getElementById('undoBtn').addEventListener('click', function() {
-  strokes.pop(); saveStrokes(); renderAll();
-});
-document.getElementById('clearBtn').addEventListener('click', function() {
-  if (!strokes.length || confirm('Clear all notes for this chapter?')) {
-    strokes = []; saveStrokes(); totalPages = 3; setupCanvas();
-  }
-});
-// Page navigation
-var currentPage = 1;
-function updatePageInfo() {
-  currentPage = Math.max(1, Math.min(totalPages, Math.floor(scrollArea.scrollTop / PAGE_H) + 1));
-  document.getElementById('pageInfo').textContent = 'Page ' + currentPage + ' / ' + totalPages;
-  document.getElementById('prevPageBtn').disabled = (currentPage <= 1);
-}
-function goToPage(dir) {
-  var target = currentPage + dir;
-  if (target < 1) target = 1;
-  if (target > totalPages) target = totalPages;
-  scrollArea.scrollTop = (target - 1) * PAGE_H;
-  currentPage = target;
-  updatePageInfo();
-}
-function addPage() {
-  totalPages++;
-  setupCanvas();
-  scrollArea.scrollTop = (totalPages - 1) * PAGE_H;
-  updatePageInfo();
-}
-scrollArea.addEventListener('scroll', updatePageInfo);
-
-function saveDrawing() {
-  var a = document.createElement('a');
-  a.download = 'notes-' + chapterName.replace(/[^a-zA-Z0-9]/g, '-') + '.png';
-  a.href = canvas.toDataURL('image/png');
-  a.click();
-}
-
-function resizeCanvas() { setupCanvas(); updatePageInfo(); }
-window.addEventListener('resize', function() { resizeCanvas(); resizePdfCanvas(); });
-setTimeout(function() { setupCanvas(); updatePageInfo(); resizePdfCanvas(); }, 100);
+window.addEventListener('resize', function() { resizePdfCanvas(); });
+setTimeout(function() { resizePdfCanvas(); }, 100);
 
 // ========================================
 // ===== PDF ANNOTATION OVERLAY =====
@@ -780,6 +408,5 @@ function pdfAnnotClear() {
 </script>
 <script src="draw-widget.js"></script>
 <script src="ga.js"></script>
-<script src="whatsapp-widget.js"></script>
 </body>
 </html>
