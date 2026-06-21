@@ -1156,103 +1156,10 @@ footer{text-align:center;padding:24px;background:#92400e;color:#fff;font-size:13
 
   <div class="card fade-in" style="border-left-color:#0369a1">
     <h4 style="font-family:'Fredoka One',cursive;color:#0369a1;margin-bottom:10px">How a River Delta Forms</h4>
-    <div class="delta-container">
-  <style>
-    .delta-container { position: relative; width: 100%; max-width: 800px; height: 420px; margin: 1rem auto; background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 30%, #7dd3fc 60%, #0369a1 80%, #0369a1 100%); border-radius: 12px; overflow: hidden; font-family: 'Nunito', sans-serif; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
-    .delta-sky { position: absolute; top: 0; left: 0; right: 0; height: 60px; background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%); z-index: 1; }
-    .delta-highland { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 160px; height: 60px; background: linear-gradient(180deg, #78716c 0%, #92400e 60%, #a16207 100%); clip-path: polygon(50% 0%, 15% 100%, 85% 100%); z-index: 5; }
-    .delta-highland::after { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 20px; background: #e7e5e4; clip-path: polygon(50% 0%, 20% 100%, 80% 100%); }
-    .delta-river { position: absolute; top: 70px; left: 50%; transform: translateX(-50%); width: 28px; height: 200px; background: linear-gradient(180deg, #3b82f6 0%, #60a5fa 50%, #3b82f6 100%); z-index: 4; border-radius: 0 0 4px 4px; }
-    .delta-river::before { content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 200%; background: repeating-linear-gradient(180deg, transparent 0px, rgba(255,255,255,0.15) 8px, transparent 16px); animation: delta-flow 1.2s linear infinite; z-index: 1; }
-    @keyframes delta-flow { 0% { transform: translateY(0); } 100% { transform: translateY(50%); } }
-    .delta-sediment { position: absolute; border-radius: 50%; background: #d97706; z-index: 5; opacity: 0; }
-    .delta-sediment-1 { width: 4px; height: 4px; left: calc(50% - 6px); top: 90px; animation: delta-sediment-fall 3s ease-in infinite 0s; }
-    .delta-sediment-2 { width: 3px; height: 3px; left: calc(50% + 4px); top: 100px; animation: delta-sediment-fall 3s ease-in infinite 0.5s; }
-    .delta-sediment-3 { width: 5px; height: 5px; left: calc(50% - 2px); top: 85px; animation: delta-sediment-fall 3s ease-in infinite 1s; }
-    .delta-sediment-4 { width: 3px; height: 3px; left: calc(50% + 6px); top: 95px; animation: delta-sediment-fall 3s ease-in infinite 1.5s; }
-    .delta-sediment-5 { width: 4px; height: 4px; left: calc(50% - 8px); top: 92px; animation: delta-sediment-fall 3s ease-in infinite 2s; }
-    .delta-sediment-6 { width: 3px; height: 3px; left: calc(50%); top: 88px; animation: delta-sediment-fall 3s ease-in infinite 2.5s; }
-    @keyframes delta-sediment-fall { 0% { transform: translateY(0); opacity: 0.9; } 70% { transform: translateY(170px); opacity: 0.8; } 100% { transform: translateY(185px) translateX(15px); opacity: 0; } }
-    .delta-sea { position: absolute; bottom: 0; left: 0; right: 0; height: 160px; background: linear-gradient(180deg, #0ea5e9 0%, #0369a1 40%, #075985 100%); z-index: 3; }
-    .delta-sea::before { content: ''; position: absolute; top: -8px; left: -50%; width: 200%; height: 20px; background: radial-gradient(ellipse at 25% 50%, #38bdf8 30%, transparent 32%), radial-gradient(ellipse at 75% 50%, #38bdf8 30%, transparent 32%); background-size: 60px 20px; animation: delta-waves 2.5s ease-in-out infinite alternate; }
-    @keyframes delta-waves { 0% { transform: translateX(0); } 100% { transform: translateX(30px); } }
-    .delta-land { position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 0px solid transparent; border-right: 0px solid transparent; border-top: 0px solid #92400e; z-index: 6; animation: delta-grow 10s ease-out infinite; }
-    @keyframes delta-grow { 0%, 5% { border-left-width: 0; border-right-width: 0; border-top-width: 0; opacity: 0; } 20% { border-left-width: 20px; border-right-width: 20px; border-top-width: 15px; opacity: 0.6; } 40% { border-left-width: 60px; border-right-width: 60px; border-top-width: 40px; opacity: 0.85; } 60% { border-left-width: 110px; border-right-width: 110px; border-top-width: 65px; opacity: 1; } 80%, 100% { border-left-width: 150px; border-right-width: 150px; border-top-width: 80px; opacity: 1; } }
-    .delta-land-texture { position: absolute; bottom: 98px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 0px solid transparent; border-right: 0px solid transparent; border-top: 0px solid #b45309; z-index: 7; animation: delta-grow-inner 10s ease-out infinite; }
-    @keyframes delta-grow-inner { 0%, 10% { border-left-width: 0; border-right-width: 0; border-top-width: 0; opacity: 0; } 50% { border-left-width: 45px; border-right-width: 45px; border-top-width: 30px; opacity: 0.7; } 70%, 100% { border-left-width: 100px; border-right-width: 100px; border-top-width: 55px; opacity: 1; } }
-    .delta-branch { position: absolute; z-index: 8; background: #3b82f6; opacity: 0; transform-origin: top center; }
-    .delta-branch-left { bottom: 108px; left: calc(50% - 50px); width: 5px; height: 55px; transform: rotate(25deg); animation: delta-branch-appear 10s ease-out infinite; }
-    .delta-branch-right { bottom: 108px; left: calc(50% + 46px); width: 5px; height: 55px; transform: rotate(-25deg); animation: delta-branch-appear 10s ease-out infinite 0.3s; }
-    .delta-branch-far-left { bottom: 115px; left: calc(50% - 90px); width: 4px; height: 45px; transform: rotate(40deg); animation: delta-branch-appear 10s ease-out infinite 0.6s; }
-    .delta-branch-far-right { bottom: 115px; left: calc(50% + 87px); width: 4px; height: 45px; transform: rotate(-40deg); animation: delta-branch-appear 10s ease-out infinite 0.9s; }
-    .delta-branch-center { bottom: 105px; left: calc(50% - 2px); width: 5px; height: 60px; animation: delta-branch-appear 10s ease-out infinite 0.15s; }
-    @keyframes delta-branch-appear { 0%, 45% { opacity: 0; height: 0; } 55% { opacity: 0.5; } 70%, 100% { opacity: 0.85; height: 55px; } }
-    .delta-tree { position: absolute; z-index: 9; opacity: 0; }
-    .delta-tree::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 3px; height: 10px; background: #92400e; border-radius: 1px; }
-    .delta-tree::after { content: ''; position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); width: 16px; height: 16px; background: radial-gradient(circle, #22c55e 40%, #16a34a 70%, transparent 72%); border-radius: 50%; }
-    .delta-tree-1 { bottom: 130px; left: calc(50% - 30px); animation: delta-veg-grow 10s ease-out infinite; }
-    .delta-tree-2 { bottom: 125px; left: calc(50% + 20px); animation: delta-veg-grow 10s ease-out infinite 0.2s; }
-    .delta-tree-3 { bottom: 138px; left: calc(50% - 55px); animation: delta-veg-grow 10s ease-out infinite 0.4s; }
-    .delta-tree-4 { bottom: 135px; left: calc(50% + 48px); animation: delta-veg-grow 10s ease-out infinite 0.6s; }
-    .delta-tree-5 { bottom: 128px; left: calc(50% - 5px); animation: delta-veg-grow 10s ease-out infinite 0.3s; }
-    .delta-tree-6 { bottom: 142px; left: calc(50% - 80px); animation: delta-veg-grow 10s ease-out infinite 0.8s; }
-    .delta-tree-7 { bottom: 140px; left: calc(50% + 72px); animation: delta-veg-grow 10s ease-out infinite 1s; }
-    .delta-tree-8 { bottom: 133px; left: calc(50% - 42px); animation: delta-veg-grow 10s ease-out infinite 0.5s; }
-    .delta-tree-9 { bottom: 131px; left: calc(50% + 35px); animation: delta-veg-grow 10s ease-out infinite 0.7s; }
-    @keyframes delta-veg-grow { 0%, 60% { opacity: 0; transform: scale(0); } 70% { opacity: 0.6; transform: scale(0.5); } 80%, 100% { opacity: 1; transform: scale(1); } }
-    .delta-label { position: absolute; z-index: 12; font-size: 11px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.55); padding: 3px 8px; border-radius: 4px; white-space: nowrap; opacity: 0; }
-    .delta-label-source { top: 8px; left: 50%; transform: translateX(-50%); animation: delta-label-show 10s ease infinite; }
-    @keyframes delta-label-show { 0%, 2% { opacity: 0; } 5%, 15% { opacity: 1; } 20%, 100% { opacity: 0; } }
-    .delta-label-flow { top: 140px; left: calc(50% + 22px); animation: delta-label-show2 10s ease infinite; }
-    @keyframes delta-label-show2 { 0%, 12% { opacity: 0; } 16%, 28% { opacity: 1; } 33%, 100% { opacity: 0; } }
-    .delta-label-deposit { bottom: 185px; left: calc(50% + 22px); animation: delta-label-show3 10s ease infinite; }
-    @keyframes delta-label-show3 { 0%, 25% { opacity: 0; } 30%, 42% { opacity: 1; } 47%, 100% { opacity: 0; } }
-    .delta-label-branches { bottom: 170px; left: calc(50% - 120px); animation: delta-label-show4 10s ease infinite; }
-    @keyframes delta-label-show4 { 0%, 45% { opacity: 0; } 50%, 62% { opacity: 1; } 67%, 100% { opacity: 0; } }
-    .delta-label-mangrove { bottom: 168px; left: calc(50% + 40px); animation: delta-label-show5 10s ease infinite; }
-    @keyframes delta-label-show5 { 0%, 62% { opacity: 0; } 67%, 78% { opacity: 1; } 83%, 100% { opacity: 0; } }
-    .delta-label-title { bottom: 25px; left: 50%; transform: translateX(-50%); font-size: 13px; font-weight: 800; background: linear-gradient(135deg, rgba(5,80,40,0.85), rgba(7,89,53,0.85)); padding: 6px 14px; border-radius: 6px; border: 1px solid rgba(34,197,94,0.4); animation: delta-label-title-show 10s ease infinite; }
-    @keyframes delta-label-title-show { 0%, 75% { opacity: 0; transform: translateX(-50%) translateY(10px); } 82%, 95% { opacity: 1; transform: translateX(-50%) translateY(0); } 100% { opacity: 0; } }
-    .delta-source-indicator { position: absolute; top: 72px; left: 50%; transform: translateX(-50%); width: 8px; height: 8px; background: #60a5fa; border-radius: 50%; z-index: 5; animation: delta-pulse 1.5s ease-in-out infinite; }
-    @keyframes delta-pulse { 0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.8; } 50% { transform: translateX(-50%) scale(1.5); opacity: 0.3; } }
-    .delta-sea-label { position: absolute; bottom: 60px; right: 15px; font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.5); z-index: 4; letter-spacing: 3px; text-transform: uppercase; }
-    @media (max-width: 600px) { .delta-container { height: 360px; } .delta-label { font-size: 9px; } }
-  </style>
-  <div class="delta-sky"></div>
-  <div class="delta-highland"></div>
-  <div class="delta-river"></div>
-  <div class="delta-source-indicator"></div>
-  <div class="delta-sediment delta-sediment-1"></div>
-  <div class="delta-sediment delta-sediment-2"></div>
-  <div class="delta-sediment delta-sediment-3"></div>
-  <div class="delta-sediment delta-sediment-4"></div>
-  <div class="delta-sediment delta-sediment-5"></div>
-  <div class="delta-sediment delta-sediment-6"></div>
-  <div class="delta-sea"></div>
-  <div class="delta-sea-label">Bay of Bengal</div>
-  <div class="delta-land"></div>
-  <div class="delta-land-texture"></div>
-  <div class="delta-branch delta-branch-left"></div>
-  <div class="delta-branch delta-branch-right"></div>
-  <div class="delta-branch delta-branch-far-left"></div>
-  <div class="delta-branch delta-branch-far-right"></div>
-  <div class="delta-branch delta-branch-center"></div>
-  <div class="delta-tree delta-tree-1"></div>
-  <div class="delta-tree delta-tree-2"></div>
-  <div class="delta-tree delta-tree-3"></div>
-  <div class="delta-tree delta-tree-4"></div>
-  <div class="delta-tree delta-tree-5"></div>
-  <div class="delta-tree delta-tree-6"></div>
-  <div class="delta-tree delta-tree-7"></div>
-  <div class="delta-tree delta-tree-8"></div>
-  <div class="delta-tree delta-tree-9"></div>
-  <div class="delta-label delta-label-source">1. River carries sediment from highlands</div>
-  <div class="delta-label delta-label-flow">2. Water flows toward the sea</div>
-  <div class="delta-label delta-label-deposit">3. Sediment deposits as water slows</div>
-  <div class="delta-label delta-label-branches">4. River splits into distributaries</div>
-  <div class="delta-label delta-label-mangrove">5. Mangroves grow on new land</div>
-  <div class="delta-label delta-label-title">Sundarbans — World's Largest Mangrove Delta</div>
-</div>
+    <div style="text-align:center;margin:12px 0 18px">
+      <img src="images/delta-formation.png" alt="Diagram showing how a river delta forms — river carries sediment from mountains, flow slows near ocean, sediment deposits creating a growing delta plain with distributaries" style="width:100%;max-width:560px;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.12);" loading="lazy">
+      <p style="font-size:12px;color:#6b7280;margin-top:6px;font-weight:600">Rivers carry sediment from mountains and deposit it where they meet the ocean, forming a delta</p>
+    </div>
   </div>
 
     <div class="map-info" id="mapInfoPlains">
