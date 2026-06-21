@@ -49,7 +49,7 @@
     '@keyframes dwHlPulse{0%,100%{box-shadow:0 4px 14px rgba(220,38,38,0.3);}50%{box-shadow:0 4px 20px rgba(220,38,38,0.6);}}',
     '.dw-page-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9990;pointer-events:none;display:none;}',
     '.dw-page-overlay.active{display:block;pointer-events:auto;cursor:crosshair;}',
-    '.dw-page-overlay canvas{display:block;width:100%;height:100%;}',
+    '.dw-page-overlay canvas{display:block;width:100%;height:100%;touch-action:none;}',
     '.dw-hl-bar{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:9995;display:none;background:white;border-radius:14px;padding:6px 10px;box-shadow:0 4px 20px rgba(0,0,0,0.2);border:2px solid #f59e0b;gap:4px;align-items:center;}',
     '.dw-hl-bar.active{display:flex;}',
     '.dw-hl-bar .dw-tbtn,.dw-hl-bar .dw-color{margin:0;}',
@@ -87,10 +87,22 @@
   var pgCtx = pgCanvas.getContext('2d');
   var pgStrokes = [], pgDrawing = false, pgCurPath = [];
   var pgFadeTimer = null, PG_FADE_MS = 5000;
+  var pgGestureDecided = false, pgGestureIsScroll = false;
+  var pgRawStart = null, pgLastScrollY = 0;
 
   function resizePageCanvas() {
     var dpr = window.devicePixelRatio || 1;
-    var w = window.innerWidth, h = window.innerHeight;
+    var vv = window.visualViewport;
+    var w, h;
+    if (vv) {
+      w = vv.width; h = vv.height;
+      pageOverlay.style.left = vv.offsetLeft + 'px';
+      pageOverlay.style.top = vv.offsetTop + 'px';
+      pageOverlay.style.width = w + 'px';
+      pageOverlay.style.height = h + 'px';
+    } else {
+      w = window.innerWidth; h = window.innerHeight;
+    }
     pgCanvas.width = w * dpr; pgCanvas.height = h * dpr;
     pgCanvas.style.width = w + 'px'; pgCanvas.style.height = h + 'px';
     pgCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -133,7 +145,13 @@
 
   function getPgPos(e) {
     var t = e.touches ? e.touches[0] : e;
-    return { x: t.clientX, y: t.clientY };
+    var rect = pgCanvas.getBoundingClientRect();
+    var cssW = parseFloat(pgCanvas.style.width) || rect.width;
+    var cssH = parseFloat(pgCanvas.style.height) || rect.height;
+    return {
+      x: (t.clientX - rect.left) * (cssW / rect.width),
+      y: (t.clientY - rect.top) * (cssH / rect.height)
+    };
   }
 
   pgCanvas.addEventListener('mousedown', function(e) { e.preventDefault(); pgDrawing = true; pgCurPath = [getPgPos(e)]; });
@@ -153,9 +171,29 @@
   });
   pgCanvas.addEventListener('mouseup', pgEnd);
   pgCanvas.addEventListener('mouseleave', pgEnd);
-  pgCanvas.addEventListener('touchstart', function(e) { e.preventDefault(); pgDrawing = true; pgCurPath = [getPgPos(e)]; }, {passive:false});
+  pgCanvas.addEventListener('touchstart', function(e) {
+    if (e.touches.length > 1) { pgDrawing = false; pgGestureDecided = false; return; }
+    e.preventDefault();
+    pgGestureDecided = false; pgGestureIsScroll = false; pgDrawing = false;
+    pgRawStart = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    pgCurPath = [getPgPos(e)];
+  }, {passive:false});
   pgCanvas.addEventListener('touchmove', function(e) {
-    if (!pgDrawing) return; e.preventDefault();
+    if (e.touches.length > 1 || !pgRawStart) return;
+    e.preventDefault();
+    var rawX = e.touches[0].clientX, rawY = e.touches[0].clientY;
+    if (!pgGestureDecided) {
+      var dx = Math.abs(rawX - pgRawStart.x), dy = Math.abs(rawY - pgRawStart.y);
+      if (dx < 4 && dy < 4) return;
+      if (dy > dx * 1.8 && dy > 6) {
+        pgGestureIsScroll = true; pgGestureDecided = true; pgCurPath = []; pgLastScrollY = rawY; return;
+      }
+      pgGestureDecided = true; pgDrawing = true;
+    }
+    if (pgGestureIsScroll) {
+      window.scrollBy(0, pgLastScrollY - rawY); pgLastScrollY = rawY; return;
+    }
+    if (!pgDrawing) return;
     pgCurPath.push(getPgPos(e));
     renderPageStrokes();
     pgCtx.save(); pgCtx.lineCap = 'round'; pgCtx.lineJoin = 'round';
@@ -168,7 +206,10 @@
     }
     pgCtx.stroke(); pgCtx.restore();
   }, {passive:false});
-  pgCanvas.addEventListener('touchend', pgEnd);
+  pgCanvas.addEventListener('touchend', function() {
+    if (pgGestureIsScroll) { pgGestureIsScroll = false; pgGestureDecided = false; pgRawStart = null; return; }
+    pgEnd(); pgGestureDecided = false; pgRawStart = null;
+  });
 
   function pgEnd() {
     if (!pgDrawing) return; pgDrawing = false;
@@ -199,6 +240,10 @@
   });
 
   window.addEventListener('resize', function() { if (hlOn) resizePageCanvas(); });
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', function() { if (hlOn) resizePageCanvas(); });
+    window.visualViewport.addEventListener('scroll', function() { if (hlOn) resizePageCanvas(); });
+  }
 
   // === DRAWING BOARD ===
   var FREEHAND_TOOLS = { pen:1, dpen:1, highlighter:1, laser:1, eraser:1 };
