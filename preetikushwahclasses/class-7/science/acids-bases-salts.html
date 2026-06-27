@@ -815,8 +815,8 @@ table.indicator-table tr:nth-child(even) td { background: #f0fdf4; }
   border: 1.5px solid transparent;
 }
 .mcq-options li:hover { background: #ede9fe; border-color: #a78bfa; }
-.mcq-options li.correct { background: #d1fae5 !important; border-color: #22c55e; font-weight: 700; color: #14532d; }
-.mcq-options li.wrong { background: #fee2e2 !important; border-color: #ef4444; font-weight: 700; color: #991b1b; }
+.mcq-item.show-ans .mcq-options li.correct { background: #d1fae5 !important; border-color: #22c55e; font-weight: 700; color: #14532d; }
+.mcq-item.show-ans .mcq-options li.wrong { background: #fee2e2 !important; border-color: #ef4444; font-weight: 700; color: #991b1b; }
 .mcq-ans { font-size: 12.5px; color: #16a34a; font-weight: 700; margin-top: 6px; display: none; }
 .mcq-item.show-ans .mcq-ans { display: block; }
 .mcq-item.show-ans .mcq-options li.correct::before { content: "correct "; }
@@ -1549,6 +1549,157 @@ footer {
   text-align: center;
   color: #475569;
 }
+
+/* ===== Hydrangea Flower Animation ===== */
+.hydrangea-wrap {
+  background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 50%, #d1fae5 100%);
+  border-radius: 18px;
+  padding: 24px 16px 16px;
+  margin: 16px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hydrangea-scene {
+  position: relative;
+  width: 280px;
+  height: 300px;
+  margin: 0 auto;
+}
+.hy-mtn {
+  position: absolute;
+  width: 0; height: 0;
+  opacity: 0.15;
+}
+.hy-mtn.m1 { left: -10px; bottom: 100px; border-left: 90px solid transparent; border-right: 90px solid transparent; border-bottom: 120px solid #64748b; }
+.hy-mtn.m2 { right: -20px; bottom: 100px; border-left: 70px solid transparent; border-right: 70px solid transparent; border-bottom: 90px solid #64748b; }
+.hy-mtn.m3 { left: 60px; bottom: 100px; border-left: 80px solid transparent; border-right: 80px solid transparent; border-bottom: 100px solid #94a3b8; }
+.hy-snow { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 12px solid transparent; border-right: 12px solid transparent; border-bottom: 18px solid rgba(255,255,255,0.6); }
+.hy-stem {
+  position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%);
+  width: 8px; height: 90px;
+  background: linear-gradient(180deg, #15803d, #166534);
+  border-radius: 4px;
+  z-index: 2;
+}
+.hy-leaf {
+  position: absolute; z-index: 3;
+  width: 36px; height: 20px;
+  background: #22c55e;
+  border: 2px solid #15803d;
+}
+.hy-leaf.l1 { bottom: 110px; left: 50%; transform: translateX(-50%) translateX(-28px) rotate(-35deg); border-radius: 50% 0 50% 0; }
+.hy-leaf.l2 { bottom: 100px; left: 50%; transform: translateX(-50%) translateX(20px) rotate(35deg); border-radius: 0 50% 0 50%; }
+.hy-leaf.l3 { bottom: 130px; left: 50%; transform: translateX(-50%) translateX(-32px) rotate(-20deg); border-radius: 50% 0 50% 0; }
+.hy-leaf.l4 { bottom: 120px; left: 50%; transform: translateX(-50%) translateX(24px) rotate(20deg); border-radius: 0 50% 0 50%; }
+.hy-flower-dome {
+  position: absolute; bottom: 145px; left: 50%; transform: translateX(-50%);
+  width: 120px; height: 95px;
+  z-index: 4;
+}
+.hf {
+  position: absolute;
+  border-radius: 50%;
+  animation: hfColor 8s ease-in-out infinite;
+  box-shadow: inset 0 -2px 4px rgba(0,0,0,0.15);
+}
+.hf::before {
+  content: ''; position: absolute; top: 20%; left: 20%;
+  width: 35%; height: 35%; border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+}
+@keyframes hfColor {
+  0%, 18% { background-color: #3b82f6; }
+  22% { background-color: #818cf8; }
+  38%, 62% { background-color: #ec4899; }
+  78% { background-color: #818cf8; }
+  82%, 100% { background-color: #3b82f6; }
+}
+.hf.f1  { width:22px;height:22px;top:35px;left:6px;animation-delay:0s; }
+.hf.f2  { width:26px;height:26px;top:22px;left:22px;animation-delay:.08s; }
+.hf.f3  { width:24px;height:24px;top:8px;left:38px;animation-delay:.16s; }
+.hf.f4  { width:22px;height:22px;top:18px;left:60px;animation-delay:.12s; }
+.hf.f5  { width:20px;height:20px;top:32px;left:78px;animation-delay:.04s; }
+.hf.f6  { width:24px;height:24px;top:45px;left:28px;animation-delay:.2s; }
+.hf.f7  { width:22px;height:22px;top:44px;left:56px;animation-delay:.1s; }
+.hf.f8  { width:18px;height:18px;top:12px;left:14px;animation-delay:.24s; }
+.hf.f9  { width:20px;height:20px;top:2px;left:50px;animation-delay:.18s; }
+.hf.f10 { width:18px;height:18px;top:5px;left:26px;animation-delay:.28s; }
+.hf.f11 { width:24px;height:24px;top:0px;left:42px;animation-delay:.14s; }
+.hf.f12 { width:20px;height:20px;top:55px;left:42px;animation-delay:.06s; }
+.hf.f13 { width:18px;height:18px;top:56px;left:16px;animation-delay:.22s; }
+.hf.f14 { width:16px;height:16px;top:26px;left:86px;animation-delay:.26s; }
+.hf.f15 { width:20px;height:20px;top:62px;left:60px;animation-delay:.1s; }
+.hf.f16 { width:16px;height:16px;top:68px;left:35px;animation-delay:.15s; }
+.hy-soil {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 55px;
+  border-radius: 0 0 16px 16px;
+  animation: hySoil 8s ease-in-out infinite;
+  z-index: 1;
+}
+@keyframes hySoil {
+  0%, 18% { background: linear-gradient(180deg, #92400e, #78350f); }
+  38%, 62% { background: linear-gradient(180deg, #7e22ce, #581c87); }
+  82%, 100% { background: linear-gradient(180deg, #92400e, #78350f); }
+}
+.hy-soil-label {
+  position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+  font-size: 11px; font-weight: 800; color: white;
+  background: rgba(0,0,0,0.3); padding: 3px 10px; border-radius: 8px;
+  white-space: nowrap; z-index: 5;
+  animation: hySoilText 8s ease-in-out infinite;
+}
+@keyframes hySoilText {
+  0%, 18% { content: ''; }
+  38%, 62% { content: ''; }
+  82%, 100% { content: ''; }
+}
+.hy-soil-label .acid-txt { animation: hyAcidTxt 8s ease-in-out infinite; }
+.hy-soil-label .base-txt { animation: hyBaseTxt 8s ease-in-out infinite; }
+@keyframes hyAcidTxt {
+  0%, 18% { display: inline; opacity: 1; }
+  28%, 72% { display: none; opacity: 0; }
+  82%, 100% { display: inline; opacity: 1; }
+}
+@keyframes hyBaseTxt {
+  0%, 28% { display: none; opacity: 0; }
+  38%, 62% { display: inline; opacity: 1; }
+  72%, 100% { display: none; opacity: 0; }
+}
+.hy-flower-label {
+  position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+  font-size: 12px; font-weight: 800;
+  background: rgba(255,255,255,0.85); padding: 4px 12px; border-radius: 10px;
+  white-space: nowrap; z-index: 5;
+  animation: hyFlowerTxt 8s ease-in-out infinite;
+}
+@keyframes hyFlowerTxt {
+  0%, 18% { color: #1e40af; }
+  38%, 62% { color: #9d174d; }
+  82%, 100% { color: #1e40af; }
+}
+.hy-gardener {
+  position: absolute; bottom: 58px; right: 12px;
+  font-size: 30px; z-index: 6;
+  animation: hyGardener 8s ease-in-out infinite;
+}
+@keyframes hyGardener {
+  0%, 25% { transform: translateX(0); }
+  35%, 65% { transform: translateX(-8px); }
+  75%, 100% { transform: translateX(0); }
+}
+.hy-watering {
+  position: absolute; bottom: 80px; right: 40px;
+  font-size: 16px; z-index: 6;
+  opacity: 0;
+  animation: hyWater 8s ease-in-out infinite;
+}
+@keyframes hyWater {
+  0%, 25% { opacity: 0; transform: translateY(0); }
+  30%, 35% { opacity: 1; transform: translateY(0); }
+  40% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 0; }
+}
 </style>
 </head>
 <body>
@@ -1655,7 +1806,7 @@ footer {
         <div class="info-card ic-yellow"><h4>&#127858; In Food</h4><p>Citric acid in lemon, acetic acid in vinegar (sirka), lactic acid in curd (dahi) -- acids make food tasty!</p></div>
         <div class="info-card ic-teal"><h4>&#129657; In Health</h4><p>Antacids (Eno, Digene, Pudin Hara) neutralize excess stomach acid. Medicines use acid-base chemistry!</p></div>
         <div class="info-card ic-green"><h4>&#127793; In Farming</h4><p>Farmers test soil pH and add lime (base) or organic matter to make soil suitable for crops.</p></div>
-        <div class="info-card ic-orange"><h4>&#128764; In Cleaning</h4><p>Soaps and detergents are bases. Window cleaners contain ammonia (a base).</p></div>
+        <div class="info-card ic-orange"><h4>&#129529; In Cleaning</h4><p>Soaps and detergents are bases. Window cleaners contain ammonia (a base).</p></div>
       </div>
 
       <div class="note-box">
@@ -1688,7 +1839,7 @@ footer {
 
       <h3 class="subtitle" style="color:#991b1b">&#128308; Properties of Acids</h3>
       <div class="info-grid">
-        <div class="info-card ic-red"><h4>&#128060; Sour Taste</h4><p>All acids taste sour. Lemon is sour because of citric acid. Curd is sour because of lactic acid.</p></div>
+        <div class="info-card ic-red"><h4>&#128523; Sour Taste</h4><p>All acids taste sour. Lemon is sour because of citric acid. Curd is sour because of lactic acid.</p></div>
         <div class="info-card ic-red"><h4>&#128308; Turn Blue Litmus Red</h4><p>When blue litmus paper is dipped in an acid, it turns <strong>red</strong>. This is the key test for acids!</p></div>
         <div class="info-card ic-red"><h4>&#9879;&#65039; React with Metals</h4><p>Acids react with metals like zinc and iron to produce <strong>hydrogen gas</strong> (H&#8322;) with a "pop" sound.</p></div>
         <div class="info-card ic-red"><h4>&#128165; React with Bases</h4><p>Acids react with bases to form <strong>salt + water</strong>. This is called <strong>neutralization</strong>!</p></div>
@@ -1822,6 +1973,61 @@ footer {
       <h3 class="subtitle" style="color:#166534">&#127811; Natural Indicators</h3>
       <p>These indicators are obtained from plants and natural sources:</p>
 
+      <!-- Litmus Source: Lichen on Rock illustration -->
+      <div style="background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border:2px solid #86efac;border-radius:16px;padding:20px;margin:16px 0;text-align:center;">
+        <div style="font-family:'Fredoka One',cursive;font-size:16px;color:#166534;margin-bottom:12px;">&#129514; Where Does Litmus Come From?</div>
+        <div style="display:flex;justify-content:center;align-items:flex-end;gap:24px;flex-wrap:wrap;margin:16px 0;">
+          <!-- Lichen on Rock -->
+          <div style="text-align:center;">
+            <div style="position:relative;width:120px;height:100px;margin:0 auto;">
+              <!-- Rock -->
+              <div style="position:absolute;bottom:0;left:10px;width:100px;height:60px;background:linear-gradient(180deg,#94a3b8,#64748b,#475569);border-radius:40% 50% 45% 40%;box-shadow:inset -4px -4px 10px rgba(0,0,0,0.3),inset 2px 2px 6px rgba(255,255,255,0.2);"></div>
+              <!-- Lichen patches on rock -->
+              <div style="position:absolute;bottom:30px;left:22px;width:28px;height:18px;background:radial-gradient(ellipse,#a3e635,#65a30d);border-radius:50%;opacity:0.85;animation:lichenPulse 3s ease-in-out infinite;"></div>
+              <div style="position:absolute;bottom:38px;left:48px;width:22px;height:14px;background:radial-gradient(ellipse,#bef264,#84cc16);border-radius:50%;opacity:0.8;animation:lichenPulse 3s ease-in-out 0.5s infinite;"></div>
+              <div style="position:absolute;bottom:22px;left:60px;width:20px;height:16px;background:radial-gradient(ellipse,#d9f99d,#a3e635);border-radius:50%;opacity:0.75;animation:lichenPulse 3s ease-in-out 1s infinite;"></div>
+              <div style="position:absolute;bottom:42px;left:34px;width:16px;height:12px;background:radial-gradient(ellipse,#86efac,#4ade80);border-radius:50%;opacity:0.7;animation:lichenPulse 3s ease-in-out 1.5s infinite;"></div>
+              <!-- Small grey texture patches on rock -->
+              <div style="position:absolute;bottom:15px;left:30px;width:14px;height:8px;background:rgba(148,163,184,0.5);border-radius:50%;"></div>
+              <div style="position:absolute;bottom:48px;left:65px;width:10px;height:6px;background:rgba(148,163,184,0.4);border-radius:50%;"></div>
+            </div>
+            <div style="font-size:12px;font-weight:800;color:#166534;margin-top:8px;">Lichen on Rock</div>
+            <div style="font-size:10px;color:#15803d;">(Plant-like organism)</div>
+          </div>
+
+          <!-- Arrow -->
+          <div style="font-size:28px;font-weight:900;color:#7c3aed;margin-bottom:20px;">&#10132;</div>
+
+          <!-- Litmus Solution -->
+          <div style="text-align:center;">
+            <div style="position:relative;width:60px;height:80px;margin:0 auto;">
+              <div style="width:50px;height:70px;margin:0 auto;border:3px solid #94a3b8;border-top:none;border-radius:0 0 14px 14px;position:relative;overflow:hidden;">
+                <div style="position:absolute;bottom:0;left:0;right:0;height:48px;background:linear-gradient(to top,#7c3aed,#a78bfa);border-radius:0 0 11px 11px;"></div>
+              </div>
+            </div>
+            <div style="font-size:12px;font-weight:800;color:#5b21b6;margin-top:8px;">Litmus Solution</div>
+            <div style="font-size:10px;color:#7c3aed;">(Purple dye)</div>
+          </div>
+
+          <!-- Arrow -->
+          <div style="font-size:28px;font-weight:900;color:#7c3aed;margin-bottom:20px;">&#10132;</div>
+
+          <!-- Litmus Paper Strips -->
+          <div style="text-align:center;">
+            <div style="display:flex;gap:10px;justify-content:center;margin:10px 0;">
+              <div style="width:22px;height:60px;background:#3b82f6;border-radius:3px;border:2px solid #1e40af;box-shadow:inset 0 0 8px rgba(255,255,255,0.3);"></div>
+              <div style="width:22px;height:60px;background:#ef4444;border-radius:3px;border:2px solid #991b1b;box-shadow:inset 0 0 8px rgba(255,255,255,0.3);"></div>
+            </div>
+            <div style="font-size:12px;font-weight:800;color:#1e40af;margin-top:4px;">Blue &amp; Red</div>
+            <div style="font-size:10px;color:#475569;">Litmus Paper</div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:#374151;margin-top:8px;">Litmus is extracted from <strong>lichen</strong> &mdash; a plant-like organism that grows on rocks and tree trunks. The purple dye is soaked into paper strips to make <strong>blue litmus</strong> and <strong>red litmus</strong> paper.</p>
+      </div>
+      <style>
+        @keyframes lichenPulse { 0%,100% { transform: scale(1); opacity: 0.75; } 50% { transform: scale(1.1); opacity: 1; } }
+      </style>
+
       <!-- Animated Litmus Test -->
       <div class="litmus-wrap">
         <div class="litmus-box" style="border: 2px solid #ef4444;">
@@ -1845,29 +2051,29 @@ footer {
 
       <div class="info-grid">
         <div class="info-card ic-purple">
-          <h4>&#129704; Litmus</h4>
-          <p>Extracted from <strong>lichen</strong> (a plant). Most commonly used indicator!<br>
+          <h4>&#129514; Litmus</h4>
+          <p>Extracted from <strong>lichen</strong> (a plant-like organism on rocks). Most commonly used indicator!<br>
           <strong>In acid:</strong> Blue &#8594; Red<br>
           <strong>In base:</strong> Red &#8594; Blue<br>
           <strong>Neutral:</strong> No change</p>
         </div>
         <div class="info-card ic-yellow">
-          <h4>&#127859; Turmeric (Haldi)</h4>
+          <h4>&#128993; Turmeric (Haldi)</h4>
           <p>Indian kitchen indicator!<br>
           <strong>In acid:</strong> Yellow (no change)<br>
           <strong>In base:</strong> Yellow &#8594; <strong>Red/Brown</strong><br>
           <em>That's why turmeric stain turns red when you wash with soap!</em></p>
         </div>
         <div class="info-card ic-pink">
-          <h4>&#127804; China Rose (Gudhal)</h4>
+          <h4>&#127802; China Rose (Gudhal)</h4>
           <p>Petals of hibiscus flower!<br>
           <strong>In acid:</strong> Dark pink / Magenta<br>
           <strong>In base:</strong> Green<br>
           <strong>Neutral:</strong> Light pink</p>
         </div>
         <div class="info-card ic-indigo">
-          <h4>&#129389; Red Cabbage</h4>
-          <p>Juice changes colour beautifully!<br>
+          <h4>&#129388; Purple Cabbage</h4>
+          <p>Also called Red Cabbage in NCERT. Juice changes colour beautifully!<br>
           <strong>In acid:</strong> Red / Pink<br>
           <strong>In base:</strong> Green / Yellow<br>
           <strong>Neutral:</strong> Purple / Violet</p>
@@ -1893,55 +2099,86 @@ footer {
       <!-- Indicator Flip Cards -->
       <h3 class="subtitle" style="color:#166534">&#127912; Indicator Colour Quick View</h3>
       <div class="indicator-cards">
-        <div class="ind-card" style="background: linear-gradient(135deg, #fecaca, #bfdbfe);">
-          <h5>&#129704; Litmus Paper</h5>
-          <div style="display:flex;justify-content:space-around;margin-top:8px;">
+
+        <!-- LITMUS PAPER — realistic strips with before → after -->
+        <div class="ind-card" style="background:linear-gradient(135deg,#eef2ff,#fff1f2);border:2px solid #c7d2fe;">
+          <h5 style="color:#312e81;display:flex;align-items:center;justify-content:center;gap:6px;">
+            <span style="display:inline-flex;gap:2px;"><span style="display:inline-block;width:6px;height:14px;background:#3b82f6;border-radius:1px;border:1px solid #1e40af;"></span><span style="display:inline-block;width:6px;height:14px;background:#ef4444;border-radius:1px;border:1px solid #991b1b;"></span></span>
+            Litmus Paper
+          </h5>
+          <div style="display:flex;justify-content:space-around;margin-top:10px;">
             <div class="acid-state">
-              <div style="width:30px;height:40px;background:linear-gradient(180deg,#3b82f6,#ef4444);border-radius:3px;"></div>
-              <span style="font-size:10px;font-weight:700">In Acid</span>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <div style="width:18px;height:40px;background:#3b82f6;border-radius:3px;border:2px solid #1e40af;box-shadow:inset 0 0 6px rgba(255,255,255,0.3);position:relative;"><span style="position:absolute;bottom:2px;left:50%;transform:translateX(-50%);font-size:7px;font-weight:900;color:white;line-height:1;">B</span></div>
+                <span style="font-size:14px;font-weight:900;color:#7c3aed;">&#10132;</span>
+                <div style="width:18px;height:40px;background:#ef4444;border-radius:3px;border:2px solid #991b1b;box-shadow:inset 0 0 6px rgba(255,255,255,0.3);position:relative;"><span style="position:absolute;bottom:2px;left:50%;transform:translateX(-50%);font-size:7px;font-weight:900;color:white;line-height:1;">R</span></div>
+              </div>
+              <span style="font-size:9px;font-weight:800;color:#991b1b;margin-top:4px;">Blue &#8594; Red</span>
+              <span style="font-size:10px;font-weight:700;">In Acid</span>
             </div>
             <div class="base-state">
-              <div style="width:30px;height:40px;background:linear-gradient(180deg,#ef4444,#3b82f6);border-radius:3px;"></div>
-              <span style="font-size:10px;font-weight:700">In Base</span>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <div style="width:18px;height:40px;background:#ef4444;border-radius:3px;border:2px solid #991b1b;box-shadow:inset 0 0 6px rgba(255,255,255,0.3);position:relative;"><span style="position:absolute;bottom:2px;left:50%;transform:translateX(-50%);font-size:7px;font-weight:900;color:white;line-height:1;">R</span></div>
+                <span style="font-size:14px;font-weight:900;color:#7c3aed;">&#10132;</span>
+                <div style="width:18px;height:40px;background:#3b82f6;border-radius:3px;border:2px solid #1e40af;box-shadow:inset 0 0 6px rgba(255,255,255,0.3);position:relative;"><span style="position:absolute;bottom:2px;left:50%;transform:translateX(-50%);font-size:7px;font-weight:900;color:white;line-height:1;">B</span></div>
+              </div>
+              <span style="font-size:9px;font-weight:800;color:#1e40af;margin-top:4px;">Red &#8594; Blue</span>
+              <span style="font-size:10px;font-weight:700;">In Base</span>
             </div>
           </div>
         </div>
-        <div class="ind-card" style="background: linear-gradient(135deg, #fef9c3, #fecaca);">
-          <h5>&#127859; Turmeric</h5>
-          <div style="display:flex;justify-content:space-around;margin-top:8px;">
+
+        <!-- TURMERIC (HALDI) — yellow powder icon, no change in acid, red-brown in base -->
+        <div class="ind-card" style="background:linear-gradient(135deg,#fef9c3,#fde68a);border:2px solid #f59e0b;">
+          <h5 style="color:#78350f;display:flex;align-items:center;justify-content:center;gap:6px;">
+            <span style="display:inline-block;width:20px;height:20px;background:linear-gradient(135deg,#fbbf24,#d97706);border-radius:50%;border:2px solid #92400e;box-shadow:0 0 6px rgba(217,119,6,0.4);"></span>
+            Turmeric (Haldi)
+          </h5>
+          <div style="display:flex;justify-content:space-around;margin-top:10px;">
             <div class="acid-state">
-              <div style="width:30px;height:40px;background:#eab308;border-radius:3px;"></div>
-              <span style="font-size:10px;font-weight:700">In Acid</span>
+              <div style="width:30px;height:40px;background:linear-gradient(180deg,#fbbf24,#eab308);border-radius:3px;border:2px solid #a16207;box-shadow:inset 0 0 6px rgba(255,255,255,0.4);"></div>
+              <span style="font-size:9px;font-weight:800;color:#78350f;margin-top:3px;">Yellow</span>
+              <span style="font-size:8px;color:#92400e;">(No change)</span>
+              <span style="font-size:10px;font-weight:700;">In Acid</span>
             </div>
             <div class="base-state">
-              <div style="width:30px;height:40px;background:#dc2626;border-radius:3px;"></div>
-              <span style="font-size:10px;font-weight:700">In Base</span>
+              <div style="width:30px;height:40px;background:linear-gradient(180deg,#b45309,#78350f);border-radius:3px;border:2px solid #451a03;box-shadow:inset 0 0 6px rgba(255,255,255,0.2);"></div>
+              <span style="font-size:9px;font-weight:800;color:#dc2626;margin-top:3px;">Red-Brown</span>
+              <span style="font-size:10px;font-weight:700;">In Base</span>
             </div>
           </div>
         </div>
-        <div class="ind-card" style="background: linear-gradient(135deg, #fce7f3, #dcfce7);">
-          <h5>&#127804; China Rose</h5>
-          <div style="display:flex;justify-content:space-around;margin-top:8px;">
+
+        <!-- CHINA ROSE (GUDHAL) — hibiscus flower, dark pink in acid, green in base -->
+        <div class="ind-card" style="background:linear-gradient(135deg,#fce7f3,#dcfce7);border:2px solid #f9a8d4;">
+          <h5 style="color:#9d174d;">&#127802; China Rose (Gudhal)</h5>
+          <div style="display:flex;justify-content:space-around;margin-top:10px;">
             <div class="acid-state">
-              <div style="width:30px;height:40px;background:#db2777;border-radius:3px;"></div>
-              <span style="font-size:10px;font-weight:700">In Acid</span>
+              <div style="width:30px;height:40px;background:linear-gradient(180deg,#ec4899,#db2777);border-radius:3px;border:2px solid #9d174d;box-shadow:inset 0 0 6px rgba(255,255,255,0.3);"></div>
+              <span style="font-size:9px;font-weight:800;color:#9d174d;margin-top:3px;">Dark Pink</span>
+              <span style="font-size:10px;font-weight:700;">In Acid</span>
             </div>
             <div class="base-state">
-              <div style="width:30px;height:40px;background:#16a34a;border-radius:3px;"></div>
-              <span style="font-size:10px;font-weight:700">In Base</span>
+              <div style="width:30px;height:40px;background:linear-gradient(180deg,#22c55e,#16a34a);border-radius:3px;border:2px solid #15803d;box-shadow:inset 0 0 6px rgba(255,255,255,0.3);"></div>
+              <span style="font-size:9px;font-weight:800;color:#16a34a;margin-top:3px;">Green</span>
+              <span style="font-size:10px;font-weight:700;">In Base</span>
             </div>
           </div>
         </div>
-        <div class="ind-card" style="background: linear-gradient(135deg, #fef2f2, #f3e8ff);">
-          <h5>Phenolphthalein</h5>
-          <div style="display:flex;justify-content:space-around;margin-top:8px;">
+
+        <!-- PHENOLPHTHALEIN -->
+        <div class="ind-card" style="background:linear-gradient(135deg,#fef2f2,#f3e8ff);border:2px solid #e9d5ff;">
+          <h5 style="color:#5b21b6;">&#129514; Phenolphthalein</h5>
+          <div style="display:flex;justify-content:space-around;margin-top:10px;">
             <div class="acid-state">
-              <div style="width:30px;height:40px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:3px;"></div>
-              <span style="font-size:10px;font-weight:700">In Acid</span>
+              <div style="width:30px;height:40px;background:linear-gradient(180deg,#f8fafc,#e2e8f0);border-radius:3px;border:2px solid #cbd5e1;box-shadow:inset 0 0 6px rgba(255,255,255,0.5);"></div>
+              <span style="font-size:9px;font-weight:800;color:#64748b;margin-top:3px;">Colourless</span>
+              <span style="font-size:10px;font-weight:700;">In Acid</span>
             </div>
             <div class="base-state">
-              <div style="width:30px;height:40px;background:#ec4899;border-radius:3px;"></div>
-              <span style="font-size:10px;font-weight:700">In Base</span>
+              <div style="width:30px;height:40px;background:linear-gradient(180deg,#f472b6,#ec4899);border-radius:3px;border:2px solid #be185d;box-shadow:inset 0 0 6px rgba(255,255,255,0.3);"></div>
+              <span style="font-size:9px;font-weight:800;color:#be185d;margin-top:3px;">Pink</span>
+              <span style="font-size:10px;font-weight:700;">In Base</span>
             </div>
           </div>
         </div>
@@ -1971,11 +2208,11 @@ footer {
             <div class="ph-labels" style="position:relative;height:80px;max-width:700px;margin:0 auto;">
               <div class="ph-label" style="left:3%;color:#dc2626;animation-delay:0s;"><span>&#129514;</span>Battery Acid<br>pH 0</div>
               <div class="ph-label" style="left:15%;color:#f97316;animation-delay:0.3s;"><span>&#127819;</span>Lemon<br>pH 2</div>
-              <div class="ph-label" style="left:22%;color:#f97316;animation-delay:0.5s;"><span>&#129480;</span>Vinegar<br>pH 3</div>
-              <div class="ph-label" style="left:33%;color:#eab308;animation-delay:0.7s;"><span>&#127827;</span>Curd<br>pH 4.5</div>
+              <div class="ph-label" style="left:22%;color:#f97316;animation-delay:0.5s;"><span>&#127862;</span>Vinegar<br>pH 3</div>
+              <div class="ph-label" style="left:33%;color:#eab308;animation-delay:0.7s;"><span>&#129371;</span>Curd<br>pH 4.5</div>
               <div class="ph-label" style="left:47%;color:#22c55e;animation-delay:1s;"><span>&#128167;</span>Pure Water<br>pH 7</div>
-              <div class="ph-label" style="left:57%;color:#0ea5e9;animation-delay:1.2s;"><span>&#129792;</span>Blood<br>pH 7.4</div>
-              <div class="ph-label" style="left:67%;color:#0ea5e9;animation-delay:1.4s;"><span>&#129524;</span>Baking Soda<br>pH 8.5</div>
+              <div class="ph-label" style="left:57%;color:#0ea5e9;animation-delay:1.2s;"><span>&#129656;</span>Blood<br>pH 7.4</div>
+              <div class="ph-label" style="left:67%;color:#0ea5e9;animation-delay:1.4s;"><span>&#129474;</span>Baking Soda<br>pH 8.5</div>
               <div class="ph-label" style="left:80%;color:#4f46e5;animation-delay:1.6s;"><span>&#129524;</span>Soap<br>pH 12</div>
               <div class="ph-label" style="left:93%;color:#7c3aed;animation-delay:1.8s;"><span>&#9888;&#65039;</span>NaOH<br>pH 14</div>
             </div>
@@ -2067,11 +2304,36 @@ footer {
         <p style="font-size:12px;color:#92400e;margin-top:4px;">Formic acid (ant sting) + Baking soda (base) &#8594; Salt + Water = Relief!</p>
       </div>
 
+      <!-- Wasp Sting -->
+      <div class="ant-anim-wrap" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:#3b82f6;">
+        <div style="font-family:'Fredoka One',cursive;font-size:16px;color:#1e40af;margin-bottom:6px;">&#129435; Wasp Sting Remedy</div>
+        <!-- Real Wasp Photo -->
+        <div style="display:inline-block;border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,0.12);border:2px solid #93c5fd;max-width:260px;margin:8px auto;width:100%;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Wasp_Close-Up.jpg" alt="Close-up photo of a wasp" style="width:100%;height:auto;display:block;" loading="lazy">
+        </div>
+        <p style="font-size:10px;color:#9ca3af;margin-bottom:8px;">Photo: Wikimedia Commons (CC BY-SA 4.0)</p>
+        <p style="font-size:13px;color:#1e3a8a;">Wasp stings are <strong>alkaline (basic)</strong> in nature! Applying <strong>vinegar (acetic acid)</strong> -- an acid -- neutralizes the base and reduces pain!</p>
+        <div class="ant-scene">
+          <div class="ant-body" style="animation-direction:reverse;">&#129435;</div>
+          <div class="remedy-icon">&#127862;&#10024;</div>
+        </div>
+        <p style="font-size:12px;color:#1e40af;margin-top:4px;">Wasp venom (basic) + Vinegar (acid) &#8594; Salt + Water = Relief!</p>
+      </div>
+
+      <div class="note-box" style="margin:14px 0;">
+        <strong>&#128161; Remember:</strong> Ant/Bee sting = <strong>Acidic</strong> (treat with base like baking soda). Wasp sting = <strong>Basic</strong> (treat with acid like vinegar). Opposite stings, opposite remedies!
+      </div>
+
       <div class="info-grid">
         <div class="info-card ic-red">
           <h4>&#128029; Ant/Bee Sting</h4>
           <p><strong>Problem:</strong> Formic acid (acidic)</p>
           <p><strong>Remedy:</strong> Apply baking soda (NaHCO&#8323;) paste -- a base neutralizes the acid!</p>
+        </div>
+        <div class="info-card ic-blue">
+          <h4>&#129435; Wasp Sting</h4>
+          <p><strong>Problem:</strong> Wasp venom is basic (alkaline)</p>
+          <p><strong>Remedy:</strong> Apply vinegar (acetic acid) -- an acid neutralizes the base!</p>
         </div>
         <div class="info-card ic-green">
           <h4>&#127807; Nettle Plant Sting</h4>
@@ -2144,7 +2406,7 @@ footer {
 
       <div class="info-grid">
         <div class="info-card ic-purple"><h4>&#129374; Sources</h4><p>Sea water, rock salt deposits, salt lakes. India's Sambhar Lake in Rajasthan is a famous salt source!</p></div>
-        <div class="info-card ic-indigo"><h4>&#127859; Uses</h4><p>Cooking, food preservation (pickling, drying), making soap, glass, and chemicals like NaOH and Na&#8322;CO&#8323;.</p></div>
+        <div class="info-card ic-indigo"><h4>&#9881;&#65039; Uses</h4><p>Cooking, food preservation (pickling, drying), making soap, glass, and chemicals like NaOH and Na&#8322;CO&#8323;.</p></div>
         <div class="info-card ic-teal"><h4>&#129657; In Body</h4><p>Essential for nerve function, muscle movement, and water balance. Too little or too much salt is harmful!</p></div>
       </div>
 
@@ -2491,7 +2753,7 @@ footer {
       </div>
 
       <!-- ========== BONUS: RED CABBAGE ========== -->
-      <h3 class="subtitle" style="color:#5b21b6">&#127775; Bonus: Red Cabbage Juice &mdash; The pH Rainbow</h3>
+      <h3 class="subtitle" style="color:#5b21b6">&#127775; Bonus: Purple Cabbage Juice &mdash; The pH Rainbow</h3>
       <p class="bonus-tag">&#11088; Extended / Fun Activity</p>
 
       <div class="activity-visual">
@@ -2511,21 +2773,21 @@ footer {
           <span>pH 10</span>
           <span>pH 12</span>
         </div>
-        <div class="label" style="margin-top:10px;">Red Cabbage juice shows a different colour at every pH!</div>
+        <div class="label" style="margin-top:10px;">Purple Cabbage juice shows a different colour at every pH!</div>
       </div>
 
       <div class="activity-details">
-        <p><strong>&#127919; Aim:</strong> Use red cabbage juice as a universal-style indicator that shows different colours at different pH values.</p>
-        <p><strong>&#128230; Materials:</strong> Red cabbage, water, saucepan, several test tubes, test solutions at various pH (lemon juice, vinegar, tap water, baking soda, soap, lime water).</p>
+        <p><strong>&#127919; Aim:</strong> Use purple cabbage juice as a universal-style indicator that shows different colours at different pH values.</p>
+        <p><strong>&#128230; Materials:</strong> Purple cabbage (also called red cabbage), water, saucepan, several test tubes, test solutions at various pH (lemon juice, vinegar, tap water, baking soda, soap, lime water).</p>
         <p><strong>&#128099; Steps:</strong></p>
         <ol class="exp-steps">
-          <li class="exp-step">Chop red cabbage and <strong>boil it in water</strong> for 10&ndash;15 minutes. Strain out the purple juice.</li>
+          <li class="exp-step">Chop purple cabbage and <strong>boil it in water</strong> for 10&ndash;15 minutes. Strain out the purple juice.</li>
           <li class="exp-step">Pour equal amounts of cabbage juice into 6 test tubes.</li>
           <li class="exp-step">Add a different test solution to each tube: strong acid, mild acid, neutral, mild base, strong base, very strong base.</li>
           <li class="exp-step">Observe the <strong>rainbow of colours</strong>: red &#8594; pink &#8594; purple &#8594; blue &#8594; green &#8594; yellow.</li>
         </ol>
         <div class="observation-box">
-          <strong>&#128064; Observation:</strong> Red cabbage juice contains a pigment called <strong>anthocyanin</strong>. It is red in strong acids, pink in mild acids, purple/blue in neutral, blue-green in mild bases, green in strong bases, and yellow in very strong bases &mdash; a natural pH rainbow!
+          <strong>&#128064; Observation:</strong> Purple cabbage juice contains a pigment called <strong>anthocyanin</strong>. It is red in strong acids, pink in mild acids, purple/blue in neutral, blue-green in mild bases, green in strong bases, and yellow in very strong bases &mdash; a natural pH rainbow!
         </div>
       </div>
 
@@ -2613,7 +2875,7 @@ footer {
           <td><span class="color-cell" style="background:#f97316;color:white;">Orange</span></td>
         </tr>
         <tr>
-          <td><strong>Red Cabbage</strong></td>
+          <td><strong>Purple Cabbage</strong></td>
           <td><span class="color-cell" style="background:#ef4444;color:white;">RED</span></td>
           <td><span class="color-cell" style="background:#22c55e;color:white;">GREEN</span></td>
           <td><span class="color-cell" style="background:#8b5cf6;color:white;">Purple</span></td>
@@ -3043,6 +3305,95 @@ footer {
       <div class="trick">
         <strong>&#128161; Bonus Fact:</strong> The famous <strong>Taj Mahal</strong> in Agra is getting damaged by <strong>acid rain</strong>! The marble (CaCO&#8323;) reacts with sulphuric acid in rain: CaCO&#8323; + H&#8322;SO&#8324; &#8594; CaSO&#8324; + H&#8322;O + CO&#8322;. This is called "Marble Cancer"!
       </div>
+
+      <!-- ===== FASCINATING FACT: HYDRANGEA ===== -->
+      <h3 class="subtitle" style="color:#9d174d;">&#127803; Fascinating Fact &mdash; Hydrangea: The pH Flower!</h3>
+      <p class="ncert-tag">&#128218; NCERT Fascinating Fact</p>
+
+      <!-- Real Hydrangea Photo -->
+      <div style="text-align:center;margin:16px 0;">
+        <div style="display:inline-block;border-radius:18px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,0.15);border:3px solid #f9a8d4;max-width:500px;width:100%;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Hydrangea_macrophylla_pink_and_blue.jpg" alt="Hydrangea macrophylla showing both pink and blue flowers side by side — colour depends on soil pH" style="width:100%;height:auto;display:block;" loading="lazy">
+        </div>
+        <p style="font-size:13px;color:#6b7280;margin-top:8px;font-style:italic;">Real Hydrangea plant with <strong style="color:#3b82f6;">blue</strong> (acidic soil) and <strong style="color:#ec4899;">pink</strong> (basic soil) flowers growing side by side!</p>
+        <p style="font-size:10px;color:#9ca3af;">Photo: Wikimedia Commons (CC0 Public Domain)</p>
+      </div>
+
+      <div class="hydrangea-wrap">
+        <div class="hydrangea-scene">
+          <!-- Himalayan mountains in background -->
+          <div class="hy-mtn m1"><div class="hy-snow"></div></div>
+          <div class="hy-mtn m2"><div class="hy-snow"></div></div>
+          <div class="hy-mtn m3"><div class="hy-snow"></div></div>
+
+          <!-- Flower label -->
+          <div class="hy-flower-label" id="hyFlowerLabel">&#128308; Blue flowers &mdash; Acidic Soil</div>
+
+          <!-- Flower dome -->
+          <div class="hy-flower-dome">
+            <div class="hf f1"></div><div class="hf f2"></div><div class="hf f3"></div>
+            <div class="hf f4"></div><div class="hf f5"></div><div class="hf f6"></div>
+            <div class="hf f7"></div><div class="hf f8"></div><div class="hf f9"></div>
+            <div class="hf f10"></div><div class="hf f11"></div><div class="hf f12"></div>
+            <div class="hf f13"></div><div class="hf f14"></div><div class="hf f15"></div>
+            <div class="hf f16"></div>
+          </div>
+
+          <!-- Stem -->
+          <div class="hy-stem"></div>
+
+          <!-- Leaves -->
+          <div class="hy-leaf l1"></div>
+          <div class="hy-leaf l2"></div>
+          <div class="hy-leaf l3"></div>
+          <div class="hy-leaf l4"></div>
+
+          <!-- Gardener -->
+          <div class="hy-gardener">&#129489;&#8205;&#127806;</div>
+          <div class="hy-watering">&#128167;&#128167;</div>
+
+          <!-- Soil -->
+          <div class="hy-soil">
+            <div class="hy-soil-label" id="hySoilLabel">&#129514; Acidic Soil (low pH)</div>
+          </div>
+        </div>
+
+        <div class="label" style="margin-top:8px;font-size:14px;color:#134e4a;">
+          Watch the flowers change colour as the soil pH changes!
+        </div>
+      </div>
+
+      <div class="activity-details" style="background:linear-gradient(135deg,#fdf2f8,#fce7f3);border:2px solid #f9a8d4;border-radius:14px;">
+        <p style="font-size:15px;line-height:1.7;">
+          <strong>&#127803; Hydrangea</strong> is a beautiful flowering plant that grows in <strong>cooler climates</strong> &mdash; in the <strong>Himalayan region</strong> and the <strong>North-eastern states</strong> of India.
+        </p>
+        <p style="font-size:15px;line-height:1.7;">
+          It gives flowers of <strong>different colours</strong> depending on the nature of the soil:
+        </p>
+
+        <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:14px 0;">
+          <div style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);border:2px solid #3b82f6;border-radius:14px;padding:14px 20px;text-align:center;min-width:140px;">
+            <div style="font-size:32px;margin-bottom:6px;">&#128309;</div>
+            <div style="font-weight:800;color:#1e40af;font-size:14px;">Acidic Soil</div>
+            <div style="font-weight:700;color:#3b82f6;font-size:15px;margin-top:2px;">BLUE Flowers</div>
+          </div>
+          <div style="background:linear-gradient(135deg,#fce7f3,#fbcfe8);border:2px solid #ec4899;border-radius:14px;padding:14px 20px;text-align:center;min-width:140px;">
+            <div style="font-size:32px;margin-bottom:6px;">&#128311;</div>
+            <div style="font-weight:800;color:#9d174d;font-size:14px;">Basic Soil</div>
+            <div style="font-weight:700;color:#ec4899;font-size:15px;margin-top:2px;">PINK / RED Flowers</div>
+          </div>
+        </div>
+
+        <div class="observation-box" style="background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #f59e0b;border-left:5px solid #f59e0b;">
+          <strong>&#129300; Think About It:</strong> Can gardeners alter the colour of hydrangea flowers by adjusting the acidic or basic nature of the soil?
+          <br><br>
+          <strong>&#9989; Yes!</strong> Gardeners add <strong>aluminium sulphate</strong> (acidic) to soil for <strong>blue flowers</strong>, or add <strong>lime (calcium carbonate)</strong> (basic) to soil for <strong>pink flowers</strong>. This is acid-base chemistry in gardening!
+        </div>
+
+        <div class="trick" style="margin-top:14px;">
+          <strong>&#128161; Key Insight:</strong> Hydrangea acts like a <strong>natural indicator</strong> &mdash; just like litmus or turmeric! Its flower colour tells you whether the soil is acidic or basic. Nature's own pH test!
+        </div>
+      </div>
     </div>
   </div>
 
@@ -3114,6 +3465,23 @@ document.querySelectorAll('.mcq-item').forEach(item => {
     });
   });
 });
+
+// ===== Hydrangea label animation =====
+(function() {
+  var fl = document.getElementById('hyFlowerLabel');
+  var sl = document.getElementById('hySoilLabel');
+  if (!fl || !sl) return;
+  var acidFlower = '🔵 Blue flowers — Acidic Soil';
+  var baseFlower = '🎠 Pink flowers — Basic Soil';
+  var acidSoil = '🧪 Acidic Soil (low pH)';
+  var baseSoil = '🧼 Basic Soil (high pH)';
+  var isAcid = true;
+  setInterval(function() {
+    isAcid = !isAcid;
+    fl.textContent = isAcid ? acidFlower : baseFlower;
+    sl.textContent = isAcid ? acidSoil : baseSoil;
+  }, 4000);
+})();
 
 // ===== Smooth scroll for TOC links =====
 document.querySelectorAll('.toc-bar a').forEach(link => {
