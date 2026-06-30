@@ -263,6 +263,126 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
 [data-theme="dark"] .formation-slides{background:#2d2d44}
 [data-theme="dark"] .barter-scenario{background:#2d2d44;border-color:#9a3412}
 
+/* ============= ANIMATED VISUAL SCENES ============= */
+
+/* SCENE: Marketplace (Hero) */
+.market-scene{position:relative;width:100%;max-width:600px;margin:0 auto;height:170px}
+.market-ground{position:absolute;bottom:0;left:0;right:0;height:28px;background:linear-gradient(180deg,#92400e,#78350f);border-radius:10px 10px 0 0}
+.market-stall{position:absolute;bottom:28px;width:64px;height:48px;background:#fef3c7;border:2px solid #d97706;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:26px}
+.market-stall.st1{left:6%}.market-stall.st2{left:50%;transform:translateX(-50%)}.market-stall.st3{right:6%}
+.market-stall .st-lbl{position:absolute;bottom:-16px;font-size:9px;font-weight:800;color:#fef3c7;white-space:nowrap}
+.market-person{position:absolute;bottom:30px;font-size:28px}
+.market-person.mp1{left:24%;animation:mWalk1 5s ease-in-out infinite}
+.market-person.mp2{right:24%;animation:mWalk2 5s ease-in-out infinite 1s}
+@keyframes mWalk1{0%,100%{transform:translateX(0)}50%{transform:translateX(28px)}}
+@keyframes mWalk2{0%,100%{transform:translateX(0)}50%{transform:translateX(-28px)}}
+.market-swap{position:absolute;bottom:80px;left:50%;transform:translateX(-50%);font-size:20px;opacity:0;animation:mSwap 5s ease-in-out infinite}
+@keyframes mSwap{0%,30%{opacity:0;transform:translateX(-50%) scale(.5)}50%{opacity:1;transform:translateX(-50%) scale(1.1)}70%{opacity:1;transform:translateX(-50%) scale(1)}100%{opacity:0;transform:translateX(-50%) scale(.5)}}
+
+/* SCENE: Barter Problem */
+.barter-anim{position:relative;width:100%;max-width:440px;height:220px;margin:16px auto;background:linear-gradient(135deg,#fff7ed,#fef3c7);border-radius:16px;border:2px solid #f97316;overflow:hidden}
+.ba-person{position:absolute;text-align:center;width:80px}
+.ba-person .ba-icon{font-size:34px;display:block}
+.ba-person .ba-name{font-size:10px;font-weight:900;color:#78350f}
+.ba-person .ba-has{font-size:9px;font-weight:700;color:#166534}
+.ba-person .ba-wants{font-size:9px;font-weight:700;color:#dc2626}
+.ba-person.ba-farmer{left:8%;top:50%;transform:translateY(-50%)}
+.ba-person.ba-weaver{left:50%;transform:translateX(-50%);top:8px}
+.ba-person.ba-cobbler{right:8%;top:50%;transform:translateY(-50%)}
+.ba-arrow{position:absolute;font-size:20px;color:#ef4444;font-weight:900;opacity:0;animation:baArrow 6s ease-in-out infinite}
+.ba-arrow.ba1{left:30%;top:24%;transform:rotate(-30deg);animation-delay:0s}
+.ba-arrow.ba2{right:30%;top:24%;transform:rotate(30deg);animation-delay:1.5s}
+.ba-arrow.ba3{left:50%;bottom:18%;transform:translateX(-50%);animation-delay:3s}
+@keyframes baArrow{0%,15%{opacity:0}25%,55%{opacity:1}65%,100%{opacity:0}}
+.ba-fail{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);font-size:44px;opacity:0;animation:baFail 6s ease-in-out infinite 4s}
+@keyframes baFail{0%,20%{opacity:0;transform:translate(-50%,-50%) scale(.3)}40%,70%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(.3)}}
+.ba-caption{text-align:center;font-family:'Fredoka One',cursive;font-size:12px;color:#9a3412;margin-top:6px}
+
+/* SCENE: Coin Minting */
+.mint-wrap{background:linear-gradient(135deg,#451a03,#78350f);border-radius:16px;padding:16px;margin:16px 0;text-align:center}
+.mint-scene{position:relative;width:100%;max-width:300px;height:180px;margin:0 auto}
+.mint-anvil{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);width:90px;height:16px;background:linear-gradient(180deg,#9ca3af,#6b7280);border-radius:3px}
+.mint-disc{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fde68a,#eab308 50%,#ca8a04);border:2px solid #854d0e;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.mint-stamp{position:absolute;left:50%;transform:translateX(-50%);width:36px;height:55px;background:linear-gradient(180deg,#4b5563,#6b7280);border-radius:4px 4px 0 0;animation:stampHit 3s ease-in-out infinite;top:15px}
+.mint-stamp::after{content:'₹';position:absolute;bottom:2px;left:50%;transform:translateX(-50%);font-size:14px;font-weight:900;color:#fde68a}
+@keyframes stampHit{0%,100%{top:15px}40%,55%{top:70px}}
+.mint-spark{position:absolute;width:5px;height:5px;background:#fde68a;border-radius:50%;opacity:0;animation:mSpark 3s ease-out infinite}
+.mint-spark:nth-child(1){left:38%;bottom:55px;animation-delay:1.2s}
+.mint-spark:nth-child(2){left:56%;bottom:60px;animation-delay:1.3s}
+.mint-spark:nth-child(3){left:44%;bottom:68px;animation-delay:1.35s}
+.mint-spark:nth-child(4){right:38%;bottom:52px;animation-delay:1.25s}
+@keyframes mSpark{0%,38%{opacity:0;transform:translate(0,0)}42%{opacity:1}60%{opacity:0;transform:translate(var(--mx,12px),var(--my,-25px))}100%{opacity:0}}
+.mint-spark:nth-child(1){--mx:-15px;--my:-22px}
+.mint-spark:nth-child(2){--mx:18px;--my:-18px}
+.mint-spark:nth-child(3){--mx:0px;--my:-28px}
+.mint-spark:nth-child(4){--mx:14px;--my:-20px}
+.mint-caption{font-family:'Fredoka One',cursive;font-size:12px;color:#fde68a;margin-top:8px}
+
+/* SCENE: Bank Flow */
+.bank-flow-wrap{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:16px;border:2px solid #86efac;padding:14px;margin:16px 0;text-align:center}
+.bank-flow{position:relative;width:100%;max-width:460px;height:160px;margin:0 auto}
+.bf-bldg{position:absolute;left:50%;transform:translateX(-50%);bottom:16px;width:76px;height:76px;background:#fff;border:3px solid #166534;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-direction:column;z-index:5}
+.bf-bldg::before{content:'';position:absolute;top:-14px;left:-4px;right:-4px;height:14px;background:#166534;clip-path:polygon(50% 0%,0% 100%,100% 100%)}
+.bf-bldg .bf-icon{font-size:22px}.bf-bldg .bf-text{font-size:8px;font-weight:900;color:#166534}
+.bf-person{position:absolute;font-size:28px;bottom:20px}
+.bf-person.dep{left:6%}.bf-person.loan{right:6%}
+.bf-label{position:absolute;top:6px;font-size:11px;font-weight:800}
+.bf-label.l-dep{left:6%;color:#166534}.bf-label.l-loan{right:6%;color:#854d0e}
+.bf-coin{position:absolute;font-size:16px;opacity:0}
+.bf-coin.d1{left:14%;top:42%;animation:bfDep 4s ease-in-out infinite}
+.bf-coin.d2{left:10%;top:56%;animation:bfDep 4s ease-in-out infinite .7s}
+.bf-coin.d3{left:18%;top:48%;animation:bfDep 4s ease-in-out infinite 1.4s}
+.bf-coin.l1{right:14%;top:42%;animation:bfLoan 4s ease-in-out infinite .4s}
+.bf-coin.l2{right:10%;top:56%;animation:bfLoan 4s ease-in-out infinite 1.1s}
+.bf-coin.l3{right:18%;top:48%;animation:bfLoan 4s ease-in-out infinite 1.8s}
+@keyframes bfDep{0%{opacity:0;transform:translateX(0)}15%{opacity:1}45%{opacity:1;transform:translateX(100px)}55%,100%{opacity:0;transform:translateX(100px)}}
+@keyframes bfLoan{0%{opacity:0;transform:translateX(0)}15%{opacity:1}45%{opacity:1;transform:translateX(-100px)}55%,100%{opacity:0;transform:translateX(-100px)}}
+.bf-spread{position:absolute;bottom:2px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:800;color:#166534;white-space:nowrap;opacity:0;animation:fadeInOut 5s ease-in-out infinite 2s}
+@keyframes fadeInOut{0%,25%{opacity:0}40%{opacity:1}60%{opacity:1}75%,100%{opacity:0}}
+
+/* SCENE: UPI Payment */
+.upi-wrap{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:16px;border:2px solid #93c5fd;padding:14px;margin:16px 0;text-align:center}
+.upi-scene{position:relative;width:100%;max-width:380px;height:180px;margin:0 auto}
+.upi-phone{position:absolute;width:48px;height:76px;background:#1f2937;border-radius:8px;border:2px solid #4b5563}
+.upi-phone .ph-scr{position:absolute;top:5px;left:3px;right:3px;bottom:5px;background:#fff;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:11px}
+.upi-phone.sender{left:12%;top:50%;transform:translateY(-50%)}
+.upi-phone.receiver{right:12%;top:50%;transform:translateY(-50%)}
+.upi-qr{position:absolute;left:50%;top:26%;transform:translate(-50%,-50%);width:36px;height:36px;background:#fff;border:2px solid #1e3a5f;border-radius:3px;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr);gap:1px;padding:2px}
+.upi-qr i{background:#1f2937;border-radius:1px}
+.upi-qr i:nth-child(2),.upi-qr i:nth-child(5),.upi-qr i:nth-child(8),.upi-qr i:nth-child(11),.upi-qr i:nth-child(14),.upi-qr i:nth-child(18),.upi-qr i:nth-child(22){background:transparent}
+.upi-wave{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);border:2px solid #3b82f6;border-radius:50%;opacity:0;animation:uWave 3s ease-out infinite}
+.upi-wave.w1{width:28px;height:28px}.upi-wave.w2{width:48px;height:48px;animation-delay:.4s}.upi-wave.w3{width:68px;height:68px;animation-delay:.8s}
+@keyframes uWave{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}25%{opacity:.5}100%{opacity:0;transform:translate(-50%,-50%) scale(1.3)}}
+.upi-rupee{position:absolute;top:48%;font-size:14px;opacity:0;animation:uRup 3s ease-in-out infinite}
+.upi-rupee.ur1{left:32%;animation-delay:.2s}.upi-rupee.ur2{left:44%;animation-delay:.5s}.upi-rupee.ur3{left:56%;animation-delay:.8s}
+@keyframes uRup{0%{opacity:0;transform:translateX(-16px) translateY(-50%)}25%{opacity:1}55%{opacity:1;transform:translateX(16px) translateY(-50%)}75%,100%{opacity:0;transform:translateX(24px) translateY(-50%)}}
+.upi-check{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);font-size:26px;opacity:0;animation:uCheck 3s ease-in-out infinite 1.5s}
+@keyframes uCheck{0%,15%{opacity:0;transform:translateX(-50%) scale(.3)}35%,75%{opacity:1;transform:translateX(-50%) scale(1)}100%{opacity:0;transform:translateX(-50%) scale(.3)}}
+.upi-caption{font-family:'Fredoka One',cursive;font-size:12px;color:#1e3a5f;margin-top:6px}
+
+/* SCENE: Money Evolution Strip */
+.evo-strip{position:relative;width:100%;max-width:520px;height:110px;margin:16px auto;background:linear-gradient(90deg,#fff7ed 0%,#fefce8 25%,#fef9c3 50%,#f0fdf4 75%,#eff6ff 100%);border-radius:14px;border:2px solid #e5e7eb;display:flex;align-items:center;justify-content:space-around;padding:0 8px;overflow:hidden}
+.evo-step{text-align:center;opacity:0;animation:evoIn 10s ease-in-out infinite;flex:1}
+.evo-step .evo-ico{font-size:30px;display:block;margin-bottom:2px}.evo-step .evo-lbl{font-size:8px;font-weight:800;color:#4b5563}
+.evo-step:nth-child(1){animation-delay:0s}.evo-step:nth-child(3){animation-delay:1s}.evo-step:nth-child(5){animation-delay:2s}.evo-step:nth-child(7){animation-delay:3s}.evo-step:nth-child(9){animation-delay:4s}
+.evo-arr{font-size:14px;color:#ca8a04;opacity:0;animation:evoIn 10s ease-in-out infinite}
+.evo-arr:nth-child(2){animation-delay:.5s}.evo-arr:nth-child(4){animation-delay:1.5s}.evo-arr:nth-child(6){animation-delay:2.5s}.evo-arr:nth-child(8){animation-delay:3.5s}
+@keyframes evoIn{0%,5%{opacity:0;transform:translateY(8px)}15%,85%{opacity:1;transform:translateY(0)}95%,100%{opacity:0;transform:translateY(-8px)}}
+
+/* SCENE: Commodity Money */
+.commodity-scene{position:relative;width:100%;max-width:400px;height:140px;margin:16px auto;background:linear-gradient(135deg,#fef9c3,#fef3c7);border-radius:16px;border:2px solid #f59e0b;overflow:hidden}
+.cm-item{position:absolute;font-size:30px;animation:cmFloat 4s ease-in-out infinite}
+.cm-item:nth-child(1){left:8%;top:20%;animation-delay:0s}
+.cm-item:nth-child(2){left:28%;top:50%;animation-delay:.6s}
+.cm-item:nth-child(3){left:48%;top:25%;animation-delay:1.2s}
+.cm-item:nth-child(4){left:68%;top:55%;animation-delay:1.8s}
+.cm-item:nth-child(5){left:85%;top:30%;animation-delay:.4s}
+@keyframes cmFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(5deg)}}
+.cm-caption{position:absolute;bottom:8px;width:100%;text-align:center;font-family:'Fredoka One',cursive;font-size:11px;color:#92400e}
+
+/* Generic scene helper */
+.scene-label{text-align:center;font-family:'Fredoka One',cursive;font-size:13px;margin-top:8px}
+
 /* PRINT */
 @media print{
   .top-nav,.toc-bar,.progress-wrap,.sec-complete,.quiz-btn,.slide-nav,.tn-share{display:none!important}
@@ -319,6 +439,16 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
     <div class="coin coin4">&#8377;</div>
     <div class="coin coin5">&#8377;</div>
   </div>
+  <!-- Animated Marketplace Scene -->
+  <div class="market-scene">
+    <div class="market-stall st1">&#127806;<span class="st-lbl">Rice</span></div>
+    <div class="market-stall st2">&#129506;<span class="st-lbl">Spices</span></div>
+    <div class="market-stall st3">&#129525;<span class="st-lbl">Cloth</span></div>
+    <div class="market-person mp1">&#128104;&#8205;&#127806;</div>
+    <div class="market-person mp2">&#128105;&#8205;&#127981;</div>
+    <div class="market-swap">&#129297; &#8596; &#127806;</div>
+    <div class="market-ground"></div>
+  </div>
 </section>
 
 <!-- ═══════════════════════════════════════════ -->
@@ -330,6 +460,10 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
 
   <div class="card fade-in">
     <h3>Why Does Exchange Exist?</h3>
+    <div style="float:right;margin:0 0 10px 14px;max-width:200px">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Barter-Chickens_for_Subscription.jpg" alt="A man bartering farm produce for a newspaper subscription — Harper's Weekly, 1874" style="width:100%;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.12)" loading="lazy">
+      <div style="font-size:10px;color:#6b7280;font-style:italic;margin-top:4px;text-align:center">Barter in action (1874 illustration) &middot; Wikimedia Commons</div>
+    </div>
     <p>Think about everything you used today — your food, clothes, school bag, books, and the electricity at home. Could any single person make all of these things on their own? <strong>Absolutely not!</strong> Exchange exists because no individual, family, or community can produce everything they need.</p>
     <p>From the very earliest human civilisations, people realised that working together and sharing their skills was far more efficient than trying to do everything alone. This is the fundamental reason behind <span class="gloss" tabindex="0">economic exchange<span class="tip">The act of trading goods, services, or money between individuals or groups, allowing people to get what they need but cannot produce themselves.</span></span> — the act of trading what you have for what you need.</p>
     <p>Economic exchange is the foundation of every economy, from ancient barter markets to today's digital payments. Understanding how exchange has evolved tells us the story of human civilisation itself.</p>
@@ -385,6 +519,10 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
 
   <div class="card fade-in" style="border-left-color:#f97316">
     <h3>What is the Barter System?</h3>
+    <div style="float:right;margin:0 0 10px 14px;max-width:200px">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Olaus_Magnus_-_On_Trade_Without_Using_Money.jpg" alt="Olaus Magnus woodcut (1555) — traders exchanging goods without money, an early depiction of the barter system" style="width:100%;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.12)" loading="lazy">
+      <div style="font-size:10px;color:#6b7280;font-style:italic;margin-top:4px;text-align:center">Trade without money — woodcut, 1555 &middot; Wikimedia</div>
+    </div>
     <p>The <span class="gloss" tabindex="0">barter system<span class="tip">A method of exchange where goods or services are directly traded for other goods or services, without using money.</span></span> is the oldest method of exchange. In barter, people directly swap one good or service for another — no money is involved at all. If you have rice and want cloth, you find someone who has cloth and wants rice, and you swap.</p>
     <p>Barter was the primary system of exchange in most human societies for thousands of years — from prehistoric hunter-gatherer communities to ancient civilisations. Even today, barter still happens in informal settings, especially in rural areas or during economic crises when people lose confidence in money.</p>
     <p><strong>Simple definition:</strong> Barter = trading a good or service directly for another good or service, without money as the medium of exchange.</p>
@@ -441,6 +579,33 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
     <div class="dmo-title">Common Standard Measure of Value</div>
     <div class="dmo-text">In barter, there is <strong>no common unit</strong> to measure the value of goods. How many fish = 1 kg rice? How much cloth = 1 pot? Money acts as a <strong>common standard measure of value</strong> — everything can be priced in Rupees (₹). This makes comparison and trade easy. Without this, you'd need millions of exchange ratios!</div>
   </div>
+
+  <!-- ANIMATED BARTER PROBLEM SCENE -->
+  <div class="barter-anim">
+    <div class="ba-person ba-farmer">
+      <span class="ba-icon">&#128104;&#8205;&#127806;</span>
+      <span class="ba-name">Farmer</span>
+      <span class="ba-has">Has: Rice</span>
+      <span class="ba-wants">Wants: Cloth</span>
+    </div>
+    <div class="ba-person ba-weaver">
+      <span class="ba-icon">&#129525;</span>
+      <span class="ba-name">Weaver</span>
+      <span class="ba-has">Has: Cloth</span>
+      <span class="ba-wants">Wants: Shoes</span>
+    </div>
+    <div class="ba-person ba-cobbler">
+      <span class="ba-icon">&#128094;</span>
+      <span class="ba-name">Cobbler</span>
+      <span class="ba-has">Has: Shoes</span>
+      <span class="ba-wants">Wants: Rice</span>
+    </div>
+    <span class="ba-arrow ba1">&#10060;</span>
+    <span class="ba-arrow ba2">&#10060;</span>
+    <span class="ba-arrow ba3">&#10060;</span>
+    <span class="ba-fail">&#128557;</span>
+  </div>
+  <div class="ba-caption">Nobody can trade! Double Coincidence of Wants fails&#8230;</div>
 
   <!-- INTERACTIVE BARTER SCENARIO -->
   <div class="barter-scenario">
@@ -506,6 +671,30 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
     Money did not appear suddenly. It evolved gradually over thousands of years as human societies grew more complex and barter became increasingly impractical. Each stage solved the problems of the previous one — but also created new challenges that led to the next evolution.
   </div>
 
+  <!-- ANIMATED: Money Evolution Strip -->
+  <div class="evo-strip">
+    <div class="evo-step"><span class="evo-ico">&#129474;</span><span class="evo-lbl">Commodity</span></div>
+    <span class="evo-arr">&#10132;</span>
+    <div class="evo-step"><span class="evo-ico">&#129351;</span><span class="evo-lbl">Metal</span></div>
+    <span class="evo-arr">&#10132;</span>
+    <div class="evo-step"><span class="evo-ico">&#129689;</span><span class="evo-lbl">Coins</span></div>
+    <span class="evo-arr">&#10132;</span>
+    <div class="evo-step"><span class="evo-ico">&#128181;</span><span class="evo-lbl">Paper</span></div>
+    <span class="evo-arr">&#10132;</span>
+    <div class="evo-step"><span class="evo-ico">&#128241;</span><span class="evo-lbl">Digital</span></div>
+  </div>
+  <div class="scene-label" style="color:#1e3a5f;margin-bottom:16px">Watch money evolve through 5 stages!</div>
+
+  <!-- ANIMATED: Commodity Money Floating -->
+  <div class="commodity-scene">
+    <span class="cm-item">&#129474;</span>
+    <span class="cm-item">&#128026;</span>
+    <span class="cm-item">&#127798;</span>
+    <span class="cm-item">&#129506;</span>
+    <span class="cm-item">&#127806;</span>
+    <span class="cm-caption">Salt, shells, pepper, spices, grain &#8212; the world&#39;s first &ldquo;money&rdquo;</span>
+  </div>
+
   <div class="timeline-wrap">
     <h4>Explore the 5 Stages of Money Evolution</h4>
     <div class="formation-slides" id="moneyTimeline">
@@ -514,6 +703,10 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
       <div class="formation-slide active" id="mslide1">
         <span class="slide-icon">🧂</span>
         <h4>Stage 1 — Commodity Money (Prehistoric to ~3000 BC)</h4>
+        <div style="text-align:center;margin:8px 0 12px">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/A_print_from_1845_shows_cowry_shells_being_used_as_money_by_an_Arab_trader.jpg" alt="An 1845 illustration showing cowrie shells (kaudi) being used as money by an Arab trader" style="max-width:280px;width:100%;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.12)" loading="lazy">
+          <div style="font-size:10px;color:#6b7280;font-style:italic;margin-top:4px">Cowrie shells (kaudi) used as money — 1845 print &middot; Wikimedia Commons</div>
+        </div>
         <p>The very first attempt to solve barter's problems was <strong>commodity money</strong> — using a universally desired, widely-accepted good as a medium of exchange. Instead of finding someone who wants exactly your goods, everyone agreed to accept certain commodities as "money."</p>
         <ul class="slide-list">
           <li><strong>Common commodity monies:</strong> Salt, cowrie shells, spices, dried fish, tobacco, animal skins, grain, and dried pulses</li>
@@ -529,6 +722,10 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
       <div class="formation-slide" id="mslide2">
         <span class="slide-icon">🪙</span>
         <h4>Stage 2 — Metallic Money (Bronze Age, ~3000–600 BC)</h4>
+        <div style="text-align:center;margin:8px 0 12px">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Warring_States_Ancient_Chinese_Spade_Coin_%2815873965149%29.jpg" alt="Ancient Chinese bronze spade coin from the Warring States period — early metallic money" style="max-width:250px;width:100%;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.12)" loading="lazy">
+          <div style="font-size:10px;color:#6b7280;font-style:italic;margin-top:4px">Chinese bronze spade coin (Warring States period) — early metallic money &middot; Wikimedia Commons</div>
+        </div>
         <p>As trade grew, people discovered that <strong>metals</strong> made far better money than perishable commodities. Metals are durable, do not rot or decay, can be melted and re-shaped, and have a consistent composition.</p>
         <ul class="slide-list">
           <li><strong>Metals used:</strong> Gold, silver, copper, bronze, and iron, depending on the region and period</li>
@@ -544,6 +741,10 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
       <div class="formation-slide" id="mslide3">
         <span class="slide-icon">🏛️</span>
         <h4>Stage 3 — Coined Money (~600 BC onwards)</h4>
+        <div style="text-align:center;margin:8px 0 12px">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Kosala_Karshapana.jpg" alt="Kosala Karshapana — ancient Indian punch-marked coin" style="max-width:220px;width:100%;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.12)" loading="lazy">
+          <div style="font-size:10px;color:#6b7280;font-style:italic;margin-top:4px">Karshapana — Ancient Indian punch-marked coin &middot; Wikimedia Commons</div>
+        </div>
         <p>The brilliant innovation of <strong>standardised coins</strong> solved the weighing problem. A coin is a piece of metal with a <em>fixed, guaranteed weight</em> and an <em>official government stamp</em> certifying its value. Now you knew exactly how much your money was worth without measuring.</p>
         <ul class="slide-list">
           <li><strong>First coins in world history:</strong> The ancient kingdom of <span class="gloss" tabindex="0">Lydia<span class="tip">An ancient kingdom in what is now western Turkey (Anatolia). Lydian King Alyattes and his son Croesus (~600 BC) are credited with minting the first standardised coins from electrum, a natural gold-silver alloy.</span></span> (modern Turkey) minted the first standardised coins around 600 BC</li>
@@ -559,6 +760,10 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
       <div class="formation-slide" id="mslide4">
         <span class="slide-icon">💵</span>
         <h4>Stage 4 — Paper Currency (China ~1000 AD; Europe ~1600s)</h4>
+        <div style="text-align:center;margin:8px 0 12px">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Hue-tzu_%28Song_Dynasty_government_issue%29%2C_1023_-_John_E._Sandrock.jpg" alt="Song Dynasty paper money (Jiaozi) — the world's first banknote, c. 1023 AD" style="max-width:200px;width:100%;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.12)" loading="lazy">
+          <div style="font-size:10px;color:#6b7280;font-style:italic;margin-top:4px">Song Dynasty Jiaozi — world&#39;s first paper money (c. 1023 AD) &middot; Wikimedia Commons</div>
+        </div>
         <p>Coins solved many problems, but as trade volumes grew, carrying large quantities of heavy coins became impractical. Merchants trading across long distances needed a lighter, safer alternative — this led to <strong>paper money</strong>.</p>
         <ul class="slide-list">
           <li><strong>Origin — China's Song Dynasty (~1000 AD):</strong> Chinese merchants began issuing paper "certificates of deposit" called <em>jiaozi</em>. You deposited coins with a merchant, received a paper note, and could exchange the note for coins anywhere — the first banknotes!</li>
@@ -574,6 +779,10 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
       <div class="formation-slide" id="mslide5">
         <span class="slide-icon">📱</span>
         <h4>Stage 5 — Digital Money (20th–21st Century)</h4>
+        <div style="text-align:center;margin:8px 0 12px">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Shopping_online_with_bank_card.jpg" alt="Online digital payment with bank card — modern digital money" style="max-width:280px;width:100%;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.12)" loading="lazy">
+          <div style="font-size:10px;color:#6b7280;font-style:italic;margin-top:4px">Digital payment with bank card — the age of cashless money &middot; Wikimedia Commons</div>
+        </div>
         <p>The latest evolution of money is arguably the most radical — money that has no physical form at all. <strong>Digital money</strong> exists purely as electronic records in computer systems.</p>
         <ul class="slide-list">
           <li><strong>Bank account money:</strong> When your salary is deposited in a bank, no physical notes are moved — just numbers in a computer change. This is digital money at its most basic</li>
@@ -603,6 +812,20 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
     <div class="dmo-text"><strong>Minting</strong> is the process of manufacturing coins by stamping metal blanks with official designs. The word comes from the Latin "moneta." In India, the Government of India mints coins at <strong>four mints</strong> — Mumbai, Kolkata, Hyderabad, and Noida. Each mint mark (a small symbol like ◆ or ★) tells you where the coin was made. Exam tip: Coins are <strong>minted</strong> by the Government; Notes are <strong>printed</strong> by the RBI.</div>
   </div>
 
+  <!-- ANIMATED: Coin Minting Scene -->
+  <div class="mint-wrap fade-in">
+    <div class="mint-scene">
+      <div class="mint-stamp"></div>
+      <div class="mint-disc"></div>
+      <div class="mint-anvil"></div>
+      <div class="mint-spark"></div>
+      <div class="mint-spark"></div>
+      <div class="mint-spark"></div>
+      <div class="mint-spark"></div>
+    </div>
+    <div class="mint-caption">&#128296; Stamp strikes metal &#8594; A coin is born!</div>
+  </div>
+
   <div class="dmo fade-in">
     <div class="dmo-label">Don't Miss Out</div>
     <div class="dmo-title">Alloy</div>
@@ -619,8 +842,10 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
 
     <div class="tl-item">
       <div class="tl-year"><span class="tl-emoji">🐚</span> ~3000–1500 BC</div>
-      <div class="tl-title">Cowrie Shells &amp; Commodity Money</div>
+      <div class="tl-title">Cowrie Shells (Kaudi) &amp; Commodity Money</div>
       <div class="tl-desc">During the Indus Valley Civilisation, trade flourished using cowrie shells, beads, and standardised stone weights. Cowrie shells remained in use as small currency across India for over 3,000 years — even into the British era in some rural areas.</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Cypraea_caputserpentis.jpg" alt="Cowrie shells (kaudi) — used as money across ancient India, Africa and Asia for over 3,000 years" class="tl-img" loading="lazy" style="max-width:240px">
+      <div class="tl-img-caption">Cowrie shells (kaudi) — used as currency across India for over 3,000 years &middot; Wikimedia Commons</div>
     </div>
 
     <div class="tl-item">
@@ -635,6 +860,8 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
       <div class="tl-year"><span class="tl-emoji">🏛️</span> ~322–185 BC</div>
       <div class="tl-title">Mauryan Empire — Karshapana</div>
       <div class="tl-desc">Under Chandragupta Maurya and Emperor Ashoka, the silver Karshapana became a standardised currency across a vast empire. Kautilya's <em>Arthashastra</em> describes a sophisticated mint system and regulations against counterfeiting.</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/I42_1karshapana_Maurya_Bindusara_MACW4165_1ar_%288486583162%29.jpg" alt="Silver Karshapana coin from the Maurya Empire period of Bindusara" class="tl-img" loading="lazy" style="max-width:240px">
+      <div class="tl-img-caption">Maurya Empire silver Karshapana (c. 3rd century BC) &middot; Wikimedia Commons</div>
     </div>
 
     <div class="tl-item">
@@ -649,6 +876,8 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
       <div class="tl-year"><span class="tl-emoji">🕌</span> ~1206–1526 AD</div>
       <div class="tl-title">Delhi Sultanate — Diverse Coinage</div>
       <div class="tl-desc">Sultans introduced various coins including the silver tanka and copper jital. Muhammad bin Tughlaq famously experimented with token currency (copper coins representing silver value) — an early, failed attempt at fiat money!</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Forced_token_currency_coin_of_Muhammad_bin_Tughlak.jpg" alt="Forced token currency coin of Muhammad bin Tughlaq — copper coin representing silver value" class="tl-img" loading="lazy" style="max-width:240px">
+      <div class="tl-img-caption">Token currency coin of Muhammad bin Tughlaq &middot; Wikimedia Commons</div>
     </div>
 
     <div class="tl-item">
@@ -663,18 +892,24 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
       <div class="tl-year"><span class="tl-emoji">🏰</span> 1526–1857 AD</div>
       <div class="tl-title">Mughal Empire — Mohur, Rupiya, Dam</div>
       <div class="tl-desc">Mughal emperors continued Sher Shah's system: gold Mohur, silver Rupiya, and copper Dam. Akbar introduced beautiful calligraphic coins. Jahangir issued rare zodiac coins. The Mughal monetary system was one of the most sophisticated in the world.</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Mohur_of_Akbar_%28r._1556-1605%29_LACMA_M.77.55.11_%281_of_2%29.jpg" alt="Gold Mohur coin of Emperor Akbar (1556–1605 AD) — Mughal Empire" class="tl-img" loading="lazy" style="max-width:260px">
+      <div class="tl-img-caption">Gold Mohur of Emperor Akbar (1556–1605 AD) &middot; LACMA &middot; Wikimedia Commons</div>
     </div>
 
     <div class="tl-item">
       <div class="tl-year"><span class="tl-emoji">🇬🇧</span> 1835–1947</div>
       <div class="tl-title">British India — Uniform Rupee &amp; Paper Notes</div>
       <div class="tl-desc">The British East India Company standardised the silver Rupee across India (1835). Paper currency was introduced in 1861. The system used: 1 Rupee = 16 Annas = 64 Pice = 192 Pie — a complex, non-decimal system.</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/East_India_Company_Silver_Half_Rupee_1787_Bengal_Presidency_Murshidabad_Mint_in_the_name_of_Shah_Alam_II_Mughal_Emperor.jpg" alt="East India Company Silver Half Rupee, 1787 — Bengal Presidency, Murshidabad Mint" class="tl-img" loading="lazy" style="max-width:260px">
+      <div class="tl-img-caption">East India Company Silver Half Rupee (1787) &middot; Wikimedia Commons</div>
     </div>
 
     <div class="tl-item">
       <div class="tl-year"><span class="tl-emoji">🇮🇳</span> 1947</div>
       <div class="tl-title">Independent India — Indian Rupee (₹)</div>
       <div class="tl-desc">After independence, India retained the Rupee as its currency. The first coins of independent India featured the Ashoka Pillar Lion Capital. The Reserve Bank of India (established 1935) continued managing currency.</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/First_banknote_of_independent_India%2C_one_rupee%2C_1949.jpg" alt="First banknote of independent India — One Rupee note, 1949" class="tl-img" loading="lazy" style="max-width:260px">
+      <div class="tl-img-caption">First banknote of independent India — Re. 1 note (1949) &middot; Wikimedia Commons</div>
     </div>
 
     <div class="tl-item">
@@ -1122,6 +1357,10 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
   <!-- CARD 4: ROLE OF RBI -->
   <div class="card fade-in" style="border-left-color:var(--bank-mid)">
     <h3>Role of the <span class="gloss" tabindex="0">RBI<span class="tip">Reserve Bank of India — the central bank of India, established on 1 April 1935. It is the "bank of banks" that regulates all other banks, issues currency notes, and manages monetary policy to keep prices stable.</span></span> (Reserve Bank of India)</h3>
+    <div style="float:right;margin:0 0 10px 14px;max-width:180px">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/RBI-Tower.jpg" alt="Reserve Bank of India headquarters building in Mumbai" style="width:100%;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.12)" loading="lazy">
+      <div style="font-size:10px;color:#6b7280;font-style:italic;margin-top:4px;text-align:center">RBI headquarters, Mumbai &middot; Wikimedia</div>
+    </div>
     <ul>
       <li><strong>Full form:</strong> Reserve Bank of India</li>
       <li><strong>Established:</strong> 1 April 1935 (under the Reserve Bank of India Act, 1934)</li>
@@ -1272,6 +1511,28 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
     </div>
   </div>
 
+  <!-- ANIMATED: Bank Flow Scene -->
+  <div class="bank-flow-wrap fade-in">
+    <div style="font-family:'Fredoka One',cursive;font-size:14px;color:#166534;margin-bottom:8px">How Banks Work &#8212; Watch the Flow!</div>
+    <div class="bank-flow">
+      <span class="bf-label l-dep">&#128188; Deposits</span>
+      <span class="bf-label l-loan">&#128176; Loans</span>
+      <div class="bf-person dep">&#128104;&#8205;&#128188;</div>
+      <span class="bf-coin d1">&#129689;</span>
+      <span class="bf-coin d2">&#129689;</span>
+      <span class="bf-coin d3">&#129689;</span>
+      <div class="bf-bldg">
+        <span class="bf-icon">&#127974;</span>
+        <span class="bf-text">BANK</span>
+      </div>
+      <span class="bf-coin l1">&#128176;</span>
+      <span class="bf-coin l2">&#128176;</span>
+      <span class="bf-coin l3">&#128176;</span>
+      <div class="bf-person loan">&#128105;&#8205;&#127981;</div>
+      <span class="bf-spread">Pays 4% &#8592; BANK &#8594; Earns 10% = Profit!</span>
+    </div>
+  </div>
+
   <!-- CARD 4: HOW BANKS EARN MONEY -->
   <div class="card fade-in" style="border-left-color:var(--gold-mid)">
     <h3>How Banks Earn Money</h3>
@@ -1320,6 +1581,24 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
       <li><strong>Cheque:</strong> A written order directing your bank to pay a specific amount to a named person or organisation. Safer than carrying large cash amounts but takes 2–3 working days to clear. Can bounce if insufficient balance.</li>
       <li><strong>Demand Draft (DD):</strong> A guaranteed payment instrument issued by the bank — unlike a cheque, it cannot bounce. Used for large payments like college fees, property purchases.</li>
     </ul>
+  </div>
+
+  <!-- ANIMATED: UPI Payment Scene -->
+  <div class="upi-wrap fade-in">
+    <div style="font-family:'Fredoka One',cursive;font-size:14px;color:#1e3a5f;margin-bottom:8px">&#128241; UPI Instant Payment &#8212; Watch It Happen!</div>
+    <div class="upi-scene">
+      <div class="upi-phone sender"><div class="ph-scr">&#128241;&#8377;</div></div>
+      <div class="upi-qr"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <span class="upi-rupee ur1">&#8377;</span>
+      <span class="upi-rupee ur2">&#8377;</span>
+      <span class="upi-rupee ur3">&#8377;</span>
+      <div class="upi-wave w1"></div>
+      <div class="upi-wave w2"></div>
+      <div class="upi-wave w3"></div>
+      <span class="upi-check">&#9989;</span>
+      <div class="upi-phone receiver"><div class="ph-scr">&#9989;&#8377;</div></div>
+    </div>
+    <div class="upi-caption">Scan &#8594; Enter PIN &#8594; Money transferred instantly!</div>
   </div>
 
   <!-- CARD 2: DIGITAL PAYMENT METHODS -->
@@ -1401,6 +1680,10 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
   <!-- CARD 4: CASHLESS INDIA -->
   <div class="card fade-in" style="border-left-color:var(--bank-mid)">
     <h3>Cashless India — The Digital India Initiative</h3>
+    <div style="text-align:center;margin:8px 0 14px">
+      <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Unified_Payments_Interface_logo.svg" alt="Unified Payments Interface (UPI) official logo" style="max-width:160px;width:100%" loading="lazy">
+      <div style="font-size:10px;color:#6b7280;font-style:italic;margin-top:4px">UPI — Unified Payments Interface &middot; NPCI</div>
+    </div>
     <p>The Government of India's <strong>Digital India</strong> programme actively promotes cashless and digital transactions across the country.</p>
     <p style="font-size:13px;font-weight:700;margin-top:10px;margin-bottom:4px;color:var(--bank-dark)">Benefits of going cashless:</p>
     <ul>
@@ -2589,6 +2872,5 @@ function checkQuiz(id) {
 <script src="../../chapter-features.js"></script>
 <script src="../../draw-widget.js"></script>
 <script src="../../ga.js"></script>
-<script src="../../whatsapp-widget.js"></script>
 </body>
 </html>
