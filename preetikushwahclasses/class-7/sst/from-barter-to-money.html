@@ -383,6 +383,98 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
 /* Generic scene helper */
 .scene-label{text-align:center;font-family:'Fredoka One',cursive;font-size:13px;margin-top:8px}
 
+/* ======= SCENE: Barter System – Village Trade ======= */
+.barter-village{position:relative;width:100%;max-width:560px;height:260px;margin:18px auto;background:linear-gradient(180deg,#fef3c7 0%,#fed7aa 60%,#92400e 60%,#78350f 100%);border-radius:16px;overflow:hidden;border:2px solid #d97706}
+.bv-sky{position:absolute;top:8px;left:50%;transform:translateX(-50%);font-size:22px;opacity:.6;animation:bvSun 8s ease-in-out infinite}
+@keyframes bvSun{0%,100%{transform:translateX(-50%) translateY(0);opacity:.6}50%{transform:translateX(-50%) translateY(-6px);opacity:1}}
+.bv-hut{position:absolute;bottom:40%;width:54px;height:42px;background:#fef3c7;border:2px solid #92400e;border-radius:4px}
+.bv-hut::before{content:'';position:absolute;top:-18px;left:-6px;right:-6px;height:20px;background:#dc2626;clip-path:polygon(50% 0%,0% 100%,100% 100%)}
+.bv-hut.h1{left:6%}.bv-hut.h2{right:6%}.bv-hut.h3{left:50%;transform:translateX(-50%)}
+.bv-hut .bv-door{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:14px;height:18px;background:#78350f;border-radius:7px 7px 0 0}
+.bv-person{position:absolute;bottom:12%;text-align:center}
+.bv-person .bv-emoji{font-size:32px;display:block}
+.bv-person .bv-role{font-size:9px;font-weight:900;color:#fef3c7;background:#78350f;padding:1px 6px;border-radius:8px;display:inline-block;margin-top:2px}
+.bv-person.p1{left:10%;animation:bvWalkR 7s ease-in-out infinite}
+.bv-person.p2{left:44%;animation:bvBounce 4s ease-in-out infinite}
+.bv-person.p3{right:10%;animation:bvWalkL 7s ease-in-out infinite}
+@keyframes bvWalkR{0%,100%{transform:translateX(0)}50%{transform:translateX(30px)}}
+@keyframes bvWalkL{0%,100%{transform:translateX(0)}50%{transform:translateX(-30px)}}
+@keyframes bvBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.bv-item{position:absolute;font-size:20px;opacity:0;animation:bvFloat 7s ease-in-out infinite}
+.bv-item.i1{left:22%;bottom:28%;animation-delay:0s}
+.bv-item.i2{left:50%;bottom:32%;animation-delay:1s;transform:translateX(-50%)}
+.bv-item.i3{right:22%;bottom:28%;animation-delay:2s}
+@keyframes bvFloat{0%,20%{opacity:0;transform:translateY(0) scale(.5)}30%{opacity:1;transform:translateY(-15px) scale(1)}50%{opacity:1;transform:translateY(-25px) scale(1.1)}70%{opacity:0;transform:translateY(-40px) scale(.7)}100%{opacity:0}}
+.bv-swap{position:absolute;top:28%;left:50%;transform:translateX(-50%);font-size:28px;opacity:0;animation:bvSwapAnim 7s ease-in-out infinite 2.5s}
+@keyframes bvSwapAnim{0%,15%{opacity:0;transform:translateX(-50%) scale(.4) rotate(-20deg)}30%{opacity:1;transform:translateX(-50%) scale(1.2) rotate(0)}55%{opacity:1;transform:translateX(-50%) scale(1) rotate(0)}70%,100%{opacity:0;transform:translateX(-50%) scale(.4) rotate(20deg)}}
+.bv-tree{position:absolute;bottom:38%;font-size:28px}
+.bv-tree.t1{left:32%;animation:bvTreeSway 5s ease-in-out infinite}
+.bv-tree.t2{right:32%;animation:bvTreeSway 5s ease-in-out infinite 1.5s}
+@keyframes bvTreeSway{0%,100%{transform:rotate(0)}50%{transform:rotate(3deg)}}
+.bv-caption{text-align:center;font-family:'Fredoka One',cursive;font-size:13px;color:#92400e;margin-top:8px}
+
+/* ======= SCENE: Advantages of Barter ======= */
+.adv-barter{position:relative;width:100%;max-width:560px;height:240px;margin:18px auto;background:linear-gradient(135deg,#ecfdf5,#d1fae5);border-radius:16px;border:2px solid #34d399;overflow:hidden}
+.ab-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:70px;height:70px;background:#fff;border:3px solid #059669;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;z-index:5;box-shadow:0 4px 15px rgba(5,150,105,.3)}
+.ab-adv{position:absolute;background:#fff;border:2px solid #10b981;border-radius:12px;padding:4px 8px;text-align:center;width:100px;opacity:0}
+.ab-adv .ab-ico{font-size:22px;display:block}.ab-adv .ab-txt{font-size:8px;font-weight:800;color:#065f46;line-height:1.2}
+.ab-adv:nth-child(2){top:8px;left:8%;animation:abPop 10s ease-in-out infinite 0s}
+.ab-adv:nth-child(3){top:8px;right:8%;animation:abPop 10s ease-in-out infinite 1s}
+.ab-adv:nth-child(4){bottom:8px;left:8%;animation:abPop 10s ease-in-out infinite 2s}
+.ab-adv:nth-child(5){bottom:8px;right:8%;animation:abPop 10s ease-in-out infinite 3s}
+.ab-adv:nth-child(6){top:50%;left:2%;transform:translateY(-50%);animation:abPop 10s ease-in-out infinite 4s}
+@keyframes abPop{0%,8%{opacity:0;transform:scale(.4)}16%{opacity:1;transform:scale(1.05)}22%,78%{opacity:1;transform:scale(1)}86%{opacity:1;transform:scale(1.05)}94%,100%{opacity:0;transform:scale(.4)}}
+.ab-line{position:absolute;left:50%;top:50%;width:0;height:2px;background:#34d399;transform-origin:left center;opacity:0}
+.ab-line:nth-child(7){animation:abLine 10s ease-in-out infinite 0s;transform:rotate(-55deg)}
+.ab-line:nth-child(8){animation:abLine 10s ease-in-out infinite 1s;transform:rotate(-20deg)}
+.ab-line:nth-child(9){animation:abLine 10s ease-in-out infinite 2s;transform:rotate(55deg)}
+.ab-line:nth-child(10){animation:abLine 10s ease-in-out infinite 3s;transform:rotate(20deg)}
+.ab-line:nth-child(11){animation:abLine 10s ease-in-out infinite 4s;transform:rotate(90deg)}
+@keyframes abLine{0%,10%{width:0;opacity:0}18%{width:100px;opacity:.4}80%{width:100px;opacity:.4}90%,100%{width:0;opacity:0}}
+.ab-sparkle{position:absolute;font-size:14px;opacity:0;animation:abSparkle 3s ease-in-out infinite}
+.ab-sparkle:nth-child(12){top:15%;left:50%;animation-delay:0s}
+.ab-sparkle:nth-child(13){top:50%;right:4%;animation-delay:.8s}
+.ab-sparkle:nth-child(14){bottom:10%;left:50%;animation-delay:1.6s}
+@keyframes abSparkle{0%,100%{opacity:0;transform:scale(.5) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(180deg)}}
+.ab-caption{text-align:center;font-family:'Fredoka One',cursive;font-size:13px;color:#065f46;margin-top:8px}
+
+/* ======= SCENE: Disadvantages of Barter ======= */
+.disadv-barter{position:relative;width:100%;max-width:560px;height:280px;margin:18px auto;background:linear-gradient(180deg,#fef2f2 0%,#fee2e2 100%);border-radius:16px;border:2px solid #f87171;overflow:hidden}
+.db-title{position:absolute;top:8px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:900;color:#991b1b;background:#fecaca;padding:2px 10px;border-radius:10px;z-index:6;white-space:nowrap}
+/* Problem 1: Double Coincidence */
+.db-p1{position:absolute;left:6%;top:40px;text-align:center;width:110px}
+.db-p1 .db-ico{font-size:24px;display:block}.db-p1 .db-lbl{font-size:8px;font-weight:800;color:#991b1b;margin-top:2px}
+.db-p1-farmer,.db-p1-weaver{position:absolute;font-size:28px}
+.db-p1-farmer{left:8%;top:40px}
+.db-p1-weaver{left:22%;top:40px}
+.db-p1-cross{position:absolute;left:15%;top:80px;font-size:22px;color:#dc2626;font-weight:900;opacity:0;animation:dbCross 5s ease-in-out infinite}
+@keyframes dbCross{0%,30%{opacity:0;transform:scale(.3)}45%,70%{opacity:1;transform:scale(1.2)}85%,100%{opacity:0;transform:scale(.3)}}
+/* Problem 2: No standard value */
+.db-p2{position:absolute;right:6%;top:40px;text-align:center;width:120px}
+.db-p2-q{position:absolute;right:10%;top:50px;font-size:10px;color:#991b1b;font-weight:800;opacity:0;animation:dbQuest 4s ease-in-out infinite;background:#fff;padding:3px 6px;border-radius:8px;border:1px solid #fca5a5}
+.db-p2-q:nth-child(2){animation-delay:1.2s;top:75px}
+@keyframes dbQuest{0%,20%{opacity:0;transform:translateY(5px)}35%,65%{opacity:1;transform:translateY(0)}80%,100%{opacity:0;transform:translateY(-5px)}}
+/* Problem 3: Perishable goods */
+.db-p3{position:absolute;left:6%;bottom:26px;text-align:center;width:120px}
+.db-p3-item{position:absolute;left:10%;bottom:50px;font-size:26px;animation:dbRot 5s ease-in-out infinite}
+@keyframes dbRot{0%{opacity:1;filter:saturate(1);transform:scale(1)}50%{opacity:.6;filter:saturate(.2);transform:scale(.85)}100%{opacity:1;filter:saturate(1);transform:scale(1)}}
+.db-p3-flies{position:absolute;left:18%;bottom:85px;font-size:12px;opacity:0;animation:dbFlies 5s ease-in-out infinite 1.5s}
+@keyframes dbFlies{0%,25%{opacity:0}40%,60%{opacity:1;transform:translateX(4px)}75%{opacity:1;transform:translateX(-4px)}90%,100%{opacity:0}}
+/* Problem 4: Indivisibility */
+.db-p4{position:absolute;right:6%;bottom:26px;text-align:center;width:120px}
+.db-p4-cow{position:absolute;right:10%;bottom:50px;font-size:28px;animation:dbShake 4s ease-in-out infinite}
+@keyframes dbShake{0%,100%{transform:rotate(0)}15%{transform:rotate(5deg)}30%{transform:rotate(-5deg)}45%{transform:rotate(3deg)}60%{transform:rotate(0)}}
+.db-p4-knife{position:absolute;right:50px;bottom:55px;font-size:18px;opacity:0;animation:dbKnife 4s ease-in-out infinite 1s}
+@keyframes dbKnife{0%,30%{opacity:0;transform:translateX(10px) rotate(-40deg)}50%{opacity:1;transform:translateX(0) rotate(0)}70%{opacity:1;transform:translateX(-3px) rotate(5deg)}85%,100%{opacity:0;transform:translateX(-8px) rotate(10deg)}}
+.db-p4-no{position:absolute;right:16%;bottom:82px;font-size:18px;color:#dc2626;opacity:0;animation:dbCross 4s ease-in-out infinite 2s}
+/* Center crying face */
+.db-center-cry{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:48px;opacity:0;animation:dbCry 6s ease-in-out infinite}
+@keyframes dbCry{0%,15%{opacity:0;transform:translate(-50%,-50%) scale(.3)}30%,60%{opacity:1;transform:translate(-50%,-50%) scale(1)}75%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}100%{opacity:0;transform:translate(-50%,-50%) scale(.3)}}
+/* Problem labels */
+.db-plbl{position:absolute;font-size:8px;font-weight:900;background:#fff;color:#991b1b;padding:2px 6px;border-radius:6px;border:1px solid #fca5a5;z-index:3}
+.db-plbl.pl1{left:4%;top:95px}.db-plbl.pl2{right:4%;top:95px}.db-plbl.pl3{left:4%;bottom:8px}.db-plbl.pl4{right:4%;bottom:8px}
+.db-caption{text-align:center;font-family:'Fredoka One',cursive;font-size:13px;color:#991b1b;margin-top:8px}
+
 /* PRINT */
 @media print{
   .top-nav,.toc-bar,.progress-wrap,.sec-complete,.quiz-btn,.slide-nav,.tn-share{display:none!important}
@@ -517,6 +609,33 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
   <h2 class="sec-head">2. The Barter System</h2>
   <p class="sec-sub">The world's first system of exchange — direct trade of goods for goods</p>
 
+  <!-- ANIMATED: Barter Village Scene -->
+  <div class="barter-village">
+    <div class="bv-sky">&#9728;&#65039;</div>
+    <div class="bv-tree t1">&#127794;</div>
+    <div class="bv-tree t2">&#127795;</div>
+    <div class="bv-hut h1"><div class="bv-door"></div></div>
+    <div class="bv-hut h2"><div class="bv-door"></div></div>
+    <div class="bv-hut h3"><div class="bv-door"></div></div>
+    <div class="bv-person p1">
+      <span class="bv-emoji">&#128104;&#8205;&#127806;</span>
+      <span class="bv-role">Farmer</span>
+    </div>
+    <div class="bv-person p2">
+      <span class="bv-emoji">&#129525;</span>
+      <span class="bv-role">Weaver</span>
+    </div>
+    <div class="bv-person p3">
+      <span class="bv-emoji">&#128094;</span>
+      <span class="bv-role">Cobbler</span>
+    </div>
+    <span class="bv-item i1">&#127834;</span>
+    <span class="bv-item i2">&#129526;</span>
+    <span class="bv-item i3">&#128094;</span>
+    <span class="bv-swap">&#128259;</span>
+  </div>
+  <div class="bv-caption">An ancient village — goods exchanged directly for goods, no money!</div>
+
   <div class="card fade-in" style="border-left-color:#f97316">
     <h3>What is the Barter System?</h3>
     <div style="float:right;margin:0 0 10px 14px;max-width:200px">
@@ -539,6 +658,19 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
     </ul>
   </div>
 
+  <!-- ANIMATED: Advantages of Barter -->
+  <div class="adv-barter">
+    <div class="ab-center">&#129309;</div>
+    <div class="ab-adv"><span class="ab-ico">&#9989;</span><span class="ab-txt">Simple &amp; Direct</span></div>
+    <div class="ab-adv"><span class="ab-ico">&#128101;</span><span class="ab-txt">No Middleman</span></div>
+    <div class="ab-adv"><span class="ab-ico">&#9889;</span><span class="ab-txt">Instant Satisfaction</span></div>
+    <div class="ab-adv"><span class="ab-ico">&#127968;</span><span class="ab-txt">Builds Community</span></div>
+    <div class="ab-adv"><span class="ab-ico">&#9878;&#65039;</span><span class="ab-txt">Fair Negotiation</span></div>
+    <div class="ab-line"></div><div class="ab-line"></div><div class="ab-line"></div><div class="ab-line"></div><div class="ab-line"></div>
+    <span class="ab-sparkle">&#10024;</span><span class="ab-sparkle">&#10024;</span><span class="ab-sparkle">&#10024;</span>
+  </div>
+  <div class="ab-caption">Five key advantages of the barter system</div>
+
   <div class="card fade-in" style="border-left-color:#22c55e">
     <h3>Advantages of Barter</h3>
     <ul>
@@ -549,6 +681,32 @@ footer{text-align:center;padding:24px;background:#854d0e;color:#fff;font-size:13
       <li><strong>Fair Negotiation:</strong> Both parties directly agree on the exchange rate. If you think your 5 kg of rice is worth 2 metres of cloth, you negotiate until both sides agree. There is no external authority deciding values.</li>
     </ul>
   </div>
+
+  <!-- ANIMATED: Disadvantages of Barter -->
+  <div class="disadv-barter">
+    <div class="db-title">&#9888;&#65039; Why Barter Failed</div>
+    <!-- Problem 1: Double Coincidence -->
+    <div class="db-p1-farmer">&#128104;&#8205;&#127806;</div>
+    <div class="db-p1-weaver">&#129525;</div>
+    <span class="db-p1-cross">&#10060;</span>
+    <span class="db-plbl pl1">Double Coincidence</span>
+    <!-- Problem 2: No standard value -->
+    <div class="db-p2-q">&#127834; = ? &#129526;</div>
+    <div class="db-p2-q">10kg = 2m ??</div>
+    <span class="db-plbl pl2">No Standard Value</span>
+    <!-- Problem 3: Perishable -->
+    <div class="db-p3-item">&#127813;</div>
+    <div class="db-p3-flies">&#129415;&#129415;&#129415;</div>
+    <span class="db-plbl pl3">Goods Rot!</span>
+    <!-- Problem 4: Indivisibility -->
+    <div class="db-p4-cow">&#128004;</div>
+    <div class="db-p4-knife">&#128298;</div>
+    <span class="db-p4-no">&#128683;</span>
+    <span class="db-plbl pl4">Can't Split a Cow!</span>
+    <!-- Center -->
+    <div class="db-center-cry">&#128557;</div>
+  </div>
+  <div class="db-caption">Four fatal flaws that killed the barter system</div>
 
   <div class="card fade-in" style="border-left-color:#ef4444;border-left-width:5px;background:linear-gradient(to right,#fff,#fff7ed)">
     <h3 style="color:#9a3412">Disadvantages of the Barter System</h3>
