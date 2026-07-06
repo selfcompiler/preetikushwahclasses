@@ -987,6 +987,90 @@ footer .footer-interest:hover { background: rgba(255,255,255,0.35); }
   .bar-label { min-width: 80px; font-size: 11px; }
   .rect-visual { flex-direction: column; align-items: center; }
 }
+
+/* ============= QUESTION PAPER SETS ============= */
+.paper-toggle {
+  width: 100%;
+  border: none;
+  border-radius: 18px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  color: white;
+  text-align: left;
+  transition: all 0.2s;
+  margin-bottom: 4px;
+}
+.paper-toggle:hover { filter: brightness(1.07); transform: translateY(-1px); }
+.paper-toggle .pt-meta {
+  background: rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  white-space: nowrap;
+}
+.paper-body {
+  display: none;
+  background: #fffef9;
+  border: 2px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.paper-body.open { display: block; }
+.paper-info-bar {
+  background: linear-gradient(135deg, #fefce8, #fef3c7);
+  border: 2px solid #fbbf24;
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+.paper-info-bar b { color: #92400e; }
+.paper-sec-heading {
+  font-family: 'Fredoka One', cursive;
+  font-size: 15px;
+  color: white;
+  padding: 7px 16px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 16px 0 10px;
+}
+.ph-purple { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+.ph-orange { background: linear-gradient(135deg, #f97316, #fdba74); }
+.ph-teal   { background: linear-gradient(135deg, #14b8a6, #5eead4); }
+.ph-blue   { background: linear-gradient(135deg, #3b82f6, #93c5fd); }
+.ph-pink   { background: linear-gradient(135deg, #ec4899, #f9a8d4); }
+.paper-show-all {
+  background: linear-gradient(135deg, #14b8a6, #2dd4bf);
+  color: white;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.2s;
+  margin-top: 14px;
+  display: inline-block;
+}
+.paper-show-all:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(20,184,166,0.3); }
+@media (max-width: 600px) {
+  .paper-toggle { font-size: 15px; padding: 14px 16px; }
+  .paper-toggle .pt-meta { font-size: 11px; padding: 3px 10px; }
+  .paper-body { padding: 14px; }
+}
 </style>
 </head>
 <body>
@@ -1013,6 +1097,7 @@ footer .footer-interest:hover { background: rgba(255,255,255,0.35); }
   <a href="#sec10">Figure it Out 5</a>
   <a href="#sec11">Expression Engineer</a>
   <a href="#sec12">Practice</a>
+  <a href="#sec-papers">Question Papers</a>
 </div>
 
 <!-- ===== HERO ===== -->
@@ -2247,6 +2332,688 @@ footer .footer-interest:hover { background: rgba(255,255,255,0.35); }
   </div>
 </div>
 
+<!-- ================================================================== -->
+<!-- SECTION 13: Question Paper Sets                                     -->
+<!-- ================================================================== -->
+<div class="section-block reveal" id="sec-papers">
+  <div class="section-hd g-indigo">
+    <span class="icon">&#128220;</span>
+    <span>13. Question Paper Sets</span>
+  </div>
+  <div class="section-bd">
+    <p>Four full question paper sets covering all topics of Chapter 2. Click any set to expand it. Use <strong>"Show Answer"</strong> on each question or <strong>"Show All Answers"</strong> at the bottom of each set.</p>
+
+    <!-- ===== PAPER SET 1 ===== -->
+    <button class="paper-toggle g-purple" onclick="togglePaper('paper1')">
+      <span>&#128196; Set 1 &mdash; Foundation Level</span>
+      <span class="pt-meta">25 Marks &bull; 30 Min</span>
+    </button>
+    <div class="paper-body" id="paper1">
+      <div class="paper-info-bar">
+        <span><b>Class:</b> VII</span>
+        <span><b>Chapter:</b> 2 &mdash; Arithmetic Expressions</span>
+        <span><b>Max Marks:</b> 25</span>
+        <span><b>Time:</b> 30 Minutes</span>
+        <span><b>Level:</b> Foundation</span>
+      </div>
+
+      <div class="paper-sec-heading ph-purple">Section A &mdash; Multiple Choice Questions (5 &times; 1 = 5 Marks)</div>
+      <ul class="mcq-list">
+        <li class="mcq-item" data-ans="2">
+          <div class="mcq-q">1. The value of 5 + 3 &times; 4 is: <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 32</li>
+            <li data-opt="2">(b) 17</li>
+            <li data-opt="3">(c) 24</li>
+            <li data-opt="4">(d) 20</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (b) 17 &mdash; Multiply first: 5 + 12 = 17</div>
+        </li>
+        <li class="mcq-item" data-ans="3">
+          <div class="mcq-q">2. 40 &minus; (12 + 8) = <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 44</li>
+            <li data-opt="2">(b) 60</li>
+            <li data-opt="3">(c) 20</li>
+            <li data-opt="4">(d) 36</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (c) 20 &mdash; Bracket first: 40 &minus; 20 = 20</div>
+        </li>
+        <li class="mcq-item" data-ans="2">
+          <div class="mcq-q">3. The terms of the expression 6 + 3&times;2 are: <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 6, 3, 2</li>
+            <li data-opt="2">(b) 6 and 3&times;2</li>
+            <li data-opt="3">(c) 6&times;3 and 2</li>
+            <li data-opt="4">(d) 6+3 and 2</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (b) 6 and 3&times;2 &mdash; Multiplication stays together as one term</div>
+        </li>
+        <li class="mcq-item" data-ans="3">
+          <div class="mcq-q">4. The property a + b = b + a is called the: <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) Associative</li>
+            <li data-opt="2">(b) Distributive</li>
+            <li data-opt="3">(c) Commutative</li>
+            <li data-opt="4">(d) Identity</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (c) Commutative Property</div>
+        </li>
+        <li class="mcq-item" data-ans="2">
+          <div class="mcq-q">5. When a + sign is placed before a bracket, the signs inside: <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) Flip (change)</li>
+            <li data-opt="2">(b) Stay the same</li>
+            <li data-opt="3">(c) All become +</li>
+            <li data-opt="4">(d) All become &minus;</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (b) Stay the same</div>
+        </li>
+      </ul>
+
+      <div class="paper-sec-heading ph-orange">Section B &mdash; Fill in the Blanks (5 &times; 1 = 5 Marks)</div>
+      <div class="fib-item">
+        <div class="fib-q">1. 12 + 3 &times; 4 = _______ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 24 &nbsp;(3&times;4 = 12, then 12+12 = 24)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">2. The expression 9 &minus; 4 has _______ terms. <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 2 terms (9 and &minus;4)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">3. 5 &times; (6 + 4) = 5&times;6 + 5 &times; _______ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 4 &nbsp;(Distributive: 5&times;6 + 5&times;4 = 30 + 20 = 50)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">4. 100 &minus; (30 + 20) = _______ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 50 &nbsp;(Bracket first: 100 &minus; 50 = 50)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">5. The value of 7 &times; 7 &minus; 7 is _______ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 42 &nbsp;(49 &minus; 7 = 42)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="paper-sec-heading ph-teal">Section C &mdash; True or False (5 &times; 1 = 5 Marks)</div>
+      <div class="tf-item">
+        <div class="tf-q">1. 3 + 4 &times; 2 = 14 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>False.</b> Multiply first: 3 + 8 = 11, not 14.</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">2. (3 + 4) &times; 2 = 14 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>True.</b> Bracket first: 7 &times; 2 = 14. &#10004;</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">3. The expression 5&times;3 &minus; 2 has 3 terms. <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>False.</b> It has only 2 terms: 5&times;3 and &minus;2. (5 and 3 are not separate terms.)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">4. 50 + (10 + 20) = 50 + 10 + 20 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>True.</b> + before bracket: signs inside stay the same. &#10004;</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">5. 4 &times; (5 + 3) = 4&times;5 + 4&times;3 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>True.</b> Distributive property: 4&times;8 = 20 + 12 = 32. &#10004;</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="paper-sec-heading ph-blue">Section D &mdash; Evaluate the Expressions (4 &times; 2 = 8 Marks)</div>
+      <ul class="short-q-list">
+        <li class="short-q-item">
+          <div class="short-q">1. Evaluate: 10 + 6 &times; 5 &minus; 2 <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 10 + 6&times;5 &minus; 2 = 10 + 30 &minus; 2 = <strong>38</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">2. Evaluate: 48 &divide; 8 + 3 &times; 4 <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 48 &divide; 8 + 3&times;4 = 6 + 12 = <strong>18</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">3. Remove brackets and simplify: 25 &minus; (8 + 7) <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 25 &minus; 8 &minus; 7 = <strong>10</strong> &nbsp;(minus before bracket: signs inside flip)</div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">4. Find using distributive property: 6 &times; 15 <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 6 &times; (10 + 5) = 6&times;10 + 6&times;5 = 60 + 30 = <strong>90</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+      </ul>
+
+      <div class="paper-sec-heading ph-pink">Section E &mdash; Short Answer (1 &times; 2 = 2 Marks)</div>
+      <ul class="short-q-list">
+        <li class="short-q-item">
+          <div class="short-q">1. Riya has 5 bags, each containing 8 candies. She gives away 14 candies. Write an arithmetic expression for the candies left and find its value. <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Expression:</strong> 5 &times; 8 &minus; 14<br><strong>Value:</strong> 40 &minus; 14 = <strong>26 candies</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+      </ul>
+      <button class="paper-show-all" onclick="showAllInPaper('paper1')">&#128065; Show All Answers</button>
+    </div>
+
+    <!-- ===== PAPER SET 2 ===== -->
+    <button class="paper-toggle g-pink" onclick="togglePaper('paper2')">
+      <span>&#128196; Set 2 &mdash; Core Practice</span>
+      <span class="pt-meta">30 Marks &bull; 35 Min</span>
+    </button>
+    <div class="paper-body" id="paper2">
+      <div class="paper-info-bar">
+        <span><b>Class:</b> VII</span>
+        <span><b>Chapter:</b> 2 &mdash; Arithmetic Expressions</span>
+        <span><b>Max Marks:</b> 30</span>
+        <span><b>Time:</b> 35 Minutes</span>
+        <span><b>Level:</b> Intermediate</span>
+      </div>
+
+      <div class="paper-sec-heading ph-purple">Section A &mdash; Multiple Choice Questions (5 &times; 1 = 5 Marks)</div>
+      <ul class="mcq-list">
+        <li class="mcq-item" data-ans="2">
+          <div class="mcq-q">1. 8 &times; 99 using distributive property equals: <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 799</li>
+            <li data-opt="2">(b) 792</li>
+            <li data-opt="3">(c) 800</li>
+            <li data-opt="4">(d) 801</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (b) 792 &mdash; 8&times;(100&minus;1) = 800 &minus; 8 = 792</div>
+        </li>
+        <li class="mcq-item" data-ans="2">
+          <div class="mcq-q">2. 60 &minus; (25 &minus; 10) = <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 25</li>
+            <li data-opt="2">(b) 45</li>
+            <li data-opt="3">(c) 35</li>
+            <li data-opt="4">(d) 55</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (b) 45 &mdash; 60 &minus; 15 = 45</div>
+        </li>
+        <li class="mcq-item" data-ans="3">
+          <div class="mcq-q">3. How many terms does 4&times;5 &minus; 3&times;2 + 8 have? <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 5</li>
+            <li data-opt="2">(b) 4</li>
+            <li data-opt="3">(c) 3</li>
+            <li data-opt="4">(d) 2</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (c) 3 terms: 4&times;5, &minus;3&times;2, and 8</div>
+        </li>
+        <li class="mcq-item" data-ans="3">
+          <div class="mcq-q">4. 5 &times; (a + b &minus; c) = <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 5a + b &minus; c</li>
+            <li data-opt="2">(b) 5a + 5b + 5c</li>
+            <li data-opt="3">(c) 5a + 5b &minus; 5c</li>
+            <li data-opt="4">(d) 5a &minus; 5b &minus; 5c</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (c) 5a + 5b &minus; 5c (Distributive property)</div>
+        </li>
+        <li class="mcq-item" data-ans="3">
+          <div class="mcq-q">5. The value of 24 &divide; 4 + 3 &times; 2 is: <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 18</li>
+            <li data-opt="2">(b) 15</li>
+            <li data-opt="3">(c) 12</li>
+            <li data-opt="4">(d) 10</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (c) 12 &mdash; Division &amp; multiply first: 6 + 6 = 12</div>
+        </li>
+      </ul>
+
+      <div class="paper-sec-heading ph-orange">Section B &mdash; Fill in the Blanks (5 &times; 1 = 5 Marks)</div>
+      <div class="fib-item">
+        <div class="fib-q">1. In 40 &minus; (15 + 8), removing brackets gives 40 &minus; _______ &minus; _______ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 40 &minus; 15 &minus; 8 = 17</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">2. 7 &times; 102 = 7 &times; (100 + 2) = _______ + _______ = _______ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 700 + 14 = 714</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">3. The value of 3 + 5 &times; 0 = _______ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 3 &nbsp;(Multiply first: 5&times;0=0, then 3+0=3)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">4. In a&times;(b + c), if a = 4, b = 5, c = 3, the value is _______ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 32 &nbsp;(4&times;8=32, or 4&times;5+4&times;3=20+12=32)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">5. 100 &minus; (40 + 35) = _______ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 25 &nbsp;(100 &minus; 75 = 25)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="paper-sec-heading ph-teal">Section C &mdash; True or False (5 &times; 1 = 5 Marks)</div>
+      <div class="tf-item">
+        <div class="tf-q">1. 100 &minus; (30 + 10) = 100 &minus; 30 + 10 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>False.</b> 100&minus;(30+10) = 100&minus;30&minus;10 = 60. Minus before bracket changes all signs inside.</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">2. 7 &times; (8 &minus; 3) = 7&times;8 &minus; 7&times;3 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>True.</b> Distributive property: 56 &minus; 21 = 35 = 7&times;5. &#10004;</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">3. The terms of 10 + 3&times;4 &minus; 5 are: 10, 3&times;4, &minus;5 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>True.</b> The three terms are 10, +3&times;4, and &minus;5. &#10004;</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">4. 4 &times; (a + b) = 4a + b <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>False.</b> Correct form is 4a + 4b (multiply 4 by each term inside the bracket).</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">5. 6 &times; 25 + 6 &times; 75 = 6 &times; 100 = 600 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>True.</b> Distributive in reverse: 6&times;(25+75) = 6&times;100 = 600. &#10004;</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="paper-sec-heading ph-blue">Section D &mdash; Evaluate (4 &times; 2 = 8 Marks)</div>
+      <ul class="short-q-list">
+        <li class="short-q-item">
+          <div class="short-q">1. Evaluate: 5 &times; (12 + 8) <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 5 &times; 20 = <strong>100</strong> &nbsp;(or 5&times;12 + 5&times;8 = 60+40 = 100)</div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">2. Simplify: 80 &minus; (30 &minus; 15 + 5) <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 80 &minus; 30 + 15 &minus; 5 = <strong>60</strong> &nbsp;(signs change after &minus;)</div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">3. Using distributive property: 11 &times; 99 <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 11&times;(100&minus;1) = 1100 &minus; 11 = <strong>1089</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">4. Evaluate: 15 + 20 &divide; 4 &times; 2 <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 15 + (20&divide;4)&times;2 = 15 + 5&times;2 = 15 + 10 = <strong>25</strong> &nbsp;(left-to-right for &divide; and &times;)</div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+      </ul>
+
+      <div class="paper-sec-heading ph-pink">Section E &mdash; Application Problems (2 &times; 3.5 = 7 Marks)</div>
+      <ul class="short-q-list">
+        <li class="short-q-item">
+          <div class="short-q">1. A shopkeeper sold 6 notebooks at &#8377;35 each and 4 pencil boxes at &#8377;20 each. Write an arithmetic expression and find the total amount. <span style="float:right;color:#6b7280;font-size:12px;">[3 marks]</span></div>
+          <div class="short-a"><strong>Expression:</strong> 6&times;35 + 4&times;20<br><strong>Solution:</strong> 210 + 80 = <strong>&#8377;290</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">2. Remove brackets and simplify: 150 &minus; (45 &minus; 20 + 15) <span style="float:right;color:#6b7280;font-size:12px;">[4 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 150 &minus; 45 + 20 &minus; 15 = <strong>110</strong> &nbsp;(signs inside bracket flip after &minus;)</div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+      </ul>
+      <button class="paper-show-all" onclick="showAllInPaper('paper2')">&#128065; Show All Answers</button>
+    </div>
+
+    <!-- ===== PAPER SET 3 ===== -->
+    <button class="paper-toggle g-teal" onclick="togglePaper('paper3')">
+      <span>&#128196; Set 3 &mdash; Challenging Level</span>
+      <span class="pt-meta">35 Marks &bull; 40 Min</span>
+    </button>
+    <div class="paper-body" id="paper3">
+      <div class="paper-info-bar">
+        <span><b>Class:</b> VII</span>
+        <span><b>Chapter:</b> 2 &mdash; Arithmetic Expressions</span>
+        <span><b>Max Marks:</b> 35</span>
+        <span><b>Time:</b> 40 Minutes</span>
+        <span><b>Level:</b> Advanced</span>
+      </div>
+
+      <div class="paper-sec-heading ph-purple">Section A &mdash; Multiple Choice Questions (5 &times; 1 = 5 Marks)</div>
+      <ul class="mcq-list">
+        <li class="mcq-item" data-ans="1">
+          <div class="mcq-q">1. 5 + 2 &times; {3 + (4 &minus; 1)} = <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 17</li>
+            <li data-opt="2">(b) 19</li>
+            <li data-opt="3">(c) 11</li>
+            <li data-opt="4">(d) 15</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (a) 17 &mdash; Inner: 4&minus;1=3; {3+3}=6; 2&times;6=12; 5+12=17</div>
+        </li>
+        <li class="mcq-item" data-ans="1">
+          <div class="mcq-q">2. Descending order of 3&times;15, 50&minus;4, 90&divide;2, 4&times;10+8 is: <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 4&times;10+8, 50&minus;4, 3&times;15 = 90&divide;2</li>
+            <li data-opt="2">(b) 90&divide;2, 3&times;15, 50&minus;4, 4&times;10+8</li>
+            <li data-opt="3">(c) 50&minus;4, 4&times;10+8, 3&times;15, 90&divide;2</li>
+            <li data-opt="4">(d) 3&times;15, 50&minus;4, 4&times;10+8, 90&divide;2</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (a) Values: 4&times;10+8=48 &gt; 50&minus;4=46 &gt; 3&times;15=45 = 90&divide;2=45</div>
+        </li>
+        <li class="mcq-item" data-ans="2">
+          <div class="mcq-q">3. 75 &minus; (30 &minus; 15 + 5) = <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 65</li>
+            <li data-opt="2">(b) 55</li>
+            <li data-opt="3">(c) 35</li>
+            <li data-opt="4">(d) 45</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (b) 55 &mdash; 75&minus;30+15&minus;5 = 55 (signs flip after &minus;)</div>
+        </li>
+        <li class="mcq-item" data-ans="1">
+          <div class="mcq-q">4. Using distributive property, 13 &times; 8 = <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) (10+3)&times;8 = 10&times;8 + 3&times;8 = 104</li>
+            <li data-opt="2">(b) (10+3)&times;8 = 10&times;8 + 3 = 83</li>
+            <li data-opt="3">(c) 13&times;8 = 13 + 8&times;8 = 77</li>
+            <li data-opt="4">(d) 13&times;8 = 13&times;10 &minus; 8 = 122</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (a) 80 + 24 = 104</div>
+        </li>
+        <li class="mcq-item" data-ans="1">
+          <div class="mcq-q">5. (18 + 6) &divide; (4 + 2) &minus; 1 = <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 3</li>
+            <li data-opt="2">(b) 4</li>
+            <li data-opt="3">(c) 5</li>
+            <li data-opt="4">(d) 6</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (a) 3 &mdash; 24&divide;6 &minus; 1 = 4 &minus; 1 = 3</div>
+        </li>
+      </ul>
+
+      <div class="paper-sec-heading ph-orange">Section B &mdash; Fill in the Blanks (5 &times; 1 = 5 Marks)</div>
+      <div class="fib-item">
+        <div class="fib-q">1. 16 &times; 99 = 16 &times; (100 &minus; _____) = 1600 &minus; _____ = _____ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 1, 16, 1584</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">2. 500 &minus; (200 &minus; 75 + 25) = _____ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 350 &nbsp;(500&minus;200+75&minus;25 = 350)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">3. The expression 10&times;3 + 4&times;2 &minus; 6&divide;3 has _____ terms. <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 3 terms: 10&times;3, +4&times;2, &minus;6&divide;3</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">4. a &times; (b &minus; c + d) = a&times;b &minus; _____ + _____ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: a&times;c and a&times;d</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">5. (50 + 30) &divide; (4 &times; 2) = _____ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 10 &nbsp;(80 &divide; 8 = 10)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="paper-sec-heading ph-teal">Section C &mdash; True or False (5 &times; 1 = 5 Marks)</div>
+      <div class="tf-item">
+        <div class="tf-q">1. 12 &times; 98 = 12 &times; 100 &minus; 12 &times; 2 = 1176 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>True.</b> 1200 &minus; 24 = 1176. &#10004;</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">2. The terms of 20 &minus; 4&times;3 + 2&times;5 are: 20, &minus;4, 3, 2, 5 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>False.</b> The terms are 20, &minus;4&times;3, and +2&times;5. Products within a term stay together.</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">3. 200 &minus; (100 &minus; 30 + 20) = 110 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>True.</b> 200&minus;100+30&minus;20 = 110. &#10004;</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">4. (5 &times; 6) &times; 2 = 5 &times; (6 &times; 2) <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>True.</b> Associative property of multiplication. &#10004;</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">5. 36 &divide; 4 &minus; 2 &times; 3 = 3 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>True.</b> 9 &minus; 6 = 3. &#10004;</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="paper-sec-heading ph-blue">Section D &mdash; Evaluate (4 &times; 2 = 8 Marks)</div>
+      <ul class="short-q-list">
+        <li class="short-q-item">
+          <div class="short-q">1. Using distributive property: 13 &times; (100 + 5) <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 13&times;100 + 13&times;5 = 1300 + 65 = <strong>1365</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">2. Simplify: 200 &minus; (80 &minus; 20 + 15 &minus; 5) <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 200 &minus; 80 + 20 &minus; 15 + 5 = <strong>130</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">3. Evaluate: 4 &times; 3 + 6 &times; 2 &divide; 4 + 5 <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 12 + (6&times;2&divide;4) + 5 = 12 + (12&divide;4) + 5 = 12 + 3 + 5 = <strong>20</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">4. Using distributive property: 25 &times; 36 = 25 &times; (40 &minus; 4) <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 25&times;40 &minus; 25&times;4 = 1000 &minus; 100 = <strong>900</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+      </ul>
+
+      <div class="paper-sec-heading ph-pink">Section E &mdash; Word Problems (3 &times; 4 = 12 Marks)</div>
+      <ul class="short-q-list">
+        <li class="short-q-item">
+          <div class="short-q">1. A school bought 8 chairs at &#8377;450 each and 5 tables at &#8377;800 each. Write an arithmetic expression and find the total cost. <span style="float:right;color:#6b7280;font-size:12px;">[4 marks]</span></div>
+          <div class="short-a"><strong>Expression:</strong> 8&times;450 + 5&times;800<br><strong>Solution:</strong> 3600 + 4000 = <strong>&#8377;7600</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">2. Priya had &#8377;500. She spent &#8377;(120 + 45) on books and &#8377;(60 &minus; 15) on stationery. Write an expression for money remaining and simplify. <span style="float:right;color:#6b7280;font-size:12px;">[4 marks]</span></div>
+          <div class="short-a"><strong>Expression:</strong> 500 &minus; (120+45) &minus; (60&minus;15)<br><strong>Solution:</strong> 500 &minus; 165 &minus; 45 = <strong>&#8377;290</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">3. Using distributive property, calculate 15 &times; 98 mentally. Show step-by-step working. <span style="float:right;color:#6b7280;font-size:12px;">[4 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong><br>
+            15 &times; 98 = 15 &times; (100 &minus; 2)<br>
+            = 15&times;100 &minus; 15&times;2<br>
+            = 1500 &minus; 30<br>
+            = <strong>1470</strong>
+          </div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+      </ul>
+      <button class="paper-show-all" onclick="showAllInPaper('paper3')">&#128065; Show All Answers</button>
+    </div>
+
+    <!-- ===== PAPER SET 4 ===== -->
+    <button class="paper-toggle g-rose" onclick="togglePaper('paper4')">
+      <span>&#128196; Set 4 &mdash; Mixed Mastery Challenge</span>
+      <span class="pt-meta">40 Marks &bull; 45 Min</span>
+    </button>
+    <div class="paper-body" id="paper4">
+      <div class="paper-info-bar">
+        <span><b>Class:</b> VII</span>
+        <span><b>Chapter:</b> 2 &mdash; Arithmetic Expressions</span>
+        <span><b>Max Marks:</b> 40</span>
+        <span><b>Time:</b> 45 Minutes</span>
+        <span><b>Level:</b> Mixed / Mastery</span>
+      </div>
+
+      <div class="paper-sec-heading ph-purple">Section A &mdash; Multiple Choice Questions (5 &times; 1 = 5 Marks)</div>
+      <ul class="mcq-list">
+        <li class="mcq-item" data-ans="1">
+          <div class="mcq-q">1. The value of 5 + {2 &times; (3 + 4)} &minus; 1 is: <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 18</li>
+            <li data-opt="2">(b) 28</li>
+            <li data-opt="3">(c) 19</li>
+            <li data-opt="4">(d) 22</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (a) 18 &mdash; Inner: 3+4=7; 2&times;7=14; 5+14&minus;1 = 18</div>
+        </li>
+        <li class="mcq-item" data-ans="2">
+          <div class="mcq-q">2. 200 &minus; (50 + 30) &minus; (40 &minus; 10) = <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 60</li>
+            <li data-opt="2">(b) 90</li>
+            <li data-opt="3">(c) 80</li>
+            <li data-opt="4">(d) 110</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (b) 90 &mdash; 200&minus;80&minus;30 = 90</div>
+        </li>
+        <li class="mcq-item" data-ans="1">
+          <div class="mcq-q">3. After removing brackets, 70 &minus; (25 + 5) = <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 70 &minus; 25 &minus; 5 = 40</li>
+            <li data-opt="2">(b) 70 &minus; 25 + 5 = 50</li>
+            <li data-opt="3">(c) 70 + 25 &minus; 5 = 90</li>
+            <li data-opt="4">(d) 70 + 25 + 5 = 100</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (a) 40 &mdash; Minus before bracket: both signs inside flip</div>
+        </li>
+        <li class="mcq-item" data-ans="1">
+          <div class="mcq-q">4. Using distributive property, 15 &times; 98 = <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 1500 &minus; 30 = 1470</li>
+            <li data-opt="2">(b) 1500 + 30 = 1530</li>
+            <li data-opt="3">(c) 1500 &minus; 2 = 1498</li>
+            <li data-opt="4">(d) 15&times;100 + 15&times;2 = 1530</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (a) 1470 &mdash; 15&times;(100&minus;2) = 1500&minus;30</div>
+        </li>
+        <li class="mcq-item" data-ans="3">
+          <div class="mcq-q">5. The expression 14 + 2&times;7 &minus; 3&times;4 + 18&divide;6 has how many terms? <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+          <ul class="mcq-options">
+            <li data-opt="1">(a) 6</li>
+            <li data-opt="2">(b) 5</li>
+            <li data-opt="3">(c) 4</li>
+            <li data-opt="4">(d) 3</li>
+          </ul>
+          <div class="mcq-ans">&#10004; Answer: (c) 4 terms: 14, +2&times;7, &minus;3&times;4, +18&divide;6</div>
+        </li>
+      </ul>
+
+      <div class="paper-sec-heading ph-orange">Section B &mdash; Fill in the Blanks (5 &times; 1 = 5 Marks)</div>
+      <div class="fib-item">
+        <div class="fib-q">1. 17 &times; 101 = 17 &times; (100 + 1) = _______ + _______ = _______ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 1700 + 17 = 1717</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">2. 400 &minus; (100 &minus; 40 + 60) = _______ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 280 &nbsp;(400&minus;100+40&minus;60 = 280)</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">3. In 6&times;5 + 3&times;2 &minus; 18&divide;6, the three terms are _______, _______, _______ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 6&times;5, &nbsp;+3&times;2, &nbsp;&minus;18&divide;6</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">4. a &times; (b + c &minus; d) = a&times;b + _______ &minus; _______ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: a&times;c and a&times;d</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="fib-item">
+        <div class="fib-q">5. (3 + 4 + 5) &times; 10 = 3&times;10 + 4&times;10 + _______ <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="fib-a">Answer: 5&times;10 (= 50); total = 30+40+50 = 120</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="paper-sec-heading ph-teal">Section C &mdash; True or False (5 &times; 1 = 5 Marks)</div>
+      <div class="tf-item">
+        <div class="tf-q">1. 100 &minus; (40 + 20 &minus; 10) = 100 &minus; 40 &minus; 20 + 10 = 50 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>True.</b> Both sides equal 50. &#10004;</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">2. 18 &divide; 3 &times; 2 = 3 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>False.</b> Operations are done left to right: 18&divide;3=6, then 6&times;2=12 (not 3).</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">3. 4 &times; (25 + 75) = 4 &times; 100 = 400 <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>True.</b> Bracket first: 4&times;100 = 400. &#10004;</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">4. The terms of 3&times;4 &minus; 2&times;5 + 10 are: 3&times;4, &minus;2&times;5, and 10. <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>True.</b> Each group separated by + or &minus; is a term. &#10004;</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+      <div class="tf-item">
+        <div class="tf-q">5. (a &minus; b) &times; c = a&times;c + b&times;c <span style="float:right;color:#6b7280;font-size:12px;">[1 mark]</span></div>
+        <div class="tf-a"><b>False.</b> Correct: (a&minus;b)&times;c = a&times;c &minus; b&times;c (not + b&times;c).</div>
+        <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+      </div>
+
+      <div class="paper-sec-heading ph-blue">Section D &mdash; Evaluate (4 &times; 2 = 8 Marks)</div>
+      <ul class="short-q-list">
+        <li class="short-q-item">
+          <div class="short-q">1. Evaluate: 20 &minus; 4 &times; 3 + 6 &divide; 2 + 5 <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 20 &minus; 12 + 3 + 5 = <strong>16</strong> &nbsp;(multiply and divide first)</div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">2. Simplify: 300 &minus; (80 &minus; 25 + 15) + 50 <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 300 &minus; 80 + 25 &minus; 15 + 50 = <strong>280</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">3. Using distributive property: 8 &times; 125 <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 8&times;(100+25) = 800 + 200 = <strong>1000</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">4. Evaluate: 15 + 3 &times; (8 &minus; 5) &minus; 2 &times; 4 <span style="float:right;color:#6b7280;font-size:12px;">[2 marks]</span></div>
+          <div class="short-a"><strong>Solution:</strong> 15 + 3&times;3 &minus; 8 = 15 + 9 &minus; 8 = <strong>16</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+      </ul>
+
+      <div class="paper-sec-heading ph-pink">Section E &mdash; Word Problems (Attempt any 4 out of 5 &mdash; 4 &times; 4 = 16 Marks)</div>
+      <ul class="short-q-list">
+        <li class="short-q-item">
+          <div class="short-q">1. A school has 4 sections of Class 7 with 35 students each, and 3 sections of Class 8 with 40 students each. Write an expression for total students and find its value. <span style="float:right;color:#6b7280;font-size:12px;">[4 marks]</span></div>
+          <div class="short-a"><strong>Expression:</strong> 4&times;35 + 3&times;40<br><strong>Solution:</strong> 140 + 120 = <strong>260 students</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">2. Raju had &#8377;1000. He bought groceries worth &#8377;(200 + 50), vegetables worth &#8377;(80 &minus; 15), and fruits worth &#8377;75. Write an expression for money remaining and simplify. <span style="float:right;color:#6b7280;font-size:12px;">[4 marks]</span></div>
+          <div class="short-a"><strong>Expression:</strong> 1000 &minus; (200+50) &minus; (80&minus;15) &minus; 75<br><strong>Solution:</strong> 1000 &minus; 250 &minus; 65 &minus; 75 = <strong>&#8377;610</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">3. Using distributive property, calculate mentally: (a) 25 &times; 104 &nbsp; (b) 6 &times; 98. Show complete working. <span style="float:right;color:#6b7280;font-size:12px;">[4 marks]</span></div>
+          <div class="short-a"><strong>(a)</strong> 25&times;104 = 25&times;(100+4) = 2500+100 = <b>2600</b><br><strong>(b)</strong> 6&times;98 = 6&times;(100&minus;2) = 600&minus;12 = <b>588</b></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">4. A box has 6 layers. Each layer has 5 rows and 4 columns of chocolates. 18 chocolates are broken and removed. Write an expression and find how many are left. <span style="float:right;color:#6b7280;font-size:12px;">[4 marks]</span></div>
+          <div class="short-a"><strong>Expression:</strong> 6&times;(5&times;4) &minus; 18<br><strong>Solution:</strong> 6&times;20 &minus; 18 = 120 &minus; 18 = <strong>102 chocolates</strong></div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+        <li class="short-q-item">
+          <div class="short-q">5. Compare and fill in &gt;, &lt; or =, giving reason: &nbsp;(a) 1025 + 138 _____ 1024 + 139 &nbsp;&nbsp; (b) 7&times;99 _____ 6&times;101 <span style="float:right;color:#6b7280;font-size:12px;">[4 marks]</span></div>
+          <div class="short-a"><strong>(a)</strong> 1025+138 = 1163; &nbsp; 1024+139 = 1163. &nbsp; Answer: <b>=</b><br><strong>(b)</strong> 7&times;99 = 693; &nbsp; 6&times;101 = 606. &nbsp; Answer: 7&times;99 <b>&gt;</b> 6&times;101</div>
+          <button class="toggle-ans-btn" onclick="this.parentNode.classList.toggle('show-ans')">Show Answer</button>
+        </li>
+      </ul>
+      <button class="paper-show-all" onclick="showAllInPaper('paper4')">&#128065; Show All Answers</button>
+    </div>
+
+  </div>
+</div>
+
 </div><!-- end container -->
 
 <!-- ===== BOTTOM NAV ===== -->
@@ -2762,17 +3529,31 @@ document.querySelectorAll('.mcq-item').forEach(function(item) {
   });
 });
 
+// ===== Paper Set Toggle =====
+function togglePaper(id) {
+  var body = document.getElementById(id);
+  body.classList.toggle('open');
+}
+
+// ===== Show All Answers in a Paper Set =====
+function showAllInPaper(containerId) {
+  var container = document.getElementById(containerId);
+  container.querySelectorAll('.mcq-item, .fib-item, .tf-item, .short-q-item').forEach(function(item) {
+    item.classList.add('show-ans');
+  });
+  container.querySelectorAll('.mcq-item').forEach(function(item) {
+    var correctAns = item.getAttribute('data-ans');
+    var correctOpt = item.querySelector('[data-opt="' + correctAns + '"]');
+    if (correctOpt) correctOpt.classList.add('correct');
+  });
+}
+
 // ===== Share Functions =====
 function openShare() {
   document.getElementById('shareOverlay').classList.add('active');
 }
 function closeShare() {
   document.getElementById('shareOverlay').classList.remove('active');
-}
-function shareWhatsApp() {
-  var url = encodeURIComponent(window.location.href);
-  var text = encodeURIComponent('Check out these Class 7 Maths notes on Arithmetic Expressions by Preeti Kushwah Ma\'am! ');
-  window.open('https://wa.me/?text=' + text + url, '_blank');
 }
 function copyLink() {
   navigator.clipboard.writeText(window.location.href).then(function() {
@@ -2801,7 +3582,6 @@ function nativeShare() {
 <div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeShare()">
   <div class="share-box">
     <h3>Share These Notes</h3>
-    <button class="share-opt wa" onclick="shareWhatsApp()">WhatsApp</button>
     <button class="share-opt copy" onclick="copyLink()">Copy Link</button>
     <button class="share-opt native" onclick="nativeShare()">Share...</button>
     <button class="share-close" onclick="closeShare()">Close</button>
@@ -2813,6 +3593,5 @@ function nativeShare() {
 <script src="../../back-to-top.js"></script>
 <script src="../../draw-widget.js"></script>
 <script src="../../ga.js"></script>
-<script src="../../whatsapp-widget.js"></script>
 </body>
 </html>
