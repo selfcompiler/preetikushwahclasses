@@ -333,6 +333,24 @@ footer{text-align:center;padding:24px;background:#7c1d1d;color:#fff;font-size:13
 .map-wrap img{transition:transform .3s ease}
 .map-wrap img:hover{transform:scale(1.02)}
 [data-theme="dark"] .map-wrap{background:var(--card)}
+
+/* SHORT ANSWER EXPANDABLE QUESTIONS */
+.sq-section{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:18px;padding:20px 16px;margin:20px auto;max-width:860px;border:2px solid #93c5fd}
+.sq-section h3{font-family:'Fredoka One',cursive;font-size:18px;color:#1e3a5f;text-align:center;margin-bottom:14px}
+.sq-badge{display:inline-block;font-size:10px;font-weight:900;padding:2px 10px;border-radius:8px;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.sq-badge.one{background:#fef9c3;color:#854d0e;border:1.5px solid #eab308}
+.sq-badge.two{background:#f0fdf4;color:#166534;border:1.5px solid #86efac;margin-top:6px}
+.sq-card{background:#fff;border-radius:12px;margin-bottom:8px;box-shadow:0 2px 8px rgba(0,0,0,.05);overflow:hidden}
+.sq-card details summary{padding:12px 14px;font-size:13px;font-weight:800;color:#1f2937;cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px}
+.sq-card details summary::-webkit-details-marker{display:none}
+.sq-card details summary::before{content:'▶';font-size:10px;color:#3b82f6;transition:transform .2s;flex-shrink:0}
+.sq-card details[open] summary::before{transform:rotate(90deg)}
+.sq-card details summary .sq-mark{font-size:10px;font-weight:900;background:#eff6ff;color:#1e3a5f;padding:2px 8px;border-radius:6px;margin-left:auto;flex-shrink:0}
+.sq-ans{padding:10px 14px 12px 32px;font-size:13px;font-weight:600;color:#166534;background:#f0fdf4;border-top:1.5px solid #bbf7d0;line-height:1.6}
+.sq-ans strong{color:#166534}
+[data-theme="dark"] .sq-card{background:var(--card)}
+[data-theme="dark"] .sq-card details summary{color:#e5e7eb}
+[data-theme="dark"] .sq-ans{background:#1a2e1a;color:#86efac;border-color:#166534}
 </style>
 </head>
 <body>
@@ -356,12 +374,14 @@ footer{text-align:center;padding:24px;background:#7c1d1d;color:#fff;font-size:13
   <a href="#dhamma">Dhamma</a>
   <a href="#administration">Administration</a>
   <a href="#legacy">Legacy</a>
+  <a href="#trade">Trade &amp; Guilds</a>
   <a href="#quiz">Quiz</a>
+  <a href="#shortq">Short Ans</a>
 </div>
 
 <!-- PROGRESS -->
 <div class="progress-wrap">
-  <span id="progText">0 / 9 sections</span>
+  <span id="progText">0 / 10 sections</span>
   <div class="progress-track"><div class="progress-fill" id="progFill"></div></div>
   <span id="progPct">0%</span>
 </div>
@@ -1093,6 +1113,65 @@ footer{text-align:center;padding:24px;background:#7c1d1d;color:#fff;font-size:13
   </div>
 </div>
 
+<!-- ═══════════════════════════ SECTION 10: TRADE, TRADE ROUTES & GUILDS ═══════════════════════════ -->
+<div class="section" id="trade">
+  <h2 class="sec-head" style="color:#b45309">10. Trade, Trade Routes &amp; Guilds</h2>
+  <p class="sec-sub">How economic power built and sustained the Mauryan Empire</p>
+
+  <div class="card fade-in" style="border-left-color:#f59e0b">
+    <h3>&#128176; Why Trade Was Vital for the Empire</h3>
+    <p>Maintaining an army is very costly — soldiers need food, clothing, weapons, and pay; elephants and horses need care; roads and ships need to be built. All this requires enormous <strong>economic power</strong>.</p>
+    <p>Therefore, <strong>production and trade</strong> were key to maintaining an empire. A ruler who controlled trade routes could collect more taxes, fund his army, and ensure the welfare of his people.</p>
+    <div class="keyfact">
+      <div class="kf-label">Key Idea</div>
+      <div class="kf-text">More trade = more income for producers + more tax for the ruler. Controlling trade routes was as important as controlling territory!</div>
+    </div>
+  </div>
+
+  <div class="card fade-in" style="border-left-color:#ca8a04">
+    <h3>&#9973;&#65039; Main Trade Goods of Ancient India</h3>
+    <p>Both literary sources and archaeological excavations give us evidence of what was traded:</p>
+    <table class="cmp-table">
+      <tr><th>Category</th><th>Items Traded</th></tr>
+      <tr><td><strong>Textiles</strong></td><td>Cotton and silk cloth — exported across Asia and to Rome</td></tr>
+      <tr><td><strong>Spices</strong></td><td>Pepper, cardamom, turmeric — highly valued in foreign markets</td></tr>
+      <tr><td><strong>Agricultural Produce</strong></td><td>Grain, rice, sugar, oil</td></tr>
+      <tr><td><strong>Luxury Items</strong></td><td>Gems, ivory, handicrafts, precious metals</td></tr>
+      <tr><td><strong>Animals</strong></td><td>Elephants, peacocks, exotic birds</td></tr>
+    </table>
+    <p style="font-size:12px;color:#6b7280;margin-top:8px">Indian goods travelled to <strong>distant countries</strong> by both land routes and sea routes.</p>
+  </div>
+
+  <div class="card fade-in" style="border-left-color:#7c3aed">
+    <h3>&#127978; Guilds (Shren&#299;s) — Powerful Trade Associations</h3>
+    <p>Traders soon understood the benefit of joining together and forming <strong>guilds (Shren&#299;s)</strong>. A guild was a powerful association of traders, craftsmen, moneylenders, or agriculturists.</p>
+    <table class="cmp-table">
+      <tr><th>Feature</th><th>Details</th></tr>
+      <tr><td><strong>Who formed guilds?</strong></td><td>Traders, craftsmen, moneylenders, agriculturists</td></tr>
+      <tr><td><strong>Leadership</strong></td><td>An <strong>elected head</strong> + executive officers with ethical qualities</td></tr>
+      <tr><td><strong>Purpose</strong></td><td>Share resources, market information, workforce — for everyone's benefit</td></tr>
+      <tr><td><strong>Autonomy</strong></td><td>Had the right to make their own internal rules — the king did not interfere</td></tr>
+      <tr><td><strong>Spread</strong></td><td>Spread across large parts of India and lasted for centuries</td></tr>
+    </table>
+  </div>
+
+  <div class="card fade-in" style="border-left-color:#22c55e">
+    <h3>&#11088; Two Things That Made Guilds Remarkable</h3>
+    <ul>
+      <li><strong>Collaborators, not competitors:</strong> Guild members shared resources and information on markets, supply and demand, and workforce — realising that cooperation benefited everyone more than competition.</li>
+      <li><strong>Self-governance:</strong> Guilds had the autonomy to create their own internal rules. As an ancient text said: <em>"Cultivators, traders, herdsmen, moneylenders, and artisans have authority to lay down rules for their respective classes."</em> The king was not to interfere.</li>
+    </ul>
+  </div>
+
+  <div class="dmo">
+    <div class="dmo-label">Don't Miss Out!</div>
+    <div class="dmo-title">Guilds = Self-Organising Indian Society</div>
+    <div class="dmo-text">Guilds are an excellent example of India's <strong>self-organising abilities</strong>. Even after guilds formally ceased to exist, their spirit continued to influence Indian trade and business — sometimes even to this day. An enlightened ruler would <strong>not interfere</strong> with such institutions if they worked well.</div>
+  </div>
+
+  <button class="sec-complete" data-sec="10" onclick="completeSection(10)">Mark Section 10 Complete &#10003;</button>
+</div>
+
 <!-- ═══════════════════════════ MATCH ACTIVITY ═══════════════════════════ -->
 <div class="section" id="activities">
   <h2 class="sec-head" style="color:#7c3aed">Match the Following</h2>
@@ -1143,6 +1222,99 @@ footer{text-align:center;padding:24px;background:#7c1d1d;color:#fff;font-size:13
   </ul>
 </div>
 
+<!-- SHORT ANSWER QUESTIONS -->
+<div class="sq-section" id="shortq">
+  <h3>&#128221; Short Answer Questions</h3>
+
+  <span class="sq-badge one">1 Mark Questions</span>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q1. Who founded the Mauryan Empire and in which year? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans"><strong>Chandragupta Maurya</strong> founded the Mauryan Empire in <strong>321 BCE</strong> with the guidance of Chanakya (Kautilya).</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q2. What was the capital of the Mauryan Empire? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">The capital was <strong>Pataliputra</strong> (modern Patna, Bihar), located on the banks of the Ganga river.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q3. What is the ancient name for the region now called Odisha? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">The ancient name is <strong>Kalinga</strong>. The Battle of Kalinga (261 BCE) was a turning point in Ashoka's life.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q4. What is a guild (Shrenī)? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">A <strong>guild (Shrenī)</strong> was a powerful association of traders, craftsmen, moneylenders, or agriculturists who joined together to share resources and information for mutual benefit.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q5. Name any two items traded in ancient India. <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">Any two of: <strong>textiles</strong> (cotton/silk cloth), <strong>spices</strong> (pepper, cardamom), agricultural produce (grain, rice), luxury items (gems, ivory), or animals (elephants).</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q6. What does 'Dhamma' mean? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans"><strong>Dhamma</strong> was Ashoka's universal code of moral conduct based on non-violence, truth, tolerance, and compassion — meant for people of all religions, not just Buddhists.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q7. Who wrote the Arthashastra? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">The <strong>Arthashastra</strong> was written by <strong>Chanakya</strong> (also known as Kautilya or Vishnugupta). It is a treatise on statecraft, economics, and military strategy.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q8. Name the two national symbols India inherited from Ashoka. <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans"><strong>(1) National Emblem</strong> — the Lion Capital from Sarnath. <strong>(2) Ashoka Chakra</strong> — the 24-spoked wheel on India's national flag.</div>
+    </details>
+  </div>
+
+  <span class="sq-badge two">2 Mark Questions</span>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q9. Why was controlling trade routes important for a Mauryan ruler? <span class="sq-mark">2 Marks</span></summary>
+      <div class="sq-ans">Controlling trade routes was important because <strong>(1)</strong> more trade meant more income for producers and more <strong>tax revenue</strong> for the ruler, which funded the army and welfare. <strong>(2)</strong> It gave the empire access to goods, resources, and economic power needed to maintain a large military and administration.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q10. What made guilds (Shrenīs) a remarkable institution? Give two reasons. <span class="sq-mark">2 Marks</span></summary>
+      <div class="sq-ans"><strong>(1) Collaboration over competition:</strong> Guild members shared resources, market information, and workforce — realising that cooperation benefited everyone more than competing alone. <strong>(2) Self-governance:</strong> Guilds could create their own internal rules without royal interference — an ancient text stated that traders and artisans had authority to lay down rules for their own classes.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q11. What was Ashoka's Dhamma? How was it different from Buddhism? <span class="sq-mark">2 Marks</span></summary>
+      <div class="sq-ans">Dhamma was Ashoka's <strong>universal code of moral conduct</strong> based on non-violence, truth, tolerance, and compassion. It was <strong>different from Buddhism</strong> because it was not just for Buddhists — it was meant for <em>all people</em> regardless of their religion. It was a broader ethical code inspired by Buddhist values but applicable to Hindus, Jains, and everyone else in the empire.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q12. How did military campaigns depend on economic power? Give two examples. <span class="sq-mark">2 Marks</span></summary>
+      <div class="sq-ans">Military campaigns required great economic power because: <strong>(1)</strong> Soldiers needed to be fed, clothed, equipped with weapons, and paid — all very costly. <strong>(2)</strong> War elephants and horses needed care, and roads or ships had to be built for distant campaigns. Without trade and tax income, a ruler could not maintain a large army or fight wars in distant lands.</div>
+    </details>
+  </div>
+</div>
+
 <footer>Preeti Kushwah Classes &middot; Quality Education for Every Student &middot; Ch 5: The Rise of Empires</footer>
 
 <script>
@@ -1153,7 +1325,7 @@ function completeSection(n) {
   var btn = document.querySelector('[data-sec="' + n + '"]');
   if (btn) { btn.classList.add('done'); btn.textContent = 'Section ' + n + ' Complete ✓'; }
   var count = Object.keys(completed).length;
-  var total = 9;
+  var total = 10;
   var pct = Math.round((count / total) * 100);
   document.getElementById('progFill').style.width = pct + '%';
   document.getElementById('progText').textContent = count + ' / ' + total + ' sections';
@@ -1267,7 +1439,11 @@ var mauryaQuizData = [
   { q: "Which animal appears at the top of Ashoka's pillar at Sarnath?", opts: ['Elephant','Bull','Lion','Horse'], ans: 2, exp: "Ashoka's famous pillar at Sarnath has four lions standing back-to-back at the top. This Lion Capital became India's National Emblem after independence." },
   { q: "Who were the 'Dhamma Mahamatras'?", opts: ["Ashoka's generals","Special officers to spread Dhamma","Tax collectors","Spies"], ans: 1, exp: "Dhamma Mahamatras were special officers appointed by Ashoka to travel across the empire and ensure people were following the principles of Dhamma." },
   { q: 'Which book written by Chanakya gives information about Mauryan administration?', opts: ['Rigveda','Arthashastra','Mahabharata','Panchatantra'], ans: 1, exp: 'The Arthashastra, written by Chanakya (Kautilya), is a detailed treatise on statecraft, administration, economics, and military strategy of the Mauryan period.' },
-  { q: 'Ashoka sent his son Mahinda to spread Buddhism to:', opts: ['China','Nepal','Sri Lanka','Greece'], ans: 2, exp: "Ashoka's son Mahinda and daughter Sanghamitra went to Sri Lanka (then called Lanka or Tambapanni) to spread Buddhism. The island became a major centre of Buddhist learning." }
+  { q: 'Ashoka sent his son Mahinda to spread Buddhism to:', opts: ['China','Nepal','Sri Lanka','Greece'], ans: 2, exp: "Ashoka's son Mahinda and daughter Sanghamitra went to Sri Lanka (then called Lanka or Tambapanni) to spread Buddhism. The island became a major centre of Buddhist learning." },
+  { q: 'What is the Sanskrit word for guilds?', opts: ['Dharma','Shrenī','Kumara','Gramika'], ans: 1, exp: 'Guilds were called Shrenīs in ancient India. They were powerful associations of traders, craftsmen, moneylenders, or agriculturists.' },
+  { q: 'Who headed a guild (Shrenī)?', opts: ['The king\'s appointed official','The emperor','An elected head','The Mahamatra'], ans: 2, exp: 'A guild had an elected head — chosen by its own members — and executive officers who were supposed to have all kinds of ethical qualities.' },
+  { q: 'Which of the following was a main item of trade in ancient India?', opts: ['Only iron ore','Textiles, spices and gems','Only animals','Only coins'], ans: 1, exp: 'Ancient India traded textiles, spices, agricultural produce, luxury items (gems, handicrafts), and animals — both within India and with distant countries.' },
+  { q: 'What made guilds (Shrenīs) a self-governing institution?', opts: ['The king appointed guild leaders','Guilds could make their own internal rules without royal interference','Guilds followed only Arthashastra rules','The emperor controlled all guilds'], ans: 1, exp: 'Guilds had the autonomy to create their own internal rules. Ancient texts stated that cultivators, traders, and artisans had authority to lay down rules for their respective classes — and the king did not interfere.' }
 ];
 
 (function renderMauryaQuiz() {
