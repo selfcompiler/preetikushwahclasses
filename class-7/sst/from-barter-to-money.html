@@ -224,6 +224,24 @@ footer{text-align:center;padding:20px;background:#854d0e;color:#fff;font-size:13
 [data-theme="dark"] .mt-desc{color:#9ca3af}
 [data-theme="dark"] .mt-period{background:#3d3d10}
 
+/* SHORT ANSWER EXPANDABLE QUESTIONS */
+.sq-section{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:18px;padding:20px 16px;margin:20px auto;max-width:860px;border:2px solid #93c5fd}
+.sq-section h3{font-family:'Fredoka One',cursive;font-size:18px;color:#1e3a5f;text-align:center;margin-bottom:14px}
+.sq-badge{display:inline-block;font-size:10px;font-weight:900;padding:2px 10px;border-radius:8px;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.sq-badge.one{background:#fef9c3;color:#854d0e;border:1.5px solid #eab308}
+.sq-badge.two{background:#f0fdf4;color:#166534;border:1.5px solid #86efac;margin-top:6px}
+.sq-card{background:#fff;border-radius:12px;margin-bottom:8px;box-shadow:0 2px 8px rgba(0,0,0,.05);overflow:hidden}
+.sq-card details summary{padding:12px 14px;font-size:13px;font-weight:800;color:#1f2937;cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px}
+.sq-card details summary::-webkit-details-marker{display:none}
+.sq-card details summary::before{content:'▶';font-size:10px;color:#3b82f6;transition:transform .2s;flex-shrink:0}
+.sq-card details[open] summary::before{transform:rotate(90deg)}
+.sq-card details summary .sq-mark{font-size:10px;font-weight:900;background:#eff6ff;color:#1e3a5f;padding:2px 8px;border-radius:6px;margin-left:auto;flex-shrink:0}
+.sq-ans{padding:10px 14px 12px 32px;font-size:13px;font-weight:600;color:#166534;background:#f0fdf4;border-top:1.5px solid #bbf7d0;line-height:1.6}
+.sq-ans strong{color:#166534}
+[data-theme="dark"] .sq-card{background:var(--card)}
+[data-theme="dark"] .sq-card details summary{color:#e5e7eb}
+[data-theme="dark"] .sq-ans{background:#1a2e1a;color:#86efac;border-color:#166534}
+
 @media print{
   .top-nav,.toc-bar,.progress-wrap,.sec-complete,.quiz-btn,.tn-share{display:none!important}
   .hero{min-height:auto;padding:16px}
@@ -247,6 +265,7 @@ footer{text-align:center;padding:20px;background:#854d0e;color:#fff;font-size:13
   <a href="#sec5">Currency</a>
   <a href="#sec6">Banking</a>
   <a href="#quiz">Quiz</a>
+  <a href="#shortq">Short Ans</a>
   <a href="#summary">Summary</a>
 </div>
 
@@ -340,8 +359,8 @@ footer{text-align:center;padding:20px;background:#854d0e;color:#fff;font-size:13
       <div class="dp-num">3</div>
       <div class="dp-scene">&#129468; &#128165;</div>
       <div class="dp-text">
-        <span class="dp-title">Goods Perish &amp; Spoil</span>
-        <span class="dp-desc">Rice rots, bananas brown, fish smells. You can't save barter goods as wealth for the future.</span>
+        <span class="dp-title">Durability Problem</span>
+        <span class="dp-desc">Barter goods rot and spoil — rice rots, bananas brown, fish smells. They don't last. Money is durable and can be stored as wealth for the future.</span>
       </div>
     </div>
     <div class="dp-panel">
@@ -354,10 +373,10 @@ footer{text-align:center;padding:20px;background:#854d0e;color:#fff;font-size:13
     </div>
     <div class="dp-panel">
       <div class="dp-num">5</div>
-      <div class="dp-scene">&#9203;</div>
+      <div class="dp-scene">&#128004; &#128722;</div>
       <div class="dp-text">
-        <span class="dp-title">Time-Consuming</span>
-        <span class="dp-desc">Spend days searching for the right trade partner. Time wasted = less production = slow economy.</span>
+        <span class="dp-title">Portability Problem</span>
+        <span class="dp-desc">Barter goods are heavy and hard to carry. You can't take a cow or 50 kg of grain to the market easily. Money fits in your pocket!</span>
       </div>
     </div>
   </div>
@@ -377,7 +396,7 @@ footer{text-align:center;padding:20px;background:#854d0e;color:#fff;font-size:13
   <p class="sec-sub">How exchange systems evolved over thousands of years</p>
 
   <div class="card fade-in" style="border-left-color:#3b82f6">
-    <h3>&#128337; Stages of Money &nbsp;<span style="font-size:11px;color:#6b7280;font-family:'Nunito',sans-serif;font-weight:600">&#128072; scroll to see all</span></h3>
+    <h3>&#128337; The Journey of Money &nbsp;<span style="font-size:11px;color:#6b7280;font-family:'Nunito',sans-serif;font-weight:600">&#128072; scroll to see all</span></h3>
     <div class="money-timeline">
       <div class="money-tl-inner">
 
@@ -592,13 +611,25 @@ footer{text-align:center;padding:20px;background:#854d0e;color:#fff;font-size:13
     <div class="tl-item">
       <div class="tl-year">2010</div>
       <div class="tl-title">&#8377; Official ₹ Symbol Adopted</div>
-      <div class="tl-desc">Designed by <strong>D. Udaya Kumar</strong> — blends Devanagari "र" with Latin "R".</div>
+      <div class="tl-desc">Designed by <strong>Udaya Kumar</strong> from <strong>IIT Bombay (Mumbai)</strong> — blends Devanagari "Ra" (र) with Roman "R". The two parallel horizontal stripes at the top represent the <strong>national flag</strong> and the <strong>"equal to" sign</strong>.</div>
     </div>
     <div class="tl-item">
       <div class="tl-year">May 2023</div>
       <div class="tl-title">&#128683; ₹2000 Note Withdrawn</div>
       <div class="tl-desc">RBI withdrew ₹2000 notes from circulation. Deadline to deposit: 30 September 2023.</div>
     </div>
+  </div>
+
+  <div class="card fade-in" style="border-left-color:#f97316;background:linear-gradient(135deg,#fff7ed,#ffedd5)">
+    <h3>&#129300; Did You Know?</h3>
+    <ul>
+      <li>Before 1957, India used a different system: <strong>1 Rupee = 16 Annas</strong>. So 1 anna = 1/16 of a rupee!</li>
+      <li>In <strong>1947</strong>, one anna could buy a <strong>dozen bananas</strong>. Think about how much prices have changed!</li>
+      <li>Old coins included the <strong>quarter anna (1918)</strong>, <strong>half anna (1942)</strong>, <strong>1 anna (1943)</strong>, and <strong>1 paisa (1945)</strong>.</li>
+      <li>India switched to the <strong>decimal system</strong> on <strong>1 April 1957</strong> — making 1 Rupee = 100 Paise, which is much easier to calculate.</li>
+      <li>Today's coins have text in both <strong>Hindi and English</strong>.</li>
+      <li><strong>Special commemorative coins</strong> are also minted to mark important national events — like the birth centenary of a leader or a historic occasion.</li>
+    </ul>
   </div>
 
   <div class="card fade-in" style="border-left-color:#ca8a04">
@@ -728,9 +759,16 @@ footer{text-align:center;padding:20px;background:#854d0e;color:#fff;font-size:13
     </table>
   </div>
 
-  <div class="keyfact">
-    <div class="kf-label">Key Fact</div>
-    <div class="kf-text">UPI was launched by <strong>NPCI</strong> (National Payments Corporation of India) in April 2016. India is now the world's largest real-time digital payments market by volume.</div>
+  <div class="card fade-in" style="border-left-color:#7c3aed;margin-top:14px">
+    <h3>&#128161; Tangible vs Intangible Money</h3>
+    <table class="cmp-table">
+      <tr><th>Type</th><th>Meaning</th><th>Examples</th></tr>
+      <tr><td><strong>Tangible Money</strong></td><td>Can be touched and felt</td><td>Coins, paper notes</td></tr>
+      <tr><td><strong>Intangible Money</strong> (Digital)</td><td>Cannot be touched — exists in electronic form</td><td>UPI, debit card, net banking</td></tr>
+    </table>
+    <div style="background:#f5f3ff;border-radius:10px;padding:10px 12px;margin-top:10px;font-size:13px;color:#4b5563;line-height:1.6">
+      <strong style="color:#5b21b6">&#127807; Real-Life Example:</strong> Krishnappa sells seasonal fruit from a cart. Next to his fruit he keeps a small card with a <strong>QR code</strong>. Customers scan it with their phone and pay digitally — the money goes straight into his bank account, without any coins or notes changing hands!
+    </div>
   </div>
 
   <div class="card fade-in" style="border-left-color:#7c3aed">
@@ -760,7 +798,7 @@ footer{text-align:center;padding:20px;background:#854d0e;color:#fff;font-size:13
       </tr>
       <tr>
         <td><strong>QR Code</strong></td>
-        <td>A square black-and-white pattern that stores payment information. Scan it with your phone camera → payment done instantly! No need to type account numbers.</td>
+        <td><strong>Quick Response</strong> code — a square black-and-white pattern that stores the receiver's bank account information. Scan it with your phone camera → payment goes directly into the seller's bank account instantly!</td>
       </tr>
     </table>
     <div style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-radius:12px;padding:14px;margin-top:10px;border:1.5px solid #c4b5fd">
@@ -885,6 +923,183 @@ footer{text-align:center;padding:20px;background:#854d0e;color:#fff;font-size:13
   <div class="quiz-score" id="quizScore"></div>
 </div>
 
+<!-- SHORT ANSWER QUESTIONS -->
+<div class="sq-section" id="shortq">
+  <h3>&#128221; Short Answer Questions</h3>
+
+  <span class="sq-badge one">1 Mark Questions</span>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q1. What is the word for money in Tamil, Telugu, and Malayalam? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">The word for money in Tamil, Telugu, and Malayalam is <strong>paṇaṁ</strong> — a variation of the ancient word 'paṇa'.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q2. What is the word for money in Kannada? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">The word for money in Kannada is <strong>haṇa</strong> — also derived from the ancient word 'paṇa'.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q3. Name the two metals used to make ancient coins. <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">Ancient coins were made from alloys of <strong>silver and copper</strong>.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q4. What is an alloy? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">An alloy is a <strong>mixture of two or more metals</strong>. Alloys are stronger and more durable than a single pure metal.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q5. Name any one material found in modern coins other than iron. <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">Modern coins contain <strong>chromium</strong> (also accept: silicon or carbon) along with iron.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q6. What is a commemorative coin? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">A <strong>commemorative coin</strong> is a special coin minted by the government to mark an important national event, such as the birth centenary of a great leader or a historic occasion.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q7. How many annas made one rupee in the old Indian currency system? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans"><strong>16 annas</strong> made one rupee in the old system (before 1957). So 1 anna = 1/16 of a rupee.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q13. What is digital money? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans"><strong>Digital money</strong> is money that exists in <strong>electronic form</strong>. It is intangible — you cannot touch or feel it. Examples include UPI payments, debit cards, and net banking.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q14. What does QR stand for? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">QR stands for <strong>Quick Response</strong>. A QR code is a collection of black and white squares that stores the receiver's bank account information and can be scanned by a smartphone.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q15. Give one example of a digital payment method. <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">Any one of: <strong>UPI (Unified Payments Interface)</strong>, debit card, credit card, net banking, or mobile wallet (e.g. Paytm, PhonePe).</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q10. What is currency? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans"><strong>Currency</strong> is the system of money used in a particular country. For example, coins and paper notes used in India in terms of the Rupee (₹) is the Indian currency.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q11. What is meant by denomination? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans"><strong>Denomination</strong> is the unit in which coins and paper notes are classified. For example, ₹10, ₹50, ₹100, ₹500 are different denominations of Indian currency.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q12. Why did carrying a large number of coins become a problem? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">A large number of coins was <strong>heavy and difficult to carry</strong>. Storing them also became a problem. This led people to look for a better alternative — paper money.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q8. From which institute was the designer of the ₹ symbol? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">The ₹ symbol was designed by Udaya Kumar from <strong>IIT Bombay (Indian Institute of Technology, Mumbai)</strong>.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q9. What do the two parallel horizontal stripes on the ₹ symbol represent? <span class="sq-mark">1 Mark</span></summary>
+      <div class="sq-ans">The two parallel horizontal stripes represent the <strong>national flag</strong> and also the <strong>"equal to" sign</strong>.</div>
+    </details>
+  </div>
+
+  <span class="sq-badge two">2 Mark Questions</span>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q6. What are modern coins made of? Name any two materials used in them. <span class="sq-mark">2 Marks</span></summary>
+      <div class="sq-ans">Modern coins are made of <strong>alloys consisting largely of iron</strong>. They also contain other materials like <strong>chromium, silicon, and carbon</strong> in precise proportions.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q7. Why are coins made from alloys and not from a single metal? <span class="sq-mark">2 Marks</span></summary>
+      <div class="sq-ans">Coins are made from alloys because alloys are <strong>stronger and longer lasting</strong> than a single pure metal. They resist wear and tear better, making coins more durable for everyday use.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q9. India changed to the decimal currency system in 1957. What was the old system? Why was the change made? <span class="sq-mark">2 Marks</span></summary>
+      <div class="sq-ans">In the old system, <strong>1 Rupee = 16 Annas</strong>. In 1957, India switched to <strong>1 Rupee = 100 Paise</strong>. The change was made because the decimal system is much easier to calculate and use in daily transactions.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q8. The word 'paṇa' is still used in Indian languages today. Give two examples. <span class="sq-mark">2 Marks</span></summary>
+      <div class="sq-ans"><strong>(1)</strong> Tamil, Telugu, and Malayalam use <strong>paṇaṁ</strong>. <strong>(2)</strong> Kannada uses <strong>haṇa</strong>. This shows the concept of money has very ancient roots in India.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q10. Describe the ₹ symbol. Who designed it and what does it represent? <span class="sq-mark">2 Marks</span></summary>
+      <div class="sq-ans">The ₹ symbol was designed by <strong>Udaya Kumar</strong> from IIT Bombay and adopted in <strong>2010</strong>. It is a mix of Devanagari "Ra" (र) and Roman "R". The two parallel horizontal stripes at the top represent the <strong>national flag</strong> and the <strong>"equal to" sign</strong>.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q11. Why did paper money replace coins? Give two reasons. <span class="sq-mark">2 Marks</span></summary>
+      <div class="sq-ans"><strong>(1)</strong> A large number of coins was <strong>heavy and difficult to carry</strong>. <strong>(2)</strong> Storing coins was also a problem. Paper money is light, easy to carry, and can represent large values in a small note.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q12. What is the difference between currency and denomination? Give one example of each. <span class="sq-mark">2 Marks</span></summary>
+      <div class="sq-ans"><strong>Currency</strong> is the system of money used in a country — e.g., the Rupee (₹) is India's currency. <strong>Denomination</strong> is the face value of a coin or note — e.g., ₹100 is one denomination of Indian currency.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q13. What is digital money? Give two examples of digital payment methods. <span class="sq-mark">2 Marks</span></summary>
+      <div class="sq-ans">Digital money is money that exists in <strong>electronic form</strong> and cannot be touched. It is an <strong>intangible</strong> form of money. Examples: <strong>(1) UPI</strong> — transfers money instantly between bank accounts. <strong>(2) Debit Card</strong> — deducts money directly from your bank account.</div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q14. Distinguish between tangible and intangible money with examples. <span class="sq-mark">2 Marks</span></summary>
+      <div class="sq-ans"><strong>Tangible money</strong> can be touched and felt — e.g., coins and paper notes. <strong>Intangible money</strong> cannot be touched — it exists in electronic form — e.g., UPI payments, net banking, and debit cards.</div>
+    </details>
+  </div>
+</div>
+
 <!-- SUMMARY -->
 <div class="summary-section" id="summary">
   <h3>&#128218; Chapter Summary</h3>
@@ -897,7 +1112,7 @@ footer{text-align:center;padding:20px;background:#854d0e;color:#fff;font-size:13
     <li>Money functions as: medium of exchange, unit of account, store of value.</li>
     <li><strong>Sher Shah Suri</strong> introduced the silver Rupiya (1540–45) → origin of Rupee.</li>
     <li><strong>RBI</strong> (est. 1935) issues notes; Government of India issues coins.</li>
-    <li><strong>₹ symbol</strong> adopted in 2010, designed by D. Udaya Kumar.</li>
+    <li><strong>₹ symbol</strong> adopted in 2010, designed by Udaya Kumar (IIT Bombay) — two stripes = national flag + equal to sign.</li>
     <li><strong>UPI</strong> launched April 2016 by NPCI — India's instant payment backbone.</li>
     <li>Banks earn profit = interest on loans − interest on deposits.</li>
   </ul>
@@ -946,7 +1161,14 @@ var quizData = [
   { q: 'UPI was launched in India in:', opts: ['2012', '2014', '2016', '2018'], ans: 2, exp: 'UPI (Unified Payments Interface) was launched in April 2016 by NPCI.' },
   { q: 'Which type of bank account earns the highest interest rate?', opts: ['Savings Account', 'Current Account', 'Fixed Deposit', 'Recurring Deposit'], ans: 2, exp: 'Fixed Deposits lock money for a set period and offer the highest interest rate (6–7% p.a.).' },
   { q: 'Paper money was first developed in:', opts: ['India', 'Europe', 'China', 'Egypt'], ans: 2, exp: 'Paper money was invented in China during the Song Dynasty around 1000 AD.' },
-  { q: 'India\'s demonetisation took place on:', opts: ['8 November 2015', '8 November 2016', '8 November 2017', '8 November 2018'], ans: 1, exp: 'On 8 November 2016, ₹500 and ₹1000 notes were withdrawn from circulation.' }
+  { q: 'India\'s demonetisation took place on:', opts: ['8 November 2015', '8 November 2016', '8 November 2017', '8 November 2018'], ans: 1, exp: 'On 8 November 2016, ₹500 and ₹1000 notes were withdrawn from circulation.' },
+  { q: 'Paper money was first used in which country?', opts: ['India', 'Egypt', 'China', 'England'], ans: 2, exp: 'Paper money was first used in China (Song Dynasty, around 1000 AD). It was later introduced in India in the late 18th century.' },
+  { q: 'Paper money was introduced in India in the:', opts: ['16th century', '17th century', 'Late 18th century', '19th century'], ans: 2, exp: 'Paper money was introduced in India in the late 18th century.' },
+  { q: 'Which of the following is a coin denomination in India?', opts: ['₹50', '₹100', '₹20', '₹200'], ans: 2, exp: '₹20 is available as a coin. ₹50, ₹100, and ₹200 are paper notes only.' },
+  { q: 'Paper currency is generally used for:', opts: ['Smaller denominations', 'Higher denominations', 'Both equally', 'None of the above'], ans: 1, exp: 'Coins are used for smaller denominations while paper currency is used for higher denominations.' },
+  { q: 'What does QR stand for in QR Code?', opts: ['Quick Register', 'Quick Response', 'Query Record', 'Quick Record'], ans: 1, exp: 'QR stands for Quick Response. QR codes store the receiver\'s bank account information and can be scanned by a smartphone.' },
+  { q: 'Digital money is an example of:', opts: ['Tangible money', 'Commodity money', 'Intangible money', 'Metallic money'], ans: 2, exp: 'Digital money cannot be touched or felt — it exists in electronic form. Hence it is intangible. Coins and paper notes are tangible.' },
+  { q: 'Which of the following is a tangible form of money?', opts: ['Net banking', 'Debit card', 'UPI', 'Coins'], ans: 3, exp: 'Coins and paper notes are tangible — you can touch and feel them. Net banking, debit cards, and UPI are intangible (digital) forms of money.' }
 ];
 
 (function renderQuiz() {
