@@ -242,6 +242,29 @@ footer{text-align:center;padding:20px;background:#854d0e;color:#fff;font-size:13
 [data-theme="dark"] .sq-card details summary{color:#e5e7eb}
 [data-theme="dark"] .sq-ans{background:#1a2e1a;color:#86efac;border-color:#166534}
 
+/* NCERT EXERCISE QUESTIONS */
+.ncert-section{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:18px;padding:20px 16px;margin:20px auto;max-width:860px;border:2px solid #86efac}
+.ncert-section h3{font-family:'Fredoka One',cursive;font-size:18px;color:#166534;text-align:center;margin-bottom:14px}
+.ncert-card{background:#fff;border-radius:12px;margin-bottom:8px;box-shadow:0 2px 8px rgba(0,0,0,.05);overflow:hidden}
+.ncert-card details summary{padding:12px 14px;font-size:13px;font-weight:800;color:#1f2937;cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px}
+.ncert-card details summary::-webkit-details-marker{display:none}
+.ncert-card details summary::before{content:'▶';font-size:10px;color:#22c55e;transition:transform .2s;flex-shrink:0}
+.ncert-card details[open] summary::before{transform:rotate(90deg)}
+.ncert-card details summary .ncert-mark{font-size:10px;font-weight:900;background:#f0fdf4;color:#166534;padding:2px 8px;border-radius:6px;margin-left:auto;flex-shrink:0;border:1px solid #86efac}
+.ncert-card details summary .ncert-act{font-size:10px;font-weight:900;background:#fff7ed;color:#c2410c;padding:2px 8px;border-radius:6px;margin-left:auto;flex-shrink:0;border:1px solid #fed7aa}
+.ncert-ans{padding:10px 14px 12px 32px;font-size:13px;font-weight:600;color:#1f2937;background:#f0fdf4;border-top:1.5px solid #bbf7d0;line-height:1.6}
+.ncert-ans strong{color:#166534}
+.ncert-ans ul{padding-left:16px;margin-top:5px}
+.ncert-ans li{margin-bottom:4px}
+.ncert-activity{padding:10px 14px 12px 32px;font-size:13px;font-weight:600;color:#1f2937;background:#fff7ed;border-top:1.5px solid #fed7aa;line-height:1.6}
+.ncert-activity strong{color:#c2410c}
+.ncert-activity ul{padding-left:16px;margin-top:5px}
+.ncert-activity li{margin-bottom:4px}
+[data-theme="dark"] .ncert-card{background:var(--card)}
+[data-theme="dark"] .ncert-card details summary{color:#e5e7eb}
+[data-theme="dark"] .ncert-ans{background:#1a2e1a;color:#d1fae5;border-color:#166534}
+[data-theme="dark"] .ncert-activity{background:#2d1a0a;color:#fed7aa;border-color:#c2410c}
+
 @media print{
   .top-nav,.toc-bar,.progress-wrap,.sec-complete,.quiz-btn,.tn-share{display:none!important}
   .hero{min-height:auto;padding:16px}
@@ -267,6 +290,7 @@ footer{text-align:center;padding:20px;background:#854d0e;color:#fff;font-size:13
   <a href="#quiz">Quiz</a>
   <a href="#shortq">Short Ans</a>
   <a href="#summary">Summary</a>
+  <a href="#ncertq">NCERT Qs</a>
 </div>
 
 <div class="progress-wrap">
@@ -1116,6 +1140,156 @@ footer{text-align:center;padding:20px;background:#854d0e;color:#fff;font-size:13
     <li><strong>UPI</strong> launched April 2016 by NPCI — India's instant payment backbone.</li>
     <li>Banks earn profit = interest on loans − interest on deposits.</li>
   </ul>
+</div>
+
+<!-- NCERT EXERCISE QUESTIONS -->
+<div class="ncert-section" id="ncertq">
+  <h3>&#128218; NCERT Exercise Questions</h3>
+
+  <div class="ncert-card">
+    <details>
+      <summary>Q1. How does the barter system take place and what commodities were used for exchange? <span class="ncert-mark">Answer</span></summary>
+      <div class="ncert-ans">
+        In the <strong>barter system</strong>, goods and services are exchanged directly without using money. Both parties must want what the other has (<strong>double coincidence of wants</strong>).<br><br>
+        <strong>Commodities used:</strong>
+        <ul>
+          <li>Agricultural goods: grain, rice, wheat, salt</li>
+          <li>Animals: cattle, goats</li>
+          <li>Natural items: cowrie shells, fish</li>
+          <li>Craft goods: cloth, pottery, tools</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <div class="ncert-card">
+    <details>
+      <summary>Q2. What were the limitations of the barter system? <span class="ncert-mark">Answer</span></summary>
+      <div class="ncert-ans">
+        <ul>
+          <li><strong>Double Coincidence of Wants:</strong> Both traders must want exactly what the other has — very difficult to find.</li>
+          <li><strong>No Common Measure of Value:</strong> No standard unit to compare prices — every trade needed fresh negotiation.</li>
+          <li><strong>Durability Problem:</strong> Goods like grain and fish rot and spoil — cannot be saved as wealth.</li>
+          <li><strong>Indivisibility Problem:</strong> Large items like a cow cannot be divided for smaller purchases.</li>
+          <li><strong>Portability Problem:</strong> Heavy goods are difficult to carry to the market.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <div class="ncert-card">
+    <details>
+      <summary>Q3. What were the salient features of ancient Indian coins? <span class="ncert-mark">Answer</span></summary>
+      <div class="ncert-ans">
+        <ul>
+          <li>Made from <strong>silver, gold, and copper alloys</strong> for durability.</li>
+          <li>Carried <strong>symbols of royal power and religious identity</strong> — e.g., Chalukya coins had the Varaha symbol; Chola coins had the tiger emblem.</li>
+          <li>The <strong>Karshapana</strong> (Maurya Empire) were punch-marked silver coins — among the earliest standardised Indian coins.</li>
+          <li>Coins were <strong>stamped by rulers</strong> to guarantee weight and purity — no need to weigh each coin.</li>
+          <li><strong>Roman gold coins</strong> found at Pudukottai prove Indian coins were part of international trade 2,000 years ago.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <div class="ncert-card">
+    <details>
+      <summary>Q4. How has money as a medium of exchange transformed over time? <span class="ncert-mark">Answer</span></summary>
+      <div class="ncert-ans">
+        Money evolved through these stages:
+        <ul>
+          <li><strong>Commodity Money:</strong> Cattle, grain, shells, salt used as money (ancient times).</li>
+          <li><strong>Metallic Money:</strong> Gold and silver bars, weighed each time (~3000 BC).</li>
+          <li><strong>Coined Money:</strong> Stamped coins with fixed weight and value (~600 BC).</li>
+          <li><strong>Paper Money:</strong> First used in China (~1000 AD); introduced in India in the late 18th century.</li>
+          <li><strong>Fiat Money:</strong> Government-backed notes and coins with no gold link (modern era).</li>
+          <li><strong>Digital Money:</strong> UPI, debit/credit cards, net banking — intangible, electronic form (21st century).</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <div class="ncert-card">
+    <details>
+      <summary>Q5. What steps might have been taken in ancient times so that Indian coins could become the medium of exchange across countries? <span class="ncert-mark">Answer</span></summary>
+      <div class="ncert-ans">
+        <ul>
+          <li><strong>Standardisation:</strong> Coins had fixed weight and purity so foreign traders could trust their value.</li>
+          <li><strong>Royal guarantee:</strong> The king's stamp on a coin assured its authenticity — accepted even in foreign lands.</li>
+          <li><strong>Trade routes:</strong> India's spice trade and the Silk Route connected India with Rome, Arabia, and Southeast Asia — Indian coins travelled with merchants.</li>
+          <li><strong>Quality metals:</strong> Indian coins used high-quality gold and silver, universally valued everywhere.</li>
+          <li><strong>Trade agreements:</strong> Ancient kingdoms likely had agreements allowing each other's coins to be used in transactions.</li>
+        </ul>
+        <p style="margin-top:8px;color:#6b7280;font-size:12px">&#128161; Evidence: Roman gold coins found at Pudukottai prove ancient India was part of a global trade network.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="ncert-card">
+    <details>
+      <summary>Q6. Arthashastra — What is the value of one paṇa? What does the fine tell us about human values? <span class="ncert-mark">Answer</span></summary>
+      <div class="ncert-ans">
+        <strong>Given:</strong> Annual salary = <strong>60 paṇas</strong> &nbsp;|&nbsp; Fine for not helping a neighbour = <strong>100 paṇas</strong><br><br>
+        <strong>Value of one paṇa:</strong> Since 60 paṇas = a full year's salary, one paṇa was a significant amount — roughly equal to about 6 days' worth of grain for 4 meals.<br><br>
+        <strong>Conclusion about human values:</strong> The fine of 100 paṇas was <em>more than one and a half times the annual salary</em>. This shows that in ancient India, <strong>helping neighbours and community responsibility were considered extremely important</strong>. Such a heavy fine was used to enforce social duty — neglecting a neighbour in need was treated as a serious offence.
+      </div>
+    </details>
+  </div>
+
+  <div class="ncert-card">
+    <details>
+      <summary>Q7. Activity — Write and enact a skit: persuading people to use cowrie shells as medium of exchange. <span class="ncert-act">Activity</span></summary>
+      <div class="ncert-activity">
+        <strong>Skit Guidelines:</strong>
+        <ul>
+          <li>Create characters: a <strong>farmer</strong> (with grain), a <strong>potter</strong> (with pots), a <strong>weaver</strong> (with cloth).</li>
+          <li>Show the <strong>problem</strong>: farmer wants a pot but the potter doesn't want grain — barter fails!</li>
+          <li>Introduce <strong>cowrie shells</strong> as a solution: everyone agrees to accept them as common payment.</li>
+          <li>Show why shells work: <strong>portable</strong> (fits in hand), <strong>uniform</strong> (each looks similar), <strong>widely accepted</strong>.</li>
+          <li>End with all three trading successfully using cowrie shells.</li>
+        </ul>
+        <p style="margin-top:8px"><strong>Key idea to show:</strong> People needed to <em>trust</em> the medium — shells had no food value but everyone agreed to accept them, making trade easy.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="ncert-card">
+    <details>
+      <summary>Q8. Activity — Find out the security features RBI uses on currency notes to prevent illegal printing. <span class="ncert-act">Activity</span></summary>
+      <div class="ncert-activity">
+        <strong>Security Features to Research &amp; Discuss:</strong>
+        <ul>
+          <li><strong>Watermark:</strong> Gandhi's portrait visible when the note is held up to light.</li>
+          <li><strong>Security Thread:</strong> A vertical strip embedded inside the note — glows under UV light.</li>
+          <li><strong>Intaglio Printing:</strong> Raised print you can feel by touch — helps visually impaired identify denominations.</li>
+          <li><strong>See-Through Register:</strong> Floral pattern visible from both sides when held to light.</li>
+          <li><strong>Colour-Shifting Ink:</strong> The numeral on ₹500 changes colour when tilted (green ↔ blue).</li>
+          <li><strong>Microprinting:</strong> Tiny text on the note, invisible to the naked eye.</li>
+        </ul>
+        <p style="margin-top:8px"><strong>Discuss:</strong> Why is it important to prevent counterfeit notes? What happens to an economy if fake notes circulate?</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="ncert-card">
+    <details>
+      <summary>Q9. Activity — Interview family members and shopkeepers: cash or UPI — which do they prefer and why? <span class="ncert-act">Activity</span></summary>
+      <div class="ncert-activity">
+        <strong>How to conduct your interview:</strong>
+        <ul>
+          <li>Ask at least 3–4 people: a grandparent, a parent, a local shopkeeper, and a young person.</li>
+          <li>Questions to ask: Do you prefer cash or UPI? Why? Have you ever had a problem with either?</li>
+        </ul>
+        <strong>Likely findings:</strong>
+        <ul>
+          <li><strong>Elderly:</strong> May prefer cash — familiar, no phone/internet needed, works everywhere.</li>
+          <li><strong>Young people:</strong> May prefer UPI — fast, no change needed, easy to track spending.</li>
+          <li><strong>Shopkeepers:</strong> UPI avoids change problems; cash works even without internet.</li>
+        </ul>
+        <p style="margin-top:8px"><strong>Think about:</strong> What are the advantages and disadvantages of a cashless economy?</p>
+      </div>
+    </details>
+  </div>
 </div>
 
 <footer>Preeti Kushwah Classes &middot; Quality Education for Every Student</footer>
