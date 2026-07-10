@@ -294,6 +294,7 @@
     '</div>',
     '<div class="dw-toolbar" id="dwToolbar2">',
     '  <button class="dw-tbtn" data-tool="select">↔ Select</button>',
+    '  <button class="dw-tbtn" data-tool="text">Aa Text</button>',
     '  <span class="dw-sep"></span>',
     '  <span class="dw-lbl">Shapes:</span>',
     '  <button class="dw-tbtn" data-tool="line">📏 Line</button>',
@@ -418,6 +419,7 @@
     else if (s.tool === 'circle') drawCircle(s);
     else if (s.tool === 'triangle') drawTriangle(s);
     else if (s.tool === 'angle-mark') drawAngleMark(s);
+    else if (s.tool === 'text') drawText(s);
     else drawFreehand(s, now);
   }
 
@@ -755,6 +757,16 @@
     ctx.restore();
   }
 
+  function drawText(s) {
+    if (!s.text) return;
+    ctx.save();
+    ctx.font = 'bold ' + (s.fontSize || 16) + 'px sans-serif';
+    ctx.fillStyle = s.color;
+    ctx.globalAlpha = 1;
+    ctx.fillText(s.text, s.x, s.y);
+    ctx.restore();
+  }
+
   // === LASER FADE ===
   function startLaserFade() {
     if (laserTimer) return;
@@ -769,6 +781,36 @@
         clearInterval(laserTimer); laserTimer = null;
       }
     }, 200);
+  }
+
+  function showTextInput(p, e) {
+    var old = document.getElementById('dwTextInput');
+    if (old) old.remove();
+    var t = e.touches ? e.touches[0] : e;
+    var inp = document.createElement('input');
+    inp.id = 'dwTextInput';
+    inp.type = 'text';
+    inp.placeholder = 'Type & press Enter';
+    var fs = Math.max(12, size * 3);
+    inp.style.cssText = 'position:fixed;left:' + t.clientX + 'px;top:' + (t.clientY - fs) + 'px;font:bold ' + fs + 'px sans-serif;color:' + color + ';border:2px solid ' + color + ';border-radius:6px;padding:2px 8px;background:rgba(255,255,255,0.97);z-index:99999;outline:none;min-width:80px;max-width:240px;';
+    document.body.appendChild(inp);
+    inp.focus();
+    var committed = false;
+    function commit() {
+      if (committed) return;
+      committed = true;
+      var txt = inp.value.trim();
+      inp.remove();
+      if (txt) {
+        history.push({ tool: 'text', x: p.x, y: p.y, text: txt, color: color, fontSize: fs });
+        saveH(); redraw();
+      }
+    }
+    inp.addEventListener('keydown', function(ev) {
+      if (ev.key === 'Enter') { ev.preventDefault(); commit(); }
+      if (ev.key === 'Escape') { committed = true; inp.remove(); }
+    });
+    inp.addEventListener('blur', commit);
   }
 
   // === DRAWING INTERACTION ===
@@ -787,6 +829,12 @@
   // === SELECT / MOVE / DRAG ===
   function hitTestStroke(p, s) {
     if (s.tool === 'angle-mark') return 999;
+    if (s.tool === 'text') {
+      var fs = s.fontSize || 16;
+      var tw = s.text ? s.text.length * fs * 0.55 : 0;
+      if (p.x >= s.x - 4 && p.x <= s.x + tw + 4 && p.y >= s.y - fs - 4 && p.y <= s.y + 6) return 0;
+      return 999;
+    }
     if (s.p1 && s.p2) {
       return ptToSegDist(p, { a: s.p1, b: s.p2 });
     }
@@ -852,6 +900,7 @@
   }
 
   function moveStroke(s, dx, dy) {
+    if (s.tool === 'text') { s.x += dx; s.y += dy; return; }
     if (s.p1) { s.p1 = { x: s.p1.x + dx, y: s.p1.y + dy }; }
     if (s.p2) { s.p2 = { x: s.p2.x + dx, y: s.p2.y + dy }; }
     if (s.center) { s.center = { x: s.center.x + dx, y: s.center.y + dy }; }
@@ -914,6 +963,10 @@
       var x = Math.min(s.p1.x, s.p2.x), y = Math.min(s.p1.y, s.p2.y);
       var w = Math.abs(s.p2.x - s.p1.x), h = Math.abs(s.p2.y - s.p1.y);
       ctx.strokeRect(x, y, w, h);
+    } else if (s.tool === 'text') {
+      var fs = s.fontSize || 16;
+      var tw = s.text ? s.text.length * fs * 0.55 : 40;
+      ctx.strokeRect(s.x - 2, s.y - fs - 2, tw + 8, fs + 8);
     }
     ctx.restore();
   }
@@ -945,6 +998,11 @@
           redraw();
         }
       }
+      return;
+    }
+
+    if (tool === 'text') {
+      showTextInput(p, e);
       return;
     }
 
