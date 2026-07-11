@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 7 Maths Ch 4: Expressions using Letter-Numbers — variables, constants, algebraic expressions, like terms, operations. Interactive NCERT notes.">
+<meta name="keywords" content="Preeti Kushwah Classes, NCERT notes, CBSE notes, free study material, Class 7 notes, Class 7 NCERT, class 7 study material, Mathematics notes, Class 7 Mathematics, Expressions using Letter-Numbers, algebraic expressions, variables, constants, like terms">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-7/maths/expressions-using-letter-numbers.html">
+<meta property="og:title" content="Ch 4: Expressions using Letter-Numbers — Class 7 Maths Notes">
+<meta property="og:description" content="Interactive NCERT notes for Class 7 Maths — variables, algebraic expressions, like terms, operations with animations.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preetikushwahclasses.com/class-7/maths/expressions-using-letter-numbers.html">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Ch 4: Expressions using Letter-Numbers — Class 7 Maths | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple-darkest: #3b0764;
+  --purple-dark: #5b21b6;
+  --purple-mid: #7c3aed;
+  --purple-light: #a78bfa;
+  --purple-pale: #ede9fe;
+  --purple-bg: #faf5ff;
+  --pink: #ec4899;
+  --pink-pale: #fdf2f8;
+  --orange: #f97316;
+  --orange-pale: #fff7ed;
+  --yellow: #fbbf24;
+  --yellow-pale: #fefce8;
+  --green: #16a34a;
+  --green-pale: #f0fdf4;
+  --blue: #3b82f6;
+  --blue-pale: #eff6ff;
+  --red: #ef4444;
+  --red-pale: #fef2f2;
+  --teal: #14b8a6;
+  --teal-pale: #f0fdfa;
+  --bg: linear-gradient(180deg, #fff7ed 0%, #fef9c3 100%);
+  --text: #1e1b4b;
+  --card: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #fff7ed;
+  background-image: linear-gradient(180deg, #fff7ed 0%, #fef9c3 50%, #fff7ed 100%);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ============= TOP NAV ============= */
+.top-nav {
+  background: white;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 110;
+}
+.nav-link {
+  display: inline-block;
+  background: #fff7ed;
+  color: #92400e;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1.5px solid #fbbf24;
+  transition: all 0.2s;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+}
+.nav-link:hover { background: #fde68a; transform: translateY(-1px); }
+.nav-spacer { flex: 1; }
+.share-btn { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+.share-btn:hover { background: #dbeafe; }
+
+/* ============= NAV TOC ============= */
+.toc-bar {
+  background: linear-gradient(135deg, #92400e, #f97316);
+  padding: 12px 16px;
+  position: sticky;
+  top: 44px;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(249,115,22,0.3);
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.toc-bar a {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-right: 6px;
+  transition: all 0.2s;
+}
+.toc-bar a:hover {
+  background: rgba(255,255,255,0.35);
+  transform: translateY(-2px);
+}
+
+/* ============= HERO ============= */
+.hero {
+  background: linear-gradient(180deg, #92400e 0%, #d97706 30%, #fbbf24 60%, #fde68a 85%, #fff7ed 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  padding-bottom: 30px;
+}
+.hero-star {
+  position: absolute;
+  color: rgba(255,255,255,0.6);
+  animation: twinkle 2s ease-in-out infinite;
+}
+@keyframes twinkle { 0%,100%{opacity:0.3;transform:scale(0.8)} 50%{opacity:1;transform:scale(1.2)} }
+
+.hero-content { position: relative; z-index: 10; text-align: center; padding: 36px 16px 0; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.3);
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: 30px;
+  padding: 5px 18px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(28px, 6vw, 54px);
+  color: white;
+  text-shadow: 0 3px 12px rgba(146,64,14,0.4);
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+.hero p { color: white; font-size: 15px; font-weight: 700; opacity: 0.9; margin-bottom: 16px; }
+
+/* Algebra rain */
+.alg-rain {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.rain-alg {
+  position: absolute;
+  font-family: 'Fredoka One', cursive;
+  color: rgba(255,255,255,0.15);
+  animation: algFall linear infinite;
+}
+@keyframes algFall {
+  0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(500px) rotate(15deg); opacity: 0; }
+}
+
+/* Hero expression display */
+.hero-expr-box {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px 28px;
+  display: inline-block;
+  margin: 20px auto;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.hero-expr-display {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(28px, 7vw, 52px);
+  color: #fde047;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  letter-spacing: 2px;
+  min-height: 60px;
+  transition: all 0.4s ease;
+}
+.hero-expr-label {
+  font-size: 14px;
+  color: white;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+/* ============= CONTAINER ============= */
+.container { max-width: 1000px; margin: 0 auto; padding: 36px 16px 60px; }
+
+/* ============= SECTION BLOCKS ============= */
+.section-block {
+  background: white;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  margin-bottom: 36px;
+  overflow: hidden;
+  scroll-margin-top: 100px;
+}
+.section-hd {
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: white;
+  font-family: 'Fredoka One', cursive;
+  font-size: 24px;
+  line-height: 1.2;
+}
+.section-hd .icon { font-size: 32px; }
+.section-bd { padding: 28px; }
+.section-bd > p { margin-bottom: 14px; }
+
+.g-teal   { background: linear-gradient(135deg, #134e4a, #2dd4bf); }
+.g-purple { background: linear-gradient(135deg, #5b21b6, #a78bfa); }
+.g-pink   { background: linear-gradient(135deg, #9d174d, #ec4899); }
+.g-orange { background: linear-gradient(135deg, #9a3412, #fb923c); }
+.g-blue   { background: linear-gradient(135deg, #1e40af, #38bdf8); }
+.g-green  { background: linear-gradient(135deg, #166534, #22c55e); }
+.g-rose   { background: linear-gradient(135deg, #881337, #fb7185); }
+.g-amber  { background: linear-gradient(135deg, #78350f, #fbbf24); }
+.g-indigo { background: linear-gradient(135deg, #312e81, #818cf8); }
+.g-sky    { background: linear-gradient(135deg, #0c4a6e, #38bdf8); }
+.g-emerald{ background: linear-gradient(135deg, #064e3b, #34d399); }
+.g-violet { background: linear-gradient(135deg, #4c1d95, #c4b5fd); }
+
+.subtitle {
+  font-family: 'Fredoka One', cursive;
+  color: #92400e;
+  font-size: 20px;
+  margin: 22px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============= KEY TERM PILL ============= */
+.kt {
+  display: inline-block;
+  background: #fde047;
+  color: #713f12;
+  border-radius: 7px;
+  padding: 1px 9px;
+  font-weight: 800;
+  font-size: 13px;
+  margin: 0 2px;
+}
+.kt-orange {
+  background: #ffedd5;
+  color: #92400e;
+}
+.kt-blue {
+  background: #dbeafe;
+  color: #1e3a5f;
+}
+
+/* ============= INFO CARDS GRID ============= */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.info-card {
+  border-radius: 14px;
+  padding: 16px 18px;
+  font-size: 14px;
+}
+.info-card h4 { font-weight: 800; margin-bottom: 6px; font-size: 15px; }
+.info-card ul { padding-left: 18px; margin-top: 4px; }
+.info-card li { margin-bottom: 3px; }
+.ic-purple { background: #faf5ff; border-left: 5px solid #a78bfa; }
+.ic-pink   { background: #fdf2f8; border-left: 5px solid #ec4899; }
+.ic-orange { background: #fff7ed; border-left: 5px solid #fb923c; }
+.ic-green  { background: #f0fdf4; border-left: 5px solid #22c55e; }
+.ic-blue   { background: #eff6ff; border-left: 5px solid #3b82f6; }
+.ic-yellow { background: #fefce8; border-left: 5px solid #facc15; }
+.ic-red    { background: #fef2f2; border-left: 5px solid #f87171; }
+.ic-teal   { background: #f0fdfa; border-left: 5px solid #14b8a6; }
+.ic-amber  { background: #fffbeb; border-left: 5px solid #f59e0b; }
+
+/* ============= TABLES ============= */
+.table-wrap { overflow-x: auto; margin: 14px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 400px; }
+th { background: linear-gradient(135deg, #92400e, #f97316); color: white; padding: 12px 14px; text-align: left; font-weight: 800; font-size: 13px; }
+td { padding: 11px 14px; border-bottom: 1px solid #fde68a; font-size: 13.5px; }
+tr:nth-child(even) td { background: #fff7ed; }
+
+/* ============= TRICK / NOTE / EXAMPLE ============= */
+.trick {
+  background: linear-gradient(135deg, #fef9c3, #fde68a);
+  border: 2px solid #f59e0b;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.trick strong { color: #78350f; }
+
+.note-box {
+  background: #eff6ff;
+  border-left: 5px solid #3b82f6;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 14px 0;
+  font-size: 14px;
+}
+
+.example-box {
+  background: linear-gradient(135deg, #fff7ed, #fef3c7);
+  border: 2px solid #fbbf24;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.example-box strong { color: #92400e; }
+.example-box .ex-title {
+  font-family: 'Fredoka One', cursive;
+  color: #92400e;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.fun-fact {
+  background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+  border: 2px solid #f9a8d4;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.fun-fact strong { color: #9d174d; }
+
+.warning-box {
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+  border: 2px solid #fca5a5;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.warning-box strong { color: #991b1b; }
+
+/* ============= ALGEBRA TERM ANATOMY ============= */
+.term-anatomy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+.ta-part {
+  text-align: center;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 26px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 3px solid transparent;
+}
+.ta-part:hover { transform: scale(1.12); }
+.ta-coeff { background: #ede9fe; color: #5b21b6; border-color: #a78bfa; }
+.ta-var   { background: #fff7ed; color: #92400e; border-color: #fb923c; }
+.ta-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.ta-op { font-family: 'Fredoka One', cursive; font-size: 26px; color: #6b7280; padding: 0 8px; }
+
+/* Clickable term cards */
+.term-card {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 14px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 3px solid transparent;
+  margin: 6px;
+}
+.term-card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+.tc-1 { background: #ede9fe; color: #5b21b6; border-color: #a78bfa; }
+.tc-2 { background: #fff7ed; color: #92400e; border-color: #fb923c; }
+.tc-3 { background: #f0fdf4; color: #166534; border-color: #86efac; }
+.term-info-box {
+  background: #1f2937;
+  color: white;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  min-height: 50px;
+  transition: all 0.3s;
+}
+
+/* Like/Unlike comparison */
+.like-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 16px 0;
+}
+.like-box {
+  border-radius: 14px;
+  padding: 14px 16px;
+  text-align: center;
+}
+.like-box h4 { font-family: 'Fredoka One', cursive; font-size: 18px; margin-bottom: 10px; }
+.like-box .pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 6px 0;
+  font-family: 'Fredoka One', cursive;
+  font-size: 18px;
+}
+.lb-like   { background: #f0fdf4; border: 2px solid #86efac; }
+.lb-like h4 { color: #166534; }
+.lb-unlike { background: #fff7ed; border: 2px solid #fb923c; }
+.lb-unlike h4 { color: #92400e; }
+.like-tag  { display: inline-block; background: #dcfce7; color: #166534; font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 5px; }
+.unlike-tag{ display: inline-block; background: #ffedd5; color: #92400e; font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 5px; }
+
+/* Column method for addition/subtraction */
+.col-method {
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  background: #f9fafb;
+  border-radius: 14px;
+  padding: 18px 24px;
+  display: inline-block;
+  margin: 10px 0;
+  text-align: right;
+  line-height: 2;
+}
+.col-divider { border-top: 3px solid #374151; margin: 4px 0; }
+.col-result { color: #d97706; }
+.col-op { color: #6b7280; float: left; font-size: 22px; }
+
+/* Substitution interactive */
+.subst-calc {
+  background: linear-gradient(135deg, #fff7ed, #fde68a);
+  border: 3px solid #fbbf24;
+  border-radius: 18px;
+  padding: 24px;
+  margin: 20px 0;
+  text-align: center;
+}
+.subst-expr {
+  font-family: 'Fredoka One', cursive;
+  font-size: 28px;
+  color: #92400e;
+  margin-bottom: 14px;
+}
+.subst-input-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.subst-label { font-weight: 800; font-size: 15px; color: #78350f; }
+.subst-input {
+  padding: 8px 14px;
+  border: 2.5px solid #fbbf24;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 800;
+  font-family: 'Fredoka One', cursive;
+  width: 80px;
+  text-align: center;
+  color: #92400e;
+  outline: none;
+}
+.subst-input:focus { border-color: #d97706; }
+.subst-result {
+  font-family: 'Fredoka One', cursive;
+  font-size: 32px;
+  color: #166534;
+  min-height: 44px;
+}
+
+/* Matchstick pattern */
+.matchstick-anim {
+  background: linear-gradient(135deg, #fff7ed, #fde68a);
+  border: 3px solid #fbbf24;
+  border-radius: 18px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  overflow-x: auto;
+}
+.match-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+  min-height: 80px;
+  margin: 10px 0;
+}
+.match-tri {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-bottom: 5px solid #92400e;
+  border-right: 5px solid #d97706;
+  position: relative;
+  margin-right: -2px;
+}
+.match-tri::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 0; height: 0;
+  border-right: 30px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-left: 0;
+}
+.match-stick {
+  display: inline-block;
+  width: 4px;
+  height: 52px;
+  background: #92400e;
+  border-radius: 2px;
+  margin: 0 2px;
+  vertical-align: bottom;
+}
+.match-h-stick {
+  display: inline-block;
+  height: 4px;
+  background: #92400e;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+/* ============= ANIMATION BOX ============= */
+.anim-box {
+  background: linear-gradient(135deg, #fff7ed, #fde68a);
+  border: 3px solid #fbbf24;
+  border-radius: 18px;
+  padding: 24px;
+  margin: 20px 0;
+  text-align: center;
+  overflow: hidden;
+}
+.anim-box h3 {
+  font-family: 'Fredoka One', cursive;
+  color: #92400e;
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+.anim-stage {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  margin: 14px 0;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.anim-controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* ============= EXERCISE STYLES ============= */
+.exercise-box {
+  margin-top: 24px;
+  padding: 20px;
+  background: linear-gradient(135deg, #fff7ed 0%, #fde68a 100%);
+  border-radius: 16px;
+  border: 2px dashed #fbbf24;
+}
+.exercise-box .subtitle { color: #92400e; }
+
+.q-item {
+  background: white;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #f97316;
+}
+.q-item .q-text { font-weight: 700; font-size: 14px; color: #92400e; margin-bottom: 8px; }
+.q-item input[type="text"], .q-item input[type="number"] {
+  padding: 6px 12px;
+  border: 2px solid #fbbf24;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  width: 100px;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.q-item input:focus { border-color: #d97706; }
+.q-feedback {
+  display: inline-block;
+  margin-left: 8px;
+  font-weight: 800;
+  font-size: 14px;
+}
+.q-feedback.correct { color: #16a34a; }
+.q-feedback.wrong { color: #ef4444; }
+.q-answer {
+  font-size: 13px;
+  color: #92400e;
+  font-weight: 700;
+  display: none;
+  margin-top: 6px;
+}
+.q-item.show-ans .q-answer { display: block; }
+
+/* MCQ styles */
+.mcq-item { margin-bottom: 16px; }
+.mcq-q { font-weight: 700; font-size: 14px; color: #1e1b4b; margin-bottom: 8px; }
+.mcq-options { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.mcq-options li {
+  padding: 9px 14px;
+  border-radius: 10px;
+  border: 2px solid #e5e7eb;
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 700;
+  transition: all 0.2s;
+  background: white;
+}
+.mcq-options li:hover { border-color: #f97316; background: #fff7ed; }
+.mcq-options li.correct { background: #dcfce7; border-color: #22c55e; color: #166534; }
+.mcq-options li.wrong-pick { background: #fee2e2; border-color: #f87171; color: #991b1b; text-decoration: line-through; }
+.mcq-item .q-answer { font-size: 13px; color: #92400e; font-weight: 700; display: none; margin-top: 6px; padding: 8px 12px; background: #fff7ed; border-radius: 8px; }
+.mcq-item.show-ans .q-answer { display: block; }
+
+/* Buttons */
+.game-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.2s;
+  margin: 4px;
+}
+.game-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.game-btn:active { transform: translateY(0); }
+.btn-orange { background: linear-gradient(135deg, #d97706, #fb923c); color: white; }
+.btn-purple { background: linear-gradient(135deg, #7c3aed, #a78bfa); color: white; }
+.btn-pink   { background: linear-gradient(135deg, #ec4899, #f9a8d4); color: white; }
+.btn-green  { background: linear-gradient(135deg, #16a34a, #4ade80); color: white; }
+.btn-blue   { background: linear-gradient(135deg, #3b82f6, #93c5fd); color: white; }
+.btn-teal   { background: linear-gradient(135deg, #0f766e, #2dd4bf); color: white; }
+.btn-sm     { padding: 6px 14px; font-size: 12px; border-radius: 10px; }
+
+.toggle-ans-btn {
+  background: none;
+  border: 1.5px solid #fbbf24;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #d97706;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.2s;
+}
+.toggle-ans-btn:hover { background: #fde68a; }
+
+/* Dark mode */
+[data-theme="dark"] body { background: #1a1a2e; color: #e0e0e0; }
+[data-theme="dark"] .section-block { background: #16213e; }
+[data-theme="dark"] .top-nav { background: #0f3460; }
+[data-theme="dark"] .q-item { background: #0f3460; }
+[data-theme="dark"] .anim-stage { background: #0f3460; }
+[data-theme="dark"] td { color: #e0e0e0; }
+[data-theme="dark"] .mcq-options li { background: #0f3460; border-color: #1e4080; color: #e0e0e0; }
+[data-theme="dark"] table { color: #e0e0e0; }
+[data-theme="dark"] tr:nth-child(even) td { background: #1a2a50; }
+
+/* ============= SHARE + FAB ============= */
+.fab-share {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #92400e, #f97316);
+  color: white;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(249,115,22,0.4);
+  z-index: 200;
+  transition: all 0.2s;
+}
+.fab-share:hover { transform: scale(1.1); }
+.share-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+}
+.share-overlay.active { display: flex; }
+.share-box {
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  max-width: 340px;
+  width: 90%;
+}
+.share-box h3 { font-family: 'Fredoka One', cursive; color: #92400e; font-size: 22px; margin-bottom: 20px; }
+.share-opt {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  margin-bottom: 10px;
+  transition: all 0.2s;
+}
+.share-opt:hover { transform: translateY(-2px); }
+.share-opt.copy { background: linear-gradient(135deg, #92400e, #f97316); color: white; }
+.share-opt.native { background: linear-gradient(135deg, #3b82f6, #93c5fd); color: white; }
+.share-close { background: #f3f4f6; color: #374151; border: none; padding: 10px 24px; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; margin-top: 4px; }
+.copy-feedback { display: none; color: #16a34a; font-weight: 800; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<nav class="top-nav">
+  <a href="../../index.html" class="nav-link">&#127968; Home</a>
+  <a href="../index.html" class="nav-link">&#128218; Class 7</a>
+  <a href="index.html" class="nav-link">&#128290; Maths</a>
+  <span class="nav-spacer"></span>
+  <button class="nav-link share-btn" onclick="openShare()">&#128279; Share</button>
+  <button class="nav-link" id="darkBtn" onclick="toggleDark()" style="background:#fef9c3;color:#713f12;border-color:#fde047;">&#127769; Dark</button>
+</nav>
+
+<!-- ===== TOC BAR ===== -->
+<nav class="toc-bar">
+  <a href="#intro">&#128288; Letter-Numbers</a>
+  <a href="#variables">&#128290; Variables</a>
+  <a href="#expressions">&#128203; Expressions</a>
+  <a href="#terms">&#129513; Terms</a>
+  <a href="#likeunlike">&#128101; Like &amp; Unlike</a>
+  <a href="#addition">&#10133; Addition</a>
+  <a href="#subtraction">&#10134; Subtraction</a>
+  <a href="#substitution">&#128260; Substitution</a>
+  <a href="#patterns">&#127744; Patterns</a>
+  <a href="#formulas">&#128208; Formulas</a>
+  <a href="#practice">&#9997; Practice</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="alg-rain" id="algRain"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Chapter 4 &nbsp;&#183;&nbsp; Class 7 Maths</div>
+    <h1>Expressions using Letter-Numbers</h1>
+    <p>Variables, Expressions &amp; Patterns — Topic by Topic</p>
+    <div class="hero-expr-box">
+      <div class="hero-expr-display" id="heroExprDisplay">2x + 3</div>
+      <div class="hero-expr-label" id="heroExprLabel">An algebraic expression</div>
+    </div>
+  </div>
+  <div class="hero-star" style="top:10%;left:5%;font-size:20px;animation-delay:0s">&#11088;</div>
+  <div class="hero-star" style="top:20%;right:8%;font-size:16px;animation-delay:0.7s">&#11088;</div>
+  <div class="hero-star" style="top:60%;left:3%;font-size:14px;animation-delay:1.2s">&#10024;</div>
+  <div class="hero-star" style="top:15%;left:50%;font-size:18px;animation-delay:0.3s">&#10024;</div>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="container">
+
+<!-- ============================== SECTION 1: WHAT ARE LETTER-NUMBERS ============================== -->
+<section class="section-block" id="intro">
+  <div class="section-hd g-orange">
+    <span class="icon">&#128288;</span>
+    <div>What are Letter-Numbers?</div>
+  </div>
+  <div class="section-bd">
+    <p>In maths, we sometimes don't know the value of a number — or we want a rule that works for <em>any</em> number. We use <span class="kt">letters</span> like <strong>x, y, a, b, n</strong> to represent such numbers. These are called <span class="kt">letter-numbers</span> or <span class="kt">variables</span>.</p>
+    <p>Example: "Think of a number and add 5." If the number is <strong>n</strong>, we write: <span style="font-family:'Fredoka One',cursive;font-size:20px;color:#d97706">n + 5</span></p>
+    <p>Different people may think of different numbers — that is why we call it a <em>variable</em> (it can vary!). The answer changes depending on what number <strong>n</strong> stands for.</p>
+
+    <div class="subtitle">&#128073; Translating Words to Letter-Numbers</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Word Statement</th><th>Letter-Number Expression</th></tr>
+        <tr><td>A number increased by 7</td><td style="font-family:'Fredoka One',cursive;font-size:16px;color:#d97706"><strong>n + 7</strong></td></tr>
+        <tr><td>3 times a number</td><td style="font-family:'Fredoka One',cursive;font-size:16px;color:#d97706"><strong>3n</strong></td></tr>
+        <tr><td>Half of a number</td><td style="font-family:'Fredoka One',cursive;font-size:16px;color:#d97706"><strong>n / 2</strong></td></tr>
+        <tr><td>A number decreased by 4</td><td style="font-family:'Fredoka One',cursive;font-size:16px;color:#d97706"><strong>n &#8722; 4</strong></td></tr>
+        <tr><td>Square of a number</td><td style="font-family:'Fredoka One',cursive;font-size:16px;color:#d97706"><strong>n&#178;</strong></td></tr>
+        <tr><td>5 more than twice a number</td><td style="font-family:'Fredoka One',cursive;font-size:16px;color:#d97706"><strong>2n + 5</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="fun-fact">
+      <strong>&#127981; Did You Know?</strong> In ancient India, mathematician <strong>Brahmagupta</strong> used Sanskrit words like <em>"yavattavat"</em> (meaning "as much as") for unknowns — letters are just a modern shorthand for the same idea!
+    </div>
+
+    <div class="trick">
+      <strong>&#128161; Key Idea:</strong> A letter-number is just a placeholder — like a blank box &#9633; — that can hold any value.<br>
+      <div style="text-align:center;margin-top:10px;font-family:'Fredoka One',cursive;font-size:22px">
+        <span style="background:#ede9fe;padding:6px 14px;border-radius:10px;color:#5b21b6">n</span>
+        <span style="color:#6b7280;margin:0 10px">can be</span>
+        <span style="background:#fff7ed;padding:6px 14px;border-radius:10px;color:#92400e">1</span>
+        <span style="color:#6b7280;margin:0 6px">or</span>
+        <span style="background:#fff7ed;padding:6px 14px;border-radius:10px;color:#92400e">7</span>
+        <span style="color:#6b7280;margin:0 6px">or</span>
+        <span style="background:#fff7ed;padding:6px 14px;border-radius:10px;color:#92400e">100</span>
+        <span style="color:#6b7280;margin:0 6px">or any number!</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 2: VARIABLES & CONSTANTS ============================== -->
+<section class="section-block" id="variables">
+  <div class="section-hd g-amber">
+    <span class="icon">&#128290;</span>
+    <div>Variables and Constants</div>
+  </div>
+  <div class="section-bd">
+    <div class="info-grid">
+      <div class="info-card ic-orange">
+        <h4>&#128260; Variable</h4>
+        <p>A letter that can take <strong>different values</strong>.</p>
+        <p style="margin-top:6px">Examples: x, y, a, b, n, m, p, q</p>
+        <p style="margin-top:6px;font-family:'Fredoka One',cursive;font-size:22px;color:#d97706">x &nbsp; y &nbsp; n</p>
+      </div>
+      <div class="info-card ic-yellow">
+        <h4>&#128274; Constant</h4>
+        <p>A <strong>fixed number</strong> that never changes.</p>
+        <p style="margin-top:6px">Examples: 3, 7, &#8722;5, 0, 100</p>
+        <p style="margin-top:6px;font-family:'Fredoka One',cursive;font-size:22px;color:#92400e">3 &nbsp; 7 &nbsp; &#8722;5</p>
+      </div>
+      <div class="info-card ic-purple">
+        <h4>&#128290; Coefficient</h4>
+        <p>The <strong>number multiplied</strong> with a variable.</p>
+        <p style="margin-top:6px">In <strong>5x</strong>, coefficient is 5.</p>
+        <p style="margin-top:6px">In <strong>&#8722;3y</strong>, coefficient is &#8722;3.</p>
+      </div>
+      <div class="info-card ic-blue">
+        <h4>&#10067; Unknown</h4>
+        <p>A variable whose <strong>value we want to find</strong>.</p>
+        <p style="margin-top:6px">In "x + 5 = 8", x is the unknown.</p>
+        <p style="margin-top:6px;color:#1e40af"><strong>x = 3</strong></p>
+      </div>
+    </div>
+
+    <div class="subtitle">&#128270; Identifying Parts of an Expression: 3x + 5</div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin:16px 0;flex-wrap:wrap">
+      <div style="text-align:center">
+        <div style="background:#ede9fe;padding:12px 20px;border-radius:14px;font-family:'Fredoka One',cursive;font-size:32px;color:#5b21b6;border:3px solid #a78bfa">3x</div>
+        <div style="font-size:12px;font-weight:800;color:#5b21b6;margin-top:4px">Variable Term<br>Coeff = 3, Var = x</div>
+      </div>
+      <div style="font-family:'Fredoka One',cursive;font-size:32px;color:#6b7280;padding:0 8px">+</div>
+      <div style="text-align:center">
+        <div style="background:#fefce8;padding:12px 20px;border-radius:14px;font-family:'Fredoka One',cursive;font-size:32px;color:#92400e;border:3px solid #fbbf24">5</div>
+        <div style="font-size:12px;font-weight:800;color:#92400e;margin-top:4px">Constant Term</div>
+      </div>
+    </div>
+
+    <div class="subtitle">&#128203; Quick Reference Table</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Expression</th><th>Variable</th><th>Constant</th><th>Coefficient of Variable</th></tr>
+        <tr><td><strong>4x + 7</strong></td><td>x</td><td>7</td><td>4</td></tr>
+        <tr><td><strong>3a &#8722; 2</strong></td><td>a</td><td>&#8722;2</td><td>3</td></tr>
+        <tr><td><strong>y + 10</strong></td><td>y</td><td>10</td><td>1 (written as y, not 1y)</td></tr>
+        <tr><td><strong>5n</strong></td><td>n</td><td>&#8212;</td><td>5</td></tr>
+        <tr><td><strong>8</strong></td><td>&#8212;</td><td>8</td><td>&#8212;</td></tr>
+      </table>
+    </div>
+
+    <div class="note-box">
+      <strong>Note:</strong> When the coefficient is 1, we write <strong>x</strong>, not <em>1x</em>.<br>
+      When the coefficient is &#8722;1, we write <strong>&#8722;x</strong>, not <em>&#8722;1x</em>.
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 3: ALGEBRAIC EXPRESSIONS ============================== -->
+<section class="section-block" id="expressions">
+  <div class="section-hd g-purple">
+    <span class="icon">&#128203;</span>
+    <div>What is an Algebraic Expression?</div>
+  </div>
+  <div class="section-bd">
+    <p>An <span class="kt">algebraic expression</span> is a combination of <strong>variables, constants and operations</strong> (+, &#8722;, &#215;, &#247;).</p>
+    <p>Examples: &nbsp; <strong>2x + 3</strong> &nbsp;|&nbsp; <strong>5y &#8722; 7</strong> &nbsp;|&nbsp; <strong>a + b</strong> &nbsp;|&nbsp; <strong>3n&#178;</strong> &nbsp;|&nbsp; <strong>4p &#8722; 2q + 1</strong></p>
+
+    <div class="subtitle">&#128196; Forming Expressions from Word Statements</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Word Statement</th><th>Expression</th></tr>
+        <tr><td>7 more than x</td><td><strong>x + 7</strong></td></tr>
+        <tr><td>4 less than y</td><td><strong>y &#8722; 4</strong></td></tr>
+        <tr><td>Product of 3 and n, plus 2</td><td><strong>3n + 2</strong></td></tr>
+        <tr><td>5 times a number minus 8</td><td><strong>5n &#8722; 8</strong></td></tr>
+        <tr><td>Twice the sum of x and y</td><td><strong>2(x + y)</strong></td></tr>
+        <tr><td>Square of a, decreased by 1</td><td><strong>a&#178; &#8722; 1</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 1: Writing an expression</div>
+      <p>Riya is <strong>x</strong> years old. Her brother is <strong>3 years older</strong>.</p>
+      <p>Brother's age = <strong>x + 3</strong></p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 2: Writing an expression</div>
+      <p>A box has <strong>n</strong> chocolates. <strong>5 are eaten</strong>.</p>
+      <p>Remaining chocolates = <strong>n &#8722; 5</strong></p>
+    </div>
+
+    <div class="subtitle">&#129513; Types of Algebraic Expressions</div>
+    <div class="info-grid">
+      <div class="info-card ic-orange">
+        <h4>Monomial</h4>
+        <p>Expression with <strong>1 term</strong></p>
+        <p>Examples: 3x, 7y, &#8722;5a, 4xy</p>
+      </div>
+      <div class="info-card ic-purple">
+        <h4>Binomial</h4>
+        <p>Expression with <strong>2 terms</strong></p>
+        <p>Examples: 2x + 1, 3a &#8722; b</p>
+      </div>
+      <div class="info-card ic-green">
+        <h4>Trinomial</h4>
+        <p>Expression with <strong>3 terms</strong></p>
+        <p>Examples: x + y + 2, 2a &#8722; b + 3</p>
+      </div>
+      <div class="info-card ic-blue">
+        <h4>Polynomial</h4>
+        <p>Expression with <strong>one or more terms</strong></p>
+        <p>All of the above are polynomials!</p>
+      </div>
+    </div>
+
+    <div class="fun-fact">
+      <strong>&#128218; Word Origin:</strong> The word <strong>"algebra"</strong> comes from the Arabic <em>al-jabr</em> meaning <strong>"reunion of broken parts"</strong> — from the 9th century book by Al-Khwarizmi!
+    </div>
+
+    <div class="exercise-box">
+      <div class="subtitle">&#9997; Quick Practice</div>
+      <div class="q-item">
+        <div class="q-text">Q1. Write an expression: "9 more than twice a number n"</div>
+        <input type="text" id="ep1" placeholder="?n + ?"> <button class="game-btn btn-orange btn-sm" onclick="checkQ('ep1','2n+9','fb_ep1')">Check</button>
+        <span class="q-feedback" id="fb_ep1"></span>
+        <div class="q-answer">Answer: 2n + 9</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q2. Arjun has x rupees. He spends ₹50. Write an expression for money left.</div>
+        <input type="text" id="ep2" placeholder="x - ?"> <button class="game-btn btn-orange btn-sm" onclick="checkQ('ep2','x-50','fb_ep2')">Check</button>
+        <span class="q-feedback" id="fb_ep2"></span>
+        <div class="q-answer">Answer: x &#8722; 50</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 4: TERMS ============================== -->
+<section class="section-block" id="terms">
+  <div class="section-hd g-teal">
+    <span class="icon">&#129513;</span>
+    <div>Terms, Coefficients and Factors</div>
+  </div>
+  <div class="section-bd">
+    <p>A <span class="kt">term</span> is a single part of an expression. Terms are separated by <strong>+ or &#8722; signs</strong>.</p>
+
+    <div class="example-box">
+      <div class="ex-title">In the expression 3x&#178; + 5x &#8722; 7:</div>
+      <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <span style="background:#fff7ed;border:2px solid #fb923c;border-radius:10px;padding:8px 16px;font-family:'Fredoka One',cursive;font-size:20px;color:#92400e">3x&#178;</span>
+        <span style="font-family:'Fredoka One',cursive;font-size:24px;color:#6b7280">+</span>
+        <span style="background:#ede9fe;border:2px solid #a78bfa;border-radius:10px;padding:8px 16px;font-family:'Fredoka One',cursive;font-size:20px;color:#5b21b6">5x</span>
+        <span style="font-family:'Fredoka One',cursive;font-size:24px;color:#6b7280">&#8722;</span>
+        <span style="background:#fefce8;border:2px solid #fbbf24;border-radius:10px;padding:8px 16px;font-family:'Fredoka One',cursive;font-size:20px;color:#92400e">7</span>
+      </div>
+      <p style="text-align:center;margin-top:10px;font-size:13px;color:#6b7280;font-weight:700">Term 1 &nbsp;&nbsp;&nbsp; Term 2 &nbsp;&nbsp;&nbsp; Term 3 (constant)</p>
+    </div>
+
+    <div class="subtitle">&#128270; Click a Term to See Its Anatomy</div>
+    <div style="text-align:center;margin:16px 0">
+      <span class="term-card tc-1" onclick="showTerm('3x', '3', 'x', '3, x')">3x</span>
+      <span style="font-family:'Fredoka One',cursive;font-size:28px;color:#6b7280">+</span>
+      <span class="term-card tc-2" onclick="showTerm('5y', '5', 'y', '5, y')">5y</span>
+      <span style="font-family:'Fredoka One',cursive;font-size:28px;color:#6b7280">&#8722;</span>
+      <span class="term-card tc-3" onclick="showTerm('&#8722;2', '&#8722;2', 'none (constant)', '&#8722;2')">&#8722;2</span>
+    </div>
+    <div class="term-info-box" id="termInfoBox">&#128073; Click any term above to see its coefficient, variable and factors.</div>
+
+    <div class="subtitle">&#128203; Term Reference Table</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Term</th><th>Coefficient</th><th>Variable Part</th><th>Factors</th></tr>
+        <tr><td><strong>5x</strong></td><td>5</td><td>x</td><td>5, x</td></tr>
+        <tr><td><strong>&#8722;3y</strong></td><td>&#8722;3</td><td>y</td><td>&#8722;3, y</td></tr>
+        <tr><td><strong>7ab</strong></td><td>7</td><td>ab</td><td>7, a, b</td></tr>
+        <tr><td><strong>&#8722;xy</strong></td><td>&#8722;1</td><td>xy</td><td>&#8722;1, x, y</td></tr>
+        <tr><td><strong>4</strong></td><td>4</td><td>&#8212; (constant)</td><td>4</td></tr>
+      </table>
+    </div>
+
+    <div class="note-box">
+      <strong>Note:</strong> A term with <strong>no variable</strong> is called a <strong>constant term</strong>. Its value never changes regardless of what the variable equals.
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 5: LIKE & UNLIKE TERMS ============================== -->
+<section class="section-block" id="likeunlike">
+  <div class="section-hd g-pink">
+    <span class="icon">&#128101;</span>
+    <div>Like and Unlike Terms</div>
+  </div>
+  <div class="section-bd">
+    <div class="like-compare">
+      <div class="like-box lb-like">
+        <h4>&#10003; Like Terms</h4>
+        <p style="font-size:13px;color:#166534;font-weight:700;margin-bottom:8px">Same variable, same power</p>
+        <div class="pair"><span>3x</span><span>and</span><span>7x</span><span class="like-tag">LIKE</span></div>
+        <div class="pair"><span>4xy</span><span>and</span><span>&#8722;2xy</span><span class="like-tag">LIKE</span></div>
+        <div class="pair"><span>5x&#178;</span><span>and</span><span>3x&#178;</span><span class="like-tag">LIKE</span></div>
+        <div class="pair"><span>&#8722;a</span><span>and</span><span>9a</span><span class="like-tag">LIKE</span></div>
+      </div>
+      <div class="like-box lb-unlike">
+        <h4>&#10007; Unlike Terms</h4>
+        <p style="font-size:13px;color:#92400e;font-weight:700;margin-bottom:8px">Different variable or power</p>
+        <div class="pair"><span>3x</span><span>and</span><span>3y</span><span class="unlike-tag">UNLIKE</span></div>
+        <div class="pair"><span>5x</span><span>and</span><span>5x&#178;</span><span class="unlike-tag">UNLIKE</span></div>
+        <div class="pair"><span>4x</span><span>and</span><span>7</span><span class="unlike-tag">UNLIKE</span></div>
+        <div class="pair"><span>ab</span><span>and</span><span>a&#178;b</span><span class="unlike-tag">UNLIKE</span></div>
+      </div>
+    </div>
+
+    <div class="trick">
+      <strong>&#128161; The Golden Rule:</strong> Only <strong>like terms</strong> can be added or subtracted!<br>
+      The <em>coefficients</em> can be different — only the <strong>variable parts</strong> need to be identical.
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Find like terms in: 2x + 3y + 5x &#8722; y</div>
+      <p>x-terms: <strong>2x</strong> and <strong>5x</strong> &#8594; LIKE (can be combined)</p>
+      <p>y-terms: <strong>3y</strong> and <strong>&#8722;y</strong> &#8594; LIKE (can be combined)</p>
+      <p>Result: (2x + 5x) + (3y &#8722; y) = <strong>7x + 2y</strong></p>
+    </div>
+
+    <div class="exercise-box">
+      <div class="subtitle">&#9997; Are These Like or Unlike Terms?</div>
+      <div class="q-item">
+        <div class="q-text">Q1. Are 8a and &#8722;3a like or unlike terms? (type "like" or "unlike")</div>
+        <input type="text" id="lu1" placeholder="like/unlike"> <button class="game-btn btn-orange btn-sm" onclick="checkQ('lu1','like','fb_lu1')">Check</button>
+        <span class="q-feedback" id="fb_lu1"></span>
+        <div class="q-answer">Like — both have variable a¹</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q2. Are 4xy and 4x like or unlike terms?</div>
+        <input type="text" id="lu2" placeholder="like/unlike"> <button class="game-btn btn-orange btn-sm" onclick="checkQ('lu2','unlike','fb_lu2')">Check</button>
+        <span class="q-feedback" id="fb_lu2"></span>
+        <div class="q-answer">Unlike — 4xy has variable xy, 4x has variable x. Different!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 6: ADDITION ============================== -->
+<section class="section-block" id="addition">
+  <div class="section-hd g-green">
+    <span class="icon">&#10133;</span>
+    <div>Addition of Algebraic Expressions</div>
+  </div>
+  <div class="section-bd">
+    <p>To add algebraic expressions: <strong>(1)</strong> Write the expressions, <strong>(2)</strong> Group like terms together, <strong>(3)</strong> Add the coefficients of like terms.</p>
+
+    <div class="example-box">
+      <div class="ex-title">Example 1: Add (3x + 2y) and (5x &#8722; y)</div>
+      <p>= (3x + 5x) + (2y &#8722; y)</p>
+      <p>= <strong>8x + y</strong></p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 2: Add (2a + 3b &#8722; 1) and (a &#8722; 2b + 4)</div>
+      <p>= (2a + a) + (3b &#8722; 2b) + (&#8722;1 + 4)</p>
+      <p>= <strong>3a + b + 3</strong></p>
+      <div style="margin-top:14px;font-size:13px;color:#6b7280;font-weight:700">Column method:</div>
+      <div class="col-method">
+        <span class="col-op">+</span>2a + 3b &#8722; 1<br>
+        &nbsp;&nbsp;&nbsp;a &#8722; 2b + 4<br>
+        <div class="col-divider"></div>
+        <span class="col-result">3a + &nbsp;b + 3</span>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 3: Add (4x&#178; + 3x + 2) and (x&#178; &#8722; 5x + 1)</div>
+      <p>= (4x&#178; + x&#178;) + (3x &#8722; 5x) + (2 + 1)</p>
+      <p>= <strong>5x&#178; &#8722; 2x + 3</strong></p>
+    </div>
+
+    <div class="exercise-box">
+      <div class="subtitle">&#9997; Quick Practice</div>
+      <div class="q-item">
+        <div class="q-text">Q1. Add (4x + 3) and (2x &#8722; 1). Answer: ___x + ___</div>
+        <input type="text" id="add1" placeholder="?x + ?"> <button class="game-btn btn-green btn-sm" onclick="checkQ('add1','6x+2','fb_add1')">Check</button>
+        <span class="q-feedback" id="fb_add1"></span>
+        <div class="q-answer">Answer: 6x + 2 &nbsp;[4x+2x=6x; 3+(&#8722;1)=2]</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q2. Add (3a + 2b) and (a + 4b). Answer: ___a + ___b</div>
+        <input type="text" id="add2" placeholder="?a + ?b"> <button class="game-btn btn-green btn-sm" onclick="checkQ('add2','4a+6b','fb_add2')">Check</button>
+        <span class="q-feedback" id="fb_add2"></span>
+        <div class="q-answer">Answer: 4a + 6b</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q3. Add (5p &#8722; 3q + 2) and (&#8722;2p + q &#8722; 5). Answer: ___p + ___q + ___</div>
+        <input type="text" id="add3" placeholder="?p+?q+?"> <button class="game-btn btn-green btn-sm" onclick="checkQ('add3','3p-2q-3','fb_add3')">Check</button>
+        <span class="q-feedback" id="fb_add3"></span>
+        <div class="q-answer">Answer: 3p &#8722; 2q &#8722; 3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 7: SUBTRACTION ============================== -->
+<section class="section-block" id="subtraction">
+  <div class="section-hd g-rose">
+    <span class="icon">&#10134;</span>
+    <div>Subtraction of Algebraic Expressions</div>
+  </div>
+  <div class="section-bd">
+    <p>When subtracting expressions, <strong>change the sign of EVERY term</strong> in the expression being subtracted, then add.</p>
+
+    <div class="example-box">
+      <div class="ex-title">Example 1: (5x + 3y) &#8722; (2x + y)</div>
+      <p>= 5x + 3y &#8722; 2x &#8722; y &nbsp;&nbsp;<span style="font-size:12px;color:#6b7280">(change sign of 2x → &#8722;2x and y → &#8722;y)</span></p>
+      <p>= (5x &#8722; 2x) + (3y &#8722; y)</p>
+      <p>= <strong>3x + 2y</strong></p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 2: (4a &#8722; 2b + 1) &#8722; (a + 3b &#8722; 4)</div>
+      <p>= 4a &#8722; 2b + 1 &#8722; a &#8722; 3b + 4 &nbsp;&nbsp;<span style="font-size:12px;color:#6b7280">(all signs of 2nd expression flipped)</span></p>
+      <p>= (4a &#8722; a) + (&#8722;2b &#8722; 3b) + (1 + 4)</p>
+      <p>= <strong>3a &#8722; 5b + 5</strong></p>
+      <div style="margin-top:14px;font-size:13px;color:#6b7280;font-weight:700">Column method:</div>
+      <div class="col-method">
+        <span class="col-op">&#8722;</span>4a &#8722; 2b + 1<br>
+        &nbsp;&nbsp;&nbsp;a + 3b &#8722; 4<br>
+        <div class="col-divider"></div>
+        <span class="col-result">3a &#8722; 5b + 5</span>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <strong>&#9888; Most Common Mistake!</strong><br>
+      <strong>Wrong:</strong> &nbsp;(5x + 3) &#8722; (2x &#8722; 1) = 5x + 3 &#8722; 2x &#8722; 1 = 3x + 2 &nbsp;&#10007;<br>
+      <strong>Correct:</strong> (5x + 3) &#8722; (2x &#8722; 1) = 5x + 3 &#8722; 2x + 1 = <strong>3x + 4</strong> &nbsp;&#10003;<br>
+      <span style="font-size:13px">The &#8722;1 inside the bracket becomes <strong>+1</strong> because the subtraction flips its sign!</span>
+    </div>
+
+    <div class="exercise-box">
+      <div class="subtitle">&#9997; Quick Practice</div>
+      <div class="q-item">
+        <div class="q-text">Q1. Subtract (3x + 1) from (7x + 5).</div>
+        <input type="text" id="sub1" placeholder="?x + ?"> <button class="game-btn btn-pink btn-sm" onclick="checkQ('sub1','4x+4','fb_sub1')">Check</button>
+        <span class="q-feedback" id="fb_sub1"></span>
+        <div class="q-answer">Answer: (7x+5) &#8722; (3x+1) = 7x+5&#8722;3x&#8722;1 = 4x + 4</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q2. Subtract (2a &#8722; b) from (5a + 3b).</div>
+        <input type="text" id="sub2" placeholder="?a + ?b"> <button class="game-btn btn-pink btn-sm" onclick="checkQ('sub2','3a+4b','fb_sub2')">Check</button>
+        <span class="q-feedback" id="fb_sub2"></span>
+        <div class="q-answer">Answer: (5a+3b)&#8722;(2a&#8722;b) = 5a+3b&#8722;2a+b = 3a + 4b</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 8: SUBSTITUTION ============================== -->
+<section class="section-block" id="substitution">
+  <div class="section-hd g-indigo">
+    <span class="icon">&#128260;</span>
+    <div>Finding the Value — Substitution</div>
+  </div>
+  <div class="section-bd">
+    <p>To find the <span class="kt">value</span> of an expression, we <strong>substitute</strong> (replace) the variable with a given number, then calculate.</p>
+
+    <div class="example-box">
+      <div class="ex-title">Example 1: Find value of 3x + 5 when x = 4</div>
+      <p>= 3(4) + 5 = 12 + 5 = <strong>17</strong></p>
+    </div>
+    <div class="example-box">
+      <div class="ex-title">Example 2: Find value of 2a &#8722; b when a = 3, b = 7</div>
+      <p>= 2(3) &#8722; 7 = 6 &#8722; 7 = <strong>&#8722;1</strong></p>
+    </div>
+    <div class="example-box">
+      <div class="ex-title">Example 3: Find value of n&#178; + 2n &#8722; 1 when n = 3</div>
+      <p>= (3)&#178; + 2(3) &#8722; 1 = 9 + 6 &#8722; 1 = <strong>14</strong></p>
+    </div>
+    <div class="example-box">
+      <div class="ex-title">Example 4: Find value of p + q + pq when p = 2, q = 5</div>
+      <p>= 2 + 5 + (2)(5) = 2 + 5 + 10 = <strong>17</strong></p>
+    </div>
+
+    <div class="subst-calc">
+      <div class="subst-expr">4x + 3</div>
+      <div class="subst-input-row">
+        <span class="subst-label">Enter x =</span>
+        <input class="subst-input" type="number" id="substX" placeholder="?" oninput="calcSubst()">
+      </div>
+      <div class="subst-result" id="substResult">Result = ?</div>
+    </div>
+
+    <div class="subtitle">&#128203; Pattern: Expression Values</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Expression</th><th>x = 1</th><th>x = 2</th><th>x = 3</th><th>Pattern</th></tr>
+        <tr><td><strong>2x + 1</strong></td><td>3</td><td>5</td><td>7</td><td>Odd numbers!</td></tr>
+        <tr><td><strong>x&#178;</strong></td><td>1</td><td>4</td><td>9</td><td>Perfect squares!</td></tr>
+        <tr><td><strong>3x &#8722; 1</strong></td><td>2</td><td>5</td><td>8</td><td>Add 3 each time</td></tr>
+        <tr><td><strong>x(x + 1)</strong></td><td>2</td><td>6</td><td>12</td><td>Rectangular numbers!</td></tr>
+      </table>
+    </div>
+
+    <div class="trick">
+      <strong>&#128161; Remember:</strong> Order of operations (BODMAS) still applies after substitution — solve brackets first, then powers, then &#215; and &#247;, then + and &#8722;.
+    </div>
+
+    <div class="exercise-box">
+      <div class="subtitle">&#9997; Quick Practice</div>
+      <div class="q-item">
+        <div class="q-text">Q1. Find value of 5x &#8722; 3 when x = 4.</div>
+        <input type="text" id="sv1" placeholder="?"> <button class="game-btn btn-orange btn-sm" onclick="checkQ('sv1','17','fb_sv1')">Check</button>
+        <span class="q-feedback" id="fb_sv1"></span>
+        <div class="q-answer">5(4) &#8722; 3 = 20 &#8722; 3 = 17</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q2. Find value of a&#178; + 2a when a = 5.</div>
+        <input type="text" id="sv2" placeholder="?"> <button class="game-btn btn-orange btn-sm" onclick="checkQ('sv2','35','fb_sv2')">Check</button>
+        <span class="q-feedback" id="fb_sv2"></span>
+        <div class="q-answer">25 + 10 = 35</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q3. Find value of 3p + 2q when p = 2, q = 3.</div>
+        <input type="text" id="sv3" placeholder="?"> <button class="game-btn btn-orange btn-sm" onclick="checkQ('sv3','12','fb_sv3')">Check</button>
+        <span class="q-feedback" id="fb_sv3"></span>
+        <div class="q-answer">3(2) + 2(3) = 6 + 6 = 12</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 9: PATTERNS ============================== -->
+<section class="section-block" id="patterns">
+  <div class="section-hd g-sky">
+    <span class="icon">&#127744;</span>
+    <div>Patterns with Letter-Numbers</div>
+  </div>
+  <div class="section-bd">
+    <p>One of the most powerful uses of letter-numbers is describing <span class="kt">patterns</span> with a single formula!</p>
+
+    <div class="subtitle">&#129718; Matchstick Patterns</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Triangles (n)</th><th>Matchsticks used</th><th>Pattern</th></tr>
+        <tr><td style="text-align:center">1</td><td style="text-align:center">3</td><td>2(1) + 1</td></tr>
+        <tr><td style="text-align:center">2</td><td style="text-align:center">5</td><td>2(2) + 1</td></tr>
+        <tr><td style="text-align:center">3</td><td style="text-align:center">7</td><td>2(3) + 1</td></tr>
+        <tr><td style="text-align:center">4</td><td style="text-align:center">9</td><td>2(4) + 1</td></tr>
+        <tr><td style="text-align:center"><strong>n</strong></td><td style="text-align:center"><strong>2n + 1</strong></td><td>General formula!</td></tr>
+      </table>
+    </div>
+
+    <div class="anim-box">
+      <h3>&#129718; Matchstick Triangle Builder</h3>
+      <div class="anim-stage" id="matchStage" style="min-height:80px;justify-content:flex-start;padding:14px 20px;overflow-x:auto">
+        <div id="matchDisplay" style="font-family:'Fredoka One',cursive;font-size:20px;color:#92400e">Click below to build triangles</div>
+      </div>
+      <div style="font-family:'Fredoka One',cursive;color:#d97706;font-size:16px;margin-top:6px" id="matchFormula"></div>
+      <div class="anim-controls">
+        <button class="game-btn btn-orange btn-sm" onclick="buildMatch(1)">1 &#9651;</button>
+        <button class="game-btn btn-orange btn-sm" onclick="buildMatch(2)">2 &#9651;&#9651;</button>
+        <button class="game-btn btn-orange btn-sm" onclick="buildMatch(3)">3 &#9651;&#9651;&#9651;</button>
+        <button class="game-btn btn-purple btn-sm" onclick="buildMatch(5)">5 triangles</button>
+        <button class="game-btn btn-green btn-sm" onclick="buildMatch(10)">10 triangles</button>
+      </div>
+    </div>
+
+    <div class="subtitle">&#128290; Number Patterns</div>
+    <div class="info-grid">
+      <div class="info-card ic-orange">
+        <h4>1, 4, 7, 10… (add 3)</h4>
+        <p>nth term = <strong>3n &#8722; 2</strong></p>
+        <p style="font-size:12px;margin-top:4px">n=1: 1, n=2: 4, n=3: 7 &#10003;</p>
+      </div>
+      <div class="info-card ic-purple">
+        <h4>2, 4, 6, 8… (even)</h4>
+        <p>nth term = <strong>2n</strong></p>
+        <p style="font-size:12px;margin-top:4px">n=1: 2, n=2: 4, n=3: 6 &#10003;</p>
+      </div>
+      <div class="info-card ic-blue">
+        <h4>1, 4, 9, 16… (squares)</h4>
+        <p>nth term = <strong>n&#178;</strong></p>
+        <p style="font-size:12px;margin-top:4px">n=1: 1, n=2: 4, n=3: 9 &#10003;</p>
+      </div>
+      <div class="info-card ic-green">
+        <h4>1, 3, 5, 7… (odd)</h4>
+        <p>nth term = <strong>2n &#8722; 1</strong></p>
+        <p style="font-size:12px;margin-top:4px">n=1: 1, n=2: 3, n=3: 5 &#10003;</p>
+      </div>
+    </div>
+
+    <div class="fun-fact">
+      <strong>&#127807; Fun in Nature:</strong> The Fibonacci sequence 1, 1, 2, 3, 5, 8, 13… appears in sunflower seeds, pinecones, and nautilus shells! Can you write a rule for it? (Hint: each term = sum of previous two!)
+    </div>
+
+    <div class="exercise-box">
+      <div class="subtitle">&#9997; Quick Practice</div>
+      <div class="q-item">
+        <div class="q-text">Q1. Using the formula for triangles: how many matchsticks for 8 triangles?</div>
+        <input type="text" id="pat1" placeholder="?"> <button class="game-btn btn-orange btn-sm" onclick="checkQ('pat1','17','fb_pat1')">Check</button>
+        <span class="q-feedback" id="fb_pat1"></span>
+        <div class="q-answer">2(8) + 1 = 16 + 1 = 17 matchsticks</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q2. For the pattern 3, 6, 9, 12… the nth term is ___n.</div>
+        <input type="text" id="pat2" placeholder="?n"> <button class="game-btn btn-orange btn-sm" onclick="checkQ('pat2','3n','fb_pat2')">Check</button>
+        <span class="q-feedback" id="fb_pat2"></span>
+        <div class="q-answer">3n (multiply n by 3)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 10: FORMULAS ============================== -->
+<section class="section-block" id="formulas">
+  <div class="section-hd g-emerald">
+    <span class="icon">&#128208;</span>
+    <div>Formulas using Letter-Numbers</div>
+  </div>
+  <div class="section-bd">
+    <p><span class="kt">Formulas</span> are expressions that describe relationships between real quantities. Variables in formulas stand for measurable things.</p>
+
+    <div class="info-grid">
+      <div class="info-card ic-orange">
+        <h4>&#9634; Square</h4>
+        <p>Perimeter = <strong>4s</strong></p>
+        <p>Area = <strong>s&#178;</strong></p>
+        <p style="font-size:12px;margin-top:4px">s = side length</p>
+      </div>
+      <div class="info-card ic-blue">
+        <h4>&#9645; Rectangle</h4>
+        <p>Perimeter = <strong>2(l + b)</strong></p>
+        <p>Area = <strong>lb</strong></p>
+        <p style="font-size:12px;margin-top:4px">l = length, b = breadth</p>
+      </div>
+      <div class="info-card ic-purple">
+        <h4>&#9651; Triangle</h4>
+        <p>Perimeter = <strong>a + b + c</strong></p>
+        <p style="font-size:12px;margin-top:4px">a, b, c = three sides</p>
+      </div>
+      <div class="info-card ic-green">
+        <h4>&#128663; Speed</h4>
+        <p>Distance = <strong>S &#215; T</strong></p>
+        <p>Simple Interest = <strong>PRT/100</strong></p>
+        <p style="font-size:12px;margin-top:4px">P=principal, R=rate, T=time</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 1: Perimeter of rectangle (l = 6.5 cm, b = 4.2 cm)</div>
+      <p>P = 2(l + b) = 2(6.5 + 4.2) = 2 &#215; 10.7 = <strong>21.4 cm</strong></p>
+    </div>
+    <div class="example-box">
+      <div class="ex-title">Example 2: Area of square (s = 7 cm)</div>
+      <p>A = s&#178; = 7&#178; = <strong>49 cm&#178;</strong></p>
+    </div>
+    <div class="example-box">
+      <div class="ex-title">Example 3: Distance = 60t. Find D when t = 3.5 hours.</div>
+      <p>D = 60 &#215; 3.5 = <strong>210 km</strong></p>
+    </div>
+    <div class="example-box">
+      <div class="ex-title">Example 4: Simple Interest when P = ₹5000, R = 8%, T = 3 years</div>
+      <p>SI = PRT/100 = (5000 &#215; 8 &#215; 3)/100 = 120000/100 = <strong>₹1200</strong></p>
+    </div>
+
+    <div class="note-box">
+      <strong>Note:</strong> Variables in formulas represent real quantities. Always include the <strong>units</strong> (cm, m, km, ₹, etc.) in your final answer!
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 11: PRACTICE ============================== -->
+<section class="section-block" id="practice">
+  <div class="section-hd g-violet">
+    <span class="icon">&#9997;</span>
+    <div>Practice: MCQs &amp; Mixed Questions</div>
+  </div>
+  <div class="section-bd">
+    <div class="subtitle">&#128221; Multiple Choice Questions</div>
+
+    <div class="mcq-item" data-ans="b">
+      <div class="mcq-q">Q1. Which of the following is a variable?</div>
+      <ul class="mcq-options">
+        <li data-opt="a">7</li>
+        <li data-opt="b">x</li>
+        <li data-opt="c">3 + 2</li>
+        <li data-opt="d">100</li>
+      </ul>
+      <div class="q-answer">x is a variable — it can take any value. 7, 3+2, and 100 are all constants.</div>
+    </div>
+
+    <div class="mcq-item" data-ans="a">
+      <div class="mcq-q">Q2. The coefficient of y in the expression 9y &#8722; 5 is:</div>
+      <ul class="mcq-options">
+        <li data-opt="a">9</li>
+        <li data-opt="b">&#8722;5</li>
+        <li data-opt="c">y</li>
+        <li data-opt="d">5</li>
+      </ul>
+      <div class="q-answer">The coefficient of y is the number multiplied with y, which is 9.</div>
+    </div>
+
+    <div class="mcq-item" data-ans="b">
+      <div class="mcq-q">Q3. 3x and 5x&#178; are:</div>
+      <ul class="mcq-options">
+        <li data-opt="a">Like terms</li>
+        <li data-opt="b">Unlike terms</li>
+        <li data-opt="c">Constants</li>
+        <li data-opt="d">Equal terms</li>
+      </ul>
+      <div class="q-answer">Unlike — 3x has power 1, 5x&#178; has power 2. Different powers → unlike terms.</div>
+    </div>
+
+    <div class="mcq-item" data-ans="a">
+      <div class="mcq-q">Q4. The value of 2a + 3b when a = 4, b = 2 is:</div>
+      <ul class="mcq-options">
+        <li data-opt="a">14</li>
+        <li data-opt="b">12</li>
+        <li data-opt="c">10</li>
+        <li data-opt="d">18</li>
+      </ul>
+      <div class="q-answer">2(4) + 3(2) = 8 + 6 = 14</div>
+    </div>
+
+    <div class="mcq-item" data-ans="a">
+      <div class="mcq-q">Q5. Add (4x + 2y) and (3x &#8722; y). The result is:</div>
+      <ul class="mcq-options">
+        <li data-opt="a">7x + y</li>
+        <li data-opt="b">7x + 3y</li>
+        <li data-opt="c">7x &#8722; y</li>
+        <li data-opt="d">x + 3y</li>
+      </ul>
+      <div class="q-answer">(4x+3x) + (2y&#8722;y) = 7x + y</div>
+    </div>
+
+    <div class="mcq-item" data-ans="b">
+      <div class="mcq-q">Q6. Subtract (2x &#8722; 1) from (5x + 3). The result is:</div>
+      <ul class="mcq-options">
+        <li data-opt="a">3x + 2</li>
+        <li data-opt="b">3x + 4</li>
+        <li data-opt="c">7x + 2</li>
+        <li data-opt="d">3x &#8722; 2</li>
+      </ul>
+      <div class="q-answer">(5x+3) &#8722; (2x&#8722;1) = 5x+3&#8722;2x+1 = 3x + 4. Note: &#8722;(&#8722;1) = +1!</div>
+    </div>
+
+    <div class="mcq-item" data-ans="c">
+      <div class="mcq-q">Q7. In the expression 3x&#178; &#8722; 7x + 4, the constant term is:</div>
+      <ul class="mcq-options">
+        <li data-opt="a">3</li>
+        <li data-opt="b">7</li>
+        <li data-opt="c">4</li>
+        <li data-opt="d">&#8722;7</li>
+      </ul>
+      <div class="q-answer">The constant term has no variable — it is 4.</div>
+    </div>
+
+    <div class="mcq-item" data-ans="c">
+      <div class="mcq-q">Q8. Which expression represents "8 less than 3 times a number n"?</div>
+      <ul class="mcq-options">
+        <li data-opt="a">3 &#8722; 8n</li>
+        <li data-opt="b">8 &#8722; 3n</li>
+        <li data-opt="c">3n &#8722; 8</li>
+        <li data-opt="d">3n + 8</li>
+      </ul>
+      <div class="q-answer">3 times n = 3n. "8 less than 3n" means 3n &#8722; 8.</div>
+    </div>
+
+    <div class="subtitle" style="margin-top:28px">&#128290; Fill in the Blanks</div>
+
+    <div class="q-item">
+      <div class="q-text">Q9. The expression for perimeter of a square with side s is ___</div>
+      <input type="text" id="fib1" placeholder="?s"> <button class="game-btn btn-orange btn-sm" onclick="checkQ('fib1','4s','fb_fib1')">Check</button>
+      <span class="q-feedback" id="fb_fib1"></span>
+      <div class="q-answer">4s (perimeter = 4 &#215; side)</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-text">Q10. 5x + 3x = ___</div>
+      <input type="text" id="fib2" placeholder="?x"> <button class="game-btn btn-orange btn-sm" onclick="checkQ('fib2','8x','fb_fib2')">Check</button>
+      <span class="q-feedback" id="fb_fib2"></span>
+      <div class="q-answer">8x (add coefficients: 5+3=8)</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-text">Q11. If a = 5, then 2a&#178; &#8722; 3a + 1 = ___</div>
+      <input type="text" id="fib3" placeholder="?"> <button class="game-btn btn-orange btn-sm" onclick="checkQ('fib3','36','fb_fib3')">Check</button>
+      <span class="q-feedback" id="fb_fib3"></span>
+      <div class="q-answer">2(25) &#8722; 15 + 1 = 50 &#8722; 15 + 1 = 36</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-text">Q12. 7ab &#8722; 3ab = ___</div>
+      <input type="text" id="fib4" placeholder="?ab"> <button class="game-btn btn-orange btn-sm" onclick="checkQ('fib4','4ab','fb_fib4')">Check</button>
+      <span class="q-feedback" id="fb_fib4"></span>
+      <div class="q-answer">4ab (7&#8722;3=4, same variable ab)</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-text">Q13. Number of matchsticks for n triangles (in a row sharing sides) = ___</div>
+      <input type="text" id="fib5" placeholder="?n+?"> <button class="game-btn btn-orange btn-sm" onclick="checkQ('fib5','2n+1','fb_fib5')">Check</button>
+      <span class="q-feedback" id="fb_fib5"></span>
+      <div class="q-answer">2n + 1</div>
+    </div>
+
+    <div style="text-align:center;margin-top:20px">
+      <button class="game-btn btn-orange" onclick="showAllAnswers()">&#128065; Show All Answers</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FLOATING SHARE BUTTON ===== -->
+<div class="fab-share" onclick="openShare()">&#128279;</div>
+
+<!-- ===== SHARE OVERLAY ===== -->
+<div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeShare()">
+  <div class="share-box">
+    <h3>Share These Notes</h3>
+    <button class="share-opt copy" onclick="copyLink()">Copy Link</button>
+    <button class="share-opt native" onclick="nativeShare()">Share...</button>
+    <button class="share-close" onclick="closeShare()">Close</button>
+    <div class="copy-feedback" id="copyFeedback">Link Copied!</div>
+  </div>
+</div>
+
+<script>
+// ===== HERO: Algebra rain =====
+(function() {
+  var container = document.getElementById('algRain');
+  var samples = ['2x+3','a+b','5y','3n','x&#178;','n+10','4p-2','xy','7a','m-5'];
+  for (var i = 0; i < 18; i++) {
+    var el = document.createElement('div');
+    el.className = 'rain-alg';
+    el.innerHTML = samples[i % samples.length];
+    el.style.left = (Math.random() * 100) + '%';
+    el.style.animationDuration = (4 + Math.random() * 6) + 's';
+    el.style.animationDelay = (Math.random() * 5) + 's';
+    el.style.fontSize = (14 + Math.random() * 14) + 'px';
+    container.appendChild(el);
+  }
+})();
+
+// ===== HERO: Cycling expressions =====
+var heroExprs = [
+  { val: '2x + 3', label: 'A binomial expression' },
+  { val: 'a + b', label: 'Sum of two variables' },
+  { val: '5y &#8722; 1', label: 'Variable term minus constant' },
+  { val: '3n&#178;', label: 'A monomial (n squared)' },
+  { val: 'n + 10', label: 'Number increased by 10' },
+  { val: '4p &#8722; 2q', label: 'Expression with two variables' },
+];
+var heroIdx = 0;
+setInterval(function() {
+  heroIdx = (heroIdx + 1) % heroExprs.length;
+  document.getElementById('heroExprDisplay').innerHTML = heroExprs[heroIdx].val;
+  document.getElementById('heroExprLabel').textContent = heroExprs[heroIdx].label;
+}, 2200);
+
+// ===== GENERAL CHECK =====
+function checkQ(inputId, correct, fbId) {
+  var val = document.getElementById(inputId).value.trim().replace(/\s+/g,'');
+  var fb = document.getElementById(fbId);
+  var ok = val === correct.replace(/\s+/g,'');
+  if (ok) {
+    fb.textContent = '✓ Correct!';
+    fb.className = 'q-feedback correct';
+  } else {
+    fb.textContent = '✗ Try again';
+    fb.className = 'q-feedback wrong';
+  }
+}
+
+// ===== TERM ANATOMY =====
+function showTerm(term, coeff, variable, factors) {
+  var box = document.getElementById('termInfoBox');
+  box.innerHTML = '&#128290; <strong>' + term + '</strong> &nbsp;|&nbsp; Coefficient: <span style="color:#fbbf24;font-weight:800">' + coeff + '</span> &nbsp;|&nbsp; Variable: <span style="color:#fb923c;font-weight:800">' + variable + '</span> &nbsp;|&nbsp; Factors: <span style="color:#86efac;font-weight:800">' + factors + '</span>';
+}
+
+// ===== SUBSTITUTION CALCULATOR =====
+function calcSubst() {
+  var x = parseFloat(document.getElementById('substX').value);
+  var result = document.getElementById('substResult');
+  if (isNaN(x)) {
+    result.textContent = 'Result = ?';
+    return;
+  }
+  var val = 4 * x + 3;
+  result.textContent = '4(' + x + ') + 3 = ' + (4*x) + ' + 3 = ' + val;
+}
+
+// ===== MATCHSTICK ANIMATION =====
+function buildMatch(n) {
+  var stage = document.getElementById('matchDisplay');
+  var formula = document.getElementById('matchFormula');
+  var sticks = 2 * n + 1;
+  var html = '';
+  for (var i = 0; i < n; i++) {
+    html += '<span style="display:inline-block;margin:0 2px">&#9651;</span>';
+    if (n <= 5) html += '<span style="font-size:11px;color:#92400e;vertical-align:super">' + (i+1) + '</span>';
+  }
+  stage.innerHTML = '<span style="font-family:\'Fredoka One\',cursive;font-size:28px;color:#92400e;margin-right:12px">' + html + '</span>';
+  formula.textContent = 'n = ' + n + '  →  2(' + n + ') + 1 = ' + sticks + ' matchsticks';
+}
+
+// ===== MCQ Handler =====
+document.querySelectorAll('.mcq-item').forEach(function(item) {
+  var correctAns = item.getAttribute('data-ans');
+  item.querySelectorAll('.mcq-options li').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      if (item.classList.contains('show-ans')) return;
+      var chosen = opt.getAttribute('data-opt');
+      if (chosen === correctAns) {
+        opt.classList.add('correct');
+      } else {
+        opt.classList.add('wrong-pick');
+        item.querySelector('[data-opt="' + correctAns + '"]').classList.add('correct');
+      }
+      item.classList.add('show-ans');
+    });
+  });
+});
+
+// ===== SHOW ALL ANSWERS =====
+function showAllAnswers() {
+  document.querySelectorAll('.mcq-item, .q-item').forEach(function(item) {
+    item.classList.add('show-ans');
+  });
+  document.querySelectorAll('.mcq-item').forEach(function(item) {
+    var correctAns = item.getAttribute('data-ans');
+    if (correctAns) {
+      var correctOpt = item.querySelector('[data-opt="' + correctAns + '"]');
+      if (correctOpt) correctOpt.classList.add('correct');
+    }
+  });
+}
+
+// ===== DARK MODE =====
+function toggleDark() {
+  var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  if (isDark) {
+    document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('pkc-dark-mode', 'false');
+    document.getElementById('darkBtn').textContent = '🌙 Dark';
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('pkc-dark-mode', 'true');
+    document.getElementById('darkBtn').textContent = '☀️ Light';
+  }
+}
+
+// ===== SHARE =====
+function openShare() {
+  document.getElementById('shareOverlay').classList.add('active');
+}
+function closeShare() {
+  document.getElementById('shareOverlay').classList.remove('active');
+}
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    var fb = document.getElementById('copyFeedback');
+    fb.style.display = 'block';
+    setTimeout(function() { fb.style.display = 'none'; }, 2000);
+  });
+}
+function nativeShare() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Expressions using Letter-Numbers — Class 7 Maths',
+      text: 'Interactive notes by Preeti Kushwah Classes',
+      url: window.location.href
+    });
+  } else {
+    copyLink();
+  }
+}
+</script>
+
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+</body>
+</html>

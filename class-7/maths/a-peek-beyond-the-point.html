@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 7 Maths Ch 3: A Peek Beyond the Point — decimals, place value, comparing, addition, subtraction, multiplication. Interactive NCERT notes.">
+<meta name="keywords" content="Preeti Kushwah Classes, NCERT notes, CBSE notes, free study material, Class 7 notes, Class 7 NCERT, class 7 study material, Mathematics notes, Class 7 Mathematics, Decimals, A Peek Beyond the Point, decimal numbers, place value, tenths hundredths">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-7/maths/a-peek-beyond-the-point.html">
+<meta property="og:title" content="Ch 3: A Peek Beyond the Point — Class 7 Maths Notes">
+<meta property="og:description" content="Interactive NCERT notes for Class 7 Maths — decimals, place value, comparing, operations with animations.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preetikushwahclasses.com/class-7/maths/a-peek-beyond-the-point.html">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Ch 3: A Peek Beyond the Point — Class 7 Maths | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple-darkest: #3b0764;
+  --purple-dark: #5b21b6;
+  --purple-mid: #7c3aed;
+  --purple-light: #a78bfa;
+  --purple-pale: #ede9fe;
+  --purple-bg: #faf5ff;
+  --pink: #ec4899;
+  --pink-pale: #fdf2f8;
+  --orange: #f97316;
+  --orange-pale: #fff7ed;
+  --yellow: #fbbf24;
+  --yellow-pale: #fefce8;
+  --green: #16a34a;
+  --green-pale: #f0fdf4;
+  --blue: #3b82f6;
+  --blue-pale: #eff6ff;
+  --red: #ef4444;
+  --red-pale: #fef2f2;
+  --teal: #14b8a6;
+  --teal-pale: #f0fdfa;
+  --bg: linear-gradient(180deg, #faf5ff 0%, #fff7ed 100%);
+  --text: #1e1b4b;
+  --card: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #faf5ff;
+  background-image: linear-gradient(180deg, #faf5ff 0%, #ecfdf5 50%, #faf5ff 100%);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ============= TOP NAV ============= */
+.top-nav {
+  background: white;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 110;
+}
+.nav-link {
+  display: inline-block;
+  background: var(--purple-pale);
+  color: var(--purple-dark);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1.5px solid #c4b5fd;
+  transition: all 0.2s;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+}
+.nav-link:hover { background: #ddd6fe; transform: translateY(-1px); }
+.nav-spacer { flex: 1; }
+.share-btn { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+.share-btn:hover { background: #dbeafe; }
+
+/* ============= NAV TOC ============= */
+.toc-bar {
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  padding: 12px 16px;
+  position: sticky;
+  top: 44px;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(20,184,166,0.3);
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.toc-bar a {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-right: 6px;
+  transition: all 0.2s;
+}
+.toc-bar a:hover {
+  background: rgba(255,255,255,0.35);
+  transform: translateY(-2px);
+}
+
+/* ============= HERO ============= */
+.hero {
+  background: linear-gradient(180deg, #0f766e 0%, #14b8a6 30%, #5eead4 60%, #fde68a 85%, #fff7ed 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  padding-bottom: 30px;
+}
+.hero-star {
+  position: absolute;
+  color: rgba(255,255,255,0.6);
+  animation: twinkle 2s ease-in-out infinite;
+}
+@keyframes twinkle { 0%,100%{opacity:0.3;transform:scale(0.8)} 50%{opacity:1;transform:scale(1.2)} }
+
+.hero-content { position: relative; z-index: 10; text-align: center; padding: 36px 16px 0; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.3);
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: 30px;
+  padding: 5px 18px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(28px, 6vw, 54px);
+  color: white;
+  text-shadow: 0 3px 12px rgba(15,118,110,0.4);
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+.hero p { color: white; font-size: 15px; font-weight: 700; opacity: 0.9; margin-bottom: 16px; }
+
+/* Decimal rain */
+.dec-rain {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.rain-dec {
+  position: absolute;
+  font-family: 'Fredoka One', cursive;
+  color: rgba(255,255,255,0.15);
+  font-size: 20px;
+  animation: decFall linear infinite;
+}
+@keyframes decFall {
+  0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(500px) rotate(20deg); opacity: 0; }
+}
+
+/* Hero decimal display */
+.hero-dec-box {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px 28px;
+  display: inline-block;
+  margin: 20px auto;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.hero-dec-display {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(28px, 7vw, 56px);
+  color: #fde047;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  letter-spacing: 4px;
+}
+.hero-dec-label {
+  font-size: 14px;
+  color: white;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+/* ============= CONTAINER ============= */
+.container { max-width: 1000px; margin: 0 auto; padding: 36px 16px 60px; }
+
+/* ============= SECTION BLOCKS ============= */
+.section-block {
+  background: white;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  margin-bottom: 36px;
+  overflow: hidden;
+  scroll-margin-top: 100px;
+}
+.section-hd {
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: white;
+  font-family: 'Fredoka One', cursive;
+  font-size: 24px;
+  line-height: 1.2;
+}
+.section-hd .icon { font-size: 32px; }
+.section-bd { padding: 28px; }
+.section-bd > p { margin-bottom: 14px; }
+
+.g-teal   { background: linear-gradient(135deg, #134e4a, #2dd4bf); }
+.g-purple { background: linear-gradient(135deg, #5b21b6, #a78bfa); }
+.g-pink   { background: linear-gradient(135deg, #9d174d, #ec4899); }
+.g-orange { background: linear-gradient(135deg, #9a3412, #fb923c); }
+.g-blue   { background: linear-gradient(135deg, #1e40af, #38bdf8); }
+.g-green  { background: linear-gradient(135deg, #166534, #22c55e); }
+.g-rose   { background: linear-gradient(135deg, #881337, #fb7185); }
+.g-amber  { background: linear-gradient(135deg, #78350f, #fbbf24); }
+.g-indigo { background: linear-gradient(135deg, #312e81, #818cf8); }
+.g-sky    { background: linear-gradient(135deg, #0c4a6e, #38bdf8); }
+.g-emerald{ background: linear-gradient(135deg, #064e3b, #34d399); }
+.g-violet { background: linear-gradient(135deg, #4c1d95, #c4b5fd); }
+
+.subtitle {
+  font-family: 'Fredoka One', cursive;
+  color: var(--purple-dark);
+  font-size: 20px;
+  margin: 22px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============= KEY TERM PILL ============= */
+.kt {
+  display: inline-block;
+  background: #fde047;
+  color: #713f12;
+  border-radius: 7px;
+  padding: 1px 9px;
+  font-weight: 800;
+  font-size: 13px;
+  margin: 0 2px;
+}
+.kt-teal {
+  background: #ccfbf1;
+  color: #134e4a;
+}
+.kt-blue {
+  background: #dbeafe;
+  color: #1e3a5f;
+}
+
+/* ============= INFO CARDS GRID ============= */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.info-card {
+  border-radius: 14px;
+  padding: 16px 18px;
+  font-size: 14px;
+}
+.info-card h4 { font-weight: 800; margin-bottom: 6px; font-size: 15px; }
+.info-card ul { padding-left: 18px; margin-top: 4px; }
+.info-card li { margin-bottom: 3px; }
+.ic-purple { background: #faf5ff; border-left: 5px solid #a78bfa; }
+.ic-pink   { background: #fdf2f8; border-left: 5px solid #ec4899; }
+.ic-orange { background: #fff7ed; border-left: 5px solid #fb923c; }
+.ic-green  { background: #f0fdf4; border-left: 5px solid #22c55e; }
+.ic-blue   { background: #eff6ff; border-left: 5px solid #3b82f6; }
+.ic-yellow { background: #fefce8; border-left: 5px solid #facc15; }
+.ic-red    { background: #fef2f2; border-left: 5px solid #f87171; }
+.ic-teal   { background: #f0fdfa; border-left: 5px solid #14b8a6; }
+
+/* ============= TABLES ============= */
+.table-wrap { overflow-x: auto; margin: 14px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 400px; }
+th { background: linear-gradient(135deg, #0f766e, #14b8a6); color: white; padding: 12px 14px; text-align: left; font-weight: 800; font-size: 13px; }
+td { padding: 11px 14px; border-bottom: 1px solid #ccfbf1; font-size: 13.5px; }
+tr:nth-child(even) td { background: #f0fdfa; }
+
+/* ============= TRICK / NOTE / EXAMPLE ============= */
+.trick {
+  background: linear-gradient(135deg, #fef9c3, #fde68a);
+  border: 2px solid #f59e0b;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.trick strong { color: #78350f; }
+
+.note-box {
+  background: #eff6ff;
+  border-left: 5px solid #3b82f6;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 14px 0;
+  font-size: 14px;
+}
+
+.example-box {
+  background: linear-gradient(135deg, #f0fdfa, #ccfbf1);
+  border: 2px solid #5eead4;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.example-box strong { color: #134e4a; }
+.example-box .ex-title {
+  font-family: 'Fredoka One', cursive;
+  color: #134e4a;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.fun-fact {
+  background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+  border: 2px solid #f9a8d4;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.fun-fact strong { color: #9d174d; }
+
+.warning-box {
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+  border: 2px solid #fca5a5;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.warning-box strong { color: #991b1b; }
+
+/* ============= PLACE VALUE DISPLAY ============= */
+.pv-table-wrap {
+  overflow-x: auto;
+  margin: 16px 0;
+}
+.pv-table {
+  border-collapse: collapse;
+  min-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+.pv-table th {
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 800;
+}
+.pv-table td {
+  padding: 12px 14px;
+  border: 2px solid white;
+  font-family: 'Fredoka One', cursive;
+  font-size: 22px;
+}
+.pv-whole th { background: linear-gradient(135deg, #5b21b6, #a78bfa); }
+.pv-dec th   { background: linear-gradient(135deg, #134e4a, #14b8a6); }
+.pv-dot th   { background: #374151; color: white; }
+.pv-whole td { background: #f5f3ff; color: #5b21b6; }
+.pv-dec td   { background: #f0fdfa; color: #134e4a; }
+.pv-dot td   { background: #1f2937; color: #fde047; font-size: 28px; }
+
+/* ============= ANIMATION BOX ============= */
+.anim-box {
+  background: linear-gradient(135deg, #f0fdfa, #ccfbf1);
+  border: 3px solid #5eead4;
+  border-radius: 18px;
+  padding: 24px;
+  margin: 20px 0;
+  text-align: center;
+  overflow: hidden;
+}
+.anim-box h3 {
+  font-family: 'Fredoka One', cursive;
+  color: #0f766e;
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+.anim-stage {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  margin: 14px 0;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.anim-controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* Number line */
+.num-line-wrap {
+  overflow-x: auto;
+  padding: 10px 0;
+}
+.num-line {
+  position: relative;
+  height: 60px;
+  min-width: 500px;
+  margin: 10px 20px;
+}
+.nl-track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #14b8a6, #3b82f6);
+  transform: translateY(-50%);
+  border-radius: 2px;
+}
+.nl-tick {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.nl-tick-line {
+  width: 3px;
+  height: 18px;
+  background: #374151;
+  border-radius: 2px;
+}
+.nl-tick-label {
+  font-family: 'Fredoka One', cursive;
+  font-size: 12px;
+  color: #374151;
+  white-space: nowrap;
+  position: absolute;
+  top: 26px;
+}
+.nl-point {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #f97316;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(249,115,22,0.5);
+  transition: left 0.8s ease;
+  z-index: 5;
+}
+.nl-point-label {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -160%);
+  font-family: 'Fredoka One', cursive;
+  font-size: 13px;
+  color: #f97316;
+  white-space: nowrap;
+  transition: left 0.8s ease;
+  z-index: 6;
+}
+
+/* Step-by-step addition/subtraction */
+.calc-step {
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  text-align: right;
+  padding: 6px 20px;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+.calc-step.show { opacity: 1; transform: translateX(0); }
+.calc-divider {
+  border: none;
+  border-top: 3px solid #374151;
+  margin: 6px 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.calc-divider.show { opacity: 1; }
+
+/* Multiplication shift animation */
+.shift-display {
+  font-family: 'Fredoka One', cursive;
+  font-size: 32px;
+  letter-spacing: 4px;
+  color: #1f2937;
+  transition: all 0.8s ease;
+}
+.shift-point {
+  color: #f97316;
+  font-size: 40px;
+}
+.shift-highlight {
+  display: inline-block;
+  background: #fde047;
+  color: #713f12;
+  border-radius: 6px;
+  padding: 0 4px;
+  transition: all 0.5s ease;
+}
+
+/* ============= EXERCISE STYLES ============= */
+.exercise-box {
+  margin-top: 24px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+  border-radius: 16px;
+  border: 2px dashed #5eead4;
+}
+.exercise-box .subtitle { color: #0f766e; }
+
+.q-item {
+  background: white;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-left: 5px solid #14b8a6;
+}
+.q-item .q-text { font-weight: 700; font-size: 14px; color: #0f766e; margin-bottom: 8px; }
+.q-item input[type="text"], .q-item input[type="number"] {
+  padding: 6px 12px;
+  border: 2px solid #5eead4;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  width: 90px;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.q-item input:focus { border-color: #0f766e; }
+.q-feedback {
+  display: inline-block;
+  margin-left: 8px;
+  font-weight: 800;
+  font-size: 14px;
+}
+.q-feedback.correct { color: #16a34a; }
+.q-feedback.wrong { color: #ef4444; }
+.q-answer {
+  font-size: 13px;
+  color: #0f766e;
+  font-weight: 700;
+  display: none;
+  margin-top: 6px;
+}
+.q-item.show-ans .q-answer { display: block; }
+
+/* MCQ styles */
+.mcq-item { margin-bottom: 16px; }
+.mcq-q { font-weight: 700; font-size: 14px; color: #1e1b4b; margin-bottom: 8px; }
+.mcq-options { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.mcq-options li {
+  padding: 9px 14px;
+  border-radius: 10px;
+  border: 2px solid #e5e7eb;
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 700;
+  transition: all 0.2s;
+  background: white;
+}
+.mcq-options li:hover { border-color: #14b8a6; background: #f0fdfa; }
+.mcq-options li.correct { background: #dcfce7; border-color: #22c55e; color: #166534; }
+.mcq-options li.wrong-pick { background: #fee2e2; border-color: #f87171; color: #991b1b; text-decoration: line-through; }
+.mcq-item .q-answer { font-size: 13px; color: #0f766e; font-weight: 700; display: none; margin-top: 6px; padding: 8px 12px; background: #f0fdfa; border-radius: 8px; }
+.mcq-item.show-ans .q-answer { display: block; }
+
+/* Buttons */
+.game-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.2s;
+  margin: 4px;
+}
+.game-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.game-btn:active { transform: translateY(0); }
+.btn-teal   { background: linear-gradient(135deg, #0f766e, #2dd4bf); color: white; }
+.btn-purple { background: linear-gradient(135deg, #7c3aed, #a78bfa); color: white; }
+.btn-pink   { background: linear-gradient(135deg, #ec4899, #f9a8d4); color: white; }
+.btn-orange { background: linear-gradient(135deg, #f97316, #fdba74); color: white; }
+.btn-green  { background: linear-gradient(135deg, #16a34a, #4ade80); color: white; }
+.btn-blue   { background: linear-gradient(135deg, #3b82f6, #93c5fd); color: white; }
+.btn-sm     { padding: 6px 14px; font-size: 12px; border-radius: 10px; }
+
+.toggle-ans-btn {
+  background: none;
+  border: 1.5px solid #5eead4;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #0f766e;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.2s;
+}
+.toggle-ans-btn:hover { background: #ccfbf1; }
+
+/* Dark mode */
+[data-theme="dark"] body { background: #1a1a2e; color: #e0e0e0; }
+[data-theme="dark"] .section-block { background: #16213e; }
+[data-theme="dark"] .top-nav { background: #0f3460; }
+[data-theme="dark"] .q-item { background: #0f3460; }
+[data-theme="dark"] .anim-stage { background: #0f3460; }
+[data-theme="dark"] td { color: #e0e0e0; }
+[data-theme="dark"] .mcq-options li { background: #0f3460; border-color: #1e4080; color: #e0e0e0; }
+[data-theme="dark"] table { color: #e0e0e0; }
+[data-theme="dark"] tr:nth-child(even) td { background: #1a2a50; }
+
+/* ============= SHARE + FAB ============= */
+.fab-share {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  color: white;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(20,184,166,0.4);
+  z-index: 200;
+  transition: all 0.2s;
+}
+.fab-share:hover { transform: scale(1.1); }
+.share-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+}
+.share-overlay.active { display: flex; }
+.share-box {
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  max-width: 340px;
+  width: 90%;
+}
+.share-box h3 { font-family: 'Fredoka One', cursive; color: #0f766e; font-size: 22px; margin-bottom: 20px; }
+.share-opt {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  margin-bottom: 10px;
+  transition: all 0.2s;
+}
+.share-opt:hover { transform: translateY(-2px); }
+.share-opt.copy { background: linear-gradient(135deg, #0f766e, #14b8a6); color: white; }
+.share-opt.native { background: linear-gradient(135deg, #3b82f6, #93c5fd); color: white; }
+.share-close { background: #f3f4f6; color: #374151; border: none; padding: 10px 24px; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; margin-top: 4px; }
+.copy-feedback { display: none; color: #16a34a; font-weight: 800; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<nav class="top-nav">
+  <a href="../../index.html" class="nav-link">&#127968; Home</a>
+  <a href="../index.html" class="nav-link">&#128218; Class 7</a>
+  <a href="index.html" class="nav-link">&#128290; Maths</a>
+  <span class="nav-spacer"></span>
+  <button class="nav-link share-btn" onclick="openShare()">&#128279; Share</button>
+  <button class="nav-link" id="darkBtn" onclick="toggleDark()" style="background:#fef9c3;color:#713f12;border-color:#fde047;">&#127769; Dark</button>
+</nav>
+
+<!-- ===== TOC BAR ===== -->
+<nav class="toc-bar">
+  <a href="#intro">&#128269; What is a Decimal?</a>
+  <a href="#fractions">&#9315; Fractions &amp; Decimals</a>
+  <a href="#placevalue">&#127961; Place Value</a>
+  <a href="#expanded">&#128269; Expanded Form</a>
+  <a href="#reading">&#128475; Reading &amp; Writing</a>
+  <a href="#likeunlike">&#128101; Like &amp; Unlike</a>
+  <a href="#comparing">&#9878; Comparing</a>
+  <a href="#addition">&#10133; Addition</a>
+  <a href="#subtraction">&#10134; Subtraction</a>
+  <a href="#multiplication">&#10006; Multiplication</a>
+  <a href="#reallife">&#127758; Real Life</a>
+  <a href="#practice">&#9997; Practice</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="dec-rain" id="decRain"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Chapter 3 &nbsp;&#183;&nbsp; Class 7 Maths</div>
+    <h1>A Peek Beyond the Point</h1>
+    <p>Decimal Numbers — Step by step, topic by topic</p>
+    <div class="hero-dec-box">
+      <div class="hero-dec-display" id="heroDecDisplay">3<span style="color:#5eead4">.</span>14</div>
+      <div class="hero-dec-label" id="heroDecLabel">Whole Part &nbsp; . &nbsp; Decimal Part</div>
+    </div>
+  </div>
+  <!-- Stars -->
+  <div class="hero-star" style="top:10%;left:5%;font-size:20px;animation-delay:0s">&#11088;</div>
+  <div class="hero-star" style="top:20%;right:8%;font-size:16px;animation-delay:0.7s">&#11088;</div>
+  <div class="hero-star" style="top:60%;left:3%;font-size:14px;animation-delay:1.2s">&#10024;</div>
+  <div class="hero-star" style="top:15%;left:50%;font-size:18px;animation-delay:0.3s">&#10024;</div>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="container">
+
+<!-- ============================== SECTION 1: WHAT IS A DECIMAL ============================== -->
+<section class="section-block" id="intro">
+  <div class="section-hd g-teal">
+    <span class="icon">&#128269;</span>
+    <div>What is a Decimal Number?</div>
+  </div>
+  <div class="section-bd">
+    <p>Numbers like <strong>1, 2, 3, 45, 100</strong> are whole numbers. But what happens when we need to express something <em>between</em> two whole numbers — like half a metre, or ₹12 and 50 paise?</p>
+    <p>We use a <span class="kt">decimal number</span>! The small dot <strong style="font-size:18px;color:#f97316">.</strong> called the <span class="kt">decimal point</span>, separates the whole part from the fractional part.</p>
+
+    <div class="info-grid">
+      <div class="info-card ic-teal">
+        <h4>&#128290; The Decimal Point</h4>
+        <p>The <strong>dot (.)</strong> in a decimal number is called the decimal point. It is the "point" in the chapter title!</p>
+        <p style="margin-top:8px;font-family:'Fredoka One',cursive;font-size:22px;text-align:center;color:#0f766e">3<span style="color:#f97316">.</span>75</p>
+      </div>
+      <div class="info-card ic-purple">
+        <h4>&#11014; Whole Part</h4>
+        <p>The digits to the <strong>left</strong> of the decimal point form the whole number part.</p>
+        <p style="margin-top:8px;text-align:center;font-family:'Fredoka One',cursive;font-size:20px"><span style="background:#ede9fe;padding:4px 10px;border-radius:8px;color:#5b21b6">3</span><span style="color:#9ca3af">.75</span></p>
+      </div>
+      <div class="info-card ic-green">
+        <h4>&#11015; Decimal Part</h4>
+        <p>The digits to the <strong>right</strong> of the decimal point form the decimal (fractional) part.</p>
+        <p style="margin-top:8px;text-align:center;font-family:'Fredoka One',cursive;font-size:20px"><span style="color:#9ca3af">3.</span><span style="background:#dcfce7;padding:4px 10px;border-radius:8px;color:#166534">75</span></p>
+      </div>
+    </div>
+
+    <div class="fun-fact">
+      <strong>&#128218; Word Origin:</strong> The word "decimal" comes from the Latin word <em>decimus</em> meaning <strong>tenth</strong>. Decimals are all about tenths, hundredths, thousandths…
+    </div>
+
+    <div class="subtitle">&#128073; Everyday Examples</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Situation</th><th>Decimal Number</th><th>Meaning</th></tr>
+        <tr><td>Price of a pen</td><td><strong>₹12.50</strong></td><td>12 rupees and 50 paise</td></tr>
+        <tr><td>Length of a board</td><td><strong>1.5 m</strong></td><td>1 metre and 5 tenths of a metre</td></tr>
+        <tr><td>Weight of mangoes</td><td><strong>2.75 kg</strong></td><td>2 kg and 75 hundredths of a kg</td></tr>
+        <tr><td>A race time</td><td><strong>9.58 s</strong></td><td>9 seconds and 58 hundredths</td></tr>
+        <tr><td>Body temperature</td><td><strong>37.2°C</strong></td><td>37 degrees and 2 tenths</td></tr>
+      </table>
+    </div>
+
+    <div class="trick">
+      <strong>&#128161; Remember:</strong> A decimal number has two parts separated by the decimal point:<br>
+      <div style="text-align:center;margin-top:10px;font-family:'Fredoka One',cursive;font-size:22px">
+        <span style="background:#ede9fe;padding:6px 14px;border-radius:10px;color:#5b21b6">Whole Part</span>
+        <span style="color:#f97316;font-size:28px;margin:0 8px">.</span>
+        <span style="background:#ccfbf1;padding:6px 14px;border-radius:10px;color:#0f766e">Decimal Part</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 2: FRACTIONS & DECIMALS ============================== -->
+<section class="section-block" id="fractions">
+  <div class="section-hd g-purple">
+    <span class="icon">&#9315;</span>
+    <div>Fractions &amp; Decimals: The Link</div>
+  </div>
+  <div class="section-bd">
+    <p>Decimals and fractions are closely related. Any fraction whose denominator is <strong>10, 100, 1000</strong> (or any power of 10) can be directly written as a decimal.</p>
+
+    <div class="subtitle">&#128291; Denominator 10 → One decimal place</div>
+    <div class="info-grid">
+      <div class="info-card ic-teal">
+        <h4>1/10 = 0.1</h4>
+        <p>One-tenth = zero point one</p>
+        <p>3/10 = 0.3, &nbsp; 7/10 = 0.7</p>
+      </div>
+      <div class="info-card ic-blue">
+        <h4>1/100 = 0.01</h4>
+        <p>One-hundredth = zero point zero one</p>
+        <p>25/100 = 0.25, &nbsp; 7/100 = 0.07</p>
+      </div>
+      <div class="info-card ic-purple">
+        <h4>1/1000 = 0.001</h4>
+        <p>One-thousandth = zero point zero zero one</p>
+        <p>125/1000 = 0.125</p>
+      </div>
+    </div>
+
+    <div class="subtitle">&#128260; Conversion: Fraction &#8594; Decimal</div>
+    <div class="example-box">
+      <div class="ex-title">Example 1: Convert 3/10 to decimal</div>
+      <p>Denominator is 10 → 1 decimal place</p>
+      <p><strong>3/10 = 0.3</strong></p>
+    </div>
+    <div class="example-box">
+      <div class="ex-title">Example 2: Convert 47/100 to decimal</div>
+      <p>Denominator is 100 → 2 decimal places</p>
+      <p><strong>47/100 = 0.47</strong></p>
+    </div>
+    <div class="example-box">
+      <div class="ex-title">Example 3: Convert 3/4 to decimal</div>
+      <p>Denominator is 4. Make it 100: multiply top and bottom by 25</p>
+      <p>3/4 = (3×25)/(4×25) = 75/100 = <strong>0.75</strong></p>
+    </div>
+    <div class="example-box">
+      <div class="ex-title">Example 4: Convert 2 3/5 to decimal</div>
+      <p>First convert 3/5: multiply by 2 → 6/10 = 0.6</p>
+      <p>So 2 3/5 = 2 + 0.6 = <strong>2.6</strong></p>
+    </div>
+
+    <div class="subtitle">&#128260; Conversion: Decimal &#8594; Fraction</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Decimal</th><th>Read as</th><th>Fraction</th><th>Simplified</th></tr>
+        <tr><td>0.5</td><td>5 tenths</td><td>5/10</td><td><strong>1/2</strong></td></tr>
+        <tr><td>0.25</td><td>25 hundredths</td><td>25/100</td><td><strong>1/4</strong></td></tr>
+        <tr><td>0.75</td><td>75 hundredths</td><td>75/100</td><td><strong>3/4</strong></td></tr>
+        <tr><td>0.2</td><td>2 tenths</td><td>2/10</td><td><strong>1/5</strong></td></tr>
+        <tr><td>0.125</td><td>125 thousandths</td><td>125/1000</td><td><strong>1/8</strong></td></tr>
+        <tr><td>0.4</td><td>4 tenths</td><td>4/10</td><td><strong>2/5</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="trick">
+      <strong>&#128161; Quick Rule:</strong> To convert decimal to fraction — count the decimal digits. That many zeros go in the denominator.<br>
+      0.7 → 1 digit → denominator 10 → 7/10<br>
+      0.43 → 2 digits → denominator 100 → 43/100<br>
+      0.125 → 3 digits → denominator 1000 → 125/1000
+    </div>
+
+    <div class="exercise-box">
+      <div class="subtitle">&#9997; Quick Practice</div>
+      <div class="q-item">
+        <div class="q-text">Q1. Convert 9/10 to decimal.</div>
+        <input type="text" id="frac1" placeholder="0.?"> <button class="game-btn btn-teal btn-sm" onclick="checkFrac('frac1','0.9','fb_frac1')">Check</button>
+        <span class="q-feedback" id="fb_frac1"></span>
+        <div class="q-answer">Answer: 9/10 = 0.9</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q2. Convert 37/100 to decimal.</div>
+        <input type="text" id="frac2" placeholder="0.??"> <button class="game-btn btn-teal btn-sm" onclick="checkFrac('frac2','0.37','fb_frac2')">Check</button>
+        <span class="q-feedback" id="fb_frac2"></span>
+        <div class="q-answer">Answer: 37/100 = 0.37</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q3. Convert 0.6 to a fraction (simplest form).</div>
+        <input type="text" id="frac3" placeholder="?/?"> <button class="game-btn btn-teal btn-sm" onclick="checkFrac('frac3','3/5','fb_frac3')">Check</button>
+        <span class="q-feedback" id="fb_frac3"></span>
+        <div class="q-answer">Answer: 0.6 = 6/10 = 3/5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 3: PLACE VALUE ============================== -->
+<section class="section-block" id="placevalue">
+  <div class="section-hd g-blue">
+    <span class="icon">&#127961;</span>
+    <div>Place Value in Decimals</div>
+  </div>
+  <div class="section-bd">
+    <p>Just like whole numbers have place values (ones, tens, hundreds…), decimal numbers have place values <em>after</em> the decimal point: <span class="kt">tenths</span>, <span class="kt">hundredths</span>, <span class="kt">thousandths</span>.</p>
+
+    <div class="subtitle">&#127961; The Place Value Table</div>
+    <div class="pv-table-wrap">
+      <table class="pv-table">
+        <tr>
+          <th class="pv-whole" style="background:linear-gradient(135deg,#5b21b6,#a78bfa)">Thousands</th>
+          <th class="pv-whole" style="background:linear-gradient(135deg,#5b21b6,#a78bfa)">Hundreds</th>
+          <th class="pv-whole" style="background:linear-gradient(135deg,#5b21b6,#a78bfa)">Tens</th>
+          <th class="pv-whole" style="background:linear-gradient(135deg,#5b21b6,#a78bfa)">Ones</th>
+          <th style="background:#1f2937;color:#fde047;font-size:20px;padding:10px 8px">.</th>
+          <th class="pv-dec" style="background:linear-gradient(135deg,#134e4a,#14b8a6)">Tenths</th>
+          <th class="pv-dec" style="background:linear-gradient(135deg,#134e4a,#14b8a6)">Hundredths</th>
+          <th class="pv-dec" style="background:linear-gradient(135deg,#134e4a,#14b8a6)">Thousandths</th>
+        </tr>
+        <tr>
+          <td style="text-align:center;font-size:11px;color:#6b7280;font-family:'Nunito',sans-serif;font-weight:700">1000</td>
+          <td style="text-align:center;font-size:11px;color:#6b7280;font-family:'Nunito',sans-serif;font-weight:700">100</td>
+          <td style="text-align:center;font-size:11px;color:#6b7280;font-family:'Nunito',sans-serif;font-weight:700">10</td>
+          <td style="text-align:center;font-size:11px;color:#6b7280;font-family:'Nunito',sans-serif;font-weight:700">1</td>
+          <td style="text-align:center;background:#374151;color:#fde047;font-size:18px;font-family:'Fredoka One',cursive">.</td>
+          <td style="text-align:center;font-size:11px;color:#0f766e;font-family:'Nunito',sans-serif;font-weight:700">1/10</td>
+          <td style="text-align:center;font-size:11px;color:#0f766e;font-family:'Nunito',sans-serif;font-weight:700">1/100</td>
+          <td style="text-align:center;font-size:11px;color:#0f766e;font-family:'Nunito',sans-serif;font-weight:700">1/1000</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="subtitle">&#128270; Example: Find the place value of each digit in <span style="color:#0f766e">3 5 . 7 4 2</span></div>
+    <div class="pv-table-wrap">
+      <table class="pv-table">
+        <tr>
+          <th style="background:linear-gradient(135deg,#5b21b6,#a78bfa)">Tens</th>
+          <th style="background:linear-gradient(135deg,#5b21b6,#a78bfa)">Ones</th>
+          <th style="background:#1f2937;color:#fde047;font-size:20px;padding:10px 8px">.</th>
+          <th style="background:linear-gradient(135deg,#134e4a,#14b8a6)">Tenths</th>
+          <th style="background:linear-gradient(135deg,#134e4a,#14b8a6)">Hundredths</th>
+          <th style="background:linear-gradient(135deg,#134e4a,#14b8a6)">Thousandths</th>
+        </tr>
+        <tr>
+          <td style="text-align:center;font-family:'Fredoka One',cursive;font-size:28px;background:#f5f3ff;color:#5b21b6">3</td>
+          <td style="text-align:center;font-family:'Fredoka One',cursive;font-size:28px;background:#f5f3ff;color:#5b21b6">5</td>
+          <td style="text-align:center;background:#1f2937;color:#fde047;font-size:28px;font-family:'Fredoka One',cursive">.</td>
+          <td style="text-align:center;font-family:'Fredoka One',cursive;font-size:28px;background:#f0fdfa;color:#0f766e">7</td>
+          <td style="text-align:center;font-family:'Fredoka One',cursive;font-size:28px;background:#f0fdfa;color:#0f766e">4</td>
+          <td style="text-align:center;font-family:'Fredoka One',cursive;font-size:28px;background:#f0fdfa;color:#0f766e">2</td>
+        </tr>
+      </table>
+    </div>
+    <div class="info-grid" style="margin-top:16px">
+      <div class="info-card ic-purple">
+        <h4>Digit 3 → Tens place</h4>
+        <p>Value = 3 × 10 = <strong>30</strong></p>
+      </div>
+      <div class="info-card ic-purple">
+        <h4>Digit 5 → Ones place</h4>
+        <p>Value = 5 × 1 = <strong>5</strong></p>
+      </div>
+      <div class="info-card ic-teal">
+        <h4>Digit 7 → Tenths place</h4>
+        <p>Value = 7 × 1/10 = <strong>0.7</strong></p>
+      </div>
+      <div class="info-card ic-teal">
+        <h4>Digit 4 → Hundredths place</h4>
+        <p>Value = 4 × 1/100 = <strong>0.04</strong></p>
+      </div>
+      <div class="info-card ic-teal">
+        <h4>Digit 2 → Thousandths place</h4>
+        <p>Value = 2 × 1/1000 = <strong>0.002</strong></p>
+      </div>
+    </div>
+
+    <div class="trick">
+      <strong>&#128161; Pattern to Remember:</strong><br>
+      Each place to the <strong>left</strong> is 10 times bigger.<br>
+      Each place to the <strong>right</strong> is 10 times smaller.<br>
+      <div style="text-align:center;margin-top:10px;font-size:13px;font-weight:700">
+        1000 &nbsp;&#8594;&nbsp; 100 &nbsp;&#8594;&nbsp; 10 &nbsp;&#8594;&nbsp; 1 &nbsp;&#8594;&nbsp; <span style="color:#f97316">.</span> &nbsp;&#8594;&nbsp; 0.1 &nbsp;&#8594;&nbsp; 0.01 &nbsp;&#8594;&nbsp; 0.001
+      </div>
+    </div>
+
+    <div class="exercise-box">
+      <div class="subtitle">&#9997; Quick Practice</div>
+      <div class="q-item">
+        <div class="q-text">Q1. In 7.43, what is the place value of 4?</div>
+        <input type="text" id="pv1" placeholder="0.?"> <button class="game-btn btn-teal btn-sm" onclick="checkFrac('pv1','0.4','fb_pv1')">Check</button>
+        <span class="q-feedback" id="fb_pv1"></span>
+        <div class="q-answer">Answer: 4 is in the tenths place. Value = 4/10 = 0.4</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q2. In 12.305, which digit is in the hundredths place?</div>
+        <input type="text" id="pv2" placeholder="digit"> <button class="game-btn btn-teal btn-sm" onclick="checkFrac('pv2','0','fb_pv2')">Check</button>
+        <span class="q-feedback" id="fb_pv2"></span>
+        <div class="q-answer">Answer: 12.305 → tenths=3, hundredths=0, thousandths=5. Digit is 0.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 4: EXPANDED FORM ============================== -->
+<section class="section-block" id="expanded">
+  <div class="section-hd g-emerald">
+    <span class="icon">&#128269;</span>
+    <div>Expanded Form of Decimals</div>
+  </div>
+  <div class="section-bd">
+    <p>Just like we write 345 = 300 + 40 + 5, we can expand decimal numbers using their place values.</p>
+
+    <div class="example-box">
+      <div class="ex-title">Example 1: Write 35.742 in expanded form</div>
+      <p>35.742 = 30 + 5 + 7/10 + 4/100 + 2/1000</p>
+      <p>OR in decimal form:</p>
+      <p><strong>35.742 = 30 + 5 + 0.7 + 0.04 + 0.002</strong></p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 2: Write 204.05 in expanded form</div>
+      <p>204.05 = 200 + 0 + 4 + 0/10 + 5/100</p>
+      <p><strong>204.05 = 200 + 4 + 0.05</strong></p>
+      <p style="margin-top:6px;color:#6b7280;font-size:13px">Note: We skip zero-valued places when writing expanded form.</p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 3: Write from expanded form to decimal</div>
+      <p>40 + 3 + 6/10 + 1/100 = ?</p>
+      <p>= 43 + 0.6 + 0.01 = <strong>43.61</strong></p>
+    </div>
+
+    <div class="anim-box">
+      <h3>&#128270; Interactive: Expand a Decimal</h3>
+      <div class="anim-stage" id="expandStage" style="min-height:80px;flex-direction:column;align-items:flex-start;padding:16px 24px">
+        <div style="font-family:'Fredoka One',cursive;font-size:28px;color:#0f766e" id="expandNum">4 7 . 3 6</div>
+        <div id="expandResult" style="font-size:16px;font-weight:700;color:#374151;margin-top:10px"></div>
+      </div>
+      <div class="anim-controls">
+        <button class="game-btn btn-teal btn-sm" onclick="showExpand('47.36','40 + 7 + 0.3 + 0.06')">Expand 47.36</button>
+        <button class="game-btn btn-purple btn-sm" onclick="showExpand('8.509','8 + 0.5 + 0.009')">Expand 8.509</button>
+        <button class="game-btn btn-orange btn-sm" onclick="showExpand('123.04','100 + 20 + 3 + 0.04')">Expand 123.04</button>
+        <button class="game-btn btn-green btn-sm" onclick="showExpand('0.75','0.7 + 0.05')">Expand 0.75</button>
+      </div>
+    </div>
+
+    <div class="exercise-box">
+      <div class="subtitle">&#9997; Quick Practice</div>
+      <div class="q-item">
+        <div class="q-text">Q1. What is the expanded form of 6.83?<br>
+        6.83 = 6 + 0.___ + 0.0___</div>
+        <input type="text" id="exp1a" placeholder="?" style="width:50px"> +
+        <input type="text" id="exp1b" placeholder="?" style="width:50px">
+        <button class="game-btn btn-teal btn-sm" onclick="checkExpanded()">Check</button>
+        <span class="q-feedback" id="fb_exp1"></span>
+        <div class="q-answer">Answer: 6 + 0.8 + 0.03</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 5: READING & WRITING ============================== -->
+<section class="section-block" id="reading">
+  <div class="section-hd g-pink">
+    <span class="icon">&#128475;</span>
+    <div>Reading &amp; Writing Decimal Numbers</div>
+  </div>
+  <div class="section-bd">
+    <p>Reading decimal numbers correctly is important. We <strong>do not</strong> read the decimal part as a number — we read each digit separately.</p>
+
+    <div class="info-grid">
+      <div class="info-card ic-green">
+        <h4>&#10003; Correct Way</h4>
+        <ul>
+          <li>3.14 → "three point one four"</li>
+          <li>25.06 → "twenty-five point zero six"</li>
+          <li>0.5 → "zero point five"</li>
+        </ul>
+      </div>
+      <div class="info-card ic-red">
+        <h4>&#10007; Wrong Way</h4>
+        <ul>
+          <li>3.14 &#10007; "three point fourteen"</li>
+          <li>25.06 &#10007; "twenty-five point six"</li>
+          <li>0.5 &#10007; "point five only"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <strong>&#9888; Common Mistake:</strong> 0.06 &#8800; 0.6<br>
+      0.06 has a 0 in the tenths place and 6 in the hundredths place.<br>
+      0.6 has a 6 in the tenths place — it is <strong>ten times bigger</strong> than 0.06!
+    </div>
+
+    <div class="subtitle">&#9998; Writing Decimals — Rules</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Number in Words</th><th>Decimal</th></tr>
+        <tr><td>Five and three tenths</td><td><strong>5.3</strong></td></tr>
+        <tr><td>Zero point zero eight</td><td><strong>0.08</strong></td></tr>
+        <tr><td>Twelve and forty-five hundredths</td><td><strong>12.45</strong></td></tr>
+        <tr><td>One hundred and five thousandths</td><td><strong>100.005</strong></td></tr>
+        <tr><td>Zero point two five zero</td><td><strong>0.250</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="note-box">
+      <strong>Note:</strong> Trailing zeros after the last non-zero digit in the decimal part do NOT change the value.<br>
+      <strong>0.5 = 0.50 = 0.500</strong> — all are equal!
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 6: LIKE & UNLIKE ============================== -->
+<section class="section-block" id="likeunlike">
+  <div class="section-hd g-amber">
+    <span class="icon">&#128101;</span>
+    <div>Like &amp; Unlike Decimals</div>
+  </div>
+  <div class="section-bd">
+    <div class="info-grid">
+      <div class="info-card ic-green">
+        <h4>&#9989; Like Decimals</h4>
+        <p>Decimals with the <strong>same number of decimal places</strong> are called <strong>like decimals</strong>.</p>
+        <p style="margin-top:8px">Examples: 3.25 and 7.81 (both 2 decimal places)<br>
+        0.5 and 1.3 (both 1 decimal place)</p>
+      </div>
+      <div class="info-card ic-orange">
+        <h4>&#9889; Unlike Decimals</h4>
+        <p>Decimals with <strong>different numbers of decimal places</strong> are called <strong>unlike decimals</strong>.</p>
+        <p style="margin-top:8px">Examples: 3.5 and 2.75<br>
+        0.4 and 0.125</p>
+      </div>
+    </div>
+
+    <div class="subtitle">&#128260; Converting Unlike to Like Decimals</div>
+    <p>Add zeros to the end of the decimal part to make the number of decimal places equal.</p>
+
+    <div class="example-box">
+      <div class="ex-title">Make 4.3, 2.45 and 1.6 into like decimals</div>
+      <p>Maximum decimal places = 2 (from 2.45)</p>
+      <p>4.3 → <strong>4.30</strong> &nbsp;|&nbsp; 2.45 → <strong>2.45</strong> &nbsp;|&nbsp; 1.6 → <strong>1.60</strong></p>
+      <p>Now all have 2 decimal places — they are like decimals!</p>
+    </div>
+
+    <div class="trick">
+      <strong>&#128161; Why bother?</strong> Converting to like decimals makes <strong>comparison, addition, and subtraction</strong> much easier!
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 7: COMPARING ============================== -->
+<section class="section-block" id="comparing">
+  <div class="section-hd g-indigo">
+    <span class="icon">&#9878;</span>
+    <div>Comparing Decimal Numbers</div>
+  </div>
+  <div class="section-bd">
+    <p>To compare two decimal numbers, follow this step-by-step method:</p>
+
+    <div class="info-grid">
+      <div class="info-card ic-purple" style="text-align:center">
+        <div style="font-family:'Fredoka One',cursive;font-size:36px;color:#5b21b6;margin-bottom:4px">1</div>
+        <h4>Compare Whole Parts</h4>
+        <p>The number with the bigger whole part is greater.</p>
+        <p style="margin-top:6px"><strong>7</strong>.34 &gt; <strong>5</strong>.98</p>
+      </div>
+      <div class="info-card ic-blue" style="text-align:center">
+        <div style="font-family:'Fredoka One',cursive;font-size:36px;color:#1e40af;margin-bottom:4px">2</div>
+        <h4>Compare Tenths</h4>
+        <p>If whole parts are equal, compare the tenths digit.</p>
+        <p style="margin-top:6px">4.<strong>7</strong>3 &gt; 4.<strong>5</strong>8</p>
+      </div>
+      <div class="info-card ic-teal" style="text-align:center">
+        <div style="font-family:'Fredoka One',cursive;font-size:36px;color:#0f766e;margin-bottom:4px">3</div>
+        <h4>Compare Hundredths</h4>
+        <p>If tenths are also equal, compare hundredths, and so on.</p>
+        <p style="margin-top:6px">3.4<strong>9</strong> &gt; 3.4<strong>2</strong></p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example: Compare 4.73 and 4.79</div>
+      <p>Step 1: Whole parts equal (both 4)</p>
+      <p>Step 2: Tenths equal (both 7)</p>
+      <p>Step 3: Hundredths — 9 &gt; 3</p>
+      <p>&#8756; <strong>4.79 &gt; 4.73</strong></p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example: Arrange 2.3, 2.15, 2.07, 2.9 in ascending order</div>
+      <p>Convert to like decimals: 2.30, 2.15, 2.07, 2.90</p>
+      <p>Compare: 2.07 &lt; 2.15 &lt; 2.30 &lt; 2.90</p>
+      <p><strong>Ascending: 2.07, 2.15, 2.3, 2.9</strong></p>
+    </div>
+
+    <div class="anim-box">
+      <h3>&#128202; Compare Two Decimals</h3>
+      <div class="anim-stage" id="compareStage" style="flex-direction:column">
+        <div id="compareDisplay" style="font-family:'Fredoka One',cursive;font-size:32px;color:#374151">Choose a comparison below</div>
+        <div id="compareResult" style="font-size:16px;font-weight:700;color:#0f766e;margin-top:8px"></div>
+      </div>
+      <div class="anim-controls">
+        <button class="game-btn btn-teal btn-sm" onclick="doCompare('5.6','5.06')">5.6 vs 5.06</button>
+        <button class="game-btn btn-purple btn-sm" onclick="doCompare('3.45','3.54')">3.45 vs 3.54</button>
+        <button class="game-btn btn-orange btn-sm" onclick="doCompare('0.9','0.90')">0.9 vs 0.90</button>
+        <button class="game-btn btn-green btn-sm" onclick="doCompare('12.05','12.5')">12.05 vs 12.5</button>
+      </div>
+    </div>
+
+    <div class="exercise-box">
+      <div class="subtitle">&#9997; Quick Practice</div>
+      <div class="q-item">
+        <div class="q-text">Q1. Which is greater: 7.3 or 7.25? (type the greater one)</div>
+        <input type="text" id="cmp1" placeholder="?"> <button class="game-btn btn-teal btn-sm" onclick="checkFrac('cmp1','7.3','fb_cmp1')">Check</button>
+        <span class="q-feedback" id="fb_cmp1"></span>
+        <div class="q-answer">Answer: 7.3 = 7.30 &gt; 7.25 (since 30 &gt; 25 hundredths)</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q2. Write &lt; or &gt;: 0.5 ___ 0.50</div>
+        <input type="text" id="cmp2" placeholder="< or ="> <button class="game-btn btn-teal btn-sm" onclick="checkFrac('cmp2','=','fb_cmp2')">Check</button>
+        <span class="q-feedback" id="fb_cmp2"></span>
+        <div class="q-answer">Answer: 0.5 = 0.50 (they are equal — trailing zeros don't change value)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 8: ADDITION ============================== -->
+<section class="section-block" id="addition">
+  <div class="section-hd g-green">
+    <span class="icon">&#10133;</span>
+    <div>Addition of Decimal Numbers</div>
+  </div>
+  <div class="section-bd">
+    <p>Adding decimals is just like adding whole numbers — but you must <span class="kt">line up the decimal points</span> first!</p>
+
+    <div class="info-grid">
+      <div class="info-card ic-green">
+        <h4>Step 1</h4>
+        <p>Write the numbers one below the other, <strong>lining up decimal points</strong>.</p>
+      </div>
+      <div class="info-card ic-blue">
+        <h4>Step 2</h4>
+        <p>Fill in missing places with <strong>zeros</strong> to make like decimals.</p>
+      </div>
+      <div class="info-card ic-teal">
+        <h4>Step 3</h4>
+        <p><strong>Add</strong> column by column from right to left, carrying over as needed. Place the decimal point in the answer.</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 1: 3.45 + 2.31</div>
+      <div style="font-family:'Fredoka One',cursive;font-size:22px;line-height:1.8;text-align:center">
+        <div>3.45</div>
+        <div>+ 2.31</div>
+        <div style="border-top:3px solid #374151;padding-top:4px">= <strong>5.76</strong></div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 2: 12.5 + 3.75</div>
+      <div style="font-family:'Fredoka One',cursive;font-size:22px;line-height:1.8;text-align:center">
+        <div>12.50 &nbsp;<span style="font-size:13px;color:#6b7280">(add zero)</span></div>
+        <div>+ 3.75</div>
+        <div style="border-top:3px solid #374151;padding-top:4px">= <strong>16.25</strong></div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 3: 7.8 + 0.45 + 2.3</div>
+      <div style="font-family:'Fredoka One',cursive;font-size:22px;line-height:1.8;text-align:center">
+        <div>7.80</div>
+        <div>0.45</div>
+        <div>+ 2.30</div>
+        <div style="border-top:3px solid #374151;padding-top:4px">= <strong>10.55</strong></div>
+      </div>
+    </div>
+
+    <div class="anim-box">
+      <h3>&#128070; Step-by-step Addition</h3>
+      <div class="anim-stage" id="addStage" style="flex-direction:column;align-items:flex-end;justify-content:center;min-height:160px">
+        <div style="color:#9ca3af;font-size:14px;font-weight:700">Click a problem below</div>
+      </div>
+      <div class="anim-controls">
+        <button class="game-btn btn-green btn-sm" onclick="animAdd('5.35','2.41','7.76')">5.35 + 2.41</button>
+        <button class="game-btn btn-teal btn-sm" onclick="animAdd('8.6','3.75','12.35')">8.60 + 3.75</button>
+        <button class="game-btn btn-blue btn-sm" onclick="animAdd('14.08','5.9','19.98')">14.08 + 5.90</button>
+      </div>
+    </div>
+
+    <div class="exercise-box">
+      <div class="subtitle">&#9997; Quick Practice</div>
+      <div class="q-item">
+        <div class="q-text">Q1. 4.6 + 3.2 = ?</div>
+        <input type="text" id="add1" placeholder="?.?"> <button class="game-btn btn-green btn-sm" onclick="checkFrac('add1','7.8','fb_add1')">Check</button>
+        <span class="q-feedback" id="fb_add1"></span>
+        <div class="q-answer">Answer: 7.8</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q2. 6.75 + 2.5 = ?</div>
+        <input type="text" id="add2" placeholder="?.??"> <button class="game-btn btn-green btn-sm" onclick="checkFrac('add2','9.25','fb_add2')">Check</button>
+        <span class="q-feedback" id="fb_add2"></span>
+        <div class="q-answer">Answer: 9.25</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q3. 12.08 + 4.35 = ?</div>
+        <input type="text" id="add3" placeholder="??.??"> <button class="game-btn btn-green btn-sm" onclick="checkFrac('add3','16.43','fb_add3')">Check</button>
+        <span class="q-feedback" id="fb_add3"></span>
+        <div class="q-answer">Answer: 16.43</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 9: SUBTRACTION ============================== -->
+<section class="section-block" id="subtraction">
+  <div class="section-hd g-rose">
+    <span class="icon">&#10134;</span>
+    <div>Subtraction of Decimal Numbers</div>
+  </div>
+  <div class="section-bd">
+    <p>Subtracting decimals follows the same rule: <span class="kt">line up the decimal points</span> first, then subtract column by column.</p>
+
+    <div class="example-box">
+      <div class="ex-title">Example 1: 5.72 − 3.41</div>
+      <div style="font-family:'Fredoka One',cursive;font-size:22px;line-height:1.8;text-align:center">
+        <div>5.72</div>
+        <div>− 3.41</div>
+        <div style="border-top:3px solid #374151;padding-top:4px">= <strong>2.31</strong></div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 2: 10 − 4.5</div>
+      <div style="font-family:'Fredoka One',cursive;font-size:22px;line-height:1.8;text-align:center">
+        <div>10.0 &nbsp;<span style="font-size:13px;color:#6b7280">(add decimal point and zero)</span></div>
+        <div>− 4.5</div>
+        <div style="border-top:3px solid #374151;padding-top:4px">= <strong>5.5</strong></div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 3: 8.03 − 2.5</div>
+      <div style="font-family:'Fredoka One',cursive;font-size:22px;line-height:1.8;text-align:center">
+        <div>8.03</div>
+        <div>− 2.50</div>
+        <div style="border-top:3px solid #374151;padding-top:4px">= <strong>5.53</strong></div>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <strong>&#9888; Remember Borrowing:</strong> When the digit on top is smaller than the digit below, borrow from the next place — exactly like you do with whole numbers!
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 4 (with borrowing): 7.3 − 2.84</div>
+      <div style="font-family:'Fredoka One',cursive;font-size:22px;line-height:1.8;text-align:center">
+        <div>7.30</div>
+        <div>− 2.84</div>
+        <div style="border-top:3px solid #374151;padding-top:4px">= <strong>4.46</strong></div>
+      </div>
+      <p style="margin-top:8px;font-size:13px;color:#374151">Ones: 30−84 requires borrowing → 130−84=46, borrow 1 from ones; 7−1−2=4</p>
+    </div>
+
+    <div class="exercise-box">
+      <div class="subtitle">&#9997; Quick Practice</div>
+      <div class="q-item">
+        <div class="q-text">Q1. 9.8 − 4.3 = ?</div>
+        <input type="text" id="sub1" placeholder="?.?"> <button class="game-btn btn-pink btn-sm" onclick="checkFrac('sub1','5.5','fb_sub1')">Check</button>
+        <span class="q-feedback" id="fb_sub1"></span>
+        <div class="q-answer">Answer: 5.5</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q2. 15.75 − 8.4 = ?</div>
+        <input type="text" id="sub2" placeholder="?.??"> <button class="game-btn btn-pink btn-sm" onclick="checkFrac('sub2','7.35','fb_sub2')">Check</button>
+        <span class="q-feedback" id="fb_sub2"></span>
+        <div class="q-answer">Answer: 7.35</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q3. 20 − 13.6 = ?</div>
+        <input type="text" id="sub3" placeholder="?.?"> <button class="game-btn btn-pink btn-sm" onclick="checkFrac('sub3','6.4','fb_sub3')">Check</button>
+        <span class="q-feedback" id="fb_sub3"></span>
+        <div class="q-answer">Answer: 6.4</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 10: MULTIPLICATION ============================== -->
+<section class="section-block" id="multiplication">
+  <div class="section-hd g-orange">
+    <span class="icon">&#10006;</span>
+    <div>Multiplication of Decimal Numbers</div>
+  </div>
+  <div class="section-bd">
+
+    <div class="subtitle">&#9313; Multiplying by 10, 100, 1000</div>
+    <p>This is the most important shortcut! When you multiply a decimal by 10, 100 or 1000, the decimal point shifts to the <strong>right</strong>.</p>
+
+    <div class="info-grid">
+      <div class="info-card ic-orange">
+        <h4>× 10 → Shift 1 place right</h4>
+        <p>2.53 × 10 = <strong>25.3</strong></p>
+        <p>0.07 × 10 = <strong>0.7</strong></p>
+      </div>
+      <div class="info-card ic-teal">
+        <h4>× 100 → Shift 2 places right</h4>
+        <p>2.53 × 100 = <strong>253</strong></p>
+        <p>0.07 × 100 = <strong>7</strong></p>
+      </div>
+      <div class="info-card ic-purple">
+        <h4>× 1000 → Shift 3 places right</h4>
+        <p>2.53 × 1000 = <strong>2530</strong></p>
+        <p>0.007 × 1000 = <strong>7</strong></p>
+      </div>
+    </div>
+
+    <div class="anim-box">
+      <h3>&#8594; Decimal Point Shift Animation</h3>
+      <div class="anim-stage" id="shiftStage" style="flex-direction:column">
+        <div class="shift-display" id="shiftDisplay">
+          <span id="shiftDigits">2.53</span>
+        </div>
+        <div id="shiftLabel" style="font-size:14px;font-weight:700;color:#374151;margin-top:10px">Click below to multiply</div>
+      </div>
+      <div class="anim-controls">
+        <button class="game-btn btn-orange btn-sm" onclick="animShift('2.53','25.3','× 10','one place right')">2.53 × 10</button>
+        <button class="game-btn btn-teal btn-sm" onclick="animShift('2.53','253','× 100','two places right')">2.53 × 100</button>
+        <button class="game-btn btn-purple btn-sm" onclick="animShift('0.074','74','× 1000','three places right')">0.074 × 1000</button>
+        <button class="game-btn btn-green btn-sm" onclick="animShift('5.8','580','× 100','two places right')">5.8 × 100</button>
+      </div>
+    </div>
+
+    <div class="subtitle">&#9312; Multiplying Decimal by a Whole Number</div>
+    <p>Multiply normally, then count the total decimal places and put the point in the answer.</p>
+
+    <div class="example-box">
+      <div class="ex-title">Example 1: 3.4 × 6</div>
+      <p>Ignore the decimal: 34 × 6 = 204</p>
+      <p>3.4 has 1 decimal place → answer has 1 decimal place</p>
+      <p><strong>3.4 × 6 = 20.4</strong></p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 2: 2.15 × 4</div>
+      <p>Ignore the decimal: 215 × 4 = 860</p>
+      <p>2.15 has 2 decimal places → answer has 2 decimal places</p>
+      <p><strong>2.15 × 4 = 8.60</strong></p>
+    </div>
+
+    <div class="subtitle">&#9313; Multiplying Decimal by Decimal</div>
+    <div class="example-box">
+      <div class="ex-title">Example: 1.2 × 0.4</div>
+      <p>Ignore decimals: 12 × 4 = 48</p>
+      <p>1.2 has 1 decimal place, 0.4 has 1 decimal place → total = 2 decimal places</p>
+      <p><strong>1.2 × 0.4 = 0.48</strong></p>
+    </div>
+
+    <div class="trick">
+      <strong>&#128161; The Rule:</strong> Total decimal places in the answer = sum of decimal places in both numbers being multiplied.<br>
+      2.5 × 1.3 → (1 + 1) = 2 decimal places → 25 × 13 = 325 → <strong>3.25</strong>
+    </div>
+
+    <div class="exercise-box">
+      <div class="subtitle">&#9997; Quick Practice</div>
+      <div class="q-item">
+        <div class="q-text">Q1. 4.5 × 10 = ?</div>
+        <input type="text" id="mul1" placeholder="??"> <button class="game-btn btn-orange btn-sm" onclick="checkFrac('mul1','45','fb_mul1')">Check</button>
+        <span class="q-feedback" id="fb_mul1"></span>
+        <div class="q-answer">Answer: 45 (shift decimal one place right)</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q2. 3.2 × 100 = ?</div>
+        <input type="text" id="mul2" placeholder="???"> <button class="game-btn btn-orange btn-sm" onclick="checkFrac('mul2','320','fb_mul2')">Check</button>
+        <span class="q-feedback" id="fb_mul2"></span>
+        <div class="q-answer">Answer: 320 (shift decimal two places right)</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">Q3. 2.6 × 5 = ?</div>
+        <input type="text" id="mul3" placeholder="??.?"> <button class="game-btn btn-orange btn-sm" onclick="checkFrac('mul3','13','fb_mul3')">Check</button>
+        <span class="q-feedback" id="fb_mul3"></span>
+        <div class="q-answer">Answer: 13 (26 × 5 = 130, 1 decimal place → 13.0 = 13)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 11: REAL LIFE ============================== -->
+<section class="section-block" id="reallife">
+  <div class="section-hd g-sky">
+    <span class="icon">&#127758;</span>
+    <div>Decimals in Real Life</div>
+  </div>
+  <div class="section-bd">
+    <p>Decimal numbers are everywhere in our daily lives! Let's see where we use them.</p>
+
+    <div class="info-grid">
+      <div class="info-card ic-green">
+        <h4>&#128181; Money</h4>
+        <ul>
+          <li>₹45.75 = 45 rupees 75 paise</li>
+          <li>1 paise = ₹0.01</li>
+          <li>50 paise = ₹0.50</li>
+        </ul>
+      </div>
+      <div class="info-card ic-blue">
+        <h4>&#128207; Length</h4>
+        <ul>
+          <li>1 cm = 0.01 m</li>
+          <li>1 mm = 0.001 m</li>
+          <li>Height: 1.65 m</li>
+        </ul>
+      </div>
+      <div class="info-card ic-orange">
+        <h4>&#9878; Weight</h4>
+        <ul>
+          <li>1 g = 0.001 kg</li>
+          <li>500 g = 0.5 kg</li>
+          <li>2.75 kg of rice</li>
+        </ul>
+      </div>
+      <div class="info-card ic-teal">
+        <h4>&#9201; Sports &amp; Science</h4>
+        <ul>
+          <li>100m race: 9.58 s</li>
+          <li>Temperature: 37.2°C</li>
+          <li>Rainfall: 12.5 mm</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subtitle">&#128203; Word Problems</div>
+    <div class="example-box">
+      <div class="ex-title">Problem 1: Riya buys items costing ₹25.50, ₹12.75 and ₹8.00. How much does she pay?</div>
+      <p>25.50 + 12.75 + 8.00</p>
+      <p>= 25.50 + 12.75 + 8.00 = <strong>₹46.25</strong></p>
+    </div>
+    <div class="example-box">
+      <div class="ex-title">Problem 2: A rope is 8.5 m long. Amit cuts 3.75 m. How much is left?</div>
+      <p>8.50 − 3.75 = <strong>4.75 m</strong></p>
+    </div>
+    <div class="example-box">
+      <div class="ex-title">Problem 3: A bottle holds 1.5 L. How much do 6 such bottles hold?</div>
+      <p>1.5 × 6 = 15 × 6 ÷ 10 = 90 ÷ 10 = <strong>9 L</strong></p>
+    </div>
+    <div class="example-box">
+      <div class="ex-title">Problem 4: A car travels 12.8 km per litre. How far in 100 litres?</div>
+      <p>12.8 × 100 = <strong>1280 km</strong></p>
+    </div>
+
+    <div class="fun-fact">
+      <strong>&#127881; Did You Know?</strong> The world record for 100m sprint is <strong>9.58 seconds</strong> held by Usain Bolt. If he ran for 10 seconds, he would cover 9.58 × 10 = <strong>95.8 m</strong> — almost 100 m!
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SECTION 12: PRACTICE ============================== -->
+<section class="section-block" id="practice">
+  <div class="section-hd g-violet">
+    <span class="icon">&#9997;</span>
+    <div>Practice: MCQs &amp; Mixed Questions</div>
+  </div>
+  <div class="section-bd">
+    <div class="subtitle">&#128221; Multiple Choice Questions</div>
+
+    <div class="mcq-item" data-ans="b">
+      <div class="mcq-q">Q1. Which decimal is equivalent to 3/4?</div>
+      <ul class="mcq-options">
+        <li data-opt="a">0.34</li>
+        <li data-opt="b">0.75</li>
+        <li data-opt="c">0.43</li>
+        <li data-opt="d">0.7</li>
+      </ul>
+      <div class="q-answer">3/4 = 75/100 = 0.75</div>
+    </div>
+
+    <div class="mcq-item" data-ans="c">
+      <div class="mcq-q">Q2. In 45.283, which digit is in the hundredths place?</div>
+      <ul class="mcq-options">
+        <li data-opt="a">2</li>
+        <li data-opt="b">5</li>
+        <li data-opt="c">8</li>
+        <li data-opt="d">3</li>
+      </ul>
+      <div class="q-answer">45.283 → tenths=2, hundredths=8, thousandths=3. Answer: 8</div>
+    </div>
+
+    <div class="mcq-item" data-ans="a">
+      <div class="mcq-q">Q3. What is 5.6 × 100?</div>
+      <ul class="mcq-options">
+        <li data-opt="a">560</li>
+        <li data-opt="b">5600</li>
+        <li data-opt="c">56</li>
+        <li data-opt="d">0.056</li>
+      </ul>
+      <div class="q-answer">5.6 × 100 = 560 (shift decimal 2 places right)</div>
+    </div>
+
+    <div class="mcq-item" data-ans="d">
+      <div class="mcq-q">Q4. Which of the following is the greatest?</div>
+      <ul class="mcq-options">
+        <li data-opt="a">0.8</li>
+        <li data-opt="b">0.79</li>
+        <li data-opt="c">0.801</li>
+        <li data-opt="d">0.81</li>
+      </ul>
+      <div class="q-answer">0.81 &gt; 0.810 &gt; 0.800 &gt; 0.790. Answer: 0.81</div>
+    </div>
+
+    <div class="mcq-item" data-ans="b">
+      <div class="mcq-q">Q5. 8.36 − 3.2 = ?</div>
+      <ul class="mcq-options">
+        <li data-opt="a">5.34</li>
+        <li data-opt="b">5.16</li>
+        <li data-opt="c">5.14</li>
+        <li data-opt="d">5.26</li>
+      </ul>
+      <div class="q-answer">8.36 − 3.20 = 5.16</div>
+    </div>
+
+    <div class="mcq-item" data-ans="c">
+      <div class="mcq-q">Q6. The expanded form of 7.04 is:</div>
+      <ul class="mcq-options">
+        <li data-opt="a">7 + 0.4</li>
+        <li data-opt="b">7 + 0.40</li>
+        <li data-opt="c">7 + 0.04</li>
+        <li data-opt="d">7 + 4/10</li>
+      </ul>
+      <div class="q-answer">7.04 = 7 + 0.04 (4 is in hundredths place, not tenths)</div>
+    </div>
+
+    <div class="mcq-item" data-ans="a">
+      <div class="mcq-q">Q7. A shopkeeper has 15.75 kg of sugar. He sells 8.5 kg. How much is left?</div>
+      <ul class="mcq-options">
+        <li data-opt="a">7.25 kg</li>
+        <li data-opt="b">7.35 kg</li>
+        <li data-opt="c">6.25 kg</li>
+        <li data-opt="d">7.50 kg</li>
+      </ul>
+      <div class="q-answer">15.75 − 8.50 = 7.25 kg</div>
+    </div>
+
+    <div class="mcq-item" data-ans="b">
+      <div class="mcq-q">Q8. Which pair consists of LIKE decimals?</div>
+      <ul class="mcq-options">
+        <li data-opt="a">3.5 and 4.25</li>
+        <li data-opt="b">6.70 and 2.34</li>
+        <li data-opt="c">0.5 and 1.25</li>
+        <li data-opt="d">7.1 and 8.201</li>
+      </ul>
+      <div class="q-answer">6.70 and 2.34 — both have 2 decimal places → like decimals</div>
+    </div>
+
+    <div class="subtitle" style="margin-top:28px">&#128290; Fill in the Blanks</div>
+
+    <div class="q-item">
+      <div class="q-text">Q9. 0.001 × 1000 = ___</div>
+      <input type="text" id="fib1" placeholder="?"> <button class="game-btn btn-purple btn-sm" onclick="checkFrac('fib1','1','fb_fib1')">Check</button>
+      <span class="q-feedback" id="fb_fib1"></span>
+      <div class="q-answer">0.001 × 1000 = 1</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-text">Q10. 3/5 as a decimal = ___</div>
+      <input type="text" id="fib2" placeholder="0.?"> <button class="game-btn btn-purple btn-sm" onclick="checkFrac('fib2','0.6','fb_fib2')">Check</button>
+      <span class="q-feedback" id="fb_fib2"></span>
+      <div class="q-answer">3/5 = 6/10 = 0.6</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-text">Q11. 9.5 + 0.75 + 2.05 = ___</div>
+      <input type="text" id="fib3" placeholder="??.??"> <button class="game-btn btn-purple btn-sm" onclick="checkFrac('fib3','12.3','fb_fib3')">Check</button>
+      <span class="q-feedback" id="fb_fib3"></span>
+      <div class="q-answer">9.50 + 0.75 + 2.05 = 12.30 = 12.3</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-text">Q12. The digit in the thousandths place in 7.362 is ___</div>
+      <input type="text" id="fib4" placeholder="?"> <button class="game-btn btn-purple btn-sm" onclick="checkFrac('fib4','2','fb_fib4')">Check</button>
+      <span class="q-feedback" id="fb_fib4"></span>
+      <div class="q-answer">7.362 → tenths=3, hundredths=6, thousandths=2. Answer: 2</div>
+    </div>
+
+    <div class="q-item">
+      <div class="q-text">Q13. 0.4 × 0.3 = ___</div>
+      <input type="text" id="fib5" placeholder="0.??"> <button class="game-btn btn-purple btn-sm" onclick="checkFrac('fib5','0.12','fb_fib5')">Check</button>
+      <span class="q-feedback" id="fb_fib5"></span>
+      <div class="q-answer">4 × 3 = 12, total 2 decimal places → 0.12</div>
+    </div>
+
+    <div style="text-align:center;margin-top:20px">
+      <button class="game-btn btn-teal" onclick="showAllAnswers()">&#128065; Show All Answers</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FLOATING SHARE BUTTON ===== -->
+<div class="fab-share" onclick="openShare()">&#128279;</div>
+
+<!-- ===== SHARE OVERLAY ===== -->
+<div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeShare()">
+  <div class="share-box">
+    <h3>Share These Notes</h3>
+    <button class="share-opt copy" onclick="copyLink()">Copy Link</button>
+    <button class="share-opt native" onclick="nativeShare()">Share...</button>
+    <button class="share-close" onclick="closeShare()">Close</button>
+    <div class="copy-feedback" id="copyFeedback">Link Copied!</div>
+  </div>
+</div>
+
+<script>
+// ===== HERO: Decimal rain =====
+(function() {
+  var container = document.getElementById('decRain');
+  var samples = ['3.14','0.5','7.25','1.5','0.75','12.08','0.001','2.5','9.99','0.1'];
+  for (var i = 0; i < 18; i++) {
+    var el = document.createElement('div');
+    el.className = 'rain-dec';
+    el.textContent = samples[i % samples.length];
+    el.style.left = (Math.random() * 100) + '%';
+    el.style.animationDuration = (4 + Math.random() * 6) + 's';
+    el.style.animationDelay = (Math.random() * 5) + 's';
+    el.style.fontSize = (14 + Math.random() * 14) + 'px';
+    container.appendChild(el);
+  }
+})();
+
+// ===== HERO: Cycling decimals =====
+var heroDecimals = [
+  { val: '3.14', label: 'Pi — famous decimal' },
+  { val: '1.5', label: '1 whole + 5 tenths' },
+  { val: '0.75', label: '75 hundredths = 3/4' },
+  { val: '12.08', label: '12 whole + 8 hundredths' },
+  { val: '0.001', label: '1 thousandth' },
+];
+var heroIdx = 0;
+setInterval(function() {
+  heroIdx = (heroIdx + 1) % heroDecimals.length;
+  document.getElementById('heroDecDisplay').textContent = heroDecimals[heroIdx].val;
+  document.getElementById('heroDecLabel').textContent = heroDecimals[heroIdx].label;
+}, 2000);
+
+// ===== GENERAL CHECK =====
+function checkFrac(inputId, correct, fbId) {
+  var val = document.getElementById(inputId).value.trim();
+  var fb = document.getElementById(fbId);
+  if (val === correct || val === correct.toString()) {
+    fb.textContent = '✓ Correct!';
+    fb.className = 'q-feedback correct';
+  } else {
+    fb.textContent = '✗ Try again';
+    fb.className = 'q-feedback wrong';
+  }
+}
+
+// ===== EXPAND ANIMATION =====
+function showExpand(num, result) {
+  document.getElementById('expandNum').textContent = num;
+  var el = document.getElementById('expandResult');
+  el.textContent = '';
+  setTimeout(function() {
+    el.textContent = num + ' = ' + result;
+    el.style.color = '#0f766e';
+  }, 300);
+}
+
+// ===== EXPANDED FORM PRACTICE =====
+function checkExpanded() {
+  var a = document.getElementById('exp1a').value.trim();
+  var b = document.getElementById('exp1b').value.trim();
+  var fb = document.getElementById('fb_exp1');
+  if (a === '0.8' && b === '0.03') {
+    fb.textContent = '✓ Correct!';
+    fb.className = 'q-feedback correct';
+  } else {
+    fb.textContent = '✗ Try again. Hint: 6 + 0.8 + 0.03';
+    fb.className = 'q-feedback wrong';
+  }
+}
+
+// ===== COMPARE ANIMATION =====
+function doCompare(a, b) {
+  var display = document.getElementById('compareDisplay');
+  var result = document.getElementById('compareResult');
+  var fa = parseFloat(a), fb2 = parseFloat(b);
+  display.textContent = a + '   vs   ' + b;
+  var msg = '';
+  if (fa > fb2) msg = a + ' > ' + b;
+  else if (fa < fb2) msg = a + ' < ' + b;
+  else msg = a + ' = ' + b + ' (they are equal!)';
+  setTimeout(function() { result.textContent = msg; }, 400);
+}
+
+// ===== ADD ANIMATION =====
+var addTimers = [];
+function animAdd(n1, n2, ans) {
+  addTimers.forEach(clearTimeout);
+  addTimers = [];
+  var stage = document.getElementById('addStage');
+  stage.innerHTML = '';
+
+  var lines = [
+    { text: n1, cls: '' },
+    { text: '+ ' + n2, cls: '' },
+    { text: '', divider: true },
+    { text: '= ' + ans, cls: 'step-correct' }
+  ];
+
+  lines.forEach(function(line, i) {
+    if (line.divider) {
+      var hr = document.createElement('hr');
+      hr.className = 'calc-divider';
+      hr.style.width = '200px';
+      stage.appendChild(hr);
+      addTimers.push(setTimeout(function() { hr.classList.add('show'); }, (i + 1) * 400));
+    } else {
+      var div = document.createElement('div');
+      div.className = 'calc-step ' + (line.cls || '');
+      div.textContent = line.text;
+      stage.appendChild(div);
+      addTimers.push(setTimeout(function(d) { return function() { d.classList.add('show'); }; }(div), (i + 1) * 400));
+    }
+  });
+}
+
+// ===== SHIFT ANIMATION =====
+var shiftTimer = null;
+function animShift(before, after, label, desc) {
+  if (shiftTimer) clearTimeout(shiftTimer);
+  document.getElementById('shiftDisplay').textContent = before;
+  document.getElementById('shiftLabel').textContent = label + ' — shift decimal ' + desc;
+  shiftTimer = setTimeout(function() {
+    document.getElementById('shiftDisplay').textContent = after;
+    document.getElementById('shiftLabel').textContent = label + ' = ' + after;
+  }, 800);
+}
+
+// ===== MCQ Handler =====
+document.querySelectorAll('.mcq-item').forEach(function(item) {
+  var correctAns = item.getAttribute('data-ans');
+  item.querySelectorAll('.mcq-options li').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      if (item.classList.contains('show-ans')) return;
+      var chosen = opt.getAttribute('data-opt');
+      if (chosen === correctAns) {
+        opt.classList.add('correct');
+      } else {
+        opt.classList.add('wrong-pick');
+        item.querySelector('[data-opt="' + correctAns + '"]').classList.add('correct');
+      }
+      item.classList.add('show-ans');
+    });
+  });
+});
+
+// ===== SHOW ALL ANSWERS =====
+function showAllAnswers() {
+  document.querySelectorAll('.mcq-item, .q-item').forEach(function(item) {
+    item.classList.add('show-ans');
+  });
+  document.querySelectorAll('.mcq-item').forEach(function(item) {
+    var correctAns = item.getAttribute('data-ans');
+    if (correctAns) {
+      var correctOpt = item.querySelector('[data-opt="' + correctAns + '"]');
+      if (correctOpt) correctOpt.classList.add('correct');
+    }
+  });
+}
+
+// ===== DARK MODE =====
+function toggleDark() {
+  var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  if (isDark) {
+    document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('pkc-dark-mode', 'false');
+    document.getElementById('darkBtn').textContent = '🌙 Dark';
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('pkc-dark-mode', 'true');
+    document.getElementById('darkBtn').textContent = '☀️ Light';
+  }
+}
+
+// ===== SHARE =====
+function openShare() {
+  document.getElementById('shareOverlay').classList.add('active');
+}
+function closeShare() {
+  document.getElementById('shareOverlay').classList.remove('active');
+}
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    var fb = document.getElementById('copyFeedback');
+    fb.style.display = 'block';
+    setTimeout(function() { fb.style.display = 'none'; }, 2000);
+  });
+}
+function nativeShare() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'A Peek Beyond the Point — Class 7 Maths',
+      text: 'Interactive notes by Preeti Kushwah Classes',
+      url: window.location.href
+    });
+  } else {
+    copyLink();
+  }
+}
+</script>
+
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+</body>
+</html>
