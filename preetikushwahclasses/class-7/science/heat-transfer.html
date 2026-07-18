@@ -771,6 +771,7 @@ tr:nth-child(even) td { background: var(--heat-bg); }
   justify-content: center;
   flex-wrap: wrap;
 }
+.bnav-home, .bnav-wa {
   display: inline-block;
   padding: 10px 22px;
   border-radius: 20px;
@@ -780,6 +781,8 @@ tr:nth-child(even) td { background: var(--heat-bg); }
   transition: all 0.2s;
 }
 .bnav-home { background: var(--heat-bg); color: var(--heat-dark); border: 2px solid var(--heat-pale); }
+.bnav-wa { background: #25d366; color: white; }
+.bnav-home:hover, .bnav-wa:hover { transform: translateY(-2px); }
 
 /* ============= FOOTER ============= */
 footer {
@@ -1017,21 +1020,6 @@ footer {
     <div class="sun-ray-line"></div>
   </div>
 
-  <!-- Thermometer -->
-  <div class="hero-thermometer">
-    <div class="thermo-tube">
-      <div class="thermo-mercury"></div>
-      <div class="thermo-scale">
-        <span class="thermo-tick">100&deg;C</span>
-        <span class="thermo-tick">75&deg;C</span>
-        <span class="thermo-tick">50&deg;C</span>
-        <span class="thermo-tick">25&deg;C</span>
-        <span class="thermo-tick">0&deg;C</span>
-      </div>
-    </div>
-    <div class="thermo-bulb-shape"></div>
-  </div>
-
   <!-- Heat wave lines -->
   <div class="heat-wave">
     <div class="hw-line"></div>
@@ -1235,7 +1223,7 @@ footer {
       <p>We often use the words "heat" and "temperature" as if they mean the same thing. But in science, they are quite different! Let us understand the difference.</p>
 
       <div class="subtitle">What is Temperature?</div>
-      <p><span class="kt">Temperature</span> is the <strong>degree of hotness or coldness</strong> of a body. It tells us how hot or cold an object is. Temperature is measured using a <span class="kt">thermometer</span> and its SI unit is <strong>degree Celsius (&deg;C)</strong>.</p>
+      <p><span class="kt">Temperature</span> is the <strong>degree of hotness or coldness</strong> of a body. It tells us how hot or cold an object is. Temperature is measured using a <span class="kt">thermometer</span> and its SI unit is <strong>Kelvin (K)</strong>. In everyday use, degree Celsius (&deg;C) is commonly used.</p>
 
       <div class="subtitle">What is Heat?</div>
       <p><span class="kt">Heat</span> is a <strong>form of energy</strong> that flows from a hotter body to a colder body. It is the energy that is transferred between objects due to a difference in temperature. The SI unit of heat is <strong>Joule (J)</strong>.</p>
@@ -2580,7 +2568,7 @@ footer {
           <ul class="mcq-options">
             <li>(a) Conduction</li>
             <li>(b) Convection</li>
-            <li class="correct">(c) Radiation</li>
+            <li data-correct="true">(c) Radiation</li>
             <li>(d) All of these</li>
           </ul>
           <div class="mcq-ans">Answer: (c) Radiation. Heat from the Sun travels through the vacuum of space as radiation. Conduction and convection need a medium, but there is no medium in space.</div>
@@ -2591,7 +2579,7 @@ footer {
           <ul class="mcq-options">
             <li>(a) 0&deg;C to 100&deg;C</li>
             <li>(b) -10&deg;C to 110&deg;C</li>
-            <li class="correct">(c) 35&deg;C to 42&deg;C</li>
+            <li data-correct="true">(c) 35&deg;C to 42&deg;C</li>
             <li>(d) 30&deg;C to 50&deg;C</li>
           </ul>
           <div class="mcq-ans">Answer: (c) 35&deg;C to 42&deg;C. A clinical thermometer is designed to measure body temperature, which normally ranges between 35&deg;C and 42&deg;C.</div>
@@ -2602,7 +2590,7 @@ footer {
           <ul class="mcq-options">
             <li>(a) Wood</li>
             <li>(b) Plastic</li>
-            <li class="correct">(c) Copper</li>
+            <li data-correct="true">(c) Copper</li>
             <li>(d) Air</li>
           </ul>
           <div class="mcq-ans">Answer: (c) Copper. Metals like copper, iron, and aluminium are good conductors of heat. Wood, plastic, and air are poor conductors (insulators).</div>
@@ -2611,7 +2599,7 @@ footer {
         <li class="mcq-item">
           <div class="mcq-q">4. Sea breeze blows during:</div>
           <ul class="mcq-options">
-            <li class="correct">(a) Day time, from sea to land</li>
+            <li data-correct="true">(a) Day time, from sea to land</li>
             <li>(b) Night time, from sea to land</li>
             <li>(c) Day time, from land to sea</li>
             <li>(d) Night time, from land to sea</li>
@@ -2623,7 +2611,7 @@ footer {
           <div class="mcq-q">5. Woolen clothes keep us warm because:</div>
           <ul class="mcq-options">
             <li>(a) Wool produces heat</li>
-            <li class="correct">(b) Wool traps air which is a poor conductor of heat</li>
+            <li data-correct="true">(b) Wool traps air which is a poor conductor of heat</li>
             <li>(c) Wool conducts heat from the surroundings to our body</li>
             <li>(d) Wool absorbs heat from the sun</li>
           </ul>
@@ -2634,7 +2622,7 @@ footer {
           <div class="mcq-q">6. In which mode of heat transfer do particles actually move from one place to another?</div>
           <ul class="mcq-options">
             <li>(a) Conduction</li>
-            <li class="correct">(b) Convection</li>
+            <li data-correct="true">(b) Convection</li>
             <li>(c) Radiation</li>
             <li>(d) None of these</li>
           </ul>
@@ -2645,7 +2633,7 @@ footer {
           <div class="mcq-q">7. Dark-coloured clothes are preferred in winter because:</div>
           <ul class="mcq-options">
             <li>(a) They reflect more heat</li>
-            <li class="correct">(b) They absorb more heat from the sun</li>
+            <li data-correct="true">(b) They absorb more heat from the sun</li>
             <li>(c) They are thicker</li>
             <li>(d) They trap more air</li>
           </ul>
@@ -2657,7 +2645,7 @@ footer {
           <ul class="mcq-options">
             <li>(a) 98.6&deg;C</li>
             <li>(b) 36&deg;C</li>
-            <li class="correct">(c) 37&deg;C</li>
+            <li data-correct="true">(c) 37&deg;C</li>
             <li>(d) 40&deg;C</li>
           </ul>
           <div class="mcq-ans">Answer: (c) 37&deg;C (or 98.6&deg;F). A temperature significantly above 37&deg;C usually indicates a fever.</div>
@@ -2819,6 +2807,7 @@ footer {
   </div>
   <div class="bnav-bottom">
     <a href="../../index.html" class="bnav-home">Back to Home</a>
+    <a href="#" onclick="shareWhatsApp();return false;" class="bnav-wa">Share on WhatsApp</a>
   </div>
 </div>
 
@@ -2839,6 +2828,7 @@ footer {
 <div class="share-overlay" id="shareOverlay" onclick="if(event.target===this)closeShare()">
   <div class="share-box">
     <h3>Share These Notes</h3>
+    <button class="share-opt wa" onclick="shareWhatsApp()">WhatsApp</button>
     <button class="share-opt copy" onclick="copyLink()">Copy Link</button>
     <button class="share-opt native" onclick="nativeShare()">Share...</button>
     <button class="share-close" onclick="closeShare()">Close</button>
@@ -2865,7 +2855,10 @@ document.querySelectorAll('.mcq-item').forEach(function(item) {
     opt.addEventListener('click', function() {
       if (item.classList.contains('show-ans')) return;
       item.classList.add('show-ans');
-      if (!opt.classList.contains('correct')) opt.classList.add('wrong');
+      item.querySelectorAll('.mcq-options li').forEach(function(o) {
+        if (o.getAttribute('data-correct') === 'true') o.classList.add('correct');
+      });
+      if (opt.getAttribute('data-correct') !== 'true') opt.classList.add('wrong');
     });
   });
 });
@@ -3234,6 +3227,12 @@ function openShare() {
 function closeShare() {
   document.getElementById('shareOverlay').classList.remove('active');
 }
+function shareWhatsApp() {
+  var url = window.location.href;
+  var text = encodeURIComponent('Check out these Class 7 Science notes on Heat (Ch 4 NCERT) from Preeti Kushwah Classes! ' + url);
+  window.open('https://wa.me/?text=' + text, '_blank');
+  closeShare();
+}
 function copyLink() {
   var url = window.location.href;
   if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -3274,5 +3273,6 @@ function nativeShare() {
 <script src="../../back-to-top.js"></script>
 <script src="../../draw-widget.js"></script>
 <script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
 </body>
 </html>
