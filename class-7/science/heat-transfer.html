@@ -2571,7 +2571,7 @@ footer {
             <li data-correct="true">(c) Radiation</li>
             <li>(d) All of these</li>
           </ul>
-          <div class="mcq-ans">Answer: (c) Radiation. Heat from the Sun travels through the vacuum of space as radiation. Conduction and convection need a medium, but there is no medium in space.</div>
+          <div class="mcq-ans" style="display:none">Answer: (c) Radiation. Heat from the Sun travels through the vacuum of space as radiation. Conduction and convection need a medium, but there is no medium in space.</div>
         </li>
 
         <li class="mcq-item">
@@ -2582,7 +2582,7 @@ footer {
             <li data-correct="true">(c) 35&deg;C to 42&deg;C</li>
             <li>(d) 30&deg;C to 50&deg;C</li>
           </ul>
-          <div class="mcq-ans">Answer: (c) 35&deg;C to 42&deg;C. A clinical thermometer is designed to measure body temperature, which normally ranges between 35&deg;C and 42&deg;C.</div>
+          <div class="mcq-ans" style="display:none">Answer: (c) 35&deg;C to 42&deg;C. A clinical thermometer is designed to measure body temperature, which normally ranges between 35&deg;C and 42&deg;C.</div>
         </li>
 
         <li class="mcq-item">
@@ -2593,7 +2593,7 @@ footer {
             <li data-correct="true">(c) Copper</li>
             <li>(d) Air</li>
           </ul>
-          <div class="mcq-ans">Answer: (c) Copper. Metals like copper, iron, and aluminium are good conductors of heat. Wood, plastic, and air are poor conductors (insulators).</div>
+          <div class="mcq-ans" style="display:none">Answer: (c) Copper. Metals like copper, iron, and aluminium are good conductors of heat. Wood, plastic, and air are poor conductors (insulators).</div>
         </li>
 
         <li class="mcq-item">
@@ -2604,7 +2604,7 @@ footer {
             <li>(c) Day time, from land to sea</li>
             <li>(d) Night time, from land to sea</li>
           </ul>
-          <div class="mcq-ans">Answer: (a) During the day, land heats up faster than sea. Hot air over land rises and cool air from the sea rushes in. This is called sea breeze.</div>
+          <div class="mcq-ans" style="display:none">Answer: (a) During the day, land heats up faster than sea. Hot air over land rises and cool air from the sea rushes in. This is called sea breeze.</div>
         </li>
 
         <li class="mcq-item">
@@ -2615,7 +2615,7 @@ footer {
             <li>(c) Wool conducts heat from the surroundings to our body</li>
             <li>(d) Wool absorbs heat from the sun</li>
           </ul>
-          <div class="mcq-ans">Answer: (b) Wool does not produce heat. It traps air in its fibres, and air is a poor conductor of heat. This trapped air prevents our body heat from escaping.</div>
+          <div class="mcq-ans" style="display:none">Answer: (b) Wool does not produce heat. It traps air in its fibres, and air is a poor conductor of heat. This trapped air prevents our body heat from escaping.</div>
         </li>
 
         <li class="mcq-item">
@@ -2626,7 +2626,7 @@ footer {
             <li>(c) Radiation</li>
             <li>(d) None of these</li>
           </ul>
-          <div class="mcq-ans">Answer: (b) In convection, the heated fluid (liquid or gas) actually moves from one place to another, carrying heat with it. In conduction, particles only vibrate in place. In radiation, no medium is needed at all.</div>
+          <div class="mcq-ans" style="display:none">Answer: (b) In convection, the heated fluid (liquid or gas) actually moves from one place to another, carrying heat with it. In conduction, particles only vibrate in place. In radiation, no medium is needed at all.</div>
         </li>
 
         <li class="mcq-item">
@@ -2637,7 +2637,7 @@ footer {
             <li>(c) They are thicker</li>
             <li>(d) They trap more air</li>
           </ul>
-          <div class="mcq-ans">Answer: (b) Dark-coloured surfaces are good absorbers of heat radiation. They absorb more heat from the sun and keep us warmer in winter.</div>
+          <div class="mcq-ans" style="display:none">Answer: (b) Dark-coloured surfaces are good absorbers of heat radiation. They absorb more heat from the sun and keep us warmer in winter.</div>
         </li>
 
         <li class="mcq-item">
@@ -2648,7 +2648,7 @@ footer {
             <li data-correct="true">(c) 37&deg;C</li>
             <li>(d) 40&deg;C</li>
           </ul>
-          <div class="mcq-ans">Answer: (c) 37&deg;C (or 98.6&deg;F). A temperature significantly above 37&deg;C usually indicates a fever.</div>
+          <div class="mcq-ans" style="display:none">Answer: (c) 37&deg;C (or 98.6&deg;F). A temperature significantly above 37&deg;C usually indicates a fever.</div>
         </li>
       </ul>
 
@@ -2853,12 +2853,14 @@ reveals.forEach(function(el) { observer.observe(el); });
 document.querySelectorAll('.mcq-item').forEach(function(item) {
   item.querySelectorAll('.mcq-options li').forEach(function(opt) {
     opt.addEventListener('click', function() {
-      if (item.classList.contains('show-ans')) return;
-      item.classList.add('show-ans');
+      if (item.dataset.answered) return;
+      item.dataset.answered = '1';
       item.querySelectorAll('.mcq-options li').forEach(function(o) {
         if (o.getAttribute('data-correct') === 'true') o.classList.add('correct');
       });
       if (opt.getAttribute('data-correct') !== 'true') opt.classList.add('wrong');
+      var ans = item.querySelector('.mcq-ans');
+      if (ans) ans.style.display = 'block';
     });
   });
 });
