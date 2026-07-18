@@ -666,6 +666,26 @@ tr:nth-child(even) td { background: var(--heat-bg); }
   color: white;
 }
 
+/* ============= ONE-MARK Q&A ============= */
+.one-mark-list{list-style:none;padding:0;}
+.one-mark-item{background:white;border-radius:12px;padding:12px 18px;margin-bottom:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05);border-left:5px solid #ef4444;}
+.one-q{font-weight:700;font-size:14px;color:#991b1b;margin-bottom:4px;}
+.one-a{font-size:13.5px;color:#1f2937;}
+.one-a strong{color:#ef4444;}
+
+/* ============= LONG Q&A (5-mark) ============= */
+.long-q-item{background:white;border-radius:12px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:5px solid #f59e0b;}
+.long-q{font-weight:700;font-size:14px;color:#92400e;margin-bottom:6px;}
+.long-a{font-size:13.5px;color:#374151;}
+.long-a strong{color:#991b1b;}
+
+/* ============= MARK BADGE ============= */
+.mark-badge{display:inline-block;font-size:10px;font-weight:900;padding:2px 8px;border-radius:8px;margin-left:8px;vertical-align:middle;text-transform:uppercase;}
+.badge-1{background:#e0f2fe;color:#075985;}
+.badge-2{background:#dcfce7;color:#14532d;}
+.badge-3{background:#fef9c3;color:#78350f;}
+.badge-5{background:#fce7f3;color:#831843;}
+
 /* ============= SCROLL REVEAL ============= */
 .reveal {
   opacity: 0;
@@ -997,7 +1017,11 @@ footer {
   <a href="#sec6">Radiation</a>
   <a href="#sec7">Clothing</a>
   <a href="#activities">Activities</a>
-  <a href="#mcq">Quiz</a>
+  <a href="#mcq">&#129504; MCQ</a>
+  <a href="#onemarks">1&#10003; 1-Mark</a>
+  <a href="#twomarks">2&#10003; 2-Mark</a>
+  <a href="#threemarks">3&#10003; 3-Mark</a>
+  <a href="#fivemarks">5&#10003; 5-Mark</a>
   <a href="#summary">Summary</a>
 </div>
 
@@ -2550,136 +2574,343 @@ footer {
 
   <div class="section-connector"><span class="connector-arrow">&#9660;</span></div>
 
-  <!-- ======================================== -->
-  <!-- SECTION 9: PRACTICE QUESTIONS (QUIZ)     -->
-  <!-- ======================================== -->
+  <!-- MCQ -->
   <div class="section-block reveal" id="mcq">
-    <div class="section-hd g-purple">
-      <span class="icon">&#129504;</span> Practice Questions
-    </div>
+    <div class="section-hd g-purple"><span class="icon">&#129504;</span> Multiple Choice Questions</div>
     <div class="section-bd">
-      <p style="font-size:13.5px;color:#6b21a8;margin-bottom:14px"><em>Click on any option &mdash; the correct one will be highlighted with the answer explanation.</em></p>
-
-      <div class="subtitle">Multiple Choice Questions</div>
-
+      <p style="font-size:13.5px;color:#6b21a8;margin-bottom:16px"><em>Click an option — correct answer highlights automatically.</em></p>
       <ul class="mcq-list">
         <li class="mcq-item">
-          <div class="mcq-q">1. Heat travels from the Sun to the Earth by which process?</div>
+          <div class="mcq-q">Q1. Heat always flows from a _______ body to a _______ body.</div>
           <ul class="mcq-options">
-            <li>(a) Conduction</li>
-            <li>(b) Convection</li>
-            <li data-correct="true">(c) Radiation</li>
-            <li>(d) All of these</li>
+            <li>(a) Colder to hotter</li>
+            <li data-correct="true">(b) Hotter to colder</li>
+            <li>(c) Larger to smaller</li>
+            <li>(d) Smaller to larger</li>
           </ul>
-          <div class="mcq-ans" style="display:none">Answer: (c) Radiation. Heat from the Sun travels through the vacuum of space as radiation. Conduction and convection need a medium, but there is no medium in space.</div>
+          <div class="mcq-ans" style="display:none">&#9989; <strong>(b) Hotter to colder.</strong> Heat always flows from a body at higher temperature to a body at lower temperature. This continues until both bodies reach the same temperature (thermal equilibrium).</div>
         </li>
 
         <li class="mcq-item">
-          <div class="mcq-q">2. A clinical thermometer has a range of:</div>
+          <div class="mcq-q">Q2. The SI unit of temperature is:</div>
+          <ul class="mcq-options">
+            <li>(a) Degree Celsius (&deg;C)</li>
+            <li>(b) Degree Fahrenheit (&deg;F)</li>
+            <li data-correct="true">(c) Kelvin (K)</li>
+            <li>(d) Joule (J)</li>
+          </ul>
+          <div class="mcq-ans" style="display:none">&#9989; <strong>(c) Kelvin (K)</strong> is the SI unit of temperature. In everyday and scientific use, degree Celsius (&deg;C) is commonly used. The SI unit of heat energy is Joule (J).</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">Q3. A clinical thermometer has a range of:</div>
           <ul class="mcq-options">
             <li>(a) 0&deg;C to 100&deg;C</li>
-            <li>(b) -10&deg;C to 110&deg;C</li>
+            <li>(b) &minus;10&deg;C to 110&deg;C</li>
             <li data-correct="true">(c) 35&deg;C to 42&deg;C</li>
-            <li>(d) 30&deg;C to 50&deg;C</li>
+            <li>(d) 25&deg;C to 50&deg;C</li>
           </ul>
-          <div class="mcq-ans" style="display:none">Answer: (c) 35&deg;C to 42&deg;C. A clinical thermometer is designed to measure body temperature, which normally ranges between 35&deg;C and 42&deg;C.</div>
+          <div class="mcq-ans" style="display:none">&#9989; <strong>(c) 35&deg;C to 42&deg;C.</strong> A clinical thermometer is specially designed to measure human body temperature. Normal body temperature is 37&deg;C. The laboratory thermometer has range &minus;10&deg;C to 110&deg;C.</div>
         </li>
 
         <li class="mcq-item">
-          <div class="mcq-q">3. Which of the following is a good conductor of heat?</div>
+          <div class="mcq-q">Q4. The kink in a clinical thermometer is provided to:</div>
+          <ul class="mcq-options">
+            <li>(a) Make it easier to hold</li>
+            <li>(b) Allow mercury to expand faster</li>
+            <li data-correct="true">(c) Prevent mercury from falling back on its own</li>
+            <li>(d) Increase its range</li>
+          </ul>
+          <div class="mcq-ans" style="display:none">&#9989; <strong>(c) Prevent mercury from falling back.</strong> The kink (constriction) in the tube near the bulb prevents mercury from flowing back into the bulb after it is removed from the patient's body. This lets you read the temperature away from the patient.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">Q5. Which of the following is a good conductor of heat?</div>
           <ul class="mcq-options">
             <li>(a) Wood</li>
             <li>(b) Plastic</li>
             <li data-correct="true">(c) Copper</li>
             <li>(d) Air</li>
           </ul>
-          <div class="mcq-ans" style="display:none">Answer: (c) Copper. Metals like copper, iron, and aluminium are good conductors of heat. Wood, plastic, and air are poor conductors (insulators).</div>
+          <div class="mcq-ans" style="display:none">&#9989; <strong>(c) Copper</strong> is a good conductor of heat. Metals (copper, iron, aluminium, silver) are good conductors. Wood, plastic, air, and wool are poor conductors (insulators) of heat.</div>
         </li>
 
         <li class="mcq-item">
-          <div class="mcq-q">4. Sea breeze blows during:</div>
-          <ul class="mcq-options">
-            <li data-correct="true">(a) Day time, from sea to land</li>
-            <li>(b) Night time, from sea to land</li>
-            <li>(c) Day time, from land to sea</li>
-            <li>(d) Night time, from land to sea</li>
-          </ul>
-          <div class="mcq-ans" style="display:none">Answer: (a) During the day, land heats up faster than sea. Hot air over land rises and cool air from the sea rushes in. This is called sea breeze.</div>
-        </li>
-
-        <li class="mcq-item">
-          <div class="mcq-q">5. Woolen clothes keep us warm because:</div>
-          <ul class="mcq-options">
-            <li>(a) Wool produces heat</li>
-            <li data-correct="true">(b) Wool traps air which is a poor conductor of heat</li>
-            <li>(c) Wool conducts heat from the surroundings to our body</li>
-            <li>(d) Wool absorbs heat from the sun</li>
-          </ul>
-          <div class="mcq-ans" style="display:none">Answer: (b) Wool does not produce heat. It traps air in its fibres, and air is a poor conductor of heat. This trapped air prevents our body heat from escaping.</div>
-        </li>
-
-        <li class="mcq-item">
-          <div class="mcq-q">6. In which mode of heat transfer do particles actually move from one place to another?</div>
+          <div class="mcq-q">Q6. In which mode of heat transfer do the particles of the medium actually move from one place to another?</div>
           <ul class="mcq-options">
             <li>(a) Conduction</li>
             <li data-correct="true">(b) Convection</li>
             <li>(c) Radiation</li>
-            <li>(d) None of these</li>
+            <li>(d) All of these</li>
           </ul>
-          <div class="mcq-ans" style="display:none">Answer: (b) In convection, the heated fluid (liquid or gas) actually moves from one place to another, carrying heat with it. In conduction, particles only vibrate in place. In radiation, no medium is needed at all.</div>
+          <div class="mcq-ans" style="display:none">&#9989; <strong>(b) Convection.</strong> In convection, the heated fluid (liquid or gas) particles actually move from one place to another, carrying heat. In conduction, particles only vibrate in place. In radiation, no medium is needed at all.</div>
         </li>
 
         <li class="mcq-item">
-          <div class="mcq-q">7. Dark-coloured clothes are preferred in winter because:</div>
+          <div class="mcq-q">Q7. Heat from the Sun reaches us by the process of:</div>
           <ul class="mcq-options">
-            <li>(a) They reflect more heat</li>
-            <li data-correct="true">(b) They absorb more heat from the sun</li>
-            <li>(c) They are thicker</li>
-            <li>(d) They trap more air</li>
+            <li>(a) Conduction</li>
+            <li>(b) Convection</li>
+            <li data-correct="true">(c) Radiation</li>
+            <li>(d) Conduction and Convection</li>
           </ul>
-          <div class="mcq-ans" style="display:none">Answer: (b) Dark-coloured surfaces are good absorbers of heat radiation. They absorb more heat from the sun and keep us warmer in winter.</div>
+          <div class="mcq-ans" style="display:none">&#9989; <strong>(c) Radiation.</strong> The Sun's heat reaches Earth through the vacuum of space by radiation. Conduction and convection both require a medium. Since there is no matter between the Sun and Earth, only radiation can work.</div>
         </li>
 
         <li class="mcq-item">
-          <div class="mcq-q">8. The normal temperature of the human body is:</div>
+          <div class="mcq-q">Q8. Sea breeze blows during:</div>
           <ul class="mcq-options">
-            <li>(a) 98.6&deg;C</li>
-            <li>(b) 36&deg;C</li>
-            <li data-correct="true">(c) 37&deg;C</li>
-            <li>(d) 40&deg;C</li>
+            <li data-correct="true">(a) Day, from sea towards land</li>
+            <li>(b) Night, from sea towards land</li>
+            <li>(c) Day, from land towards sea</li>
+            <li>(d) Night, from land towards sea</li>
           </ul>
-          <div class="mcq-ans" style="display:none">Answer: (c) 37&deg;C (or 98.6&deg;F). A temperature significantly above 37&deg;C usually indicates a fever.</div>
+          <div class="mcq-ans" style="display:none">&#9989; <strong>(a) Day, from sea towards land.</strong> During the day, land heats up faster than sea. Hot air over land rises, and cool air from the sea rushes in — this is sea breeze. At night, the reverse happens (land breeze — from land to sea).</div>
         </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">Q9. Woolen clothes keep us warm because:</div>
+          <ul class="mcq-options">
+            <li>(a) Wool produces heat</li>
+            <li data-correct="true">(b) Wool fibres trap air, which is a poor conductor</li>
+            <li>(c) Wool is a good conductor of heat</li>
+            <li>(d) Wool absorbs radiation from the sun</li>
+          </ul>
+          <div class="mcq-ans" style="display:none">&#9989; <strong>(b) Wool fibres trap air.</strong> Wool does NOT produce heat. The wool fibres trap air between them. Air is a very poor conductor of heat. This trapped air layer prevents body heat from escaping, keeping us warm.</div>
+        </li>
+
+        <li class="mcq-item">
+          <div class="mcq-q">Q10. Dark-coloured surfaces compared to light-coloured surfaces:</div>
+          <ul class="mcq-options">
+            <li data-correct="true">(a) Absorb more heat radiation</li>
+            <li>(b) Reflect more heat radiation</li>
+            <li>(c) Do not absorb any heat</li>
+            <li>(d) Conduct heat better</li>
+          </ul>
+          <div class="mcq-ans" style="display:none">&#9989; <strong>(a) Absorb more heat radiation.</strong> Dark (black) surfaces are good absorbers of radiation. Light (white) surfaces are good reflectors and reflect most radiation. That is why we wear light colours in summer and dark colours in winter.</div>
+        </li>
+
       </ul>
+    </div>
+  </div>
 
-      <div class="subtitle" style="margin-top:28px;">Short Answer Questions</div>
+  <div class="section-connector"><span class="connector-arrow">&#9660;</span></div>
 
+  <!-- 1-MARK -->
+  <div class="section-block reveal" id="onemarks">
+    <div class="section-hd g-red"><span class="icon">&#128221;</span> 1-Mark Questions &amp; Answers</div>
+    <div class="section-bd">
+      <p style="font-size:13.5px;margin-bottom:16px;color:#6b7280;">Write answers in 1–2 lines. Direct recall from NCERT.</p>
+      <ul class="one-mark-list">
+
+        <li class="one-mark-item">
+          <div class="one-q">Q1. What is temperature? <span class="mark-badge badge-1">1 Mark</span></div>
+          <div class="one-a"><strong>Ans:</strong> Temperature is the <strong>degree of hotness or coldness</strong> of a body. It is measured using a thermometer. Its SI unit is <strong>Kelvin (K)</strong>.</div>
+        </li>
+
+        <li class="one-mark-item">
+          <div class="one-q">Q2. What is the SI unit of heat? <span class="mark-badge badge-1">1 Mark</span></div>
+          <div class="one-a"><strong>Ans:</strong> The SI unit of heat is <strong>Joule (J)</strong>. Heat is a form of energy that flows from a hotter body to a cooler body.</div>
+        </li>
+
+        <li class="one-mark-item">
+          <div class="one-q">Q3. What is conduction? <span class="mark-badge badge-1">1 Mark</span></div>
+          <div class="one-a"><strong>Ans:</strong> Conduction is the transfer of heat <strong>through a material without the particles moving</strong> from their positions. It occurs mainly in solids. Example: Heat travels through a metal spoon when one end is heated.</div>
+        </li>
+
+        <li class="one-mark-item">
+          <div class="one-q">Q4. Define a conductor of heat. Give one example. <span class="mark-badge badge-1">1 Mark</span></div>
+          <div class="one-a"><strong>Ans:</strong> A <strong>conductor</strong> is a material that allows heat to pass through it easily. Examples: <strong>copper, iron, aluminium</strong> (all metals).</div>
+        </li>
+
+        <li class="one-mark-item">
+          <div class="one-q">Q5. Define an insulator of heat. Give one example. <span class="mark-badge badge-1">1 Mark</span></div>
+          <div class="one-a"><strong>Ans:</strong> An <strong>insulator</strong> (poor conductor) is a material that does NOT allow heat to pass through it easily. Examples: <strong>wood, plastic, rubber, air, wool</strong>.</div>
+        </li>
+
+        <li class="one-mark-item">
+          <div class="one-q">Q6. What is convection? <span class="mark-badge badge-1">1 Mark</span></div>
+          <div class="one-a"><strong>Ans:</strong> Convection is the transfer of heat in <strong>liquids and gases</strong> where the heated particles <strong>actually move</strong> from one place to another, carrying heat with them.</div>
+        </li>
+
+        <li class="one-mark-item">
+          <div class="one-q">Q7. What is radiation? <span class="mark-badge badge-1">1 Mark</span></div>
+          <div class="one-a"><strong>Ans:</strong> Radiation is the transfer of heat that <strong>does not require any medium</strong>. It can travel even through vacuum. Example: Heat from the Sun reaching Earth.</div>
+        </li>
+
+        <li class="one-mark-item">
+          <div class="one-q">Q8. What is the normal temperature of the human body? <span class="mark-badge badge-1">1 Mark</span></div>
+          <div class="one-a"><strong>Ans:</strong> The normal temperature of the human body is <strong>37&deg;C</strong> (or 98.6&deg;F). A temperature above this usually indicates fever.</div>
+        </li>
+
+        <li class="one-mark-item">
+          <div class="one-q">Q9. What is the range of a laboratory thermometer? <span class="mark-badge badge-1">1 Mark</span></div>
+          <div class="one-a"><strong>Ans:</strong> The range of a laboratory thermometer is <strong>&minus;10&deg;C to 110&deg;C</strong>. It has no kink and must be read while still in the substance.</div>
+        </li>
+
+        <li class="one-mark-item">
+          <div class="one-q">Q10. Why is a kink provided in a clinical thermometer? <span class="mark-badge badge-1">1 Mark</span></div>
+          <div class="one-a"><strong>Ans:</strong> The kink (constriction) in a clinical thermometer <strong>prevents mercury from falling back</strong> into the bulb after removal from the patient, allowing the reading to be taken at leisure.</div>
+        </li>
+
+        <li class="one-mark-item">
+          <div class="one-q">Q11. Name the mode of heat transfer that requires no medium. <span class="mark-badge badge-1">1 Mark</span></div>
+          <div class="one-a"><strong>Ans:</strong> <strong>Radiation</strong> is the mode of heat transfer that does not require any medium. It can travel through vacuum (empty space).</div>
+        </li>
+
+        <li class="one-mark-item">
+          <div class="one-q">Q12. Why should we not hold a clinical thermometer by its bulb while reading? <span class="mark-badge badge-1">1 Mark</span></div>
+          <div class="one-a"><strong>Ans:</strong> Holding the bulb transfers <strong>heat from our hand</strong> to the mercury, giving an <strong>incorrect (higher) reading</strong>.</div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-connector"><span class="connector-arrow">&#9660;</span></div>
+
+  <!-- 2-MARK -->
+  <div class="section-block reveal" id="twomarks">
+    <div class="section-hd g-orange"><span class="icon">&#128196;</span> 2-Mark Questions &amp; Answers</div>
+    <div class="section-bd">
+      <p style="font-size:13.5px;margin-bottom:16px;color:#6b7280;">Write in 30–40 words with 2 clear NCERT points.</p>
       <ul class="short-q-list">
+
         <li class="short-q-item">
-          <div class="short-q">1. Why do we wear light-coloured clothes in summer?</div>
-          <div class="short-a"><strong>Ans:</strong> Light-coloured clothes <strong>reflect</strong> most of the heat radiation from the sun. This keeps our body cooler. Dark-coloured clothes absorb more heat, making us feel hotter.</div>
+          <div class="short-q">Q1. Distinguish between a conductor and an insulator with examples. <span class="mark-badge badge-2">2 Marks</span></div>
+          <div class="short-a"><strong>Conductor:</strong> Allows heat to pass through easily. Examples: copper, iron, aluminium. Cooking vessels are made of metals because they are good conductors.<br><strong>Insulator:</strong> Does NOT allow heat to pass through easily. Examples: wood, plastic, rubber, air, wool. Handles of utensils are made of wood/plastic because they are insulators.</div>
         </li>
+
         <li class="short-q-item">
-          <div class="short-q">2. What is the difference between conduction and convection?</div>
-          <div class="short-a"><strong>Ans:</strong> In <strong>conduction</strong>, heat transfers through a solid medium without the particles moving from their position &mdash; they only vibrate. In <strong>convection</strong>, the heated particles of a fluid (liquid/gas) actually move from one place to another, carrying heat with them. Conduction occurs mainly in solids; convection occurs in liquids and gases.</div>
+          <div class="short-q">Q2. Difference between a clinical thermometer and a laboratory thermometer. <span class="mark-badge badge-2">2 Marks</span></div>
+          <div class="short-a"><strong>Clinical Thermometer:</strong> Range = <strong>35&deg;C to 42&deg;C</strong>. Has a <strong>kink</strong>. Used to measure body temperature. Read after removing from patient.<br><strong>Laboratory Thermometer:</strong> Range = <strong>&minus;10&deg;C to 110&deg;C</strong>. Has <strong>no kink</strong>. Used in experiments. Must be read while still in the substance.</div>
         </li>
+
         <li class="short-q-item">
-          <div class="short-q">3. Why does the mercury in a clinical thermometer not fall on its own?</div>
-          <div class="short-a"><strong>Ans:</strong> A clinical thermometer has a small <strong>kink (bend)</strong> near the bulb. This kink prevents the mercury from flowing back into the bulb on its own. That is why we need to <strong>jerk</strong> the thermometer sharply to bring the mercury level down before each use.</div>
+          <div class="short-q">Q3. Why do we wear light-coloured clothes in summer and dark-coloured in winter? <span class="mark-badge badge-2">2 Marks</span></div>
+          <div class="short-a"><strong>Summer — light colours:</strong> Light surfaces are <strong>good reflectors</strong> of radiation. They reflect most sunlight and keep us cool.<br><strong>Winter — dark colours:</strong> Dark surfaces are <strong>good absorbers</strong> of radiation. They absorb more heat from sunlight and keep us warm.</div>
         </li>
+
         <li class="short-q-item">
-          <div class="short-q">4. Explain how sea breeze is formed.</div>
-          <div class="short-a"><strong>Ans:</strong> During the day, the land <strong>heats up faster</strong> than the sea. The air over the land becomes hot and <strong>rises up</strong>. The cooler air from above the sea <strong>rushes in</strong> to take its place. This cool wind blowing from the sea towards the land is called <strong>sea breeze</strong>. It is caused by <strong>convection</strong>.</div>
+          <div class="short-q">Q4. How is sea breeze formed? <span class="mark-badge badge-2">2 Marks</span></div>
+          <div class="short-a">During the <strong>day</strong>, land heats up <strong>faster</strong> than the sea. Air above land becomes hot and <strong>rises</strong>. Cooler air from the sea <strong>rushes in</strong> to fill the space. This cool wind blowing from sea to land is called <strong>sea breeze</strong>. It is caused by <strong>convection</strong>.</div>
         </li>
+
         <li class="short-q-item">
-          <div class="short-q">5. Why is wearing two thin layers of clothing warmer than one thick layer?</div>
-          <div class="short-a"><strong>Ans:</strong> Two thin layers trap a layer of <strong>air between them</strong>. Air is a very <strong>poor conductor of heat</strong> (a good insulator). This extra trapped air layer acts as additional insulation, preventing body heat from escaping. One thick layer has no such air gap between layers.</div>
+          <div class="short-q">Q5. Why do woolen clothes keep us warm in winter? <span class="mark-badge badge-2">2 Marks</span></div>
+          <div class="short-a">Wool fibres have <strong>tiny air pockets</strong> trapped between them. Air is a very <strong>poor conductor</strong> of heat. This trapped air prevents body heat from escaping to cold surroundings. Note: Wool does <strong>NOT</strong> produce heat — it only conserves it.</div>
         </li>
+
         <li class="short-q-item">
-          <div class="short-q">6. Give an example to show that metals are good conductors of heat.</div>
-          <div class="short-a"><strong>Ans:</strong> When we stir hot tea with a <strong>metal spoon</strong>, the handle of the spoon also becomes hot after some time. This happens because the heat from the tea travels through the metal spoon by <strong>conduction</strong>. This shows that metals are good conductors of heat. In contrast, a <strong>wooden spoon</strong> handle does not become hot because wood is a poor conductor.</div>
+          <div class="short-q">Q6. Why are cooking vessels made of metal but their handles made of wood or plastic? <span class="mark-badge badge-2">2 Marks</span></div>
+          <div class="short-a">Vessels are made of <strong>metal</strong> (aluminium/steel) because metals are <strong>good conductors</strong> — they transfer heat from stove to food quickly.<br>Handles are made of <strong>wood or plastic</strong> because these are <strong>insulators</strong> — they do not conduct heat to our hands, so we can hold the vessel safely.</div>
         </li>
+
       </ul>
+    </div>
+  </div>
+
+  <div class="section-connector"><span class="connector-arrow">&#9660;</span></div>
+
+  <!-- 3-MARK -->
+  <div class="section-block reveal" id="threemarks">
+    <div class="section-hd g-amber"><span class="icon">&#128218;</span> 3-Mark Questions &amp; Answers</div>
+    <div class="section-bd">
+      <p style="font-size:13.5px;margin-bottom:16px;color:#6b7280;">Write in 60–80 words with 3 clear NCERT points.</p>
+      <ul class="short-q-list">
+
+        <li class="short-q-item" style="border-left-color:#f59e0b;">
+          <div class="short-q" style="color:#92400e;">Q1. Explain the three modes of heat transfer with one example each. <span class="mark-badge badge-3">3 Marks</span></div>
+          <div class="short-a">
+            <strong>(a) Conduction:</strong> Transfer of heat through a solid without particles moving — they only vibrate. Example: Metal spoon in hot tea — the handle also becomes hot.<br>
+            <strong>(b) Convection:</strong> Transfer of heat in liquids/gases where heated particles actually move. Example: Hot water rises and cool water sinks in a boiling pot — convection currents form.<br>
+            <strong>(c) Radiation:</strong> Transfer of heat without any medium — can travel through vacuum. Example: Heat from the Sun reaches Earth through space.
+          </div>
+        </li>
+
+        <li class="short-q-item" style="border-left-color:#f59e0b;">
+          <div class="short-q" style="color:#92400e;">Q2. Explain how land breeze and sea breeze are formed. <span class="mark-badge badge-3">3 Marks</span></div>
+          <div class="short-a">
+            <strong>Sea Breeze (Day):</strong> Land heats up faster. Hot air over land rises. Cool air from sea rushes to land — called <strong>sea breeze</strong>.<br>
+            <strong>Land Breeze (Night):</strong> Land cools faster. Sea remains warmer. Hot air over sea rises. Cool air from land rushes to sea — called <strong>land breeze</strong>.<br>
+            Both are examples of <strong>convection currents</strong> in air caused by unequal heating of land and sea.
+          </div>
+        </li>
+
+        <li class="short-q-item" style="border-left-color:#f59e0b;">
+          <div class="short-q" style="color:#92400e;">Q3. What are the precautions to be taken while using a clinical thermometer? <span class="mark-badge badge-3">3 Marks</span></div>
+          <div class="short-a">
+            (a) <strong>Wash</strong> with antiseptic solution before and after use.<br>
+            (b) <strong>Jerk</strong> sharply before use to bring mercury below 35&deg;C.<br>
+            (c) <strong>Do not hold by the bulb</strong> — hold the other end to avoid body heat affecting the reading.<br>
+            (d) <strong>Keep at eye level</strong> while reading to avoid parallax error.<br>
+            (e) <strong>Do not use</strong> for very high or very low temperatures — it is designed only for body temperature range (35&deg;C–42&deg;C).
+          </div>
+        </li>
+
+        <li class="short-q-item" style="border-left-color:#f59e0b;">
+          <div class="short-q" style="color:#92400e;">Q4. Explain why dark surfaces absorb more heat. Give two practical applications. <span class="mark-badge badge-3">3 Marks</span></div>
+          <div class="short-a">
+            <strong>Reason:</strong> Dark (black) surfaces are <strong>good absorbers</strong> of radiation — they absorb a large amount of heat radiation. Light (white) surfaces are <strong>good reflectors</strong> — they reflect most radiation and absorb very little.<br>
+            <strong>Application 1:</strong> <strong>Solar cookers</strong> are painted black inside to absorb maximum solar radiation and heat food.<br>
+            <strong>Application 2:</strong> We wear <strong>dark clothes in winter</strong> to absorb more heat from sunlight, and <strong>light clothes in summer</strong> to reflect heat and stay cool.
+          </div>
+        </li>
+
+        <li class="short-q-item" style="border-left-color:#f59e0b;">
+          <div class="short-q" style="color:#92400e;">Q5. Why is our sense of touch not reliable for measuring temperature? Explain with the three-bowls experiment. <span class="mark-badge badge-3">3 Marks</span></div>
+          <div class="short-a">
+            Our sense of touch tells us how hot/cold something feels <strong>relative to our skin</strong>, not the actual temperature.<br>
+            <strong>Experiment:</strong> Bowl A = hot water, Bowl B = cold water, Bowl C = lukewarm. Place left hand in A, right hand in B for 1 minute. Then put both hands in C.<br>
+            <strong>Observation:</strong> Left hand feels C as <strong>cold</strong>; right hand feels C as <strong>warm</strong> — same water, different sensations!<br>
+            <strong>Conclusion:</strong> Sense of touch is unreliable — we need a <strong>thermometer</strong> for accurate temperature measurement.
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-connector"><span class="connector-arrow">&#9660;</span></div>
+
+  <!-- 5-MARK -->
+  <div class="section-block reveal" id="fivemarks">
+    <div class="section-hd g-rose"><span class="icon">&#127775;</span> 5-Mark Questions &amp; Answers</div>
+    <div class="section-bd">
+      <p style="font-size:13.5px;margin-bottom:16px;color:#6b7280;">Long answers (5 marks). Use sub-headings and specific NCERT facts.</p>
+
+      <div class="long-q-item">
+        <div class="long-q">Q1. Explain all three modes of heat transfer in detail with examples, medium required, and key differences. <span class="mark-badge badge-5">5 Marks</span></div>
+        <div class="long-a">
+          <p style="margin-bottom:8px;"><strong>(1) Conduction:</strong> Transfer of heat through solid material. Particles do NOT move — they only vibrate and pass energy to adjacent particles. Requires solid medium. Example: Metal spoon in hot tea gets hot at the handle. Metals are good conductors; wood, plastic, rubber are poor conductors (insulators).</p>
+          <p style="margin-bottom:8px;"><strong>(2) Convection:</strong> Transfer of heat in fluids (liquids and gases). Heated particles actually move, setting up convection currents. Requires liquid or gas medium. Examples: (a) Boiling water — hot water rises, cool water sinks; (b) Sea breeze and land breeze; (c) Atmospheric winds.</p>
+          <p style="margin-bottom:8px;"><strong>(3) Radiation:</strong> Transfer of heat without any medium — travels through vacuum at speed of light. Examples: (a) Sun's heat reaching Earth; (b) Warmth felt near a campfire without touching it; (c) Solar cookers.</p>
+          <p><strong>Key differences:</strong> Conduction = particles vibrate (solid); Convection = particles move (fluid); Radiation = no particles needed (vacuum possible). All three can occur simultaneously — near a fire, radiation warms you, convection carries hot air upward, and touching a heated surface causes conduction.</p>
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q2. Write a detailed note on thermometers — types, range, structure, and precautions. <span class="mark-badge badge-5">5 Marks</span></div>
+        <div class="long-a">
+          <p style="margin-bottom:8px;"><strong>Thermometer:</strong> Instrument used to measure temperature. Works on the principle that mercury expands on heating and contracts on cooling.</p>
+          <p style="margin-bottom:8px;"><strong>Clinical Thermometer:</strong> Range = <strong>35&deg;C to 42&deg;C</strong>. Has a <strong>kink</strong> near the bulb to prevent mercury falling back. Normal body temperature = <strong>37&deg;C</strong>. Jerk before use to bring mercury below 35&deg;C. Cannot be used for other substances.</p>
+          <p style="margin-bottom:8px;"><strong>Laboratory Thermometer:</strong> Range = <strong>&minus;10&deg;C to 110&deg;C</strong>. No kink. Must be read while still immersed. Cannot be tilted. Used in science experiments.</p>
+          <p style="margin-bottom:8px;"><strong>Precautions — Clinical:</strong> (a) Wash with antiseptic before/after; (b) Jerk to bring mercury below 35&deg;C; (c) Never hold by bulb; (d) Keep at eye level; (e) Do not use for very high temperatures.</p>
+          <p><strong>Precautions — Laboratory:</strong> (a) Do not tilt; (b) Keep bulb fully immersed; (c) Read while still in substance; (d) Do not place bulb at bottom of container (hot spots may give wrong reading).</p>
+        </div>
+      </div>
+
+      <div class="long-q-item">
+        <div class="long-q">Q3. Explain why certain colours and materials are used in daily life based on their heat properties. <span class="mark-badge badge-5">5 Marks</span></div>
+        <div class="long-a">
+          <p style="margin-bottom:8px;"><strong>Introduction:</strong> Our choice of colours and materials is closely linked to how they absorb, reflect, or conduct heat.</p>
+          <p style="margin-bottom:8px;"><strong>(1) Light-coloured clothes in summer:</strong> Light/white surfaces are good <strong>reflectors</strong> of radiation. They reflect most sunlight, preventing heat from reaching our body — we feel cooler.</p>
+          <p style="margin-bottom:8px;"><strong>(2) Dark-coloured clothes in winter:</strong> Dark/black surfaces are good <strong>absorbers</strong> of radiation. They absorb more sunlight and warm our body.</p>
+          <p style="margin-bottom:8px;"><strong>(3) Metal vessels with insulating handles:</strong> Metal conducts heat efficiently from stove to food. Wood/plastic handles are insulators — they don't conduct heat to our hands.</p>
+          <p style="margin-bottom:8px;"><strong>(4) Woolen clothes in winter:</strong> Wool fibres trap air. Air is a very poor conductor. The trapped air prevents body heat from escaping. Wool does NOT produce heat — it conserves it.</p>
+          <p><strong>(5) Solar cookers painted black:</strong> Black interior absorbs maximum solar radiation. Glass cover traps heat (greenhouse effect). This enables cooking using sunlight without fuel.</p>
+        </div>
+      </div>
 
     </div>
   </div>
