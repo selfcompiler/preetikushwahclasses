@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 7 Science Ch 12: Earth, Moon and the Sun — rotation, revolution, eclipses, phases of Moon, tides. Full NCERT notes with animations.">
+<meta name="keywords" content="Preeti Kushwah Classes, Class 7 Science, Earth Moon Sun, NCERT notes, eclipses, phases of moon, tides, seasons, solar eclipse, lunar eclipse">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-7/science/earth-moon-sun.html">
+<meta property="og:title" content="Ch 12: Earth, Moon &amp; the Sun — Class 7 Science">
+<meta property="og:description" content="Full NCERT notes with animations — rotation, revolution, eclipses, Moon phases, tides.">
+<meta property="og:type" content="article">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Ch 12: Earth, Moon &amp; the Sun | Class 7 Science | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sp-dark:#1e1b4b;--sp-mid:#4338ca;--sp-light:#a5b4fc;--sp-pale:#eef2ff;
+  --sun:#f59e0b;--moon:#94a3b8;--earth:#3b82f6;
+  --text:#1f2937;--card:#ffffff;--bg:#eef2ff;
+}
+[data-theme="dark"]{--bg:#0d0c1d;--card:#1a1833;--text:#e0e7ff;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.7}
+
+/* NAV */
+.top-nav{background:#fff;padding:8px 12px;display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,.06);position:sticky;top:0;z-index:1100;overflow-x:auto;white-space:nowrap}
+[data-theme="dark"] .top-nav{background:#1a1833}
+.tn-home{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#eef2ff,#e0e7ff);color:#1e1b4b;text-decoration:none;padding:7px 14px;border-radius:12px;font-size:12px;font-weight:800;border:1.5px solid #a5b4fc;transition:all .2s;white-space:nowrap}
+.tn-home:hover{background:#e0e7ff;transform:translateY(-1px)}
+.nav-spacer{flex:1;min-width:4px}
+.tn-dark{background:none;border:1.5px solid #a5b4fc;color:#4338ca;padding:6px 11px;border-radius:12px;font-size:12px;font-weight:800;cursor:pointer;transition:all .2s}
+[data-theme="dark"] .tn-dark{border-color:#4338ca;color:#a5b4fc}
+.tn-share{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#eef2ff,#e0e7ff);color:#1e1b4b;padding:7px 12px;border-radius:12px;border:1.5px solid #a5b4fc;font-size:11px;font-weight:800;cursor:pointer;transition:all .2s}
+
+/* TOC */
+.toc-bar{background:linear-gradient(135deg,#1e1b4b,#4338ca);padding:10px 16px;position:sticky;top:44px;z-index:1050;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+.toc-bar a{display:inline-block;background:rgba(255,255,255,.15);color:#fff;text-decoration:none;padding:5px 12px;border-radius:16px;font-size:12px;font-weight:700;margin-right:5px;transition:all .2s}
+.toc-bar a:hover,.toc-bar a.active{background:rgba(255,255,255,.32);transform:translateY(-1px)}
+
+/* PROGRESS BAR */
+#prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#f59e0b,#4338ca,#a5b4fc);z-index:9999;transition:width .1s;width:0}
+
+/* HERO */
+.hero{background:linear-gradient(180deg,#020617 0%,#0f0a2e 30%,#1e1b4b 65%,#312e81 85%,#eef2ff 100%);position:relative;overflow:hidden;min-height:400px;padding-bottom:30px}
+.stars-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle var(--d,2s) ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
+.hero-content{position:relative;z-index:10;text-align:center;padding:24px 16px 0}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:2px solid rgba(165,180,252,.5);border-radius:30px;padding:4px 16px;font-size:10px;font-weight:800;letter-spacing:2px;color:#a5b4fc;text-transform:uppercase;margin-bottom:10px}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(22px,5vw,44px);color:#fff;text-shadow:0 3px 16px rgba(0,0,0,.5);margin-bottom:6px;line-height:1.2}
+.hero p{color:rgba(255,255,255,.8);font-size:14px;font-weight:700;margin-bottom:20px}
+
+/* SOLAR SYSTEM ANIMATION */
+.solar-anim{position:relative;z-index:10;display:flex;justify-content:center;align-items:center;height:220px;margin:0 auto}
+.sun-ball{width:70px;height:70px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fef3c7,#f59e0b 50%,#d97706);box-shadow:0 0 30px #f59e0b,0 0 60px rgba(245,158,11,.5);animation:sunPulse 3s ease-in-out infinite;position:relative;z-index:5;flex-shrink:0}
+@keyframes sunPulse{0%,100%{box-shadow:0 0 30px #f59e0b,0 0 60px rgba(245,158,11,.5)}50%{box-shadow:0 0 50px #f59e0b,0 0 90px rgba(245,158,11,.7),0 0 120px rgba(245,158,11,.3)}}
+.earth-orbit{position:absolute;width:180px;height:180px;border:1.5px dashed rgba(165,180,252,.3);border-radius:50%;animation:orbitEarth 12s linear infinite;display:flex;justify-content:center;align-items:flex-start}
+.earth-ball{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#93c5fd,#3b82f6 40%,#1d4ed8 70%,#166534);box-shadow:0 0 10px rgba(59,130,246,.6);margin-top:-14px;position:relative;animation:spinEarth 4s linear infinite}
+@keyframes orbitEarth{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes spinEarth{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.moon-orbit{position:absolute;top:50%;left:50%;width:56px;height:56px;margin:-28px -28px;border:1px dashed rgba(148,163,184,.3);border-radius:50%;animation:orbitMoon 3s linear infinite;display:flex;justify-content:center;align-items:flex-start}
+.moon-ball{width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f1f5f9,#94a3b8);box-shadow:0 0 6px rgba(148,163,184,.6);margin-top:-5px}
+@keyframes orbitMoon{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+.stats-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;position:relative;z-index:10;padding:0 16px;margin-top:10px}
+.stat-pill{background:rgba(255,255,255,.12);border:1.5px solid rgba(165,180,252,.3);border-radius:14px;padding:7px 12px;text-align:center;min-width:80px}
+.stat-pill .sp-num{font-family:'Fredoka One',cursive;font-size:16px;color:#fbbf24;display:block;line-height:1.2}
+.stat-pill .sp-label{font-size:9px;font-weight:800;color:rgba(255,255,255,.8);letter-spacing:.3px}
+
+/* SECTIONS */
+.section{padding:28px 16px;max-width:900px;margin:0 auto}
+.sec-head{font-family:'Fredoka One',cursive;font-size:clamp(20px,4vw,28px);color:#1e1b4b;margin-bottom:4px}
+[data-theme="dark"] .sec-head{color:#a5b4fc}
+.sec-sub{font-size:13px;color:#6b7280;font-weight:700;margin-bottom:16px}
+
+/* CARDS */
+.card{background:var(--card);border-radius:14px;padding:16px 18px;box-shadow:0 2px 10px rgba(0,0,0,.06);margin-bottom:14px;transition:transform .2s}
+.card:hover{transform:translateY(-2px)}
+.card h3{font-family:'Fredoka One',cursive;font-size:17px;margin-bottom:8px}
+.card p,.card li{font-size:14px;margin-bottom:4px}
+.card ul{padding-left:18px}.card li{list-style:disc}
+.card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:14px}
+@media(max-width:600px){.card-grid{grid-template-columns:1fr}}
+
+/* FACT TABLE */
+.fact-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;font-size:13px;box-shadow:0 2px 10px rgba(0,0,0,.07);margin:12px 0}
+.fact-table thead th{background:linear-gradient(135deg,#1e1b4b,#4338ca);color:#fff;padding:9px 12px;font-weight:800;text-align:left;font-size:11px}
+.fact-table tbody td{padding:8px 12px;background:var(--card);border-bottom:1px solid #e5e7eb;vertical-align:top;font-size:13px}
+.fact-table tbody tr:last-child td{border-bottom:none}
+.fact-table tbody tr:nth-child(even) td{background:#f9fafb}
+[data-theme="dark"] .fact-table tbody td{background:#1a1833;border-color:#312e81;color:#e0e7ff}
+[data-theme="dark"] .fact-table tbody tr:nth-child(even) td{background:#1e1b4b}
+
+/* SUN VISUAL */
+.sun-section{background:linear-gradient(135deg,#0c0a1e,#1e1b4b);border-radius:18px;padding:24px 20px;position:relative;overflow:hidden;margin-bottom:20px}
+.sun-visual{display:flex;justify-content:center;align-items:center;padding:20px 0;position:relative}
+.sun-big{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 38% 30%,#fef9c3,#fbbf24 40%,#d97706 75%,#92400e);box-shadow:0 0 40px #f59e0b,0 0 80px rgba(245,158,11,.6),0 0 120px rgba(245,158,11,.3);animation:sunPulse2 4s ease-in-out infinite;position:relative;z-index:3;flex-shrink:0}
+@keyframes sunPulse2{0%,100%{box-shadow:0 0 40px #f59e0b,0 0 80px rgba(245,158,11,.6)}50%{box-shadow:0 0 60px #f59e0b,0 0 110px rgba(245,158,11,.7),0 0 160px rgba(245,158,11,.35)}}
+.sun-rays{position:absolute;width:200px;height:200px;border-radius:50%;animation:rotateSun 20s linear infinite;z-index:2}
+.sun-ray{position:absolute;top:50%;left:50%;width:60px;height:4px;background:linear-gradient(90deg,rgba(251,191,36,.8),transparent);border-radius:2px;transform-origin:0 50%;margin-top:-2px}
+@keyframes rotateSun{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.sunspot{position:absolute;background:rgba(0,0,0,.3);border-radius:50%}
+.sun-facts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+@media(max-width:600px){.sun-facts-grid{grid-template-columns:repeat(2,1fr)}}
+.sfact{background:rgba(255,255,255,.08);border:1px solid rgba(251,191,36,.3);border-radius:12px;padding:10px;text-align:center}
+.sfact .sv{font-family:'Fredoka One',cursive;font-size:18px;color:#fbbf24;display:block}
+.sfact .sk{font-size:10px;font-weight:800;color:rgba(255,255,255,.7);letter-spacing:.3px}
+
+/* EARTH VISUAL */
+.earth-section{background:linear-gradient(135deg,#0c1a3a,#1e3a5f);border-radius:18px;padding:24px 20px;margin-bottom:20px;position:relative;overflow:hidden}
+.earth-big{width:100px;height:100px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#93c5fd,#3b82f6 30%,#1d4ed8 60%,#166534 75%,#15803d);box-shadow:0 0 30px rgba(59,130,246,.5),0 0 60px rgba(59,130,246,.2);animation:spinEarth2 8s linear infinite;margin:0 auto 16px}
+@keyframes spinEarth2{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* ROTATION / REVOLUTION DIAGRAMS */
+.diagram-wrap{background:var(--card);border-radius:14px;padding:16px;margin:14px 0;overflow-x:auto}
+.diagram-wrap h4{font-family:'Fredoka One',cursive;font-size:15px;color:#4338ca;margin-bottom:10px;text-align:center}
+[data-theme="dark"] .diagram-wrap h4{color:#a5b4fc}
+.diag-svg{display:block;margin:0 auto;max-width:100%}
+
+/* SEASONS */
+.seasons-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0}
+@media(max-width:500px){.seasons-grid{grid-template-columns:1fr}}
+.season-card{border-radius:14px;padding:14px;text-align:center;border:2px solid}
+.season-card h4{font-family:'Fredoka One',cursive;font-size:15px;margin-bottom:4px}
+.season-card p{font-size:12px;font-weight:700}
+
+/* MOON PHASES */
+.phases-row{display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:8px;padding:16px 0}
+.phase-item{display:flex;flex-direction:column;align-items:center;gap:6px}
+.phase-circle{width:52px;height:52px;border-radius:50%;position:relative;overflow:hidden;border:2px solid #374151;background:#111}
+.phase-label{font-size:10px;font-weight:800;color:var(--text);text-align:center;max-width:60px;line-height:1.3}
+
+/* ECLIPSE DIAGRAMS */
+.eclipse-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+@media(max-width:600px){.eclipse-wrap{grid-template-columns:1fr}}
+.eclipse-card{background:var(--card);border-radius:14px;padding:16px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.eclipse-card h4{font-family:'Fredoka One',cursive;font-size:15px;margin-bottom:8px}
+.eclipse-solar{color:#f59e0b}
+.eclipse-lunar{color:#6366f1}
+
+/* TIDES */
+.tides-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+@media(max-width:550px){.tides-grid{grid-template-columns:1fr}}
+.tide-card{background:var(--card);border-radius:14px;padding:14px;box-shadow:0 2px 10px rgba(0,0,0,.06);text-align:center}
+.tide-card h4{font-family:'Fredoka One',cursive;font-size:15px;margin-bottom:8px}
+
+/* KEY POINTS */
+.keybox{background:linear-gradient(135deg,#eef2ff,#e0e7ff);border:2px solid #a5b4fc;border-radius:14px;padding:14px 16px;margin:14px 0}
+[data-theme="dark"] .keybox{background:#1a1833;border-color:#4338ca}
+.keybox h4{font-family:'Fredoka One',cursive;font-size:15px;color:#1e1b4b;margin-bottom:8px}
+[data-theme="dark"] .keybox h4{color:#a5b4fc}
+.keybox li{font-size:13px;font-weight:700;margin-bottom:4px;padding-left:4px}
+.keybox ul{padding-left:18px}
+
+/* MCQ */
+.quiz-section{background:linear-gradient(135deg,#eef2ff,#e0e7ff);border-radius:18px;padding:20px 16px;margin:20px auto;max-width:900px;border:2px solid #a5b4fc}
+.quiz-section h3{font-family:'Fredoka One',cursive;font-size:20px;color:#1e1b4b;text-align:center;margin-bottom:6px}
+[data-theme="dark"] .quiz-section h3{color:#a5b4fc}
+.q-intro{text-align:center;font-size:13px;color:#4b5563;font-weight:700;margin-bottom:14px}
+.q-card{background:var(--card);border-radius:12px;padding:14px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.q-num{font-size:11px;font-weight:800;color:#4338ca;margin-bottom:3px}
+[data-theme="dark"] .q-num{color:#a5b4fc}
+.q-text{font-size:14px;font-weight:800;margin-bottom:8px;color:var(--text)}
+.q-opts label{display:block;padding:8px 12px;margin:3px 0;border-radius:9px;border:1.5px solid #e5e7eb;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+[data-theme="dark"] .q-opts label{border-color:#312e81}
+.q-opts label:hover{border-color:#a5b4fc;background:#eef2ff}
+[data-theme="dark"] .q-opts label:hover{background:#1e1b4b}
+.q-opts input{margin-right:8px;accent-color:#4338ca}
+.q-opts label.correct{background:#dcfce7;border-color:#22c55e;color:#14532d}
+.q-opts label.wrong{background:#fef2f2;border-color:#ef4444;color:#991b1b}
+.q-explain{display:none;padding:8px 12px;margin-top:6px;background:#eef2ff;border-radius:8px;font-size:12px;font-weight:700;color:#1e1b4b;border-left:4px solid #4338ca}
+[data-theme="dark"] .q-explain{background:#1a1833;color:#a5b4fc}
+.quiz-btn{display:block;margin:14px auto 0;padding:10px 28px;border-radius:12px;border:none;background:linear-gradient(135deg,#4338ca,#1e1b4b);color:#fff;font-size:14px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s}
+.quiz-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(67,56,202,.3)}
+.quiz-score{text-align:center;font-family:'Fredoka One',cursive;font-size:22px;color:#1e1b4b;margin-top:10px;display:none}
+[data-theme="dark"] .quiz-score{color:#a5b4fc}
+
+/* Q&A */
+.qa-section{max-width:900px;margin:0 auto;padding:0 16px 20px}
+.sq-badge{display:inline-block;font-size:10px;font-weight:900;padding:2px 8px;border-radius:6px;margin-right:6px;letter-spacing:.5px;vertical-align:middle}
+.sq-1{background:#dbeafe;color:#1e40af}
+.sq-2{background:#fce7f3;color:#9d174d}
+.sq-3{background:#d1fae5;color:#065f46}
+.sq-5{background:#fef3c7;color:#92400e}
+details{background:var(--card);border-radius:12px;padding:0;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.05);overflow:hidden}
+summary{font-size:14px;font-weight:800;color:var(--text);padding:13px 16px;cursor:pointer;list-style:none;display:flex;align-items:flex-start;gap:8px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"▼";margin-left:auto;font-size:12px;color:#9ca3af;flex-shrink:0;margin-top:2px}
+details[open] summary::after{content:"▲"}
+.sq-ans{padding:12px 16px;background:#f8fafc;border-top:1.5px solid #e5e7eb;font-size:13px;font-weight:600;line-height:1.8}
+[data-theme="dark"] .sq-ans{background:#1a1833;border-color:#312e81;color:#e0e7ff}
+.sq-ans strong{color:#4338ca}
+[data-theme="dark"] .sq-ans strong{color:#a5b4fc}
+.sq-ans ul{padding-left:18px;margin-top:4px}
+.sq-ans li{margin-bottom:4px}
+
+.badge-row{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.mark-badge{font-family:'Fredoka One',cursive;font-size:14px;padding:4px 14px;border-radius:10px}
+
+footer{text-align:center;padding:20px;background:linear-gradient(135deg,#1e1b4b,#4338ca);color:#fff;font-size:13px;font-weight:700;margin-top:36px}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+/* highlight */
+.hl-sun{color:#d97706;font-weight:900}
+.hl-earth{color:#2563eb;font-weight:900}
+.hl-moon{color:#64748b;font-weight:900}
+.hl-key{color:#4338ca;font-weight:900}
+[data-theme="dark"] .hl-key{color:#a5b4fc}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <a href="index.html" class="tn-home">&#8592; Science Chapters</a>
+  <div class="nav-spacer"></div>
+  <button class="tn-dark" onclick="toggleDark()">🌙</button>
+  <button class="tn-share" onclick="sharePage()">&#128279; Share</button>
+</nav>
+
+<!-- TOC -->
+<div class="toc-bar">
+  <a href="#intro">📖 Intro</a>
+  <a href="#rotation">🔄 12.1 Rotation</a>
+  <a href="#revolution">🔁 12.2 Revolution</a>
+  <a href="#seasons">🌞 Seasons</a>
+  <a href="#eclipses">🌑 12.3 Eclipses</a>
+  <a href="#solar">☀ Solar</a>
+  <a href="#lunar">🌕 Lunar</a>
+  <a href="#nutshell">📌 Summary</a>
+  <a href="#mcq">✏ MCQ</a>
+  <a href="#qa">📝 Q&amp;A</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="stars-bg" id="starsBg"></div>
+  <div class="hero-content">
+    <span class="hero-badge">Class 7 &middot; Science &middot; Ch 12</span>
+    <h1>☀ Earth, Moon &amp; the Sun</h1>
+    <p>Rotation &middot; Revolution &middot; Seasons &middot; Solar Eclipse &middot; Lunar Eclipse</p>
+  </div>
+  <div class="solar-anim">
+    <div class="earth-orbit">
+      <div class="earth-ball">
+        <div class="moon-orbit">
+          <div class="moon-ball"></div>
+        </div>
+      </div>
+    </div>
+    <div class="sun-ball"></div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-pill"><span class="sp-num">24 hrs</span><span class="sp-label">Earth Rotation</span></div>
+    <div class="stat-pill"><span class="sp-num">365.25 days</span><span class="sp-label">Earth Revolution</span></div>
+    <div class="stat-pill"><span class="sp-num">23.5°</span><span class="sp-label">Axis Tilt</span></div>
+    <div class="stat-pill"><span class="sp-num">Ch 12</span><span class="sp-label">NCERT Class 7</span></div>
+  </div>
+</section>
+
+<!-- ══════════════ INTRO ══════════════ -->
+<section class="section fade-in" id="intro" style="max-width:900px;margin:0 auto;padding:28px 16px">
+  <div style="background:linear-gradient(135deg,#1e1b4b,#4338ca);border-radius:18px;padding:20px 20px 16px">
+    <h2 style="font-family:'Fredoka One',cursive;font-size:22px;color:#fff;margin-bottom:10px">📖 Earth, Moon, and the Sun — Chapter 12</h2>
+    <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:14px;font-size:13px;font-weight:700;color:#e0e7ff;line-height:1.9;border-left:4px solid #a5b4fc">
+      One morning in Kanniyakumari, Tamil Nadu, 12-year-old <strong>Rashmika</strong> was cycling to school. She had been noticing that the <strong>coconut tree shadows were long in the morning but shorter in the afternoon</strong>. She thought the Sun moved across the sky. But she also remembered that the Earth moves around the Sun (from Grade 6). She wondered — <em>does the Sun move in the sky? Or does the Earth move?</em>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 12.1 ROTATION ══════════════ -->
+<section class="section fade-in" id="rotation" style="max-width:900px;margin:0 auto;padding:0 16px 20px">
+  <h2 class="sec-head">🔄 12.1 Rotation of the Earth</h2>
+  <p class="sec-sub">Why does the Sun rise in the East and set in the West?</p>
+
+  <!-- Activity 12.1 -->
+  <div class="card fade-in" style="border-left:5px solid #f59e0b;background:#fffbeb;margin-bottom:14px">
+    <h3 style="color:#92400e">🎠 Activity 12.1 — Let us explore (Merry-go-round)</h3>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Girl_Observing_Object_Around_Her.png" alt="Fig 12.1 — A girl observing objects around her while riding a merry-go-round" style="max-width:100%;max-height:320px;border-radius:10px;box-shadow:0 4px 14px rgba(245,158,11,.2)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 12.1 — A girl observing objects around her while riding a merry-go-round</p>
+    </div>
+    <ul style="font-size:13px;font-weight:700;color:#78350f;line-height:1.9;padding-left:20px">
+      <li>Sit on a merry-go-round facing towards the outer side.</li>
+      <li>Ask someone to turn it slowly in the <strong>anti-clockwise direction</strong>.</li>
+      <li>While you turn anti-clockwise, the objects around you appear to move in the <strong>opposite (clockwise) direction</strong>.</li>
+      <li>Fix your gaze at a tree — it appears in your view from the <strong>left-hand side</strong> and moves out on the <strong>right-hand side</strong>.</li>
+    </ul>
+    <div style="background:#fef3c7;border-radius:8px;padding:10px 14px;margin-top:8px;font-size:13px;font-weight:800;color:#92400e">
+      🔑 Conclusion: When we view from the Earth, the Sun appears to move East → West. This is because the <strong>Earth itself is rotating</strong> — the Sun only <em>appears</em> to move!
+    </div>
+  </div>
+
+  <!-- Earth spins like top -->
+  <div class="card fade-in" style="border-left:5px solid #4338ca;background:#eef2ff;margin-bottom:14px">
+    <h3 style="color:#1e1b4b">🌀 Earth Spins Like a Top</h3>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Spinning_Top_Fan_Ball.png" alt="Fig 12.2 — Spinning top, fan and ball showing rotation" style="max-width:100%;max-height:280px;border-radius:10px;box-shadow:0 4px 14px rgba(67,56,202,.15)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 12.2 — Objects that spin on their own axis — (a) Spinning top (b) Fan (c) Ball</p>
+    </div>
+    <p style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9">In a similar manner, the <strong>Earth also spins (rotates) on its own axis</strong> in space. The Earth's axis of rotation passes through its <strong>geographic North Pole and the South Pole</strong>. The Earth completes one rotation in about <strong>24 hours</strong>. When viewed from the top of the North Pole, the Earth rotates in the <strong>anti-clockwise direction</strong> — that is, from <strong>West to East</strong>.</p>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Rotation_Of_Earth.png" alt="Fig 12.3 — Rotation of the Earth on its axis" style="max-width:100%;max-height:340px;border-radius:10px;box-shadow:0 4px 14px rgba(67,56,202,.15)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 12.3 — The Earth rotating on its North–South axis (anti-clockwise when viewed from North Pole)</p>
+    </div>
+  </div>
+
+  <!-- Activity 12.2 -->
+  <div class="card fade-in" style="border-left:5px solid #f59e0b;background:#fffbeb;margin-bottom:14px">
+    <h3 style="color:#92400e">🔦 Activity 12.2 — Globe and Torch (Day & Night)</h3>
+    <ul style="font-size:13px;font-weight:700;color:#78350f;line-height:1.9;padding-left:20px;margin-bottom:10px">
+      <li>Use a <strong>globe</strong> to represent the Earth. Place a small sticker to mark your location.</li>
+      <li>Viewing from above the North Pole, slowly rotate the globe <strong>anti-clockwise</strong>.</li>
+      <li>Use a <strong>torch</strong> as the Sun in a dark room, placed ~1.5 metres away.</li>
+      <li>Shine the torch on the globe — notice how <strong>half the globe receives light (day)</strong> and the other half stays dark (night).</li>
+    </ul>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div style="text-align:center">
+        <img src="Globe_And_Torch_Light.png" alt="Fig 12.4b — Globe and torch representing Earth and Sun" style="max-width:100%;border-radius:10px;box-shadow:0 4px 14px rgba(245,158,11,.15)" loading="lazy">
+        <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:4px">Fig. 12.4b — Globe lit by torch</p>
+      </div>
+      <div style="text-align:center">
+        <img src="Sunlight_falls_on_half_surface.png" alt="Fig 12.5 — Sunlight falling on half the Earth's surface" style="max-width:100%;border-radius:10px;box-shadow:0 4px 14px rgba(245,158,11,.15)" loading="lazy">
+        <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:4px">Fig. 12.5 — Day and night: one side faces Sun, other side is dark</p>
+      </div>
+    </div>
+    <div style="background:#fef3c7;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:13px;font-weight:800;color:#92400e">
+      🔑 The light falls on the eastern part of India first when the globe rotates <strong>from West to East</strong>. The Earth's rotation from West to East causes the <strong>day-night cycle</strong>. Sunrise occurs as your location moves into light; sunset occurs as it moves into darkness.
+    </div>
+  </div>
+
+  <!-- Fig 12.6 -->
+  <div class="card fade-in" style="border-left:5px solid #059669;background:#f0fdf4;margin-bottom:14px">
+    <h3 style="color:#14532d">🌍 Sun's Apparent Motion — as seen from the Equator</h3>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Girl_On_Rotating_Earth.png" alt="Fig 12.6 — A girl on the rotating Earth viewing the Sun from the Equator" style="max-width:100%;max-height:380px;border-radius:10px;box-shadow:0 4px 14px rgba(5,150,105,.15)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 12.6 — A girl on the rotating Earth viewing the Sun from the Equator</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:10px">
+      <div style="background:#dcfce7;border-radius:10px;padding:10px;text-align:center">
+        <p style="font-size:20px">🌅</p>
+        <p style="font-size:12px;font-weight:800;color:#14532d"><strong>Morning</strong><br>Sun appears in the <strong>East</strong> (to my right, facing North)</p>
+      </div>
+      <div style="background:#dcfce7;border-radius:10px;padding:10px;text-align:center">
+        <p style="font-size:20px">☀</p>
+        <p style="font-size:12px;font-weight:800;color:#14532d"><strong>Noon</strong><br>I have rotated — Sun is now <strong>over my head</strong></p>
+      </div>
+      <div style="background:#dcfce7;border-radius:10px;padding:10px;text-align:center">
+        <p style="font-size:20px">🌇</p>
+        <p style="font-size:12px;font-weight:800;color:#14532d"><strong>Evening</strong><br>Sun disappears from the <strong>West</strong> (to my left). Stars become visible.</p>
+      </div>
+    </div>
+    <p style="font-size:13px;font-weight:700;color:#166534;margin-top:10px;line-height:1.8">Due to the rotation of the Earth, the Sun <strong>appears to rise in the East</strong>, move across the sky from <strong>East to West</strong>, and <strong>set in the West</strong>. Then night begins and stars become visible.</p>
+  </div>
+
+  <!-- Fascinating Facts: Foucault -->
+  <div class="card fade-in" style="border-left:5px solid #8b5cf6;background:linear-gradient(135deg,#fdf4ff,#f3e8ff);margin-bottom:14px">
+    <h3 style="color:#6d28d9">💡 Fascinating Facts — Foucault Pendulum</h3>
+    <p style="font-size:13px;font-weight:700;color:#4c1d95;line-height:1.9">In the 17th century, <strong>Huygens</strong> used properties of a pendulum to make pendulum clocks. In the mid-19th century, <strong>Léon Foucault</strong> used a long pendulum to give the <strong>first simple demonstration of the Earth's rotation</strong>. The pendulum is called a <strong>Foucault pendulum</strong> — it has a long string with a heavy bob, suspended from a high ceiling.</p>
+    <div style="background:#ede9fe;border-radius:10px;padding:10px 14px;margin-top:8px;font-size:13px;font-weight:800;color:#4c1d95">
+      🏛 A Foucault pendulum of <strong>22 metres</strong> has been hung from a skylight in the <strong>Constitution Hall of the new Parliament building in New Delhi, India</strong>. It symbolises the integration of the idea of India with the vastness of the cosmos.
+    </div>
+  </div>
+
+  <!-- Activity 12.3 -->
+  <div class="card fade-in" style="border-left:5px solid #f59e0b;background:#fffbeb;margin-bottom:14px">
+    <h3 style="color:#92400e">⭐ Activity 12.3 — Big Dipper & Pole Star (Night Observation)</h3>
+    <ul style="font-size:13px;font-weight:700;color:#78350f;line-height:1.9;padding-left:20px">
+      <li>On an early evening between <strong>March and May</strong>, identify the <strong>Big Dipper (Saptarishi)</strong> and the <strong>Pole Star (Dhruva Tara)</strong>.</li>
+      <li>Note your location and date. Draw the orientation of the Big Dipper with respect to the Pole Star (Fig. 12.7). Mark the time.</li>
+      <li><strong>After two hours</strong>, observe the Big Dipper again. Has it moved? Draw again and note the time.</li>
+      <li>Repeat after two more hours.</li>
+    </ul>
+    <div style="background:#fef3c7;border-radius:8px;padding:10px 14px;margin-top:8px;font-size:13px;font-weight:800;color:#92400e">
+      🔑 The Big Dipper appears to <strong>move around the Pole Star</strong> over the night. The Earth's axis of rotation points very close to the <strong>Pole Star</strong> in the Northern Hemisphere — so the Pole Star appears nearly stationary. <strong>All other stars appear to move around it</strong> — just like the Sun, they appear to rise in the East and set in the West because Earth rotates West to East.
+    </div>
+  </div>
+
+  <!-- Fascinating Facts: Star trails -->
+  <div class="card fade-in" style="border-left:5px solid #8b5cf6;background:linear-gradient(135deg,#fdf4ff,#f3e8ff);margin-bottom:14px">
+    <h3 style="color:#6d28d9">💡 Fascinating Facts — Star Trails</h3>
+    <p style="font-size:13px;font-weight:700;color:#4c1d95;line-height:1.9">Astrophotographers take <strong>long exposure photographs</strong>, keeping the camera shutter open for a long time. In such a photograph, the <strong>apparent motion of the stars is recorded as arcs of a circle</strong> — known as <strong>star trails</strong>. (Picture taken from Mahuli, Maharashtra)</p>
+  </div>
+
+  <!-- Fascinating Facts: Aryabhata -->
+  <div class="card fade-in" style="border-left:5px solid #8b5cf6;background:linear-gradient(135deg,#fdf4ff,#f3e8ff);margin-bottom:14px">
+    <h3 style="color:#6d28d9">💡 Fascinating Facts — Aryabhata</h3>
+    <p style="font-size:13px;font-weight:700;color:#4c1d95;line-height:1.9">Ancient Indian astronomers, including <strong>Aryabhata</strong>, had noticed the daily apparent motion of celestial objects. Aryabhata was a famous mathematician and astronomer who wrote the important treatise <strong>Aryabhatiya</strong> around the <strong>fifth century CE</strong>. The apparent motion of stars due to Earth's rotation is explained in <strong>Verse 9, Golapada, Aryabhatiya</strong>:</p>
+    <div style="background:#ede9fe;border-radius:10px;padding:10px 14px;margin:8px 0;font-size:13px;color:#4c1d95">
+      <p style="font-weight:800;font-style:italic;line-height:1.8">"Just as a man in a boat moving forward sees stationary objects as moving backwards, so also the stars that are stationary are seen by people of Lanka as moving towards the west."</p>
+    </div>
+    <p style="font-size:13px;font-weight:800;color:#4c1d95">Aryabhata's value for one full rotation of the Earth: <strong>23 hours 56 minutes 4.1 seconds</strong> — impressively close to the currently accepted value!</p>
+  </div>
+</section>
+
+<!-- ══════════════ 12.2 REVOLUTION ══════════════ -->
+<section class="section fade-in" id="revolution" style="max-width:900px;margin:0 auto;padding:0 16px 20px">
+  <h2 class="sec-head">🔁 12.2 Revolution of the Earth</h2>
+  <p class="sec-sub">Earth revolves around the Sun — different from rotation</p>
+
+  <div class="card fade-in" style="border-left:5px solid #1d4ed8;background:#eff6ff;margin-bottom:14px">
+    <h3 style="color:#1e3a8a">🌍 What is Revolution?</h3>
+    <p style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9">While rotating on its own axis, the Earth also <strong>revolves around the Sun</strong>. <strong>Revolution</strong> is the motion of an object <em>around</em> another object. The path an object takes while revolving is called its <strong>orbit</strong>. The orbit of the Earth around the Sun is <strong>nearly circular</strong> (as seen from the top). The Earth completes one revolution in about <strong>365 days and 6 hours</strong>.</p>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Earth_Revo_Around_Sun.png" alt="Fig 12.8 — Revolution of the Earth around the Sun showing the orbit and night sky changes" style="max-width:100%;max-height:380px;border-radius:10px;box-shadow:0 4px 14px rgba(29,78,216,.15)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 12.8 — The Earth revolves around the Sun in a nearly circular orbit; the stars visible in the night sky change over the year</p>
+    </div>
+  </div>
+
+  <!-- 12.2.1 Changing night sky -->
+  <div class="card fade-in" style="border-left:5px solid #0891b2;background:#ecfeff;margin-bottom:14px">
+    <h3 style="color:#164e63">🌌 12.2.1 Changing View of Night Sky</h3>
+    <p style="font-size:13px;font-weight:700;color:#164e63;line-height:1.9">Every evening the Sun sets in the westward direction and the night sky becomes visible. As the Earth also <strong>revolves around the Sun continuously</strong>, the stars seen in the night sky after sunset <strong>gradually change over a year</strong> — because we are always looking in different directions (Fig. 12.8). You can notice this change by looking at star patterns at a fixed time of the night, on days separated by a month.</p>
+  </div>
+</section>
+
+<!-- ══════════════ SEASONS ══════════════ -->
+<section class="section fade-in" id="seasons" style="max-width:900px;margin:0 auto;padding:0 16px 20px">
+  <h2 class="sec-head">🌞 Seasons — Tilt of the Earth</h2>
+  <p class="sec-sub">Why do we have summer, winter, and other seasons?</p>
+
+  <div class="card fade-in" style="border-left:5px solid #d97706;background:#fffbeb;margin-bottom:14px">
+    <h3 style="color:#92400e">🌐 Earth's Axis is Tilted</h3>
+    <p style="font-size:13px;font-weight:700;color:#78350f;line-height:1.9">The Earth's axis of rotation is <strong>not upright with respect to its orbit</strong>, but is <strong>tilted</strong>. The Earth maintains this tilt as it orbits around the Sun (Fig. 12.9). The <strong>tilt of the Earth's axis</strong> and the <strong>spherical shape of the Earth</strong> give rise to <strong>seasons</strong>.</p>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Pos_Of_Earth_Around_Sun.png" alt="Fig 12.9 — Position of Earth around the Sun showing the tilted axis maintaining direction" style="max-width:100%;max-height:380px;border-radius:10px;box-shadow:0 4px 14px rgba(217,119,6,.2)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 12.9 — The Earth's tilted axis maintains its direction as it orbits the Sun</p>
+    </div>
+  </div>
+
+  <div class="card fade-in" style="border-left:5px solid #dc2626;background:#fef2f2;margin-bottom:14px">
+    <h3 style="color:#991b1b">☀ How Tilt Causes Seasons</h3>
+    <div style="text-align:center;margin:10px 0">
+      <img src="North_South_Hemisphere.png" alt="Fig 12.10 and 12.11 — Sunlight intensity and hours in Northern and Southern Hemispheres in June and December" style="max-width:100%;max-height:380px;border-radius:10px;box-shadow:0 4px 14px rgba(220,38,38,.15)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 12.10 & 12.11 — Sunlight intensity and hours of sunlight in June and December</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+      <div style="background:#fef3c7;border-radius:10px;padding:12px;border:2px solid #f59e0b">
+        <h4 style="font-family:'Fredoka One',cursive;color:#92400e;font-size:15px;margin-bottom:6px">☀ June — Summer in Northern Hemisphere</h4>
+        <ul style="font-size:12px;font-weight:700;color:#78350f;line-height:1.8;padding-left:16px">
+          <li>Northern Hemisphere <strong>tilted towards the Sun</strong></li>
+          <li>Sunrays spread over a <strong>smaller area</strong> → more intense heat</li>
+          <li>Sunlight received for <strong>more than 12 hours</strong></li>
+          <li>Result: <strong>Summer</strong> in Northern Hemisphere</li>
+          <li>Southern Hemisphere has <strong>winter</strong> at this time</li>
+        </ul>
+      </div>
+      <div style="background:#dbeafe;border-radius:10px;padding:12px;border:2px solid #3b82f6">
+        <h4 style="font-family:'Fredoka One',cursive;color:#1e3a8a;font-size:15px;margin-bottom:6px">❄ December — Winter in Northern Hemisphere</h4>
+        <ul style="font-size:12px;font-weight:700;color:#1e3a8a;line-height:1.8;padding-left:16px">
+          <li>Northern Hemisphere <strong>tilted away from the Sun</strong></li>
+          <li>Sunrays spread over a <strong>larger area</strong> → less intense</li>
+          <li>Sunlight received for <strong>fewer than 12 hours</strong></li>
+          <li>Result: <strong>Winter</strong> in Northern Hemisphere</li>
+          <li>Southern Hemisphere has <strong>summer</strong> at this time</li>
+        </ul>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:10px;padding:10px 14px;margin-top:10px;border:2px solid #22c55e">
+      <p style="font-size:13px;font-weight:800;color:#14532d">🌏 <strong>On the Equator:</strong> There is always <strong>12 hours of sunlight and 12 hours of darkness</strong>. There is little difference in sunray intensity across months. So for <strong>southern states of India</strong> (close to the equator), the effect of seasons is <strong>not very prominent</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 12.3 ECLIPSES ══════════════ -->
+<section class="section fade-in" id="eclipses" style="max-width:900px;margin:0 auto;padding:0 16px 20px">
+  <h2 class="sec-head">🌑 12.3 Eclipses</h2>
+  <p class="sec-sub">When one celestial body blocks sunlight from reaching another</p>
+
+  <div class="card fade-in" style="border-left:5px solid #4338ca;background:#eef2ff;margin-bottom:14px">
+    <p style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9">The planets <strong>Mercury and Venus</strong> revolve between the Earth and the Sun. But they appear very small compared to the Sun and <strong>never block the entire light</strong> from the Sun reaching us. However, the <strong>Moon can do that</strong>! The Moon is a natural satellite of the Earth and it revolves around the Earth as the Earth revolves around the Sun.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 12.3.1 SOLAR ECLIPSE ══════════════ -->
+<section class="section fade-in" id="solar" style="max-width:900px;margin:0 auto;padding:0 16px 20px">
+  <h2 class="sec-head">☀ 12.3.1 Solar Eclipse</h2>
+  <p class="sec-sub">When the Moon blocks sunlight from reaching the Earth</p>
+
+  <!-- Activity 12.4 -->
+  <div class="card fade-in" style="border-left:5px solid #f59e0b;background:#fffbeb;margin-bottom:14px">
+    <h3 style="color:#92400e">👍 Activity 12.4 — Thumb and Friend (Apparent Size)</h3>
+    <ul style="font-size:13px;font-weight:700;color:#78350f;line-height:1.9;padding-left:20px">
+      <li>Ask your friend to stand <strong>5 metres</strong> away. Consider their head to be the Sun.</li>
+      <li>Close one eye and show a <strong>thumbs up</strong> with your outstretched hand towards your friend.</li>
+      <li>You can <strong>cover the entire head of your friend with your thumb</strong>, even though your thumb is much smaller!</li>
+    </ul>
+    <div style="background:#fef3c7;border-radius:8px;padding:10px 14px;margin-top:8px;font-size:13px;font-weight:800;color:#92400e">
+      🔑 The <strong>apparent size</strong> of any object depends on both its <strong>physical size</strong> AND its <strong>distance from you</strong>. The Moon is much smaller than the Sun — but the Moon is also much closer to Earth. So their <strong>apparent sizes are similar</strong> when viewed from Earth, and the Moon can appear to cover the entire Sun!
+    </div>
+  </div>
+
+  <!-- Apparent size & Transit of Venus -->
+  <div class="card fade-in" style="border-left:5px solid #0891b2;background:#ecfeff;margin-bottom:14px">
+    <h3 style="color:#164e63">🔭 Why Planets Can't Block the Sun — Transit of Venus</h3>
+    <p style="font-size:13px;font-weight:700;color:#164e63;line-height:1.9">Though Mercury and Venus are <strong>much larger than the Moon</strong> in size, they are also <strong>much farther from Earth</strong>. So their apparent sizes are very much smaller than the Sun — they cannot block it. When <strong>Venus passes between the Sun and Earth</strong>, it appears as a <strong>tiny black dot</strong> passing against the bright face of the Sun. This event is called a <strong>Transit of Venus</strong> — it is a rare event.</p>
+  </div>
+
+  <!-- Solar eclipse geometry -->
+  <div class="card fade-in" style="border-left:5px solid #f59e0b;background:#fffbeb;margin-bottom:14px">
+    <h3 style="color:#92400e">🌑 How a Solar Eclipse Happens</h3>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Geometry_Of_Solar_Eclipse.png" alt="Fig 12.13 — Geometry of a solar eclipse showing Sun, Moon and Earth arrangement with shadow" style="max-width:100%;max-height:360px;border-radius:10px;box-shadow:0 4px 14px rgba(245,158,11,.2)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 12.13 — Arrangement of Sun, Moon, and Earth during a solar eclipse</p>
+    </div>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Solar_Eclipse.png" alt="Fig 12.14 — Types of solar eclipse: total, partial, and annular" style="max-width:100%;max-height:340px;border-radius:10px;box-shadow:0 4px 14px rgba(245,158,11,.2)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 12.14 — (a) Total solar eclipse (b) Partial solar eclipse (c) Annular solar eclipse</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+      <div style="background:#fff;border-radius:10px;padding:12px;border:2px solid #f59e0b">
+        <h4 style="font-family:'Fredoka One',cursive;font-size:14px;color:#92400e;margin-bottom:6px">🌑 Total Solar Eclipse</h4>
+        <p style="font-size:12px;font-weight:700;color:#78350f;line-height:1.8">Area is in <strong>total darkness</strong> — no part of the Sun can be seen. Lasts only a <strong>few minutes</strong>. Shadow moves across the Earth due to Earth's rotation and Moon's orbit.</p>
+      </div>
+      <div style="background:#fff;border-radius:10px;padding:12px;border:2px dashed #f59e0b">
+        <h4 style="font-family:'Fredoka One',cursive;font-size:14px;color:#92400e;margin-bottom:6px">⛅ Partial Solar Eclipse</h4>
+        <p style="font-size:12px;font-weight:700;color:#78350f;line-height:1.8">Moon <strong>partially blocks</strong> some regions of the Sun. Daylight is reduced but not fully blocked. Visible in a larger area than total eclipse.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Safety warning -->
+  <div class="card fade-in" style="border-left:5px solid #dc2626;background:#fef2f2;margin-bottom:14px">
+    <h3 style="color:#991b1b">⚠ Caution — Safe Viewing of a Solar Eclipse</h3>
+    <p style="font-size:13px;font-weight:700;color:#7f1d1d;line-height:1.9">During a solar eclipse, one might be tempted to look at the Sun thinking it is safe. <strong>This is WRONG!</strong> Even during the eclipse, the Sun is intense enough to <strong>damage the eyes and cause blindness</strong>.</p>
+    <ul style="font-size:13px;font-weight:700;color:#7f1d1d;line-height:1.9;padding-left:20px">
+      <li><strong>Do NOT look directly</strong> at the Sun during a solar eclipse.</li>
+      <li><strong>Do NOT</strong> view it through sunglasses, binoculars, or telescopes.</li>
+      <li>✅ <strong>Best way:</strong> Participate in events held by <strong>astronomy organisations, planetaria, and astronomy clubs</strong> (Fig. 12.15) — they provide specialised eye protection and scientific explanations.</li>
+      <li>✅ A <strong>mirror projection</strong> can also be used — a mirror projects an image of the Sun onto a wall. (Under teacher supervision only.)</li>
+    </ul>
+  </div>
+
+  <!-- History & Superstitions -->
+  <div class="card fade-in" style="border-left:5px solid #059669;background:#f0fdf4;margin-bottom:14px">
+    <h3 style="color:#14532d">📜 Eclipses in History</h3>
+    <p style="font-size:13px;font-weight:700;color:#166534;line-height:1.9">People have observed eclipses and maintained records since <strong>ancient times</strong>. When the reasons were not known, they feared eclipses — something blocking the main source of heat and light was extremely concerning. Many <strong>superstitions</strong> were attached to solar eclipses (not eating, cooking, or going out). But now that we know the reason, <strong>we need not fear</strong> these events — as long as we do not look at the Sun directly. In fact, <strong>scientists go around the world</strong> to observe eclipses as they provide an opportunity to study phenomena that cannot be observed otherwise.</p>
+  </div>
+
+  <!-- Science & Society: Stellarium -->
+  <div class="card fade-in" style="border-left:5px solid #059669;background:linear-gradient(135deg,#f0fdf4,#dcfce7);margin-bottom:14px">
+    <h3 style="color:#14532d">🌿 Science and Society — Stellarium App</h3>
+    <p style="font-size:13px;font-weight:700;color:#166534;line-height:1.9">Using the computer version of <strong>Stellarium app</strong>, which is <strong>free</strong>, you may get information about upcoming solar and lunar eclipses (if any) visible from your location.</p>
+  </div>
+
+  <!-- Fascinating Facts: Kodaikanal -->
+  <div class="card fade-in" style="border-left:5px solid #8b5cf6;background:linear-gradient(135deg,#fdf4ff,#f3e8ff);margin-bottom:14px">
+    <h3 style="color:#6d28d9">💡 Fascinating Facts — Kodaikanal Solar Observatory</h3>
+    <p style="font-size:13px;font-weight:700;color:#4c1d95;line-height:1.9">The <strong>Kodaikanal Solar Observatory</strong> is located in the beautiful <strong>Palani range of hills</strong> in southern India. It was established in <strong>1899</strong> and has provided data about the Sun for over <strong>100 years</strong>. It is operated by the <strong>Indian Institute of Astrophysics (IIA), Bengaluru</strong>.</p>
+  </div>
+
+  <!-- Know a Scientist: Vainu Bappu -->
+  <div class="card fade-in" style="border-left:5px solid #1d4ed8;background:linear-gradient(135deg,#eff6ff,#dbeafe);margin-bottom:14px">
+    <h3 style="color:#1e3a8a">🔭 Know a Scientist — M.K. Vainu Bappu</h3>
+    <p style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9"><strong>M.K. Vainu Bappu</strong> is known as the <strong>father of modern Indian astronomy</strong>. He led efforts in setting up many instruments and telescopes in India, such as the telescopes at <strong>Manora Peak near Nainital (Uttarakhand)</strong> and <strong>Kavalur (Tamil Nadu)</strong>. The observatory at Kavalur has been <strong>named after him</strong>. He mainly studied stars, <strong>discovered a comet</strong>, and also travelled to different parts of the world to study solar eclipses.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 12.3.2 LUNAR ECLIPSE ══════════════ -->
+<section class="section fade-in" id="lunar" style="max-width:900px;margin:0 auto;padding:0 16px 20px">
+  <h2 class="sec-head">🌕 12.3.2 Lunar Eclipse</h2>
+  <p class="sec-sub">When the Earth blocks sunlight from reaching the Moon</p>
+
+  <div class="card fade-in" style="border-left:5px solid #6366f1;background:linear-gradient(135deg,#eef2ff,#e0e7ff);margin-bottom:14px">
+    <h3 style="color:#1e1b4b">🌍 How a Lunar Eclipse Happens</h3>
+    <p style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9">As the Moon revolves around the Earth, sometimes the <strong>Earth can block the sunlight from reaching the Moon</strong>. This is known as a <strong>lunar eclipse</strong>. On such days, we see the <strong>Earth's shadow falling on the full disc of the Moon</strong>.</p>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Geometry_Of_Lunar_Eclipse.png" alt="Fig 12.16 — Geometry of a lunar eclipse showing Sun, Earth and Moon arrangement" style="max-width:100%;max-height:360px;border-radius:10px;box-shadow:0 4px 14px rgba(99,102,241,.2)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 12.16 — Arrangement of Sun, Earth, and Moon during a lunar eclipse</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">
+      <div style="background:#fff;border-radius:10px;padding:12px;border:2px solid #6366f1">
+        <h4 style="font-family:'Fredoka One',cursive;font-size:14px;color:#1e1b4b;margin-bottom:6px">🌑 Total Lunar Eclipse</h4>
+        <p style="font-size:12px;font-weight:700;color:#1e3a8a;line-height:1.8">Moon is <strong>completely in the Earth's shadow</strong>. The bright disc of the Moon starts to appear <strong>dark red in colour</strong> (Blood Moon) and stays that way until the Moon moves out of the shadow.</p>
+      </div>
+      <div style="background:#fff;border-radius:10px;padding:12px;border:2px dashed #6366f1">
+        <h4 style="font-family:'Fredoka One',cursive;font-size:14px;color:#1e1b4b;margin-bottom:6px">🌗 Partial Lunar Eclipse</h4>
+        <p style="font-size:12px;font-weight:700;color:#1e3a8a;line-height:1.8"><strong>Part of the Moon</strong> is in the Earth's shadow and the rest is visible. Unlike a solar eclipse, a lunar eclipse is <strong>safe to watch with the naked eye</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ IN A NUTSHELL ══════════════ -->
+<section class="section fade-in" id="nutshell" style="max-width:900px;margin:0 auto;padding:0 16px 20px">
+  <div style="background:linear-gradient(135deg,#1e1b4b,#4338ca);border-radius:18px;padding:20px 20px 16px">
+    <h2 style="font-family:'Fredoka One',cursive;font-size:22px;color:#fff;margin-bottom:14px;text-align:center">📌 In a Nutshell</h2>
+    <ul style="list-style:none;padding:0;margin:0">
+      <li style="background:rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:13px;font-weight:700;color:#fff;line-height:1.7;border-left:4px solid #a5b4fc">The Earth <strong>rotates on its own axis</strong> in about <strong>24 hours</strong>.</li>
+      <li style="background:rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:13px;font-weight:700;color:#fff;line-height:1.7;border-left:4px solid #a5b4fc">The Earth's <strong>rotation from West to East</strong> causes <strong>day and night</strong> as well as the apparent motion of the Sun, the Moon, and the stars.</li>
+      <li style="background:rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:13px;font-weight:700;color:#fff;line-height:1.7;border-left:4px solid #a5b4fc">The Earth <strong>revolves around the Sun</strong> and takes nearly <strong>1 year</strong> to complete a revolution.</li>
+      <li style="background:rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:13px;font-weight:700;color:#fff;line-height:1.7;border-left:4px solid #a5b4fc">The Earth's axis of rotation is <strong>not upright</strong> with respect to the orbit, but is <strong>tilted</strong>.</li>
+      <li style="background:rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:13px;font-weight:700;color:#fff;line-height:1.7;border-left:4px solid #a5b4fc"><strong>Seasons</strong> occur because of the <strong>tilt of the Earth's axis</strong> of rotation and its <strong>spherical shape</strong>.</li>
+      <li style="background:rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:13px;font-weight:700;color:#fff;line-height:1.7;border-left:4px solid #a5b4fc">A <strong>solar eclipse</strong> occurs when the Moon is in the path of the Sun as seen from the Earth, and sunlight is <strong>blocked from reaching the Earth</strong>.</li>
+      <li style="background:rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;font-size:13px;font-weight:700;color:#fff;line-height:1.7;border-left:4px solid #a5b4fc">A <strong>lunar eclipse</strong> occurs when the Earth comes in between the Sun and the Moon, <strong>blocking sunlight from reaching the Moon</strong>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════ MCQ ══════════════ -->
+<section class="quiz-section fade-in" id="mcq">
+  <h3>✏ Multiple Choice Questions — 20 Questions</h3>
+  <div class="q-intro">Click an option to check instantly! Covers all topics.</div>
+
+  <div class="q-card"><div class="q-num">Q1</div><div class="q-text">The Sun is a ___</div><div class="q-opts">
+    <label><input type="radio" name="q1" value="a"> a) Planet</label>
+    <label><input type="radio" name="q1" value="b"> b) Satellite</label>
+    <label><input type="radio" name="q1" value="c"> c) Star</label>
+    <label><input type="radio" name="q1" value="d"> d) Comet</label>
+  </div><div class="q-explain" id="ex1">✅ <strong>Star.</strong> The Sun is a star — it produces its own light and heat through nuclear fusion. It is the nearest star to Earth.</div></div>
+
+  <div class="q-card"><div class="q-num">Q2</div><div class="q-text">How long does sunlight take to reach Earth?</div><div class="q-opts">
+    <label><input type="radio" name="q2" value="a"> a) 1 minute</label>
+    <label><input type="radio" name="q2" value="b"> b) 8 minutes 20 seconds</label>
+    <label><input type="radio" name="q2" value="c"> c) 24 minutes</label>
+    <label><input type="radio" name="q2" value="d"> d) 1 hour</label>
+  </div><div class="q-explain" id="ex2">✅ <strong>8 minutes 20 seconds.</strong> Light travels at ~3,00,000 km/s; the Sun is ~15 crore km away → takes 8 min 20 s to reach Earth.</div></div>
+
+  <div class="q-card"><div class="q-num">Q3</div><div class="q-text">Earth's axis is tilted at an angle of ___</div><div class="q-opts">
+    <label><input type="radio" name="q3" value="a"> a) 0°</label>
+    <label><input type="radio" name="q3" value="b"> b) 45°</label>
+    <label><input type="radio" name="q3" value="c"> c) 90°</label>
+    <label><input type="radio" name="q3" value="d"> d) 23.5°</label>
+  </div><div class="q-explain" id="ex3">✅ <strong>23.5°.</strong> Earth's axis is tilted 23.5° from the perpendicular to its orbital plane. This tilt causes the seasons.</div></div>
+
+  <div class="q-card"><div class="q-num">Q4</div><div class="q-text">Day and night are caused by Earth's ___</div><div class="q-opts">
+    <label><input type="radio" name="q4" value="a"> a) Revolution around the Sun</label>
+    <label><input type="radio" name="q4" value="b"> b) Rotation on its axis</label>
+    <label><input type="radio" name="q4" value="c"> c) Tilt of axis</label>
+    <label><input type="radio" name="q4" value="d"> d) Distance from Moon</label>
+  </div><div class="q-explain" id="ex4">✅ <strong>Rotation on its axis.</strong> Earth spins (rotates) on its axis once every 24 hours, causing the alternation of day and night.</div></div>
+
+  <div class="q-card"><div class="q-num">Q5</div><div class="q-text">The Summer Solstice in the Northern Hemisphere is on ___</div><div class="q-opts">
+    <label><input type="radio" name="q5" value="a"> a) 21 March</label>
+    <label><input type="radio" name="q5" value="b"> b) 23 September</label>
+    <label><input type="radio" name="q5" value="c"> c) 22 December</label>
+    <label><input type="radio" name="q5" value="d"> d) 21 June</label>
+  </div><div class="q-explain" id="ex5">✅ <strong>21 June.</strong> On 21 June, the Northern Hemisphere is tilted towards the Sun — the longest day in the NH (Summer Solstice).</div></div>
+
+  <div class="q-card"><div class="q-num">Q6</div><div class="q-text">The Moon's distance from Earth is approximately ___</div><div class="q-opts">
+    <label><input type="radio" name="q6" value="a"> a) 15 crore km</label>
+    <label><input type="radio" name="q6" value="b"> b) 3,84,400 km</label>
+    <label><input type="radio" name="q6" value="c"> c) 12,742 km</label>
+    <label><input type="radio" name="q6" value="d"> d) 1,39,200 km</label>
+  </div><div class="q-explain" id="ex6">✅ <strong>3,84,400 km.</strong> The average distance from Earth to the Moon is about 3.84 lakh km (3,84,400 km).</div></div>
+
+  <div class="q-card"><div class="q-num">Q7</div><div class="q-text">The Moon's gravity is ___ that of Earth</div><div class="q-opts">
+    <label><input type="radio" name="q7" value="a"> a) 1/2</label>
+    <label><input type="radio" name="q7" value="b"> b) 1/4</label>
+    <label><input type="radio" name="q7" value="c"> c) 1/6</label>
+    <label><input type="radio" name="q7" value="d"> d) 1/10</label>
+  </div><div class="q-explain" id="ex7">✅ <strong>1/6.</strong> The Moon's gravity is 1/6th of Earth's. That's why astronauts could make huge jumps on the Moon!</div></div>
+
+  <div class="q-card"><div class="q-num">Q8</div><div class="q-text">The Moon completes one revolution around Earth in ___</div><div class="q-opts">
+    <label><input type="radio" name="q8" value="a"> a) 24 hours</label>
+    <label><input type="radio" name="q8" value="b"> b) 29.5 days</label>
+    <label><input type="radio" name="q8" value="c"> c) 27.3 days</label>
+    <label><input type="radio" name="q8" value="d"> d) 365 days</label>
+  </div><div class="q-explain" id="ex8">✅ <strong>27.3 days.</strong> The Moon takes 27.3 days to orbit Earth (sidereal period). The lunar month (new moon to new moon) is 29.5 days.</div></div>
+
+  <div class="q-card"><div class="q-num">Q9</div><div class="q-text">Solar eclipse occurs on ___</div><div class="q-opts">
+    <label><input type="radio" name="q9" value="a"> a) Full Moon day</label>
+    <label><input type="radio" name="q9" value="b"> b) New Moon day</label>
+    <label><input type="radio" name="q9" value="c"> c) First Quarter</label>
+    <label><input type="radio" name="q9" value="d"> d) Last Quarter</label>
+  </div><div class="q-explain" id="ex9">✅ <strong>New Moon day (Amavasya).</strong> Solar eclipse occurs when the Moon comes between the Sun and Earth, which happens only during New Moon.</div></div>
+
+  <div class="q-card"><div class="q-num">Q10</div><div class="q-text">During a lunar eclipse, the Moon appears ___</div><div class="q-opts">
+    <label><input type="radio" name="q10" value="a"> a) White</label>
+    <label><input type="radio" name="q10" value="b"> b) Blue</label>
+    <label><input type="radio" name="q10" value="c"> c) Green</label>
+    <label><input type="radio" name="q10" value="d"> d) Reddish</label>
+  </div><div class="q-explain" id="ex10">✅ <strong>Reddish (Blood Moon).</strong> Earth's atmosphere scatters blue light and lets red light through, which falls on the Moon — making it appear red.</div></div>
+
+  <div class="q-card"><div class="q-num">Q11</div><div class="q-text">Spring tides occur when ___</div><div class="q-opts">
+    <label><input type="radio" name="q11" value="a"> a) Moon is at right angles to Sun</label>
+    <label><input type="radio" name="q11" value="b"> b) Sun, Moon, Earth are in a line</label>
+    <label><input type="radio" name="q11" value="c"> c) Earth is farthest from Sun</label>
+    <label><input type="radio" name="q11" value="d"> d) Moon is at First Quarter</label>
+  </div><div class="q-explain" id="ex11">✅ <strong>Sun, Moon, Earth are in a line.</strong> Spring tides occur on New Moon and Full Moon when all three are aligned — gravitational forces add up.</div></div>
+
+  <div class="q-card"><div class="q-num">Q12</div><div class="q-text">The Sun's energy is produced by ___</div><div class="q-opts">
+    <label><input type="radio" name="q12" value="a"> a) Burning coal</label>
+    <label><input type="radio" name="q12" value="b"> b) Chemical reactions</label>
+    <label><input type="radio" name="q12" value="c"> c) Nuclear fusion</label>
+    <label><input type="radio" name="q12" value="d"> d) Nuclear fission</label>
+  </div><div class="q-explain" id="ex12">✅ <strong>Nuclear fusion.</strong> In the Sun's core, hydrogen nuclei fuse to form helium, releasing enormous energy (E=mc²).</div></div>
+
+  <div class="q-card"><div class="q-num">Q13</div><div class="q-text">First human to walk on the Moon was ___</div><div class="q-opts">
+    <label><input type="radio" name="q13" value="a"> a) Yuri Gagarin</label>
+    <label><input type="radio" name="q13" value="b"> b) Buzz Aldrin</label>
+    <label><input type="radio" name="q13" value="c"> c) Neil Armstrong</label>
+    <label><input type="radio" name="q13" value="d"> d) Michael Collins</label>
+  </div><div class="q-explain" id="ex13">✅ <strong>Neil Armstrong.</strong> Neil Armstrong became the first human to walk on the Moon on 20 July 1969 (Apollo 11 mission).</div></div>
+
+  <div class="q-card"><div class="q-num">Q14</div><div class="q-text">Dark, cooler areas on the Sun's surface are called ___</div><div class="q-opts">
+    <label><input type="radio" name="q14" value="a"> a) Solar flares</label>
+    <label><input type="radio" name="q14" value="b"> b) Sunspots</label>
+    <label><input type="radio" name="q14" value="c"> c) Corona</label>
+    <label><input type="radio" name="q14" value="d"> d) Prominences</label>
+  </div><div class="q-explain" id="ex14">✅ <strong>Sunspots.</strong> Sunspots are cooler (~3700°C vs 5500°C) regions on the Sun's photosphere, appearing dark due to intense magnetic activity.</div></div>
+
+  <div class="q-card"><div class="q-num">Q15</div><div class="q-text">We always see the same face of the Moon because ___</div><div class="q-opts">
+    <label><input type="radio" name="q15" value="a"> a) Moon does not rotate</label>
+    <label><input type="radio" name="q15" value="b"> b) Moon's rotation period = its revolution period</label>
+    <label><input type="radio" name="q15" value="c"> c) Moon rotates faster than Earth</label>
+    <label><input type="radio" name="q15" value="d"> d) Moon is very far from Earth</label>
+  </div><div class="q-explain" id="ex15">✅ <strong>Moon's rotation period equals its revolution period (27.3 days).</strong> This synchronous rotation means one face always points toward Earth.</div></div>
+
+  <div class="q-card"><div class="q-num">Q16</div><div class="q-text">Which day has equal day and night everywhere on Earth?</div><div class="q-opts">
+    <label><input type="radio" name="q16" value="a"> a) 21 June and 22 December</label>
+    <label><input type="radio" name="q16" value="b"> b) 21 March and 23 September</label>
+    <label><input type="radio" name="q16" value="c"> c) 1 January and 1 July</label>
+    <label><input type="radio" name="q16" value="d"> d) 15 August and 26 January</label>
+  </div><div class="q-explain" id="ex16">✅ <strong>21 March and 23 September</strong> are the equinoxes — day and night are equal (12 hours each) everywhere on Earth.</div></div>
+
+  <div class="q-card"><div class="q-num">Q17</div><div class="q-text">The lunar month (one complete phase cycle) is ___</div><div class="q-opts">
+    <label><input type="radio" name="q17" value="a"> a) 24 hours</label>
+    <label><input type="radio" name="q17" value="b"> b) 27.3 days</label>
+    <label><input type="radio" name="q17" value="c"> c) 29.5 days</label>
+    <label><input type="radio" name="q17" value="d"> d) 365 days</label>
+  </div><div class="q-explain" id="ex17">✅ <strong>29.5 days</strong> (synodic month). This is the time from one New Moon to the next New Moon — the complete phase cycle.</div></div>
+
+  <div class="q-card"><div class="q-num">Q18</div><div class="q-text">Neap tides are weaker because ___</div><div class="q-opts">
+    <label><input type="radio" name="q18" value="a"> a) Moon is far from Earth</label>
+    <label><input type="radio" name="q18" value="b"> b) Sun and Moon pull at right angles — forces partially cancel</label>
+    <label><input type="radio" name="q18" value="c"> c) Earth rotates faster</label>
+    <label><input type="radio" name="q18" value="d"> d) Sun is not visible</label>
+  </div><div class="q-explain" id="ex18">✅ <strong>Sun and Moon pull at right angles.</strong> During Quarter Moons, the Sun's and Moon's tidal forces act in different directions, partially cancelling each other.</div></div>
+
+  <div class="q-card"><div class="q-num">Q19</div><div class="q-text">An annular solar eclipse occurs when ___</div><div class="q-opts">
+    <label><input type="radio" name="q19" value="a"> a) Earth is between Moon and Sun</label>
+    <label><input type="radio" name="q19" value="b"> b) Moon is at its farthest point — appears smaller — ring of Sun visible</label>
+    <label><input type="radio" name="q19" value="c"> c) Moon's entire disk covers the Sun</label>
+    <label><input type="radio" name="q19" value="d"> d) Eclipse lasts more than 2 hours</label>
+  </div><div class="q-explain" id="ex19">✅ <strong>Moon appears smaller (far from Earth) — ring of Sun visible.</strong> When Moon is near apogee, it looks smaller and doesn't fully cover the Sun — a ring (annulus) of sunlight appears.</div></div>
+
+  <div class="q-card"><div class="q-num">Q20</div><div class="q-text">The main composition of the Sun by percentage is ___</div><div class="q-opts">
+    <label><input type="radio" name="q20" value="a"> a) 70% Oxygen, 28% Nitrogen</label>
+    <label><input type="radio" name="q20" value="b"> b) 70% Hydrogen, 28% Helium</label>
+    <label><input type="radio" name="q20" value="c"> c) 50% Hydrogen, 50% Helium</label>
+    <label><input type="radio" name="q20" value="d"> d) 90% Oxygen, 10% Hydrogen</label>
+  </div><div class="q-explain" id="ex20">✅ <strong>~70% Hydrogen, ~28% Helium.</strong> The remaining ~2% is made up of heavier elements like oxygen, carbon, iron, etc.</div></div>
+
+  <button class="quiz-btn" onclick="submitQuiz()">📊 Submit &amp; See Score</button>
+  <div class="quiz-score" id="quizScore"></div>
+</section>
+
+<!-- ══════════════ Q & A ══════════════ -->
+<div class="qa-section" id="qa">
+
+  <!-- 1 MARK -->
+  <div class="badge-row">
+    <span class="mark-badge" style="background:#dbeafe;color:#1e40af">1 Mark Questions</span>
+  </div>
+
+  <details><summary><span class="sq-badge sq-1">1M</span>What is a star?</summary>
+  <div class="sq-ans">A <strong>star</strong> is a huge ball of hot, glowing gas that produces its own light and heat through nuclear fusion. The <strong>Sun</strong> is the nearest star to Earth.</div></details>
+
+  <details><summary><span class="sq-badge sq-1">1M</span>Define rotation of the Earth.</summary>
+  <div class="sq-ans">The spinning of the Earth on its own imaginary axis from <strong>West to East</strong> is called <strong>rotation</strong>. One complete rotation takes <strong>24 hours</strong> (1 day) and causes <strong>day and night</strong>.</div></details>
+
+  <details><summary><span class="sq-badge sq-1">1M</span>What is revolution of the Earth?</summary>
+  <div class="sq-ans">The movement of the Earth around the Sun in a fixed <strong>elliptical orbit</strong> is called <strong>revolution</strong>. It takes <strong>365 days and 6 hours</strong> (one year) and is responsible for <strong>change of seasons</strong>.</div></details>
+
+  <details><summary><span class="sq-badge sq-1">1M</span>What is a natural satellite?</summary>
+  <div class="sq-ans">A <strong>natural satellite</strong> is a celestial body that revolves around a planet. The <strong>Moon</strong> is Earth's only natural satellite. It revolves around the Earth in <strong>27.3 days</strong>.</div></details>
+
+  <details><summary><span class="sq-badge sq-1">1M</span>What are sunspots?</summary>
+  <div class="sq-ans"><strong>Sunspots</strong> are dark, cooler areas that appear on the surface (photosphere) of the Sun. They have a temperature of about <strong>3,700°C</strong> compared to the surrounding ~5,500°C, so they appear darker. They are caused by intense magnetic activity.</div></details>
+
+  <details><summary><span class="sq-badge sq-1">1M</span>What is an equinox?</summary>
+  <div class="sq-ans">An <strong>equinox</strong> is a day when day and night are of equal duration (12 hours each) everywhere on Earth. There are two equinoxes per year — <strong>21 March</strong> (spring/vernal equinox) and <strong>23 September</strong> (autumn equinox).</div></details>
+
+  <details><summary><span class="sq-badge sq-1">1M</span>What are tides?</summary>
+  <div class="sq-ans"><strong>Tides</strong> are the periodic rise and fall of sea water level. They are primarily caused by the <strong>gravitational pull of the Moon</strong> on Earth's oceans. There are usually <strong>2 high tides and 2 low tides</strong> each day.</div></details>
+
+  <details><summary><span class="sq-badge sq-1">1M</span>Name the first person to land on the Moon.</summary>
+  <div class="sq-ans"><strong>Neil Armstrong</strong> was the first person to land on the Moon on <strong>20 July 1969</strong>, during the <strong>Apollo 11</strong> mission. Edwin "Buzz" Aldrin was the second astronaut to walk on the Moon during the same mission.</div></details>
+
+  <!-- 2 MARK -->
+  <div class="badge-row" style="margin-top:16px">
+    <span class="mark-badge" style="background:#fce7f3;color:#9d174d">2 Mark Questions</span>
+  </div>
+
+  <details><summary><span class="sq-badge sq-2">2M</span>Distinguish between rotation and revolution of the Earth.</summary>
+  <div class="sq-ans">
+    <ul>
+      <li><strong>Rotation:</strong> Spinning on its own axis | Direction: West to East | Time: 24 hours | Causes: Day and Night</li>
+      <li><strong>Revolution:</strong> Orbiting around the Sun | Path: Elliptical | Time: 365¼ days | Causes: Change of Seasons</li>
+    </ul>
+    The key difference: rotation is spinning in place; revolution is moving around the Sun.
+  </div></details>
+
+  <details><summary><span class="sq-badge sq-2">2M</span>Why does the Moon show phases?</summary>
+  <div class="sq-ans">The Moon shows phases because:
+    <ul>
+      <li>(1) The Moon <strong>does not produce its own light</strong> — it only reflects sunlight</li>
+      <li>(2) As the Moon orbits Earth over 29.5 days, we see <strong>different portions</strong> of its sunlit side from Earth</li>
+      <li>When Moon is between Sun and Earth (New Moon) → dark side faces us → not visible</li>
+      <li>When Earth is between Sun and Moon (Full Moon) → entire lit side faces us → fully visible</li>
+    </ul>
+  </div></details>
+
+  <details><summary><span class="sq-badge sq-2">2M</span>Distinguish between solar and lunar eclipse.</summary>
+  <div class="sq-ans">
+    <ul>
+      <li><strong>Solar Eclipse:</strong> Moon comes between Sun and Earth | New Moon day | Moon's shadow on Earth | Dangerous to observe directly</li>
+      <li><strong>Lunar Eclipse:</strong> Earth comes between Sun and Moon | Full Moon day | Earth's shadow on Moon | Moon appears reddish | Safe to observe</li>
+    </ul>
+  </div></details>
+
+  <details><summary><span class="sq-badge sq-2">2M</span>What are spring tides and neap tides?</summary>
+  <div class="sq-ans">
+    <strong>Spring Tides:</strong> Occur on New Moon and Full Moon days when Sun, Moon and Earth are in a straight line. Gravitational forces of Sun and Moon combine → <strong>highest high tides and lowest low tides</strong>.<br><br>
+    <strong>Neap Tides:</strong> Occur during First and Last Quarter when Sun and Moon are at right angles to Earth. Their gravitational forces partially cancel → <strong>weaker tides</strong> (lower high tides, higher low tides).
+  </div></details>
+
+  <details><summary><span class="sq-badge sq-2">2M</span>Why is the same face of the Moon always visible from Earth?</summary>
+  <div class="sq-ans">The same face of the Moon is always visible from Earth because the Moon's <strong>period of rotation equals its period of revolution</strong> — both are <strong>27.3 days</strong>. This is called <strong>synchronous rotation</strong>. As a result, the Moon completes exactly one spin for every orbit around Earth, keeping one face permanently towards Earth.</div></details>
+
+  <details><summary><span class="sq-badge sq-2">2M</span>What causes seasons on Earth?</summary>
+  <div class="sq-ans">Seasons are caused by the <strong>tilt of Earth's axis (23.5°)</strong> and Earth's <strong>revolution around the Sun</strong>. When the Northern Hemisphere tilts <em>towards</em> the Sun → summer in NH. When it tilts <em>away</em> → winter in NH. Near equinoxes (21 March, 23 September), neither pole tilts towards Sun → equal day and night everywhere.</div></details>
+
+  <!-- 3 MARK -->
+  <div class="badge-row" style="margin-top:16px">
+    <span class="mark-badge" style="background:#d1fae5;color:#065f46">3 Mark Questions</span>
+  </div>
+
+  <details><summary><span class="sq-badge sq-3">3M</span>Describe the structure and composition of the Sun.</summary>
+  <div class="sq-ans">
+    <strong>The Sun</strong> is a massive ball of hot, glowing gas:
+    <ul>
+      <li><strong>Composition:</strong> ~70% Hydrogen, ~28% Helium, ~2% heavier elements</li>
+      <li><strong>Layers:</strong>
+        <ul>
+          <li><em>Core:</em> Temperature ~1.5 crore °C — nuclear fusion occurs here</li>
+          <li><em>Radiative zone:</em> Energy moves outward as radiation</li>
+          <li><em>Convective zone:</em> Hot plasma rises, cools, sinks — convection currents</li>
+          <li><em>Photosphere:</em> Visible surface; ~5500°C; sunspots visible here</li>
+          <li><em>Chromosphere:</em> Reddish atmosphere above photosphere</li>
+          <li><em>Corona:</em> Outermost atmosphere; millions °C; visible during total solar eclipse</li>
+        </ul>
+      </li>
+      <li><strong>Energy:</strong> Nuclear fusion — 4 hydrogen nuclei → 1 helium nucleus + energy</li>
+      <li><strong>Sunspots:</strong> Dark cooler areas (~3700°C) caused by magnetic activity; 11-year cycle</li>
+    </ul>
+  </div></details>
+
+  <details><summary><span class="sq-badge sq-3">3M</span>Explain the 8 phases of the Moon with a diagram description.</summary>
+  <div class="sq-ans">
+    The Moon goes through <strong>8 phases</strong> in one lunar month (29.5 days):
+    <ul>
+      <li><strong>1. New Moon (Amavasya):</strong> Moon between Sun and Earth — sunlit side away from us — not visible</li>
+      <li><strong>2. Waxing Crescent:</strong> Small sliver of light visible on the right (waxing = growing)</li>
+      <li><strong>3. First Quarter:</strong> Right half of Moon illuminated (Half Moon)</li>
+      <li><strong>4. Waxing Gibbous:</strong> More than half visible and growing</li>
+      <li><strong>5. Full Moon (Purnima):</strong> Earth between Sun and Moon — entire lit face visible</li>
+      <li><strong>6. Waning Gibbous:</strong> More than half visible but shrinking</li>
+      <li><strong>7. Last Quarter:</strong> Left half illuminated (Half Moon)</li>
+      <li><strong>8. Waning Crescent:</strong> Small sliver on left — back to New Moon</li>
+    </ul>
+    <strong>Why phases occur:</strong> Moon doesn't emit light; reflects sunlight. Different portions of the lit half are visible as Moon orbits Earth.
+  </div></details>
+
+  <details><summary><span class="sq-badge sq-3">3M</span>Explain the different types of solar eclipse.</summary>
+  <div class="sq-ans">
+    A <strong>solar eclipse</strong> occurs when the Moon comes between the Sun and Earth on a New Moon day. There are three types:
+    <ul>
+      <li><strong>Total Solar Eclipse:</strong> The Moon completely covers the Sun. Viewers in the <em>umbra</em> (inner shadow) see total darkness. Lasts only a few minutes. The corona of the Sun becomes visible.</li>
+      <li><strong>Partial Solar Eclipse:</strong> Only part of the Sun is covered by the Moon. Viewers in the <em>penumbra</em> (outer shadow) see this.</li>
+      <li><strong>Annular Solar Eclipse:</strong> Moon is at its farthest point from Earth (apogee) — appears smaller than the Sun — doesn't fully cover it. A ring (annulus) of sunlight appears around the Moon.</li>
+    </ul>
+    ⚠ <strong>Never</strong> look at a solar eclipse with naked eyes — use certified solar filters.
+  </div></details>
+
+  <details><summary><span class="sq-badge sq-3">3M</span>Describe the surface features of the Moon.</summary>
+  <div class="sq-ans">
+    The Moon's surface has several distinctive features:
+    <ul>
+      <li><strong>Craters:</strong> Circular depressions formed by meteorite impacts over billions of years. Some are hundreds of km wide. No atmosphere → no erosion → craters are preserved.</li>
+      <li><strong>Maria (singular: Mare):</strong> Large dark plains on the Moon's surface. Formed when ancient meteorite impacts caused volcanic eruptions that filled basins with lava. The word "mare" is Latin for "sea" — early astronomers mistook them for seas.</li>
+      <li><strong>Mountains (Highlands):</strong> Light-coloured elevated regions, older than maria. Some mountains are taller than the Himalayas.</li>
+      <li><strong>Rilles:</strong> Long, narrow valleys or channels on the surface.</li>
+    </ul>
+    The Moon has <strong>no atmosphere, no liquid water, and no life</strong>. Extreme temperatures: +127°C (day) to −173°C (night).
+  </div></details>
+
+  <!-- 5 MARK -->
+  <div class="badge-row" style="margin-top:16px">
+    <span class="mark-badge" style="background:#fef3c7;color:#92400e">5 Mark Questions</span>
+  </div>
+
+  <details><summary><span class="sq-badge sq-5">5M</span>Explain how eclipses are formed. Describe both solar and lunar eclipses in detail.</summary>
+  <div class="sq-ans">
+    <strong>Eclipse</strong> occurs when one celestial body moves into the shadow of another. For Earth, eclipses involve the Sun, Moon, and Earth.
+    <br><br>
+    <strong>Solar Eclipse:</strong>
+    <ul>
+      <li>Occurs on <strong>New Moon (Amavasya)</strong> when Moon comes between Sun and Earth</li>
+      <li>Moon's shadow has two parts: <strong>Umbra</strong> (darker inner shadow) and <strong>Penumbra</strong> (lighter outer shadow)</li>
+      <li><strong>Total solar eclipse</strong> — viewer in umbra — Sun completely hidden — corona visible — lasts ~7.5 min max</li>
+      <li><strong>Partial solar eclipse</strong> — viewer in penumbra — Sun partially covered</li>
+      <li><strong>Annular eclipse</strong> — Moon near apogee (far from Earth), appears smaller — ring of Sun visible</li>
+      <li>⚠ Dangerous — use ISO-certified solar filters to observe</li>
+    </ul>
+    <strong>Lunar Eclipse:</strong>
+    <ul>
+      <li>Occurs on <strong>Full Moon (Purnima)</strong> when Earth comes between Sun and Moon</li>
+      <li>Earth's shadow falls on the Moon</li>
+      <li><strong>Total lunar eclipse</strong> — Moon fully in Earth's umbra — appears reddish ("Blood Moon") because Earth's atmosphere scatters blue light and refracts red light onto Moon</li>
+      <li><strong>Partial lunar eclipse</strong> — only part of Moon in umbra</li>
+      <li><strong>Penumbral eclipse</strong> — Moon passes through penumbra only — subtle darkening</li>
+      <li>✅ Completely safe to watch with naked eyes</li>
+    </ul>
+    <strong>Why not every month?</strong> Moon's orbit is tilted ~5° to Earth's orbital plane, so usually Moon passes above or below the shadow. Eclipses occur only when all three bodies precisely align (<strong>Syzygy</strong>).
+  </div></details>
+
+  <details><summary><span class="sq-badge sq-5">5M</span>Describe the Earth's rotation and revolution and their effects in detail.</summary>
+  <div class="sq-ans">
+    <strong>A. Rotation:</strong>
+    <ul>
+      <li>Earth spins on its own axis from <strong>West to East</strong> (anticlockwise when viewed from North Pole)</li>
+      <li>One complete rotation = <strong>24 hours</strong></li>
+      <li><strong>Effects:</strong>
+        <ul>
+          <li>Causes <strong>day and night</strong> — sunlit side = day, dark side = night</li>
+          <li>Sun appears to rise in <strong>East</strong> and set in <strong>West</strong></li>
+          <li>Causes slight flattening of Earth at poles (bulging at equator)</li>
+          <li>Affects ocean currents and wind patterns (Coriolis effect)</li>
+        </ul>
+      </li>
+      <li>The boundary between day and night: <strong>Circle of Illumination</strong></li>
+    </ul>
+    <strong>B. Revolution:</strong>
+    <ul>
+      <li>Earth orbits the Sun in an <strong>elliptical path</strong> — takes <strong>365 days 6 hours</strong></li>
+      <li>Extra 6 hours → <strong>Leap Year</strong> every 4 years (366 days)</li>
+      <li>Earth's axis is tilted at <strong>23.5°</strong></li>
+      <li><strong>Effects — Seasons:</strong>
+        <ul>
+          <li><strong>21 June (Summer Solstice):</strong> NH tilted towards Sun → longest day in NH; SH has winter</li>
+          <li><strong>22 December (Winter Solstice):</strong> NH tilted away from Sun → shortest day in NH; SH has summer</li>
+          <li><strong>21 March (Spring Equinox):</strong> Neither pole tilted → Day = Night everywhere</li>
+          <li><strong>23 September (Autumn Equinox):</strong> Neither pole tilted → Day = Night everywhere</li>
+        </ul>
+      </li>
+    </ul>
+    <strong>Difference:</strong> Rotation = spinning in place (24 hrs, causes day/night). Revolution = orbiting the Sun (365¼ days, causes seasons).
+  </div></details>
+
+  <details><summary><span class="sq-badge sq-5">5M</span>Explain tides — their cause, types and significance.</summary>
+  <div class="sq-ans">
+    <strong>Tides</strong> are the periodic rise and fall of sea water level caused by the gravitational pull of the Moon and the Sun.
+    <br><br>
+    <strong>Cause:</strong>
+    <ul>
+      <li>The Moon exerts a <strong>gravitational pull</strong> on Earth's water. The side of Earth facing the Moon experiences a stronger pull → water bulges outward = <strong>high tide</strong></li>
+      <li>Opposite side also gets a high tide due to <em>inertial effect</em> (centrifugal force from Earth-Moon rotation)</li>
+      <li>The Sun also pulls on oceans but its effect is smaller because it is much farther away</li>
+      <li>Result: usually <strong>2 high tides and 2 low tides</strong> every 24 hours</li>
+    </ul>
+    <strong>Types:</strong>
+    <ul>
+      <li><strong>Spring Tides:</strong> New Moon or Full Moon — Sun, Moon, Earth in line — forces add up → highest high tides, lowest low tides</li>
+      <li><strong>Neap Tides:</strong> First/Last Quarter — Sun and Moon at 90° to Earth — forces partially cancel → weaker tides</li>
+    </ul>
+    <strong>Significance / Uses:</strong>
+    <ul>
+      <li><strong>Tidal energy:</strong> Water movement drives turbines → electricity generation (renewable, clean energy)</li>
+      <li><strong>Navigation:</strong> Ships use high tides to navigate into shallow ports and harbours</li>
+      <li><strong>Fishing:</strong> Fishermen plan their trips according to tidal patterns</li>
+      <li><strong>Salt production:</strong> Seawater trapped at high tide, salt extracted as water evaporates</li>
+      <li><strong>Marine ecology:</strong> Tidal zones support unique ecosystems</li>
+    </ul>
+  </div></details>
+
+  <details><summary><span class="sq-badge sq-5">5M</span>Write a detailed note on the Moon — its properties, phases, and exploration.</summary>
+  <div class="sq-ans">
+    <strong>The Moon — Earth's Natural Satellite</strong>
+    <br><br>
+    <strong>Basic Properties:</strong>
+    <ul>
+      <li>Distance from Earth: <strong>3,84,400 km</strong></li>
+      <li>Diameter: <strong>3,476 km</strong> (~1/4 of Earth's 12,742 km)</li>
+      <li>Gravity: <strong>1/6th</strong> of Earth's</li>
+      <li>No atmosphere, no liquid water, no life</li>
+      <li>Temperature: −173°C (night) to +127°C (day)</li>
+      <li>Rotation = Revolution = <strong>27.3 days</strong> → same face always faces Earth</li>
+      <li>Lunar month: <strong>29.5 days</strong></li>
+    </ul>
+    <strong>Surface Features:</strong>
+    <ul>
+      <li><strong>Craters:</strong> Impact depressions; preserved due to no atmosphere; some hundreds of km wide</li>
+      <li><strong>Maria:</strong> Dark lava plains, mistaken for seas by early astronomers</li>
+      <li><strong>Mountains and Highlands:</strong> Some taller than Himalayas</li>
+    </ul>
+    <strong>Phases of the Moon:</strong> 8 phases over 29.5 days (New Moon → Full Moon → New Moon). Caused by Moon reflecting sunlight and changing position relative to Earth and Sun. Moon <em>waxes</em> (grows) from New to Full, then <em>wanes</em> (shrinks) from Full to New.
+    <br><br>
+    <strong>Moon and Tides:</strong> Moon's gravity causes tides in Earth's oceans — 2 high tides and 2 low tides per day.
+    <br><br>
+    <strong>Exploration:</strong>
+    <ul>
+      <li><strong>Apollo 11 (1969):</strong> Neil Armstrong &amp; Buzz Aldrin — first humans on Moon (20 July 1969)</li>
+      <li><strong>Chandrayaan-1 (2008):</strong> India's first lunar mission — discovered water molecules on Moon's surface</li>
+      <li><strong>Chandrayaan-3 (2023):</strong> India's Vikram lander and Pragyan rover landed near the <strong>South Pole</strong> of Moon — India became 4th country to land on Moon</li>
+    </ul>
+  </div></details>
+
+</div>
+
+<footer>
+  📚 Preeti Kushwah Classes &nbsp;|&nbsp; Class 7 Science &middot; Ch 12: Earth, Moon &amp; the Sun &nbsp;|&nbsp;
+  <a href="index.html" style="color:#a5b4fc">← Back to Science Chapters</a>
+</footer>
+
+<script>
+// PROGRESS BAR
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  document.getElementById('prog').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+},{passive:true});
+
+// STARS
+(function(){
+  const bg=document.getElementById('starsBg');
+  if(!bg)return;
+  for(let i=0;i<80;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    const size=Math.random()*2.5+0.5;
+    s.style.cssText=`width:${size}px;height:${size}px;top:${Math.random()*70}%;left:${Math.random()*100}%;--d:${1.5+Math.random()*3}s;animation-delay:${Math.random()*3}s`;
+    bg.appendChild(s);
+  }
+})();
+
+// MCQ
+const MCQ_ANS={q1:'c',q2:'b',q3:'d',q4:'b',q5:'d',q6:'b',q7:'c',q8:'c',q9:'b',q10:'d',q11:'b',q12:'c',q13:'c',q14:'b',q15:'b',q16:'b',q17:'c',q18:'b',q19:'b',q20:'b'};
+document.querySelectorAll('.q-opts input[type=radio]').forEach(inp=>{
+  inp.addEventListener('change',function(){
+    const name=this.name;
+    const correct=MCQ_ANS[name];
+    document.querySelectorAll(`input[name=${name}]`).forEach(r=>{
+      const lbl=r.parentElement;
+      lbl.classList.remove('correct','wrong');
+      if(r.value===correct)lbl.classList.add('correct');
+      else if(r.checked)lbl.classList.add('wrong');
+      r.disabled=true;
+    });
+    const ex=document.getElementById('ex'+name.slice(1));
+    if(ex)ex.style.display='block';
+  });
+});
+function submitQuiz(){
+  let score=0,total=Object.keys(MCQ_ANS).length;
+  Object.keys(MCQ_ANS).forEach(n=>{
+    const s=document.querySelector(`input[name=${n}]:checked`);
+    if(s&&s.value===MCQ_ANS[n])score++;
+  });
+  const pct=Math.round(score/total*100);
+  const em=pct>=80?'🌟':pct>=60?'👍':'📚';
+  const sc=document.getElementById('quizScore');
+  sc.textContent=`${em} Score: ${score}/${total} (${pct}%)`;
+  sc.style.display='block';
+}
+
+// FADE IN
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+// TOC ACTIVE
+const tocLinks=document.querySelectorAll('.toc-bar a');
+const sections=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id;});
+  tocLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+},{passive:true});
+
+function toggleDark(){
+  const d=document.documentElement;
+  const isDark=d.getAttribute('data-theme')==='dark';
+  d.setAttribute('data-theme',isDark?'':'dark');
+  localStorage.setItem('pkc-dark-mode',!isDark);
+}
+function sharePage(){
+  if(navigator.share)navigator.share({title:'Earth, Moon & Sun — Class 7 Science',url:window.location.href});
+  else navigator.clipboard.writeText(window.location.href).then(()=>alert('Link copied!'));
+}
+</script>
+</body>
+</html>
