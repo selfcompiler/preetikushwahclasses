@@ -1774,5 +1774,8 @@ window.addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(window.scroll
 function toggleDark(){const d=document.documentElement,isDark=d.getAttribute('data-theme')==='dark';d.setAttribute('data-theme',isDark?'':'dark');localStorage.setItem('pkc-dark-mode',!isDark);}
 function sharePage(){if(navigator.share)navigator.share({title:'Life Processes in Animals — Class 7',url:window.location.href});else navigator.clipboard.writeText(window.location.href).then(()=>alert('Link copied!'));}
 </script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
 </body>
 </html>
