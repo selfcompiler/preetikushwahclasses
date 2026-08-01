@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Interactive Political Map of India for Class 7 — all 28 states and 8 Union Territories, state capitals, regional quiz, capitals MCQ. NCERT SST by Preeti Kushwah Classes.">
+<meta name="keywords" content="Preeti Kushwah Classes, India political map, Class 7 SST, states of India, union territories, state capitals, NCERT map, interactive map quiz, India map Class 7, state capitals quiz">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-7/sst/india-political-map.html">
+<meta property="og:title" content="India Political Map — Class 7 SST Interactive Map &amp; Quiz">
+<meta property="og:description" content="Explore all 28 states and 8 UTs, click to see capitals and facts, play name-the-state and capitals quiz.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preetikushwahclasses.com/class-7/sst/india-political-map.html">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>India Political Map — Class 7 SST | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+:root{
+  --ind-dark:#14532d;--ind-mid:#16a34a;--ind-light:#86efac;--ind-pale:#f0fdf4;
+  --north:#3b82f6;--northeast:#22c55e;--east:#0d9488;--central:#f59e0b;--west:#8b5cf6;--south:#ef4444;
+  --text:#1f2937;--card:#ffffff;--bg:#f0fdf4;
+}
+[data-theme="dark"]{--bg:#0a1f12;--card:#1a2e1a;--text:#e2f0e8;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.7}
+
+/* NAV */
+.top-nav{background:#fff;padding:8px 12px;display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,.06);position:sticky;top:0;z-index:1100;overflow-x:auto;white-space:nowrap}
+[data-theme="dark"] .top-nav{background:#1a2e1a}
+.tn-home{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);color:#14532d;text-decoration:none;padding:7px 14px;border-radius:12px;font-size:12px;font-weight:800;border:1.5px solid #86efac;transition:all .2s;white-space:nowrap}
+.tn-home:hover{background:#dcfce7;transform:translateY(-1px)}
+.nav-spacer{flex:1;min-width:4px}
+.tn-dark{background:none;border:1.5px solid #86efac;color:#14532d;padding:6px 11px;border-radius:12px;font-size:12px;font-weight:800;cursor:pointer;transition:all .2s}
+[data-theme="dark"] .tn-dark{border-color:#166534;color:#86efac}
+.tn-share{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);color:#14532d;padding:7px 12px;border-radius:12px;border:1.5px solid #86efac;font-size:11px;font-weight:800;cursor:pointer;transition:all .2s;white-space:nowrap}
+
+/* TOC */
+.toc-bar{background:linear-gradient(135deg,#14532d,#16a34a);padding:10px 16px;position:sticky;top:44px;z-index:1050;box-shadow:0 2px 10px rgba(0,0,0,.2);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+.toc-bar a{display:inline-block;background:rgba(255,255,255,.15);color:#fff;text-decoration:none;padding:5px 12px;border-radius:16px;font-size:12px;font-weight:700;margin-right:5px;transition:all .2s}
+.toc-bar a:hover,.toc-bar a.active{background:rgba(255,255,255,.35);transform:translateY(-1px)}
+
+/* HERO */
+.hero{background:linear-gradient(180deg,#052e16 0%,#14532d 20%,#15803d 50%,#22c55e 80%,#f0fdf4 100%);position:relative;overflow:hidden;min-height:320px;padding-bottom:20px}
+.hero-content{position:relative;z-index:10;text-align:center;padding:28px 16px 0}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.4);border-radius:30px;padding:4px 16px;font-size:10px;font-weight:800;letter-spacing:2px;color:#fff;text-transform:uppercase;margin-bottom:10px}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(22px,5vw,42px);color:#fff;text-shadow:0 3px 12px rgba(0,0,0,.35);margin-bottom:6px;line-height:1.2}
+.hero p{color:rgba(255,255,255,.9);font-size:14px;font-weight:700;margin-bottom:16px}
+.stats-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;z-index:10;padding:0 16px}
+.stat-pill{background:rgba(255,255,255,.22);border:2px solid rgba(255,255,255,.35);border-radius:14px;padding:8px 14px;text-align:center;min-width:72px}
+.stat-pill .sp-num{font-family:'Fredoka One',cursive;font-size:20px;color:#fff;display:block}
+.stat-pill .sp-label{font-size:10px;font-weight:800;color:rgba(255,255,255,.9);letter-spacing:.3px}
+
+/* SECTIONS */
+.section{padding:28px 16px;max-width:900px;margin:0 auto}
+.sec-head{font-family:'Fredoka One',cursive;font-size:clamp(20px,4vw,28px);color:#14532d;margin-bottom:4px}
+[data-theme="dark"] .sec-head{color:#86efac}
+.sec-sub{font-size:13px;color:#6b7280;font-weight:700;margin-bottom:16px}
+[data-theme="dark"] .sec-sub{color:#9ca3af}
+
+/* MAP */
+.map-wrap{background:var(--card);border-radius:16px;padding:16px;box-shadow:0 3px 14px rgba(0,0,0,.08);margin:16px 0;overflow:hidden}
+.map-wrap h4{font-family:'Fredoka One',cursive;font-size:15px;margin-bottom:6px;text-align:center;color:#14532d}
+[data-theme="dark"] .map-wrap h4{color:#86efac}
+.map-instruction{text-align:center;font-size:12px;font-weight:600;color:#6b7280;margin-bottom:8px}
+#indiaMap{width:100%;height:520px;border-radius:12px;z-index:1}
+@media(max-width:600px){#indiaMap{height:380px}}
+
+.map-info{background:#f9fafb;border:1.5px solid #e5e7eb;border-radius:12px;padding:14px;margin-top:12px;font-size:13px;min-height:70px;transition:all .3s}
+[data-theme="dark"] .map-info{background:#1a2e1a;border-color:#166534}
+.map-info h5{font-family:'Fredoka One',cursive;font-size:16px;margin-bottom:6px;color:#14532d}
+[data-theme="dark"] .map-info h5{color:#86efac}
+.mi-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;margin-top:6px}
+.mi-label{font-size:10px;font-weight:900;color:#d97706;text-transform:uppercase;letter-spacing:.5px}
+.mi-val{font-size:13px;font-weight:700;color:var(--text)}
+.mi-fact{grid-column:1/-1;margin-top:6px;padding:8px 10px;background:#f0fdf4;border-radius:8px;font-size:12px;font-weight:600;color:#14532d;border-left:4px solid #22c55e}
+[data-theme="dark"] .mi-fact{background:#0a1f12;color:#86efac;border-color:#166534}
+
+/* REGION LEGEND */
+.region-legend{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;justify-content:center}
+.rl-item{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;padding:3px 10px;border-radius:8px;cursor:pointer;border:1.5px solid transparent;transition:all .2s}
+.rl-dot{width:12px;height:12px;border-radius:3px;display:inline-block;flex-shrink:0}
+
+/* STATE GRID (reference) */
+.region-section{margin-bottom:20px}
+.region-title{font-family:'Fredoka One',cursive;font-size:16px;padding:6px 12px;border-radius:10px;margin-bottom:10px;display:inline-flex;align-items:center;gap:8px}
+.state-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px}
+@media(max-width:600px){.state-grid{grid-template-columns:repeat(2,1fr)}}
+.state-pill{background:var(--card);border-radius:10px;padding:10px 10px;box-shadow:0 2px 6px rgba(0,0,0,.06);border-left:4px solid #ccc;transition:all .2s}
+.state-pill:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.state-pill .sp-name{font-size:12px;font-weight:800;color:var(--text);margin-bottom:2px}
+.state-pill .sp-cap{font-size:11px;color:#6b7280;font-weight:600}
+[data-theme="dark"] .state-pill .sp-cap{color:#9ca3af}
+.sp-ut{background:linear-gradient(135deg,#f9fafb,#f3f4f6);border-style:dashed}
+
+/* TABLE */
+.ref-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;font-size:12px;box-shadow:0 2px 10px rgba(0,0,0,.07);margin-top:12px}
+.ref-table thead th{background:linear-gradient(135deg,#14532d,#15803d);color:#fff;padding:9px 10px;font-weight:800;text-align:left;font-size:11px}
+.ref-table tbody td{padding:8px 10px;background:var(--card);border-bottom:1px solid #e5e7eb;vertical-align:top}
+.ref-table tbody tr:last-child td{border-bottom:none}
+.ref-table tbody tr:nth-child(even) td{background:#f9fafb}
+[data-theme="dark"] .ref-table tbody td{background:#1a2e1a;border-color:#166534;color:#e2f0e8}
+[data-theme="dark"] .ref-table tbody tr:nth-child(even) td{background:#1f3320}
+.reg-tag{display:inline-block;font-size:9px;font-weight:800;padding:1px 6px;border-radius:5px;letter-spacing:.3px}
+
+/* MAP QUIZ */
+.mapquiz-wrap{background:var(--card);border-radius:16px;padding:18px;box-shadow:0 3px 14px rgba(0,0,0,.07);margin:16px 0}
+.mapquiz-wrap h4{font-family:'Fredoka One',cursive;font-size:16px;color:#14532d;margin-bottom:4px}
+[data-theme="dark"] .mapquiz-wrap h4{color:#86efac}
+.mq-instruction{font-size:12px;color:#6b7280;font-weight:600;margin-bottom:10px}
+#quizMap{width:100%;height:420px;border-radius:12px}
+@media(max-width:600px){#quizMap{height:300px}}
+.mq-prompt{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #86efac;border-radius:12px;padding:12px 14px;margin-top:10px;text-align:center}
+.mq-question{font-family:'Fredoka One',cursive;font-size:17px;color:#14532d;margin-bottom:10px}
+[data-theme="dark"] .mq-question{color:#86efac}
+.mq-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mq-btn{padding:10px 12px;border-radius:10px;border:2px solid #86efac;background:#fff;color:#14532d;font-size:13px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s;text-align:center}
+.mq-btn:hover{background:#f0fdf4}
+.mq-btn.correct{background:#dcfce7;border-color:#22c55e;color:#14532d}
+.mq-btn.wrong{background:#fef2f2;border-color:#ef4444;color:#991b1b}
+.mq-score{font-family:'Fredoka One',cursive;font-size:16px;color:#14532d;text-align:center;margin-top:8px}
+[data-theme="dark"] .mq-score{color:#86efac}
+.mq-next{display:block;margin:10px auto 0;padding:9px 24px;border-radius:10px;border:none;background:linear-gradient(135deg,#16a34a,#14532d);color:#fff;font-size:13px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s}
+.mq-next:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(22,163,74,.3)}
+
+/* MCQ QUIZ */
+.quiz-section{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:18px;padding:20px 16px;margin:20px auto;max-width:900px;border:2px solid #86efac}
+.quiz-section h3{font-family:'Fredoka One',cursive;font-size:20px;color:#14532d;text-align:center;margin-bottom:6px}
+[data-theme="dark"] .quiz-section h3{color:#86efac}
+.quiz-section .q-intro{text-align:center;font-size:13px;color:#4b5563;font-weight:700;margin-bottom:14px}
+.q-card{background:var(--card);border-radius:12px;padding:14px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.q-card .q-num{font-size:11px;font-weight:800;color:#16a34a;margin-bottom:3px}
+.q-card .q-text{font-size:14px;font-weight:800;margin-bottom:8px;color:var(--text)}
+.q-opts label{display:block;padding:8px 12px;margin:3px 0;border-radius:9px;border:1.5px solid #e5e7eb;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+[data-theme="dark"] .q-opts label{border-color:#166534}
+.q-opts label:hover{border-color:#86efac;background:#f0fdf4}
+.q-opts input{margin-right:8px;accent-color:#16a34a}
+.q-opts label.correct{background:#dcfce7;border-color:#22c55e;color:#14532d}
+.q-opts label.wrong{background:#fef2f2;border-color:#ef4444;color:#991b1b}
+.q-explain{display:none;padding:8px 12px;margin-top:6px;background:#f0fdf4;border-radius:8px;font-size:12px;font-weight:600;color:#14532d;border-left:4px solid #22c55e}
+[data-theme="dark"] .q-explain{background:#0a1f12;color:#86efac}
+.quiz-btn{display:block;margin:14px auto 0;padding:10px 28px;border-radius:12px;border:none;background:linear-gradient(135deg,#16a34a,#14532d);color:#fff;font-size:14px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s}
+.quiz-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(22,163,74,.3)}
+.quiz-score{text-align:center;font-family:'Fredoka One',cursive;font-size:22px;color:#14532d;margin-top:10px;display:none}
+[data-theme="dark"] .quiz-score{color:#86efac}
+
+.card{background:var(--card);border-radius:14px;padding:16px 18px;box-shadow:0 2px 10px rgba(0,0,0,.06);margin-bottom:14px;border-left:5px solid #22c55e}
+.card h3{font-family:'Fredoka One',cursive;font-size:16px;margin-bottom:8px}
+.card p,.card li{font-size:14px;margin-bottom:5px}
+.card ul{padding-left:18px}.card li{list-style:disc}
+
+footer{text-align:center;padding:20px;background:linear-gradient(135deg,#14532d,#15803d);color:#fff;font-size:13px;font-weight:700;margin-top:36px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <a href="index.html" class="tn-home">&#8592; SST Chapters</a>
+  <div class="nav-spacer"></div>
+  <button class="tn-dark" onclick="toggleDark()">🌙</button>
+  <button class="tn-share" onclick="sharePage()">&#128279; Share</button>
+</nav>
+
+<!-- TOC -->
+<div class="toc-bar">
+  <a href="#explore">🗺 Explore Map</a>
+  <a href="#namequiz">🎯 Name-the-State</a>
+  <a href="#mcq">✏ Capitals Quiz</a>
+  <a href="#states">📋 All States</a>
+  <a href="#uts">🏙 Union Territories</a>
+  <a href="#table">📊 Full Table</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">Class 7 &middot; SST &middot; Geography</span>
+    <h1>🗺 India Political Map</h1>
+    <p>28 States &middot; 8 Union Territories &middot; Interactive Explore &amp; Quiz</p>
+  </div>
+  <div class="stats-row">
+    <div class="stat-pill"><span class="sp-num">28</span><span class="sp-label">States</span></div>
+    <div class="stat-pill"><span class="sp-num">8</span><span class="sp-label">UTs</span></div>
+    <div class="stat-pill"><span class="sp-num">New Delhi</span><span class="sp-label">Capital</span></div>
+    <div class="stat-pill"><span class="sp-num">6</span><span class="sp-label">Regions</span></div>
+    <div class="stat-pill"><span class="sp-num">3.28M km²</span><span class="sp-label">Total Area</span></div>
+  </div>
+</section>
+
+<!-- ═══ EXPLORE MAP ═══ -->
+<section class="section" id="explore">
+  <h2 class="sec-head">🗺 Explore the Map</h2>
+  <p class="sec-sub">Click any state or UT to see its capital and key facts</p>
+
+  <div class="map-wrap">
+    <h4>India — Political Map (Click a State)</h4>
+    <p class="map-instruction">🖱 Click any state → See details below &nbsp;|&nbsp; 🔍 Scroll to zoom &nbsp;|&nbsp; 🖐 Drag to pan</p>
+    <div class="region-legend" id="regionLegend">
+      <span class="rl-item" onclick="filterRegion('all')" style="background:#f0fdf4;border-color:#86efac;color:#14532d"><span class="rl-dot" style="background:#6b7280"></span>All</span>
+      <span class="rl-item" onclick="filterRegion('north')" style="color:#1e40af"><span class="rl-dot" style="background:#3b82f6"></span>North</span>
+      <span class="rl-item" onclick="filterRegion('northeast')" style="color:#166534"><span class="rl-dot" style="background:#22c55e"></span>Northeast</span>
+      <span class="rl-item" onclick="filterRegion('east')" style="color:#115e59"><span class="rl-dot" style="background:#0d9488"></span>East</span>
+      <span class="rl-item" onclick="filterRegion('central')" style="color:#92400e"><span class="rl-dot" style="background:#f59e0b"></span>Central</span>
+      <span class="rl-item" onclick="filterRegion('west')" style="color:#5b21b6"><span class="rl-dot" style="background:#8b5cf6"></span>West</span>
+      <span class="rl-item" onclick="filterRegion('south')" style="color:#991b1b"><span class="rl-dot" style="background:#ef4444"></span>South</span>
+    </div>
+    <div id="indiaMap"></div>
+    <div class="map-info" id="mapInfo">
+      <h5 style="color:#6b7280">👆 Click any state on the map</h5>
+      <p style="font-size:13px;color:#9ca3af">State details — capital, region and key fact — will appear here.</p>
+    </div>
+    <div style="margin-top:10px;padding:8px 12px;background:#fef9ec;border:1.5px solid #fcd34d;border-radius:10px;font-size:11px;font-weight:700;color:#78350f;line-height:1.6">
+      🇮🇳 <strong>Map Note:</strong> This map is based on India's official territorial claims as per the Survey of India.
+      The <strong>J&K + Ladakh</strong> region includes areas under Pakistan's administration (PoK/Gilgit-Baltistan) and China's administration (Aksai Chin) — India considers all of these its territory.
+      <strong>Arunachal Pradesh</strong> is an integral part of India (China's claim is not recognised by India). Dotted borders (- - -) on the map indicate disputed / claimed boundaries.
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NAME-THE-STATE QUIZ ═══ -->
+<section class="section" id="namequiz">
+  <h2 class="sec-head">🎯 Name-the-State Quiz</h2>
+  <p class="sec-sub">A state lights up on the map — pick the correct name from 4 choices!</p>
+
+  <div class="mapquiz-wrap">
+    <h4>State Identification Game</h4>
+    <p class="mq-instruction">The highlighted state changes with each question. Score as many as you can!</p>
+    <div id="quizMap"></div>
+    <div class="mq-prompt">
+      <div class="mq-question" id="mqQuestion">Press Start to begin!</div>
+      <div class="mq-opts" id="mqOpts">
+        <button class="mq-btn" id="mqStart" onclick="startMapQuiz()" style="grid-column:1/-1;background:linear-gradient(135deg,#16a34a,#14532d);color:#fff;border-color:#14532d">▶ Start Quiz</button>
+      </div>
+      <div class="mq-score" id="mqScore"></div>
+      <button class="mq-next" id="mqNext" onclick="nextMapQuestion()" style="display:none">Next Question ▶</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAPITALS MCQ QUIZ ═══ -->
+<section class="quiz-section" id="mcq">
+  <h3>✏ State Capitals Quiz — 20 Questions</h3>
+  <div class="q-intro">Click an option to check instantly. Covers all regions!</div>
+
+  <!-- Q1-Q20 -->
+  <div class="q-card"><div class="q-num">Q1</div><div class="q-text">What is the capital of Rajasthan?</div><div class="q-opts">
+    <label><input type="radio" name="q1" value="a"> a) Jodhpur</label>
+    <label><input type="radio" name="q1" value="b"> b) Jaipur</label>
+    <label><input type="radio" name="q1" value="c"> c) Udaipur</label>
+    <label><input type="radio" name="q1" value="d"> d) Ajmer</label>
+  </div><div class="q-explain" id="ex1">✅ <strong>Jaipur</strong> is the capital of Rajasthan. It is called the "Pink City" — famous for Hawa Mahal and Amer Fort.</div></div>
+
+  <div class="q-card"><div class="q-num">Q2</div><div class="q-text">The capital of Uttar Pradesh is ___</div><div class="q-opts">
+    <label><input type="radio" name="q2" value="a"> a) Agra</label>
+    <label><input type="radio" name="q2" value="b"> b) Varanasi</label>
+    <label><input type="radio" name="q2" value="c"> c) Lucknow</label>
+    <label><input type="radio" name="q2" value="d"> d) Allahabad</label>
+  </div><div class="q-explain" id="ex2">✅ <strong>Lucknow</strong> is the capital of Uttar Pradesh — known as the "City of Nawabs".</div></div>
+
+  <div class="q-card"><div class="q-num">Q3</div><div class="q-text">Which city is the capital of Maharashtra?</div><div class="q-opts">
+    <label><input type="radio" name="q3" value="a"> a) Pune</label>
+    <label><input type="radio" name="q3" value="b"> b) Nagpur</label>
+    <label><input type="radio" name="q3" value="c"> c) Nashik</label>
+    <label><input type="radio" name="q3" value="d"> d) Mumbai</label>
+  </div><div class="q-explain" id="ex3">✅ <strong>Mumbai</strong> is the capital of Maharashtra — it is also India's financial capital.</div></div>
+
+  <div class="q-card"><div class="q-num">Q4</div><div class="q-text">The capital of West Bengal is ___</div><div class="q-opts">
+    <label><input type="radio" name="q4" value="a"> a) Darjeeling</label>
+    <label><input type="radio" name="q4" value="b"> b) Kolkata</label>
+    <label><input type="radio" name="q4" value="c"> c) Siliguri</label>
+    <label><input type="radio" name="q4" value="d"> d) Howrah</label>
+  </div><div class="q-explain" id="ex4">✅ <strong>Kolkata</strong> is the capital of West Bengal — previously called Calcutta, it was the capital of British India.</div></div>
+
+  <div class="q-card"><div class="q-num">Q5</div><div class="q-text">What is the capital of Tamil Nadu?</div><div class="q-opts">
+    <label><input type="radio" name="q5" value="a"> a) Madurai</label>
+    <label><input type="radio" name="q5" value="b"> b) Coimbatore</label>
+    <label><input type="radio" name="q5" value="c"> c) Chennai</label>
+    <label><input type="radio" name="q5" value="d"> d) Salem</label>
+  </div><div class="q-explain" id="ex5">✅ <strong>Chennai</strong> (formerly Madras) is the capital of Tamil Nadu — major port city and cultural hub of South India.</div></div>
+
+  <div class="q-card"><div class="q-num">Q6</div><div class="q-text">The capital of Madhya Pradesh is ___</div><div class="q-opts">
+    <label><input type="radio" name="q6" value="a"> a) Indore</label>
+    <label><input type="radio" name="q6" value="b"> b) Gwalior</label>
+    <label><input type="radio" name="q6" value="c"> c) Jabalpur</label>
+    <label><input type="radio" name="q6" value="d"> d) Bhopal</label>
+  </div><div class="q-explain" id="ex6">✅ <strong>Bhopal</strong> is the capital of Madhya Pradesh — known as the "City of Lakes".</div></div>
+
+  <div class="q-card"><div class="q-num">Q7</div><div class="q-text">What is the capital of Gujarat?</div><div class="q-opts">
+    <label><input type="radio" name="q7" value="a"> a) Ahmedabad</label>
+    <label><input type="radio" name="q7" value="b"> b) Surat</label>
+    <label><input type="radio" name="q7" value="c"> c) Gandhinagar</label>
+    <label><input type="radio" name="q7" value="d"> d) Vadodara</label>
+  </div><div class="q-explain" id="ex7">✅ <strong>Gandhinagar</strong> is the capital of Gujarat — named after Mahatma Gandhi. Ahmedabad is the largest city but NOT the capital.</div></div>
+
+  <div class="q-card"><div class="q-num">Q8</div><div class="q-text">The capital of Karnataka is ___</div><div class="q-opts">
+    <label><input type="radio" name="q8" value="a"> a) Mysuru</label>
+    <label><input type="radio" name="q8" value="b"> b) Bengaluru</label>
+    <label><input type="radio" name="q8" value="c"> c) Mangaluru</label>
+    <label><input type="radio" name="q8" value="d"> d) Hubli</label>
+  </div><div class="q-explain" id="ex8">✅ <strong>Bengaluru</strong> (Bangalore) is the capital of Karnataka — known as the "Silicon Valley of India".</div></div>
+
+  <div class="q-card"><div class="q-num">Q9</div><div class="q-text">The capital of Assam is ___</div><div class="q-opts">
+    <label><input type="radio" name="q9" value="a"> a) Guwahati</label>
+    <label><input type="radio" name="q9" value="b"> b) Jorhat</label>
+    <label><input type="radio" name="q9" value="c"> c) Dispur</label>
+    <label><input type="radio" name="q9" value="d"> d) Dibrugarh</label>
+  </div><div class="q-explain" id="ex9">✅ <strong>Dispur</strong> is the capital of Assam (it is a locality within Guwahati). Guwahati is the largest city but Dispur is the official capital.</div></div>
+
+  <div class="q-card"><div class="q-num">Q10</div><div class="q-text">What is the capital of Himachal Pradesh?</div><div class="q-opts">
+    <label><input type="radio" name="q10" value="a"> a) Manali</label>
+    <label><input type="radio" name="q10" value="b"> b) Dharamshala</label>
+    <label><input type="radio" name="q10" value="c"> c) Shimla</label>
+    <label><input type="radio" name="q10" value="d"> d) Kullu</label>
+  </div><div class="q-explain" id="ex10">✅ <strong>Shimla</strong> is the capital of Himachal Pradesh — it was the summer capital of British India.</div></div>
+
+  <div class="q-card"><div class="q-num">Q11</div><div class="q-text">The capital of Odisha is ___</div><div class="q-opts">
+    <label><input type="radio" name="q11" value="a"> a) Cuttack</label>
+    <label><input type="radio" name="q11" value="b"> b) Puri</label>
+    <label><input type="radio" name="q11" value="c"> c) Bhubaneswar</label>
+    <label><input type="radio" name="q11" value="d"> d) Rourkela</label>
+  </div><div class="q-explain" id="ex11">✅ <strong>Bhubaneswar</strong> is the capital of Odisha — known as the "Temple City of India". Cuttack was the old capital.</div></div>
+
+  <div class="q-card"><div class="q-num">Q12</div><div class="q-text">What is the capital of Kerala?</div><div class="q-opts">
+    <label><input type="radio" name="q12" value="a"> a) Kochi</label>
+    <label><input type="radio" name="q12" value="b"> b) Kozhikode</label>
+    <label><input type="radio" name="q12" value="c"> c) Thrissur</label>
+    <label><input type="radio" name="q12" value="d"> d) Thiruvananthapuram</label>
+  </div><div class="q-explain" id="ex12">✅ <strong>Thiruvananthapuram</strong> (formerly Trivandrum) is the capital of Kerala.</div></div>
+
+  <div class="q-card"><div class="q-num">Q13</div><div class="q-text">The capital of Arunachal Pradesh is ___</div><div class="q-opts">
+    <label><input type="radio" name="q13" value="a"> a) Tawang</label>
+    <label><input type="radio" name="q13" value="b"> b) Itanagar</label>
+    <label><input type="radio" name="q13" value="c"> c) Pasighat</label>
+    <label><input type="radio" name="q13" value="d"> d) Naharlagun</label>
+  </div><div class="q-explain" id="ex13">✅ <strong>Itanagar</strong> is the capital of Arunachal Pradesh — the "Land of the Rising Sun".</div></div>
+
+  <div class="q-card"><div class="q-num">Q14</div><div class="q-text">Which city is the capital of Uttarakhand?</div><div class="q-opts">
+    <label><input type="radio" name="q14" value="a"> a) Haridwar</label>
+    <label><input type="radio" name="q14" value="b"> b) Nainital</label>
+    <label><input type="radio" name="q14" value="c"> c) Mussoorie</label>
+    <label><input type="radio" name="q14" value="d"> d) Dehradun</label>
+  </div><div class="q-explain" id="ex14">✅ <strong>Dehradun</strong> is the capital of Uttarakhand. It is located in the Doon Valley at the foothills of the Himalayas.</div></div>
+
+  <div class="q-card"><div class="q-num">Q15</div><div class="q-text">The capital of Mizoram is ___</div><div class="q-opts">
+    <label><input type="radio" name="q15" value="a"> a) Lunglei</label>
+    <label><input type="radio" name="q15" value="b"> b) Champhai</label>
+    <label><input type="radio" name="q15" value="c"> c) Aizawl</label>
+    <label><input type="radio" name="q15" value="d"> d) Serchhip</label>
+  </div><div class="q-explain" id="ex15">✅ <strong>Aizawl</strong> is the capital of Mizoram — one of the Seven Sister States of Northeast India.</div></div>
+
+  <div class="q-card"><div class="q-num">Q16</div><div class="q-text">What is the capital of Goa?</div><div class="q-opts">
+    <label><input type="radio" name="q16" value="a"> a) Margao</label>
+    <label><input type="radio" name="q16" value="b"> b) Vasco da Gama</label>
+    <label><input type="radio" name="q16" value="c"> c) Panaji</label>
+    <label><input type="radio" name="q16" value="d"> d) Mapusa</label>
+  </div><div class="q-explain" id="ex16">✅ <strong>Panaji</strong> (also spelled Panjim) is the capital of Goa — India's smallest state by area.</div></div>
+
+  <div class="q-card"><div class="q-num">Q17</div><div class="q-text">The capital of Jharkhand is ___</div><div class="q-opts">
+    <label><input type="radio" name="q17" value="a"> a) Dhanbad</label>
+    <label><input type="radio" name="q17" value="b"> b) Jamshedpur</label>
+    <label><input type="radio" name="q17" value="c"> c) Ranchi</label>
+    <label><input type="radio" name="q17" value="d"> d) Bokaro</label>
+  </div><div class="q-explain" id="ex17">✅ <strong>Ranchi</strong> is the capital of Jharkhand — known as the "City of Waterfalls".</div></div>
+
+  <div class="q-card"><div class="q-num">Q18</div><div class="q-text">What is the capital of Sikkim?</div><div class="q-opts">
+    <label><input type="radio" name="q18" value="a"> a) Pelling</label>
+    <label><input type="radio" name="q18" value="b"> b) Gangtok</label>
+    <label><input type="radio" name="q18" value="c"> c) Namchi</label>
+    <label><input type="radio" name="q18" value="d"> d) Geyzing</label>
+  </div><div class="q-explain" id="ex18">✅ <strong>Gangtok</strong> is the capital of Sikkim — India's least populous state, known for Kangchenjunga (3rd highest peak).</div></div>
+
+  <div class="q-card"><div class="q-num">Q19</div><div class="q-text">The capital of Telangana is ___</div><div class="q-opts">
+    <label><input type="radio" name="q19" value="a"> a) Warangal</label>
+    <label><input type="radio" name="q19" value="b"> b) Hyderabad</label>
+    <label><input type="radio" name="q19" value="c"> c) Karimnagar</label>
+    <label><input type="radio" name="q19" value="d"> d) Nizamabad</label>
+  </div><div class="q-explain" id="ex19">✅ <strong>Hyderabad</strong> is the capital of Telangana. Telangana was carved from Andhra Pradesh in 2014 — India's newest state at that time.</div></div>
+
+  <div class="q-card"><div class="q-num">Q20</div><div class="q-text">The capital of Andhra Pradesh (post-2014) is ___</div><div class="q-opts">
+    <label><input type="radio" name="q20" value="a"> a) Visakhapatnam</label>
+    <label><input type="radio" name="q20" value="b"> b) Vijayawada</label>
+    <label><input type="radio" name="q20" value="c"> c) Amaravati</label>
+    <label><input type="radio" name="q20" value="d"> d) Tirupati</label>
+  </div><div class="q-explain" id="ex20">✅ <strong>Amaravati</strong> is the designated capital of Andhra Pradesh (after Hyderabad became the capital of newly formed Telangana in 2014).</div></div>
+
+  <button class="quiz-btn" onclick="submitQuiz()">📊 Submit &amp; See Score</button>
+  <div class="quiz-score" id="quizScore"></div>
+</section>
+
+<!-- ═══ ALL STATES ═══ -->
+<section class="section" id="states">
+  <h2 class="sec-head">📋 All 28 States by Region</h2>
+  <p class="sec-sub">Grouped by region — hover any card for details</p>
+
+  <!-- NORTH -->
+  <div class="region-section">
+    <div class="region-title" style="background:#dbeafe;color:#1e40af">🔵 North India (6 States)</div>
+    <div class="state-grid">
+      <div class="state-pill" style="border-left-color:#3b82f6"><div class="sp-name">Himachal Pradesh</div><div class="sp-cap">🏛 Shimla</div></div>
+      <div class="state-pill" style="border-left-color:#3b82f6"><div class="sp-name">Punjab</div><div class="sp-cap">🏛 Chandigarh*</div></div>
+      <div class="state-pill" style="border-left-color:#3b82f6"><div class="sp-name">Haryana</div><div class="sp-cap">🏛 Chandigarh*</div></div>
+      <div class="state-pill" style="border-left-color:#3b82f6"><div class="sp-name">Uttarakhand</div><div class="sp-cap">🏛 Dehradun</div></div>
+      <div class="state-pill" style="border-left-color:#3b82f6"><div class="sp-name">Uttar Pradesh</div><div class="sp-cap">🏛 Lucknow</div></div>
+      <div class="state-pill" style="border-left-color:#3b82f6"><div class="sp-name">Rajasthan</div><div class="sp-cap">🏛 Jaipur</div></div>
+    </div>
+    <p style="font-size:11px;color:#6b7280;margin-top:2px">* Chandigarh is the joint capital of Punjab &amp; Haryana, but is itself a UT</p>
+  </div>
+
+  <!-- NORTHEAST -->
+  <div class="region-section">
+    <div class="region-title" style="background:#dcfce7;color:#14532d">🟢 Northeast India — 7 Sisters + Sikkim (8 States)</div>
+    <div class="state-grid">
+      <div class="state-pill" style="border-left-color:#22c55e"><div class="sp-name">Arunachal Pradesh</div><div class="sp-cap">🏛 Itanagar</div></div>
+      <div class="state-pill" style="border-left-color:#22c55e"><div class="sp-name">Assam</div><div class="sp-cap">🏛 Dispur</div></div>
+      <div class="state-pill" style="border-left-color:#22c55e"><div class="sp-name">Meghalaya</div><div class="sp-cap">🏛 Shillong</div></div>
+      <div class="state-pill" style="border-left-color:#22c55e"><div class="sp-name">Manipur</div><div class="sp-cap">🏛 Imphal</div></div>
+      <div class="state-pill" style="border-left-color:#22c55e"><div class="sp-name">Mizoram</div><div class="sp-cap">🏛 Aizawl</div></div>
+      <div class="state-pill" style="border-left-color:#22c55e"><div class="sp-name">Nagaland</div><div class="sp-cap">🏛 Kohima</div></div>
+      <div class="state-pill" style="border-left-color:#22c55e"><div class="sp-name">Tripura</div><div class="sp-cap">🏛 Agartala</div></div>
+      <div class="state-pill" style="border-left-color:#22c55e"><div class="sp-name">Sikkim</div><div class="sp-cap">🏛 Gangtok</div></div>
+    </div>
+    <p style="font-size:11px;color:#6b7280;margin-top:2px">Seven Sisters: Assam, Arunachal Pradesh, Meghalaya, Manipur, Mizoram, Nagaland, Tripura</p>
+  </div>
+
+  <!-- EAST -->
+  <div class="region-section">
+    <div class="region-title" style="background:#ccfbf1;color:#0f766e">🟦 East India (4 States)</div>
+    <div class="state-grid">
+      <div class="state-pill" style="border-left-color:#0d9488"><div class="sp-name">Bihar</div><div class="sp-cap">🏛 Patna</div></div>
+      <div class="state-pill" style="border-left-color:#0d9488"><div class="sp-name">Jharkhand</div><div class="sp-cap">🏛 Ranchi</div></div>
+      <div class="state-pill" style="border-left-color:#0d9488"><div class="sp-name">West Bengal</div><div class="sp-cap">🏛 Kolkata</div></div>
+      <div class="state-pill" style="border-left-color:#0d9488"><div class="sp-name">Odisha</div><div class="sp-cap">🏛 Bhubaneswar</div></div>
+    </div>
+  </div>
+
+  <!-- CENTRAL -->
+  <div class="region-section">
+    <div class="region-title" style="background:#fef3c7;color:#92400e">🟡 Central India (2 States)</div>
+    <div class="state-grid">
+      <div class="state-pill" style="border-left-color:#f59e0b"><div class="sp-name">Madhya Pradesh</div><div class="sp-cap">🏛 Bhopal</div></div>
+      <div class="state-pill" style="border-left-color:#f59e0b"><div class="sp-name">Chhattisgarh</div><div class="sp-cap">🏛 Raipur</div></div>
+    </div>
+  </div>
+
+  <!-- WEST -->
+  <div class="region-section">
+    <div class="region-title" style="background:#f3e8ff;color:#5b21b6">🟣 West India (3 States)</div>
+    <div class="state-grid">
+      <div class="state-pill" style="border-left-color:#8b5cf6"><div class="sp-name">Gujarat</div><div class="sp-cap">🏛 Gandhinagar</div></div>
+      <div class="state-pill" style="border-left-color:#8b5cf6"><div class="sp-name">Maharashtra</div><div class="sp-cap">🏛 Mumbai</div></div>
+      <div class="state-pill" style="border-left-color:#8b5cf6"><div class="sp-name">Goa</div><div class="sp-cap">🏛 Panaji</div></div>
+    </div>
+  </div>
+
+  <!-- SOUTH -->
+  <div class="region-section">
+    <div class="region-title" style="background:#fef2f2;color:#991b1b">🔴 South India (5 States)</div>
+    <div class="state-grid">
+      <div class="state-pill" style="border-left-color:#ef4444"><div class="sp-name">Andhra Pradesh</div><div class="sp-cap">🏛 Amaravati</div></div>
+      <div class="state-pill" style="border-left-color:#ef4444"><div class="sp-name">Telangana</div><div class="sp-cap">🏛 Hyderabad</div></div>
+      <div class="state-pill" style="border-left-color:#ef4444"><div class="sp-name">Karnataka</div><div class="sp-cap">🏛 Bengaluru</div></div>
+      <div class="state-pill" style="border-left-color:#ef4444"><div class="sp-name">Kerala</div><div class="sp-cap">🏛 Thiruvananthapuram</div></div>
+      <div class="state-pill" style="border-left-color:#ef4444"><div class="sp-name">Tamil Nadu</div><div class="sp-cap">🏛 Chennai</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ UNION TERRITORIES ═══ -->
+<section class="section" id="uts">
+  <h2 class="sec-head">🏙 8 Union Territories</h2>
+  <p class="sec-sub">Directly governed by the Central Government</p>
+  <div class="state-grid">
+    <div class="state-pill sp-ut"><div class="sp-name">Delhi (NCT)</div><div class="sp-cap">🏛 New Delhi</div></div>
+    <div class="state-pill sp-ut"><div class="sp-name">Jammu &amp; Kashmir</div><div class="sp-cap">🏛 Srinagar (S) / Jammu (W)</div></div>
+    <div class="state-pill sp-ut"><div class="sp-name">Ladakh</div><div class="sp-cap">🏛 Leh</div></div>
+    <div class="state-pill sp-ut"><div class="sp-name">Chandigarh</div><div class="sp-cap">🏛 Chandigarh</div></div>
+    <div class="state-pill sp-ut"><div class="sp-name">Puducherry</div><div class="sp-cap">🏛 Puducherry</div></div>
+    <div class="state-pill sp-ut"><div class="sp-name">Lakshadweep</div><div class="sp-cap">🏛 Kavaratti</div></div>
+    <div class="state-pill sp-ut"><div class="sp-name">Andaman &amp; Nicobar</div><div class="sp-cap">🏛 Port Blair</div></div>
+    <div class="state-pill sp-ut"><div class="sp-name">Dadra &amp; NH and D&amp;D</div><div class="sp-cap">🏛 Daman</div></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3>📌 Important to Remember</h3>
+    <ul>
+      <li><strong>J&K and Ladakh</strong> became separate UTs on <strong>31 October 2019</strong> (were previously one state)</li>
+      <li><strong>Dadra &amp; Nagar Haveli</strong> and <strong>Daman &amp; Diu</strong> merged into one UT in <strong>2020</strong></li>
+      <li><strong>Chandigarh</strong> is a UT but serves as capital of both Punjab and Haryana states</li>
+      <li><strong>Puducherry</strong> has its own elected legislature (like Delhi and J&K)</li>
+      <li>The <strong>Andaman &amp; Nicobar Islands</strong> are located in the Bay of Bengal; <strong>Lakshadweep</strong> is in the Arabian Sea</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ FULL REFERENCE TABLE ═══ -->
+<section class="section" id="table">
+  <h2 class="sec-head">📊 Complete Reference Table</h2>
+  <p class="sec-sub">All 28 states with capital, region and a key fact</p>
+  <div style="overflow-x:auto">
+  <table class="ref-table">
+    <thead><tr><th>#</th><th>State</th><th>Capital</th><th>Region</th><th>Key Fact</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>Andhra Pradesh</strong></td><td>Amaravati</td><td><span class="reg-tag" style="background:#fef2f2;color:#991b1b">South</span></td><td>Largest producer of chillies; Tirupati temple is most visited</td></tr>
+      <tr><td>2</td><td><strong>Arunachal Pradesh</strong></td><td>Itanagar</td><td><span class="reg-tag" style="background:#dcfce7;color:#14532d">NE</span></td><td>Land of the Rising Sun; shares borders with China, Bhutan &amp; Myanmar</td></tr>
+      <tr><td>3</td><td><strong>Assam</strong></td><td>Dispur</td><td><span class="reg-tag" style="background:#dcfce7;color:#14532d">NE</span></td><td>Largest tea producer; home of one-horned rhinoceros (Kaziranga)</td></tr>
+      <tr><td>4</td><td><strong>Bihar</strong></td><td>Patna</td><td><span class="reg-tag" style="background:#ccfbf1;color:#0f766e">East</span></td><td>Birthplace of Buddhism (Bodh Gaya) and Jainism (Vaishali)</td></tr>
+      <tr><td>5</td><td><strong>Chhattisgarh</strong></td><td>Raipur</td><td><span class="reg-tag" style="background:#fef3c7;color:#92400e">Central</span></td><td>Rich in minerals; called the "Rice Bowl of Central India"</td></tr>
+      <tr><td>6</td><td><strong>Goa</strong></td><td>Panaji</td><td><span class="reg-tag" style="background:#f3e8ff;color:#5b21b6">West</span></td><td>Smallest state by area; freed from Portuguese rule in 1961</td></tr>
+      <tr><td>7</td><td><strong>Gujarat</strong></td><td>Gandhinagar</td><td><span class="reg-tag" style="background:#f3e8ff;color:#5b21b6">West</span></td><td>Birthplace of Mahatma Gandhi; longest coastline among states</td></tr>
+      <tr><td>8</td><td><strong>Haryana</strong></td><td>Chandigarh</td><td><span class="reg-tag" style="background:#dbeafe;color:#1e40af">North</span></td><td>Surrounds Delhi on 3 sides; Kurukshetra (Mahabharata battle site)</td></tr>
+      <tr><td>9</td><td><strong>Himachal Pradesh</strong></td><td>Shimla</td><td><span class="reg-tag" style="background:#dbeafe;color:#1e40af">North</span></td><td>Apple orchards; Shimla was summer capital of British India</td></tr>
+      <tr><td>10</td><td><strong>Jharkhand</strong></td><td>Ranchi</td><td><span class="reg-tag" style="background:#ccfbf1;color:#0f766e">East</span></td><td>Richest state in mineral resources (coal, iron ore, copper)</td></tr>
+      <tr><td>11</td><td><strong>Karnataka</strong></td><td>Bengaluru</td><td><span class="reg-tag" style="background:#fef2f2;color:#991b1b">South</span></td><td>Silicon Valley of India; Mysuru Palace; Hampi ruins (UNESCO)</td></tr>
+      <tr><td>12</td><td><strong>Kerala</strong></td><td>Thiruvananthapuram</td><td><span class="reg-tag" style="background:#fef2f2;color:#991b1b">South</span></td><td>Highest literacy rate (~96%); "God's Own Country"</td></tr>
+      <tr><td>13</td><td><strong>Madhya Pradesh</strong></td><td>Bhopal</td><td><span class="reg-tag" style="background:#fef3c7;color:#92400e">Central</span></td><td>Heart of India; Khajuraho temples; largest tiger population</td></tr>
+      <tr><td>14</td><td><strong>Maharashtra</strong></td><td>Mumbai</td><td><span class="reg-tag" style="background:#f3e8ff;color:#5b21b6">West</span></td><td>India's financial capital; Bollywood; Ajanta &amp; Ellora caves</td></tr>
+      <tr><td>15</td><td><strong>Manipur</strong></td><td>Imphal</td><td><span class="reg-tag" style="background:#dcfce7;color:#14532d">NE</span></td><td>Loktak Lake (floating islands); birthplace of polo sport</td></tr>
+      <tr><td>16</td><td><strong>Meghalaya</strong></td><td>Shillong</td><td><span class="reg-tag" style="background:#dcfce7;color:#14532d">NE</span></td><td>Wettest place on earth (Mawsynram); "Scotland of the East"</td></tr>
+      <tr><td>17</td><td><strong>Mizoram</strong></td><td>Aizawl</td><td><span class="reg-tag" style="background:#dcfce7;color:#14532d">NE</span></td><td>Second highest literacy rate; mostly hilly terrain</td></tr>
+      <tr><td>18</td><td><strong>Nagaland</strong></td><td>Kohima</td><td><span class="reg-tag" style="background:#dcfce7;color:#14532d">NE</span></td><td>Hornbill Festival; Battle of Kohima (WWII)</td></tr>
+      <tr><td>19</td><td><strong>Odisha</strong></td><td>Bhubaneswar</td><td><span class="reg-tag" style="background:#ccfbf1;color:#0f766e">East</span></td><td>Temple City; Konark Sun Temple (UNESCO); Jagannath Puri</td></tr>
+      <tr><td>20</td><td><strong>Punjab</strong></td><td>Chandigarh</td><td><span class="reg-tag" style="background:#dbeafe;color:#1e40af">North</span></td><td>"Granary of India"; Golden Temple (Amritsar)</td></tr>
+      <tr><td>21</td><td><strong>Rajasthan</strong></td><td>Jaipur</td><td><span class="reg-tag" style="background:#dbeafe;color:#1e40af">North</span></td><td>Largest state by area; Thar Desert; forts and palaces</td></tr>
+      <tr><td>22</td><td><strong>Sikkim</strong></td><td>Gangtok</td><td><span class="reg-tag" style="background:#dcfce7;color:#14532d">NE</span></td><td>Smallest state by population; Kangchenjunga (3rd highest peak)</td></tr>
+      <tr><td>23</td><td><strong>Tamil Nadu</strong></td><td>Chennai</td><td><span class="reg-tag" style="background:#fef2f2;color:#991b1b">South</span></td><td>Classical Bharatanatyam dance; Coromandel Coast; silk weaving</td></tr>
+      <tr><td>24</td><td><strong>Telangana</strong></td><td>Hyderabad</td><td><span class="reg-tag" style="background:#fef2f2;color:#991b1b">South</span></td><td>Formed in 2014 from AP; Charminar; IT hub "Cyberabad"</td></tr>
+      <tr><td>25</td><td><strong>Tripura</strong></td><td>Agartala</td><td><span class="reg-tag" style="background:#dcfce7;color:#14532d">NE</span></td><td>Surrounded by Bangladesh on 3 sides; rubber plantations</td></tr>
+      <tr><td>26</td><td><strong>Uttarakhand</strong></td><td>Dehradun</td><td><span class="reg-tag" style="background:#dbeafe;color:#1e40af">North</span></td><td>"Devbhoomi"; Char Dham pilgrimage (Kedarnath, Badrinath, etc.)</td></tr>
+      <tr><td>27</td><td><strong>Uttar Pradesh</strong></td><td>Lucknow</td><td><span class="reg-tag" style="background:#dbeafe;color:#1e40af">North</span></td><td>Most populous state; Taj Mahal (Agra); Varanasi ghats</td></tr>
+      <tr><td>28</td><td><strong>West Bengal</strong></td><td>Kolkata</td><td><span class="reg-tag" style="background:#ccfbf1;color:#0f766e">East</span></td><td>Sundarbans (mangrove forest); Darjeeling tea; Durga Puja</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<footer>
+  📚 Preeti Kushwah Classes &nbsp;|&nbsp; Class 7 SST &middot; India Political Map — 28 States &amp; 8 UTs &nbsp;|&nbsp;
+  <a href="index.html" style="color:#86efac">← Back to SST Chapters</a>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ─── STATE DATA ───────────────────────────────────────────────────────────────
+const STATE_DATA = {
+  "Andhra Pradesh":       {capital:"Amaravati",    region:"south",     fact:"Largest producer of chillies; Tirupati is the world's most visited pilgrimage site"},
+  "Arunachal Pradesh":    {capital:"Itanagar",     region:"northeast", fact:"Land of the Rising Sun; shares borders with China, Bhutan & Myanmar. China claims it as 'South Tibet' — India does not accept this claim. It is an integral part of India."},
+  "Assam":                {capital:"Dispur",       region:"northeast", fact:"Largest tea producer in India; home of one-horned rhinoceros (Kaziranga NP)"},
+  "Bihar":                {capital:"Patna",        region:"east",      fact:"Birthplace of Buddhism (Bodh Gaya) and Jainism (Vaishali near Patna)"},
+  "Chhattisgarh":         {capital:"Raipur",       region:"central",   fact:"Rich in minerals (coal, iron ore); called the 'Rice Bowl of Central India'"},
+  "Goa":                  {capital:"Panaji",       region:"west",      fact:"Smallest state by area; freed from Portuguese rule in 1961"},
+  "Gujarat":              {capital:"Gandhinagar",  region:"west",      fact:"Birthplace of Mahatma Gandhi; longest coastline (1,600 km) among all states"},
+  "Haryana":              {capital:"Chandigarh",   region:"north",     fact:"Surrounds Delhi on 3 sides; Kurukshetra — site of the Mahabharata battle"},
+  "Himachal Pradesh":     {capital:"Shimla",       region:"north",     fact:"Apple orchards; Shimla was the summer capital of British India"},
+  "Jharkhand":            {capital:"Ranchi",       region:"east",      fact:"Richest state in mineral resources — coal, iron ore, copper, uranium"},
+  "Karnataka":            {capital:"Bengaluru",    region:"south",     fact:"Silicon Valley of India; Hampi (UNESCO); Mysuru Palace"},
+  "Kerala":               {capital:"Thiruvananthapuram", region:"south", fact:"Highest literacy rate (~96%); 'God's Own Country'; backwaters"},
+  "Madhya Pradesh":       {capital:"Bhopal",       region:"central",   fact:"Largest state by area; Heart of India; largest tiger reserve"},
+  "Maharashtra":          {capital:"Mumbai",       region:"west",      fact:"India's financial capital; Bollywood; Ajanta & Ellora Caves (UNESCO)"},
+  "Manipur":              {capital:"Imphal",       region:"northeast", fact:"Loktak Lake (floating phumdis); birthplace of polo sport"},
+  "Meghalaya":            {capital:"Shillong",     region:"northeast", fact:"Mawsynram — wettest place on Earth; 'Scotland of the East'"},
+  "Mizoram":              {capital:"Aizawl",       region:"northeast", fact:"Second highest literacy rate in India; nearly entirely hilly"},
+  "Nagaland":             {capital:"Kohima",       region:"northeast", fact:"Hornbill Festival; Battle of Kohima was a turning point in WWII"},
+  "Odisha":               {capital:"Bhubaneswar",  region:"east",      fact:"Temple City; Konark Sun Temple (UNESCO); Jagannath Puri Rath Yatra"},
+  "Punjab":               {capital:"Chandigarh",   region:"north",     fact:"Granary of India; Golden Temple in Amritsar"},
+  "Rajasthan":            {capital:"Jaipur",       region:"north",     fact:"Largest state by area; Pink City Jaipur; Thar Desert; forts & palaces"},
+  "Sikkim":               {capital:"Gangtok",      region:"northeast", fact:"Smallest state by population; Kangchenjunga (3rd highest peak in world)"},
+  "Tamil Nadu":           {capital:"Chennai",      region:"south",     fact:"Classical Bharatanatyam dance; Coromandel Coast; ancient Dravidian culture"},
+  "Telangana":            {capital:"Hyderabad",    region:"south",     fact:"Formed 2014 from Andhra Pradesh; IT hub 'Cyberabad'; Charminar"},
+  "Tripura":              {capital:"Agartala",     region:"northeast", fact:"Surrounded by Bangladesh on 3 sides; rubber and bamboo plantations"},
+  "Uttarakhand":          {capital:"Dehradun",     region:"north",     fact:"Devbhoomi (Land of Gods); Char Dham pilgrimage — Kedarnath, Badrinath"},
+  "Uttar Pradesh":        {capital:"Lucknow",      region:"north",     fact:"Most populous state; Taj Mahal in Agra; sacred Varanasi ghats"},
+  "West Bengal":          {capital:"Kolkata",      region:"east",      fact:"Sundarbans mangrove (UNESCO); Darjeeling tea; Durga Puja festival"},
+  // UTs in GeoJSON — multiple name variants for robustness
+  "Andaman & Nicobar Island": {capital:"Port Blair", region:"ut", fact:"Archipelago in Bay of Bengal; Cellular Jail (freedom fighters); coral reefs"},
+  "Andaman & Nicobar Islands":{capital:"Port Blair", region:"ut", fact:"Archipelago in Bay of Bengal; Cellular Jail; coral reefs"},
+  "Andaman and Nicobar Islands":{capital:"Port Blair",region:"ut",fact:"Archipelago in Bay of Bengal; Cellular Jail; coral reefs"},
+  "Lakshadweep":              {capital:"Kavaratti",  region:"ut", fact:"Smallest UT by area; coral islands in Arabian Sea"},
+  "Chandigarh":               {capital:"Chandigarh", region:"ut", fact:"Planned city designed by Le Corbusier; shared capital of Punjab & Haryana"},
+  "Delhi":                    {capital:"New Delhi",  region:"ut", fact:"National Capital Territory; India's political and cultural centre"},
+  "NCT of Delhi":             {capital:"New Delhi",  region:"ut", fact:"National Capital Territory; India's political and cultural centre"},
+  "Puducherry":               {capital:"Puducherry", region:"ut", fact:"Former French territory; known for Auroville, Sri Aurobindo Ashram and French Quarter"},
+  "Pondicherry":              {capital:"Puducherry", region:"ut", fact:"Former French territory (now officially Puducherry)"},
+  // J&K — GeoJSON (pre-2019) shows J&K and Ladakh as one combined region
+  "Jammu & Kashmir":          {capital:"Srinagar (summer) / Jammu (winter)", region:"ut", fact:"Became 2 UTs in Oct 2019 — J&K UT and Ladakh UT. Dal Lake, Mughal gardens, skiing at Gulmarg. Ladakh (capital Leh) is the largest UT by area."},
+  "Jammu and Kashmir":        {capital:"Srinagar (summer) / Jammu (winter)", region:"ut", fact:"Became 2 UTs in Oct 2019 — J&K UT and Ladakh UT. Dal Lake, Mughal gardens, skiing at Gulmarg. Ladakh (capital Leh) is the largest UT by area."},
+  "Ladakh":                   {capital:"Leh",        region:"ut", fact:"Separated from J&K in Oct 2019; largest UT by area; high-altitude cold desert; Pangong Lake"},
+  "Dadra and Nagar Haveli":   {capital:"Daman",      region:"ut", fact:"Merged with Daman & Diu in Jan 2020 to form one UT"},
+  "Daman and Diu":            {capital:"Daman",      region:"ut", fact:"Merged with Dadra & NH in Jan 2020"},
+  "Dadra and Nagar Haveli and Daman and Diu":{capital:"Daman",region:"ut",fact:"Formed by merger of Dadra & NH + Daman & Diu in Jan 2020"},
+  // Alternate/older spellings that may appear in GeoJSON data
+  "Orissa":                   {capital:"Bhubaneswar",region:"east",   fact:"Temple City; Konark Sun Temple (UNESCO); Jagannath Puri Rath Yatra (now officially Odisha)"},
+  "Uttaranchal":              {capital:"Dehradun",   region:"north",  fact:"Now called Uttarakhand; Devbhoomi; Char Dham pilgrimage"},
+  "Chhattisgarh":             {capital:"Raipur",     region:"central",fact:"Rich in minerals; Rice Bowl of Central India"},
+  "Chattisgarh":              {capital:"Raipur",     region:"central",fact:"Rich in minerals; Rice Bowl of Central India"},
+};
+
+// Normalize GeoJSON state names to display names
+const NAME_MAP = {
+  "Orissa": "Odisha",
+  "Uttaranchal": "Uttarakhand",
+  "Pondicherry": "Puducherry",
+  "NCT of Delhi": "Delhi",
+  "Andaman & Nicobar Island": "Andaman & Nicobar Islands",
+  "Andaman and Nicobar Islands": "Andaman & Nicobar Islands",
+  "Jammu and Kashmir": "Jammu & Kashmir",
+  "Chattisgarh": "Chhattisgarh",
+  "Uttaranchal": "Uttarakhand",
+};
+
+const REGION_COLORS = {
+  north:     "#3b82f6",
+  northeast: "#22c55e",
+  east:      "#0d9488",
+  central:   "#f59e0b",
+  west:      "#8b5cf6",
+  south:     "#ef4444",
+  ut:        "#94a3b8"
+};
+
+function getStateName(props) {
+  const raw = props.ST_NM || props.NAME_1 || props.state || props.statename || "Unknown";
+  return NAME_MAP[raw] || raw;
+}
+
+function getRegionColor(name) {
+  const d = STATE_DATA[name];
+  if (!d) return "#94a3b8";
+  return REGION_COLORS[d.region] || "#94a3b8";
+}
+
+// ─── EXPLORE MAP ─────────────────────────────────────────────────────────────
+let exploreMap, exploreGeoJSON, currentHighlight = null;
+let activeRegion = 'all';
+
+function initExploreMap() {
+  exploreMap = L.map('indiaMap', {
+    center: [20.5937, 78.9629],
+    zoom: 4.4,
+    minZoom: 3,
+    maxZoom: 8,
+    zoomControl: true,
+    attributionControl: false
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+    maxZoom: 19
+  }).addTo(exploreMap);
+
+  fetch('https://raw.githubusercontent.com/geohacker/india/master/state/india_telengana.geojson')
+    .then(r => r.json())
+    .then(data => {
+      exploreGeoJSON = L.geoJSON(data, {
+        style: feature => styleFeature(feature),
+        onEachFeature: (feature, layer) => {
+          const name = getStateName(feature.properties);
+          layer.bindTooltip(name, {permanent: false, direction: 'center', className: 'state-tooltip'});
+          layer.on({
+            mouseover: e => {
+              if (currentHighlight !== e.target) {
+                e.target.setStyle({weight: 2.5, fillOpacity: 0.85});
+              }
+            },
+            mouseout: e => {
+              if (currentHighlight !== e.target) {
+                exploreGeoJSON.resetStyle(e.target);
+              }
+            },
+            click: e => clickState(e.target, name)
+          });
+        }
+      }).addTo(exploreMap);
+    })
+    .catch(() => {
+      document.getElementById('indiaMap').innerHTML =
+        '<div style="display:flex;align-items:center;justify-content:center;height:100%;font-weight:700;color:#6b7280;font-size:14px;background:#f9fafb;border-radius:12px">⚠ Map requires internet connection. Please check connection and reload.</div>';
+    });
+}
+
+function styleFeature(feature) {
+  const name = getStateName(feature.properties);
+  const d = STATE_DATA[name];
+  const region = d ? d.region : 'ut';
+  const show = activeRegion === 'all' || activeRegion === region;
+  // J&K/Ladakh and Arunachal Pradesh have disputed boundaries — use dashed border
+  const isDisputed = name === 'Jammu & Kashmir' || name === 'Arunachal Pradesh';
+  return {
+    fillColor: REGION_COLORS[region] || '#94a3b8',
+    weight: isDisputed ? 2 : 1,
+    opacity: 1,
+    color: isDisputed ? '#b45309' : '#fff',
+    dashArray: isDisputed ? '6 4' : null,
+    fillOpacity: show ? 0.65 : 0.15
+  };
+}
+
+function clickState(layer, name) {
+  if (currentHighlight) exploreGeoJSON.resetStyle(currentHighlight);
+  currentHighlight = layer;
+  layer.setStyle({weight: 3, color: '#1f2937', fillOpacity: 0.9});
+  layer.bringToFront();
+  showStateInfo(name);
+}
+
+function showStateInfo(name) {
+  const d = STATE_DATA[name];
+  const box = document.getElementById('mapInfo');
+  if (!d) {
+    box.innerHTML = `<h5>${name}</h5><p style="font-size:13px;color:#6b7280">No data available for this area.</p>`;
+    return;
+  }
+  const regionLabel = {north:'North',northeast:'Northeast',east:'East',central:'Central',west:'West',south:'South',ut:'Union Territory'}[d.region] || d.region;
+  const dotColor = REGION_COLORS[d.region] || '#94a3b8';
+  const isJK = name === 'Jammu & Kashmir';
+  const isAP = name === 'Arunachal Pradesh';
+  box.innerHTML = `
+    <h5>${isJK ? 'Jammu & Kashmir + Ladakh' : name}</h5>
+    <div class="mi-grid">
+      <div><div class="mi-label">Capital</div><div class="mi-val">🏛 ${d.capital}</div></div>
+      ${isJK ? '<div><div class="mi-label">Ladakh Capital</div><div class="mi-val">🏛 Leh</div></div>' : ''}
+      <div><div class="mi-label">${d.region === 'ut' ? 'Status' : 'Region'}</div><div class="mi-val"><span style="display:inline-block;width:10px;height:10px;background:${dotColor};border-radius:3px;margin-right:4px;vertical-align:middle"></span>${d.region === 'ut' ? 'Union Territory' : regionLabel}</div></div>
+      <div class="mi-fact">💡 ${d.fact}</div>
+    </div>
+    ${isJK ? '<div style="margin-top:6px;padding:6px 10px;background:#fef3c7;border-radius:8px;font-size:11px;font-weight:700;color:#92400e;border-left:4px solid #f59e0b">📌 Map shows pre-2019 boundary. In Oct 2019, J&K was divided into 2 UTs: J&K (capital Srinagar/Jammu) and Ladakh (capital Leh). Region also includes PoK + Aksai Chin — India\'s claim.</div>' : ''}
+    ${isAP ? '<div style="margin-top:6px;padding:6px 10px;background:#fef3c7;border-radius:8px;font-size:11px;font-weight:700;color:#92400e;border-left:4px solid #f59e0b">📌 Arunachal Pradesh is an integral part of India. China\'s claim is not recognised by India or the international community.</div>' : ''}`;
+}
+
+function filterRegion(region) {
+  activeRegion = region;
+  if (exploreGeoJSON) {
+    exploreGeoJSON.eachLayer(layer => {
+      exploreGeoJSON.resetStyle(layer);
+    });
+    currentHighlight = null;
+  }
+  document.querySelectorAll('.rl-item').forEach(el => el.style.fontWeight = '700');
+}
+
+// ─── QUIZ MAP ─────────────────────────────────────────────────────────────────
+let quizMap, quizGeoJSON, quizData = null;
+let mqScore = 0, mqTotal = 0, mqCurrent = null, mqAnswered = false;
+const STATE_NAMES = Object.keys(STATE_DATA).filter(k => STATE_DATA[k].region !== 'ut' && !k.includes('Island') && !k.includes('Andaman') && !k.includes('Lakshadweep') && !k.includes('Chandigarh') && !k.includes('Delhi') && !k.includes('Puducherry') && !k.includes('Daman') && !k.includes('Dadra'));
+
+function initQuizMap() {
+  quizMap = L.map('quizMap', {
+    center: [20.5937, 78.9629],
+    zoom: 4.2,
+    minZoom: 3,
+    maxZoom: 7,
+    zoomControl: false,
+    attributionControl: false
+  });
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {maxZoom: 19}).addTo(quizMap);
+  fetch('https://raw.githubusercontent.com/geohacker/india/master/state/india_telengana.geojson')
+    .then(r => r.json())
+    .then(data => {
+      quizData = data;
+      quizGeoJSON = L.geoJSON(data, {
+        style: feature => ({fillColor: '#e5e7eb', weight: 1, color: '#9ca3af', fillOpacity: 0.6}),
+        interactive: false
+      }).addTo(quizMap);
+    });
+}
+
+let highlightLayer = null;
+
+function startMapQuiz() {
+  if (!quizData) {
+    alert('Map is still loading. Please wait a moment.');
+    return;
+  }
+  mqScore = 0; mqTotal = 0;
+  document.getElementById('mqScore').textContent = 'Score: 0 / 0';
+  document.getElementById('mqStart').style.display = 'none';
+  nextMapQuestion();
+}
+
+function nextMapQuestion() {
+  if (!quizData) return;
+  mqAnswered = false;
+  document.getElementById('mqNext').style.display = 'none';
+
+  // Pick random state
+  const validFeatures = quizData.features.filter(f => {
+    const n = getStateName(f.properties);
+    return STATE_DATA[n] && STATE_DATA[n].region !== 'ut';
+  });
+  const randF = validFeatures[Math.floor(Math.random() * validFeatures.length)];
+  mqCurrent = getStateName(randF.properties);
+
+  // Highlight it
+  if (highlightLayer) quizMap.removeLayer(highlightLayer);
+  highlightLayer = L.geoJSON(randF, {
+    style: {fillColor: '#f59e0b', weight: 3, color: '#92400e', fillOpacity: 0.85}
+  }).addTo(quizMap);
+
+  // Pan to it
+  try {
+    const bounds = L.geoJSON(randF).getBounds();
+    quizMap.fitBounds(bounds.pad(1.5));
+  } catch(e) {}
+
+  // Build 4 options (1 correct + 3 random wrong)
+  const wrong = [];
+  const pool = [...STATE_NAMES].filter(n => n !== mqCurrent);
+  while (wrong.length < 3) {
+    const pick = pool[Math.floor(Math.random() * pool.length)];
+    if (!wrong.includes(pick)) wrong.push(pick);
+  }
+  const opts = shuffle([mqCurrent, ...wrong]);
+
+  document.getElementById('mqQuestion').textContent = '🗺 Which state is highlighted in orange?';
+  const optsDiv = document.getElementById('mqOpts');
+  optsDiv.innerHTML = opts.map(o =>
+    `<button class="mq-btn" onclick="answerMap('${o}', this)">${o}</button>`
+  ).join('');
+}
+
+function answerMap(choice, btn) {
+  if (mqAnswered) return;
+  mqAnswered = true;
+  mqTotal++;
+  const allBtns = document.querySelectorAll('#mqOpts .mq-btn');
+  allBtns.forEach(b => { b.disabled = true; if (b.textContent === mqCurrent) b.classList.add('correct'); });
+  if (choice === mqCurrent) {
+    mqScore++;
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+  }
+  document.getElementById('mqScore').textContent = `Score: ${mqScore} / ${mqTotal}`;
+  document.getElementById('mqNext').style.display = 'block';
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// ─── CAPITALS MCQ ─────────────────────────────────────────────────────────────
+const MCQ_ANSWERS = {q1:'b',q2:'c',q3:'d',q4:'b',q5:'c',q6:'d',q7:'c',q8:'b',q9:'c',q10:'c',q11:'c',q12:'d',q13:'b',q14:'d',q15:'c',q16:'c',q17:'c',q18:'b',q19:'b',q20:'c'};
+
+document.querySelectorAll('.q-opts input[type=radio]').forEach(inp => {
+  inp.addEventListener('change', function() {
+    const name = this.name;
+    const labels = document.querySelectorAll(`input[name=${name}]`);
+    const correct = MCQ_ANSWERS[name];
+    const explain = document.getElementById('ex' + name.slice(1));
+    labels.forEach(r => {
+      const lbl = r.parentElement;
+      lbl.classList.remove('correct','wrong');
+      if (r.value === correct) lbl.classList.add('correct');
+      else if (r.checked) lbl.classList.add('wrong');
+      r.disabled = true;
+    });
+    if (explain) explain.style.display = 'block';
+  });
+});
+
+function submitQuiz() {
+  let score = 0, total = Object.keys(MCQ_ANSWERS).length;
+  Object.keys(MCQ_ANSWERS).forEach(name => {
+    const sel = document.querySelector(`input[name=${name}]:checked`);
+    if (sel && sel.value === MCQ_ANSWERS[name]) score++;
+  });
+  const pct = Math.round((score / total) * 100);
+  const emoji = pct >= 80 ? '🌟' : pct >= 60 ? '👍' : '📚';
+  const sc = document.getElementById('quizScore');
+  sc.textContent = `${emoji} Score: ${score}/${total} (${pct}%)`;
+  sc.style.display = 'block';
+}
+
+// ─── DARK MODE ────────────────────────────────────────────────────────────────
+function toggleDark() {
+  const d = document.documentElement;
+  const isDark = d.getAttribute('data-theme') === 'dark';
+  d.setAttribute('data-theme', isDark ? '' : 'dark');
+  localStorage.setItem('pkc-dark-mode', !isDark);
+}
+
+// ─── SHARE ────────────────────────────────────────────────────────────────────
+function sharePage() {
+  if (navigator.share) {
+    navigator.share({title: 'India Political Map — Class 7 SST', url: window.location.href});
+  } else {
+    navigator.clipboard.writeText(window.location.href).then(() => alert('Link copied!'));
+  }
+}
+
+// ─── TOC ACTIVE ───────────────────────────────────────────────────────────────
+const tocLinks = document.querySelectorAll('.toc-bar a');
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+  tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+}, {passive: true});
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+window.addEventListener('load', () => {
+  initExploreMap();
+  initQuizMap();
+});
+</script>
+</body>
+</html>
