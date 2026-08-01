@@ -252,11 +252,11 @@ footer{text-align:center;padding:20px;background:linear-gradient(135deg,#0c4a6e,
 <div class="toc-bar">
   <a href="#intro">🌤 Intro</a>
   <a href="#elements">🌡 Elements</a>
+  <a href="#traditional">🐜 Traditional</a>
   <a href="#instruments">🔭 Instruments</a>
-  <a href="#clouds">☁ Clouds</a>
-  <a href="#vs-climate">🌍 vs Climate</a>
-  <a href="#seasons">🍂 Seasons</a>
-  <a href="#imd">📡 IMD</a>
+  <a href="#stations">📡 AWS</a>
+  <a href="#predicting">🗺 Predicting</a>
+  <a href="#nutshell">📌 Summary</a>
   <a href="#mcq">✏ MCQ</a>
   <a href="#qa">📝 Q&amp;A</a>
 </div>
@@ -317,424 +317,305 @@ footer{text-align:center;padding:20px;background:linear-gradient(135deg,#0c4a6e,
   </div>
 </section>
 
-<!-- ═══════════ SECTION 1: INTRO ═══════════ -->
-<section class="section s-intro" id="intro">
-  <h2 class="sec-head" style="color:#0c4a6e">☁ What is Weather?</h2>
-  <p class="sec-sub">The state of the atmosphere at a specific place and time</p>
 
-  <div class="card fade-in">
-    <h3>Definition of Weather</h3>
-    <p><strong>Weather</strong> is the <strong>condition of the atmosphere</strong> at a specific place at a specific time.</p>
-    <p>It includes temperature, rainfall, wind, humidity and cloudiness.</p>
-    <p>Weather <strong>changes</strong> from hour to hour, day to day.</p>
+<!-- ═══════════ INTRO ═══════════ -->
+<section class="section fade-in" id="intro" style="max-width:860px;margin:0 auto;padding:28px 16px">
+  <h2 class="sec-head" style="color:#0c4a6e">🌤 Weather and its Elements</h2>
+  <p class="sec-sub">NCERT · Exploring Society: India and Beyond · Part 1 · Chapter 2</p>
+
+  <div style="background:linear-gradient(135deg,#0c4a6e,#0369a1);border-radius:18px;padding:20px;margin-bottom:16px">
+    <p style="font-size:13px;font-weight:700;color:#e0f2fe;line-height:1.9">You wake up one winter morning and shiver. You reach for thick clothes to keep yourself warm. In the summer, you choose clothes that keep you cool and comfortable. You are responding to your body's signals; your body is sensing the <strong>weather</strong>.</p>
   </div>
 
-  <div class="keyfact fade-in">
-    <div class="kf-label">✏ Remember This!</div>
-    <div class="kf-text">"Climate is what you <em>expect</em> — Weather is what you <em>get</em>"</div>
-  </div>
-
-  <div class="card fade-in">
-    <h3>Why Study Weather?</h3>
-    <ul>
-      <li>Farmers need to know when to <strong>sow and harvest</strong> crops</li>
-      <li>Pilots and sailors need weather data for <strong>safe travel</strong></li>
-      <li>Weather affects what we <strong>wear, eat and do</strong> each day</li>
-      <li>Helps predict <strong>storms, floods and droughts</strong> in advance</li>
-      <li>Disaster management depends on <strong>accurate forecasts</strong></li>
-    </ul>
-  </div>
-
-  <div class="card fade-in" style="border-left-color:#f59e0b">
-    <h3>🌦 Weather Observation</h3>
-    <p style="font-size:14px">Weather data is collected at <strong>weather stations</strong> (observatories) spread across the country. Trained observers and automated instruments record data at regular intervals — usually every 3 hours. Satellites and weather balloons also help gather data from the upper atmosphere.</p>
+  <div class="card fade-in" style="border-left:5px solid #0ea5e9;margin-bottom:14px">
+    <h3 style="color:#0c4a6e">🌍 What is Weather?</h3>
+    <p style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9"><strong>Weather</strong> is a state of the Earth's atmosphere at a particular time and place. The <strong>atmosphere</strong> is the layer of gases that surround some planets — in the case of our Earth, we call these gases 'air'.</p>
+    <p style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9;margin-top:8px">The Earth's atmosphere may be compared to a cake with several layers. The layer closest to the surface is called the <strong>troposphere</strong> — that is where all land-based plants and animals (including humans!) live and breathe. It is also where <strong>almost all weather phenomena</strong> take place.</p>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Weather_Layer.png" alt="Layers of Earth's atmosphere showing the troposphere" style="max-width:100%;max-height:340px;border-radius:10px;box-shadow:0 4px 14px rgba(14,165,233,.15)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 2.1 — Layers of the Earth's atmosphere; the troposphere is closest to the surface</p>
+    </div>
+    <div style="background:#e0f2fe;border-radius:10px;padding:10px 14px;margin-top:8px">
+      <p style="font-size:13px;font-weight:800;color:#0c4a6e">The troposphere extends to a height of <strong>6 to 18 kilometres</strong> from the ground. It is <strong>less thick at the poles</strong> (cold air contracts) and <strong>thicker in the tropical zone</strong> (warmer air expands).</p>
+    </div>
   </div>
 </section>
 
-<!-- ═══════════ SECTION 2: ELEMENTS ═══════════ -->
-<section class="section s-elements" id="elements">
+<!-- ═══════════ ELEMENTS ═══════════ -->
+<section class="section fade-in" id="elements" style="max-width:860px;margin:0 auto;padding:0 16px 20px">
   <h2 class="sec-head" style="color:#0369a1">🌡 Elements of Weather</h2>
-  <p class="sec-sub">Six key factors that describe the state of the atmosphere</p>
+  <p class="sec-sub">Five measurable components that describe the weather</p>
 
-  <div class="elem-grid">
-    <div class="elem-card ec-temp stagger">
-      <span class="ec-icon">🌡</span>
-      <div class="ec-name">Temperature</div>
-      <div class="ec-desc">Degree of hotness or coldness of the air. Measured in °C using a thermometer.</div>
-    </div>
-    <div class="elem-card ec-hum stagger">
-      <span class="ec-icon">💧</span>
-      <div class="ec-name">Humidity</div>
-      <div class="ec-desc">Amount of water vapour in air. Measured by a hygrometer as relative humidity (%).</div>
-    </div>
-    <div class="elem-card ec-rain stagger">
-      <span class="ec-icon">🌧</span>
-      <div class="ec-name">Rainfall</div>
-      <div class="ec-desc">Water falling from clouds. Measured in millimetres (mm) by a rain gauge.</div>
-    </div>
-    <div class="elem-card ec-wind stagger">
-      <span class="ec-icon">💨</span>
-      <div class="ec-name">Wind</div>
-      <div class="ec-desc">Moving air. Speed (km/h) by anemometer; Direction by wind vane.</div>
-    </div>
-    <div class="elem-card ec-cloud stagger">
-      <span class="ec-icon">☁</span>
-      <div class="ec-name">Cloud Cover</div>
-      <div class="ec-desc">How much of the sky is covered by clouds. Measured in oktas (0–8 scale).</div>
-    </div>
-    <div class="elem-card ec-sun stagger">
-      <span class="ec-icon">☀️</span>
-      <div class="ec-name">Sunshine</div>
-      <div class="ec-desc">Hours of bright sunshine in a day. Measured by a sunshine recorder.</div>
+  <div class="card fade-in" style="border-left:5px solid #0ea5e9;margin-bottom:14px">
+    <p style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9">We use many words to describe the weather — hot, cold, rainy, cloudy, humid, snowy, windy. They describe the different ways in which we experience the <strong>elements of weather</strong>.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:12px">
+      <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;padding:12px;border:2px solid #fbbf24;text-align:center">
+        <p style="font-size:22px">🌡</p>
+        <p style="font-family:'Fredoka One',cursive;font-size:14px;color:#92400e">Temperature</p>
+        <p style="font-size:11px;font-weight:700;color:#78350f">How hot or cold the atmosphere is</p>
+      </div>
+      <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:12px;padding:12px;border:2px solid #93c5fd;text-align:center">
+        <p style="font-size:22px">🌧</p>
+        <p style="font-family:'Fredoka One',cursive;font-size:14px;color:#1e40af">Precipitation</p>
+        <p style="font-size:11px;font-weight:700;color:#1e3a8a">Any form of water (rain, snow, sleet, hail) that falls from the sky</p>
+      </div>
+      <div style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-radius:12px;padding:12px;border:2px solid #c4b5fd;text-align:center">
+        <p style="font-size:22px">⚖</p>
+        <p style="font-family:'Fredoka One',cursive;font-size:14px;color:#5b21b6">Atmospheric Pressure</p>
+        <p style="font-size:11px;font-weight:700;color:#4c1d95">The weight of the air above us, felt on the Earth's surface</p>
+      </div>
+      <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:12px;padding:12px;border:2px solid #86efac;text-align:center">
+        <p style="font-size:22px">💨</p>
+        <p style="font-family:'Fredoka One',cursive;font-size:14px;color:#166534">Wind</p>
+        <p style="font-size:11px;font-weight:700;color:#14532d">The movement of air, including its speed and direction</p>
+      </div>
+      <div style="background:linear-gradient(135deg,#ecfeff,#cffafe);border-radius:12px;padding:12px;border:2px solid #67e8f9;text-align:center">
+        <p style="font-size:22px">💧</p>
+        <p style="font-family:'Fredoka One',cursive;font-size:14px;color:#164e63">Humidity</p>
+        <p style="font-size:11px;font-weight:700;color:#155e75">The amount of water vapour in the air</p>
+      </div>
     </div>
   </div>
 
-  <!-- Temperature detail -->
-  <div class="card fade-in">
-    <h3>Temperature — In Detail</h3>
-    <ul>
-      <li>Measured in <strong>degrees Celsius (°C)</strong> or Fahrenheit (°F)</li>
-      <li><strong>Maximum temperature</strong> — usually around 2–3 PM</li>
-      <li><strong>Minimum temperature</strong> — just before sunrise</li>
-      <li>A <strong>maximum-minimum thermometer</strong> records both in a day</li>
-      <li>Temperature decreases with <strong>altitude</strong> (height above sea level)</li>
-      <li>Formula: °C = (°F − 32) × 5/9</li>
-    </ul>
+  <!-- Think About It: Krishnan & Amir -->
+  <div class="card fade-in" style="border-left:5px solid #f59e0b;background:#fffbeb;margin-bottom:14px">
+    <h3 style="color:#92400e">🤔 Think About It — Krishnan &amp; Amir</h3>
+    <p style="font-size:13px;font-weight:700;color:#78350f;line-height:1.9">Krishnan from <strong>Chennai</strong> is speaking with Amir in <strong>Kashmir</strong>. Krishnan says it has become chilly after the previous night's rain. Amir asks how cold it is. <em>How will Krishnan explain to Amir how cold it is? After all, what is cold for Krishnan may be quite pleasant for Amir!</em></p>
+    <div style="background:#fef3c7;border-radius:8px;padding:10px 14px;margin-top:8px;font-size:13px;font-weight:800;color:#92400e">
+      It would be difficult to convey the sense of chillness unless there is a <strong>commonly agreed way to measure the temperature</strong>. It is the same with all other elements of the weather. That is why we measure the weather using <strong>common standards</strong>.
+    </div>
   </div>
 
-  <!-- Humidity detail -->
-  <div class="card fade-in">
-    <h3>Humidity — In Detail</h3>
-    <ul>
-      <li><strong>Humidity</strong> = amount of water vapour present in the air</li>
-      <li><strong>Relative humidity</strong> = actual water vapour ÷ maximum possible × 100%</li>
-      <li>100% humidity = <span class="gloss">saturation<span class="tip">Air holds maximum water vapour it can at that temperature — rain or dew forms</span></span></li>
-      <li>High humidity makes weather feel <strong>hot and sticky</strong></li>
-      <li>Low humidity causes <strong>dry skin, cracked lips, thirst</strong></li>
-      <li>When humid air cools, water vapour <strong>condenses</strong> → clouds and rain</li>
+  <!-- Let's Explore -->
+  <div class="card fade-in" style="border-left:5px solid #059669;background:#f0fdf4;margin-bottom:14px">
+    <h3 style="color:#14532d">🔍 Let's Explore</h3>
+    <p style="font-size:13px;font-weight:700;color:#166534;line-height:1.9">What do you think could be some other reasons to measure the weather more precisely? <em>(Hint: Think how knowing the weather a few hours or a few days in advance would help you plan some activities.)</em></p>
+  </div>
+
+  <!-- Glossary -->
+  <div class="card fade-in" style="border-left:5px solid #6366f1;background:#eef2ff;margin-bottom:14px">
+    <h3 style="color:#1e1b4b">📖 Glossary</h3>
+    <ul style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9;padding-left:20px">
+      <li><strong>Sleet:</strong> Frozen or partly frozen rain.</li>
+      <li><strong>Hail:</strong> Small, hard balls of ice that fall from the sky like rain.</li>
+      <li><strong>Water vapour:</strong> Water in gaseous instead of liquid form.</li>
+      <li><strong>Forecast:</strong> To predict or find out in advance (in our case, the weather).</li>
     </ul>
   </div>
 </section>
 
-<!-- ═══════════ SECTION 3: INSTRUMENTS ═══════════ -->
-<section class="section s-instruments" id="instruments">
+<!-- ═══════════ TRADITIONAL WEATHER FORECASTING ═══════════ -->
+<section class="section fade-in" id="traditional" style="max-width:860px;margin:0 auto;padding:0 16px 20px">
+  <h2 class="sec-head" style="color:#065f46">🐜 Traditional Weather Forecasting</h2>
+  <p class="sec-sub">Ancient signs that humans have used to predict the weather</p>
+
+  <div class="card fade-in" style="border-left:5px solid #10b981;background:#f0fdf4;margin-bottom:14px">
+    <p style="font-size:13px;font-weight:700;color:#166534;line-height:1.9">From early times, humans have closely <strong>observed Nature and learnt to read her signals</strong> to forecast the weather. Even today, in many parts of India, people use traditional ways to predict the weather, especially the <strong>arrival of the monsoon</strong>.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:12px">
+      <div style="text-align:center">
+        <img src="Ant_Shifting_Eggs.png" alt="Fig 2.3.1 — Ants shifting eggs to higher ground indicating expected rain" style="max-width:100%;border-radius:10px;box-shadow:0 4px 12px rgba(16,185,129,.15)" loading="lazy">
+        <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:4px">Fig. 2.3.1 — Ants shifting eggs to higher ground indicates expected heavy rain</p>
+      </div>
+      <div style="text-align:center">
+        <img src="Frog_Croking.png" alt="Fig 2.3.2 — Frog croaking in Western Ghats in expectation of rain" style="max-width:100%;border-radius:10px;box-shadow:0 4px 12px rgba(16,185,129,.15)" loading="lazy">
+        <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:4px">Fig. 2.3.2 — A frog croaking in the Western Ghats, in expectation of rain</p>
+      </div>
+      <div style="text-align:center">
+        <img src="Pine_Cone.png" alt="Fig 2.3.3 — Pine cone opening and closing based on humidity" style="max-width:100%;border-radius:10px;box-shadow:0 4px 12px rgba(16,185,129,.15)" loading="lazy">
+        <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:4px">Fig. 2.3.3 — Pine cones close in humid conditions, open in dry conditions</p>
+      </div>
+    </div>
+    <ul style="font-size:13px;font-weight:700;color:#166534;line-height:1.9;padding-left:20px;margin-top:12px">
+      <li>Birds flying low</li>
+      <li>Ants carrying their eggs to higher ground</li>
+      <li>Squirrels gathering nuts</li>
+      <li>Frogs croaking loudly</li>
+      <li>Opening and closing of pine cones</li>
+    </ul>
+    <div style="background:#dcfce7;border-radius:8px;padding:10px 14px;margin-top:8px;font-size:13px;font-weight:800;color:#14532d">
+      This knowledge has been passed down from generation to generation. In the last few centuries, scientists have worked out methods to measure and monitor the elements of weather with <strong>great precision</strong>. Based on those inputs, <strong>meteorologists</strong> try to predict weather behaviour.
+    </div>
+  </div>
+
+  <div class="card fade-in" style="border-left:5px solid #8b5cf6;background:linear-gradient(135deg,#fdf4ff,#f3e8ff);margin-bottom:14px">
+    <h3 style="color:#6d28d9">📚 Meteorology</h3>
+    <p style="font-size:13px;font-weight:700;color:#4c1d95;line-height:1.9"><strong>Meteorology</strong> is the systematic study of weather and its evolution. This study is the basis for <strong>weather forecasting</strong>.</p>
+  </div>
+
+  <div class="card fade-in" style="border-left:5px solid #059669;background:#f0fdf4;margin-bottom:14px">
+    <h3 style="color:#14532d">🔍 Let's Explore</h3>
+    <p style="font-size:13px;font-weight:700;color:#166534;line-height:1.9">Talk to elders in your neighbourhood and ask them how they predict the weather. What signs do they observe? <strong>Document any sayings in your regional language</strong> that refer to weather prediction.</p>
+  </div>
+</section>
+
+<!-- ═══════════ WEATHER INSTRUMENTS ═══════════ -->
+<section class="section fade-in" id="instruments" style="max-width:860px;margin:0 auto;padding:0 16px 20px">
   <h2 class="sec-head" style="color:#0c4a6e">🔭 Weather Instruments</h2>
-  <p class="sec-sub">Tools used to measure and record weather elements</p>
+  <p class="sec-sub">How we measure each element of the weather precisely</p>
 
-  <div class="instr-grid">
-
-    <!-- Thermometer -->
-    <div class="instr-card stagger">
-      <svg width="50" height="90" viewBox="0 0 50 90">
-        <rect x="22" y="5" width="6" height="60" rx="3" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1"/>
-        <rect x="22" y="38" width="6" height="27" rx="2" fill="#ef4444"/>
-        <circle cx="25" cy="72" r="10" fill="#ef4444"/>
-        <circle cx="25" cy="72" r="7" fill="#fca5a5"/>
-        <line x1="17" y1="20" x2="21" y2="20" stroke="#6b7280" stroke-width="1.5"/>
-        <line x1="17" y1="30" x2="21" y2="30" stroke="#6b7280" stroke-width="1.5"/>
-        <line x1="17" y1="40" x2="21" y2="40" stroke="#6b7280" stroke-width="1.5"/>
-        <line x1="17" y1="50" x2="21" y2="50" stroke="#6b7280" stroke-width="1.5"/>
-        <line x1="17" y1="60" x2="21" y2="60" stroke="#6b7280" stroke-width="1.5"/>
-        <text x="28" y="23" font-size="7" fill="#6b7280">40</text>
-        <text x="28" y="33" font-size="7" fill="#6b7280">30</text>
-        <text x="28" y="43" font-size="7" fill="#ef4444" font-weight="bold">25</text>
-        <text x="28" y="53" font-size="7" fill="#6b7280">20</text>
-        <text x="28" y="63" font-size="7" fill="#6b7280">10</text>
-      </svg>
-      <div class="ic-name">Thermometer</div>
-      <div class="ic-measure">Measures: Temperature</div>
-      <div class="ic-desc">Records in °C or °F. Max-min thermometer gives daily range. Mercury or alcohol fills the glass tube.</div>
+  <!-- a) Temperature -->
+  <div class="card fade-in" style="border-left:5px solid #f59e0b;background:#fffbeb;margin-bottom:14px">
+    <h3 style="color:#92400e">🌡 a) Temperature — Thermometer</h3>
+    <div style="background:#fef3c7;border-radius:10px;padding:12px 14px;margin-bottom:10px">
+      <p style="font-size:12px;font-weight:800;color:#92400e">📚 Let's Remember (Grade 6): Clinical thermometer, laboratory thermometer, Celsius and Fahrenheit scales. Example: <strong>15°C = 59°F</strong></p>
     </div>
-
-    <!-- Rain Gauge -->
-    <div class="instr-card stagger">
-      <svg width="50" height="90" viewBox="0 0 50 90">
-        <polygon points="10,15 40,15 35,65 15,65" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="2"/>
-        <polygon points="10,15 40,15 35,65 15,65" fill="rgba(59,130,246,0.3)" clip-path="url(#water)"/>
-        <clipPath id="water"><rect x="0" y="40" width="50" height="30"/></clipPath>
-        <polygon points="10,15 40,15 35,65 15,65" fill="none" stroke="#7dd3fc" stroke-width="2"/>
-        <rect x="18" y="65" width="14" height="20" fill="#d1d5db" stroke="#9ca3af" stroke-width="1.5"/>
-        <line x1="24" y1="40" x2="38" y2="40" stroke="#3b82f6" stroke-width="1" stroke-dasharray="2"/>
-        <text x="27" y="37" font-size="7" fill="#3b82f6">30mm</text>
-        <rect x="22" y="15" width="6" height="12" fill="#93c5fd" opacity=".5"/>
-        <path d="M19 8 L25 15 L31 8" fill="none" stroke="#7dd3fc" stroke-width="1.5" stroke-linejoin="round"/>
-      </svg>
-      <div class="ic-name">Rain Gauge</div>
-      <div class="ic-measure">Measures: Rainfall</div>
-      <div class="ic-desc">Collects rainwater in a funnel-shaped container. Amount read in millimetres (mm).</div>
+    <p style="font-size:13px;font-weight:700;color:#78350f;line-height:1.9">There are several types of thermometers. Some measure the <strong>ambient temperature</strong>; others record the <strong>maximum and minimum temperatures</strong> during a day. Thermometers often use a coloured liquid which expands when temperature increases. <strong>Digital thermometers</strong> are preferred as they are more precise and can record more data.</p>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Temperaturecloudyweather.png" alt="Temperature chart showing weather data for a city in Madhya Pradesh" style="max-width:100%;max-height:300px;border-radius:10px;box-shadow:0 4px 14px rgba(245,158,11,.15)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Let's Explore — Temperature chart of a city in Madhya Pradesh: find maximum, minimum, and calculate the range</p>
     </div>
-
-    <!-- Anemometer -->
-    <div class="instr-card stagger">
-      <svg width="60" height="90" viewBox="0 0 60 90">
-        <line x1="30" y1="20" x2="30" y2="75" stroke="#6b7280" stroke-width="3" stroke-linecap="round"/>
-        <circle cx="30" cy="20" r="4" fill="#9ca3af"/>
-        <g id="anemoCups" style="transform-origin:30px 20px">
-          <g>
-            <line x1="30" y1="20" x2="46" y2="20" stroke="#9ca3af" stroke-width="2"/>
-            <circle cx="50" cy="20" r="7" fill="#0ea5e9"/>
-          </g>
-          <g transform="rotate(120,30,20)">
-            <line x1="30" y1="20" x2="46" y2="20" stroke="#9ca3af" stroke-width="2"/>
-            <circle cx="50" cy="20" r="7" fill="#0ea5e9"/>
-          </g>
-          <g transform="rotate(240,30,20)">
-            <line x1="30" y1="20" x2="46" y2="20" stroke="#9ca3af" stroke-width="2"/>
-            <circle cx="50" cy="20" r="7" fill="#0ea5e9"/>
-          </g>
-        </g>
-        <rect x="22" y="72" width="16" height="12" rx="3" fill="#d1d5db"/>
-        <style>
-          #anemoCups{animation:spinCups 1.5s linear infinite}
-          @keyframes spinCups{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-        </style>
-      </svg>
-      <div class="ic-name">Anemometer</div>
-      <div class="ic-measure">Measures: Wind Speed</div>
-      <div class="ic-desc">Three or four rotating cups catch the wind. Faster rotation = higher wind speed. Units: km/h or m/s.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+      <div style="background:#fff;border-radius:10px;padding:12px;border:2px solid #fbbf24">
+        <p style="font-family:'Fredoka One',cursive;font-size:14px;color:#92400e;margin-bottom:4px">📊 Range of Temperature</p>
+        <p style="font-size:12px;font-weight:800;color:#78350f">= Maximum temperature − Minimum temperature (usually over 24 hours)</p>
+      </div>
+      <div style="background:#fff;border-radius:10px;padding:12px;border:2px solid #fbbf24">
+        <p style="font-family:'Fredoka One',cursive;font-size:14px;color:#92400e;margin-bottom:4px">📊 Mean Daily Temperature</p>
+        <p style="font-size:12px;font-weight:800;color:#78350f">= (Maximum temperature + Minimum temperature) ÷ 2</p>
+      </div>
     </div>
-
-    <!-- Wind Vane -->
-    <div class="instr-card stagger">
-      <svg width="60" height="90" viewBox="0 0 60 90">
-        <line x1="30" y1="15" x2="30" y2="80" stroke="#6b7280" stroke-width="3" stroke-linecap="round"/>
-        <rect x="22" y="77" width="16" height="10" rx="3" fill="#d1d5db"/>
-        <g transform="rotate(-35,30,30)">
-          <polygon points="30,15 20,30 30,28 40,30" fill="#f59e0b" stroke="#d97706" stroke-width="1.5"/>
-          <polygon points="30,42 26,48 30,46 34,48" fill="#6b7280"/>
-        </g>
-        <text x="8" y="34" font-size="9" fill="#9ca3af" font-weight="bold">N</text>
-        <text x="46" y="34" font-size="9" fill="#9ca3af" font-weight="bold">S</text>
-        <text x="26" y="10" font-size="9" fill="#9ca3af" font-weight="bold">E</text>
-        <text x="26" y="58" font-size="9" fill="#9ca3af" font-weight="bold">W</text>
-      </svg>
-      <div class="ic-name">Wind Vane</div>
-      <div class="ic-measure">Measures: Wind Direction</div>
-      <div class="ic-desc">Arrow points to the direction FROM which wind blows. E.g., "North wind" comes from the north.</div>
-    </div>
-
-    <!-- Hygrometer -->
-    <div class="instr-card stagger">
-      <svg width="60" height="90" viewBox="0 0 60 90">
-        <circle cx="30" cy="45" r="28" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="2"/>
-        <circle cx="30" cy="45" r="22" fill="none" stroke="#e2e8f0" stroke-width="1"/>
-        <path d="M8 45 A22 22 0 0 1 52 45" fill="rgba(14,165,233,.15)" stroke="none"/>
-        <line x1="30" y1="45" x2="30" y2="26" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="30" cy="45" r="4" fill="#0369a1"/>
-        <text x="16" y="62" font-size="8" fill="#6b7280">0</text>
-        <text x="42" y="62" font-size="8" fill="#6b7280">100</text>
-        <text x="24" y="20" font-size="8" fill="#0369a1" font-weight="bold">65%</text>
-        <path d="M10 45 Q10 20 30 18 Q50 20 50 45" fill="none" stroke="#bae6fd" stroke-width="1"/>
-      </svg>
-      <div class="ic-name">Hygrometer</div>
-      <div class="ic-measure">Measures: Humidity</div>
-      <div class="ic-desc">Measures relative humidity (%). Hair hygrometer uses human hair — hair lengthens when humid.</div>
-    </div>
-
-    <!-- Barometer -->
-    <div class="instr-card stagger">
-      <svg width="60" height="90" viewBox="0 0 60 90">
-        <circle cx="30" cy="45" r="26" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
-        <circle cx="30" cy="45" r="20" fill="none" stroke="#fde68a" stroke-width="1"/>
-        <path d="M10 55 A22 22 0 0 1 50 55" fill="rgba(249,115,22,.1)" stroke="none"/>
-        <line x1="30" y1="45" x2="42" y2="28" stroke="#f97316" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="30" cy="45" r="4" fill="#ea580c"/>
-        <text x="13" y="62" font-size="7" fill="#9ca3af">LOW</text>
-        <text x="40" y="62" font-size="7" fill="#9ca3af">HIGH</text>
-        <text x="21" y="24" font-size="8" fill="#ea580c" font-weight="bold">1013</text>
-        <text x="21" y="33" font-size="6" fill="#9ca3af">hPa</text>
-      </svg>
-      <div class="ic-name">Barometer</div>
-      <div class="ic-measure">Measures: Air Pressure</div>
-      <div class="ic-desc">Falling pressure = storm approaching. Rising pressure = fair weather coming. Unit: hPa or mb.</div>
+    <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:10px;padding:12px 14px;margin-top:10px;border:2px solid #f59e0b">
+      <p style="font-size:13px;font-weight:800;color:#92400e">🏛 Don't Miss Out — The <strong>India Meteorological Department (IMD)</strong> was set up in <strong>1875</strong>. Its motto is <em>ādityāt jāyate vriṣhti</em>, which means <strong>"From the sun arises rain."</strong> The phrase comes from the ancient text <strong>Manusmṛiti</strong>. The complete sentence reads: <em>"From the sun arises rain, from rain comes food, and from food, living beings originate."</em></p>
     </div>
   </div>
 
-  <div class="card fade-in">
-    <h3>Quick Instrument Summary</h3>
-    <p>🌡 <strong>Thermometer</strong> → Temperature (°C)</p>
-    <p>☔ <strong>Rain Gauge</strong> → Rainfall (mm)</p>
-    <p>💨 <strong>Anemometer</strong> → Wind Speed (km/h)</p>
-    <p>🧭 <strong>Wind Vane</strong> → Wind Direction (N/S/E/W)</p>
-    <p>💧 <strong>Hygrometer</strong> → Humidity (%)</p>
-    <p>⬇ <strong>Barometer</strong> → Air Pressure (hPa)</p>
+  <!-- b) Precipitation -->
+  <div class="card fade-in" style="border-left:5px solid #3b82f6;background:#eff6ff;margin-bottom:14px">
+    <h3 style="color:#1e40af">🌧 b) Precipitation — Rain Gauge</h3>
+    <p style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9">The amount of rainfall is measured with the help of an instrument called a <strong>rain gauge</strong> (Fig. 2.6). When it rains, the water falls into a <strong>funnel</strong> and is collected in a <strong>cylinder</strong>. A scale is attached to the cylinder to measure the depth of rainwater collected. When the height of water is 5 mm, we say that the area received <strong>5 mm of rainfall</strong>.</p>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Rain_Gauge.png" alt="Fig 2.6 — Rain gauge showing funnel and cylinder for measuring rainfall" style="max-width:100%;max-height:320px;border-radius:10px;box-shadow:0 4px 14px rgba(59,130,246,.15)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 2.6 — Rain gauge: water falls into funnel, collects in cylinder; rainfall measured in mm</p>
+    </div>
+  </div>
+
+  <!-- c) Atmospheric Pressure -->
+  <div class="card fade-in" style="border-left:5px solid #7c3aed;background:#faf5ff;margin-bottom:14px">
+    <h3 style="color:#6d28d9">⚖ c) Atmospheric Pressure — Barometer</h3>
+    <p style="font-size:13px;font-weight:700;color:#4c1d95;line-height:1.9">You may have experienced that the weather sometimes feels 'heavy', as before a thunderstorm. This is related to <strong>atmospheric pressure</strong> — the pressure exerted by the <strong>weight of the air above and around us</strong>.</p>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Atmospheric_Pressure.png" alt="Atmospheric pressure illustration showing higher pressure near sea level and lower at high altitude" style="max-width:100%;max-height:320px;border-radius:10px;box-shadow:0 4px 14px rgba(124,58,237,.15)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 2.7 — Atmospheric pressure is higher near sea level and decreases with altitude; less oxygen at high altitude causes breathlessness</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+      <div style="background:#ede9fe;border-radius:10px;padding:12px">
+        <p style="font-size:13px;font-weight:800;color:#4c1d95">📏 <strong>Instrument:</strong> Barometer<br><strong>Unit:</strong> millibar (mb)<br><strong>Normal (sea level):</strong> ~1013 mb<br><strong>Depression:</strong> below 1000 mb</p>
+      </div>
+      <div style="background:#ede9fe;border-radius:10px;padding:12px">
+        <p style="font-size:13px;font-weight:800;color:#4c1d95">⛰ Pressure is <strong>higher near sea coast</strong> and <strong>lower at high altitude</strong>. Thinner air → less oxygen → breathlessness, dizziness, tiredness at high altitudes.</p>
+      </div>
+    </div>
+    <div style="background:#f3e8ff;border-radius:10px;padding:12px 14px;margin-top:10px;border:2px solid #c4b5fd">
+      <p style="font-size:13px;font-weight:800;color:#4c1d95">🤔 <strong>Think About It:</strong> Our army personnel serve at <strong>Khardung La in Ladakh</strong> (over <strong>5600 metres</strong> above sea level). The atmospheric pressure there is generally about <strong>650 millibars</strong>! People journeying to high altitudes are advised to make pauses to allow the body to <strong>acclimatise</strong>.</p>
+    </div>
+    <p style="font-size:13px;font-weight:700;color:#4c1d95;line-height:1.9;margin-top:10px">Atmospheric pressure sometimes drops dramatically, resulting in what meteorologists call a <strong>'depression' or 'low-pressure system'</strong>, which can develop into a <strong>storm or even a cyclone</strong>.</p>
+  </div>
+
+  <!-- d) Wind -->
+  <div class="card fade-in" style="border-left:5px solid #059669;background:#f0fdf4;margin-bottom:14px">
+    <h3 style="color:#14532d">💨 d) Wind — Wind Vane &amp; Anemometer</h3>
+    <p style="font-size:13px;font-weight:700;color:#166534;line-height:1.9"><strong>Wind</strong> is the movement of air from areas of <strong>high pressure to areas of low pressure</strong>. <strong>Speed and direction</strong> are two important factors when we describe the wind.</p>
+    <div style="text-align:center;margin:10px 0">
+      <img src="wind_Seed.png" alt="Fig 2.9 — Wind-dispersed seeds showing the role of wind" style="max-width:100%;max-height:260px;border-radius:10px;box-shadow:0 4px 14px rgba(5,150,105,.15)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 2.9 — Wind-dispersed seeds: What would happen to these seeds if there was no wind?</p>
+    </div>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Wind_Vane.png" alt="Wind vane and wind sock used to measure wind direction" style="max-width:100%;max-height:300px;border-radius:10px;box-shadow:0 4px 14px rgba(5,150,105,.15)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 2.10 — Wind vane / weather vane and wind sock on airport tarmac</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+      <div style="background:#dcfce7;border-radius:10px;padding:12px">
+        <p style="font-family:'Fredoka One',cursive;font-size:14px;color:#14532d;margin-bottom:4px">🪄 Wind Vane</p>
+        <p style="font-size:12px;font-weight:700;color:#166534;line-height:1.7">Rotating arm with a <strong>pointer</strong> and a <strong>tail</strong>. Wind pushes the tail → pointer turns in the direction of wind. A <strong>wind sock</strong> on airport tarmac gives pilots wind direction during take-off and landing.</p>
+      </div>
+      <div style="background:#dcfce7;border-radius:10px;padding:12px">
+        <p style="font-family:'Fredoka One',cursive;font-size:14px;color:#14532d;margin-bottom:4px">💨 Anemometer</p>
+        <p style="font-size:12px;font-weight:700;color:#166534;line-height:1.7"><strong>Three or four metal cups</strong> rotate on a vertical shaft. Stronger wind = faster rotation. Meter calculates wind speed in <strong>km/h</strong>.</p>
+      </div>
+    </div>
+    <div style="background:#dcfce7;border-radius:8px;padding:10px 14px;margin-top:8px;font-size:12px;font-weight:700;color:#14532d">
+      Wind data is used by: <strong>Air pilots</strong> (flying), <strong>Sailors</strong> (navigation), <strong>Farmers</strong> (predicting rain direction), soil drying rate monitoring.
+    </div>
+  </div>
+
+  <!-- e) Humidity -->
+  <div class="card fade-in" style="border-left:5px solid #0891b2;background:#ecfeff;margin-bottom:14px">
+    <h3 style="color:#164e63">💧 e) Humidity — Hygrometer</h3>
+    <p style="font-size:13px;font-weight:700;color:#164e63;line-height:1.9"><strong>Humidity</strong> is the amount of <strong>water vapour</strong> present in the air. It also depends on factors like <strong>temperature, wind, pressure and location</strong>.</p>
+    <div style="background:#cffafe;border-radius:10px;padding:12px 14px;margin-top:8px">
+      <p style="font-size:13px;font-weight:800;color:#164e63">🤔 Where is humidity likely to be more — <strong>Kochi or Jaipur</strong>? Kochi is near the sea, so it has <strong>higher humidity</strong>. The instrument that measures humidity is called a <strong>Hygrometer</strong>.</p>
+    </div>
   </div>
 </section>
 
-<!-- ═══════════ SECTION 4: CLOUDS ═══════════ -->
-<section class="section s-clouds" id="clouds">
-  <h2 class="sec-head" style="color:#5b21b6">☁ Types of Clouds</h2>
-  <p class="sec-sub">Clouds are formed by condensation of water vapour in the atmosphere</p>
+<!-- ═══════════ WEATHER STATIONS ═══════════ -->
+<section class="section fade-in" id="stations" style="max-width:860px;margin:0 auto;padding:0 16px 20px">
+  <h2 class="sec-head" style="color:#0c4a6e">📡 Weather Stations</h2>
+  <p class="sec-sub">Where all weather instruments come together</p>
 
-  <div class="cloud-row">
-    <div class="cloud-badge stagger">
-      <div class="cb-icon">🌤</div>
-      <div class="cb-name">Cirrus</div>
-      <div class="cb-desc">High altitude (above 6,000 m). Thin, feathery, wispy. Made of ice crystals. Fair weather but may signal change.</div>
+  <div class="card fade-in" style="border-left:5px solid #0ea5e9;margin-bottom:14px">
+    <p style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9">We need several instruments to measure the weather at a particular place and time. A <strong>weather station</strong> brings all these instruments together, making it easy to measure and track the weather. Readings are taken at <strong>regular intervals</strong>, which helps in <strong>mapping and forecasting the weather</strong>.</p>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Fig2.11.png" alt="Fig 2.11 — An automated weather station (AWS)" style="max-width:100%;max-height:340px;border-radius:10px;box-shadow:0 4px 14px rgba(14,165,233,.15)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 2.11 — An Automated Weather Station (AWS)</p>
     </div>
-    <div class="cloud-badge stagger">
-      <div class="cb-icon">⛅</div>
-      <div class="cb-name">Cumulus</div>
-      <div class="cb-desc">Medium altitude. Fluffy, white, cotton-ball shaped. Flat base. Associated with fair weather; towering = storms.</div>
+    <div style="background:#e0f2fe;border-radius:10px;padding:12px 14px;margin-top:8px">
+      <p style="font-family:'Fredoka One',cursive;font-size:15px;color:#0c4a6e;margin-bottom:6px">⚙ Automated Weather Station (AWS)</p>
+      <p style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9">An <strong>AWS</strong> is a self-operating system that uses various sensors to measure and record weather data — temperature, humidity, wind speed and direction, precipitation, and atmospheric pressure. Used in <strong>agriculture, aviation, navigation, and environmental monitoring</strong>, providing accurate and timely weather information <strong>without the need for human intervention</strong>.</p>
     </div>
-    <div class="cloud-badge stagger">
-      <div class="cb-icon">🌫</div>
-      <div class="cb-name">Stratus</div>
-      <div class="cb-desc">Low altitude. Flat, grey, layer-like sheets. Fog at ground level is stratus. Brings drizzle.</div>
-    </div>
-    <div class="cloud-badge stagger">
-      <div class="cb-icon">⛈</div>
-      <div class="cb-name">Nimbus</div>
-      <div class="cb-desc">Rain clouds. Very dark. <em>Cumulonimbus</em> = thunderstorm clouds, heavy rain, lightning.</div>
-    </div>
-  </div>
-
-  <div class="card fade-in">
-    <h3>How Clouds Form</h3>
-    <ol>
-      <li>Sun heats the surface → water <strong>evaporates</strong></li>
-      <li>Warm, moist air <strong>rises</strong> higher into the atmosphere</li>
-      <li>Rising air <strong>cools</strong> as it goes higher</li>
-      <li>Cool air cannot hold as much water vapour → <strong>condensation</strong> occurs</li>
-      <li>Tiny water droplets or ice crystals form → <strong>clouds</strong> are visible</li>
-      <li>When droplets grow heavy enough → <strong>rainfall</strong></li>
-    </ol>
   </div>
 </section>
 
-<!-- ═══════════ SECTION 5: WEATHER vs CLIMATE ═══════════ -->
-<section class="section s-vsclimate" id="vs-climate">
-  <h2 class="sec-head" style="color:#166534">🌍 Weather vs Climate</h2>
-  <p class="sec-sub">Two related but very different concepts</p>
+<!-- ═══════════ PREDICTING THE WEATHER ═══════════ -->
+<section class="section fade-in" id="predicting" style="max-width:860px;margin:0 auto;padding:0 16px 20px">
+  <h2 class="sec-head" style="color:#0c4a6e">🗺 Predicting the Weather</h2>
+  <p class="sec-sub">How meteorologists use data to forecast weather and save lives</p>
 
-  <table class="cmp-table fade-in">
-    <thead>
-      <tr><th>Feature</th><th>☀ Weather</th><th>🌍 Climate</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Definition</strong></td>
-        <td>Condition of atmosphere at a specific place and time</td>
-        <td>Average weather conditions of a large area over 30+ years</td>
-      </tr>
-      <tr>
-        <td><strong>Duration</strong></td>
-        <td>Short-term (hours to days)</td>
-        <td>Long-term (decades)</td>
-      </tr>
-      <tr>
-        <td><strong>Area</strong></td>
-        <td>Specific, small location</td>
-        <td>Large region or country</td>
-      </tr>
-      <tr>
-        <td><strong>Changes</strong></td>
-        <td>Changes frequently (day to day)</td>
-        <td>Relatively stable, changes slowly</td>
-      </tr>
-      <tr>
-        <td><strong>Example</strong></td>
-        <td>"It is raining in Delhi today"</td>
-        <td>"Mumbai has a hot and humid climate"</td>
-      </tr>
-      <tr>
-        <td><strong>Study</strong></td>
-        <td>Meteorology</td>
-        <td>Climatology</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="keyfact fade-in">
-    <div class="kf-label">📌 Key Distinction</div>
-    <div class="kf-text">Weather → What the atmosphere is doing <em>right now</em><br>Climate → What the atmosphere <em>usually</em> does in a region</div>
-  </div>
-</section>
-
-<!-- ═══════════ SECTION 6: SEASONS ═══════════ -->
-<section class="section s-seasons" id="seasons">
-  <h2 class="sec-head" style="color:#c2410c">🍂 Seasons of India</h2>
-  <p class="sec-sub">India experiences four distinct seasons each year</p>
-
-  <div class="seasons-grid">
-    <div class="season-card sc-winter stagger">
-      <div class="sc-icon">❄️</div>
-      <div class="sc-name">Winter Season</div>
-      <div class="sc-months">December – February</div>
-      <div class="sc-desc">Cold and dry. Northeastern winds blow. Western disturbances bring rainfall in northwest India. Days are short.</div>
-    </div>
-    <div class="season-card sc-summer stagger">
-      <div class="sc-icon">☀️</div>
-      <div class="sc-name">Summer Season</div>
-      <div class="sc-months">March – May</div>
-      <div class="sc-desc">Hot and dry. Temperature rises to 45°C+ in north. "Loo" — hot dry wind blows. Dust storms (andhis) in Rajasthan.</div>
-    </div>
-    <div class="season-card sc-monsoon stagger">
-      <div class="sc-icon">🌧</div>
-      <div class="sc-name">Southwest Monsoon</div>
-      <div class="sc-months">June – September</div>
-      <div class="sc-desc">Hot and wet. Southwest winds carry moisture from Indian Ocean. Heavy rainfall across most of India. India's major rainy season — 75% of annual rain.</div>
-    </div>
-    <div class="season-card sc-retreat stagger">
-      <div class="sc-icon">🍂</div>
-      <div class="sc-name">Retreating Monsoon</div>
-      <div class="sc-months">October – November</div>
-      <div class="sc-desc">Monsoon withdraws from northwest. Northeast winds bring rain to Tamil Nadu and southeast coast. Transition to winter.</div>
-    </div>
-  </div>
-
-  <div class="card fade-in">
-    <h3>Local Winds of India</h3>
-    <p><strong>Loo</strong> — hot, dry wind in north India (May–June), can reach 45°C+</p>
-    <p><strong>Sea Breeze</strong> — blows from sea to land during the <strong>day</strong> (coastal areas)</p>
-    <p><strong>Land Breeze</strong> — blows from land to sea during the <strong>night</strong></p>
-    <p><strong>Monsoon winds</strong> — Southwest in summer (rain-bearing); Northeast in winter (dry)</p>
-  </div>
-</section>
-
-<!-- ═══════════ SECTION 7: IMD ═══════════ -->
-<section class="section s-imd" id="imd">
-  <h2 class="sec-head" style="color:#0c4a6e">📡 Weather Forecasting &amp; IMD</h2>
-  <p class="sec-sub">How we predict tomorrow's weather</p>
-
-  <div class="card fade-in">
-    <h3>India Meteorological Department (IMD)</h3>
-    <p><strong>Founded:</strong> 1875 (headquarters: New Delhi)</p>
-    <p><strong>Role:</strong> Collecting weather data, issuing forecasts, cyclone warnings</p>
-    <p>Uses <strong>satellites, radar, weather stations</strong> and weather balloons</p>
-    <p>Issues forecasts for <strong>agriculture, aviation, disaster management</strong></p>
-    <p>Monitors <strong>monsoon onset and progress</strong> every year</p>
-  </div>
-
-  <div class="card fade-in">
-    <h3>📅 Types of Weather Forecasts</h3>
-    <table class="cmp-table">
-      <thead><tr><th>Type</th><th>Duration</th><th>Use</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Short-range</strong></td><td>1–3 days</td><td>Daily planning, agriculture</td></tr>
-        <tr><td><strong>Medium-range</strong></td><td>3–10 days</td><td>Crop management, events</td></tr>
-        <tr><td><strong>Extended range</strong></td><td>10–30 days</td><td>Water resource planning</td></tr>
-        <tr><td><strong>Long-range</strong></td><td>30+ days (seasonal)</td><td>Monsoon prediction, policy</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="card fade-in">
-    <h3>Tools Used in Forecasting</h3>
-    <ul>
-      <li><strong>Weather satellites</strong> — take pictures of clouds and storms from space</li>
-      <li><strong>Doppler radar</strong> — detects rain, wind speed and storms nearby</li>
-      <li><strong>Radiosonde</strong> — instrument attached to a weather balloon; rises 30+ km, sends data</li>
-      <li><strong>Computer models</strong> — process data from thousands of stations to predict weather</li>
-      <li><strong>Ocean buoys</strong> — floating stations that measure sea temperature and waves</li>
+  <div class="card fade-in" style="border-left:5px solid #0ea5e9;margin-bottom:14px">
+    <p style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9">Meteorologists collect data using instruments over <strong>long periods of time</strong>. They study the data and use scientific methods to <strong>predict how the weather will behave</strong> in a particular region — after a few hours, a few days, or even a few weeks.</p>
+    <p style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9;margin-top:8px"><strong>Accurate predictions help us be ready for events</strong> and enable local governments to mobilise resources. For example:</p>
+    <ul style="font-size:13px;font-weight:700;color:#1e3a8a;line-height:1.9;padding-left:20px;margin-top:8px">
+      <li>If stormy weather is expected at sea, <strong>fishermen are warned</strong> about venturing out in their boats.</li>
+      <li>An entire <strong>coastal area might have to be evacuated</strong> if a cyclone is expected.</li>
     </ul>
   </div>
 
-  <div class="keyfact fade-in">
-    <div class="kf-label">🌀 Important!</div>
-    <div class="kf-text">IMD issues <em>cyclone warnings</em> for coastal areas — helps save thousands of lives each year</div>
+  <!-- IMD Map -->
+  <div class="card fade-in" style="border-left:5px solid #0369a1;background:#eff6ff;margin-bottom:14px">
+    <h3 style="color:#1e3a8a">🗺 IMD Weather Map — 19 May 2024</h3>
+    <div style="text-align:center;margin:10px 0">
+      <img src="Weather_Warning_India.png" alt="India Meteorological Department weather warning map dated 19 May 2024" style="max-width:100%;max-height:500px;border-radius:10px;box-shadow:0 4px 14px rgba(3,105,161,.2)" loading="lazy">
+      <p style="font-size:11px;color:#6b7280;font-weight:600;margin-top:5px">Fig. 2.12 — Weather warning map issued by IMD on 19 May 2024</p>
+    </div>
+    <div style="background:#dbeafe;border-radius:10px;padding:12px 14px;margin-top:8px">
+      <p style="font-family:'Fredoka One',cursive;font-size:14px;color:#1e3a8a;margin-bottom:8px">🔍 Let's Explore — Study the IMD map above and answer:</p>
+      <ul style="font-size:12px;font-weight:700;color:#1e3a8a;line-height:1.9;padding-left:20px">
+        <li>What do you observe happening on that day? What weather conditions is IMD alerting people to?</li>
+        <li>Which states have warning signs?</li>
+        <li>Which parts of India are likely to be free from severe weather?</li>
+        <li>Which states are likely to face <strong>heat wave conditions</strong>?</li>
+        <li>What are the causes for warning in Tripura and Lakshadweep?</li>
+      </ul>
+    </div>
+    <div style="background:#e0f2fe;border-radius:10px;padding:10px 14px;margin-top:10px">
+      <p style="font-size:13px;font-weight:800;color:#0c4a6e">🔍 Let's Explore — Discuss, in pairs, different situations in which <strong>weather predictions are helpful</strong>. Make a list, share and compare with the pair next to you. How many different categories have you identified?</p>
+    </div>
   </div>
 </section>
+
+<!-- ═══════════ BEFORE WE MOVE ON ═══════════ -->
+<section class="section fade-in" id="nutshell" style="max-width:860px;margin:0 auto;padding:0 16px 20px">
+  <div style="background:linear-gradient(135deg,#0c4a6e,#0369a1);border-radius:18px;padding:20px">
+    <h2 style="font-family:'Fredoka One',cursive;font-size:22px;color:#fff;margin-bottom:14px;text-align:center">📌 Before We Move On</h2>
+    <ul style="list-style:none;padding:0;margin:0">
+      <li style="background:rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:13px;font-weight:700;color:#fff;line-height:1.7;border-left:4px solid #7dd3fc"><strong>Temperature, humidity, precipitation, wind and atmospheric pressure</strong> together define the weather at a particular place.</li>
+      <li style="background:rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:13px;font-weight:700;color:#fff;line-height:1.7;border-left:4px solid #7dd3fc">The condition of these elements is <strong>measured using special instruments</strong>. Data collected from these help us to <strong>monitor and predict the weather</strong>.</li>
+      <li style="background:rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:13px;font-weight:700;color:#fff;line-height:1.7;border-left:4px solid #7dd3fc">In different times or situations, <strong>one element is dominant</strong> — rainfall in July, temperature in May and December, atmospheric pressure when a cyclone is moving, and wind when a <strong>loo</strong> (hot, dusty winds in north India in summers) is blowing or forest fires are spreading.</li>
+      <li style="background:rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;font-size:13px;font-weight:700;color:#fff;line-height:1.7;border-left:4px solid #7dd3fc"><strong>Weather is closely linked to climate.</strong> We will discuss this in the next chapter.</li>
+    </ul>
+  </div>
+</section>
+
 
 <!-- ═══════════ MCQ SECTION ═══════════ -->
 <section class="quiz-section" id="mcq">
@@ -942,7 +823,102 @@ footer{text-align:center;padding:20px;background:linear-gradient(135deg,#0c4a6e,
 
 <!-- ═══════════ Q&A SECTION ═══════════ -->
 <section class="sq-section" id="qa">
-  <h3>📝 Questions &amp; Answers — All Mark Types</h3>
+  <h3>📝 Questions &amp; Answers</h3>
+
+  <!-- NCERT QUESTIONS AND ACTIVITIES -->
+  <div class="sq-badge" style="background:linear-gradient(135deg,#0c4a6e,#0369a1);color:#fff;font-size:13px;padding:8px 18px;border-radius:20px;display:inline-block;margin-bottom:10px">📖 NCERT Questions and Activities</div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q1. Describe your experience of the weather today. Write down the elements of weather you observe. <span class="sq-mark">Activity</span></summary>
+      <div class="sq-ans"><strong>Answer (Sample):</strong> Today the weather is sunny and warm. The elements I observe are:<br>
+        <ul>
+          <li><strong>Temperature:</strong> Hot — approximately 34°C</li>
+          <li><strong>Humidity:</strong> Moderate — sweat evaporates slowly</li>
+          <li><strong>Wind:</strong> Light breeze blowing from the south-west</li>
+          <li><strong>Precipitation:</strong> No rainfall; sky is clear</li>
+          <li><strong>Atmospheric pressure:</strong> Normal; no heaviness felt</li>
+        </ul>
+        <em>(Students should record their own observations on the day of the activity.)</em>
+      </div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q2. What are some of the ways in which people have traditionally forecasted the weather? Find out from elders in your neighbourhood. <span class="sq-mark">Activity</span></summary>
+      <div class="sq-ans"><strong>Answer:</strong> Traditional weather forecasting methods include:
+        <ul>
+          <li><strong>Birds flying low</strong> — rain expected soon</li>
+          <li><strong>Ants carrying eggs to higher ground</strong> — heavy rainfall expected</li>
+          <li><strong>Squirrels gathering nuts</strong> — cold winter ahead</li>
+          <li><strong>Frogs croaking loudly</strong> — monsoon/rains approaching (common in Western Ghats)</li>
+          <li><strong>Opening and closing of pine cones</strong> — pine cones close in humid conditions, open when dry</li>
+          <li>Many communities have <strong>sayings in regional languages</strong> about the sky colour, wind direction, or behaviour of animals that predict rain</li>
+        </ul>
+        <em>(Students should interview elders and document local sayings.)</em>
+      </div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q3. Make a table showing the elements of weather, the instrument used to measure them, and the unit of measurement. <span class="sq-mark">Activity</span></summary>
+      <div class="sq-ans"><strong>Answer:</strong>
+        <table style="font-size:12px;width:100%;border-collapse:collapse;margin-top:8px">
+          <tr style="background:#0c4a6e;color:#fff">
+            <th style="padding:8px;text-align:left">Element of Weather</th>
+            <th style="padding:8px;text-align:left">Instrument</th>
+            <th style="padding:8px;text-align:left">Unit</th>
+          </tr>
+          <tr style="background:#e0f2fe">
+            <td style="padding:7px;border-bottom:1px solid #bae6fd"><strong>Temperature</strong></td>
+            <td style="padding:7px;border-bottom:1px solid #bae6fd">Thermometer</td>
+            <td style="padding:7px;border-bottom:1px solid #bae6fd">Degree Celsius (°C)</td>
+          </tr>
+          <tr>
+            <td style="padding:7px;border-bottom:1px solid #e5e7eb"><strong>Precipitation (Rainfall)</strong></td>
+            <td style="padding:7px;border-bottom:1px solid #e5e7eb">Rain Gauge</td>
+            <td style="padding:7px;border-bottom:1px solid #e5e7eb">Millimetres (mm)</td>
+          </tr>
+          <tr style="background:#e0f2fe">
+            <td style="padding:7px;border-bottom:1px solid #bae6fd"><strong>Atmospheric Pressure</strong></td>
+            <td style="padding:7px;border-bottom:1px solid #bae6fd">Barometer</td>
+            <td style="padding:7px;border-bottom:1px solid #bae6fd">Millibar (mb)</td>
+          </tr>
+          <tr>
+            <td style="padding:7px;border-bottom:1px solid #e5e7eb"><strong>Wind Speed</strong></td>
+            <td style="padding:7px;border-bottom:1px solid #e5e7eb">Anemometer</td>
+            <td style="padding:7px;border-bottom:1px solid #e5e7eb">km/h</td>
+          </tr>
+          <tr style="background:#e0f2fe">
+            <td style="padding:7px;border-bottom:1px solid #bae6fd"><strong>Wind Direction</strong></td>
+            <td style="padding:7px;border-bottom:1px solid #bae6fd">Wind Vane / Wind Sock</td>
+            <td style="padding:7px;border-bottom:1px solid #bae6fd">Cardinal direction (N, S, E, W)</td>
+          </tr>
+          <tr>
+            <td style="padding:7px"><strong>Humidity</strong></td>
+            <td style="padding:7px">Hygrometer</td>
+            <td style="padding:7px">Percentage (%)</td>
+          </tr>
+        </table>
+      </div>
+    </details>
+  </div>
+
+  <div class="sq-card">
+    <details>
+      <summary>Q4. Study the IMD weather warning map (Fig. 2.12). Answer the following: (a) What weather conditions does the map show? (b) Which states have warnings? (c) What is the weather warning for Jammu &amp; Kashmir? <span class="sq-mark">Activity</span></summary>
+      <div class="sq-ans"><strong>Answer (based on IMD map dated 19 May 2024):</strong>
+        <ul>
+          <li><strong>(a) Weather conditions shown:</strong> The map shows various weather warnings issued by IMD for different states — including heat wave conditions, thunderstorms, strong winds, and heavy rainfall warnings across different regions of India.</li>
+          <li><strong>(b) States with warnings:</strong> Multiple states have warning signs shown on the map. States in the north-west (Rajasthan, Punjab, Haryana) likely have <strong>heat wave warnings</strong>. North-eastern states (Tripura, Meghalaya) and Lakshadweep likely have warnings for <strong>heavy rainfall or strong winds</strong>.</li>
+          <li><strong>(c) Jammu &amp; Kashmir:</strong> J&amp;K may show warnings related to <strong>thunderstorms or strong winds</strong>, which are common in the region during this time of year due to western disturbances.</li>
+        </ul>
+        <em>(Students should refer to the actual map in Fig. 2.12 / Fig. 2.13 in their textbook to give precise state-by-state answers.)</em>
+      </div>
+    </details>
+  </div>
 
   <!-- 1 MARK -->
   <div class="sq-badge one">✏ 1 Mark Questions</div>
