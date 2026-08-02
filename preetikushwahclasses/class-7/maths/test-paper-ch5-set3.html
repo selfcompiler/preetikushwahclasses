@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 7 Maths Ch 5 Test Paper Set 3 (Advanced) — Parallel and Intersecting Lines. 40 marks, reasoning-heavy practice questions with solutions.">
+<meta name="keywords" content="Preeti Kushwah Classes, NCERT notes, CBSE notes, free study material, Class 7 notes, Class 7 NCERT, class 7 study material, Mathematics notes, Class 7 Mathematics, Class 7 Mathematics notes, Class 7 Mathematics NCERT, test paper, practice questions, parallel lines, intersecting lines, transversal, corresponding angles, alternate angles, co-interior angles, vertically opposite angles, angle chasing, algebraic angles">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-7/maths/test-paper-ch5-set3.html">
+<meta property="og:title" content="Test Paper Set 3 — Ch 5: Parallel &amp; Intersecting Lines | Class 7 Maths">
+<meta property="og:description" content="Advanced level practice test — 40 marks with solutions. Class 7 Maths Ch 5.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preetikushwahclasses.com/class-7/maths/test-paper-ch5-set3.html">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Test Paper Set 3 — Ch 5: Parallel &amp; Intersecting Lines | Class 7 Maths</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-darkest: #14532d;
+  --green-dark: #166534;
+  --green-mid: #16a34a;
+  --green-light: #86efac;
+  --green-pale: #dcfce7;
+  --green-bg: #f0fdf4;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #f0fdf4;
+  background-image: linear-gradient(180deg, #f0fdf4 0%, #fff7ed 50%, #f0fdf4 100%);
+  color: #1a2e1a;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ============= TOP NAV ============= */
+.top-nav {
+  background: white;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 110;
+}
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-link.tn-home {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  color: #166534;
+  border: 1px solid #86efac;
+}
+.nav-link.tn-home:hover {
+  background: linear-gradient(135deg, #bbf7d0, #86efac);
+  transform: translateY(-1px);
+}
+.nav-spacer { flex: 1; }
+.nav-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 14px;
+  color: #166534;
+}
+.nav-title small {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+/* ============= HERO ============= */
+.hero {
+  background: linear-gradient(135deg, #14532d 0%, #16a34a 50%, #22c55e 100%);
+  color: white;
+  text-align: center;
+  padding: 48px 20px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.06) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-icon { font-size: 48px; margin-bottom: 12px; }
+.hero h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 30px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.hero .hero-sub {
+  font-size: 15px;
+  opacity: 0.9;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.hero .hero-chapter {
+  font-size: 13px;
+  opacity: 0.75;
+  margin-bottom: 16px;
+}
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.hero-meta span {
+  background: rgba(255,255,255,0.15);
+  padding: 6px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 14px;
+  backdrop-filter: blur(4px);
+}
+
+/* ============= CONTAINER ============= */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* ============= TEST PAPER ============= */
+.test-paper {
+  background: white;
+  border: 2px solid #1a2e1a;
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+.watermark {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none; z-index: 1; overflow: hidden;
+  user-select: none; -webkit-user-select: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='200'%3E%3Ctext x='210' y='110' text-anchor='middle' font-family='sans-serif' font-size='26' font-weight='bold' fill='rgba(0,0,0,0.04)' transform='rotate(-30,210,110)'%3EPreeti Kushwah Classes%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 420px 200px;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.test-header {
+  background: linear-gradient(135deg, #14532d, #166534);
+  color: white;
+  text-align: center;
+  padding: 24px 20px 18px;
+  position: relative;
+  z-index: 2;
+}
+.test-header h2 { font-family: 'Fredoka One', cursive; font-size: 22px; margin: 0 0 4px; letter-spacing: 1px; }
+.test-header p { font-size: 13px; opacity: 0.85; margin: 2px 0; }
+.test-header .test-meta {
+  display: flex; justify-content: center; gap: 24px; margin-top: 12px;
+  font-weight: 800; font-size: 14px;
+}
+.test-header .test-meta span { background: rgba(255,255,255,0.15); padding: 4px 14px; border-radius: 8px; }
+.test-body { padding: 24px 20px; position: relative; z-index: 2; }
+.qr-strip {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  padding: 14px 20px; background: #f8fafc; border-top: 1px solid #e2e8f0;
+  position: relative; z-index: 2;
+}
+.qr-strip img { width: 70px; height: 70px; border-radius: 6px; border: 2px solid #e2e8f0; }
+.qr-strip .qr-text { font-size: 11px; color: #64748b; font-weight: 700; line-height: 1.5; }
+.qr-strip .qr-text strong { color: #1a2e1a; font-size: 12px; }
+.test-section-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 16px;
+  color: #16a34a;
+  border-bottom: 2px solid #dcfce7;
+  padding-bottom: 6px;
+  margin: 28px 0 14px;
+}
+.test-section-title:first-child { margin-top: 0; }
+.test-q {
+  margin-bottom: 18px;
+  padding-left: 4px;
+}
+.test-q .q-num {
+  font-weight: 800;
+  color: #16a34a;
+  font-size: 14px;
+}
+.test-q .q-text {
+  font-size: 14px;
+  color: #1f2937;
+  margin-top: 4px;
+  line-height: 1.7;
+}
+.test-q .q-marks {
+  display: inline-block;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-left: 6px;
+}
+.test-q table {
+  width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0;
+}
+.test-q table th { background: #f3f4f6; padding: 8px 10px; text-align: left; font-weight: 700; border: 1px solid #d1d5db; }
+.test-q table td { padding: 8px 10px; border: 1px solid #d1d5db; font-size: 13px; }
+.test-instructions {
+  background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px;
+  font-size: 13px; color: #92400e; border-radius: 0 10px 10px 0; margin-bottom: 20px; line-height: 1.7;
+}
+
+/* ============= PRINT BUTTON ============= */
+.print-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #16a34a, #166534);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(22,163,74,0.3);
+}
+.print-btn:hover {
+  background: linear-gradient(135deg, #15803d, #14532d);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(22,163,74,0.4);
+}
+.share-sol-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(5,150,105,0.3);
+}
+.share-sol-btn:hover {
+  background: linear-gradient(135deg, #047857, #059669);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(5,150,105,0.4);
+}
+.pdf-note {
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 8px;
+}
+
+/* ============= SOLUTION UNLOCK ============= */
+.sol-lock-overlay {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 2px dashed #86efac;
+  border-radius: 14px;
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: 32px;
+}
+.sol-lock-overlay h3 {
+  font-family: 'Fredoka One', cursive; color: #166534; font-size: 18px; margin: 0 0 8px;
+}
+.sol-lock-overlay p { font-size: 13px; color: #6b7280; margin: 0 0 16px; }
+.sol-code-input {
+  padding: 10px 16px;
+  border: 2px solid #86efac;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  width: 200px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.sol-code-input:focus { outline: none; border-color: #16a34a; box-shadow: 0 0 0 3px rgba(22,163,74,0.15); }
+.sol-unlock-btn {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 10px 22px;
+  background: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sol-unlock-btn:hover { background: #15803d; transform: translateY(-1px); }
+.sol-error { color: #dc2626; font-weight: 700; font-size: 13px; margin-top: 10px; }
+.sol-success { color: #059669; font-weight: 700; font-size: 13px; margin-top: 10px; }
+.test-solutions { display: none; margin-top: 24px; }
+.test-solutions.unlocked { display: block; }
+.test-sol-item {
+  background: #f0fdf4;
+  border-left: 4px solid #22c55e;
+  border-radius: 0 12px 12px 0;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+}
+.test-sol-item .sol-num { font-weight: 800; color: #166534; font-size: 14px; }
+.test-sol-item .sol-body { font-size: 13px; color: #374151; margin-top: 6px; line-height: 1.8; }
+.test-sol-item .sol-body strong { color: #16a34a; }
+
+/* ============= CONFETTI ============= */
+.confetti-piece {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  z-index: 999;
+  pointer-events: none;
+  animation: confettiFall 3s ease-out forwards;
+}
+@keyframes confettiFall {
+  0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+}
+
+/* ============= FOOTER ============= */
+footer {
+  background: linear-gradient(135deg, #14532d 0%, #1a2e1a 100%);
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 13px;
+  margin-top: 0;
+}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 24px; }
+  .hero-meta { gap: 10px; }
+  .hero-meta span { font-size: 12px; padding: 5px 12px; }
+  .test-header h2 { font-size: 18px; }
+  .test-header .test-meta { gap: 12px; }
+  .test-body { padding: 18px 14px; }
+  .sol-code-input { width: 160px; font-size: 14px; }
+  .sol-unlock-btn { margin-left: 0; margin-top: 10px; display: block; width: 160px; margin-left: auto; margin-right: auto; }
+  .sol-lock-overlay > div { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+}
+
+/* ============= PRINT STYLES ============= */
+@media print {
+  .top-nav, .print-bar, .pdf-note, .sol-lock-overlay, footer, .dm-toggle { display: none !important; }
+  .hero { padding: 20px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: white !important; }
+  .container { padding: 0; max-width: 100%; }
+  .test-paper { border: 1px solid #333; border-radius: 0; }
+  .test-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 16px; }
+  .test-q { page-break-inside: avoid; }
+  .test-sol-item { page-break-inside: avoid; }
+  .test-solutions.unlocked { display: block !important; }
+  .test-solutions { page-break-before: always; }
+  .watermark { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='200'%3E%3Ctext x='210' y='110' text-anchor='middle' font-family='sans-serif' font-size='26' font-weight='bold' fill='rgba(0,0,0,0.06)' transform='rotate(-30,210,110)'%3EPreeti Kushwah Classes%3C/text%3E%3C/svg%3E") !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<div class="top-nav">
+  <a href="parallel-intersecting-lines.html" class="nav-link tn-home">&#8592; Back to Chapter</a>
+  <span class="nav-spacer"></span>
+  <span class="nav-title">Test Paper <small>Ch 5 &bull; Set 3</small></span>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-icon">&#128220;</div>
+  <h1>Chapter Test Paper</h1>
+  <div class="hero-sub">Class 7 Mathematics &#8212; Chapter 5: Parallel &amp; Intersecting Lines</div>
+  <div class="hero-chapter">NCERT Ganita Prakash 2024 &#8212; Preeti Kushwah Classes</div>
+  <div class="hero-meta">
+    <span>&#128203; Total Marks: 40</span>
+    <span>&#9200; Time: 1&#189; Hours</span>
+    <span>&#11088; Set 3 &#8212; Advanced</span>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTAINER ===== -->
+<div class="container">
+
+  <!-- Print / PDF Buttons -->
+  <div class="print-bar">
+    <button class="print-btn" onclick="window.print()">&#128424; Print Test Paper</button>
+    <button class="share-sol-btn" onclick="shareSolutions()">&#128228; Share Solutions PDF</button>
+  </div>
+  <div class="pdf-note">&#128161; Print paper or share solutions as PDF via WhatsApp to students.</div>
+
+  <!-- ===== TEST PAPER ===== -->
+  <div class="test-paper">
+    <div class="watermark"></div>
+    <div class="test-header">
+      <h2>CHAPTER 5 &#8212; PARALLEL &amp; INTERSECTING LINES</h2>
+      <p>Class VII Mathematics &#8212; NCERT Ganita Prakash 2024</p>
+      <p>Preeti Kushwah Classes &#8212; Unit Test &nbsp;|&nbsp; Set 3 &#8212; Advanced (Reasoning)</p>
+      <div class="test-meta">
+        <span>Total Marks: 40</span>
+        <span>Time: 1&#189; Hours</span>
+      </div>
+    </div>
+
+    <div class="test-body">
+
+      <div class="test-instructions">
+        <strong>General Instructions:</strong><br>
+        1. All questions are compulsory. One optional Bonus question (2 marks) at the end.<br>
+        2. Section A: 6 questions &#215; 1 mark = 6 marks.<br>
+        3. Section B: 5 questions &#215; 2 marks = 10 marks.<br>
+        4. Section C: 4 questions &#215; 3 marks = 12 marks.<br>
+        5. Section D: 2 questions &#215; 5 marks = 10 marks.<br>
+        6. Show all steps and state the angle property used for every calculation.<br>
+        7. Use correct notation: &#8736; for angle, &#8741; for parallel, &#8869; for perpendicular.
+      </div>
+
+      <!-- ===== SECTION A ===== -->
+      <div class="test-section-title">Section A &#8212; (1 Mark Each) [6 &#215; 1 = 6]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q1.</span><span class="q-marks">1</span>
+        <div class="q-text">One angle of a linear pair is twice the other. Find both angles.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q2.</span><span class="q-marks">1</span>
+        <div class="q-text">A transversal cuts two <em>non-parallel</em> lines at two points. At most, how many distinct angle values can appear among the 8 angles formed? (Hint: think about what happens at each intersection due to VOA.)</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q3.</span><span class="q-marks">1</span>
+        <div class="q-text">Write the meaning of: <em>line p</em> &#8869; <em>line q</em>. State the measure of the angle they form.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q4.</span><span class="q-marks">1</span>
+        <div class="q-text">If alternate interior angles formed by a transversal on two lines are <strong>not equal</strong>, what can you conclude about the two lines?</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q5.</span><span class="q-marks">1</span>
+        <div class="q-text">Angles that are at the same relative position at each of two intersections made by a transversal are called _______ angles.</div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q6.</span><span class="q-marks">1</span>
+        <div class="q-text">A transversal cuts two lines forming co-interior angles of 82&#176; and 98&#176;. Are the two lines parallel? Give your reason in one sentence.</div>
+      </div>
+
+      <!-- ===== SECTION B ===== -->
+      <div class="test-section-title">Section B &#8212; (2 Marks Each) [5 &#215; 2 = 10]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q7.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          Two lines intersect at O. Among the four angles formed, &#8736;1 = (5<em>x</em> &#8722; 10)&#176; and &#8736;3 = (3<em>x</em> + 20)&#176; are vertically opposite angles.<br>
+          (a) Find the value of <em>x</em>.<br>
+          (b) Find the measure of &#8736;1. Name the property used.
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q8.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          Lines <em>l</em> &#8741; <em>m</em>. A transversal <em>t</em> cuts them. At the upper intersection P, &#8736;1 = 110&#176; (upper-left, exterior angle).<br>
+          Using the <em>linear pair property</em> and then the <em>alternate interior angle property</em>, find the alternate interior angle at the lower intersection Q. Show each step clearly.
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q9.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          Lines <em>l</em> &#8741; <em>m</em>. A transversal forms corresponding angles of (4<em>y</em> &#8722; 10)&#176; and (2<em>y</em> + 30)&#176; at the two intersections.<br>
+          (a) Find <em>y</em>.<br>
+          (b) Find both corresponding angles and verify they are equal.
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q10.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          Lines <em>l</em> &#8741; <em>m</em>. A transversal cuts them. The interior angle at the upper intersection P = (2<em>x</em> + 35)&#176;. Its co-interior angle at the lower intersection Q = (4<em>x</em> &#8722; 5)&#176;.<br>
+          (a) Find <em>x</em>.<br>
+          (b) Find both co-interior angles and verify they sum to 180&#176;.
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q11.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          <strong>Prove:</strong> If a transversal cuts two lines such that the corresponding angles are equal, then the alternate interior angles are also equal.<br>
+          <em>Hint: Use the vertically opposite angle property and the given corresponding angle condition.</em>
+        </div>
+      </div>
+
+      <!-- ===== SECTION C ===== -->
+      <div class="test-section-title">Section C &#8212; (3 Marks Each) [4 &#215; 3 = 12]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q12.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          Lines <em>l</em> &#8741; <em>m</em>. A transversal cuts <em>l</em> at P and <em>m</em> at Q. At P, &#8736;1 = (3<em>x</em> + 5)&#176;. The corresponding angle &#8736;5 at Q = (5<em>x</em> &#8722; 25)&#176;.<br>
+          (a) Find the value of <em>x</em>. [1 mark]<br>
+          (b) Find the measure of &#8736;1. [&#189; mark]<br>
+          (c) Find all four angles at P (&#8736;1, &#8736;2, &#8736;3, &#8736;4). State the property used for each. [1&#189; marks]
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q13.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          Three parallel lines <em>a</em> &#8741; <em>b</em> &#8741; <em>c</em> are all cut by the same transversal. The transversal makes an angle of 70&#176; with line <em>a</em> at the upper-left position.<br>
+          (a) Find the angle at the corresponding position with line <em>b</em>. State the property used. [1 mark]<br>
+          (b) Find the angle at the corresponding position with line <em>c</em>. State the property used. [1 mark]<br>
+          (c) Find the co-interior angle between lines <em>a</em> and <em>b</em> on the same side as the 70&#176; angle. [1 mark]
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q14.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          Lines PQ and RS intersect at O. &#8736;POR = (2<em>x</em> + 15)&#176; and &#8736;POS = (3<em>x</em> &#8722; 5)&#176;.<br>
+          (a) &#8736;POR and &#8736;POS form a linear pair. Write the equation and find <em>x</em>. [1&#189; marks]<br>
+          (b) Find all four angles at O. Name the property used for each. [1&#189; marks]
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q15.</span><span class="q-marks">3</span>
+        <div class="q-text">
+          <strong>Prove:</strong> When a transversal cuts two parallel lines, the co-interior angles (same-side interior angles) are supplementary (sum = 180&#176;).<br>
+          <em>Hint: Let &#8736;1 be an exterior angle at P and &#8736;4, &#8736;5 be the co-interior pair. Use: (i) corresponding angles property, (ii) linear pair property.</em>
+        </div>
+      </div>
+
+      <!-- ===== SECTION D ===== -->
+      <div class="test-section-title">Section D &#8212; (5 Marks Each) [2 &#215; 5 = 10]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q16.</span><span class="q-marks">5</span>
+        <div class="q-text">
+          Lines <em>l</em> &#8741; <em>m</em>. A transversal <em>t</em> cuts <em>l</em> at A and <em>m</em> at B. At A, &#8736;1 = (3<em>x</em> + 22)&#176; and &#8736;2 = (5<em>x</em> &#8722; 10)&#176; form a linear pair (&#8736;1 is upper-left, &#8736;2 is upper-right).<br><br>
+          (a) Use the linear pair property to find <em>x</em>. [1 mark]<br>
+          (b) Find all four angles at A (&#8736;1, &#8736;2, &#8736;3, &#8736;4). [1 mark]<br>
+          (c) Find all four angles at B (&#8736;5, &#8736;6, &#8736;7, &#8736;8). Use all three properties: corresponding angles, alternate interior angles, and co-interior angles &#8212; state which property gives which angle. [2 marks]<br>
+          (d) Verify: the co-interior angles on the <em>left</em> side of the transversal sum to 180&#176;. [1 mark]
+        </div>
+      </div>
+
+      <div class="test-q">
+        <span class="q-num">Q17.</span><span class="q-marks">5</span>
+        <div class="q-text">
+          (a) A surveyor is mapping two parallel boundary lines crossed by a path. The path makes angles of (2<em>y</em> + 12)&#176; and (4<em>y</em> &#8722; 8)&#176; at corresponding positions with the two boundary lines. Find <em>y</em> and the actual angle the path makes. <em>[2 marks]</em><br><br>
+          (b) A diagonal road crosses two parallel streets at points P (upper street) and Q (lower street). The interior angle of the road with the upper street at P = 62&#176;.<br>
+          &nbsp;&nbsp;(i) Find the other interior angle at P. <em>[&#189; mark]</em><br>
+          &nbsp;&nbsp;(ii) Find both interior angles at Q using alternate interior angles and co-interior angles. State the property used for each. <em>[1&#189; marks]</em><br><br>
+          (c) Draw a rough figure showing a transversal <em>t</em> crossing two parallel lines <em>l</em> and <em>m</em>. Label all 8 angles (&#8736;1 to &#8736;8). Circle one pair of alternate interior angles and put a box around one pair of co-interior angles. <em>[1 mark]</em>
+        </div>
+      </div>
+
+      <!-- ===== BONUS ===== -->
+      <div class="test-section-title">Bonus Question (Optional) [2 Marks]</div>
+
+      <div class="test-q">
+        <span class="q-num">Q18.</span><span class="q-marks">2</span>
+        <div class="q-text">
+          &#9733; A transversal cuts two lines forming co-interior angles of (2<em>x</em> + 10)&#176; and (3<em>x</em> &#8722; 20)&#176;. For what value of <em>x</em> will the two lines be parallel? Find both angles and verify your answer.
+        </div>
+      </div>
+
+    </div><!-- end test-body -->
+    <div class="qr-strip">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://www.preetikushwahclasses.com/" alt="QR Code">
+      <div class="qr-text">
+        <strong>Preeti Kushwah Classes</strong><br>
+        Scan for more notes &amp; papers<br>
+        www.preetikushwahclasses.com
+      </div>
+    </div>
+  </div><!-- end test-paper -->
+
+  <!-- ===== SOLUTION UNLOCK ===== -->
+  <div class="sol-lock-overlay" id="testSolLock">
+    <h3>&#128274; Solutions are Locked</h3>
+    <p>Enter the access code provided by your teacher to view solutions with explanations.</p>
+    <div>
+      <input type="password" class="sol-code-input" id="testSolCode" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" maxlength="10" autocomplete="off" onkeydown="if(event.key==='Enter')unlockTestSol()">
+      <button class="sol-unlock-btn" onclick="unlockTestSol()">Unlock</button>
+    </div>
+    <div id="testSolMsg"></div>
+  </div>
+
+  <!-- ===== SOLUTIONS ===== -->
+  <div class="test-solutions" id="testSolBlock">
+
+    <div class="test-section-title" style="color:#166534; border-color:#bbf7d0;">Answer Key &amp; Detailed Solutions &#8212; Set 3</div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q1. [1 Mark]</div>
+      <div class="sol-body">
+        Let the smaller angle = <em>y</em>&#176;. The other angle = 2<em>y</em>&#176;.<br>
+        Linear pair: <em>y</em> + 2<em>y</em> = 180&#176; &#8594; 3<em>y</em> = 180&#176; &#8594; <em>y</em> = 60&#176;<br>
+        <strong>Angles: 60&#176; and 120&#176;.</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q2. [1 Mark]</div>
+      <div class="sol-body">
+        At each intersection, VOA gives 2 pairs &#8594; only 2 distinct values per intersection.<br>
+        With two non-parallel lines, the two intersections can have different angle measures.<br>
+        <strong>Maximum distinct values = 4</strong> (2 distinct values at each of 2 intersections, all four different).
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q3. [1 Mark]</div>
+      <div class="sol-body">
+        <em>p</em> &#8869; <em>q</em> means line <em>p</em> is <strong>perpendicular</strong> to line <em>q</em>.<br>
+        They meet at a right angle: each of the four angles = <strong>90&#176;</strong>.
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q4. [1 Mark]</div>
+      <div class="sol-body">
+        If alternate interior angles are not equal, the two lines are <strong>not parallel</strong>.<br>
+        <em>(The converse of the alternate interior angle property: equal alt. interior &#8660; parallel lines.)</em>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q5. [1 Mark]</div>
+      <div class="sol-body">
+        Angles at the same relative position at each intersection are called <strong>corresponding</strong> angles.
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q6. [1 Mark]</div>
+      <div class="sol-body">
+        82&#176; + 98&#176; = <strong>180&#176;</strong>.<br>
+        <strong>Yes, the lines are parallel</strong> because co-interior angles sum to 180&#176; iff the lines are parallel.
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q7. [2 Marks]</div>
+      <div class="sol-body">
+        <strong>Property used: Vertically Opposite Angles are equal.</strong><br><br>
+        &#8736;1 = &#8736;3 &#8594; 5<em>x</em> &#8722; 10 = 3<em>x</em> + 20<br>
+        5<em>x</em> &#8722; 3<em>x</em> = 20 + 10<br>
+        2<em>x</em> = 30<br>
+        <strong><em>x</em> = 15</strong> [1 mark]<br><br>
+        &#8736;1 = 5(15) &#8722; 10 = 75 &#8722; 10 = <strong>65&#176;</strong> [1 mark]<br>
+        <em>Verification: &#8736;3 = 3(15) + 20 = 65&#176; &#10003;</em>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q8. [2 Marks]</div>
+      <div class="sol-body">
+        Given: <em>l</em> &#8741; <em>m</em>, &#8736;1 = 110&#176; (upper-left exterior at P).<br><br>
+        <strong>Step 1 &#8212; Linear Pair at P:</strong><br>
+        &#8736;4 (lower-left interior at P) + &#8736;1 = 180&#176; (angles on a straight line)<br>
+        &#8736;4 = 180&#176; &#8722; 110&#176; = <strong>70&#176;</strong> [1 mark]<br><br>
+        <strong>Step 2 &#8212; Alternate Interior Angles (<em>l</em> &#8741; <em>m</em>):</strong><br>
+        &#8736;4 (lower-left interior at P) and &#8736;6 (upper-right interior at Q) are alternate interior angles.<br>
+        &#8736;6 = &#8736;4 = <strong>70&#176;</strong> [1 mark]<br><br>
+        <em>The alternate interior angle at Q = 70&#176;.</em>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q9. [2 Marks]</div>
+      <div class="sol-body">
+        <strong>Property: Corresponding angles are equal when lines are parallel.</strong><br><br>
+        4<em>y</em> &#8722; 10 = 2<em>y</em> + 30<br>
+        4<em>y</em> &#8722; 2<em>y</em> = 30 + 10<br>
+        2<em>y</em> = 40<br>
+        <strong><em>y</em> = 20</strong> [1 mark]<br><br>
+        First angle = 4(20) &#8722; 10 = <strong>70&#176;</strong><br>
+        Second angle = 2(20) + 30 = <strong>70&#176;</strong><br>
+        <strong>Verification: 70&#176; = 70&#176; &#10003;</strong> [1 mark]
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q10. [2 Marks]</div>
+      <div class="sol-body">
+        <strong>Property: Co-interior angles on parallel lines are supplementary (sum = 180&#176;).</strong><br><br>
+        (2<em>x</em> + 35) + (4<em>x</em> &#8722; 5) = 180&#176;<br>
+        6<em>x</em> + 30 = 180&#176;<br>
+        6<em>x</em> = 150&#176;<br>
+        <strong><em>x</em> = 25</strong> [1 mark]<br><br>
+        First angle = 2(25) + 35 = <strong>85&#176;</strong><br>
+        Second angle = 4(25) &#8722; 5 = <strong>95&#176;</strong><br>
+        <strong>Verification: 85&#176; + 95&#176; = 180&#176; &#10003;</strong> [1 mark]
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q11. [2 Marks]</div>
+      <div class="sol-body">
+        <strong>Given:</strong> Transversal cuts two lines. Corresponding angles are equal: &#8736;1 = &#8736;5 (where &#8736;1 is upper-left at P and &#8736;5 is upper-left at Q). [Setup: &#189; mark]<br><br>
+        <strong>To prove:</strong> Alternate interior angles are equal (&#8736;3 = &#8736;5, where &#8736;3 is lower-right interior at P and &#8736;5 is upper-left interior at Q).<br><br>
+        <strong>Proof:</strong><br>
+        Step 1: &#8736;3 = &#8736;1 &nbsp;&nbsp; [Vertically Opposite Angles at P] &nbsp;&nbsp; &#8230;(i) [&#189; mark]<br>
+        Step 2: &#8736;1 = &#8736;5 &nbsp;&nbsp; [Corresponding Angles, given] &nbsp;&nbsp; &#8230;(ii)<br>
+        From (i) and (ii): &#8736;3 = &#8736;5 [1 mark]<br>
+        &#8756; <strong>Alternate interior angles are equal. &#9632;</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q12. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) Finding <em>x</em>:</strong> [1 mark]<br>
+        Since <em>l</em> &#8741; <em>m</em>, corresponding angles &#8736;1 = &#8736;5:<br>
+        3<em>x</em> + 5 = 5<em>x</em> &#8722; 25<br>
+        30 = 2<em>x</em><br>
+        <strong><em>x</em> = 15</strong><br><br>
+        <strong>(b) &#8736;1 = 3(15) + 5 = 50&#176;</strong> [&#189; mark]<br><br>
+        <strong>(c) All four angles at P:</strong> [1&#189; marks]<br>
+        &#8736;1 = <strong>50&#176;</strong> (given)<br>
+        &#8736;3 = <strong>50&#176;</strong> &#8212; Vertically Opposite to &#8736;1 [&#189; mark]<br>
+        &#8736;2 = <strong>130&#176;</strong> &#8212; Linear Pair with &#8736;1: 180&#176; &#8722; 50&#176; = 130&#176; [&#189; mark]<br>
+        &#8736;4 = <strong>130&#176;</strong> &#8212; Vertically Opposite to &#8736;2 [&#189; mark]
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q13. [3 Marks]</div>
+      <div class="sol-body">
+        Transversal makes 70&#176; (upper-left) with line <em>a</em>.<br><br>
+        <strong>(a) Angle at corresponding position with <em>b</em>:</strong> [1 mark]<br>
+        Since <em>a</em> &#8741; <em>b</em>, corresponding angles are equal.<br>
+        <strong>Angle = 70&#176;</strong><br><br>
+        <strong>(b) Angle at corresponding position with <em>c</em>:</strong> [1 mark]<br>
+        Since <em>b</em> &#8741; <em>c</em> (and therefore <em>a</em> &#8741; <em>c</em>), corresponding angles are equal.<br>
+        <strong>Angle = 70&#176;</strong><br><br>
+        <strong>(c) Co-interior angle between <em>a</em> and <em>b</em>:</strong> [1 mark]<br>
+        Co-interior angles on the same side of the transversal are supplementary (since <em>a</em> &#8741; <em>b</em>).<br>
+        Co-interior angle = 180&#176; &#8722; 70&#176; = <strong>110&#176;</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q14. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) Equation and value of <em>x</em>:</strong> [1&#189; marks]<br>
+        &#8736;POR and &#8736;POS are a linear pair (they lie on straight line RS at O):<br>
+        &#8736;POR + &#8736;POS = 180&#176;<br>
+        (2<em>x</em> + 15) + (3<em>x</em> &#8722; 5) = 180&#176;<br>
+        5<em>x</em> + 10 = 180&#176;<br>
+        5<em>x</em> = 170&#176;<br>
+        <strong><em>x</em> = 34</strong><br><br>
+        <strong>(b) All four angles at O:</strong> [1&#189; marks]<br>
+        &#8736;POR = 2(34) + 15 = 68 + 15 = <strong>83&#176;</strong><br>
+        &#8736;POS = 3(34) &#8722; 5 = 102 &#8722; 5 = <strong>97&#176;</strong><br>
+        &#8736;QOS = <strong>83&#176;</strong> &#8212; Vertically Opposite Angles (&#8736;QOS = &#8736;POR)<br>
+        &#8736;QOR = <strong>97&#176;</strong> &#8212; Vertically Opposite Angles (&#8736;QOR = &#8736;POS)<br>
+        <em>Verification: 83&#176; + 97&#176; + 83&#176; + 97&#176; = 360&#176; &#10003;</em>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q15. [3 Marks]</div>
+      <div class="sol-body">
+        <strong>Given:</strong> Lines <em>l</em> &#8741; <em>m</em>. Transversal <em>t</em> meets <em>l</em> at P and <em>m</em> at Q.<br>
+        Label: &#8736;1 = upper-left at P (exterior); &#8736;4 = lower-left at P (interior); &#8736;5 = upper-left at Q (interior).<br>
+        &#8736;4 and &#8736;5 are co-interior angles (both on the left of the transversal).<br><br>
+        <strong>To prove:</strong> &#8736;4 + &#8736;5 = 180&#176;<br><br>
+        <strong>Proof:</strong><br>
+        Step 1: &#8736;1 = &#8736;5 &nbsp;&nbsp; [Corresponding Angles, <em>l</em> &#8741; <em>m</em>] &nbsp;&nbsp; &#8230;(i) &nbsp; [1 mark]<br>
+        Step 2: &#8736;1 + &#8736;4 = 180&#176; &nbsp;&nbsp; [Linear Pair on line <em>l</em> at P] &nbsp;&nbsp; &#8230;(ii) &nbsp; [1 mark]<br>
+        Step 3: Substitute (i) into (ii):<br>
+        &#8736;5 + &#8736;4 = 180&#176;<br>
+        &#8756; <strong>Co-interior angles &#8736;4 and &#8736;5 are supplementary. &#9632;</strong> [1 mark]
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q16. [5 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) Finding <em>x</em>:</strong> [1 mark]<br>
+        &#8736;1 + &#8736;2 = 180&#176; (Linear Pair on line <em>l</em>)<br>
+        (3<em>x</em> + 22) + (5<em>x</em> &#8722; 10) = 180&#176;<br>
+        8<em>x</em> + 12 = 180&#176;<br>
+        8<em>x</em> = 168&#176;<br>
+        <strong><em>x</em> = 21</strong><br><br>
+        <strong>(b) Angles at A:</strong> [1 mark]<br>
+        &#8736;1 = 3(21) + 22 = 63 + 22 = <strong>85&#176;</strong><br>
+        &#8736;2 = 5(21) &#8722; 10 = 105 &#8722; 10 = <strong>95&#176;</strong> &nbsp; (Check: 85 + 95 = 180&#176; &#10003;)<br>
+        &#8736;3 = <strong>85&#176;</strong> (VOA of &#8736;1) &nbsp; &#8736;4 = <strong>95&#176;</strong> (VOA of &#8736;2)<br><br>
+        <strong>(c) Angles at B:</strong> [2 marks]<br>
+        Using <em>Corresponding Angles</em> (<em>l</em> &#8741; <em>m</em>):<br>
+        &#8736;5 = <strong>85&#176;</strong> (corresponds to &#8736;1) [&#189; mark]<br>
+        &#8736;6 = <strong>95&#176;</strong> (corresponds to &#8736;2) [&#189; mark]<br>
+        Using <em>Alternate Interior Angles</em>: &#8736;7 = &#8736;3 = <strong>85&#176;</strong> [&#189; mark]<br>
+        Using <em>Co-interior Angles</em>: &#8736;8 = 180&#176; &#8722; &#8736;7 = <strong>95&#176;</strong> (or VOA of &#8736;6) [&#189; mark]<br><br>
+        <strong>(d) Verification &#8212; co-interior on left:</strong> [1 mark]<br>
+        Left co-interior pair: &#8736;4 (lower-left interior at A) and &#8736;5 (upper-left interior at B)<br>
+        &#8736;4 + &#8736;5 = 95&#176; + 85&#176; = <strong>180&#176; &#10003;</strong>
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q17. [5 Marks]</div>
+      <div class="sol-body">
+        <strong>(a) Surveyor problem:</strong> [2 marks]<br>
+        Corresponding angles are equal when lines are parallel:<br>
+        2<em>y</em> + 12 = 4<em>y</em> &#8722; 8<br>
+        20 = 2<em>y</em><br>
+        <strong><em>y</em> = 10</strong> [1 mark]<br>
+        Actual angle = 2(10) + 12 = <strong>32&#176;</strong> [1 mark]<br><br>
+        <strong>(b) Diagonal road:</strong><br>
+        (i) The other interior angle at P = 180&#176; &#8722; 62&#176; = <strong>118&#176;</strong> [&#189; mark]<br>
+        (Linear Pair on the upper street at P)<br><br>
+        (ii) Interior angles at Q: [1&#189; marks]<br>
+        <strong>Using Alternate Interior Angles:</strong> The interior angle on the same side of the road as 62&#176; (at P) &#8594; its alternate = <strong>62&#176;</strong> at Q.<br>
+        <strong>Using Co-interior Angles:</strong> Co-interior pair with 62&#176; at P &#8594; 180&#176; &#8722; 62&#176; = <strong>118&#176;</strong> at Q.<br>
+        Both interior angles at Q: 62&#176; and 118&#176;.<br><br>
+        <strong>(c) Figure description:</strong> [1 mark]<br>
+        Draw two horizontal parallel lines <em>l</em> (top) and <em>m</em> (bottom). Draw a diagonal line <em>t</em> cutting both. At the upper intersection (P) label &#8736;1 (upper-left), &#8736;2 (upper-right), &#8736;3 (lower-right interior), &#8736;4 (lower-left interior). At the lower intersection (Q) label &#8736;5 (upper-left interior), &#8736;6 (upper-right interior), &#8736;7 (lower-right), &#8736;8 (lower-left). Circle &#8736;3 &amp; &#8736;5 (alt. interior), box &#8736;4 &amp; &#8736;5 (co-interior).
+      </div>
+    </div>
+
+    <div class="test-sol-item">
+      <div class="sol-num">Q18. Bonus [2 Marks]</div>
+      <div class="sol-body">
+        <strong>Condition for parallel lines:</strong> Co-interior angles must sum to 180&#176;. [&#189; mark]<br><br>
+        (2<em>x</em> + 10) + (3<em>x</em> &#8722; 20) = 180&#176;<br>
+        5<em>x</em> &#8722; 10 = 180&#176;<br>
+        5<em>x</em> = 190&#176;<br>
+        <strong><em>x</em> = 38</strong> [&#189; mark]<br><br>
+        First angle = 2(38) + 10 = 76 + 10 = <strong>86&#176;</strong> [&#189; mark]<br>
+        Second angle = 3(38) &#8722; 20 = 114 &#8722; 20 = <strong>94&#176;</strong> [&#189; mark]<br><br>
+        <strong>Verification: 86&#176; + 94&#176; = 180&#176; &#10003;</strong><br>
+        The lines will be parallel when <em>x</em> = 38.
+      </div>
+    </div>
+
+  </div><!-- end test-solutions -->
+
+</div><!-- end container -->
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div>Preeti Kushwah Classes &middot; Quality Education for Every Student</div>
+  <div style="margin-top:6px;">&copy; 2026 Preeti Kushwah Classes</div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+function fireConfetti() {
+  var colors = ['#16a34a','#22c55e','#ec4899','#f97316','#fbbf24','#3b82f6','#86efac'];
+  for (var i = 0; i < 60; i++) {
+    var c = document.createElement('div');
+    c.className = 'confetti-piece';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.top = '-20px';
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.style.width = (6 + Math.random() * 10) + 'px';
+    c.style.height = (6 + Math.random() * 10) + 'px';
+    c.style.animationDelay = (Math.random() * 1.5) + 's';
+    c.style.animationDuration = (2 + Math.random() * 2) + 's';
+    document.body.appendChild(c);
+    (function(el) { setTimeout(function() { el.remove(); }, 5000); })(c);
+  }
+}
+
+function _h(s){var h=5381;for(var i=0;i<s.length;i++){h=((h<<5)+h)+s.charCodeAt(i);}return h>>>0;}
+function unlockTestSol() {
+  var code = document.getElementById('testSolCode').value.trim().toUpperCase();
+  var msg = document.getElementById('testSolMsg');
+  var validHashes = [3594616101,3225666297,3317573739,4201821354];
+  if (validHashes.indexOf(_h(code)) !== -1) {
+    document.getElementById('testSolBlock').classList.add('unlocked');
+    document.getElementById('testSolLock').style.display = 'none';
+    msg.className = 'sol-success';
+    msg.textContent = '';
+    fireConfetti();
+  } else {
+    msg.className = 'sol-error';
+    msg.textContent = 'Incorrect code. Ask your teacher for the access code.';
+    document.getElementById('testSolCode').value = '';
+    document.getElementById('testSolCode').focus();
+  }
+}
+</script>
+
+<script>
+function shareSolutions() {
+  var sol = document.getElementById('testSolBlock');
+  if (!sol.classList.contains('unlocked')) {
+    var code = prompt('Enter access code to unlock solutions first:');
+    if (!code) return;
+    code = code.trim().toUpperCase();
+    if ([3594616101,3225666297,3317573739,4201821354].indexOf(_h(code)) === -1) { alert('Incorrect code.'); return; }
+    sol.classList.add('unlocked');
+    document.getElementById('testSolLock').style.display = 'none';
+  }
+  var win = window.open('', '_blank');
+  win.document.write('<!DOCTYPE html><html><head><title>Solutions - Ch 5 Set 3 - Preeti Kushwah Classes</title>');
+  win.document.write('<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">');
+  win.document.write('<style>*{box-sizing:border-box;margin:0;padding:0;}body{font-family:"Nunito",sans-serif;padding:30px 24px;color:#1a2e1a;line-height:1.7;}');
+  win.document.write('.sol-header{text-align:center;margin-bottom:24px;padding-bottom:16px;border-bottom:3px solid #16a34a;}');
+  win.document.write('.sol-header h1{font-family:"Fredoka One",cursive;font-size:22px;color:#166534;}');
+  win.document.write('.sol-header p{font-size:13px;color:#6b7280;margin-top:4px;}');
+  win.document.write('.test-sol-item{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 12px 12px 0;padding:14px 18px;margin-bottom:14px;page-break-inside:avoid;}');
+  win.document.write('.test-sol-item .sol-num{font-weight:800;color:#166534;font-size:14px;}');
+  win.document.write('.test-sol-item .sol-body{font-size:13px;color:#374151;margin-top:6px;line-height:1.8;}');
+  win.document.write('.test-sol-item .sol-body strong{color:#16a34a;}');
+  win.document.write('.qr-footer{text-align:center;margin-top:30px;padding-top:16px;border-top:2px solid #e5e7eb;}');
+  win.document.write('.qr-footer img{width:80px;height:80px;}');
+  win.document.write('.qr-footer p{font-size:11px;color:#6b7280;font-weight:700;margin-top:6px;}');
+  win.document.write('@media print{body{padding:16px;}}');
+  win.document.write('</style></head><body>');
+  win.document.write('<div class="sol-header"><h1>Answer Key &amp; Solutions</h1>');
+  win.document.write('<p>Chapter 5: Parallel &amp; Intersecting Lines &mdash; Set 3 (Advanced) &mdash; Preeti Kushwah Classes</p></div>');
+  win.document.write(sol.innerHTML);
+  win.document.write('<div class="qr-footer"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.preetikushwahclasses.com/" alt="QR"><p>www.preetikushwahclasses.com</p></div>');
+  win.document.write('</body></html>');
+  win.document.close();
+  setTimeout(function() { win.print(); }, 600);
+}
+</script>
+<script src="../../dark-mode.js"></script>
+<script src="../../back-to-top.js"></script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Class 7 Maths Ch 5: Parallel and Intersecting Lines — intersecting, perpendicular, parallel lines, transversals, corresponding & alternate angles. NCERT Ganita Prakash interactive notes.">
+<meta name="keywords" content="Preeti Kushwah Classes, NCERT notes, Class 7 Maths, Parallel Lines, Intersecting Lines, Transversal, Corresponding Angles, Alternate Angles, Perpendicular Lines, Vertically Opposite Angles">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.preetikushwahclasses.com/class-7/maths/parallel-intersecting-lines.html">
+<meta property="og:title" content="Ch 5: Parallel and Intersecting Lines — Class 7 Maths Notes">
+<meta property="og:description" content="Interactive NCERT notes — transversals, corresponding angles, alternate angles with animations.">
+<meta property="og:type" content="article">
+<script>if(localStorage.getItem('pkc-dark-mode')==='true')document.documentElement.setAttribute('data-theme','dark')</script>
+<title>Ch 5: Parallel &amp; Intersecting Lines — Class 7 Maths | Preeti Kushwah Classes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-dark:#14532d; --green:#16a34a; --green-mid:#22c55e; --green-light:#86efac;
+  --green-pale:#f0fdf4; --green-bg:#f0fdf4;
+  --blue:#3b82f6; --blue-pale:#eff6ff;
+  --purple:#7c3aed; --purple-pale:#faf5ff;
+  --orange:#f97316; --orange-pale:#fff7ed;
+  --yellow:#fbbf24; --yellow-pale:#fefce8;
+  --red:#ef4444; --red-pale:#fef2f2;
+  --text:#1a2e1a; --card:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:#f0fdf4;color:var(--text);overflow-x:hidden;line-height:1.6}
+
+/* NAV */
+.top-nav{background:white;padding:10px 16px;display:flex;align-items:center;gap:8px;box-shadow:0 1px 4px rgba(0,0,0,.08);flex-wrap:wrap;position:sticky;top:0;z-index:110}
+.nav-link{display:inline-block;background:#dcfce7;color:#166534;text-decoration:none;padding:6px 14px;border-radius:18px;font-size:13px;font-weight:700;border:1.5px solid #86efac;transition:all .2s;cursor:pointer;font-family:'Nunito',sans-serif}
+.nav-link:hover{background:#bbf7d0;transform:translateY(-1px)}
+.nav-spacer{flex:1}
+.share-btn{background:#eff6ff;color:#1e40af;border-color:#bfdbfe}
+.toc-bar{background:linear-gradient(135deg,#16a34a,#4ade80);padding:12px 16px;position:sticky;top:44px;z-index:100;box-shadow:0 2px 10px rgba(22,163,74,.3);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+.toc-bar a{display:inline-block;background:rgba(255,255,255,.18);color:white;text-decoration:none;padding:6px 14px;border-radius:18px;font-size:13px;font-weight:700;margin-right:6px;transition:all .2s}
+.toc-bar a:hover{background:rgba(255,255,255,.38);transform:translateY(-2px)}
+
+/* PROGRESS */
+.prog-bar{position:sticky;top:88px;z-index:99;height:4px;background:#e5e7eb}
+.prog-fill{height:100%;background:linear-gradient(90deg,#16a34a,#4ade80);width:0;transition:width .1s}
+
+/* HERO */
+.hero{background:linear-gradient(180deg,#14532d 0%,#16a34a 40%,#4ade80 70%,#dcfce7 100%);position:relative;overflow:hidden;min-height:380px;padding-bottom:30px}
+.hero-content{position:relative;z-index:10;text-align:center;padding:36px 16px 0}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.25);border:2px solid rgba(255,255,255,.5);border-radius:30px;padding:5px 18px;font-size:11px;font-weight:800;letter-spacing:2px;color:white;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(26px,6vw,52px);color:white;text-shadow:0 3px 12px rgba(0,0,0,.2);margin-bottom:6px;line-height:1.1}
+.hero p{color:white;font-size:15px;font-weight:700;opacity:.9;margin-bottom:16px}
+.hero-pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.hero-pill{background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.4);border-radius:30px;padding:8px 20px;color:white;font-family:'Fredoka One',cursive;font-size:14px}
+
+/* ANIMATED SVG HERO */
+.hero-svg-wrap{position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:.3}
+
+/* CONTAINER */
+.container{max-width:960px;margin:0 auto;padding:32px 16px 60px}
+
+/* SECTION BLOCKS */
+.section-block{background:white;border-radius:22px;box-shadow:0 4px 24px rgba(0,0,0,.07);margin-bottom:32px;overflow:hidden;scroll-margin-top:100px}
+.section-hd{padding:20px 26px;display:flex;align-items:center;gap:14px;color:white;font-family:'Fredoka One',cursive;font-size:22px;line-height:1.2}
+.section-hd .icon{font-size:30px}
+.section-bd{padding:24px 26px}
+.g-green{background:linear-gradient(135deg,#14532d,#22c55e)}
+.g-teal{background:linear-gradient(135deg,#134e4a,#2dd4bf)}
+.g-blue{background:linear-gradient(135deg,#1e40af,#38bdf8)}
+.g-purple{background:linear-gradient(135deg,#5b21b6,#a78bfa)}
+.g-orange{background:linear-gradient(135deg,#9a3412,#fb923c)}
+.g-rose{background:linear-gradient(135deg,#881337,#fb7185)}
+.g-indigo{background:linear-gradient(135deg,#312e81,#818cf8)}
+.g-amber{background:linear-gradient(135deg,#78350f,#fbbf24)}
+
+.subtitle{font-family:'Fredoka One',cursive;color:#14532d;font-size:18px;margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+
+/* INFO CARDS */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:14px 0}
+.info-card{border-radius:14px;padding:14px 16px;font-size:14px}
+.info-card h4{font-weight:800;margin-bottom:6px;font-size:15px}
+.ic-green{background:#f0fdf4;border-left:5px solid #22c55e}
+.ic-blue{background:#eff6ff;border-left:5px solid #3b82f6}
+.ic-orange{background:#fff7ed;border-left:5px solid #fb923c}
+.ic-purple{background:#faf5ff;border-left:5px solid #a78bfa}
+.ic-yellow{background:#fefce8;border-left:5px solid #facc15}
+.ic-red{background:#fef2f2;border-left:5px solid #f87171}
+.ic-teal{background:#f0fdfa;border-left:5px solid #14b8a6}
+.ic-pink{background:#fdf2f8;border-left:5px solid #ec4899}
+
+/* KEY THEOREM BOX */
+.theorem-box{background:linear-gradient(135deg,#14532d,#166534);border-radius:16px;padding:18px 22px;margin:16px 0;color:white}
+.theorem-box .th-label{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#86efac;margin-bottom:6px}
+.theorem-box p{font-size:14px;font-weight:700;line-height:1.8;color:#dcfce7}
+
+/* ACTIVITY CARD */
+.activity-card{background:linear-gradient(135deg,#fefce8,#fef9c3);border:2px solid #fbbf24;border-radius:16px;padding:16px 20px;margin:16px 0}
+.activity-card .act-title{font-family:'Fredoka One',cursive;font-size:16px;color:#78350f;margin-bottom:8px}
+.activity-card p,.activity-card li{font-size:13.5px;color:#78350f;line-height:1.8;font-weight:700}
+.activity-card ul{padding-left:20px;margin-top:6px}
+
+/* EXAMPLE BOX */
+.example-box{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #86efac;border-radius:14px;padding:16px 20px;margin:16px 0;font-size:14px}
+.example-box .ex-title{font-family:'Fredoka One',cursive;color:#166534;font-size:16px;margin-bottom:8px}
+.example-box p,.example-box li{color:#14532d;font-weight:700;line-height:1.8}
+
+/* NOTE BOX */
+.note-box{background:#eff6ff;border-left:5px solid #3b82f6;border-radius:10px;padding:12px 16px;margin:14px 0;font-size:13.5px;font-weight:700;color:#1e3a8a;line-height:1.7}
+.trick{background:linear-gradient(135deg,#fef9c3,#fde68a);border:2px solid #f59e0b;border-radius:14px;padding:14px 18px;font-size:14px;margin:14px 0}
+.trick strong{color:#78350f}
+
+/* SVG DIAGRAMS */
+.svg-box{background:white;border:2px solid #dcfce7;border-radius:16px;padding:20px;margin:16px 0;text-align:center;overflow:hidden}
+.svg-box figcaption{font-size:12px;color:#6b7280;font-weight:700;margin-top:8px}
+svg text{font-family:'Nunito',sans-serif;font-weight:800}
+
+/* ANGLE CALCULATOR */
+.calc-box{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #86efac;border-radius:18px;padding:20px;margin:16px 0}
+.calc-box h3{font-family:'Fredoka One',cursive;color:#14532d;font-size:17px;margin-bottom:14px}
+.calc-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.calc-row label{font-size:14px;font-weight:800;color:#14532d;min-width:60px}
+.calc-row input{width:80px;padding:8px 12px;border:2px solid #86efac;border-radius:10px;font-size:16px;font-weight:800;font-family:'Fredoka One',cursive;text-align:center;outline:none;color:#14532d}
+.calc-row input:focus{border-color:#16a34a}
+.angle-results{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.angle-chip{border-radius:12px;padding:10px;text-align:center;transition:all .3s}
+.angle-chip .ang-name{font-size:12px;font-weight:800;margin-bottom:2px}
+.angle-chip .ang-val{font-family:'Fredoka One',cursive;font-size:22px}
+.a-green{background:#dcfce7;color:#14532d;border:2px solid #86efac}
+.a-blue{background:#dbeafe;color:#1e40af;border:2px solid #93c5fd}
+.a-orange{background:#ffedd5;color:#9a3412;border:2px solid #fdba74}
+.a-purple{background:#ede9fe;color:#5b21b6;border:2px solid #c4b5fd}
+
+/* TRANSVERSAL INTERACTIVE */
+.trans-box{background:white;border:2px solid #d1fae5;border-radius:18px;padding:20px;margin:16px 0}
+.trans-box h3{font-family:'Fredoka One',cursive;color:#14532d;font-size:17px;margin-bottom:10px}
+.ang-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+.ang-table th{background:linear-gradient(135deg,#16a34a,#4ade80);color:white;padding:8px 12px;text-align:left;font-weight:800}
+.ang-table td{padding:8px 12px;border-bottom:1px solid #dcfce7;font-weight:700}
+.ang-table tr:nth-child(even) td{background:#f0fdf4}
+.pair-label{display:inline-block;padding:2px 8px;border-radius:8px;font-size:11px;font-weight:800}
+.pl-corr{background:#dbeafe;color:#1e40af}
+.pl-alt{background:#fce7f3;color:#9d174d}
+.pl-voa{background:#fef9c3;color:#78350f}
+.pl-lp{background:#dcfce7;color:#14532d}
+
+/* PARALLEL ILLUSION */
+.illusion-wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin:16px 0}
+.illusion-box{background:white;border:2px solid #dcfce7;border-radius:14px;padding:16px;text-align:center}
+.illusion-box figcaption{font-size:12px;color:#6b7280;font-weight:700;margin-top:8px}
+
+/* SUMMARY */
+.summary-block{background:linear-gradient(135deg,#14532d,#166534);border-radius:20px;padding:24px;margin:8px 0}
+.summary-block h2{font-family:'Fredoka One',cursive;color:#fff;font-size:22px;margin-bottom:16px;text-align:center}
+.summ-item{background:rgba(255,255,255,.12);border-radius:12px;padding:12px 16px;margin-bottom:10px;font-size:13px;font-weight:700;color:#dcfce7;line-height:1.8;border-left:4px solid #86efac}
+.summ-item strong{color:#fff}
+
+/* MCQ */
+.mcq-section{max-width:960px;margin:0 auto;padding:0 16px 20px}
+.mcq-title{font-family:'Fredoka One',cursive;font-size:22px;color:#14532d;margin-bottom:16px;text-align:center}
+.mcq-card{background:white;border-radius:16px;box-shadow:0 3px 14px rgba(0,0,0,.07);padding:18px 20px;margin-bottom:12px;border-left:5px solid #22c55e}
+.mcq-q{font-size:14px;font-weight:800;color:#14532d;margin-bottom:10px}
+.mcq-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mcq-opt{background:#f0fdf4;border:2px solid #86efac;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;color:#166534;text-align:left}
+.mcq-opt:hover{background:#dcfce7;border-color:#4ade80}
+.mcq-opt.correct{background:#dcfce7;border-color:#16a34a;color:#14532d}
+.mcq-opt.wrong{background:#fee2e2;border-color:#f87171;color:#991b1b}
+.mcq-feedback{font-size:12px;font-weight:800;margin-top:8px;min-height:18px}
+.mcq-score{text-align:center;font-family:'Fredoka One',cursive;font-size:20px;color:#14532d;margin-top:16px;padding:16px;background:#dcfce7;border-radius:14px;display:none}
+.quiz-btn{background:linear-gradient(135deg,#16a34a,#22c55e);color:white;border:none;padding:12px 32px;border-radius:18px;font-family:'Fredoka One',cursive;font-size:16px;cursor:pointer;margin:12px auto;display:block;transition:all .2s}
+.quiz-btn:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(22,163,74,.4)}
+
+/* Q&A */
+.qa-section{max-width:960px;margin:0 auto;padding:0 16px 20px}
+.qa-section h3{font-family:'Fredoka One',cursive;font-size:22px;color:#14532d;margin-bottom:16px;text-align:center}
+.sq-badge{display:inline-block;padding:6px 18px;border-radius:20px;font-size:13px;font-weight:800;color:white;margin:10px 0 8px}
+.one{background:linear-gradient(135deg,#16a34a,#4ade80)}
+.two{background:linear-gradient(135deg,#2563eb,#38bdf8)}
+.three{background:linear-gradient(135deg,#7c3aed,#a78bfa)}
+.five{background:linear-gradient(135deg,#9a3412,#fb923c)}
+.sq-card{background:white;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.06);margin-bottom:10px;border-left:5px solid #22c55e;overflow:hidden}
+.sq-card details summary{padding:13px 18px;cursor:pointer;font-weight:800;font-size:13.5px;color:#14532d;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.sq-card details summary::-webkit-details-marker{display:none}
+.sq-card details summary::after{content:'▼';font-size:11px;color:#86efac;transition:transform .2s}
+.sq-card details[open] summary::after{transform:rotate(180deg)}
+.sq-ans{padding:0 18px 14px;font-size:13px;font-weight:700;color:#374151;line-height:1.8;border-top:1px solid #dcfce7}
+.sq-mark{font-size:11px;background:#dcfce7;color:#14532d;border-radius:8px;padding:2px 8px;margin-left:8px;font-weight:800}
+
+/* FOOTER */
+footer{text-align:center;padding:24px 16px;font-size:13px;color:#6b7280;font-weight:700;background:white;border-top:1px solid #dcfce7;margin-top:20px}
+footer a{color:#16a34a;text-decoration:none;font-weight:800}
+
+/* FADE IN */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* DARK MODE */
+[data-theme="dark"] body{background:#052e16;color:#d1fae5}
+[data-theme="dark"] .section-block,[data-theme="dark"] .sq-card,[data-theme="dark"] .mcq-card{background:#064e3b;border-color:#065f46}
+[data-theme="dark"] .top-nav{background:#064e3b}
+[data-theme="dark"] footer{background:#064e3b}
+
+@media(max-width:600px){
+  .angle-results{grid-template-columns:repeat(2,1fr)}
+  .mcq-opts{grid-template-columns:1fr}
+  .ang-table{font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <a class="nav-link" href="../index.html">🏠 Class 7</a>
+  <a class="nav-link" href="index.html">📐 Maths</a>
+  <span class="nav-spacer"></span>
+  <button class="nav-link" onclick="toggleDark()">🌙 Dark</button>
+  <button class="nav-link share-btn" onclick="sharePage()">🔗 Share</button>
+</nav>
+
+<!-- TOC -->
+<div class="toc-bar">
+  <a href="#intersecting">✂ Intersecting</a>
+  <a href="#perpendicular">⊥ Perpendicular</a>
+  <a href="#parallel">∥ Parallel</a>
+  <a href="#paperfolding">📄 Paper Folding</a>
+  <a href="#transversal">📏 Transversal</a>
+  <a href="#corresponding">↔ Corresponding</a>
+  <a href="#drawing">✏ Drawing</a>
+  <a href="#alternate">⇅ Alternate</a>
+  <a href="#summary">📌 Summary</a>
+  <a href="#mcq">🧪 MCQ</a>
+  <a href="#qa">📝 Q&amp;A</a>
+</div>
+
+<div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-svg-wrap">
+    <svg width="100%" height="100%" viewBox="0 0 800 380" preserveAspectRatio="xMidYMid slice">
+      <!-- Animated parallel lines -->
+      <line x1="0" y1="80" x2="800" y2="80" stroke="white" stroke-width="2">
+        <animate attributeName="stroke-dashoffset" from="0" to="-800" dur="12s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-dasharray" values="20 10;40 5;20 10" dur="4s" repeatCount="indefinite"/>
+      </line>
+      <line x1="0" y1="200" x2="800" y2="200" stroke="white" stroke-width="2">
+        <animate attributeName="stroke-dashoffset" from="-800" to="0" dur="12s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-dasharray" values="30 8;15 15;30 8" dur="5s" repeatCount="indefinite"/>
+      </line>
+      <line x1="0" y1="320" x2="800" y2="320" stroke="white" stroke-width="2">
+        <animate attributeName="stroke-dashoffset" from="0" to="-800" dur="10s" repeatCount="indefinite"/>
+      </line>
+      <!-- Transversal -->
+      <line x1="250" y1="0" x2="550" y2="380" stroke="rgba(255,255,255,0.8)" stroke-width="2.5">
+        <animate attributeName="x1" values="250;350;250" dur="8s" repeatCount="indefinite"/>
+        <animate attributeName="x2" values="550;650;550" dur="8s" repeatCount="indefinite"/>
+      </line>
+      <!-- Angle markers -->
+      <circle cx="350" cy="80" r="28" fill="none" stroke="rgba(255,220,100,0.6)" stroke-width="2">
+        <animate attributeName="r" values="28;34;28" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="450" cy="200" r="28" fill="none" stroke="rgba(255,220,100,0.6)" stroke-width="2">
+        <animate attributeName="r" values="28;34;28" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+      </circle>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">Class 7 · Ganita Prakash · Chapter 5</div>
+    <h1>Parallel &amp;<br>Intersecting Lines</h1>
+    <p>Intersecting · Perpendicular · Parallel · Transversals · Corresponding &amp; Alternate Angles</p>
+    <div class="hero-pills">
+      <div class="hero-pill">∠ Vertically Opposite</div>
+      <div class="hero-pill">∥ Parallel Lines</div>
+      <div class="hero-pill">t Transversal</div>
+      <div class="hero-pill">⊥ Perpendicular</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ══ SECTION 1: INTERSECTING LINES ══ -->
+<div class="section-block fade-in" id="intersecting">
+  <div class="section-hd g-green"><span class="icon">✂</span>5.1 Intersecting Lines</div>
+  <div class="section-bd">
+    <p style="font-size:14px;font-weight:700;color:#1a2e1a;line-height:1.8">Take a piece of square paper and fold it in different ways. Draw lines on the creases using a pencil and scale. You will notice different lines on the paper. Take any pair of lines and observe — do they meet? If not within the paper, would they meet if extended?</p>
+
+    <div class="theorem-box">
+      <div class="th-label">Definition</div>
+      <p>When a pair of lines meet each other at a point on a plane surface, we say that the lines <strong>intersect</strong> each other. The point where they meet is called the <strong>point of intersection</strong>.</p>
+    </div>
+
+    <div class="subtitle">📐 Angles Formed at Intersection</div>
+    <p style="font-size:14px;font-weight:700;color:#374151;line-height:1.8">When two lines intersect, they form <strong>four angles</strong>. These angles have special relationships:</p>
+
+    <!-- SVG: Intersecting Lines -->
+    <div class="svg-box">
+      <svg width="280" height="220" viewBox="0 0 280 220">
+        <defs>
+          <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0,8 3,0 6" fill="#374151"/>
+          </marker>
+        </defs>
+        <!-- line l (horizontal) -->
+        <line x1="20" y1="110" x2="260" y2="110" stroke="#1a2e1a" stroke-width="2.5" marker-end="url(#arr)"/>
+        <text x="250" y="105" font-size="13" fill="#1a2e1a">l</text>
+        <!-- line m (diagonal) -->
+        <line x1="60" y1="20" x2="220" y2="200" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arr)"/>
+        <text x="215" y="198" font-size="13" fill="#16a34a">m</text>
+        <!-- Point of intersection -->
+        <circle cx="140" cy="110" r="5" fill="#ef4444"/>
+        <!-- Angle arcs and labels -->
+        <path d="M 160 110 A 20 20 0 0 0 152 90" stroke="#22c55e" stroke-width="2" fill="rgba(34,197,94,.15)"/>
+        <text x="162" y="97" font-size="13" fill="#14532d" font-weight="900">a</text>
+        <path d="M 140 90 A 20 20 0 0 1 120 110" stroke="#3b82f6" stroke-width="2" fill="rgba(59,130,246,.15)"/>
+        <text x="112" y="97" font-size="13" fill="#1e40af" font-weight="900">b</text>
+        <path d="M 120 110 A 20 20 0 0 0 128 130" stroke="#22c55e" stroke-width="2" fill="rgba(34,197,94,.15)"/>
+        <text x="110" y="130" font-size="13" fill="#14532d" font-weight="900">c</text>
+        <path d="M 140 130 A 20 20 0 0 1 160 110" stroke="#3b82f6" stroke-width="2" fill="rgba(59,130,246,.15)"/>
+        <text x="155" y="130" font-size="13" fill="#1e40af" font-weight="900">d</text>
+        <!-- Labels explanation -->
+        <text x="10" y="195" font-size="11" fill="#16a34a" font-weight="800">∠a = ∠c (Vertically Opposite)</text>
+        <text x="10" y="210" font-size="11" fill="#3b82f6" font-weight="800">∠b = ∠d (Vertically Opposite)</text>
+      </svg>
+      <figcaption>Fig. 5.2 — Two intersecting lines forming four angles</figcaption>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card ic-green">
+        <h4>🔄 Vertically Opposite Angles</h4>
+        <p style="font-size:13px;font-weight:700;line-height:1.7">Opposite angles formed by two intersecting lines. <strong>Always equal.</strong><br>∠a = ∠c &nbsp;&nbsp; ∠b = ∠d</p>
+      </div>
+      <div class="info-card ic-blue">
+        <h4>📏 Linear Pair</h4>
+        <p style="font-size:13px;font-weight:700;line-height:1.7">Adjacent angles formed at intersection. <strong>Always add up to 180°.</strong><br>∠a + ∠b = 180° &nbsp;&nbsp; ∠b + ∠c = 180°</p>
+      </div>
+    </div>
+
+    <!-- Interactive Angle Calculator -->
+    <div class="calc-box">
+      <h3>🎛 Interactive Angle Calculator</h3>
+      <p style="font-size:13px;font-weight:700;color:#166534;margin-bottom:12px">Enter angle <strong>∠a</strong> and all other angles are calculated automatically!</p>
+      <div class="calc-row">
+        <label>∠a =</label>
+        <input type="number" id="angA" value="120" min="1" max="179" oninput="calcAngles()">
+        <span style="font-size:14px;font-weight:800;color:#14532d">°</span>
+      </div>
+      <div class="angle-results">
+        <div class="angle-chip a-green"><div class="ang-name">∠a</div><div class="ang-val" id="rA">120°</div></div>
+        <div class="angle-chip a-blue"><div class="ang-name">∠b = 180−a</div><div class="ang-val" id="rB">60°</div></div>
+        <div class="angle-chip a-green"><div class="ang-name">∠c = ∠a</div><div class="ang-val" id="rC">120°</div></div>
+        <div class="angle-chip a-blue"><div class="ang-name">∠d = ∠b</div><div class="ang-val" id="rD">60°</div></div>
+      </div>
+      <div id="calcSVG" style="margin-top:14px;text-align:center"></div>
+    </div>
+
+    <div class="activity-card">
+      <div class="act-title">📋 Activity 1 — Measure the Angles</div>
+      <ul>
+        <li>Draw two lines on a plain sheet so that they intersect.</li>
+        <li>Measure the four angles with a protractor.</li>
+        <li>Draw four such pairs of intersecting lines and measure the angles.</li>
+        <li>What patterns do you observe? Are vertically opposite angles always equal?</li>
+      </ul>
+    </div>
+
+    <div class="theorem-box">
+      <div class="th-label">Proof (Mathematical Reasoning)</div>
+      <p>Since straight angles measure 180°: <strong>∠a + ∠b = ∠a + ∠d = 180°</strong> → so ∠b = ∠d always.<br>
+      Similarly: <strong>∠b + ∠a = ∠b + ∠c = 180°</strong> → so ∠a = ∠c always.<br>
+      This reasoning without measurement is called a <strong>proof</strong> in mathematics.</p>
+    </div>
+
+    <div class="note-box">
+      📏 <strong>Measurements and Geometry:</strong> When you measure angles, they may not add up to exactly 180° due to (1) instrument errors from improper use of a protractor, and (2) the thickness of drawn lines — ideal geometric lines have NO thickness. Geometry works with ideal lines and uses <strong>reasoning, not measurement</strong>.
+    </div>
+
+    <!-- Figure it Out 5.3 -->
+    <div class="subtitle">🔍 Figure it Out — Fig. 5.3</div>
+    <div class="svg-box">
+      <svg width="300" height="240" viewBox="0 0 300 240">
+        <!-- Three lines through one point forming 6 angles -->
+        <line x1="20" y1="120" x2="280" y2="120" stroke="#1a2e1a" stroke-width="2" marker-end="url(#arr)"/>
+        <line x1="60" y1="20" x2="240" y2="220" stroke="#16a34a" stroke-width="2" marker-end="url(#arr)"/>
+        <line x1="240" y1="20" x2="60" y2="220" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr)"/>
+        <circle cx="150" cy="120" r="4" fill="#ef4444"/>
+        <text x="158" y="108" font-size="12" fill="#14532d" font-weight="900">a</text>
+        <text x="140" y="108" font-size="12" fill="#14532d" font-weight="900">b</text>
+        <text x="123" y="115" font-size="12" fill="#1e40af" font-weight="900">c</text>
+        <text x="123" y="130" font-size="12" fill="#1e40af" font-weight="900">d</text>
+        <text x="140" y="135" font-size="12" fill="#9a3412" font-weight="900">e</text>
+        <text x="158" y="135" font-size="12" fill="#9a3412" font-weight="900">f</text>
+        <text x="10" y="225" font-size="11" fill="#374151" font-weight="800">List all linear pairs and VOA pairs</text>
+      </svg>
+      <figcaption>Fig. 5.3 — Three lines through one point forming 6 angles<br>Linear pairs: (a,b), (b,c), (c,d), (d,e), (e,f), (f,a) &nbsp;|&nbsp; VOA: (a,d), (b,e), (c,f)</figcaption>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 2: PERPENDICULAR LINES ══ -->
+<div class="section-block fade-in" id="perpendicular">
+  <div class="section-hd g-teal"><span class="icon">⊥</span>5.2 Perpendicular Lines</div>
+  <div class="section-bd">
+    <p style="font-size:14px;font-weight:700;color:#374151;line-height:1.8">Can you draw a pair of intersecting lines such that all four angles are equal? If all four angles at an intersection are equal, each must measure <strong>180° ÷ 4 = 90°</strong>.</p>
+
+    <div class="theorem-box" style="background:linear-gradient(135deg,#134e4a,#0f766e)">
+      <div class="th-label">Definition</div>
+      <p><strong>Perpendicular lines</strong> are a pair of lines which intersect each other at <strong>right angles (90°)</strong>. All four angles formed are equal to 90°. We write l ⊥ m.</p>
+    </div>
+
+    <div class="svg-box">
+      <svg width="220" height="220" viewBox="0 0 220 220">
+        <line x1="20" y1="110" x2="200" y2="110" stroke="#1a2e1a" stroke-width="2.5"/>
+        <text x="10" y="106" font-size="13" fill="#1a2e1a">l</text>
+        <line x1="110" y1="20" x2="110" y2="200" stroke="#0f766e" stroke-width="2.5"/>
+        <text x="112" y="18" font-size="13" fill="#0f766e">m</text>
+        <!-- Right angle symbol -->
+        <rect x="110" y="96" width="14" height="14" fill="none" stroke="#ef4444" stroke-width="2"/>
+        <!-- 90° labels -->
+        <text x="120" y="100" font-size="11" fill="#14532d" font-weight="900">90°</text>
+        <text x="82" y="100" font-size="11" fill="#14532d" font-weight="900">90°</text>
+        <text x="120" y="130" font-size="11" fill="#14532d" font-weight="900">90°</text>
+        <text x="82" y="130" font-size="11" fill="#14532d" font-weight="900">90°</text>
+        <text x="55" y="210" font-size="12" fill="#0f766e" font-weight="900">l ⊥ m (l is perpendicular to m)</text>
+      </svg>
+      <figcaption>Fig. 5.4 — Perpendicular lines: all four angles = 90°</figcaption>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 3: PARALLEL LINES ══ -->
+<div class="section-block fade-in" id="parallel">
+  <div class="section-hd g-blue"><span class="icon">∥</span>5.3 Between Lines &amp; Parallel Lines</div>
+  <div class="section-bd">
+    <p style="font-size:14px;font-weight:700;color:#374151;line-height:1.8">In Fig. 5.5, observe and describe how line segments meet or cross each other using mathematical words: <em>a point, an endpoint, the midpoint, meet, intersect</em> and the degree measure of each angle.</p>
+
+    <div class="note-box">
+      <strong>Example:</strong> Line segments FG and FH meet at the <strong>endpoint F</strong> at an angle of <strong>115.3°</strong>.
+    </div>
+
+    <p style="font-size:14px;font-weight:700;color:#374151;line-height:1.8;margin-top:12px">Some pairs of line segments, even when extended, do not seem to meet. These lead us to the idea of <strong>parallel lines</strong>.</p>
+
+    <div class="theorem-box" style="background:linear-gradient(135deg,#1e40af,#1d4ed8)">
+      <div class="th-label">Definition</div>
+      <p><strong>Parallel lines</strong> are a pair of lines that lie on the same plane and <strong>do not meet however far we extend them</strong> in both directions.</p>
+    </div>
+
+    <div class="svg-box">
+      <svg width="320" height="140" viewBox="0 0 320 140">
+        <!-- Parallel lines with single arrow marks -->
+        <line x1="20" y1="50" x2="280" y2="50" stroke="#1a2e1a" stroke-width="2.5"/>
+        <line x1="20" y1="100" x2="280" y2="100" stroke="#16a34a" stroke-width="2.5"/>
+        <!-- Arrow marks (>) indicating parallel -->
+        <path d="M 148 44 L 155 50 L 148 56" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+        <path d="M 148 94 L 155 100 L 148 106" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+        <!-- Labels -->
+        <text x="286" y="54" font-size="14" fill="#1a2e1a" font-weight="900">l</text>
+        <text x="286" y="104" font-size="14" fill="#16a34a" font-weight="900">m</text>
+        <text x="60" y="130" font-size="12" fill="#374151" font-weight="800">l ∥ m — arrow marks (›) show they are parallel</text>
+      </svg>
+      <figcaption>Parallel lines l and m — they never meet however far extended</figcaption>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card ic-green">
+        <h4>📍 Parallel Lines Examples</h4>
+        <ul style="padding-left:16px;font-size:13px;font-weight:700;line-height:1.8">
+          <li>Opposite edges of a ruler</li>
+          <li>Railway tracks</li>
+          <li>Lines on a notebook</li>
+          <li>Opposite edges of a door</li>
+        </ul>
+      </div>
+      <div class="info-card ic-blue">
+        <h4>✏ Notations</h4>
+        <ul style="padding-left:16px;font-size:13px;font-weight:700;line-height:1.8">
+          <li><strong>›</strong> (single arrow) = one set of parallel lines</li>
+          <li><strong>»</strong> (double arrow) = second set of parallel lines</li>
+          <li><strong>□</strong> (small square) = perpendicular lines</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="trick">
+      <strong>🎨 Parallel lines in Art:</strong> Parallel lines are often used in artwork and shading to create depth and texture. Artists use evenly spaced parallel lines (called hatching) to show shadows and 3D effects.
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 4: PAPER FOLDING ══ -->
+<div class="section-block fade-in" id="paperfolding">
+  <div class="section-hd g-orange"><span class="icon">📄</span>5.4 Parallel &amp; Perpendicular Lines in Paper Folding</div>
+  <div class="section-bd">
+
+    <div class="activity-card">
+      <div class="act-title">📋 Activity 2 — Square Sheet of Paper</div>
+      <ul>
+        <li><strong>Opposite edges</strong> of the sheet → <strong>Parallel</strong> to each other.</li>
+        <li><strong>Adjacent edges</strong> of the sheet → <strong>Perpendicular</strong> to each other. They meet and form right angles.</li>
+        <li>Fold the sheet <strong>horizontally in half</strong> → a new line is formed.</li>
+        <li>The new line is also <strong>parallel</strong> to the top and bottom edges (perpendicular to the vertical sides).</li>
+        <li>Make one more horizontal fold → more parallel lines. Each new fold creates another parallel line. <strong>Pattern:</strong> 1 fold → 3 lines, 2 folds → 5 lines, 3 folds → 7 lines...</li>
+        <li>Make a <strong>vertical fold</strong> → the new vertical line is <strong>perpendicular</strong> to all the horizontal lines.</li>
+        <li>Fold along a <strong>diagonal</strong> → try to find a fold that creates a line <strong>parallel</strong> to the diagonal line.</li>
+      </ul>
+    </div>
+
+    <div class="activity-card">
+      <div class="act-title">📋 Activity 3 — Triangle Folds (Fig. 5.8)</div>
+      <ul>
+        <li>Take a square sheet. Fold in the middle and unfold.</li>
+        <li>Fold edges towards the centre line and unfold.</li>
+        <li>Fold the top-right and bottom-left corners onto the creased line to create triangles.</li>
+        <li>The triangles should not cross the crease lines.</li>
+        <li><strong>Question:</strong> Are lines a, b and c parallel to p, q and r respectively? Why or why not?</li>
+      </ul>
+    </div>
+
+    <div class="svg-box">
+      <svg width="300" height="180" viewBox="0 0 300 180">
+        <!-- Square sheet outline -->
+        <rect x="20" y="10" width="260" height="160" fill="#f0fdf4" stroke="#86efac" stroke-width="2" rx="4"/>
+        <!-- Centre crease line (horizontal) -->
+        <line x1="20" y1="90" x2="280" y2="90" stroke="#16a34a" stroke-width="2" stroke-dasharray="8 4"/>
+        <!-- Top fold lines (a, b, c) -->
+        <line x1="20" y1="35" x2="280" y2="35" stroke="#3b82f6" stroke-width="2"/>
+        <text x="282" y="38" font-size="12" fill="#3b82f6" font-weight="900">a</text>
+        <line x1="20" y1="55" x2="280" y2="55" stroke="#7c3aed" stroke-width="2"/>
+        <text x="282" y="58" font-size="12" fill="#7c3aed" font-weight="900">b</text>
+        <!-- Bottom fold lines (p, q, r) -->
+        <line x1="20" y1="125" x2="280" y2="125" stroke="#3b82f6" stroke-width="2"/>
+        <text x="282" y="128" font-size="12" fill="#3b82f6" font-weight="900">p</text>
+        <line x1="20" y1="145" x2="280" y2="145" stroke="#7c3aed" stroke-width="2"/>
+        <text x="282" y="148" font-size="12" fill="#7c3aed" font-weight="900">q</text>
+        <text x="60" y="174" font-size="11" fill="#374151" font-weight="800">a ∥ p, b ∥ q — corresponding fold lines are parallel</text>
+      </svg>
+      <figcaption>Fig. 5.8 — Paper folding: fold lines are parallel to corresponding lines on the other half</figcaption>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 5: TRANSVERSALS ══ -->
+<div class="section-block fade-in" id="transversal">
+  <div class="section-hd g-purple"><span class="icon">📏</span>5.5 Transversals</div>
+  <div class="section-bd">
+
+    <div class="theorem-box" style="background:linear-gradient(135deg,#5b21b6,#7c3aed)">
+      <div class="th-label">Definition</div>
+      <p>When a line intersects two or more lines, it is called a <strong>transversal</strong>. In Fig. 5.14, line <strong>t</strong> is the transversal intersecting lines <strong>l</strong> and <strong>m</strong>.</p>
+    </div>
+
+    <!-- SVG: Transversal with 8 angles -->
+    <div class="svg-box">
+      <svg width="320" height="260" viewBox="0 0 320 260" id="transSVG">
+        <defs>
+          <marker id="arr2" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+            <polygon points="0 0,7 2.5,0 5" fill="#374151"/>
+          </marker>
+        </defs>
+        <!-- line l (top horizontal) -->
+        <line x1="20" y1="80" x2="290" y2="80" stroke="#1a2e1a" stroke-width="2.5" marker-end="url(#arr2)"/>
+        <text x="292" y="84" font-size="13" fill="#1a2e1a" font-weight="900">l</text>
+        <!-- line m (bottom horizontal) -->
+        <line x1="20" y1="180" x2="290" y2="180" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arr2)"/>
+        <text x="292" y="184" font-size="13" fill="#16a34a" font-weight="900">m</text>
+        <!-- transversal t (diagonal) -->
+        <line x1="80" y1="10" x2="240" y2="250" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arr2)"/>
+        <text x="236" y="250" font-size="13" fill="#3b82f6" font-weight="900">t</text>
+        <!-- Intersection point on l: approx x=135, y=80 -->
+        <circle cx="135" cy="80" r="4" fill="#ef4444"/>
+        <!-- Angles at l -->
+        <text x="143" y="72" font-size="13" fill="#7c3aed" font-weight="900" id="a1">1</text>
+        <text x="118" y="72" font-size="13" fill="#ec4899" font-weight="900" id="a2">2</text>
+        <text x="112" y="95" font-size="13" fill="#ec4899" font-weight="900" id="a3">3</text>
+        <text x="143" y="95" font-size="13" fill="#7c3aed" font-weight="900" id="a4">4</text>
+        <!-- Intersection point on m: approx x=195, y=180 -->
+        <circle cx="195" cy="180" r="4" fill="#ef4444"/>
+        <!-- Angles at m -->
+        <text x="203" y="172" font-size="13" fill="#7c3aed" font-weight="900" id="a5">5</text>
+        <text x="178" y="172" font-size="13" fill="#ec4899" font-weight="900" id="a6">6</text>
+        <text x="172" y="196" font-size="13" fill="#ec4899" font-weight="900" id="a7">7</text>
+        <text x="203" y="196" font-size="13" fill="#7c3aed" font-weight="900" id="a8">8</text>
+        <!-- Key info -->
+        <text x="10" y="248" font-size="11" fill="#374151" font-weight="800">8 angles formed | Max 4 distinct measures | 4 VOA pairs</text>
+      </svg>
+      <figcaption>Fig. 5.14 — Transversal t intersects lines l and m, forming 8 angles</figcaption>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card ic-purple">
+        <h4>🔢 8 Angles — 4 Distinct Measures</h4>
+        <p style="font-size:13px;font-weight:700;line-height:1.7">Since ∠1=∠3, ∠2=∠4 (VOA at l) and ∠5=∠7, ∠6=∠8 (VOA at m), there are <strong>maximum 4 distinct angle values</strong>.</p>
+      </div>
+      <div class="info-card ic-pink">
+        <h4>🔄 4 Pairs of VOA</h4>
+        <p style="font-size:13px;font-weight:700;line-height:1.7">∠1 &amp; ∠3 &nbsp;|&nbsp; ∠2 &amp; ∠4 (at line l)<br>∠5 &amp; ∠7 &nbsp;|&nbsp; ∠6 &amp; ∠8 (at line m)</p>
+      </div>
+    </div>
+
+    <!-- Angle relationships table -->
+    <div class="trans-box">
+      <h3>📊 Angle Relationships at a Glance</h3>
+      <table class="ang-table">
+        <tr><th>Pair Type</th><th>Angles</th><th>Rule</th></tr>
+        <tr><td><span class="pair-label pl-voa">VOA at l</span></td><td>∠1 &amp; ∠3 | ∠2 &amp; ∠4</td><td>Equal</td></tr>
+        <tr><td><span class="pair-label pl-voa">VOA at m</span></td><td>∠5 &amp; ∠7 | ∠6 &amp; ∠8</td><td>Equal</td></tr>
+        <tr><td><span class="pair-label pl-corr">Corresponding</span></td><td>∠1&amp;∠5 | ∠2&amp;∠6 | ∠3&amp;∠7 | ∠4&amp;∠8</td><td>Equal (if l ∥ m)</td></tr>
+        <tr><td><span class="pair-label pl-alt">Alternate</span></td><td>∠1&amp;∠7 | ∠2&amp;∠8 | ∠3&amp;∠5 | ∠4&amp;∠6</td><td>Equal (if l ∥ m)</td></tr>
+        <tr><td><span class="pair-label pl-lp">Interior same side</span></td><td>∠3&amp;∠5 | ∠4&amp;∠6</td><td>Sum = 180° (if l ∥ m)</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 6: CORRESPONDING ANGLES ══ -->
+<div class="section-block fade-in" id="corresponding">
+  <div class="section-hd g-indigo"><span class="icon">↔</span>5.6 Corresponding Angles</div>
+  <div class="section-bd">
+
+    <p style="font-size:14px;font-weight:700;color:#374151;line-height:1.8">The transversal t forms two sets of angles — one with line l and another with line m. Angles in matching positions are called <strong>corresponding angles</strong>.</p>
+
+    <div class="info-grid">
+      <div class="info-card ic-purple"><h4>Pair 1</h4><p style="font-size:15px;font-weight:900">∠1 &amp; ∠5</p><p style="font-size:12px;font-weight:700">Both above their lines, right of t</p></div>
+      <div class="info-card ic-blue"><h4>Pair 2</h4><p style="font-size:15px;font-weight:900">∠2 &amp; ∠6</p><p style="font-size:12px;font-weight:700">Both above their lines, left of t</p></div>
+      <div class="info-card ic-green"><h4>Pair 3</h4><p style="font-size:15px;font-weight:900">∠3 &amp; ∠7</p><p style="font-size:12px;font-weight:700">Both below their lines, left of t</p></div>
+      <div class="info-card ic-orange"><h4>Pair 4</h4><p style="font-size:15px;font-weight:900">∠4 &amp; ∠8</p><p style="font-size:12px;font-weight:700">Both below their lines, right of t</p></div>
+    </div>
+
+    <div class="activity-card">
+      <div class="act-title">📋 Activity 3 — Trace the Angle</div>
+      <ul>
+        <li>Draw a line l and a transversal t intersecting at X. Measure ∠a = 60°.</li>
+        <li>The linear pair gives 120° → already 2 distinct angles.</li>
+        <li>Mark a point Y on a second line m. Draw m through Y at <strong>60° to t</strong> (same as ∠a).</li>
+        <li>∠b = 60° = ∠a → <strong>Lines l and m appear parallel!</strong></li>
+      </ul>
+    </div>
+
+    <div class="theorem-box" style="background:linear-gradient(135deg,#312e81,#4338ca)">
+      <div class="th-label">Key Theorem (Both Directions)</div>
+      <p>
+        ▶ If a transversal makes <strong>equal corresponding angles</strong> with a pair of lines → the lines are <strong>parallel</strong>.<br><br>
+        ▶ If a transversal intersects <strong>parallel lines</strong> → the corresponding angles are <strong>equal</strong>.<br><br>
+        ▶ If lines are <strong>NOT parallel</strong> → corresponding angles can <strong>never</strong> be equal.
+      </p>
+    </div>
+
+    <div class="activity-card">
+      <div class="act-title">📋 Activity 4 — Verify with Tracing Paper</div>
+      <ul>
+        <li>In Fig. 5.19, parallel lines l and m are cut by transversal t.</li>
+        <li>Trace ∠a on tracing paper. Place it over ∠b (corresponding angle).</li>
+        <li>The angles <strong>align exactly</strong> — confirming corresponding angles are equal.</li>
+        <li>Check all four corresponding pairs with a protractor.</li>
+      </ul>
+    </div>
+
+    <div class="activity-card">
+      <div class="act-title">📋 Activity 5 — The Hard Challenge</div>
+      <p>In Fig. 5.20, lines l and m are <strong>NOT parallel</strong>. Try to draw a transversal that makes equal corresponding angles. You will find it is <strong>impossible!</strong> This confirms that non-parallel lines can never have equal corresponding angles.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 7: DRAWING PARALLEL LINES ══ -->
+<div class="section-block fade-in" id="drawing">
+  <div class="section-hd g-rose"><span class="icon">✏</span>5.7 Drawing Parallel Lines</div>
+  <div class="section-bd">
+
+    <div class="subtitle">📐 Method 1: Ruler + Set Square (Fig. 5.21)</div>
+    <div class="info-card ic-green" style="margin-bottom:12px">
+      <ol style="padding-left:18px;font-size:14px;font-weight:700;line-height:2">
+        <li>Draw a line <strong>l</strong> with a ruler.</li>
+        <li>Place a set square on l and draw a line <strong>perpendicular</strong> to l.</li>
+        <li>Slide the set square along l (without rotating) and draw another line perpendicular to l.</li>
+        <li>Both new lines make <strong>90°</strong> with l → their corresponding angles are equal → they are <strong>parallel</strong> to each other.</li>
+        <li>You can also draw parallel lines using the <strong>long side</strong> of the set square (Fig. 5.22).</li>
+      </ol>
+    </div>
+
+    <div class="subtitle">📄 Method 2: Paper Folding (Fig. 5.24)</div>
+    <div class="activity-card">
+      <div class="act-title">Given line l (a crease), draw a parallel through point A</div>
+      <ul>
+        <li>Step 1: Fold a line <strong>perpendicular to l</strong> passing through A → call it crease <strong>t</strong>.</li>
+        <li>Step 2: Fold a line <strong>perpendicular to t</strong> passing through A → call it line <strong>m</strong>.</li>
+        <li>Result: <strong>l ∥ m</strong></li>
+        <li><strong>Why?</strong> Both l and m are perpendicular to t → the transversal t makes 90° with both → corresponding angles are equal → l ∥ m.</li>
+      </ul>
+    </div>
+
+    <div class="trick">
+      <strong>💡 Key Insight:</strong> Two lines that are both perpendicular to the same line are always parallel to each other. This is because their corresponding angles (both 90°) with the transversal are equal.
+    </div>
+
+    <div class="subtitle">✏ Figure it Out</div>
+    <p style="font-size:14px;font-weight:700;color:#374151;line-height:1.8">In Fig. 5.23, draw a line parallel to line <strong>l</strong> passing through point <strong>A</strong>. How would you do it with tools from your geometry box?</p>
+    <div class="note-box">
+      <strong>Hint:</strong> Use a set square and ruler. Place the set square so one edge lies on l, draw a perpendicular through A (line t), then rotate the set square to draw a perpendicular to t through A. That gives the parallel line.
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 8: ALTERNATE ANGLES ══ -->
+<div class="section-block fade-in" id="alternate">
+  <div class="section-hd g-amber"><span class="icon">⇅</span>5.8 Alternate Angles</div>
+  <div class="section-bd">
+
+    <p style="font-size:14px;font-weight:700;color:#374151;line-height:1.8">In Fig. 5.25, when transversal t crosses lines l and m, some angles are on <strong>opposite sides of the transversal</strong> and between the lines. These are called <strong>alternate angles</strong>.</p>
+
+    <div class="svg-box">
+      <svg width="320" height="260" viewBox="0 0 320 260">
+        <defs>
+          <marker id="arr3" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+            <polygon points="0 0,7 2.5,0 5" fill="#374151"/>
+          </marker>
+        </defs>
+        <line x1="20" y1="80" x2="290" y2="80" stroke="#1a2e1a" stroke-width="2.5" marker-end="url(#arr3)"/>
+        <text x="292" y="84" font-size="13" fill="#1a2e1a" font-weight="900">l</text>
+        <line x1="20" y1="180" x2="290" y2="180" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arr3)"/>
+        <text x="292" y="184" font-size="13" fill="#16a34a" font-weight="900">m</text>
+        <line x1="80" y1="10" x2="240" y2="250" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arr3)"/>
+        <text x="236" y="250" font-size="13" fill="#3b82f6" font-weight="900">t</text>
+        <!-- Angles at l -->
+        <text x="143" y="72" font-size="13" fill="#9a3412" font-weight="900">a</text>
+        <text x="118" y="72" font-size="13" fill="#374151" font-weight="900">b</text>
+        <text x="112" y="96" font-size="13" fill="#374151" font-weight="900">c</text>
+        <text x="143" y="96" font-size="13" fill="#374151" font-weight="900">d</text>
+        <!-- Angles at m -->
+        <text x="203" y="172" font-size="13" fill="#374151" font-weight="900">e</text>
+        <text x="178" y="172" font-size="13" fill="#374151" font-weight="900">f</text>
+        <text x="172" y="196" font-size="13" fill="#374151" font-weight="900">g</text>
+        <text x="203" y="196" font-size="13" fill="#9a3412" font-weight="900">h</text>
+        <!-- Highlight alternate pair d and f -->
+        <circle cx="145" cy="91" r="14" fill="rgba(234,179,8,.2)" stroke="#f59e0b" stroke-width="2"/>
+        <circle cx="183" cy="177" r="14" fill="rgba(234,179,8,.2)" stroke="#f59e0b" stroke-width="2"/>
+        <!-- Interior region -->
+        <rect x="128" y="80" width="60" height="100" fill="rgba(16,185,129,.08)" rx="4"/>
+        <text x="10" y="248" font-size="11" fill="#374151" font-weight="800">∠d and ∠f are alternate angles (highlighted) — both interior, opposite sides of t</text>
+      </svg>
+      <figcaption>Fig. 5.25 — Alternate angles ∠d &amp; ∠f; also ∠c &amp; ∠e are alternate pairs</figcaption>
+    </div>
+
+    <div class="theorem-box" style="background:linear-gradient(135deg,#78350f,#d97706)">
+      <div class="th-label">How to Find Alternate Angle of ∠f</div>
+      <p>Step 1: Find <strong>corresponding angle</strong> of ∠f → that is <strong>∠b</strong><br>
+      Step 2: Find <strong>vertically opposite angle</strong> of ∠b → that is <strong>∠d</strong><br>
+      So ∠d is the alternate angle of ∠f<br>
+      Since ∠f = ∠b (corresponding) and ∠b = ∠d (VOA) → <strong>∠f = ∠d always</strong></p>
+    </div>
+
+    <div class="theorem-box" style="background:linear-gradient(135deg,#7c2d12,#ea580c)">
+      <div class="th-label">Key Theorem — Alternate Angles</div>
+      <p><strong>Alternate angles</strong> formed by a transversal intersecting a pair of parallel lines are always <strong>equal</strong> to each other.</p>
+    </div>
+
+    <div class="info-card ic-teal" style="margin:14px 0">
+      <h4>📐 Interior Angles on the Same Side</h4>
+      <p style="font-size:13px;font-weight:700;line-height:1.8">The angles between the parallel lines on the <strong>same side</strong> of the transversal (co-interior angles) always add up to <strong>180°</strong>.<br>∠3 + ∠5 = 180° &nbsp;&nbsp; ∠4 + ∠6 = 180°</p>
+    </div>
+
+    <!-- Examples -->
+    <div class="subtitle">📝 Worked Examples</div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 1 — Find all angles when ∠6 = 135°</div>
+      <p><strong>Given:</strong> l ∥ m, transversal t, ∠6 = 135°</p>
+      <ul style="padding-left:18px;margin-top:8px">
+        <li>∠2 = 135° (corresponding angle of ∠6, as l ∥ m)</li>
+        <li>∠8 = 135° (vertically opposite to ∠6)</li>
+        <li>∠4 = 135° (corresponding angle of ∠8)</li>
+        <li>∴ <strong>∠2, ∠4, ∠6, ∠8 = 135°</strong></li>
+        <li>∠5 = 180° − 135° = <strong>45°</strong> (linear pair with ∠6)</li>
+        <li>∴ <strong>∠1, ∠3, ∠5, ∠7 = 45°</strong></li>
+      </ul>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 2 — Are l and m parallel? (∠a = 120°, ∠f = 70°)</div>
+      <p>∠a = 120° → ∠b = 180° − 120° = <strong>60°</strong> (linear pair)</p>
+      <p>∠b is the corresponding angle of ∠f. For l ∥ m, we need ∠b = ∠f.</p>
+      <p>But ∠b = 60° ≠ ∠f = 70° → <strong>Lines l and m are NOT parallel.</strong></p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 3 — Find ∠6 when ∠3 = 50° (l ∥ m)</div>
+      <p>∠3 = 50° → ∠2 = 180° − 50° = <strong>130°</strong> (linear pair)</p>
+      <p>∠2 and ∠6 are corresponding angles (l ∥ m) → ∠6 = 130°</p>
+      <p><strong>∠3 + ∠6 = 180°</strong> → they are interior angles on the same side of the transversal.</p>
+    </div>
+
+    <div class="example-box">
+      <div class="ex-title">Example 4 — AB ∥ CD, AD ∥ BC, ∠DAC = 65°, ∠ADC = 60°. Find ∠CAB, ∠ABC, ∠BCD</div>
+      <ul style="padding-left:18px;margin-top:8px">
+        <li>AB ∥ CD, transversal AD: interior angles → ∠ADC + ∠DAB = 180° → ∠DAB = 120°</li>
+        <li>∠DAB = ∠DAC + ∠CAB → 120° = 65° + ∠CAB → <strong>∠CAB = 55°</strong></li>
+        <li>AD ∥ BC, transversal CD: ∠ADC + ∠BCD = 180° → <strong>∠BCD = 120°</strong></li>
+        <li>Similarly: <strong>∠ABC = 60°</strong></li>
+      </ul>
+    </div>
+
+    <!-- Figure it Out Q1 -->
+    <div class="subtitle">🔍 Figure it Out — Find Marked Angles</div>
+    <div class="info-grid">
+      <div class="info-card ic-green"><h4>a° (with 48°)</h4><p style="font-size:14px;font-weight:800">a = 48° (corresponding angles, parallel lines)</p></div>
+      <div class="info-card ic-blue"><h4>b° (with 52°)</h4><p style="font-size:14px;font-weight:800">b = 52° (alternate angles)</p></div>
+      <div class="info-card ic-orange"><h4>d° (81°, 99°)</h4><p style="font-size:14px;font-weight:800">d = 99° (corresponding to 99°)</p></div>
+      <div class="info-card ic-purple"><h4>g° (58°, 122° ×2)</h4><p style="font-size:14px;font-weight:800">g = 58° (alternate angles)</p></div>
+      <div class="info-card ic-teal"><h4>h° (75°, 120°)</h4><p style="font-size:14px;font-weight:800">h = 180° − 120° = 60° (co-interior angles)</p></div>
+      <div class="info-card ic-pink"><h4>e° (97°, 83°, 69°)</h4><p style="font-size:14px;font-weight:800">e = 180° − 83° = 97° (co-interior)</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 9: PARALLEL ILLUSIONS ══ -->
+<div class="section-block fade-in" id="illusions">
+  <div class="section-hd g-green"><span class="icon">👁</span>5.9 Parallel Illusions</div>
+  <div class="section-bd">
+    <p style="font-size:14px;font-weight:700;color:#374151;line-height:1.8">Some figures make lines appear non-parallel even when they actually are. These are called <strong>parallel illusions</strong>. The background pattern tricks our eyes.</p>
+    <div class="illusion-wrap">
+      <!-- Café Wall Illusion SVG -->
+      <div class="illusion-box">
+        <svg width="200" height="160" viewBox="0 0 200 160">
+          <!-- Rows of offset rectangles - Café Wall Illusion effect -->
+          <rect x="0" y="0" width="200" height="20" fill="#f0fdf4"/>
+          <rect x="0" y="20" width="200" height="4" fill="#374151"/>
+          <rect x="0" y="24" width="200" height="20" fill="#f0fdf4"/>
+          <rect x="0" y="44" width="200" height="4" fill="#374151"/>
+          <rect x="0" y="48" width="200" height="20" fill="#f0fdf4"/>
+          <rect x="0" y="68" width="200" height="4" fill="#374151"/>
+          <rect x="0" y="72" width="200" height="20" fill="#f0fdf4"/>
+          <rect x="0" y="92" width="200" height="4" fill="#374151"/>
+          <rect x="0" y="96" width="200" height="20" fill="#f0fdf4"/>
+          <rect x="0" y="116" width="200" height="4" fill="#374151"/>
+          <rect x="0" y="120" width="200" height="20" fill="#f0fdf4"/>
+          <rect x="0" y="140" width="200" height="4" fill="#374151"/>
+          <!-- Dark tiles offset per row -->
+          <rect x="0" y="0" width="40" height="20" fill="#14532d"/>
+          <rect x="80" y="0" width="40" height="20" fill="#14532d"/>
+          <rect x="160" y="0" width="40" height="20" fill="#14532d"/>
+          <rect x="20" y="24" width="40" height="20" fill="#14532d"/>
+          <rect x="100" y="24" width="40" height="20" fill="#14532d"/>
+          <rect x="180" y="24" width="20" height="20" fill="#14532d"/>
+          <rect x="0" y="48" width="40" height="20" fill="#14532d"/>
+          <rect x="80" y="48" width="40" height="20" fill="#14532d"/>
+          <rect x="160" y="48" width="40" height="20" fill="#14532d"/>
+          <rect x="20" y="72" width="40" height="20" fill="#14532d"/>
+          <rect x="100" y="72" width="40" height="20" fill="#14532d"/>
+          <rect x="180" y="72" width="20" height="20" fill="#14532d"/>
+          <rect x="0" y="96" width="40" height="20" fill="#14532d"/>
+          <rect x="80" y="96" width="40" height="20" fill="#14532d"/>
+          <rect x="160" y="96" width="40" height="20" fill="#14532d"/>
+          <rect x="20" y="120" width="40" height="20" fill="#14532d"/>
+          <rect x="100" y="120" width="40" height="20" fill="#14532d"/>
+        </svg>
+        <figcaption>Café Wall Illusion — the horizontal grey lines ARE parallel!</figcaption>
+      </div>
+      <div class="illusion-box">
+        <svg width="200" height="160" viewBox="0 0 200 160">
+          <!-- Hering illusion: straight parallel vertical lines that appear curved due to radiating background -->
+          <!-- Radiating lines from left -->
+          <line x1="0" y1="80" x2="200" y2="10" stroke="#d1fae5" stroke-width="1"/>
+          <line x1="0" y1="80" x2="200" y2="30" stroke="#d1fae5" stroke-width="1"/>
+          <line x1="0" y1="80" x2="200" y2="50" stroke="#d1fae5" stroke-width="1"/>
+          <line x1="0" y1="80" x2="200" y2="70" stroke="#d1fae5" stroke-width="1"/>
+          <line x1="0" y1="80" x2="200" y2="90" stroke="#d1fae5" stroke-width="1"/>
+          <line x1="0" y1="80" x2="200" y2="110" stroke="#d1fae5" stroke-width="1"/>
+          <line x1="0" y1="80" x2="200" y2="130" stroke="#d1fae5" stroke-width="1"/>
+          <line x1="0" y1="80" x2="200" y2="150" stroke="#d1fae5" stroke-width="1"/>
+          <!-- Two vertical lines that appear bowed -->
+          <line x1="70" y1="10" x2="70" y2="150" stroke="#14532d" stroke-width="3"/>
+          <line x1="130" y1="10" x2="130" y2="150" stroke="#16a34a" stroke-width="3"/>
+          <text x="20" y="158" font-size="10" fill="#374151" font-weight="800">The two vertical lines ARE straight &amp; parallel!</text>
+        </svg>
+        <figcaption>Lines appear bowed but are actually straight and parallel</figcaption>
+      </div>
+    </div>
+    <div class="trick">
+      <strong>🧠 Why do illusions work?</strong> Our brain processes the angles and context of surrounding lines to judge parallelism. When background lines radiate or create strong angles, the brain is "tricked" into seeing bowing or convergence that is not there. Use a ruler to check!
+    </div>
+  </div>
+</div>
+
+<!-- ══ SUMMARY ══ -->
+<div class="section-block fade-in" id="summary">
+  <div class="section-hd g-green"><span class="icon">📌</span>In a Nutshell</div>
+  <div class="section-bd">
+    <div class="summary-block">
+      <h2>📌 Chapter 5 Summary</h2>
+      <div class="summ-item">When two lines intersect, they form <strong>four angles</strong>. The <strong>vertically opposite angles</strong> are equal and the <strong>linear pairs</strong> add up to 180°.</div>
+      <div class="summ-item">When two lines intersect and all four angles = 90°, the lines are said to be <strong>perpendicular</strong> to each other (l ⊥ m).</div>
+      <div class="summ-item">When two lines <strong>never intersect</strong> on a plane, they are called <strong>parallel lines</strong> (l ∥ m). Notation: single arrow ›, double arrow ».</div>
+      <div class="summ-item">When a line t intersects another pair of lines, it is called a <strong>transversal</strong>. It forms <strong>8 angles</strong> with a maximum of <strong>4 distinct angle measures</strong>.</div>
+      <div class="summ-item">When a transversal intersects parallel lines → <strong>corresponding angles are equal</strong>. When corresponding angles are equal → lines are parallel. (Necessary AND sufficient!)</div>
+      <div class="summ-item">When a transversal intersects parallel lines → <strong>alternate angles are equal</strong>. (Find: corresponding angle → then vertically opposite angle.)</div>
+      <div class="summ-item">The <strong>interior angles on the same side</strong> formed by a transversal intersecting parallel lines always <strong>add up to 180°</strong>.</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<!-- MCQ SECTION -->
+<div class="mcq-section" id="mcq">
+  <h2 class="mcq-title">🧪 Multiple Choice Questions</h2>
+
+  <div class="mcq-card">
+    <div class="mcq-q">1. Two lines intersect and one angle formed is 65°. What is the vertically opposite angle?</div>
+    <div class="mcq-opts">
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">35°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,true)">65°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">115°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">90°</button>
+    </div>
+    <div class="mcq-feedback"></div>
+  </div>
+
+  <div class="mcq-card">
+    <div class="mcq-q">2. Two lines intersect. One angle is 110°. What is its linear pair?</div>
+    <div class="mcq-opts">
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">110°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">90°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,true)">70°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">55°</button>
+    </div>
+    <div class="mcq-feedback"></div>
+  </div>
+
+  <div class="mcq-card">
+    <div class="mcq-q">3. Perpendicular lines intersect at what angle?</div>
+    <div class="mcq-opts">
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">45°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">180°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,true)">90°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">60°</button>
+    </div>
+    <div class="mcq-feedback"></div>
+  </div>
+
+  <div class="mcq-card">
+    <div class="mcq-q">4. How many angles are formed when a transversal crosses two lines?</div>
+    <div class="mcq-opts">
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">4</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">6</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,true)">8</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">12</button>
+    </div>
+    <div class="mcq-feedback"></div>
+  </div>
+
+  <div class="mcq-card">
+    <div class="mcq-q">5. Which symbol is used to denote parallel lines in a figure?</div>
+    <div class="mcq-opts">
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">Small square (□)</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,true)">Arrow mark (›)</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">Cross mark (×)</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">Circle (○)</button>
+    </div>
+    <div class="mcq-feedback"></div>
+  </div>
+
+  <div class="mcq-card">
+    <div class="mcq-q">6. A transversal crosses two parallel lines. One corresponding angle is 75°. What is the other?</div>
+    <div class="mcq-opts">
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">105°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,true)">75°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">15°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">90°</button>
+    </div>
+    <div class="mcq-feedback"></div>
+  </div>
+
+  <div class="mcq-card">
+    <div class="mcq-q">7. Interior angles on the same side of a transversal (with parallel lines) always add up to:</div>
+    <div class="mcq-opts">
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">90°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,true)">180°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">360°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">270°</button>
+    </div>
+    <div class="mcq-feedback"></div>
+  </div>
+
+  <div class="mcq-card">
+    <div class="mcq-q">8. l ∥ m with transversal t. ∠1 = 55°. What is the alternate angle?</div>
+    <div class="mcq-opts">
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">125°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,true)">55°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">90°</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">35°</button>
+    </div>
+    <div class="mcq-feedback"></div>
+  </div>
+
+  <div class="mcq-card">
+    <div class="mcq-q">9. Which of the following is NOT a property of parallel lines cut by a transversal?</div>
+    <div class="mcq-opts">
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">Corresponding angles are equal</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">Alternate angles are equal</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,true)">All 8 angles are equal</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">Co-interior angles add up to 180°</button>
+    </div>
+    <div class="mcq-feedback"></div>
+  </div>
+
+  <div class="mcq-card">
+    <div class="mcq-q">10. A justification through reasoning in mathematics (without measurement) is called a:</div>
+    <div class="mcq-opts">
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">Theorem</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">Postulate</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,true)">Proof</button>
+      <button class="mcq-opt" onclick="checkMCQ(this,false)">Lemma</button>
+    </div>
+    <div class="mcq-feedback"></div>
+  </div>
+
+  <button class="quiz-btn" onclick="submitQuiz()">📊 Submit &amp; See Score</button>
+  <div class="mcq-score" id="quizScore"></div>
+</div>
+
+<!-- Q&A SECTION -->
+<div class="qa-section" id="qa">
+  <h3>📝 Questions &amp; Answers</h3>
+
+  <div class="sq-badge one">✏ 1 Mark</div>
+
+  <div class="sq-card"><details>
+    <summary>Q1. Define intersecting lines. <span class="sq-mark">1M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong> When a pair of lines meet each other at a point on a plane surface, they are called <strong>intersecting lines</strong>. The point where they meet is called the <strong>point of intersection</strong>.</div>
+  </details></div>
+
+  <div class="sq-card"><details>
+    <summary>Q2. What are vertically opposite angles? <span class="sq-mark">1M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong> Opposite angles formed by two intersecting lines are called <strong>vertically opposite angles</strong>. They are always <strong>equal</strong>.</div>
+  </details></div>
+
+  <div class="sq-card"><details>
+    <summary>Q3. What is a linear pair? <span class="sq-mark">1M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong> Adjacent angles formed by two intersecting lines are called a <strong>linear pair</strong>. They always add up to <strong>180°</strong>.</div>
+  </details></div>
+
+  <div class="sq-card"><details>
+    <summary>Q4. Define parallel lines. <span class="sq-mark">1M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong> <strong>Parallel lines</strong> are a pair of lines that lie on the same plane and do not meet however far we extend them in both directions. Notation: l ∥ m.</div>
+  </details></div>
+
+  <div class="sq-card"><details>
+    <summary>Q5. Define a transversal. <span class="sq-mark">1M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong> A <strong>transversal</strong> is a line that intersects two or more lines at distinct points.</div>
+  </details></div>
+
+  <div class="sq-card"><details>
+    <summary>Q6. What are perpendicular lines? <span class="sq-mark">1M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong> <strong>Perpendicular lines</strong> are a pair of intersecting lines that form a right angle (90°) at their point of intersection. Written as l ⊥ m.</div>
+  </details></div>
+
+  <div class="sq-card"><details>
+    <summary>Q7. How many angles are formed when a transversal cuts two lines? <span class="sq-mark">1M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong> <strong>8 angles</strong> are formed. Since vertically opposite angles are equal, there are at most <strong>4 distinct angle measures</strong>.</div>
+  </details></div>
+
+  <div class="sq-card"><details>
+    <summary>Q8. What is the maximum number of distinct angle measures formed when a transversal cuts two lines? <span class="sq-mark">1M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong> <strong>Four</strong> distinct angle measures at most. (8 angles with 4 VOA pairs → 4 distinct values.)</div>
+  </details></div>
+
+  <div class="sq-badge two">📘 2 Mark</div>
+
+  <div class="sq-card"><details>
+    <summary>Q9. Two lines intersect and ∠a = 70°. Find ∠b, ∠c and ∠d. <span class="sq-mark">2M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong><br>
+      ∠b = 180° − 70° = <strong>110°</strong> (linear pair with ∠a)<br>
+      ∠c = 70° (vertically opposite to ∠a) = <strong>70°</strong><br>
+      ∠d = 110° (vertically opposite to ∠b) = <strong>110°</strong>
+    </div>
+  </details></div>
+
+  <div class="sq-card"><details>
+    <summary>Q10. What are corresponding angles? Name all four corresponding pairs for transversal t on lines l and m. <span class="sq-mark">2M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong> Angles in the same position at each intersection point are called <strong>corresponding angles</strong>.<br>
+    Four pairs: <strong>∠1 &amp; ∠5, ∠2 &amp; ∠6, ∠3 &amp; ∠7, ∠4 &amp; ∠8</strong>
+    </div>
+  </details></div>
+
+  <div class="sq-card"><details>
+    <summary>Q11. l ∥ m with transversal t. ∠3 = 50°. Find ∠6 and explain. <span class="sq-mark">2M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong><br>
+      ∠2 = 180° − 50° = 130° (linear pair with ∠3)<br>
+      ∠6 = ∠2 = <strong>130°</strong> (corresponding angles, l ∥ m)<br>
+      Also: ∠3 + ∠6 = 50° + 130° = 180° → they are <strong>interior angles on the same side</strong>.
+    </div>
+  </details></div>
+
+  <div class="sq-card"><details>
+    <summary>Q12. How can you draw a line parallel to l through a point A using paper folding? <span class="sq-mark">2M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong><br>
+      Step 1: Fold a line perpendicular to l passing through A → crease t<br>
+      Step 2: Fold a line perpendicular to t passing through A → line m<br>
+      <strong>l ∥ m</strong> because both are perpendicular to t, so the transversal t makes equal corresponding angles (90°) with both lines.
+    </div>
+  </details></div>
+
+  <div class="sq-card"><details>
+    <summary>Q13. ∠a = 120°, ∠f = 70°. Are the two lines parallel? Justify. <span class="sq-mark">2M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong><br>
+      ∠a = 120° → ∠b = 180° − 120° = 60° (linear pair)<br>
+      ∠b and ∠f are corresponding angles. For parallel lines, ∠b must equal ∠f.<br>
+      But 60° ≠ 70°, so the lines are <strong>NOT parallel</strong>.
+    </div>
+  </details></div>
+
+  <div class="sq-badge three">📗 3 Mark</div>
+
+  <div class="sq-card"><details>
+    <summary>Q14. Explain with proof why vertically opposite angles are always equal. <span class="sq-mark">3M</span></summary>
+    <div class="sq-ans"><strong>Answer (Proof):</strong><br>
+      Let two lines intersect forming angles ∠a, ∠b, ∠c, ∠d (∠a and ∠c opposite; ∠b and ∠d opposite).<br><br>
+      Since ∠a and ∠b form a straight angle: <strong>∠a + ∠b = 180°</strong> … (1)<br>
+      Since ∠a and ∠d form a straight angle: <strong>∠a + ∠d = 180°</strong> … (2)<br>
+      From (1) and (2): ∠a + ∠b = ∠a + ∠d → <strong>∠b = ∠d</strong><br><br>
+      Similarly, ∠b + ∠a = ∠b + ∠c → <strong>∠a = ∠c</strong><br>
+      This reasoning without measurement is a <strong>proof</strong>.
+    </div>
+  </details></div>
+
+  <div class="sq-card"><details>
+    <summary>Q15. Explain how alternate angles are always equal when lines are parallel. <span class="sq-mark">3M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong><br>
+      Let transversal t cut parallel lines l and m. Consider angle ∠f at line m.<br><br>
+      Step 1: ∠b is the corresponding angle of ∠f → <strong>∠f = ∠b</strong> (corresponding angles, l ∥ m)<br>
+      Step 2: ∠d is the vertically opposite angle of ∠b → <strong>∠b = ∠d</strong><br>
+      Therefore: <strong>∠f = ∠d</strong> — the alternate angles are always equal.<br><br>
+      This holds for any value of ∠f because it relies only on corresponding angles (parallel lines) and vertically opposite angles — both always true.
+    </div>
+  </details></div>
+
+  <div class="sq-card"><details>
+    <summary>Q16. In Fig. 5.29, AB ∥ CD and AD ∥ BC. ∠DAC = 65°, ∠ADC = 60°. Find ∠CAB, ∠ABC and ∠BCD. <span class="sq-mark">3M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong><br>
+      AB ∥ CD, transversal AD: interior angles → ∠ADC + ∠DAB = 180°<br>
+      60° + ∠DAB = 180° → ∠DAB = 120°<br>
+      ∠DAB = ∠DAC + ∠CAB → 120° = 65° + ∠CAB → <strong>∠CAB = 55°</strong><br><br>
+      AD ∥ BC, transversal CD: ∠ADC + ∠BCD = 180°<br>
+      60° + ∠BCD = 180° → <strong>∠BCD = 120°</strong><br><br>
+      Similarly, AD ∥ BC, transversal AB: ∠DAB + ∠ABC = 180°<br>
+      120° + ∠ABC = 180° → <strong>∠ABC = 60°</strong>
+    </div>
+  </details></div>
+
+  <div class="sq-badge five">📕 5 Mark</div>
+
+  <div class="sq-card"><details>
+    <summary>Q17. Write all the properties of angles formed when a transversal cuts two parallel lines. Give examples. <span class="sq-mark">5M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong>
+      <ol style="padding-left:18px;line-height:2">
+        <li><strong>Corresponding Angles are Equal:</strong> ∠1=∠5, ∠2=∠6, ∠3=∠7, ∠4=∠8. E.g., if ∠1 = 60°, then ∠5 = 60°.</li>
+        <li><strong>Alternate Angles are Equal:</strong> ∠3=∠5, ∠4=∠6 (alternate interior); ∠1=∠7, ∠2=∠8 (alternate exterior). E.g., if ∠3 = 50°, then ∠5 = 50°.</li>
+        <li><strong>Co-interior (Same-side Interior) Angles are Supplementary:</strong> ∠3+∠6 = 180°, ∠4+∠5 = 180°. E.g., if ∠3 = 50°, then ∠6 = 130°.</li>
+        <li><strong>Vertically Opposite Angles at each intersection are Equal:</strong> ∠1=∠3, ∠2=∠4 (at l), ∠5=∠7, ∠6=∠8 (at m).</li>
+        <li><strong>Linear pairs at each intersection add up to 180°.</strong></li>
+      </ol>
+      <strong>Converse:</strong> If any one of (1), (2), or (3) holds, then the lines are parallel.
+    </div>
+  </details></div>
+
+  <div class="sq-card"><details>
+    <summary>Q18. l ∥ m cut by transversal t. ∠6 = 135°. Find all 8 angles and state the property used for each. <span class="sq-mark">5M</span></summary>
+    <div class="sq-ans"><strong>Answer:</strong>
+      <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
+        <tr style="background:#dcfce7"><th style="padding:6px">Angle</th><th style="padding:6px">Value</th><th style="padding:6px">Property Used</th></tr>
+        <tr><td style="padding:6px;border-bottom:1px solid #d1fae5">∠6</td><td style="padding:6px;border-bottom:1px solid #d1fae5"><strong>135°</strong></td><td style="padding:6px;border-bottom:1px solid #d1fae5">Given</td></tr>
+        <tr style="background:#f0fdf4"><td style="padding:6px;border-bottom:1px solid #d1fae5">∠8</td><td style="padding:6px;border-bottom:1px solid #d1fae5"><strong>135°</strong></td><td style="padding:6px;border-bottom:1px solid #d1fae5">Vertically opposite to ∠6</td></tr>
+        <tr><td style="padding:6px;border-bottom:1px solid #d1fae5">∠2</td><td style="padding:6px;border-bottom:1px solid #d1fae5"><strong>135°</strong></td><td style="padding:6px;border-bottom:1px solid #d1fae5">Corresponding to ∠6 (l ∥ m)</td></tr>
+        <tr style="background:#f0fdf4"><td style="padding:6px;border-bottom:1px solid #d1fae5">∠4</td><td style="padding:6px;border-bottom:1px solid #d1fae5"><strong>135°</strong></td><td style="padding:6px;border-bottom:1px solid #d1fae5">Corresponding to ∠8 (l ∥ m)</td></tr>
+        <tr><td style="padding:6px;border-bottom:1px solid #d1fae5">∠5</td><td style="padding:6px;border-bottom:1px solid #d1fae5"><strong>45°</strong></td><td style="padding:6px;border-bottom:1px solid #d1fae5">Linear pair with ∠6 (180°−135°)</td></tr>
+        <tr style="background:#f0fdf4"><td style="padding:6px;border-bottom:1px solid #d1fae5">∠7</td><td style="padding:6px;border-bottom:1px solid #d1fae5"><strong>45°</strong></td><td style="padding:6px;border-bottom:1px solid #d1fae5">Vertically opposite to ∠5</td></tr>
+        <tr><td style="padding:6px;border-bottom:1px solid #d1fae5">∠1</td><td style="padding:6px;border-bottom:1px solid #d1fae5"><strong>45°</strong></td><td style="padding:6px;border-bottom:1px solid #d1fae5">Corresponding to ∠5 (l ∥ m)</td></tr>
+        <tr style="background:#f0fdf4"><td style="padding:6px">∠3</td><td style="padding:6px"><strong>45°</strong></td><td style="padding:6px">Vertically opposite to ∠1</td></tr>
+      </table>
+    </div>
+  </details></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  📚 Preeti Kushwah Classes &nbsp;|&nbsp; Class 7 Maths · Ch 5: Parallel &amp; Intersecting Lines &nbsp;|&nbsp;
+  <a href="index.html">← Back to Maths Chapters</a>
+</footer>
+
+<script>
+// Angle calculator
+function calcAngles(){
+  const a=parseInt(document.getElementById('angA').value)||0;
+  const b=180-a, c=a, d=180-a;
+  document.getElementById('rA').textContent=a+'°';
+  document.getElementById('rB').textContent=b+'°';
+  document.getElementById('rC').textContent=c+'°';
+  document.getElementById('rD').textContent=d+'°';
+}
+
+// MCQ
+let score=0, answered=0;
+function checkMCQ(btn,correct){
+  const card=btn.closest('.mcq-card');
+  const fb=card.querySelector('.mcq-feedback');
+  if(card.querySelector('.correct')||card.querySelector('.wrong'))return;
+  answered++;
+  if(correct){score++;btn.classList.add('correct');fb.textContent='✅ Correct!';}
+  else{btn.classList.add('wrong');fb.textContent='❌ Wrong. Try finding the correct one.';
+    card.querySelectorAll('.mcq-opt').forEach(b=>{if(b.onclick.toString().includes('true'))b.classList.add('correct');});}
+}
+function submitQuiz(){
+  const s=document.getElementById('quizScore');
+  s.style.display='block';
+  const total=document.querySelectorAll('.mcq-card').length;
+  const pct=Math.round((score/total)*100);
+  s.textContent=`Score: ${score}/${total} (${pct}%) ${pct>=80?'🌟 Excellent!':pct>=60?'👍 Good!':'📚 Keep Practising!'}`;
+}
+
+// Progress bar
+window.addEventListener('scroll',()=>{
+  const s=document.documentElement,b=document.body;
+  const h=s.scrollHeight||b.scrollHeight,c=window.scrollY,v=window.innerHeight;
+  const fill=document.getElementById('progFill');
+  if(fill)fill.style.width=Math.round((c/(h-v))*100)+'%';
+},{passive:true});
+
+// Fade in
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+// Dark mode
+function toggleDark(){const d=document.documentElement,isDark=d.getAttribute('data-theme')==='dark';d.setAttribute('data-theme',isDark?'':'dark');localStorage.setItem('pkc-dark-mode',!isDark);}
+function sharePage(){if(navigator.share)navigator.share({title:'Ch 5: Parallel & Intersecting Lines — Class 7 Maths',url:window.location.href});else navigator.clipboard.writeText(window.location.href).then(()=>alert('Link copied!'));}
+</script>
+<script src="../../draw-widget.js"></script>
+<script src="../../ga.js"></script>
+<script src="../../whatsapp-widget.js"></script>
+</body>
+</html>
